@@ -7,7 +7,7 @@ name = "S03_softmax_rowmax"
 title = "Numerically stable row-wise softmax over bf16 [rows, cols]"
 
 [metadata]
-author = "kernel_pipeline_suite"
+author = ""
 difficulty = "hard"
 domain = "cuda_pipeline"
 route = "gb200_sm100"

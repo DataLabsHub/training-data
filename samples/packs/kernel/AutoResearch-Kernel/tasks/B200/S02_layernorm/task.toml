@@ -7,7 +7,7 @@ name = "S02_layernorm"
 title = "LayerNorm forward over bf16 [tokens, hidden]"
 
 [metadata]
-author = "kernel_pipeline_suite"
+author = ""
 difficulty = "hard"
 domain = "cuda_pipeline"
 route = "gb200_sm100"

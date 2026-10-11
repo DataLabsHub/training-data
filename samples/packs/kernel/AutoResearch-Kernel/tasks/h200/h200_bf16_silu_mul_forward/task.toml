@@ -4,10 +4,10 @@ version = "1.0"
 [task]
 name = "autoresearch/h200_bf16_silu_mul_forward"
 
-source = "Converted from the mid-scale autoresearch-kernel suite (the internal task suite). Naive plain-torch oracle vs a strong production library kernel of the SAME algorithm at a higher optimization level. Anchors calibrated on single NVIDIA H200 (sm_90)."
+source = "Converted from the mid-scale autoresearch-kernel suite (task_build/outputs/tasks). Naive plain-torch oracle vs a strong production library kernel of the SAME algorithm at a higher optimization level. Anchors calibrated on single NVIDIA H200 (sm_90)."
 
 [metadata]
-author = "kernel_pipeline_suite"
+author = ""
 difficulty = "hard"
 domain = "cuda_pipeline"
 route = "generic-h200-depr-20260824"

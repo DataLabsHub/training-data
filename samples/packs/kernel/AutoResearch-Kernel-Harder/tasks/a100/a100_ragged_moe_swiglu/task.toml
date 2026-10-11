@@ -4,10 +4,10 @@ version = "1.0"
 [task]
 name = "autoresearch/a100_ragged_moe_swiglu"
 
-source = "Converted from the mid-scale autoresearch-kernel suite (the internal task suite). Naive plain-torch oracle vs a strong production library kernel of the SAME algorithm at a higher optimization level. Anchors calibrated on single NVIDIA A100 80GB PCIe (sm_80)."
+source = "Converted from the mid-scale autoresearch-kernel suite (task_build/outputs/tasks). Naive plain-torch oracle vs a strong production library kernel of the SAME algorithm at a higher optimization level. Anchors calibrated on single NVIDIA A100 80GB PCIe (sm_80)."
 
 [metadata]
-author = "kernel_pipeline_suite"
+author = ""
 difficulty = "hard"
 domain = "cuda_pipeline"
 route = "A100"

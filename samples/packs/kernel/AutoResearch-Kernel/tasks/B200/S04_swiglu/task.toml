@@ -7,7 +7,7 @@ name = "S04_swiglu"
 title = "SwiGLU activation epilogue over bf16 [T, F]"
 
 [metadata]
-author = "kernel_pipeline_suite"
+author = ""
 difficulty = "hard"
 domain = "cuda_pipeline"
 route = "gb200_sm100"

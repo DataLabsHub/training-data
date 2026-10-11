@@ -166,7 +166,7 @@ TORCH_COMPUTATION_OPS = [
     "torch.huber_loss", "torch.triplet_margin_loss", "torch.cosine_similarity",
     # Others
     "torch.logsumexp", "torch.clamp", "torch.dropout",
-    # --- kernel_data_build additions: attention / fused ops our tasks target ---
+    # --- task_build additions: attention / fused ops our tasks target ---
     "torch.scaled_dot_product_attention", "F.scaled_dot_product_attention",
     "torch.rms_norm", "F.rms_norm", "F.layer_norm", "F.group_norm",
     "torch.baddbmm", "torch.addmm", "torch.mv", "torch.dot", "torch.tensordot",
