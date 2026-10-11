@@ -424,9 +424,11 @@
   <p class="foot-note">样例用于展示数据形态，交付字段、规模与规格以双方确认为准</p>
   <div class="disclaimer">
     <p class="disc-title">免责声明</p>
-    <p>本站展示的数据资源、技术服务及相关信息均由第三方提供，本站仅作展示与宣传之用，并非其提供方或运营方。</p>
-    <p>本站所载规模、价格、服务承诺等内容仅供参考，不构成要约或保证。具体条款以用户与实际提供方签订的协议为准，由此产生的损失或纠纷由用户与该第三方自行解决。</p>
-    <p>本站提及的第三方名称及商标归各自权利人所有，提及不代表存在任何关联或授权关系。</p>
+    <ol>
+      <li>本站展示的数据资源、技术服务及相关信息均由第三方提供，本站仅作展示与宣传之用，并非其提供方或运营方。</li>
+      <li>本站所载规模、价格、服务承诺等内容仅供参考，不构成要约或保证。具体条款以用户与实际提供方签订的协议为准，由此产生的损失或纠纷由用户与该第三方自行解决。</li>
+      <li>本站提及的第三方名称及商标归各自权利人所有，提及不代表存在任何关联或授权关系。</li>
+    </ol>
   </div>
 </footer>
 <div class="viewer" id="viewer" hidden>
@@ -866,9 +868,27 @@
     line-height: 1.7;
     color: var(--faint);
   }
-  .disclaimer p { margin: 0 0 7px; }
-  .disclaimer p:last-child { margin-bottom: 0; }
-  .disc-title { font-weight: 600; color: var(--muted); }
+  .disc-title { margin: 0 0 7px; font-weight: 600; color: var(--muted); }
+  .disclaimer ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: disc;
+  }
+  .disclaimer li {
+    counter-increment: disc;
+    padding-left: 1.6em;
+    margin: 0 0 6px;
+  }
+  .disclaimer li:last-child { margin-bottom: 0; }
+  .disclaimer li::before {
+    content: counter(disc);
+    display: inline-block;
+    width: 1.6em;
+    margin-left: -1.6em;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
   .sample-btn {
     display: inline-flex;
     align-items: center;
