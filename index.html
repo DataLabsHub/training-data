@@ -422,7 +422,12 @@
 </main>
 <footer>
   <p class="foot-note">样例用于展示数据形态，交付字段、规模与规格以双方确认为准</p>
-  <p class="disclaimer"><b>免责声明</b>本站所有资源与服务均来自第三方，仅供展示与宣传，不对其内容作任何担保，亦不承担相应责任。</p>
+  <div class="disclaimer">
+    <p class="disc-title">免责声明</p>
+    <p>本站展示的数据资源、技术服务及相关信息均由第三方提供，本站仅作展示与宣传之用，并非其提供方或运营方。</p>
+    <p>本站所载规模、价格、服务承诺等内容仅供参考，不构成要约或保证。具体条款以用户与实际提供方签订的协议为准，由此产生的损失或纠纷由用户与该第三方自行解决。</p>
+    <p>本站提及的第三方名称及商标归各自权利人所有，提及不代表存在任何关联或授权关系。</p>
+  </div>
 </footer>
 <div class="viewer" id="viewer" hidden>
   <div class="viewer-sheet" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
@@ -854,19 +859,16 @@
   }
   footer .foot-note { margin: 0 0 14px; }
   .disclaimer {
-    margin: 0;
     padding: 14px 0 0;
     border-top: 1px solid var(--line);
-    max-width: 52em;
+    max-width: 58em;
     font-size: 12px;
     line-height: 1.7;
     color: var(--faint);
   }
-  .disclaimer b {
-    margin-right: 8px;
-    font-weight: 600;
-    color: var(--muted);
-  }
+  .disclaimer p { margin: 0 0 7px; }
+  .disclaimer p:last-child { margin-bottom: 0; }
+  .disc-title { font-weight: 600; color: var(--muted); }
   .sample-btn {
     display: inline-flex;
     align-items: center;
