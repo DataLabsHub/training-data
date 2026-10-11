@@ -1,0 +1,464 @@
+{
+  "criteria": [
+    {
+      "description": "The required settlement workpaper is delivered as an openable XLSX container at the requested path.",
+      "dimension": "file_integrity",
+      "id": "R001",
+      "info_source": "data/input_files",
+      "info_source_detail": "Frozen causal owner DELIVERABLE:settlement_workpaper; contract bases DELIVERABLE:settlement_workpaper. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "program",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "deliverable_path": "deliverables/rec_settlement_workpaper.xlsx",
+        "operator": "xlsx_openable"
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The workpaper concludes that the cure-and-cover amendment was fully executed before the evidence cutoff and cites the paired execution records precisely.",
+      "dimension": "semantic_completeness",
+      "id": "R002",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/References/RPS Class I Qualified Units.xlsx；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT005; contract bases FACT005, RULE013, PRED012, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A contract-authority or amendment-control record in the workbook showing execution status, effective timing, and precise locators.",
+          "A decision-summary statement consistent with that authenticated status."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper correctly records the amendment as fully executed before the cutoff, ties the matching control code to both parties' signatures and the received reverse, and provides precise evidence locators; every material element must be correct. Fail for any material instance of: The workpaper treats the amendment as unsigned or automatically effective, mismatches the control code, omits either party's execution or receipt evidence, gives the wrong execution timing, or lacks precise support."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The decision applies the authenticated amendment over inconsistent base-confirmation cure and cover terms while preserving the proper authority order.",
+      "dimension": "semantic_completeness",
+      "id": "R003",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/References/RPS Class I Qualified Units.xlsx；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner RULE013; contract bases FACT005, RULE001, RULE013, PRED012, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A source-precedence field or decision-summary explanation that identifies the controlling commercial version and its bounded scope.",
+          "Precise locators to the execution evidence and relevant contract clauses."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper uses the fully executed amendment as the controlling commercial source only for cure, cover, and differential terms, while leaving program eligibility and registry custody to their proper authorities. Fail for any material instance of: The workpaper ignores the executed amendment, applies it without authentication, lets it override program or registry authority, or uses a noncontrolling source for negotiated remedy terms."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The workpaper establishes a received exception notice followed by the seller's matching substitute-delivery election within the contractual cure window.",
+      "dimension": "semantic_completeness",
+      "id": "R004",
+      "info_source": "data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT037; contract bases FACT006, FACT037, RULE014, PRED013. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A cure-event record showing case identity, notice receipt, selected option, election receipt time, deadline comparison, and precise locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper correctly matches the notice and election to one case, records substitute delivery as the sole selected option, places receipt before election, and records the election as received before the cure cutoff, with precise locators. Fail for any material instance of: The case identities do not match, the wrong cure option is recorded, the notice/election sequence is omitted or reversed, the election time is wrong or late, or evidence locators are missing."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The lot analysis uses the paired cure evidence to authorize independent substitute testing without treating the election itself as certificate acceptance.",
+      "dimension": "semantic_completeness",
+      "id": "R005",
+      "info_source": "data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner RULE014; contract bases FACT006, FACT017, FACT037, RULE007, RULE014, PRED013, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A remedy-path field for the questioned lots that distinguishes cure authorization from the final replacement disposition.",
+          "Precise locators for both cure records and the governing deadline clause."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper correctly permits the timely elected substitutes to enter independent product, vintage, qualification, custody, and uniqueness testing, and does not treat the checked election as automatic acceptance. Fail for any material instance of: The workpaper rejects timely substitution authority, treats the election as automatic acceptance, applies it to a different case, or skips independent validation of the replacement lots."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The workpaper identifies the later adverse lifecycle event for the exact LOT-C transaction and serial block at the cutoff.",
+      "dimension": "semantic_completeness",
+      "id": "R006",
+      "info_source": "data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT015; contract bases FACT015, FACT040, RULE005, PRED008, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A LOT-C lifecycle record showing the earlier transfer, later adverse event, transaction identity, affected range, cutoff comparison, and precise locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper correctly reconciles the overview event sequence with the detail scope, identifies the same LOT-C transaction and buyer account, and records the post-export reversal time and affected serial block with precise locators. Fail for any material instance of: The workpaper misses or misdates the reversal, attaches it to the wrong lot, transaction, account, or serials, relies on the stale export as final, or lacks precise visual evidence locators."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The final LOT-C disposition gives the later reversal precedence over the stale earlier transfer and assigns the resulting deficiency to the contractual remedy chain.",
+      "dimension": "semantic_completeness",
+      "id": "R007",
+      "info_source": "data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner RULE005; contract bases FACT014, FACT015, FACT022, RULE005, RULE007, PRED008, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "The LOT-C disposition row with quantity, lifecycle reason, remedy path, timing consequence, responsible party, and precise evidence locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper gives LOT-C one final rejected or deficient disposition for the full affected tendered range because the later reversal supersedes transfer, and routes that deficiency through cure before cover. Fail for any material instance of: Any reversed LOT-C certificates are accepted, the stale export is treated as controlling custody, the lot receives multiple or missing dispositions, or cover is applied before the contractual cure step."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The workpaper admits the reversal observation only after reconciling the unchanged raw view with its dimension-preserved analyst attention layer.",
+      "dimension": "semantic_completeness",
+      "id": "R008",
+      "info_source": "data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT041; contract bases FACT015, FACT041, RULE015, PRED009. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "An evidence-lineage entry for the reversal pair with raw and marked locators and an admissibility conclusion."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper cites both the retained raw reversal view and its marked counterpart, confirms identity and unchanged source content, and uses the annotation only as bounded attention rather than as replacement evidence. Fail for any material instance of: The reversal is supported only by the marked image, the raw and marked views do not preserve identity or dimensions, annotation changes source meaning, or either member lacks a precise locator."
+      },
+      "type": "positive",
+      "weight": 3
+    },
+    {
+      "description": "The workpaper keeps the reversed LOT-C Q3 block distinct from the Q2 original-and-replacement serial comparison despite the shared unit identifier.",
+      "dimension": "semantic_completeness",
+      "id": "R009",
+      "info_source": "data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/References/RPS Class I Qualified Units.xlsx；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner RULE002; contract bases FACT009, FACT015, FACT020, RULE002, PRED010. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "Lot identity fields in the workpaper showing unit, generation period, serial endpoints, and distinct lifecycle or uniqueness tests."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The lot matching correctly distinguishes the shared unit's Q3 reversed block from the Q2 range comparison and joins records only when unit, generation period, and serial endpoints agree. Fail for any material instance of: The candidate conflates Q2 and Q3 records because the unit identifier matches, attaches the reversal to the overlap block, or joins by labels without the complete identity key."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The workpaper determines the original-versus-replacement serial intersection and its unique replacement consequence from the auditable raw and marked range pair.",
+      "dimension": "semantic_completeness",
+      "id": "R010",
+      "info_source": "data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT020; contract bases FACT018, FACT020, FACT021, FACT041, RULE006, RULE015, PRED011, PRED016, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "The REPL-C uniqueness calculation with original and replacement endpoints, inclusive intersection, retained unique quantity, disposition, and raw/marked evidence locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper correctly identifies the inclusive overlap between the original and replacement ranges, preserves original-lot priority, retains only the nonoverlapping replacement portion, and cites both the exact raw baseline and unchanged marked derivative. Fail for any material instance of: The overlap quantity or endpoints are wrong, duplicates are accepted twice, priority is reversed, the unique replacement remainder is wrong, or the conclusion lacks both preserved lineage members and precise locators."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The workpaper recognizes one executed cover fill only after the terminal and broker records agree on trade identity, product, execution state, and quantity.",
+      "dimension": "semantic_completeness",
+      "id": "R011",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT024; contract bases FACT024, RULE009, PRED014, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A cover-trade record with trade ID, product, executed status, quantity, and precise terminal and broker locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper records the correctly corroborated executed cover quantity for the same trade and product, distinguishes a fill from a quote, and gives precise locators to both visual records. Fail for any material instance of: The quantity is wrong, the trade or product identities do not match, an open quote is counted, execution state is unsupported, or only one of the two corroborating records is cited."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The cover economics use the unit price that independently agrees across the executed terminal and broker records for the same trade.",
+      "dimension": "semantic_completeness",
+      "id": "R012",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT025; contract bases FACT025, RULE009, RULE010, PRED014. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A cover-price field linked to the same trade record and both visual evidence locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper records the matching executed cover unit price from both views and uses it as the cover price, not as the seller contract price, with precise evidence locators. Fail for any material instance of: The price is wrong, comes from only one view, is attached to the wrong trade, is confused with total payment or seller unit price, or lacks precise paired support."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The workpaper corroborates the cover execution time across both trade views and places it after cure expiry but before the evidence cutoff.",
+      "dimension": "semantic_completeness",
+      "id": "R013",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT026; contract bases FACT006, FACT026, RULE009, PRED014. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A cover timing field with cure-expiry and evidence-cutoff comparisons plus precise terminal and broker locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper records the same execution time from the terminal and blotter, links it to the correct executed trade, and correctly determines that it falls within the permitted post-cure, pre-cutoff window. Fail for any material instance of: The time is wrong or uncorroborated, belongs to a different trade, is treated as before cure expiry or after the cutoff, or lacks precise locators to both records."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The lot workpaper applies generation vintage, exact unit identity, qualification effective dates, custody, and authority boundaries correctly to each relevant original and replacement record.",
+      "dimension": "semantic_completeness",
+      "id": "R014",
+      "info_source": "data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/References/RPS Class I Qualified Units.xlsx；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT013; contract bases FACT004, FACT009, FACT012, FACT013, FACT016, RULE001, RULE002, RULE003, RULE004. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "Lot-level fields for unit identity, generation period, qualification effective date, output limitation, custody test, eligibility result, and precise source locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Every lot's structured eligibility fields use generation period rather than issuance or transfer date, exact unit keys, the applicable qualification effective date and limitation, and the correct controlling authority; each resulting eligibility status and locator is correct. Fail for any material instance of: Any lot uses the wrong vintage concept, unit join, effective-date comparison, output limitation, authority source, eligibility status, or evidence locator."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The workpaper presents one accepted-seller component vector and the corresponding post-cure deficiency with no duplicate serials or unexplained balancing item.",
+      "dimension": "semantic_completeness",
+      "id": "R015",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT022; contract bases FACT002, FACT016, FACT017, FACT021, FACT022, FACT023, RULE006, RULE007, RULE008, PRED001, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A lot disposition schedule and a quantity reconciliation from tender through accepted seller delivery and post-cure deficiency.",
+          "Precise evidence locators supporting every component in the reconciliation."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The accepted component quantities, accepted-seller total, rejected or deficient total, and contracted quantity reconcile exactly; every tendered original and replacement lot has one disposition and no serial is counted more than once. Fail for any material instance of: Any component, accepted total, deficiency, or contract reconciliation is wrong; a lot is missing or double-disposed; a serial is double-counted; or an unexplained balancing item remains."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The workpaper calculates the remaining uncovered certificate shortfall only after seller cure and eligible executed buyer cover are exhausted.",
+      "dimension": "semantic_completeness",
+      "id": "R016",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT027; contract bases FACT023, FACT024, FACT027, RULE007, RULE008, RULE009, PRED001, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A residual-shortfall calculation tied to the deficiency and cover records, plus an owner and operational follow-up field."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The residual shortfall equals the post-cure deficiency less eligible executed cover, is not silently treated as accepted or covered, and is assigned a clear responsible owner and follow-up action as of the cutoff. Fail for any material instance of: The residual quantity is wrong, cover exceeds the remaining gap, the balance is hidden or misclassified, or the required owner and follow-up action are absent or incorrect."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The accounting schedule values only accepted seller certificates at the executed contract unit price before supported offsets.",
+      "dimension": "semantic_completeness",
+      "id": "R017",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT029; contract bases FACT003, FACT022, FACT029, RULE010, PRED001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A gross-payable calculation showing accepted seller quantity, contract unit price, formula or arithmetic, amount, and precise supporting locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The gross accepted payable is calculated from accepted seller quantity times the contract unit price, excludes rejected and duplicate certificates, and is shown separately from cover cost and offsets. Fail for any material instance of: The gross uses billed rather than accepted quantity, includes rejected or duplicate certificates, uses the cover price, combines offsets prematurely, or is arithmetically wrong."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The decision summary states one supported seller-invoice amount to approve or dispute after the permitted cover differential and any prior credits.",
+      "dimension": "semantic_completeness",
+      "id": "R018",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT031; contract bases FACT025, FACT029, FACT030, FACT031, FACT038, RULE010, PRED001, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A financial bridge from billed amount to gross accepted value, cover differential, prior credits, and final approval or dispute amount.",
+          "The same final amount in the embedded decision summary with precise source locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The net payable equals gross accepted seller value less only the recoverable positive cover-price differential and supported prior credits, reconciles to the approval or dispute recommendation, and contains no unexplained monetary difference. Fail for any material instance of: The net amount is wrong, deducts full cover cost rather than the permitted differential, invents or omits credits, does not reconcile to the recommendation, or leaves an unexplained monetary variance."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The workpaper posts seller delivery and buyer cover as separate current-year Class I components and retains the unresolved balance outside settled inventory.",
+      "dimension": "semantic_completeness",
+      "id": "R019",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Correspondence/Prior Exception Notice EXC-24017.pdf；data/input_files/Correspondence/Seller Cure Election EXC-24017.docx；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT032; contract bases FACT022, FACT024, FACT027, FACT032, FACT033, RULE011, PRED001, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A compliance-inventory posting schedule with separate seller, cover, and residual fields, trade linkage for cover, and precise official-interface and source locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The seller and cover postings are separately labeled with their correct quantities and lineage, rejected or duplicate certificates are excluded, the residual remains unresolved, and the posting vector reconciles to the close requirement. Fail for any material instance of: Seller and cover are combined, either posting is wrong, rejected or duplicate certificates enter inventory, the residual is posted as settled, or the close reconciliation does not balance."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The decision summary distinguishes the contract dispute response from annual compliance filing readiness and assigns each action a responsible owner and governing deadline.",
+      "dimension": "semantic_completeness",
+      "id": "R020",
+      "info_source": "data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT007; contract bases FACT001, FACT007, FACT034, RULE012, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "An action register and decision-summary section showing action, responsible owner, governing source, deadline, and precise locator for both commercial response and filing readiness."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper computes the dispute deadline using the five-business-day contract clock, keeps the annual filing date as a separate regulatory control without inventing a filing time, and states the required notice or follow-up actions with correct owners and precise locators. Fail for any material instance of: The dispute deadline or business-day count is wrong, the filing and dispute clocks are conflated, an unsupported filing time is added, or a required action, owner, deadline, or precise locator is missing or incorrect."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The workpaper reconciles the executed cover allocation to the live registry receipt for the exact certificate batch and treats final buyer-held custody as the prerequisite for compliance-inventory admission, separately from the executed-trade damage calculation.",
+      "dimension": "semantic_completeness",
+      "id": "R021",
+      "info_source": "data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Contracts/Amendment 1 - Cure and Cover.pdf；data/input_files/Contracts/REC Purchase Confirmation REC-2024-017.pdf；data/input_files/Procurement/Broker Confirmation BRK-88402.docx；data/input_files/Procurement/Cover Payment Advice.pdf；data/input_files/Procurement/Cover Trade Capture BRK-88402.pdf；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/Registry Evidence/Cover Custody Confirmation BRK-88402.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT042; contract bases FACT004, FACT024, FACT026, FACT033, FACT042, RULE016, PRED017, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A cover-custody control record in the workbook showing trade and allocation identity, qualified-unit identity, generation period, inclusive serial endpoints, buyer account, registry transaction, final status, settlement time, cutoff test, inventory-admission conclusion, and precise source locators.",
+          "A decision-summary statement consistent with the custody conclusion and clearly separating inventory custody from the executed-cover damage calculation."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper correctly matches BRK-88402 and ALLOC-88402-A across the allocation and registry views; matches MA RPS 7031-24, MSS424, 2024Q4, inclusive serials 004101 through 004140, and buyer account BSC-MA-4421; records TX-772044 as finally settled at 11:18:06 EDT before the cutoff; admits the cover batch to compliance inventory only on that basis; keeps the executed-trade damage consequence separate; and provides precise locators for every material element. Fail for any material instance of: Any trade, allocation, unit, period, serial, account, transaction, status, or timing element is wrong or unsupported; custody is inferred from allocation or execution alone; a pending, reversed, late, or wrong-account receipt is treated as buyer-held; the inventory gate is omitted; the executed-trade damage consequence is incorrectly conditioned on custody; or precise locators are missing."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The workpaper derives the affected lot's internal qualification-exception clearance from the exact unit-linked event sequence effective by the cutoff and uses it as a settlement gate without treating it as program eligibility.",
+      "dimension": "semantic_completeness",
+      "id": "R022",
+      "info_source": "data/input_files/Accounting/Invoice Ledger.csv；data/input_files/Compliance/2024 Class I Inventory Control.xlsx；data/input_files/Compliance/June Close Calendar.pdf；data/input_files/Compliance/Unit Qualification Exception Log QX-38983-2025.csv；data/input_files/Delivery/Final Delivery Statement 2025-06-09.xlsx；data/input_files/Delivery/Invoice INV-2025-0617.pdf；data/input_files/References/2024 Annual Compliance Workbook.xlsx；data/input_files/References/225 CMR 14.00 Class I.pdf；data/input_files/References/EPA Guide to Purchasing Green Power.pdf；data/input_files/References/Program Authority Locator Index.md；data/input_files/References/RPS Class I Qualified Units.xlsx；data/input_files/Registry Evidence/Account Event Export.csv；data/input_files/Registry Evidence/Exception Markup.docx；data/input_files/Registry Evidence/Final Lot Review Packet.pdf；data/input_files/Settlement/Certificate Close Checklist.docx",
+      "info_source_detail": "Frozen causal owner FACT043; contract bases FACT001, FACT016, FACT035, FACT043, RULE002, RULE004, RULE017, PRED018, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A qualification-exception control record in the workbook showing exact case, lot, GIS unit, RPS number, unit name, ordered event history, final effective status and time, accountable owner, cutoff test, close-clearance conclusion, and precise source locators.",
+          "The LOT-D disposition and decision summary must be consistent with the clearance gate while keeping official program eligibility analytically separate."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: The workpaper exactly links qualification-exception case QX-38983-2025 to LOT-D, NON38983, MA RPS 1015-02, and Deer Island Treatment Plant STG; records REVIEW_HOLD followed by EVIDENCE_MATCHED and final RELEASED at 11:36:20 EDT by the Compliance Qualification Manager before the noon cutoff; treats that release as the required internal close clearance for an otherwise valid lot without allowing it to create or override program eligibility; and provides precise locators for every material element. Fail for any material instance of: The case, lot, GIS unit, RPS number, or unit name is mismatched; the event order, terminal status, effective time, cutoff comparison, or accountable owner is wrong or unsupported; the release is treated as creating program eligibility; the internal gate is bypassed; or precise locators are missing."
+      },
+      "type": "positive",
+      "weight": 5
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_version": "harbor_pipeline_v1",
+  "scoring": {
+    "criterion_scores": [
+      0,
+      1
+    ],
+    "final_range": [
+      0,
+      1
+    ],
+    "penalty_formula": "subtract abs(weight) only when a declared penalty is triggered",
+    "positive_formula": "sum(weight * pass) / sum(positive weights)"
+  },
+  "task_id": "energy/ma_class_i_rec_delivery_settlement"
+}

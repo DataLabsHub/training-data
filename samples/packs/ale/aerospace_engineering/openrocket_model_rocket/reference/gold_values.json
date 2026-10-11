@@ -1,0 +1,41 @@
+{
+  "task_id": "openrocket_model_rocket",
+  "gold_values": {
+    "simulation_name": {
+      "value": "Simulation 4",
+      "type": "exact_string"
+    },
+    "motor_designation": {
+      "value": "C6-5",
+      "type": "exact_string"
+    },
+    "apogee_m": {
+      "value": 316.583,
+      "tolerance_pct": 3
+    },
+    "max_velocity_m_s": {
+      "value": 95.282,
+      "tolerance_pct": 3
+    },
+    "max_acceleration_m_s2": {
+      "value": 191.302,
+      "tolerance_pct": 5
+    },
+    "time_to_apogee_s": {
+      "value": 7.273,
+      "tolerance_pct": 3
+    },
+    "flight_time_s": {
+      "value": 83.514,
+      "tolerance_pct": 10
+    },
+    "launchrod_velocity_m_s": {
+      "value": 17.793,
+      "tolerance_pct": 5
+    },
+    "deployment_velocity_m_s": {
+      "value": 9.923,
+      "tolerance_pct": 10
+    }
+  }
+}

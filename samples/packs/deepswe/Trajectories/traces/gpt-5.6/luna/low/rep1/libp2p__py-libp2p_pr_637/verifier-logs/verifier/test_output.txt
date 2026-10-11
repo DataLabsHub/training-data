@@ -1,0 +1,965 @@
+EFEEEEEEEEEEFEEEEEEEEEE                                                  [100%]
+==================================== ERRORS ====================================
+_______________ ERROR at setup of test_state_transition_logging ________________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_state_transitions.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+2026-08-30 01:11:00,842 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.address`.
+2026-08-30 01:11:00,843 [DEBUG] [faker.factory] Provider `faker.providers.address` has been localized to `en_US`.
+2026-08-30 01:11:00,847 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.automotive`.
+2026-08-30 01:11:00,848 [DEBUG] [faker.factory] Provider `faker.providers.automotive` has been localized to `en_US`.
+2026-08-30 01:11:00,849 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.bank`.
+2026-08-30 01:11:00,849 [DEBUG] [faker.factory] Specified locale `en_US` is not available for provider `faker.providers.bank`. Locale reset to `en_GB` for this provider.
+2026-08-30 01:11:00,850 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.barcode`.
+2026-08-30 01:11:00,850 [DEBUG] [faker.factory] Provider `faker.providers.barcode` has been localized to `en_US`.
+2026-08-30 01:11:00,853 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.color`.
+2026-08-30 01:11:00,853 [DEBUG] [faker.factory] Provider `faker.providers.color` has been localized to `en_US`.
+2026-08-30 01:11:00,854 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.company`.
+2026-08-30 01:11:00,854 [DEBUG] [faker.factory] Provider `faker.providers.company` has been localized to `en_US`.
+2026-08-30 01:11:00,855 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.credit_card`.
+2026-08-30 01:11:00,855 [DEBUG] [faker.factory] Provider `faker.providers.credit_card` has been localized to `en_US`.
+2026-08-30 01:11:00,856 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.currency`.
+2026-08-30 01:11:00,856 [DEBUG] [faker.factory] Provider `faker.providers.currency` has been localized to `en_US`.
+2026-08-30 01:11:00,857 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.date_time`.
+2026-08-30 01:11:00,858 [DEBUG] [faker.factory] Provider `faker.providers.date_time` has been localized to `en_US`.
+2026-08-30 01:11:00,858 [DEBUG] [faker.factory] Provider `faker.providers.doi` does not feature localization. Specified locale `en_US` is not used for this provider.
+2026-08-30 01:11:00,858 [DEBUG] [faker.factory] Provider `faker.providers.emoji` does not feature localization. Specified locale `en_US` is not used for this provider.
+2026-08-30 01:11:00,858 [DEBUG] [faker.factory] Provider `faker.providers.file` does not feature localization. Specified locale `en_US` is not used for this provider.
+2026-08-30 01:11:00,858 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.geo`.
+2026-08-30 01:11:00,859 [DEBUG] [faker.factory] Provider `faker.providers.geo` has been localized to `en_US`.
+2026-08-30 01:11:00,859 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.internet`.
+2026-08-30 01:11:00,860 [DEBUG] [faker.factory] Provider `faker.providers.internet` has been localized to `en_US`.
+2026-08-30 01:11:00,861 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.isbn`.
+2026-08-30 01:11:00,861 [DEBUG] [faker.factory] Provider `faker.providers.isbn` has been localized to `en_US`.
+2026-08-30 01:11:00,861 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.job`.
+2026-08-30 01:11:00,862 [DEBUG] [faker.factory] Provider `faker.providers.job` has been localized to `en_US`.
+2026-08-30 01:11:00,863 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.lorem`.
+2026-08-30 01:11:00,863 [DEBUG] [faker.factory] Provider `faker.providers.lorem` has been localized to `en_US`.
+2026-08-30 01:11:00,863 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.misc`.
+2026-08-30 01:11:00,864 [DEBUG] [faker.factory] Provider `faker.providers.misc` has been localized to `en_US`.
+2026-08-30 01:11:00,864 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.passport`.
+2026-08-30 01:11:00,864 [DEBUG] [faker.factory] Provider `faker.providers.passport` has been localized to `en_US`.
+2026-08-30 01:11:00,866 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.person`.
+2026-08-30 01:11:00,867 [DEBUG] [faker.factory] Provider `faker.providers.person` has been localized to `en_US`.
+2026-08-30 01:11:00,883 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.phone_number`.
+2026-08-30 01:11:00,884 [DEBUG] [faker.factory] Provider `faker.providers.phone_number` has been localized to `en_US`.
+2026-08-30 01:11:00,885 [DEBUG] [faker.factory] Provider `faker.providers.profile` does not feature localization. Specified locale `en_US` is not used for this provider.
+2026-08-30 01:11:00,885 [DEBUG] [faker.factory] Provider `faker.providers.python` does not feature localization. Specified locale `en_US` is not used for this provider.
+2026-08-30 01:11:00,885 [DEBUG] [faker.factory] Provider `faker.providers.sbn` does not feature localization. Specified locale `en_US` is not used for this provider.
+2026-08-30 01:11:00,885 [DEBUG] [faker.factory] Looking for locale `en_US` in provider `faker.providers.ssn`.
+2026-08-30 01:11:00,886 [DEBUG] [faker.factory] Provider `faker.providers.ssn` has been localized to `en_US`.
+2026-08-30 01:11:00,888 [DEBUG] [faker.factory] Provider `faker.providers.user_agent` does not feature localization. Specified locale `en_US` is not used for this provider.
+------------------------------ Captured log setup ------------------------------
+DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.address`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.address` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.automotive`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.automotive` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.bank`.
+   DEBUG  08-30 01:11:00            factory.py  Specified locale `en_US` is not available for provider `faker.providers.bank`. Locale reset to `en_GB` for this provider.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.barcode`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.barcode` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.color`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.color` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.company`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.company` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.credit_card`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.credit_card` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.currency`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.currency` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.date_time`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.date_time` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.doi` does not feature localization. Specified locale `en_US` is not used for this provider.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.emoji` does not feature localization. Specified locale `en_US` is not used for this provider.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.file` does not feature localization. Specified locale `en_US` is not used for this provider.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.geo`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.geo` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.internet`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.internet` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.isbn`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.isbn` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.job`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.job` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.lorem`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.lorem` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.misc`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.misc` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.passport`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.passport` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.person`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.person` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.phone_number`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.phone_number` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.profile` does not feature localization. Specified locale `en_US` is not used for this provider.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.python` does not feature localization. Specified locale `en_US` is not used for this provider.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.sbn` does not feature localization. Specified locale `en_US` is not used for this provider.
+   DEBUG  08-30 01:11:00            factory.py  Looking for locale `en_US` in provider `faker.providers.ssn`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.ssn` has been localized to `en_US`.
+   DEBUG  08-30 01:11:00            factory.py  Provider `faker.providers.user_agent` does not feature localization. Specified locale `en_US` is not used for this provider.
+______________ ERROR at setup of test_state_transition_lifecycle _______________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_state_transitions.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+_______________ ERROR at setup of test_error_state_prevents_read _______________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_error_state.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+______________ ERROR at setup of test_error_state_prevents_write _______________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_error_state.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+____________ ERROR at setup of test_error_state_prevents_close_read ____________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_error_state.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+___________ ERROR at setup of test_error_state_prevents_close_write ____________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_error_state.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+_________ ERROR at setup of test_error_state_allows_reset_for_cleanup __________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_error_state.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+____________ ERROR at setup of test_read_error_triggers_error_state ____________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_error_state.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+___________ ERROR at setup of test_write_error_triggers_error_state ____________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_error_state.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+____________ ERROR at setup of test_is_operational_with_error_state ____________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_error_state.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+____________ ERROR at setup of test_is_operational_with_open_state _____________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock stream for testing."""
+        muxed_stream = MockMuxedStream()
+>       return NetStream(muxed_stream, None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_error_state.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+________________ ERROR at setup of test_concurrent_state_access ________________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock NetStream for testing."""
+        muxed_stream = MockMuxedStream()
+>       stream = NetStream(muxed_stream=muxed_stream, swarm_conn=Mock())  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_concurrency.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+___________ ERROR at setup of test_race_condition_prevention_in_read ___________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock NetStream for testing."""
+        muxed_stream = MockMuxedStream()
+>       stream = NetStream(muxed_stream=muxed_stream, swarm_conn=Mock())  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_concurrency.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+__________ ERROR at setup of test_race_condition_prevention_in_write ___________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock NetStream for testing."""
+        muxed_stream = MockMuxedStream()
+>       stream = NetStream(muxed_stream=muxed_stream, swarm_conn=Mock())  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_concurrency.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+______________ ERROR at setup of test_atomic_state_io_operations _______________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock NetStream for testing."""
+        muxed_stream = MockMuxedStream()
+>       stream = NetStream(muxed_stream=muxed_stream, swarm_conn=Mock())  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_concurrency.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+_____ ERROR at setup of test_lock_prevents_concurrent_state_modifications ______
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock NetStream for testing."""
+        muxed_stream = MockMuxedStream()
+>       stream = NetStream(muxed_stream=muxed_stream, swarm_conn=Mock())  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_concurrency.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+_______ ERROR at setup of test_concurrent_read_write_with_state_changes ________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock NetStream for testing."""
+        muxed_stream = MockMuxedStream()
+>       stream = NetStream(muxed_stream=muxed_stream, swarm_conn=Mock())  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_concurrency.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+___________ ERROR at setup of test_lock_behavior_during_cancellation ___________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock NetStream for testing."""
+        muxed_stream = MockMuxedStream()
+>       stream = NetStream(muxed_stream=muxed_stream, swarm_conn=Mock())  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_concurrency.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+___________ ERROR at setup of test_multiple_readers_with_state_lock ____________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock NetStream for testing."""
+        muxed_stream = MockMuxedStream()
+>       stream = NetStream(muxed_stream=muxed_stream, swarm_conn=Mock())  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_concurrency.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+___________ ERROR at setup of test_state_lock_with_error_conditions ____________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock NetStream for testing."""
+        muxed_stream = MockMuxedStream()
+>       stream = NetStream(muxed_stream=muxed_stream, swarm_conn=Mock())  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_concurrency.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+______________ ERROR at setup of test_lock_performance_under_load ______________
+
+    @pytest.fixture
+    def mock_stream():
+        """Create a mock NetStream for testing."""
+        muxed_stream = MockMuxedStream()
+>       stream = NetStream(muxed_stream=muxed_stream, swarm_conn=Mock())  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/core/network/test_net_stream_concurrency.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+libp2p/network/stream/net_stream.py:121: in __init__
+    self.__stream_state = StreamState.INIT
+                          ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+=================================== FAILURES ===================================
+_______________________ test_state_transition_validation _______________________
+
+    def test_state_transition_validation():
+        """Test that state transitions follow expected rules."""
+        # Test that valid transitions are properly defined
+        valid_transitions = {
+>           StreamState.INIT: [StreamState.OPEN, StreamState.ERROR],
+            ^^^^^^^^^^^^^^^^
+            StreamState.OPEN: [
+                StreamState.CLOSE_READ,
+                StreamState.CLOSE_WRITE,
+                StreamState.RESET,
+                StreamState.ERROR,
+            ],
+            StreamState.CLOSE_READ: [StreamState.CLOSE_BOTH, StreamState.ERROR],
+            StreamState.CLOSE_WRITE: [StreamState.CLOSE_BOTH, StreamState.ERROR],
+            StreamState.RESET: [StreamState.ERROR],
+            StreamState.CLOSE_BOTH: [StreamState.ERROR],
+            StreamState.ERROR: [],
+        }
+
+tests/core/network/test_net_stream_state_transitions.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <enum 'StreamState'>, name = 'INIT'
+
+    def __getattr__(cls, name):
+        """
+        Return the enum member matching `name`
+    
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        if _is_dunder(name):
+            raise AttributeError(name)
+        try:
+            return cls._member_map_[name]
+        except KeyError:
+>           raise AttributeError(name) from None
+E           AttributeError: INIT
+
+/usr/lib/python3.11/enum.py:789: AttributeError
+__________________________ test_error_state_lifecycle __________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "/testbed/.venv/lib/python3.11/site-packages/trio/_core/_run.py", line 1117, in __aexit__
+  |     raise combined_error_from_nursery
+  | ExceptionGroup: Exceptions from Trio nursery (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/testbed/.venv/lib/python3.11/site-packages/pytest_trio/plugin.py", line 195, in _fixture_manager
+    |     yield nursery_fixture
+    |   File "/testbed/.venv/lib/python3.11/site-packages/pytest_trio/plugin.py", line 250, in run
+    |     await self._func(**resolved_kwargs)
+    |   File "/testbed/tests/core/network/test_net_stream_error_state.py", line 193, in test_error_state_lifecycle
+    |     stream = NetStream(muxed_stream, None)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/testbed/libp2p/network/stream/net_stream.py", line 121, in __init__
+    |     self.__stream_state = StreamState.INIT
+    |                           ^^^^^^^^^^^^^^^^
+    |   File "/usr/lib/python3.11/enum.py", line 789, in __getattr__
+    |     raise AttributeError(name) from None
+    | AttributeError: INIT
+    +------------------------------------
+=========================== short test summary info ============================
+FAILED tests/core/network/test_net_stream_state_transitions.py::test_state_transition_validation
+FAILED tests/core/network/test_net_stream_error_state.py::test_error_state_lifecycle
+ERROR tests/core/network/test_net_stream_state_transitions.py::test_state_transition_logging
+ERROR tests/core/network/test_net_stream_state_transitions.py::test_state_transition_lifecycle
+ERROR tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_read
+ERROR tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_write
+ERROR tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_close_read
+ERROR tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_close_write
+ERROR tests/core/network/test_net_stream_error_state.py::test_error_state_allows_reset_for_cleanup
+ERROR tests/core/network/test_net_stream_error_state.py::test_read_error_triggers_error_state
+ERROR tests/core/network/test_net_stream_error_state.py::test_write_error_triggers_error_state
+ERROR tests/core/network/test_net_stream_error_state.py::test_is_operational_with_error_state
+ERROR tests/core/network/test_net_stream_error_state.py::test_is_operational_with_open_state
+ERROR tests/core/network/test_net_stream_concurrency.py::test_concurrent_state_access
+ERROR tests/core/network/test_net_stream_concurrency.py::test_race_condition_prevention_in_read
+ERROR tests/core/network/test_net_stream_concurrency.py::test_race_condition_prevention_in_write
+ERROR tests/core/network/test_net_stream_concurrency.py::test_atomic_state_io_operations
+ERROR tests/core/network/test_net_stream_concurrency.py::test_lock_prevents_concurrent_state_modifications
+ERROR tests/core/network/test_net_stream_concurrency.py::test_concurrent_read_write_with_state_changes
+ERROR tests/core/network/test_net_stream_concurrency.py::test_lock_behavior_during_cancellation
+ERROR tests/core/network/test_net_stream_concurrency.py::test_multiple_readers_with_state_lock
+ERROR tests/core/network/test_net_stream_concurrency.py::test_state_lock_with_error_conditions
+ERROR tests/core/network/test_net_stream_concurrency.py::test_lock_performance_under_load
+2 failed, 21 errors in 0.70s
+RESULT::tests/core/network/test_net_stream_state_transitions.py::test_state_transition_logging::ERROR
+RESULT::tests/core/network/test_net_stream_state_transitions.py::test_state_transition_validation::FAILED
+RESULT::tests/core/network/test_net_stream_state_transitions.py::test_state_transition_lifecycle::ERROR
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_read::ERROR
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_write::ERROR
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_close_read::ERROR
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_close_write::ERROR
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_allows_reset_for_cleanup::ERROR
+RESULT::tests/core/network/test_net_stream_error_state.py::test_read_error_triggers_error_state::ERROR
+RESULT::tests/core/network/test_net_stream_error_state.py::test_write_error_triggers_error_state::ERROR
+RESULT::tests/core/network/test_net_stream_error_state.py::test_is_operational_with_error_state::ERROR
+RESULT::tests/core/network/test_net_stream_error_state.py::test_is_operational_with_open_state::ERROR
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_lifecycle::FAILED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_concurrent_state_access::ERROR
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_race_condition_prevention_in_read::ERROR
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_race_condition_prevention_in_write::ERROR
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_atomic_state_io_operations::ERROR
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_lock_prevents_concurrent_state_modifications::ERROR
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_concurrent_read_write_with_state_changes::ERROR
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_lock_behavior_during_cancellation::ERROR
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_multiple_readers_with_state_lock::ERROR
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_state_lock_with_error_conditions::ERROR
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_lock_performance_under_load::ERROR
+OMNIGRIL_EXIT_CODE=1

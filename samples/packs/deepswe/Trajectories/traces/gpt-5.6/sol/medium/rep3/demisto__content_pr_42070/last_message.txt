@@ -1,0 +1,14 @@
+Implemented the new `indicator-enrichment` command:
+
+- Added [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py)
+- Added [IndicatorEnrichment.yml](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.yml)
+- Supports IP, URL, Domain, CVE, and File indicators from lists or text extraction
+- Handles deduplication, limits, unsupported values, partial failures, unified context, and optional raw child context
+- Exposes all requested public classes and functions
+
+Validation completed:
+
+- Python compilation passed
+- Focused builder/service/formatter and edge-case checks passed
+- `git diff --check` passed
+- Full pytest execution was unavailable because `pytest` is not installed in the environment.

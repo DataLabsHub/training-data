@@ -1,0 +1,9 @@
+Task ID: openrocket_model_rocket
+Domain: Aerospace Engineering
+Title: Recreate the official OpenRocket simple model rocket and run the C6-5 simulation
+
+This task asks the solver to use OpenRocket 24.12 to build the official "A simple model rocket" example from the bundled local specification, run the default Simulation 4 / C6-5 flight, and export the native design, simulation data, screenshots, and results summary.
+
+Solver-visible inputs are `input/rocket_spec.csv` and `input/output_contract.json`. The reference artifacts are `reference/rocket_design.ork`, `reference/gold_values.json`, and `reference/openrocket_open_example.png`; these are official or externally grounded OpenRocket example artifacts and simulation metrics.
+
+The task is GUI-heavy because the rocket must be constructed in OpenRocket, simulated, plotted/exported, and saved as a native `.ork` project with populated flight data. The evaluator checks the native archive structure, required component and motor configuration, populated simulation databranch, consistency between `results.json` and `simulation_data.csv`, non-blank GUI screenshots, and agreement with the reference metrics. A text-only or JSON-only answer is insufficient.

@@ -1,0 +1,19 @@
+Implemented GetEndpoints service support.
+
+Added:
+
+- `LocalizedText` and `StringArray` datatypes
+- Application, token policy, and endpoint discovery structures
+- GetEndpoints request/response services and constructors
+- Named decoders and serialization APIs
+- Generic service dispatcher support
+- Required constants and null ByteString handling
+- Defensive truncated string/ByteString decoding
+
+Validation completed with:
+
+```text
+go test ./...
+```
+
+All packages pass.

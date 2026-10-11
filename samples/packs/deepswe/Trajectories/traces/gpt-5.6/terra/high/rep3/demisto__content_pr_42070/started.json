@@ -1,0 +1,11 @@
+{
+  "auth_transport": "chatgpt",
+  "index": 428,
+  "model": "gpt-5.6-terra",
+  "prior_status": "instruction_repaired_pygo25",
+  "reasoning_effort": "high",
+  "repetition": 3,
+  "source_index": 3,
+  "started_unix": 1788078258.0998316,
+  "task_id": "demisto__content_pr_42070"
+}

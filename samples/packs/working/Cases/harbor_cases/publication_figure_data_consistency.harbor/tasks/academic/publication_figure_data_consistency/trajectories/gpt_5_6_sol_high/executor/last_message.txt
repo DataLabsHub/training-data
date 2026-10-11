@@ -1,0 +1,4 @@
+Decision: `RELEASE_AFTER_CORRECTIONS`; do not release current PRF-02 or DEP-V3.
+
+- [figure3_reconciliation_register.xlsx](/workspace/deliverables/figure3_reconciliation_register.xlsx)
+- [publication_release_memo.docx](/workspace/deliverables/publication_release_memo.docx)

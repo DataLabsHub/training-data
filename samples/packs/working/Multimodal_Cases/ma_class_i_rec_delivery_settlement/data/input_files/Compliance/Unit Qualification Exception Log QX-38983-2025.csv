@@ -1,0 +1,9 @@
+event_id,case_id,gis_unit_id,ma_rps_number,unit_name,lot_reference,event_status,effective_at,owner,review_reason
+QX38971-001,QX-38971-2025,MSS11844,7042-24,North Canal Hydro Unit 2,LOT-X17,OPENED,2025-06-09 08:22:04 EDT,Compliance Qualification Desk,Quarterly unit-key review
+QX38971-002,QX-38971-2025,MSS11844,7042-24,North Canal Hydro Unit 2,LOT-X17,EVIDENCE_REQUESTED,2025-06-09 08:41:18 EDT,Compliance Qualification Desk,Qualification attachment incomplete
+QX38983-001,QX-38983-2025,NON38983,1015-02,Deer Island Treatment Plant STG,LOT-D,REVIEW_HOLD,2025-06-09 09:42:15 EDT,Compliance Qualification Desk,Exact unit qualification review
+QX38976-001,QX-38976-2025,NON77318,6088-19,East Ridge Landfill Gas,LOT-X22,REVIEW_HOLD,2025-06-09 10:06:31 EDT,Compliance Qualification Desk,Effective-date verification
+QX38983-002,QX-38983-2025,NON38983,1015-02,Deer Island Treatment Plant STG,LOT-D,EVIDENCE_MATCHED,2025-06-09 11:19:44 EDT,Compliance Qualification Desk,Official unit identity and effective date matched
+QX38976-002,QX-38976-2025,NON77318,6088-19,East Ridge Landfill Gas,LOT-X22,PENDING_SOURCE,2025-06-09 11:24:03 EDT,Compliance Qualification Desk,Awaiting regulator attachment
+QX38983-003,QX-38983-2025,NON38983,1015-02,Deer Island Treatment Plant STG,LOT-D,RELEASED,2025-06-09 11:36:20 EDT,Compliance Qualification Manager,Qualification exception review completed
+QX38988-001,QX-38988-2025,MSS90112,7066-24,Riverbend Hydro Unit 1,LOT-X29,OPENED,2025-06-09 11:47:52 EDT,Compliance Qualification Desk,Unit-name normalization review

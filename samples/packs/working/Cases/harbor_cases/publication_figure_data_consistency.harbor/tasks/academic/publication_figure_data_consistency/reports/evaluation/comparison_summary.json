@@ -1,0 +1,34 @@
+{
+  "metric": "unweighted_binary_claim_pass_rate",
+  "runs": [
+    {
+      "executor_model": "k3-256k",
+      "label": "kimi_k3_high",
+      "passed_claims": 3,
+      "reference_score": 1.0,
+      "score": 0.21428571428571427,
+      "target_score_exclusive": 0.6,
+      "total_claims": 14
+    },
+    {
+      "executor_model": "gpt-5.6-sol",
+      "label": "gpt_5_6_sol_high",
+      "passed_claims": 6,
+      "reference_score": 1.0,
+      "score": 0.42857142857142855,
+      "target_score_exclusive": 0.6,
+      "total_claims": 14
+    },
+    {
+      "executor_model": "claude-opus-5",
+      "label": "claude_opus_5_high",
+      "passed_claims": 7,
+      "reference_score": 1.0,
+      "score": 0.5,
+      "target_score_exclusive": 0.6,
+      "total_claims": 14
+    }
+  ],
+  "same_frozen_case": true,
+  "schema_version": "harbor-multi-evaluation/v1"
+}

@@ -1,0 +1,20 @@
+Implemented NetStream lifecycle state support.
+
+Key changes:
+
+- Added exact `StreamState` members: `INIT`, `OPEN`, `CLOSE_READ`, `CLOSE_WRITE`, `CLOSE_BOTH`, `RESET`, `ERROR`.
+- Added awaitable `state`, `set_state()`, and `is_operational()`.
+- Added synchronized state validation and transitions using `trio.Lock`.
+- Added independent `close_read()` and `close_write()` handling.
+- Converted unexpected read/write failures into `StreamError` and transitioned to `ERROR`.
+- Preserved expected EOF, reset, and closed exception behavior.
+- Allowed `reset()` from `ERROR`.
+- Updated `SwarmConn` to construct streams in `INIT`, then mark them `OPEN` once established.
+- Added focused lifecycle tests.
+
+Validation:
+
+- 18 focused stream tests passed.
+- 50 broader network tests passed.
+- Python compilation and `git diff --check` passed.
+- Ruff was unavailable in the environment.

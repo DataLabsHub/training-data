@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0",
+  "taskId": "aviation_operations/flightgear_010",
+  "title": "FlightGear: Comprehensive ILS Operations Assessment at KSFO RWY 28R",
+  "humanHandlingTimeHours": 8.0,
+  "summary": "You are working on an ALE desktop benchmark task. ## Your Task Use FlightGear 2024.1.1+ with the Cessna 172P to complete a three-phase GUI flight task at KSFO: pre-flight setup, live ILS approach, and self-replay instrument reading. ## Input Files - `input/launch_args.txt`: required FlightGear launch arguments, including the logging configuration. - `input/metar.txt`: METAR string to load for the session. - `input/logging.xml`: 1 Hz property logger configuration. - `input/procedure_brief.md`: lo",
+  "value": "Real professional GUI workflow with domain-specific native artifacts and externally grounded evaluation.",
+  "domain": "aviation_operations",
+  "subdomain": "aviation_operations",
+  "software": [
+    "FlightGear"
+  ],
+  "vm": {
+    "os": "Windows 10/11 x64 workstation",
+    "timeoutSeconds": 7200,
+    "notes": "Use the benchmark VM image configured with the listed professional software."
+  },
+  "requiredSystemPackages": [
+    "FlightGear 2024.1.1+",
+    "Cessna 172P aircraft package",
+    "Screen recording software"
+  ],
+  "taskPrompt": "You are working on an ALE desktop benchmark task.\n\n## Your Task\nUse FlightGear 2024.1.1+ with the Cessna 172P to complete a three-phase GUI flight task at KSFO: pre-flight setup, live ILS approach, and self-replay instrument reading.\n\n## Input Files\n- `input/launch_args.txt`: required FlightGear launch arguments, including the logging configuration.\n- `input/metar.txt`: METAR string to load for the session.\n- `input/logging.xml`: 1 Hz property logger configuration.\n- `input/procedure_brief.md`: local ILS Z RWY 28R briefing and chart facts used for Phase A values.\n\nAircraft, airport, and procedure:\n- Aircraft: `c172p`\n- Airport: `KSFO`\n- Starting parking: `G_A4`\n- Departure runway: `10R`\n- Approach runway: `28R`\n- Approach: `ILS Z RWY 28R`\n- Alternate airport for map measurement: `KOAK`\n- NAV1: `111.70` MHz\n- NAV2: `115.80` MHz\n- NAV1 OBS: `284` degrees magnetic\n- Transponder squawk: `3662`\n- Transponder mode: `ALT`\n- Altimeter setting: `29.99` inHg\n\n## Software\n- Use FlightGear.\n- Complete the task through the application's GUI or native workflow unless the visible task inputs explicitly allow a helper command for packaging or export.\n\n## What You Must Do\n1. Launch FlightGear through the Launcher GUI using `input/launch_args.txt` and the METAR from `input/metar.txt`.\n2. Confirm the C172P starts at KSFO parking `G_A4`.\n3. In the Map dialog, enable airports, navaids, and fixes. Measure KSFO ARP to KOAK ARP great-circle distance.\n4. In Route Manager, build route `KSFO/10R -> SFO -> CEPIN -> KSFO/28R`; read total and per-leg distances and save `output/route.xml`.\n5. In the cockpit GUI, set NAV1, NAV2, OBS, transponder, transponder mode, and altimeter to the values above.\n6. In the property browser, inspect the requested aircraft, airport, navigation, and transponder properties and record them in `output/result.json`.\n7. Capture screenshots `output/screenshots/A_radio_panel.png`, `A_map.png`, `A_route_manager.png`, and `A_property_browser.png`.\n\nPhase B - live approach:\n1. Reset or restart with the same launch arguments and METAR.\n2. Take off from runway 10R at about 55 KIAS.\n3. Climb on runway heading until passing 1500 ft AGL.\n4. Turn right to heading 230 degrees magnetic and continue climbing downwind south of KSFO.\n5. Level at 3000 ft MSL on heading 230 degrees.\n6. Reconfirm NAV1 111.70 and engage KAP140 in order: AP ON, HDG, ALT, APR.\n7. At approximately 7 NM south-southwest of KSFO ARP, turn right to heading 320 degrees magnetic to intercept the RWY 28R localizer from the south.\n8. Allow localizer and glideslope capture, track the 3.00 degree glidepath, disconnect autopilot below 200 ft AGL before touchdown, and land on RWY 28R at about 60 KIAS with full flaps.\n9. Save `output/live_approach.fgtape`, keep `output/live_property_log.csv`, and record `output/live_session.mp4`.\n\nPhase C - self-replay analysis:\n1. Reset or restart FlightGear and load your own `output/live_approach.fgtape` with the Flight Recorder GUI.\n2. Scrub the replay to locate these six events: `T_takeoff`, `T_top_of_climb`, `T_loc_capture`, `T_gs_capture`, `T_ap_disconnect`, and `T_touchdown`.\n3. At each event, read from the cockpit panel: magnetic heading, indicated altitude, indicated airspeed, vertical speed, and NAV1 CDI horizontal deviation.\n4. Record the readings in `output/replay_readings.json` and capture `output/screenshots/C_T_<event>.png` for each event.\n5. Record `output/replay_session.mp4`.\n\n## Output Requirements\n```json\n{\n  \"ksfo_field_elev_ft\": <int>,\n  \"ksfo_arp_lat_deg\": <float>,\n  \"ksfo_arp_lon_deg\": <float>,\n  \"rwy_28r_length_m\": <int>,\n  \"rwy_28r_length_ft\": <int>,\n  \"rwy_28r_width_ft\": <int>,\n  \"rwy_28r_true_bearing_deg\": <int>,\n  \"rwy_28r_thr_elev_ft\": <int>,\n  \"ils_28r_freq_mhz\": <float>,\n  \"ils_28r_fac_magnetic_deg\": <int>,\n  \"ils_28r_gs_angle_deg\": <float>,\n  \"ils_28r_tch_ft\": <int>,\n  \"cepin_to_thr_nm\": <float>,\n  \"sfo_vor_freq_mhz\": <float>,\n  \"sfo_vor_ident\": \"<str>\",\n  \"ksfo_to_koak_arp_great_circle_nm\": <float>,\n  \"qnh_kollsman_inhg\": <float>,\n  \"magvar_at_ksfo_deg\": <float>,\n  \"nav1_freq_mhz_set\": <float>,\n  \"nav2_freq_mhz_set\": <float>,\n  \"obs1_set\": <int>,\n  \"xpdr_squawk_set\": \"<str>\",\n  \"total_flight_time_min\": <float>,\n  \"max_altitude_ft_msl\": <float>,\n  \"avg_glideslope_descent_fpm\": <float>,\n  \"touchdown_distance_from_thr_m\": <float>,\n  \"final_approach_groundspeed_kt_at_200ft\": <float>,\n  \"ap_disconnect_agl_ft\": <float>,\n  \"landing_runway\": \"<str>\",\n  \"landing_speed_kias\": <float>\n}\n```\n\nRequired `output/replay_readings.json` structure:\n```json\n{\n  \"T_takeoff\": {\"hdg_mag\": <float>, \"alt_indicated_ft\": <float>, \"ias_kt\": <float>, \"vs_fpm\": <float>, \"ils_dev_dots\": <float>, \"csv_row_t_sec\": <float>},\n  \"T_top_of_climb\": {\"hdg_mag\": <float>, \"alt_indicated_ft\": <float>, \"ias_kt\": <float>, \"vs_fpm\": <float>, \"ils_dev_dots\": <float>, \"csv_row_t_sec\": <float>},\n  \"T_loc_capture\": {\"hdg_mag\": <float>, \"alt_indicated_ft\": <float>, \"ias_kt\": <float>, \"vs_fpm\": <float>, \"ils_dev_dots\": <float>, \"csv_row_t_sec\": <float>},\n  \"T_gs_capture\": {\"hdg_mag\": <float>, \"alt_indicated_ft\": <float>, \"ias_kt\": <float>, \"vs_fpm\": <float>, \"ils_dev_dots\": <float>, \"csv_row_t_sec\": <float>},\n  \"T_ap_disconnect\": {\"hdg_mag\": <float>, \"alt_indicated_ft\": <float>, \"ias_kt\": <float>, \"vs_fpm\": <float>, \"ils_dev_dots\": <float>, \"csv_row_t_sec\": <float>},\n  \"T_touchdown\": {\"hdg_mag\": <float>, \"alt_indicated_ft\": <float>, \"ias_kt\": <float>, \"vs_fpm\": <float>, \"ils_dev_dots\": <float>, \"csv_row_t_sec\": <float>}\n}\n```\n\nOther required outputs:\n- `output/route.xml`\n- `output/live_approach.fgtape`\n- `output/live_property_log.csv`\n- `output/live_session.mp4`\n- `output/replay_session.mp4`\n- `output/fgfs.log`\n- `output/system_meta.json`\n- `output/screenshots/A_radio_panel.png`\n- `output/screenshots/A_map.png`\n- `output/screenshots/A_route_manager.png`\n- `output/screenshots/A_property_browser.png`\n- `output/screenshots/C_T_takeoff.png`\n- `output/screenshots/C_T_top_of_climb.png`\n- `output/screenshots/C_T_loc_capture.png`\n- `output/screenshots/C_T_gs_capture.png`\n- `output/screenshots/C_T_ap_disconnect.png`\n- `output/screenshots/C_T_touchdown.png`\n\n## Constraints\n- Do not modify files under `input/`.\n- Write final deliverables only under `output/`.\n- Use exact filenames and schemas requested above or in the visible input contract.\n- Ensure native project/session/model files, exported data, screenshots, logs, and JSON summaries all come from the same completed workflow.\n\n## Failure Exit\nIf the VM software environment makes the task genuinely infeasible after a reasonable expert attempt, write `output/infeasible.md` with the specific blocker, software state, and attempted workflow. Do not submit fabricated or placeholder deliverables. This exit is only for genuine blockers; otherwise produce every required artifact exactly as specified.\n",
+  "agentMustDo": [
+    "Use the solver-visible input files under input/.",
+    "Complete the task through the specified professional GUI or native workflow.",
+    "Produce every required artifact under output/ with the exact requested filenames.",
+    "Ensure native project files, exported data, screenshots, and summaries are mutually consistent.",
+    "Use output/infeasible.md only for genuine VM/software blockers."
+  ],
+  "inputFiles": [
+    {
+      "name": "launch_args.txt",
+      "format": "TXT",
+      "path": "input/launch_args.txt",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 612,
+      "sha256": "cdf8b9838feda79709ab487725e6e232b6b3876c47303a42dfc34ebea4bac4f3",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "logging.xml",
+      "format": "XML",
+      "path": "input/logging.xml",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 3073,
+      "sha256": "a2a8bb50e5fbfffd28a72dd88905f33bb5f3133667e20346d857cebeee193544",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "metar.txt",
+      "format": "TXT",
+      "path": "input/metar.txt",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 104,
+      "sha256": "a8ea35a9c2291bf3771c543fe99cbccfc835e30f492bb424dd5f085e30373de0",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "procedure_brief.md",
+      "format": "MD",
+      "path": "input/procedure_brief.md",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 3547,
+      "sha256": "b8d333f82a2a31aea85b145dc51522a218f4e80d4e460ede2e95c3b46916fa0d",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ],
+  "taxonomy": {
+    "domain_code": "aviation_operations",
+    "subdomain_code": "flightgear_010"
+  },
+  "evaluation": "The evaluator is implemented in main.py. It checks required deliverables (output/fgfs.log, output/live_approach.fgtape, output/live_property_log.csv, output/live_session.mp4, output/replay_readings.json, output/replay_session.mp4, output/result.json, output/route.xml, output/screenshots/A_map.png, output/screenshots/A_property_browser.png, output/screenshots/A_radio_panel.png, output/screenshots/A_route_manager.png, output/screenshots/C_T_<event>.png, output/screenshots/C_T_ap_disconnect.png, output/screenshots/C_T_gs_capture.png, output/screenshots/C_T_loc_capture.png, output/screenshots/C_T_takeoff.png, output/screenshots/C_T_top_of_climb.png, output/screenshots/C_T_touchdown.png, output/system_meta.json), validates parseable native/project artifacts where required, cross-checks structured outputs against reference artifacts under reference/, and applies GUI or native-workflow evidence checks for tasks whose solution requires professional desktop software.",
+  "referenceFiles": [
+    {
+      "name": "gold_property_log.csv",
+      "format": "CSV",
+      "path": "reference/gold_property_log.csv",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 126093,
+      "sha256": "b7bc43698ccf12e85e6e0ddafcae1edfedf3d8a7de434835444b8f2def2fb04a",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+Implemented NetStream lifecycle state support.
+
+- Added `INIT` and `ERROR` states plus awaitable `set_state()` and `is_operational()`.
+- Added synchronized state-aware read/write/close/half-close/reset behavior.
+- Unexpected read/write failures now raise `StreamError` and transition to `ERROR`.
+- Updated `SwarmConn` to construct streams with itself and mark established streams `OPEN`.
+- Preserved existing muxer EOF/reset/closed exception behavior.
+
+Verified with:
+
+`pytest -q tests/core/network/test_net_stream.py` — 9 passed.

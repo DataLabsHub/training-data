@@ -1,0 +1,5 @@
+Implemented [`IndicatorEnrichment.py`](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+It provides mixed indicator parsing/extraction, validation and deduplication, grouped child enrichments, consolidated context/Markdown, partial-failure handling, raw-context control, and the requested public API and `main()` behavior.
+
+Verification: static compilation and diff checks passed. The checkout lacks the Python test runner/runtime dependencies, so pytest could not be run.

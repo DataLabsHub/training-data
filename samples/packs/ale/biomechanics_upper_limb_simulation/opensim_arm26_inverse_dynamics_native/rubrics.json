@@ -1,0 +1,102 @@
+[
+  {
+    "id": "checkpoint_01_required_files",
+    "label": "deterministic",
+    "description": "All required deliverable files are present at the exact paths specified in the task prompt and output contract."
+  },
+  {
+    "id": "checkpoint_02_file_formats",
+    "label": "deterministic",
+    "description": "Each deliverable uses the requested native or structured file format and can be opened or parsed by the expected software/tooling."
+  },
+  {
+    "id": "checkpoint_03_native_project_artifact",
+    "label": "deterministic",
+    "description": "The submission includes the required native project/model/state artifact, not only scalar answers or screenshots."
+  },
+  {
+    "id": "checkpoint_04_input_provenance",
+    "label": "deterministic",
+    "description": "The submitted artifacts are derived from the bundled input files and preserve task-specific provenance where requested."
+  },
+  {
+    "id": "checkpoint_05_schema_contract",
+    "label": "deterministic",
+    "description": "JSON/CSV/table outputs match the required field names, column order, row semantics, and data types in the prompt/output contract."
+  },
+  {
+    "id": "checkpoint_06_reference_agreement",
+    "label": "deterministic",
+    "description": "Numerical, structural, or semantic outputs agree with official/external reference artifacts within the grader tolerances."
+  },
+  {
+    "id": "checkpoint_07_cross_artifact_consistency",
+    "label": "deterministic",
+    "description": "Native project files, exported tables, logs, and screenshots are mutually consistent and describe the same completed workflow."
+  },
+  {
+    "id": "checkpoint_08_nontrivial_workflow",
+    "label": "non-deterministic",
+    "description": "The result reflects completion of the professional workflow rather than direct fabrication of a report or isolated answer values."
+  },
+  {
+    "id": "checkpoint_09_software_specific_validity",
+    "label": "non-deterministic",
+    "description": "The native artifacts use plausible software-specific model settings, object names, layers, studies, analyses, or simulation components."
+  },
+  {
+    "id": "checkpoint_10_no_starter_only_submission",
+    "label": "deterministic",
+    "description": "The submitted native artifact is not merely the unmodified starter/input project."
+  },
+  {
+    "id": "checkpoint_11_no_public_final_laundering",
+    "label": "deterministic",
+    "description": "The submission is not a trivial copied public/reference final artifact when the grader can detect direct copy or incompatible provenance."
+  },
+  {
+    "id": "checkpoint_12_failure_exit",
+    "label": "deterministic",
+    "description": "If the task is infeasible in the VM, an infeasible.md explanation is provided instead of malformed or fabricated deliverables."
+  },
+  {
+    "id": "checkpoint_13_arm26_setup_inversekinematics_xml",
+    "label": "deterministic",
+    "description": "Required deliverable `setup/arm26_Setup_InverseKinematics.xml` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_14_arm26_setup_inversedynamics_filtered_xml",
+    "label": "deterministic",
+    "description": "Required deliverable `setup/arm26_Setup_InverseDynamics_Filtered.xml` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_15_arm26_setup_inversedynamics_unfiltered_x",
+    "label": "deterministic",
+    "description": "Required deliverable `setup/arm26_Setup_InverseDynamics_Unfiltered.xml` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_16_arm26_inversekinematics_mot",
+    "label": "deterministic",
+    "description": "Required deliverable `ik/arm26_InverseKinematics.mot` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_17_arm26_inversedynamics_sto",
+    "label": "deterministic",
+    "description": "Required deliverable `id_filtered/arm26_InverseDynamics.sto` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_18_arm26_inversedynamics_sto",
+    "label": "deterministic",
+    "description": "Required deliverable `id_unfiltered/arm26_InverseDynamics.sto` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_19_run_log_txt",
+    "label": "deterministic",
+    "description": "Required deliverable `run_log.txt` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_20_provenance_json",
+    "label": "deterministic",
+    "description": "Required deliverable `provenance.json` exists and satisfies its task-specific content requirements."
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "boundary": "Authentic public sources ground lifecycle, visual grammar, structured schemas, governance, and deposit metadata only; they do not describe this centre case or a publication-release disposition.",
+  "sources": [
+    {
+      "title": "Small changes, big gains: A curriculum-wide study of teaching practices and student learning in undergraduate biology",
+      "publisher": "PLOS ONE",
+      "landing_page_uri": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0220900",
+      "direct_download_uri": "https://journals.plos.org/plosone/article/file?type=printable&id=10.1371/journal.pone.0220900",
+      "license_class": "Creative Commons Attribution License",
+      "sha256": "241182c7d2bd8ae8a251fa616ba0a89e132ec67c21ed7b17f9c2ebc8bd8eda48",
+      "bounded_use": "Supplies the authoritative article state, figure panels, captions, results prose, cohort descriptions, visible effect-size geometry, uncertainty whiskers, and stable figure DOIs for a future panel-level reconciliation.",
+      "format": "pdf"
+    },
+    {
+      "title": "S1 File: Conceptual inventory scores for all matched pre- and post-tests",
+      "publisher": "PLOS ONE",
+      "landing_page_uri": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0220900#sec025",
+      "direct_download_uri": "https://journals.plos.org/plosone/article/file?type=supplementary&id=info:doi/10.1371/journal.pone.0220900.s001",
+      "license_class": "Creative Commons Attribution License",
+      "sha256": "915124630d566c2ceef0e898b5ca9f261d15c9143e331f7d0832a398fcdb1b14",
+      "bounded_use": "Provides section-keyed term, course level, pre-score, and post-score observations that underlie the article's standardized learning-gain figures and can be joined to classroom observations through unique.section.",
+      "format": "xlsx"
+    },
+    {
+      "title": "S2 File: COPUS observation data",
+      "publisher": "PLOS ONE",
+      "landing_page_uri": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0220900#sec025",
+      "direct_download_uri": "https://journals.plos.org/plosone/article/file?type=supplementary&id=info:doi/10.1371/journal.pone.0220900.s002",
+      "license_class": "Creative Commons Attribution License",
+      "sha256": "7434d94f8b2c670c7b2f944e7e95e5a2f5d70d3138794a0267fbf4fc543cdc6c",
+      "bounded_use": "Provides raw observations and the summarized classroom percentages used to classify teaching profiles and explain the point positions and group-work encodings in the article figures.",
+      "format": "xlsx"
+    },
+    {
+      "title": "Recommendations for the Conduct, Reporting, Editing, and Publication of Scholarly Work in Medical Journals",
+      "publisher": "International Committee of Medical Journal Editors",
+      "landing_page_uri": "https://www.icmje.org/recommendations/",
+      "direct_download_uri": "https://www.icmje.org/icmje-recommendations.pdf",
+      "license_class": "Educational not-for-profit reproduction permission",
+      "sha256": "a391991a912e8de08851b7254b5fcf88b3515d580cf76299ad59f85fb8087d90",
+      "bounded_use": "Supplies external authority for final approval of the version to be published, corresponding-author responsibility, correction/version archiving, citation to the latest version, uncertainty reporting, software-version disclosure, and persistent dataset identifiers.",
+      "format": "pdf"
+    },
+    {
+      "title": "Dataset for Physical Fitness Intervention Study in Higher Vocational College (400 Samples)",
+      "publisher": "Zenodo",
+      "landing_page_uri": "https://zenodo.org/records/18325293",
+      "direct_download_uri": "https://zenodo.org/api/records/18325293/files/Sports%20exam-CG%20vs.%20EG.xlsx/content",
+      "license_class": "Creative Commons Attribution 4.0 International",
+      "sha256": "c3463bd6ce15d7c86d79d4a03d1611e2564abef3d64c1b634980249324ae8c97",
+      "bounded_use": "Provides a concrete public-deposit object with cohort coding, explicit measurement units, a DOI-level record identity, a concept DOI, a dated release, a file-level UUID, and an inventory that can seed repository-version authority and stale-state checks.",
+      "format": "xlsx"
+    },
+    {
+      "title": "ManyClasses 1: Assessing the generalizable effect of immediate versus delayed feedback across many college classes",
+      "publisher": "PsyArXiv / Center for Open Science",
+      "landing_page_uri": "https://osf.io/preprints/psyarxiv/4mvyh",
+      "direct_download_uri": "https://osf.io/download/4mvyh/",
+      "license_class": "Creative Commons Attribution 4.0 International",
+      "sha256": "16d7ed11c134e589ec833f39fd614ddff4bd0311f0fd1d5404936a2df06fda78",
+      "bounded_use": "Supplies an accepted-manuscript state for an authentic 38-class, multi-institution education study, with class- and condition-level estimates, posterior intervals, moderator plots, cohort definitions, and a stable preprint DOI distinct from the later version-of-record DOI.",
+      "format": "pdf"
+    }
+  ]
+}

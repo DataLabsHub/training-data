@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "storageRoot": "input",
+  "note": "The task package stores solver-visible input files in input/. This manifest indexes those files without duplicating them.",
+  "files": [
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 2834,
+      "sha256": "999f4c6fbe8cb57f3afc0ed3d4604135f5bb73af53d877ec538c4e55f142c0e2",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "rocket_spec.csv",
+      "format": "CSV",
+      "path": "input/rocket_spec.csv",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 1192,
+      "sha256": "d04ad338f81de70557a8cf891f1acbe8bac4863081cef24e3aa6dc692ae8de6d",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

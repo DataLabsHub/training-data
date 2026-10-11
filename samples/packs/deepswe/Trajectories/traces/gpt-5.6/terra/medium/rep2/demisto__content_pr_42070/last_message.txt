@@ -1,0 +1,9 @@
+Implemented [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+It provides mixed IP/URL/domain/CVE/file handling, extraction from text, deduplication, validation/limits, grouped child enrichment execution, partial-failure handling, unified context output, raw-context control, and command error handling.
+
+Verified with:
+
+- Python compilation
+- Request/formatter smoke test
+- Batched enrichment/partial-failure smoke test

@@ -1,0 +1,30 @@
+The workbook is built and validated. `deliverables/rec_settlement_workpaper.xlsx` — 9 sheets, all cross-sheet ties reconciling.
+
+## Decision: approve **USD 16,920.00**, dispute **USD 1,080.00** by June 16, 2025 17:00 EDT
+
+**Lot dispositions** (1,000 contracted; 1,450 tendered because replacements were tendered alongside the originals they replace):
+
+| Lot | Disposition | Accepted | Basis |
+|---|---|---|---|
+| LOT-A | Accepted | 400 | Qualified, in custody |
+| LOT-B | **Rejected — ineligible** | 0 | Unit NON208580 RPS Effective Date 2024-04-01 postdates its 2024Q1 generation |
+| LOT-C | **Rejected — custody failed** | 0 | Reversed out of BSC-MA-4421 at 10:03:11 EDT (TX-771903) |
+| LOT-D | Accepted | 150 | Exception QX-38983 RELEASED 11:36:20, pre-cutoff |
+| REPL-B | Accepted | 250 | Timely cure, passed independent testing |
+| REPL-C | **Partial — 150 of 200** | 150 | 50 serials duplicate LOT-A |
+
+**Certificates:** 950 accepted + 40 cover + 10 residual = 1,000. **Dollars:** 16,920 + 1,080 = 18,000 invoiced.
+
+Four findings drove this:
+
+- **LOT-B fails on vintage, not custody.** The transfer completed fine, but the unit's effective date is the earliest date generation can produce Class I certificates — 2024Q1 generation precedes it. Custody cannot cure an eligibility defect.
+- **The registry CSV is stale and would have caused a $3,600 overpayment.** Its own metadata row sets the extract cutoff at 09:30 EDT — it shows LOT-C as COMPLETED because it physically cannot contain the 10:03:11 reversal. The live registry views govern.
+- **LOT-D's exception cleared legitimately.** I traced the full pre-cutoff history (REVIEW_HOLD → EVIDENCE_MATCHED → RELEASED) before admitting it, and treated clearance as an internal control — the unit's actual eligibility rests separately on its 2002 DOER effective date.
+- **Cover custody and damages are proven on separate tracks.** The 40 certificates settled into the buyer account at 11:18:06 EDT (custody, permits inventory posting); damages of $180 come from the executed blotter at $22.50. The $900 broker payment is a procurement disbursement, not a seller credit — it stays out of the payable.
+
+Two things I flagged rather than resolved silently:
+
+- **10 REC residual shortfall is open.** Cover reached only 40 of the 50 deficient RECs. Adjacent blotter fills existed at 22.53–22.61, but Amendment 1 §3 says unsupported quotes don't count as cover, so I did not assume the gap closed. Opening bank inventory is zero, so this can't be absorbed — it needs procurement or the alternative compliance path before July 1.
+- **GIS ID MSS424 maps to two DOER rows** — MA RPS 7031-24 ("Weldon", 100% output) and 1864-19 ("Great Lakes–Millinocket", 19.8% output qualification). The cover ticket and registry receipt both independently name 7031-24, and both rows' effective dates precede the generation, so eligibility holds either way. But if MSS424 holdings were instead attributable to 1864-19, the output cap could affect 800 of the 950 accepted RECs — that's action A10, to confirm in writing before filing.
+
+Filing readiness is preserved: 990 certificates map to sheet `5. RPS I non-SCO` column F, 450 errant to sheet `4. Errant`, with GIS administrator ownership documentation still to be obtained under 225 CMR 14.09(2)(c)1.

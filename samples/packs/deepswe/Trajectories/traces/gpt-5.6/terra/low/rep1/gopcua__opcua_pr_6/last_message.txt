@@ -1,0 +1,14 @@
+Implemented GetEndpoints support, including:
+
+- `LocalizedText` and `StringArray` datatypes with OPC UA-compatible masks/array encoding.
+- Endpoint discovery structures, constructors, decoders, serialization, and constants.
+- GetEndpoints request/response services and generic service dispatcher support.
+- Null `ByteString` certificate behavior via existing datatype conventions.
+
+Verified with:
+
+```sh
+GOPATH=/tmp/gopcua-check-final GO111MODULE=off go test github.com/wmnsk/gopcua/...
+```
+
+All packages pass.

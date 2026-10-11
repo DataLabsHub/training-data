@@ -1,0 +1,3 @@
+2026-08-30T08:13:32.134197Z ERROR codex_models_manager::manager: failed to refresh available models: exceeded retry limit, last status: 429 Too Many Requests, request id: a63e61ac-b804-423c-9514-a84578c727ea
+2026-08-30T08:13:32.199122Z ERROR codex_models_manager::manager: failed to refresh available models: exceeded retry limit, last status: 429 Too Many Requests, request id: 9b62fbc7-6eab-4074-9737-adae11e2da34
+2026-08-30T08:13:34.989827Z ERROR codex_models_manager::manager: failed to refresh available models: exceeded retry limit, last status: 429 Too Many Requests, request id: fc167aa3-f1c5-4352-a27c-678279101d58

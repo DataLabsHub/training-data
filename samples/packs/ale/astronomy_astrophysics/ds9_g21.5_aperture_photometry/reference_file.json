@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "note": "Indexes only ground-truth reference artifacts stored under reference/.",
+  "files": [
+    {
+      "name": "gold_values.json",
+      "format": "JSON",
+      "path": "reference/gold_values.json",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 596,
+      "sha256": "40ecafdc246a3ab7ef2a00810f91f079d418e9d54a39802d15438daac20c4269",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

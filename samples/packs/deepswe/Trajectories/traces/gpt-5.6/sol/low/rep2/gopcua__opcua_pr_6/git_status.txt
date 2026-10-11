@@ -1,0 +1,7 @@
+ M datatypes/string.go
+ M services/response-header.go
+ M services/service.go
+?? datatypes/localized-text.go
+?? services/endpoint-description.go
+?? services/get-endpoint-request.go
+?? services/get-endpoint-response.go

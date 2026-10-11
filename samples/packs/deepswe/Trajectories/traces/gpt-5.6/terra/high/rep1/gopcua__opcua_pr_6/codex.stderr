@@ -1,0 +1,7 @@
+2026-08-30T08:24:15.381843Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/datatypes/bytestring.go:
+	s.Length = int32(binary.LittleEndian.Uint32(b[:4]))
+	if s.Length <= 0 {
+		return nil
+	}
+	s.Value = b[4 : 4+int(s.Length)]
+2026-08-30T08:28:50.973722Z ERROR codex_core::tools::router: error=exec_command failed for `/bin/sh -lc '/usr/local/go/bin/gofmt -w services/endpoint-description.go && rm -rf /tmp/gopcua-final-gopath && mkdir -p /tmp/gopcua-final-gopath/src/github.com/wmnsk/gopcua && cp -a /testbed/. /tmp/gopcua-final-gopath/src/github.com/wmnsk/gopcua/ && GOPATH=/tmp/gopcua-final-gopath GO111MODULE=off /usr/local/go/bin/go test github.com/wmnsk/gopcua/... && git diff --check'`: CreateProcess { message: "Rejected(\"`/bin/sh -lc '/usr/local/go/bin/gofmt -w services/endpoint-description.go && rm -rf /tmp/gopcua-final-gopath && mkdir -p /tmp/gopcua-final-gopath/src/github.com/wmnsk/gopcua && cp -a /testbed/. /tmp/gopcua-final-gopath/src/github.com/wmnsk/gopcua/ && GOPATH=/tmp/gopcua-final-gopath GO111MODULE=off /usr/local/go/bin/go test github.com/wmnsk/gopcua/... && git diff --check'` rejected: rm -f style commands are not permitted. Use a safer approach\")" }

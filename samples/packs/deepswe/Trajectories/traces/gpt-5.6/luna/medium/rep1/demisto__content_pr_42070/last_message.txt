@@ -1,0 +1,15 @@
+Implemented `indicator-enrichment` in [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+Included:
+
+- IP, URL, Domain, CVE, and File classification
+- Text extraction and `indicator_list` support
+- Deduplication and 100-indicator limit
+- Invalid/unsupported reporting
+- Grouped child enrichment execution
+- Partial failure handling
+- Raw-context filtering
+- Unified Markdown and `IndicatorEnrichment` output
+- Required public classes, exceptions, and `main()`
+
+Validation completed with Python compilation and `git diff --check`.

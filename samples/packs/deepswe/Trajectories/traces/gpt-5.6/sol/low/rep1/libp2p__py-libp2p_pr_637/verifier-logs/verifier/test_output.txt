@@ -1,0 +1,48 @@
+.......F...............                                                  [100%]
+=================================== FAILURES ===================================
+__________________ test_error_state_allows_reset_for_cleanup ___________________
+  + Exception Group Traceback (most recent call last):
+  |   File "/testbed/.venv/lib/python3.11/site-packages/trio/_core/_run.py", line 1117, in __aexit__
+  |     raise combined_error_from_nursery
+  | ExceptionGroup: Exceptions from Trio nursery (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/testbed/.venv/lib/python3.11/site-packages/pytest_trio/plugin.py", line 195, in _fixture_manager
+    |     yield nursery_fixture
+    |   File "/testbed/.venv/lib/python3.11/site-packages/pytest_trio/plugin.py", line 250, in run
+    |     await self._func(**resolved_kwargs)
+    |   File "/testbed/tests/core/network/test_net_stream_error_state.py", line 135, in test_error_state_allows_reset_for_cleanup
+    |     await mock_stream.reset()
+    |   File "/testbed/libp2p/network/stream/net_stream.py", line 328, in reset
+    |     await self._remove()
+    |   File "/testbed/libp2p/network/stream/net_stream.py", line 340, in _remove
+    |     await self.muxed_conn.remove_stream(self)
+    | TypeError: object MagicMock can't be used in 'await' expression
+    +------------------------------------
+=========================== short test summary info ============================
+FAILED tests/core/network/test_net_stream_error_state.py::test_error_state_allows_reset_for_cleanup
+1 failed, 22 passed in 0.17s
+RESULT::tests/core/network/test_net_stream_state_transitions.py::test_state_transition_logging::PASSED
+RESULT::tests/core/network/test_net_stream_state_transitions.py::test_state_transition_validation::PASSED
+RESULT::tests/core/network/test_net_stream_state_transitions.py::test_state_transition_lifecycle::PASSED
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_read::PASSED
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_write::PASSED
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_close_read::PASSED
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_close_write::PASSED
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_allows_reset_for_cleanup::FAILED
+RESULT::tests/core/network/test_net_stream_error_state.py::test_read_error_triggers_error_state::PASSED
+RESULT::tests/core/network/test_net_stream_error_state.py::test_write_error_triggers_error_state::PASSED
+RESULT::tests/core/network/test_net_stream_error_state.py::test_is_operational_with_error_state::PASSED
+RESULT::tests/core/network/test_net_stream_error_state.py::test_is_operational_with_open_state::PASSED
+RESULT::tests/core/network/test_net_stream_error_state.py::test_error_state_lifecycle::PASSED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_concurrent_state_access::PASSED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_race_condition_prevention_in_read::PASSED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_race_condition_prevention_in_write::PASSED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_atomic_state_io_operations::PASSED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_lock_prevents_concurrent_state_modifications::PASSED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_concurrent_read_write_with_state_changes::PASSED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_lock_behavior_during_cancellation::PASSED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_multiple_readers_with_state_lock::PASSED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_state_lock_with_error_conditions::PASSED
+RESULT::tests/core/network/test_net_stream_concurrency.py::test_lock_performance_under_load::PASSED
+OMNIGRIL_EXIT_CODE=1

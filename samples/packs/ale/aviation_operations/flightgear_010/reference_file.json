@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "note": "Indexes only ground-truth reference artifacts stored under reference/.",
+  "files": [
+    {
+      "name": "gold_property_log.csv",
+      "format": "CSV",
+      "path": "reference/gold_property_log.csv",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 126093,
+      "sha256": "b7bc43698ccf12e85e6e0ddafcae1edfedf3d8a7de434835444b8f2def2fb04a",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

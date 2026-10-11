@@ -1,0 +1,67 @@
+<pre>Publication release memo
+CASE  CASE-EMC-2026-0147  •  Figure 3  •  GATE-0147
+REVIEW CUTOFF  2026-08-26T17:00:00+08:00
+TO  Centre director; Corresponding author (CA-STUDY); Production editor (PD-EDITOR)
+CC  Publication quality lead; Centre statistical analyst; Repository steward; Centre publication QA
+DECISION
+RELEASE_AFTER_CORRECTIONS
+CURRENT INSTRUCTION
+DO NOT RELEASE CURRENT PRF-02 OR DEP-V3
+Decision. The proof and staged deposit may be released only after the corrections and closeouts below. Neither current PRF-02 nor current DEP-V3 is authorized for release now. This is a publication-consistency decision, not a scientific-merit, interpretive, or causal assessment.
+Why immediate release is blocked
+Figure 3A: The proof reverses the R17 cohort labels/colour assignment and legend order. Its numeric marks, unit and interval label conform. CAP-3A is correct, but DEP-README-COLOR repeats the wrong panel mapping. DEP-3A-IMM values conform but need explicit verification because that row is not enumerated in the repository prerequisite.
+Figure 3B: The upper endpoint is 0.11 instead of approved R17 0.07: +0.04 axis units and +104 rendered pixels, exceeding ≤0.005 and ≤1 px. CAP-3B and RS-3B repeat 0.11; SUP-F3 still prints superseded run R16 although its linked hash is R17. DEP-3B itself is correct but unverified.
+Figure 3C: The proof shows n=24 instead of n=42. RR-017 explicitly excluded C, so the alteration also lacks component authority. CAP-3C and DEP-3C are correct; restore the accepted baseline.
+Figure 3D: All controlled display fields conform and the registered panel bounds are pixel-identical to the accepted baseline. Retain unchanged; complete the open mapped checks.
+Coupled gate: DEP-V3 is staged and exact-hash linked to R17, but its README is unsynchronized, row verification is open, and final proof/deposit reapproval is missing. SOP 4.2 blocks both components together.
+Required closeout
+ID
+Action
+Owner
+Due (+08:00)
+A1
+Complete corrected-proof visual registration for A–D; record pixel/axis checks and C/D baseline comparison.
+EMC-QA
+Aug 2709:00:00
+A2
+Confirm FIG3-EST-R17 = 0.02 [−0.01, 0.07] for B, run AR-2026-08-24-R17, and SHA-256 cd122e…01113; close T-B-EXPORT without rerun.
+EMC-STAT
+Aug 2709:30:00
+A3
+Correct A legend mapping/order and restore C annotation n=42; keep conforming geometry, unit and labels unchanged.
+PD-EDITOR
+Aug 2710:00:00
+A4
+Approve manuscript wording: retain CAP/RS for A/C/D; change CAP-3B and RS-3B to 0.07; change SUP-F3 printed run label to AR-2026-08-24-R17.
+CA-STUDY
+Aug 2710:30:00
+A5
+Regenerate B as 0.02 [−0.01, 0.07], rebuild the proof/figure, compute the full new hash, and link the corrected A/B replacement; certify C restored and D unchanged.
+PD-EDITOR
+Aug 2712:00:00
+A6
+Correct DEP-README-COLOR to the R17 mapping; verify DEP-3A-IMM and DEP-3B/3C/3D, File_Inventory run/hash, and keep DEP-V3 staged.
+REPO-STEW
+Aug 2712:00:00
+A7
+Approve the exact corrected proof-linked A/B hash after confirming scope; confirm C is restored baseline and D retained; close author approval on the version to publish.
+CA-STUDY
+Aug 2713:30:00
+A8
+Perform coupled re-review; require all findings/actions closed and matching proof/deposit state; record RELEASE_AFTER_CORRECTIONS and authorize both together only after closure.
+PQL
+Aug 2714:00:00
+Release condition and fallback
+PQL may execute the coupled disposition only when every register row is closed; A/B/C proof defects and linked text/README fields are corrected; R17 hash/run/rows are verified; C is restored and D retained; and the newly computed full hash of the corrected proof-linked A/B replacement is approved by CA-STUDY and PQL for the exact named scope. Proof and deposit must move together.
+Fallback. If closure is not complete at 2026-08-27 14:00 +08:00, PQL escalates to the centre director at 14:30 and keeps both components held. The production lock at 2026-08-28 18:00 +08:00 does not cure an open prerequisite or create release authority.
+Controlling evidence anchors
+Rules and gate: Workspace/01_Governance/publication_release_policy.pdf pp.2–6; Workspace/07_Release_Control/production_lock_schedule.md.
+Visual proof: Workspace/04_Proof/current_production_proof_PRF-02.pdf p.6, Figure 3A–D; Workspace/04_Proof/figure3_current_proof_extracted.png, registered bounds from Workspace/04_Proof/proof_component_inventory.json.
+Expected display: Workspace/03_Analysis/fig3_analysis_export_R17.xlsx Panel_Estimates!B2:M6 and Display_Map!A2:H9; Run_Manifest!A2:B11.
+Authority: Workspace/01_Governance/late_replacement_approval_log.pdf pp.1–4; Workspace/01_Governance/accepted_submission_manifest.xlsx Accepted_Set!A2:H5 and Version_History!A4:G6; accepted baseline at Workspace/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf p.11.
+Dependencies/deposit: Workspace/05_Dependencies/panel_content_dependency_map.xlsx Dependencies!A2:I12; Workspace/06_Deposit/deposit_v3_manifest.xlsx File_Inventory!A2:I2, Panel_Data!A2:H5, README_Entries!A2:E2 and Release_Prerequisites!A2:F5.
+Superseded context. R16/DEP-V2 remain historical only; no rollback exists. FIG3-LR3 arrived before cutoff but is orphaned, unapproved and not proof-linked, so it has no authority. Hash equality never expands panel scope.
+Sign-off
+Corresponding author / date
+Production editor / date
+PQL coupled authorization / date</pre>

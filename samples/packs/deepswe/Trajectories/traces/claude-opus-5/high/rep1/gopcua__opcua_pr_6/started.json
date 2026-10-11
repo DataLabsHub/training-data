@@ -1,0 +1,11 @@
+{
+  "index": 5,
+  "model": "claude-opus-5",
+  "prior_status": "prior_packaged10",
+  "reasoning_effort": "high",
+  "sample_language": "go",
+  "schema": "model-eval.opus5-online-started/v1",
+  "source_index": 5,
+  "started_unix": 1788010144.7318845,
+  "task_id": "gopcua__opcua_pr_6"
+}

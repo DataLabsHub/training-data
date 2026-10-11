@@ -1,0 +1,17 @@
+Implemented NetStream lifecycle state support.
+
+Changes include:
+
+- Added `StreamState.INIT` and `StreamState.ERROR`.
+- Added awaitable `state`, `set_state()`, and `is_operational()`.
+- Added `close_read()` and `close_write()`.
+- Added state validation for reads, writes, closes, and resets.
+- Converted unexpected read/write failures to `StreamError` and transition to `ERROR`.
+- Preserved existing EOF/reset/lifecycle exceptions.
+- Established `SwarmConn` streams now transition from `INIT` to `OPEN`.
+- Updated closed/readable/writable checks for `ERROR`.
+
+Validation:
+
+- Python compilation passed.
+- `pytest` could not run because it is not installed in the environment.

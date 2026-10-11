@@ -1,0 +1,301 @@
+{
+  "criteria": [
+    {
+      "description": "The required reconciliation register is present at its declared path and is a valid openable XLSX container.",
+      "dimension": "file_integrity",
+      "id": "R001",
+      "info_source": "data/input_files",
+      "info_source_detail": "Frozen causal owner DELIVERABLE:reconciliation_register; contract bases DELIVERABLE:reconciliation_register. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "program",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "deliverable_path": "deliverables/figure3_reconciliation_register.xlsx",
+        "operator": "xlsx_openable"
+      },
+      "type": "positive",
+      "weight": 2
+    },
+    {
+      "description": "The required publication release memo is present at its declared path and is a valid openable DOCX container.",
+      "dimension": "file_integrity",
+      "id": "R002",
+      "info_source": "data/input_files",
+      "info_source_detail": "Frozen causal owner DELIVERABLE:release_memo; contract bases DELIVERABLE:release_memo. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "program",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "deliverable_path": "deliverables/publication_release_memo.docx",
+        "operator": "docx_openable"
+      },
+      "type": "positive",
+      "weight": 2
+    },
+    {
+      "description": "The register records the one controlling, byte-verifiable lineage from the approved observation input through the finalized analysis export and later environment attestation, and connects it to the proof component, accepted authority records, and staged deposit projection.",
+      "dimension": "semantic_completeness",
+      "id": "R003",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/05_Dependencies/panel_content_dependency_map.xlsx；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx；data/input_files/07_Release_Control/production_lock_schedule.md",
+      "info_source_detail": "Frozen causal owner FACT053; contract bases FACT005, FACT010, FACT013, FACT014, FACT015, FACT040, FACT050, FACT051, FACT053, RULE003, RULE011, PRED001, PRED011. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "Register lineage or evidence rows that identify each source object, exact locator, run ID, digest, effective time, and relationship.",
+          "A register conclusion naming the controlling structured evidence without substituting R16, the public predecessor deposit, or the orphan attachment."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if the candidate identifies AR-2026-08-24-R17, the 5,112 included OBS-R17 rows, and FIG3-EST-R17 as controlling; shows OBS-R17 -> finalized FIG3-EST-R17 -> non-earlier environment attestation in that order; reconciles the stated input and output hashes, run IDs, approval flag and times, QC totals, proof/attachment identity, and DEP-V3 inventory; and supplies precise locators for every link. Every material identity, count, timestamp, and ordering assertion must be correct. Fail for any material instance of: Fail for any missing or incorrect lineage link, digest, run identity, approval state, QC total, timestamp ordering, proof/attachment identity, deposit projection, controlling-set conclusion, or required evidence locator."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The register applies the evidence cutoff and conditional stale-state rule to distinguish controlling evidence from eligible but nonauthoritative or superseded context.",
+      "dimension": "semantic_completeness",
+      "id": "R004",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/05_Dependencies/panel_content_dependency_map.xlsx；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx；data/input_files/07_Release_Control/production_lock_schedule.md",
+      "info_source_detail": "Frozen causal owner FACT052; contract bases FACT025, FACT038, FACT040, FACT042, FACT043, FACT052, FACT054, RULE001, RULE008, PRED012. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "Register version-authority or exceptions rows for the historical checklist, public predecessor deposit, stale supplement label, and orphan attachment, each with a precise locator and treatment."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if the candidate uses the 2026-08-26T17:00:00+08:00 cutoff and correctly treats CHK-0147-R16, DEP-V2, and the printed R16 SUP-F3 label as historical context; treats the 16:40 FIG3-LR3 arrival as time-eligible but noncontrolling because its request, approvals, and proof link are null; recognizes the current R17/LR2/V3 links; finds no eligible rollback or invalidation; and states the correct bounded treatment for all four records. Fail for any material instance of: Fail if any historical or orphan record is omitted, selected as controlling, excluded merely for age, given nonexistent authority, or described without the cutoff, current-successor, null-link, or rollback logic needed to justify its treatment."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The Panel A register record reconciles scoped authority, structured values, and the visible proof legend to one complete panel disposition.",
+      "dimension": "semantic_completeness",
+      "id": "R005",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/figure3_current_proof_extracted.png；data/input_files/04_Proof/figure3_registration_overlay.docx；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx",
+      "info_source_detail": "Frozen causal owner FACT030; contract bases FACT012, FACT016, FACT020, FACT024, FACT026, FACT030, RULE002, RULE004, RULE005, PRED002, PRED010. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A dedicated FIG3-A record in the register containing observed and expected fields, comparison result, authority, disposition, action, and visual plus structured locators.",
+          "The proof pixels or preserved visual evidence cited by that record must visibly support the cohort-swatch finding."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if the candidate records FIG3-LR2 as authorized and controlling for A; reports the visible teal-to-Non-incentivized and amber-to-Incentivized pairing against the expected teal-to-Incentivized and amber-to-Non-incentivized mapping; records that the two R17 estimates and intervals otherwise pass; classifies the exact colour mapping as a mandatory failure; assigns CORRECT_PROOF_LEGEND while retaining the authorized replacement after correction; and cites both the actual proof image at a visual locator and the structured/approval sources at precise locators. The business conclusion must be grounded in viewing the image; captions, OCR text, filenames, or visual polish alone do not pass. Fail for any material instance of: Fail for any material error or omission in A's controlling version, approval state, visible swatch pairing, expected mapping, numeric pass state, mandatory-dimension result, disposition, correction direction, or dual visual-and-structured evidence locators."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The Panel B register record reconciles scoped authority, the calibrated proof whisker, the R17 interval, and the documented tolerance to one complete disposition.",
+      "dimension": "semantic_completeness",
+      "id": "R006",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/figure3_current_proof_extracted.png；data/input_files/04_Proof/figure3_registration_overlay.docx；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx",
+      "info_source_detail": "Frozen causal owner FACT031; contract bases FACT012, FACT017, FACT021, FACT024, FACT027, FACT031, RULE002, RULE004, RULE005, PRED002, PRED010. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A dedicated FIG3-B register record with the observed and expected median and endpoints, variance, tolerance result, authority, disposition, action, and evidence locators.",
+          "The cited proof pixels or preserved visual evidence must allow the upper whisker to be measured against the displayed axis."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if the candidate records FIG3-LR2 as authorized and controlling for B; observes median 0.02, lower endpoint -0.01, and upper endpoint 0.11 from the calibrated proof image; compares them with the R17 values 0.02, -0.01, and 0.07; records the upper-endpoint variance as +0.04 and outside both the inclusive 0.005 and one-pixel limits while the other marks pass; assigns CORRECT_PROOF_AND_LINKED_TEXT with regeneration from R17; and cites precise visual, structured, policy, and approval locators. The conclusion must depend on the rendered whisker geometry rather than OCR, caption text, filenames, or aesthetics. Fail for any material instance of: Fail for any material error or omission in B's authority, observed or expected marks, +0.04 variance, tolerance result, disposition, regeneration direction, or required visual-and-structured locators."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The Panel C register record reconciles component-scoped authority, the accepted annotation, the R17 row, and the visible proof annotation to one complete disposition.",
+      "dimension": "semantic_completeness",
+      "id": "R007",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/figure3_current_proof_extracted.png；data/input_files/04_Proof/figure3_registration_overlay.docx；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx",
+      "info_source_detail": "Frozen causal owner FACT032; contract bases FACT006, FACT012, FACT018, FACT022, FACT024, FACT028, FACT032, RULE002, RULE004, RULE005, PRED002, PRED010. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A dedicated FIG3-C register record with observed n=24, expected n=42, comparison result, authority, disposition, action, and visual plus structured locators.",
+          "The cited image evidence must visibly show the current proof annotation used for the conclusion."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if the candidate records FIG3-ACC-v5, not the composite replacement, as controlling for C because C was never requested or approved; observes n=24 in the proof image and compares it with the accepted/R17 n=42 requirement; records that the estimate and interval pass but the exact annotation fails; assigns REVERT_TO_ACCEPTED_ANNOTATION; and cites precise proof-image, accepted-image or accepted-caption, structured, and approval locators. The mismatch must be established from the visible proof annotation, not rewarded from OCR, filenames, helper text, or presentation quality alone. Fail for any material instance of: Fail for any material error or omission in C's controlling authority, visible or expected annotation, quantitative pass state, exact-match result, revert disposition, or required visual-and-structured evidence locators."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The Panel D register record independently tests the unaffected control panel across authority, visible geometry, labels, unit, order, and marker state.",
+      "dimension": "semantic_completeness",
+      "id": "R008",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/figure3_current_proof_extracted.png；data/input_files/04_Proof/figure3_registration_overlay.docx；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx",
+      "info_source_detail": "Frozen causal owner FACT033; contract bases FACT012, FACT019, FACT023, FACT024, FACT029, FACT033, RULE002, RULE004, RULE005, PRED002, PRED010. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A dedicated FIG3-D register record listing every mandatory checked dimension, authority, disposition, no-change action, and visual plus structured locators.",
+          "The cited image evidence must visibly support the interval, order, labels, unit, and marker-state checks."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if the candidate records FIG3-ACC-v5 authority for D and verifies from the proof image and R17 fields that median 0.02, interval [-0.04, 0.08], standardized delta-z unit, Incentivized-then-Non-incentivized order, required labels, and absence of an exploratory marker all pass; assigns CLEAR and retain unchanged; and cites precise visual, structured, and authority locators. Clearance must rest on viewing the panel and checking every mandatory dimension, not on OCR, a filename, another panel's result, or visual polish. Fail for any material instance of: Fail for any material error or omission in D's controlling authority, expected or observed dimensions, all-pass conclusion, CLEAR disposition, no-change direction, or required visual-and-structured evidence locators."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The register propagates the four panel outcomes to the exact dependency endpoint set, assigning each endpoint either its required edit or an explicit no-change verification without inventing unmapped work.",
+      "dimension": "semantic_completeness",
+      "id": "R009",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/05_Dependencies/panel_content_dependency_map.xlsx；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx；data/input_files/07_Release_Control/production_lock_schedule.md",
+      "info_source_detail": "Frozen causal owner FACT044; contract bases FACT030, FACT031, FACT032, FACT033, FACT034, FACT035, FACT036, FACT037, FACT038, FACT039, FACT041, FACT044, RULE006, PRED003. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "Register downstream-impact rows covering the complete dependency item set with panel ID, endpoint ID, current locator, outcome, and exact edit or no-change action."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if the candidate conserves all eleven dependency rows, including both distinct CAP-3D and RS-3D IDs in the paired D row, and assigns exactly these endpoint outcomes: CAP-3A and RS-3A verify/no text change; DEP-README-COLOR correct to teal=Incentivized and amber=Non-incentivized; CAP-3B and RS-3B correct their upper endpoint to 0.07; SUP-F3 correct its printed run label to R17 while retaining the R17 link; DEP-3B verify/no change; CAP-3C and DEP-3C verify/no change; and CAP-3D, RS-3D, and DEP-3D verify/no change. Every item must carry its mapped locator, with no omission, duplicate, unsupported edit, or unmapped addition. This claim scores the endpoint allocation only, not the panel findings themselves. Fail for any material instance of: Fail if any mapped endpoint is missing, duplicated, given the wrong edit or no-change result, stripped from the paired D row, assigned an unsupported change, or lacks its precise dependency and current-content locators, or if an unmapped endpoint is added."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The candidate gives DEP-V3 one version-aware operational disposition based on its R17 identity, mapped metadata state, linked proof reapproval, and coupled gate prerequisites.",
+      "dimension": "semantic_completeness",
+      "id": "R010",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/05_Dependencies/panel_content_dependency_map.xlsx；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx；data/input_files/07_Release_Control/production_lock_schedule.md",
+      "info_source_detail": "Frozen causal owner FACT045; contract bases FACT012, FACT040, FACT041, FACT042, FACT044, FACT045, FACT050, FACT052, FACT053, RULE007, PRED003. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "A distinct DEP-V3 lifecycle/disposition record in the register with version, run and file identity, synchronized and unsynchronized elements, prerequisite states, disposition, and precise locators."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if the candidate identifies DEP-V3, not DEP-V2, as the staged R17 repository projection; records that its numeric rows and export identity match R17 but its colour-key entry, linked-proof reapproval, mapped verification, and coupled gate prerequisites remain unresolved; assigns HOLD_STAGED or an exact semantic equivalent; and states that it must not publish until the README is corrected, mapped rows are verified, the proof is reapproved, and the shared gate is released. Fail for any material instance of: Fail if the candidate substitutes DEP-V2, misstates V3's run or numeric synchronization, omits any open prerequisite, marks the staged deposit independently releasable, gives it the wrong operational disposition, or fails to identify the conditions for later release."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The register assigns every required edit, verification, approval, and final review to one accountable role and the correct pre-lock deadline.",
+      "dimension": "semantic_completeness",
+      "id": "R011",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/05_Dependencies/panel_content_dependency_map.xlsx；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx；data/input_files/07_Release_Control/production_lock_schedule.md",
+      "info_source_detail": "Frozen causal owner FACT047; contract bases FACT003, FACT044, FACT047, FACT048, RULE010, PRED003. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "Register action rows with one primary owner and due time per edit or verification, plus a memo summary that uses the same owner/deadline assignments."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if every action has exactly one primary owner and the allocation is complete and correct: PD-EDITOR owns A and C proof fixes by 2026-08-27T10:00:00+08:00 and B proof regeneration by 12:00; EMC-STAT owns B export confirmation by 09:30; CA-STUDY owns the CAP-3B, RS-3B, and SUP-F3 wording approvals by 10:30; REPO-STEW owns the README correction and mapped deposit verification by 12:00; and PQL owns coupled re-review by 14:00. No deadline may be later than the review or the 2026-08-28T18:00:00+08:00 production lock, and owners for all explicit no-change checks must follow the stated artifact-class routing. Fail for any material instance of: Fail for any missing action owner or due time, shared or vague primary ownership, wrong role, wrong timestamp or timezone, post-lock deadline, or owner/deadline inconsistency between register and memo."
+      },
+      "type": "positive",
+      "weight": 4
+    },
+    {
+      "description": "The register and memo reconcile all panel, downstream, deposit, and reapproval states to the route's single coupled proof-and-deposit decision.",
+      "dimension": "semantic_completeness",
+      "id": "R012",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/figure3_current_proof_extracted.png；data/input_files/04_Proof/figure3_registration_overlay.docx；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/05_Dependencies/panel_content_dependency_map.xlsx；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx；data/input_files/07_Release_Control/production_lock_schedule.md",
+      "info_source_detail": "Frozen causal owner FACT046; contract bases FACT024, FACT030, FACT031, FACT032, FACT033, FACT044, FACT045, FACT046, FACT047, FACT048, RULE009, CROUTE001, PRED006. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "An explicit overall decision field in the register and an explicit recommendation in the memo, each naming the current proof and linked staged deposit and explaining the blockers.",
+          "Consistent panel summary, deposit state, and release prerequisites across both candidate files."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if both deliverables state the exact business meaning of HOLD_CURRENT_PROOF_AND_LINKED_DEPOSIT as of the cutoff: PRF-02 and DEP-V3 cannot be released; A and B require the specified corrections, C requires restoration to the accepted annotation, D is clear, and the required actions plus final PQL re-review must complete before a later release. The proof and deposit must have one consistent coupled state, and the memo and register must agree on that state and its rationale. Fail for any material instance of: Fail if either deliverable recommends release or release-after-corrections at the cutoff, assigns divergent proof and deposit states, omits a blocking panel or reapproval condition, treats D as blocking, states a materially different terminal result, or contradicts the other deliverable."
+      },
+      "type": "positive",
+      "weight": 5
+    },
+    {
+      "description": "The release memo is a concise operational communication that identifies the review boundary, linked components, decision context, lock urgency, and intended business consumers without replacing the detailed register.",
+      "dimension": "semantic_completeness",
+      "id": "R013",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/07_Release_Control/production_lock_schedule.md",
+      "info_source_detail": "Frozen causal owner FACT048; contract bases FACT001, FACT002, FACT003, FACT048, CROUTE001. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "The candidate DOCX's opening context, decision summary, and next-actions section."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if the memo clearly states the 2026-08-26T17:00:00+08:00 as-of boundary, identifies PRF-02 and DEP-V3 as the linked components under the open quality-review gate, explains that the job is a publication-consistency decision triggered by the production alert, notes the 2026-08-28T18:00:00+08:00 lock, and gives the centre director, corresponding author, and production editor a concise decision summary and executable next steps while directing detailed evidence to the register. Fail for any material instance of: Fail if the memo lacks or materially misstates the as-of time, reviewed components, decision purpose, current gate context, production lock, intended operational audience, or concise next-step framing, even if isolated technical facts elsewhere are correct."
+      },
+      "type": "positive",
+      "weight": 3
+    },
+    {
+      "description": "Both deliverables preserve the authority boundary between centre release controls and public-source grounding and avoid unsupported scientific or causal conclusions.",
+      "dimension": "semantic_completeness",
+      "id": "R014",
+      "info_source": "data/input_files/00_Provenance/source_provenance.json；data/input_files/01_Governance/accepted_submission_manifest.xlsx；data/input_files/01_Governance/late_replacement_approval_log.pdf；data/input_files/01_Governance/publication_release_policy.pdf；data/input_files/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf；data/input_files/03_Analysis/analysis_environment_R17.json；data/input_files/03_Analysis/analysis_observations_R17.csv；data/input_files/03_Analysis/fig3_analysis_export_R17.xlsx；data/input_files/04_Proof/current_production_proof_PRF-02.pdf；data/input_files/04_Proof/figure3_current_proof_extracted.png；data/input_files/04_Proof/figure3_registration_overlay.docx；data/input_files/04_Proof/proof_component_inventory.json；data/input_files/05_Dependencies/panel_content_dependency_map.xlsx；data/input_files/06_Deposit/deposit_v3_manifest.xlsx；data/input_files/06_Deposit/deposit_version_history.csv；data/input_files/07_Release_Control/author_correction_tracker.xlsx；data/input_files/07_Release_Control/production_lock_schedule.md",
+      "info_source_detail": "Frozen causal owner FACT049; contract bases FACT024, FACT049, PRED008. This criterion has one independent failure mode and receives only 0 or 1.",
+      "method": "llm_judge",
+      "method_params": {
+        "allowed_scores": [
+          0,
+          1
+        ],
+        "candidate_evidence_requirements": [
+          "All substantive conclusions and source-attribution language in both candidate deliverables."
+        ],
+        "judge_prompt": "Pass only when the candidate completely satisfies: Pass only if the candidate limits its conclusions to version authority, figure-to-data consistency, downstream synchronization, and operational release control; treats the display tolerance and release precedence as centre rules; does not attribute the case-specific replacement, run, panel findings, or terminal decision to authentic public sources; and makes no claim about scientific merit, causal validity, misconduct, or the substantive educational effect. Fail for any material instance of: Fail for any unsupported scientific, causal, misconduct, or effect judgment, or any material misattribution of centre rules or case-specific facts to an authentic public source."
+      },
+      "type": "positive",
+      "weight": 3
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_version": "harbor_agent_first_v1",
+  "scoring": {
+    "criterion_scores": [
+      0,
+      1
+    ],
+    "final_range": [
+      0,
+      1
+    ],
+    "penalty_formula": "subtract abs(weight) only when a declared penalty is triggered",
+    "positive_formula": "sum(weight * pass) / sum(positive weights)"
+  },
+  "task_id": "academic/publication_figure_data_consistency"
+}

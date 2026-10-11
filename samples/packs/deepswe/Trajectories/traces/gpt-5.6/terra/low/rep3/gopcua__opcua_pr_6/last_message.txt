@@ -1,0 +1,17 @@
+Implemented GetEndpoints support and endpoint discovery wire models.
+
+Added:
+
+- `datatypes.LocalizedText` with mask-based encoding.
+- Signed `datatypes.StringArray` API, while retaining `StringTable` compatibility aliases.
+- Discovery structures, arrays, constants, constructors, encoders, and decoders.
+- `GetEndpointRequest` / `GetEndpointResponse` services and dispatcher IDs 428/431.
+- Response headers now use `StringArray`.
+
+Validated with:
+
+```sh
+GO111MODULE=off GOPATH=/tmp/gopath2 /usr/local/go/bin/go test github.com/wmnsk/gopcua/...
+```
+
+All existing package tests passed.

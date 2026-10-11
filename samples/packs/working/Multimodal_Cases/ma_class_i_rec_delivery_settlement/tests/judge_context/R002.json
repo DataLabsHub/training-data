@@ -1,0 +1,570 @@
+{
+  "claim": {
+    "binary_failure_condition": "The workpaper treats the amendment as unsigned or automatically effective, mismatches the control code, omits either party's execution or receipt evidence, gives the wrong execution timing, or lacks precise support.",
+    "binary_pass_condition": "The workpaper correctly records the amendment as fully executed before the cutoff, ties the matching control code to both parties' signatures and the received reverse, and provides precise evidence locators; every material element must be correct.",
+    "candidate_evidence_requirements": [
+      "A contract-authority or amendment-control record in the workbook showing execution status, effective timing, and precise locators.",
+      "A decision-summary statement consistent with that authenticated status."
+    ],
+    "causal_owner_id": "FACT005",
+    "claim_id": "R002",
+    "contract_basis_ids": [
+      "FACT005",
+      "RULE013",
+      "PRED012",
+      "CROUTE001"
+    ],
+    "description": "The workpaper concludes that the cure-and-cover amendment was fully executed before the evidence cutoff and cites the paired execution records precisely.",
+    "importance_weight": 4,
+    "independent_failure_mode": "The amendment's execution status is misauthenticated even if its printed clause text is transcribed correctly.",
+    "method": "llm_judge",
+    "program_check": null,
+    "required_media_node_ids": [
+      "MGN008",
+      "MGN009"
+    ],
+    "title": "Amendment execution is authenticated",
+    "visual_reasoning_requirement": "Compare the signature-page pixels with the reverse-side receipt pixels to establish matching document identity, bilateral execution, and pre-cutoff receipt. The signature page alone lacks receipt control and the receipt image alone lacks the two signatures, so neither image can establish full execution."
+  },
+  "contract_basis": {
+    "artifact_edges": [
+      {
+        "artifact_edge_id": "AEDGE034",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed executed signature page.",
+        "source_locator": null,
+        "source_node_id": "MGN008",
+        "target_locator": "page[5].image[0]",
+        "target_node_id": "CF007"
+      },
+      {
+        "artifact_edge_id": "AEDGE035",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed amendment receipt-control view.",
+        "source_locator": null,
+        "source_node_id": "MGN009",
+        "target_locator": "page[6].image[0]",
+        "target_node_id": "CF007"
+      }
+    ],
+    "as_of": "2025-06-09T12:00:00-04:00",
+    "causal_owner_id": "FACT005",
+    "claim_basis_ids": [
+      "FACT005",
+      "RULE013",
+      "PRED012",
+      "CROUTE001"
+    ],
+    "entities": [
+      {
+        "description": "Fictional Massachusetts competitive supplier buying Class I certificates.",
+        "entity_id": "ENT001",
+        "entity_type": "retail_electricity_supplier",
+        "natural_identity": [
+          "Bay State Competitive Supply LLC",
+          "buyer GIS account BSC-MA-4421"
+        ]
+      },
+      {
+        "description": "Fictional bilateral seller responsible for delivery and cure.",
+        "entity_id": "ENT002",
+        "entity_type": "certificate_seller",
+        "natural_identity": [
+          "GreenArc Certificate Markets LLC",
+          "seller code GAM-77"
+        ]
+      },
+      {
+        "description": "Executed confirmation and its cure-and-cover amendment.",
+        "entity_id": "ENT003",
+        "entity_type": "purchase_contract",
+        "natural_identity": [
+          "REC-2024-017",
+          "executed 2024-11-18"
+        ]
+      },
+      {
+        "description": "Timely 250-certificate replacement for LOT-B.",
+        "entity_id": "ENT009",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-B",
+          "MSS424-2024Q1-003001:003250"
+        ]
+      },
+      {
+        "description": "Official DOER hydroelectric unit effective January 1, 2024.",
+        "entity_id": "ENT011",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "MSS424",
+          "MA RPS 7031-24",
+          "Weldon"
+        ]
+      },
+      {
+        "description": "Official DOER landfill-gas unit effective April 1, 2024.",
+        "entity_id": "ENT012",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "NON208580",
+          "MA RPS 7032-24",
+          "COVENTRY CLEAN ENERGY 1-3"
+        ]
+      },
+      {
+        "description": "Buyer cover purchase for forty 2024 Class I certificates.",
+        "entity_id": "ENT014",
+        "entity_type": "cover_trade",
+        "natural_identity": [
+          "COVER-2025-0609-40",
+          "broker fill BRK-88402"
+        ]
+      },
+      {
+        "description": "Frozen public authority controlling eligibility and filing interfaces.",
+        "entity_id": "ENT016",
+        "entity_type": "authority_set",
+        "natural_identity": [
+          "225 CMR 14.00",
+          "DOER qualified units 12-2-24",
+          "2024 compliance workbook"
+        ]
+      }
+    ],
+    "file_nodes": [
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF007",
+        "description_text": "Amendment body states precedence, June 6 cure, substitute testing, buyer cover, and recoverable positive price differential; execution is pixel-only.",
+        "embedded_media_node_ids": [
+          "MGN008",
+          "MGN009"
+        ],
+        "expected_format": "pdf",
+        "graph_node_id": "GN003",
+        "stored_relative_path": "Contracts/Amendment 1 - Cure and Cover.pdf"
+      }
+    ],
+    "media_nodes": [
+      {
+        "artifact_purpose": "Wet-signature page for the cure-and-cover amendment.",
+        "comparison_group_ids": [
+          "amendment_execution_pair"
+        ],
+        "distinct_information": "Shows both party signatures, initials beside the cover-differential clause, and document control code AMD-REC-017-A1.",
+        "evidence_family": "executed_instrument",
+        "media_node_id": "MGN008",
+        "operation": "text_to_image",
+        "output_format": "jpg",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "scanned executed contract signature page",
+          "avoid": [
+            "watermark",
+            "template card",
+            "illegible code",
+            "answer summary"
+          ],
+          "color_palette": "grayscale with blue ink signatures",
+          "composition_framing": "full letter page square to frame",
+          "constraints": [
+            "Both signatures visible",
+            "Initials beside Section 3 cover differential",
+            "No monetary result"
+          ],
+          "exact_text": [
+            "AMD-REC-017-A1",
+            "Bay State Competitive Supply LLC",
+            "GreenArc Certificate Markets LLC",
+            "May 20, 2025"
+          ],
+          "lighting_mood": "neutral",
+          "primary_request": "Create a high-resolution grayscale scan of an executed amendment signature page with two distinct signatures and document code.",
+          "scene_backdrop": "flatbed scanned legal page",
+          "style_medium": "authentic office document scan",
+          "subject": "buyer and seller signature blocks for Amendment 1",
+          "use_case": "productivity-visual"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Legible code and date",
+          "Visibly different signatures",
+          "Natural scan imperfections"
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Mailroom receipt and execution-control reverse view.",
+        "comparison_group_ids": [
+          "amendment_execution_pair"
+        ],
+        "distinct_information": "Shows the matching document code and received stamp at 15:42 EDT, which the signature page alone cannot establish.",
+        "evidence_family": "executed_instrument",
+        "media_node_id": "MGN009",
+        "operation": "text_to_image",
+        "output_format": "jpg",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "scanned document control reverse page",
+          "avoid": [
+            "digital dashboard",
+            "settlement totals",
+            "decorative border"
+          ],
+          "color_palette": "off-white black and red stamp",
+          "composition_framing": "close full-page view with stamp at upper right",
+          "constraints": [
+            "Stamp and code clearly readable",
+            "No contract outcome",
+            "Different visual function from signature page"
+          ],
+          "exact_text": [
+            "AMD-REC-017-A1",
+            "RECEIVED MAY 20 2025 3:42 PM EDT",
+            "2 OF 2"
+          ],
+          "lighting_mood": "neutral",
+          "primary_request": "Create a realistic reverse-side document control scan with received stamp, matching amendment code, and two-page completeness tick.",
+          "scene_backdrop": "office records scan",
+          "style_medium": "authentic stamped paper scan",
+          "subject": "document receipt control for AMD-REC-017-A1",
+          "use_case": "productivity-visual"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Matching control code",
+          "Unambiguous received time",
+          "Natural stamp texture"
+        ],
+        "visibility": "embedded_only"
+      }
+    ],
+    "predicates": [
+      {
+        "applies_to_ids": [
+          "MGN008",
+          "MGN009",
+          "AEDGE034",
+          "AEDGE035",
+          "FACT005",
+          "RULE001",
+          "RULE013"
+        ],
+        "counterexample": "A signature page paired with a receipt scan for AMD-REC-018-A1 fails identity.",
+        "evaluation_mode": "grounded_agent",
+        "evidence_requirements": [
+          "Inspect both CF007 embedded images and surrounding text",
+          "Compare document codes and time"
+        ],
+        "kind": "multimodal_fidelity",
+        "origin_refs": [
+          "workspace_policy",
+          "ANCH014"
+        ],
+        "pass_condition": "MGN008 and MGN009 share amendment_execution_pair and AMD-REC-017-A1; MGN008 shows both signatures and initials, MGN009 shows received May 20 at 3:42 PM EDT and 2 of 2; AEDGE034-AEDGE035 embed both in CF007; text does not assert full execution.",
+        "predicate_id": "PRED012",
+        "severity": "blocking",
+        "statement": "Paired execution images uniquely establish that Amendment 1 became controlling before the cutoff."
+      }
+    ],
+    "required_media_node_ids": [
+      "MGN008",
+      "MGN009"
+    ],
+    "route_context": {
+      "business_goal": "Close the seller's 2024 Class I delivery without paying for unusable certificates and preserve a supportable compliance inventory.",
+      "contract_edge_ids": [
+        "CEDGE001",
+        "CEDGE002",
+        "CEDGE003",
+        "CEDGE004",
+        "CEDGE005",
+        "CEDGE006",
+        "CEDGE007",
+        "CEDGE008",
+        "CEDGE014",
+        "CEDGE015",
+        "CEDGE012",
+        "CEDGE013",
+        "CEDGE011"
+      ],
+      "contract_route_id": "CROUTE001",
+      "deliverable_class": "Auditable certificate-delivery settlement workbook with embedded procurement and accounting decision summary",
+      "difficulty_sources": [
+        "Temporal qualification and lifecycle precedence across different systems",
+        "Pixel-essential reversal and overlap evidence whose raw baselines and dimension-preserved annotations traverse two independently auditable PDF-to-DOCX chains",
+        "Ordered cure then cover logic",
+        "Cross-ledger quantity and money propagation",
+        "Visual trade-to-allocation-to-registry custody handoff that separates executed cover damages from buyer-held compliance inventory",
+        "As-of qualification-exception event precedence after exact unit authority matching and before downstream settlement propagation"
+      ],
+      "natural_request_context": "A settlement manager needs a single spreadsheet workpaper for the procurement director and controller after the final tender arrived on June 9.",
+      "required_graph_node_ids": [
+        "GN001",
+        "GN002",
+        "GN003",
+        "GN004",
+        "GN005",
+        "GN006",
+        "GN007",
+        "GN008",
+        "GN009",
+        "GN010",
+        "GN011",
+        "GN012"
+      ],
+      "required_rule_ids": [
+        "RULE001",
+        "RULE002",
+        "RULE003",
+        "RULE004",
+        "RULE005",
+        "RULE006",
+        "RULE007",
+        "RULE008",
+        "RULE009",
+        "RULE010",
+        "RULE011",
+        "RULE012",
+        "RULE013",
+        "RULE014",
+        "RULE015",
+        "RULE016",
+        "RULE017"
+      ],
+      "target_fact_ids": [
+        "FACT007",
+        "FACT022",
+        "FACT023",
+        "FACT027",
+        "FACT031",
+        "FACT032",
+        "FACT033",
+        "FACT042",
+        "FACT043"
+      ],
+      "terminal_decision": "After admitting the reversal and overlap only from the two raw-plus-marked cross-document evidence pairs, approve USD 16,920 net payable; post 950 seller RECs and 40 cover RECs separately; dispute 50 seller RECs, record a 10-REC residual shortfall, send dispute by June 16, and preserve July 1 filing readiness.",
+      "unique_resolution": "Exact source precedence, inclusive serial arithmetic, lifecycle event order, signed cure hierarchy, cover execution, paired raw/derived lineage admissibility, and conservation equations admit only the stated quantities, payable, and deadlines. The cover inventory component additionally requires an exact trade-to-allocation-to-final-registry-custody match by the cutoff; absent that final handoff, the cover posting is zero and the residual is fifty while the damage offset remains unchanged. The otherwise valid LOT-D unit must additionally have QX-38983-2025 in a final released state by noon; a pending, late, or mismatched release withholds its 150 certificates from the close and forces the stated downstream quantity, payable, inventory, and residual counterfactual."
+    },
+    "rules": [
+      {
+        "counterexample": "Using EPA's generic remedies to override the signed amendment fails.",
+        "input_fact_ids": [
+          "FACT004",
+          "FACT005",
+          "FACT013",
+          "FACT035",
+          "FACT036"
+        ],
+        "operator_family": "authority_precedence",
+        "output_fact_ids": [
+          "FACT017",
+          "FACT022"
+        ],
+        "resolution_order": "Regulation and DOER data; registry lifecycle; executed amendment; base confirmation; noncontrolling EPA guide.",
+        "rule_id": "RULE001",
+        "source_anchor_ids": [
+          "ANCH001",
+          "ANCH003",
+          "ANCH004",
+          "ANCH005",
+          "ANCH014"
+        ],
+        "statement": "Apply 225 CMR 14 and the DOER unit workbook for program eligibility, registry evidence for custody, the executed amendment over the confirmation for commercial remedy, and EPA only as noncontrolling guidance.",
+        "truth_conditions": [
+          "The amendment images prove full execution before the cutoff.",
+          "The source role and effective scope are preserved."
+        ]
+      },
+      {
+        "counterexample": "An unsigned amendment body does not change cover damages.",
+        "input_fact_ids": [
+          "FACT005"
+        ],
+        "operator_family": "execution_authentication",
+        "output_fact_ids": [
+          "FACT006",
+          "FACT030"
+        ],
+        "resolution_order": "Document code match, buyer signature, seller signature, then receipt timestamp.",
+        "rule_id": "RULE013",
+        "source_anchor_ids": [],
+        "statement": "Amendment terms control only when the signature-page and receipt-stamp images share document code AMD-REC-017-A1 and visibly show both parties executed before the cutoff.",
+        "truth_conditions": [
+          "Both images share the exact document code.",
+          "Receipt stamp is 2025-05-20 15:42 EDT."
+        ]
+      }
+    ],
+    "schema_version": "statechain-contract-basis/v1",
+    "state_facts": [
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT004",
+        "interpretation": "Issuance or transfer year cannot replace generation vintage.",
+        "materialization_obligation": "Contract and authority files must expose product, vintage, and custody requirements.",
+        "predicate": "product_definition",
+        "source_anchor_ids": [
+          "ANCH001",
+          "ANCH003",
+          "ANCH016"
+        ],
+        "status": "executed",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": "Massachusetts RPS Class I; generation vintage 2024; buyer-held in GIS"
+      },
+      {
+        "effective_from": "2025-05-20T15:42:00-04:00",
+        "effective_until": null,
+        "fact_id": "FACT005",
+        "interpretation": "The amendment controls only because the paired executed-image evidence agrees.",
+        "materialization_obligation": "Two embedded signature views must visibly establish matching document code, both signatures, and receipt time without a text transcript.",
+        "predicate": "amendment_fully_executed",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": true
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT006",
+        "interpretation": "Seller substitution must be elected and completed by this time.",
+        "materialization_obligation": "Amendment clause and exception correspondence must expose the deadline.",
+        "predicate": "seller_cure_deadline",
+        "source_anchor_ids": [],
+        "status": "executed",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": "2025-06-06T17:00:00-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT013",
+        "interpretation": "This currently listed unit cannot qualify its 2024Q1 generation.",
+        "materialization_obligation": "Exact DOER workbook row for NON208580 must remain available.",
+        "predicate": "rps_effective_date",
+        "source_anchor_ids": [
+          "ANCH004",
+          "ANCH005",
+          "ANCH006"
+        ],
+        "status": "official",
+        "subject_entity_ids": [
+          "ENT012"
+        ],
+        "value": "2024-04-01"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT017",
+        "interpretation": "REPL-B cures LOT-B in full.",
+        "materialization_obligation": "Cure record, DOER row, serial records, and custody evidence must jointly support all 250.",
+        "predicate": "valid_timely_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT009",
+          "ENT011",
+          "ENT001"
+        ],
+        "value": 250
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT022",
+        "interpretation": "Accepted seller delivery is unique and capped by contract quantity.",
+        "materialization_obligation": "No public source may state this as a prejoined answer; route evidence must derive 400+150+250+150.",
+        "predicate": "accepted_seller_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 950
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT030",
+        "interpretation": "Only covered deficiency, not residual shortfall, creates this offset at cutoff.",
+        "materialization_obligation": "Contract and trade evidence must support 40 times the USD 4.50 positive differential.",
+        "predicate": "cover_damage_offset_usd",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT014",
+          "ENT002"
+        ],
+        "value": 180.0
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT035",
+        "interpretation": "Rows are authoritative for listed effective dates, not future lifecycle events.",
+        "materialization_obligation": "Frozen workbook title and source index must preserve its update scope.",
+        "predicate": "qualified_unit_source_vintage",
+        "source_anchor_ids": [
+          "ANCH004",
+          "ANCH005"
+        ],
+        "status": "official",
+        "subject_entity_ids": [
+          "ENT016"
+        ],
+        "value": "updated 2024-12-02 through Q2 2024"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT036",
+        "interpretation": "The guide cannot invent the negotiated remedy order.",
+        "materialization_obligation": "Authority index must call the EPA guide noncontrolling for commercial terms.",
+        "predicate": "epa_guide_authority_role",
+        "source_anchor_ids": [
+          "ANCH012",
+          "ANCH013",
+          "ANCH014",
+          "ANCH015",
+          "ANCH016"
+        ],
+        "status": "bounded_authority",
+        "subject_entity_ids": [
+          "ENT016"
+        ],
+        "value": "noncontrolling structure and REC identity guidance"
+      }
+    ],
+    "visual_disclosure_plans": [],
+    "visual_reasoning_requirement": "Compare the signature-page pixels with the reverse-side receipt pixels to establish matching document identity, bilateral execution, and pre-cutoff receipt. The signature page alone lacks receipt control and the receipt image alone lacks the two signatures, so neither image can establish full execution."
+  },
+  "reference_claim_evidence": {
+    "citations": [
+      {
+        "locator": "Contract Cure Controls!A4:H5; Decision Summary!A20:H20",
+        "observation": "The paired control rows record AMD-REC-017-A1 bilateral signatures dated May 20, 2025 and the matching reverse received at 15:42 EDT, with precise PDF page and embedded-image locators.",
+        "path": "deliverables/rec_settlement_workpaper.xlsx"
+      }
+    ],
+    "claim_id": "R002",
+    "why_full_pass": "The two visual members are reconciled for document identity, both-party execution, receipt, and pre-cutoff timing, and the decision summary uses the same authenticated conclusion."
+  }
+}

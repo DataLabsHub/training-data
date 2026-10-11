@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0",
+  "storageRoot": "input",
+  "note": "The task package stores solver-visible input files in input/. This manifest indexes those files without duplicating them.",
+  "files": [
+    {
+      "name": "launch_args.txt",
+      "format": "TXT",
+      "path": "input/launch_args.txt",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 612,
+      "sha256": "cdf8b9838feda79709ab487725e6e232b6b3876c47303a42dfc34ebea4bac4f3",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "logging.xml",
+      "format": "XML",
+      "path": "input/logging.xml",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 3073,
+      "sha256": "a2a8bb50e5fbfffd28a72dd88905f33bb5f3133667e20346d857cebeee193544",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "metar.txt",
+      "format": "TXT",
+      "path": "input/metar.txt",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 104,
+      "sha256": "a8ea35a9c2291bf3771c543fe99cbccfc835e30f492bb424dd5f085e30373de0",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "procedure_brief.md",
+      "format": "MD",
+      "path": "input/procedure_brief.md",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 3547,
+      "sha256": "b8d333f82a2a31aea85b145dc51522a218f4e80d4e460ede2e95c3b46916fa0d",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

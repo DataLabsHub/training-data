@@ -1,0 +1,24 @@
+{
+  "schema_version": "1",
+  "task_id": "task_001",
+  "instruction": "Using drawing.pdf on the Desktop and ref.jpg as visual references, reconstruct the support bracket in FreeCAD and prepare a printable, single-page review drawing. Include an isometric view and the principal orthographic views of the reconstructed part on the page, then save the PDF as /home/user/Documents/FreeCAD/support_bracket_review.pdf. The PDF is the only deliverable; do not save support_bracket.step or support_bracket.FCStd.",
+  "instruction_requirements": [
+    "single_page_bracket_review_drawing",
+    "cad_interchange_artifacts_omitted"
+  ],
+  "evaluator_checks": [
+    {
+      "covers": [
+        "single_page_bracket_review_drawing",
+        "cad_interchange_artifacts_omitted"
+      ],
+      "description": "The requested review sheet is a substantive, complete, unencrypted one-page PDF and no source-format CAD submission files were saved.",
+      "helper_name": "check_bracket_review_sheet",
+      "helper_source": "import re\n\ndef check_bracket_review_sheet(env):\n    pdf = env.controller.get_file('/home/user/Documents/FreeCAD/support_bracket_review.pdf')\n    step = env.controller.get_file('/home/user/Documents/FreeCAD/support_bracket.step')\n    native = env.controller.get_file('/home/user/Documents/FreeCAD/support_bracket.FCStd')\n    valid_pdf = isinstance(pdf, (bytes, bytearray)) and len(pdf) >= 1000 and pdf.startswith(b'%PDF-') and pdf.rstrip().endswith(b'%%EOF')\n    pages = re.findall(rb'/Type\\s*/Page\\b', pdf) if valid_pdf else []\n    return float(valid_pdf and len(pages) == 1 and b'/Encrypt' not in pdf and step is None and native is None)\n",
+      "kind": "python",
+      "name": "bracket_review_sheet",
+      "weight": 1.0
+    }
+  ],
+  "pass_threshold": 1.0
+}

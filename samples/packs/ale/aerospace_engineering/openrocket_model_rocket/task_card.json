@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0",
+  "taskId": "aerospace_engineering/openrocket_model_rocket",
+  "title": "Recreate the OpenRocket simple model rocket example and run the C6-5 simulation",
+  "humanHandlingTimeHours": 8.0,
+  "summary": "You are working on an ALE desktop benchmark task. ## Your Task Recreate the official OpenRocket example `A simple model rocket` from the bundled local specification, keep the default `C6-5` flight configuration, run the default `Simulation 4`, and export the native design plus the key flight metrics. ## Input Files - `input/rocket_spec.csv` - official example geometry, component, and simulation contract distilled from OpenRocket's public `A simple model rocket` example. - `input/output_contract.",
+  "value": "Real professional GUI workflow with domain-specific native artifacts and externally grounded evaluation.",
+  "domain": "aerospace_engineering",
+  "subdomain": "aerospace_engineering",
+  "software": [
+    "OpenRocket"
+  ],
+  "vm": {
+    "os": "Windows 11 x64 workstation",
+    "timeoutSeconds": 7200,
+    "notes": "Use the benchmark VM image configured with the listed professional software."
+  },
+  "requiredSystemPackages": [
+    "OpenRocket 24.12",
+    "Windows 11"
+  ],
+  "taskPrompt": "You are working on an ALE desktop benchmark task.\n\n## Your Task\nRecreate the official OpenRocket example `A simple model rocket` from the bundled local specification, keep the default `C6-5` flight configuration, run the default `Simulation 4`, and export the native design plus the key flight metrics.\n\n## Input Files\n- `input/rocket_spec.csv` - official example geometry, component, and simulation contract distilled from OpenRocket's public `A simple model rocket` example.\n- `input/output_contract.json` - required output filenames and `results.json` fields.\n\n## Software\n- Use OpenRocket.\n- Complete the task through the application's GUI or native workflow unless the visible task inputs explicitly allow a helper command for packaging or export.\n\n## What You Must Do\n1. Open OpenRocket 24.12 on Windows 11 x64 and start a new design.\n2. Recreate the official `A simple model rocket` using `input/rocket_spec.csv`, including the nose cone, body tube, parachute, shock cord, wadding, launch lug, fin set, centering rings, inner tube, and engine block.\n3. Use the built-in Estes motor database and set the required motor configuration to `C6-5`.\n4. Set the launch and atmosphere conditions from `input/rocket_spec.csv`, including a 1.0 m launch rod, `launch_into_wind = true`, average wind speed `2.0 m/s`, turbulence `0.1`, and ISA atmosphere.\n5. Run the required simulation corresponding to the default `Simulation 4` / `C6-5` configuration.\n6. From the OpenRocket Plot/Export dialog for that simulation, export the time-series flight data as CSV. The export must include at least the following columns: Time, Altitude, Vertical velocity, Vertical acceleration. This file is `output/simulation_data.csv`.\n7. Save the native OpenRocket design (`output/rocket_design.ork`) AFTER running the required simulation, so that the saved file embeds the full `<flightdata>`/`<databranch>` time-series for `Simulation 4` (this is automatic when you save after running).\n8. Export all remaining required deliverables under `output/`.\n\n## Output Requirements\n- `output/rocket_design.ork`\n- `output/results.json`\n- `output/rocket_design_view.png`\n- `output/simulation_plot.png`\n- `output/simulation_data.csv`\n\nRequired `output/results.json` schema:\n```json\n{\n  \"simulation_name\": \"Simulation 4\",\n  \"motor_designation\": \"C6-5\",\n  \"apogee_m\": \"<float>\",\n  \"max_velocity_m_s\": \"<float>\",\n  \"max_acceleration_m_s2\": \"<float>\",\n  \"time_to_apogee_s\": \"<float>\",\n  \"flight_time_s\": \"<float>\",\n  \"launchrod_velocity_m_s\": \"<float>\",\n  \"deployment_velocity_m_s\": \"<float>\"\n}\n```\n\n## Constraints\n- Do not modify files under `input/`.\n- Write final deliverables only under `output/`.\n- Use exact filenames and schemas requested above or in the visible input contract.\n- Ensure native project/session/model files, exported data, screenshots, logs, and JSON summaries all come from the same completed workflow.\n\n## Failure Exit\nIf the VM software environment makes the task genuinely infeasible after a reasonable expert attempt, write `output/infeasible.md` with the specific blocker, software state, and attempted workflow. Do not submit fabricated or placeholder deliverables. This exit is only for genuine blockers; otherwise produce every required artifact exactly as specified.\n",
+  "agentMustDo": [
+    "Use the solver-visible input files under input/.",
+    "Complete the task through the specified professional GUI or native workflow.",
+    "Produce every required artifact under output/ with the exact requested filenames.",
+    "Ensure native project files, exported data, screenshots, and summaries are mutually consistent.",
+    "Use output/infeasible.md only for genuine VM/software blockers."
+  ],
+  "inputFiles": [
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 2834,
+      "sha256": "999f4c6fbe8cb57f3afc0ed3d4604135f5bb73af53d877ec538c4e55f142c0e2",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "rocket_spec.csv",
+      "format": "CSV",
+      "path": "input/rocket_spec.csv",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 1192,
+      "sha256": "d04ad338f81de70557a8cf891f1acbe8bac4863081cef24e3aa6dc692ae8de6d",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ],
+  "taxonomy": {
+    "domain_code": "aerospace_engineering",
+    "subdomain_code": "openrocket_model_rocket"
+  },
+  "evaluation": "The evaluator is implemented in main.py. It checks required deliverables (output/results.json, output/rocket_design.ork, output/rocket_design_view.png, output/simulation_data.csv, output/simulation_plot.png), validates parseable native/project artifacts where required, cross-checks structured outputs against reference artifacts under reference/, and applies GUI or native-workflow evidence checks for tasks whose solution requires professional desktop software.",
+  "referenceFiles": [
+    {
+      "name": "gold_values.json",
+      "format": "JSON",
+      "path": "reference/gold_values.json",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 820,
+      "sha256": "b6e5998150a074631b84eb931cbe72731247485472c59367c4564f5d25849e6e",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "openrocket_open_example.png",
+      "format": "PNG",
+      "path": "reference/openrocket_open_example.png",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 363726,
+      "sha256": "0f372d15f844f9a2a3e5d00ef763724434c2c6caf0471c3c061ee0d0c78b5bad",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "rocket_design.ork",
+      "format": "native ORK archive/project",
+      "path": "reference/rocket_design.ork",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 198735,
+      "sha256": "53369c1707ca2f7959c0a2df2ef5af5d508806c7d0d3010026843905de18f4ae",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+280 passed against the final code. Implementation is complete.
+
+## Summary
+
+Added a structured `StreamState` lifecycle to `NetStream` in `libp2p/network/stream/net_stream.py:35`.
+
+**States** — `StreamState` now has exactly `INIT`, `OPEN`, `CLOSE_READ`, `CLOSE_WRITE`, `CLOSE_BOTH`, `RESET`, `ERROR`. New streams start in `INIT`; `SwarmConn._add_stream` moves them to `OPEN` once established (`libp2p/network/connection/swarm_connection.py:149`).
+
+**Constructor** — `__init__(muxed_stream, swarm_conn=None)` replaces the old `nursery` parameter, accepting both positional and keyword form. Cleanup now prefers the `swarm_conn` back-reference and falls back to the `muxed_conn` hook, so notification ordering is deterministic instead of fire-and-forget via a nursery.
+
+**State API** — `state` stays an awaitable property; added awaitable `set_state(state)` and `is_operational()` (true for `INIT`/`OPEN`/`CLOSE_READ`/`CLOSE_WRITE`, false for the three terminal states).
+
+**Validation and error conversion** — `read`, `write`, `close_read`, and `close_write` check state under `_state_lock` before touching the muxed stream and raise `StreamError` with the specified message substrings when in `ERROR`. Unexpected muxer exceptions become `StreamError("Read/Write operation failed: …")` and leave the stream in `ERROR`; `MuxedStreamEOF`/`MuxedStreamReset`/`MuxedStreamClosed` and QUIC equivalents keep their prior `StreamEOF`/`StreamReset`/`StreamClosed` behavior. `reset()` is allowed from `ERROR` and always lands in `RESET`.
+
+**Concurrency** — every state read, write, and state-dependent I/O check happens inside `_state_lock`. The half-close transitions were refactored into `_on_read_closed`/`_on_write_closed`/`_on_reset`, which compute a `needs_cleanup` flag under the lock and call `_remove()` outside it — the previous code awaited `_remove()` while holding `_state_lock`, which meant notification callbacks ran with the lock held.
+
+Two judgment calls worth flagging:
+- `close()` is a no-op from `ERROR` rather than raising. It's the generic `Closer` entry point invoked from `finally:` blocks across kad_dht, rendezvous, and pubsub; raising there would mask original errors during cleanup. The spec lists only `read`/`write`/`close_read`/`close_write` as raising from `ERROR`, so this stays within it — `close_write()` is the raising half-close variant.
+- `reset()` propagates a muxer failure when the stream was healthy (marking state `RESET` first so the caller's view stays consistent), but swallows it when already in `ERROR`, since cleanup of a broken stream must always succeed.
+
+**Tests** — 32 new tests in `tests/core/network/test_net_stream_state.py` covering initial state, all `is_operational()` cases, both half-close orderings, `ERROR`-state rejection (asserting the muxed stream was never touched), error conversion, expected-exception preservation, reset-from-error, concurrent state flipping, and cancellation safety.
+
+Test results: 280 passed across network/stream_muxer/host/pubsub/protocol_muxer against the final code, and 810 passed on the full `tests/core` suite. The one failure, `tests/core/transport/test_websocket.py::test_sni_resolution_limitation`, is pre-existing — I confirmed it fails identically on a stashed tree.

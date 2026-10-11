@@ -1,0 +1,12 @@
+Implemented NetStream lifecycle state support.
+
+Changes include:
+
+- Added all seven `StreamState` values, awaitable `state`, `set_state()`, and `is_operational()`.
+- Added synchronized half-close, reset, error, and I/O validation behavior.
+- Converted unexpected read/write failures to `StreamError` and `ERROR`.
+- Added `close_read()` / `close_write()`.
+- Updated `SwarmConn` to establish streams as `OPEN`.
+- Added focused lifecycle and cancellation tests.
+
+Validation: `45 passed` in `tests/core/network`.

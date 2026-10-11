@@ -1,0 +1,2939 @@
+{
+  "files": [
+    {
+      "bytes": 17822,
+      "path": "MANIFEST.json",
+      "sha256": "d49a76f211fe4ace98b63ece273fcc718b0d3038310f8af177b1850329335120"
+    },
+    {
+      "bytes": 206,
+      "path": "README.md",
+      "sha256": "d09c5acf20fc18e287c2aab7ce589c28f5834cd106d5af61a64eafd62ea60ced"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/environment/Dockerfile",
+      "sha256": "7c2ff3061db55ccb0f356a74feccedf4e1869aa19888ced3d38b76dc03ef02cd"
+    },
+    {
+      "bytes": 3224,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/instruction.md",
+      "sha256": "ec1f67c99907e1ec567eb2e371f5bd0572517e16a9ab7c2bb5f2deca674822a1"
+    },
+    {
+      "bytes": 32168,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/solution/code.patch",
+      "sha256": "6ed952ac6458641601d2e9187f36fd5694139e3752f4f272e9fd608d8e7d1fb6"
+    },
+    {
+      "bytes": 101,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/solution/solve.sh",
+      "sha256": "a8f55786e96ac605845c901c0cc15b3169f8f0ebd799bd94cea34a48f9dc8a55"
+    },
+    {
+      "bytes": 1111,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/task.toml",
+      "sha256": "455f7b3169bc2580a534bde264fef58b253ac704e494a69f97bdf91504ef78d1"
+    },
+    {
+      "bytes": 862,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/_compute_reward.py",
+      "sha256": "9d5189eb43db5404ef133a1f0380acf7ab3549218ec14e5297b7d23a1b0dbc5e"
+    },
+    {
+      "bytes": 861,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/f2p_coverage.json",
+      "sha256": "4758d45fc5a0c34797ee80804e87ab6179c0f9a978f9f7504a47f0a5edf5137d"
+    },
+    {
+      "bytes": 470,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/fail_to_pass.txt",
+      "sha256": "611028f99e859cbbf270935c06d4584f4a8bd9ca4c4b537cb02288cc18dc06b0"
+    },
+    {
+      "bytes": 66,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/pass_to_pass.txt",
+      "sha256": "aad9781f8c8c2f557454116950f3738b441f89adb46616418d5a934b512b74ee"
+    },
+    {
+      "bytes": 535,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/test.sh",
+      "sha256": "9c9ce412e6ca58dbbfb75feefb7bc15aa7b03db214ee4fed16ef906089777d82"
+    },
+    {
+      "bytes": 461,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/test_files/tests/unit/diloco_cpu_p2p_test.py",
+      "sha256": "f80898564b1b1283212e55679a3fc095756b1d6acb9c76b6ae389bc95fe58f97"
+    },
+    {
+      "bytes": 2002,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/test_files/tests/unit/diloco_cpu_test.py",
+      "sha256": "7ea1deb74f8de2e22699f6de0c874209b81422801882ca6e68a865db9a21407b"
+    },
+    {
+      "bytes": 10910,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/test_files/tests/unit/diloco_test.py",
+      "sha256": "d7fe2d45cd5bf0525240684b49e010328e920bc129a1e132670a3a4fc86651aa"
+    },
+    {
+      "bytes": 90,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/test_files_manifest.txt",
+      "sha256": "4ec59d6ec5b0d89c96de4a51bcb93ef42e06bea143ab4217e3aa90a7152d3b8a"
+    },
+    {
+      "bytes": 1713,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/test_run.sh",
+      "sha256": "c1c2659b7d8aa00477e2e328f089f42224279e69ba136f2990121dae8d361d9a"
+    },
+    {
+      "bytes": 536,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/dataset/tests/test_targets.txt",
+      "sha256": "d8a0bdc9ee731f5aeabfcb314ce72f90ec746f5a88f4c42e1c06012e212d0bcd"
+    },
+    {
+      "bytes": 3239,
+      "path": "tasks/AI-Hypercomputer__maxtext_pr_2920/prompt.md",
+      "sha256": "0da10747f2c88d3e9656a576f99811f0cc9f769bc37a362624016eaf7889a64f"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/environment/Dockerfile",
+      "sha256": "d93aa721042f37c4b406af01910aeea68cf9a41508eea6dcd080bb69e961ffa5"
+    },
+    {
+      "bytes": 2717,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/instruction.md",
+      "sha256": "4ca01e30b610a5586bc8f84040e3f5522e9750df44f6cd484853867e2a55a7b0"
+    },
+    {
+      "bytes": 54371,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/solution/code.patch",
+      "sha256": "7cb9273dbf288d4227a0e6fc8d80b68ad2340b486c33e8c80c617f7362ee8e58"
+    },
+    {
+      "bytes": 228,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/solution/solve.sh",
+      "sha256": "cec9a50e08672f112355927dfe821fdbc93d1180a848395284a2b821c60dab10"
+    },
+    {
+      "bytes": 1151,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/task.toml",
+      "sha256": "56a7047b6d1b3dc5a8cbb2593e50d3259027409bce16d64f1c9bf7a66d1becf6"
+    },
+    {
+      "bytes": 777,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/_compute_reward.py",
+      "sha256": "b696f60c41954228e78d00d1a78c56f3dace9df2d68229ce8956e26adb7f7181"
+    },
+    {
+      "bytes": 1559,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/f2p_coverage.json",
+      "sha256": "fd32a3fec454679108249fc029bb71c9201a7b336a03671249892c8e0df3ce5e"
+    },
+    {
+      "bytes": 996,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/fail_to_pass.txt",
+      "sha256": "48fadc33941a3024ba00e916cda1ed31906b4fce2324d5d88122777013e9b3c3"
+    },
+    {
+      "bytes": 274,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/pass_to_pass.txt",
+      "sha256": "4b489bf4039dfded9b2f74124491de18274af96cf38c253e207ca08ffff458bb"
+    },
+    {
+      "bytes": 522,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/test.sh",
+      "sha256": "8541f08f885424903594a22d977c45eae0ab26f56d7ae39685e140656d91e590"
+    },
+    {
+      "bytes": 869,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/test_files/tests/additional_speech.py",
+      "sha256": "469bb139cdc9ffcf7fb5d89f62eaa88043f71ddcd390ccbbd54127964719bfa2"
+    },
+    {
+      "bytes": 29112,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/test_files/tests/conftest.py",
+      "sha256": "04c6a17e2790883c39ef8915e621642d82c7a33863177047553f1e552d35e7ff"
+    },
+    {
+      "bytes": 16176,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/test_files/tests/e2e.py",
+      "sha256": "0e697b53cce03a425b903e5f82c445b92e6f13054fd27c92600135c53a25121a"
+    },
+    {
+      "bytes": 8953,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/test_files/tests/mocks.py",
+      "sha256": "ceadcee988cf92cd24f56471a93d2abded5073f2b7a9cb6e96af5e5c0820071c"
+    },
+    {
+      "bytes": 29066,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/test_files/tests/test_app.py",
+      "sha256": "6e508870e19702ec768277207393b3698e4835045f6d5bab593477c479983dc6"
+    },
+    {
+      "bytes": 91,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/test_files_manifest.txt",
+      "sha256": "188aea7bc7cb3294f0126270e73a438f86c6791a6aa3bca4f34fdce43f7b2f90"
+    },
+    {
+      "bytes": 1565,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/test_run.sh",
+      "sha256": "e067616c7b9c06bfac1828b39764e736b88ab5ad44a57050e880a13928c53b95"
+    },
+    {
+      "bytes": 1270,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/dataset/tests/test_targets.txt",
+      "sha256": "a18cabff022218c2a6ac6e3368c3459942a8cea7f95bb42b087922a88393afc5"
+    },
+    {
+      "bytes": 2732,
+      "path": "tasks/Azure-Samples__azure-search-openai-demo_pr_113/prompt.md",
+      "sha256": "4781479d8a950f1c65fb6bec2ae3db27837ef4884f6e646a8c92b3105fad53a9"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/environment/Dockerfile",
+      "sha256": "2a1a5e6475aa36e5876a662d6fde0ff9fdbcb85df59cfc418eb6d1004e964745"
+    },
+    {
+      "bytes": 6227,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/instruction.md",
+      "sha256": "a35f816d041579419c6a77242041c6d6edfe52c825e004e4b5ba967498c8168d"
+    },
+    {
+      "bytes": 85638,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/solution/code.patch",
+      "sha256": "0037a3afc7cdd4872da0eaf3326872c4a633df7c3ff98443af98006e35e74644"
+    },
+    {
+      "bytes": 217,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/solution/solve.sh",
+      "sha256": "1ddf3a00019b33b719f8531ee65266243ec41eba80566500d058855881a67bf5"
+    },
+    {
+      "bytes": 1119,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/task.toml",
+      "sha256": "bd9936ba0058c4b13bbbebb2b2c6b1a013bf83b7a97632339472026f1324532c"
+    },
+    {
+      "bytes": 1119,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/_compute_reward.py",
+      "sha256": "9ef89ec9bd7dd81d22b1761ab31df6b180e265ff259e17b62a9da74327e4ef7a"
+    },
+    {
+      "bytes": 9428,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/f2p_coverage.json",
+      "sha256": "7c665f0f94f78a78e35be8e4fa654e3ddf3e28af02a4f6a8d713aad85f16ff57"
+    },
+    {
+      "bytes": 6622,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/fail_to_pass.txt",
+      "sha256": "1ad2c2b93d894de38924b9c64fdb25f999f1da6df207c921e2184cfd20ec2462"
+    },
+    {
+      "bytes": 177,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/pass_to_pass.txt",
+      "sha256": "590bf7b235197f8f2af73cc6d777a577581ff8c63cbd125c6f5703d693fabfd1"
+    },
+    {
+      "bytes": 758,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test.sh",
+      "sha256": "7c295cd5323c99bedb15b997f21bf500a94ed7051a67889061fd4549b59909f4"
+    },
+    {
+      "bytes": 30467,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test_files/sdk/evaluation/azure-ai-evaluation/tests/e2etests/test_mass_evaluate.py",
+      "sha256": "b0d536dc9a00f78c1a6016c2726a83a151798998eab6c9982318e42cc514b686"
+    },
+    {
+      "bytes": 5790,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test_files/sdk/evaluation/azure-ai-evaluation/tests/unittests/test_built_in_evaluator.py",
+      "sha256": "b0491f9c4de227057e4d8c826d690ce648d3322cebb605a9cce1ad3ac8b71132"
+    },
+    {
+      "bytes": 24402,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test_files/sdk/evaluation/azure-ai-evaluation/tests/unittests/test_eval_run.py",
+      "sha256": "9b3d1613f471c1619002d9de0044c458d552a987234447c5b3c9ea69e7d54d60"
+    },
+    {
+      "bytes": 7199,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test_files/sdk/evaluation/azure-ai-evaluation/tests/unittests/test_evaluators/test_conversation_thresholds.py",
+      "sha256": "17ae00b300eac07d205f3cbe6dca39afed0115a438bf9b8b217956145313a61e"
+    },
+    {
+      "bytes": 9474,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test_files/sdk/evaluation/azure-ai-evaluation/tests/unittests/test_evaluators/test_service_evaluator_thresholds.py",
+      "sha256": "cc59fd9329393d9348b1fc29f4cedb8ec094efb498b585b2cfebd695ff4256d4"
+    },
+    {
+      "bytes": 10234,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test_files/sdk/evaluation/azure-ai-evaluation/tests/unittests/test_evaluators/test_threshold_behavior.py",
+      "sha256": "b1c9bb4e174c84320f431a4a674a27267c8478a5d454bdf08af076d5e9254f3c"
+    },
+    {
+      "bytes": 1751,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test_files/sdk/evaluation/azure-ai-evaluation/tests/unittests/test_evaluators/test_threshold_contract_authored.py",
+      "sha256": "e73a69fd9b0842846146a52b7ff3329af387bd4aa1293931f74b722f1e4d77e8"
+    },
+    {
+      "bytes": 618,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test_files_manifest.txt",
+      "sha256": "3c4eb26d2ab9a00ca11cb5366b38ad82053146613e84cf81bab16266320e7273"
+    },
+    {
+      "bytes": 1892,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test_run.sh",
+      "sha256": "1b1b3dc36e0cf2f4db0c4a96abb492a876512af11959603f24d1f6448ee977e8"
+    },
+    {
+      "bytes": 6799,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/dataset/tests/test_targets.txt",
+      "sha256": "2c10d540cc3c1c6a12bc312c4d6d01b96b2b9222ecf956f688a36c1156ec5dc7"
+    },
+    {
+      "bytes": 6242,
+      "path": "tasks/Azure__azure-sdk-for-python_pr_39954/prompt.md",
+      "sha256": "c1768ddde81db9e4925f0ef76a2b24b9753b2d70d9fd560390930374940dc7ab"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/environment/Dockerfile",
+      "sha256": "69654ac159dfd1d747bd6f757e85dc5276295358199b9016dae3614b8c29717f"
+    },
+    {
+      "bytes": 3708,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/instruction.md",
+      "sha256": "b49ced5efa6f4f667052e6fb6a6b15d495ae08b61d7fe10db53c7e44d279a120"
+    },
+    {
+      "bytes": 9036,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/solution/code.patch",
+      "sha256": "bfc57555fd615562b769bccafbe56f4a59c03d9f017c846a0b26973b51cd0bfa"
+    },
+    {
+      "bytes": 109,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/solution/solve.sh",
+      "sha256": "d82a7d40673551954543b03c15e1f21c6e9c5dcd85fdf96b55dd97b047dc42ae"
+    },
+    {
+      "bytes": 1096,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/task.toml",
+      "sha256": "1cad3f47096c886d44816624df5624084f739202b4c23f39eb2d4d2a2a8f0554"
+    },
+    {
+      "bytes": 780,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/_compute_reward.py",
+      "sha256": "d63bd0d96cfa49705ee827ad873848be0519b9107e9ad4e903a35eeed16031fe"
+    },
+    {
+      "bytes": 5964,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/f2p_coverage.json",
+      "sha256": "07f0639f91abf4f8192ce37cab1c1f18cff56a19a2af34d72559817553809a39"
+    },
+    {
+      "bytes": 3694,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/fail_to_pass.txt",
+      "sha256": "72e8452cb27983ac6d897405e234d4767f908951943cfd3133085a43e83c8575"
+    },
+    {
+      "bytes": 1339,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/pass_to_pass.txt",
+      "sha256": "ef0f061f33971de55539d30c77970a44c0866cb135ebe2c376961c65ecfa8c1a"
+    },
+    {
+      "bytes": 497,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test.sh",
+      "sha256": "be02a5278be8ae8a858afd7b280504b840ded37ff03382f05dd492885be95eaf"
+    },
+    {
+      "bytes": 2161,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[multi_turn_scenario].yaml",
+      "sha256": "2206e458b52b9c74cb05a7b523291a17458159caab35e1992daaf57edcdcbb6f"
+    },
+    {
+      "bytes": 1776,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[simple_message_scenario].yaml",
+      "sha256": "50034fe8c1dbd6e7675440b9f4b0dacbdd857d67e4848350db34516ec0293980"
+    },
+    {
+      "bytes": 2465,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[structured_output_basic_scenario].yaml",
+      "sha256": "eaa67b40b3ff188646681357335a2cca14fe984e0b7f904d3b170f897a2a12ab"
+    },
+    {
+      "bytes": 3065,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[structured_output_should_call_tool_scenario].yaml",
+      "sha256": "430d7e097a4277afef3f06f3f46b7c420e3692fb15725e054da1650d189bf4cd"
+    },
+    {
+      "bytes": 3559,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[structured_output_uses_tool_output_scenario].yaml",
+      "sha256": "fe2061bbfd96d96b5bc437e842f3c2e2646bd5c1d7494325b67310afc07892d1"
+    },
+    {
+      "bytes": 2848,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[structured_output_with_formatting_instructions_and_system_message_scenario].yaml",
+      "sha256": "8bb2cc144b5d2bf204cca5ce4de46c12e82931e448078fcb16015eddee000dba"
+    },
+    {
+      "bytes": 2790,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[structured_output_with_formatting_instructions_scenario].yaml",
+      "sha256": "77ab407d872c08da0f2bb7e176d470cc951db486e54b81cd83376183fdd9a815"
+    },
+    {
+      "bytes": 3183,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[structured_output_with_nested_models_scenario].yaml",
+      "sha256": "e1409d4840135ec6b39f40b65f3644bbc3dc5807c8c0451cf72ae2aa8931b96d"
+    },
+    {
+      "bytes": 1934,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[system_message_scenario].yaml",
+      "sha256": "d23f4251389378c3e20e6f47209a9cd0ed0e1d4701a46b22dd3d82d0e9095636"
+    },
+    {
+      "bytes": 2274,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[tool_parallel_calls_scenario].yaml",
+      "sha256": "8da8b1c2f664a82d8dede63d5b45facaab352b9f956e708da8d7fe2fd83b70d3"
+    },
+    {
+      "bytes": 2824,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[tool_parallel_output_scenario].yaml",
+      "sha256": "725d3bda283ddfd743006097a6cac1e3491a07b679158fa05b0e118c46c31468"
+    },
+    {
+      "bytes": 2244,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[tool_single_call_scenario].yaml",
+      "sha256": "2fc193ce74ab2030b622aaa133573b571aca18a23d0e77d411028060d8ca2f6d"
+    },
+    {
+      "bytes": 2556,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call[tool_single_output_scenario].yaml",
+      "sha256": "81105214e3016f1ab60035a2beb8d6be44de722a89fd339bc12d2e0e7cb2eb22"
+    },
+    {
+      "bytes": 1804,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_call_no_output.yaml",
+      "sha256": "cf10b912b8dfb08a9846fb7c9c5be65faa9fc10b9bb0c21d1e776178a74c668c"
+    },
+    {
+      "bytes": 2727,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_basic[json].yaml",
+      "sha256": "2f6ab43dfa71b95a60665ea06789026a5f9f9b4186dcc5c3c0cfad8333ead59c"
+    },
+    {
+      "bytes": 2465,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_basic[strict-or-json].yaml",
+      "sha256": "e4fdc2bf2619e4946ea520b876683f53b46a883721edc235b653a0908b855626"
+    },
+    {
+      "bytes": 2466,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_basic[strict-or-tool].yaml",
+      "sha256": "70593c0cc0cd33f50d31ee58e5a507f561cd00314c165b6d4da5cf301ad261a7"
+    },
+    {
+      "bytes": 2469,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_basic[strict].yaml",
+      "sha256": "6ab7fabc2aad3c42125678e22835908d5de42b2a4b6e6eb2854642359e106b41"
+    },
+    {
+      "bytes": 2974,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_basic[tool].yaml",
+      "sha256": "c8398aa3c6c993c9811aec7e4572216fb85c831f9e5858820c14f1c0230e4a70"
+    },
+    {
+      "bytes": 2956,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_should_call_tool[gemini-2.0-flash-json].yaml",
+      "sha256": "c180cf6f5b5bc420ea575a8a39328fda67766ed7cd8bc8aa642c1b75ba0d3417"
+    },
+    {
+      "bytes": 2936,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_should_call_tool[gemini-2.0-flash-strict-or-json].yaml",
+      "sha256": "5de720fd854752f2d902c691e7cdc77933dc00134fc61f2079225fbdba34d5d1"
+    },
+    {
+      "bytes": 3065,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_should_call_tool[gemini-2.0-flash-strict-or-tool].yaml",
+      "sha256": "1bfd1e7120f4da207478530f6e4f7262b04e2739b4f5da1c509ee07a38906f6b"
+    },
+    {
+      "bytes": 2687,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_should_call_tool[gemini-2.0-flash-strict].yaml",
+      "sha256": "3b4f8e3632551693800b7c8f41c2d70b17a4d87dea799f52f80520405dcc70a6"
+    },
+    {
+      "bytes": 3065,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_should_call_tool[gemini-2.0-flash-tool].yaml",
+      "sha256": "d424b4a8006298f17e6b4d1ea4c613fe1e8ed21317f2e409151a86dfa1115ce4"
+    },
+    {
+      "bytes": 2625,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_should_call_tool[gemini-2.5-flash-json].yaml",
+      "sha256": "d8778723f0acb616e2234248898c17505c1a6d929403e66b10e6b5f8484dd656"
+    },
+    {
+      "bytes": 2625,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_should_call_tool[gemini-2.5-flash-strict-or-json].yaml",
+      "sha256": "fd2370c7d8f003d350b780b94e8c50c3193aae4ad5e950c2dca84e4f93c17bf0"
+    },
+    {
+      "bytes": 3473,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_should_call_tool[gemini-2.5-flash-strict-or-tool].yaml",
+      "sha256": "784e3fe82720464a8abd9ce1bd37c20ea216aba9e4f027937a0e46e42804fc5f"
+    },
+    {
+      "bytes": 2376,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_should_call_tool[gemini-2.5-flash-strict].yaml",
+      "sha256": "d89ab4622d75f57ca051695b81ae08df372a4a40d9ba41d4b0d25cb4dc03326a"
+    },
+    {
+      "bytes": 3689,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_should_call_tool[gemini-2.5-flash-tool].yaml",
+      "sha256": "9dc6fed534a738f69e5fd3c16371d5ff0984242d5c710866bca138db4c294f09"
+    },
+    {
+      "bytes": 2452,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_with_instructions_and_system_message[json].yaml",
+      "sha256": "556aeafcb311fd3ad7d812015c9598deab469d5aa6a13e8f5bec468066222359"
+    },
+    {
+      "bytes": 2848,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_with_instructions_and_system_message[strict-or-json].yaml",
+      "sha256": "ab6b05dd8be40aa76a14b246732cc1995d072492a4f14b0f1d0cbdcc209647d9"
+    },
+    {
+      "bytes": 2844,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_with_instructions_and_system_message[strict-or-tool].yaml",
+      "sha256": "367df8b0b2b1737c9bd168c783d36c87e32187ab848f16f3e7822ee8eac4af4d"
+    },
+    {
+      "bytes": 2815,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_with_instructions_and_system_message[strict].yaml",
+      "sha256": "b5638a46eaf4fb544f73fba8403fddbfb154020017c34cf2a626ca08ebdf116b"
+    },
+    {
+      "bytes": 3023,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_every_structured_mode_with_instructions_and_system_message[tool].yaml",
+      "sha256": "04c63351b1b0b0b2d57c4988d02d7c1ec3ad3208ddd37b52967d431db48da2b8"
+    },
+    {
+      "bytes": 2919,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[multi_turn_scenario].yaml",
+      "sha256": "dcd4763ece8c71ab8ca56731bc87132ed42005743d51bbcc4aa8fc78f14ec408"
+    },
+    {
+      "bytes": 2150,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[simple_message_scenario].yaml",
+      "sha256": "4b39168a07a7ec1c868b013495be4dabe5779c9cad5f3339997ca7345eeda71f"
+    },
+    {
+      "bytes": 3942,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[structured_output_basic_scenario].yaml",
+      "sha256": "80d8402acb0057a9b25c5f7377481f1c6dce2226a3721f46a4fd1be3e9007de0"
+    },
+    {
+      "bytes": 3083,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[structured_output_should_call_tool_scenario].yaml",
+      "sha256": "25612e861136b88c5e706c01d93689a9e97846b3c5a88540704020a69112a360"
+    },
+    {
+      "bytes": 3599,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[structured_output_uses_tool_output_scenario].yaml",
+      "sha256": "f0cc8af3cc3d7b43087ead8680631afd15cf6f64388809c9abc2b84f63806be5"
+    },
+    {
+      "bytes": 3957,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[structured_output_with_formatting_instructions_and_system_message_scenario].yaml",
+      "sha256": "664149440bfd8ecc293f477cef0797479203ddbadf1d2845fbb1d6d9216598e3"
+    },
+    {
+      "bytes": 4266,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[structured_output_with_formatting_instructions_scenario].yaml",
+      "sha256": "69c65b9b43c24f0d8ab709c577cb5bb4d90fa08c37be86974e4374ddd20d55d7"
+    },
+    {
+      "bytes": 9732,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[structured_output_with_nested_models_scenario].yaml",
+      "sha256": "d9857b485d208b760a4247fd90744938ad8b66f58e1d5cf492dcac464c661e20"
+    },
+    {
+      "bytes": 2312,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[system_message_scenario].yaml",
+      "sha256": "0035d1072a5868c1becf042ad2f94c2f8499a00de8f46f3fed59b76ec75c6137"
+    },
+    {
+      "bytes": 2376,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[tool_parallel_calls_scenario].yaml",
+      "sha256": "07d8d8f9b50a0a01e6f3bcd62c4f848915e6361ce6dcacbf5999b437febb0d20"
+    },
+    {
+      "bytes": 3574,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[tool_parallel_output_scenario].yaml",
+      "sha256": "65b771c2a4ded0c27bd4e647ef612ca7cc9b2496d9c40719cb386659dc7bf146"
+    },
+    {
+      "bytes": 2263,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[tool_single_call_scenario].yaml",
+      "sha256": "3135373afb2dc9e533f1493ef7f39592de388819af516ca1ee30c23c7efc01b2"
+    },
+    {
+      "bytes": 2925,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/cassettes/test_stream[tool_single_output_scenario].yaml",
+      "sha256": "e3d235cfa9f00462f44064c12808f19178307b864921ae523fca8a29619c3a62"
+    },
+    {
+      "bytes": 46336,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/test_google_client.py",
+      "sha256": "51b8889f7be0f5b7508e936a5f46ffe98aac9c80e85340f62d6b2cf160969b9f"
+    },
+    {
+      "bytes": 845,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files/python/tests/llm/clients/google/test_structured_output_synthesis.py",
+      "sha256": "0312d85194c2aadead3e3b9e860004b6f0c61d392d8b15d8c23d351fe80530e9"
+    },
+    {
+      "bytes": 4924,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_files_manifest.txt",
+      "sha256": "a4537312465d4a5f230c96eecdae80da99cc27e0c08987b33af37685d38d4d9e"
+    },
+    {
+      "bytes": 1201,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_run.sh",
+      "sha256": "59a2379fddd89aa606df267359a9bbe86f5cf53d612e9e45c34b0cb1b345dc76"
+    },
+    {
+      "bytes": 5033,
+      "path": "tasks/Mirascope__mirascope_pr_1288/dataset/tests/test_targets.txt",
+      "sha256": "eecb8f7396bb91785e84b52fa945a917da99433109ace5d2dc8364fc4fc9b477"
+    },
+    {
+      "bytes": 3723,
+      "path": "tasks/Mirascope__mirascope_pr_1288/prompt.md",
+      "sha256": "d65f0f9f8445599a9290b4dd03c69da043c750d510b93aea7582d9be4d7159a0"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/environment/Dockerfile",
+      "sha256": "af86f24dc6651b581f0f81b5e20849d611c7cc39e23a3faac4095c3b525ec687"
+    },
+    {
+      "bytes": 4809,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/instruction.md",
+      "sha256": "cb94dc70c0d05647751b1cd5106e2ea3bc16963b5bc4fdf07761d7d54cc55408"
+    },
+    {
+      "bytes": 14704,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/solution/code.patch",
+      "sha256": "4db767a2f406d5ceb142daa72265f33f01797359a6c5e33d8d1b73ca753f47ea"
+    },
+    {
+      "bytes": 168,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/solution/solve.sh",
+      "sha256": "d9558c61237fb0d05ff3856bf22a98f734d9ca165a96e8dfc088ceaa7bd123dd"
+    },
+    {
+      "bytes": 1096,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/task.toml",
+      "sha256": "dd213ae89c457c8f77eadd69c285a0af83770baf937be910e882108f0c1f65a8"
+    },
+    {
+      "bytes": 938,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/_compute_reward.py",
+      "sha256": "5824fec24cdb7846474b5d3701a11ccf55e9d5d1d47486ef9861ab0ab8b29faf"
+    },
+    {
+      "bytes": 4544,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/f2p_coverage.json",
+      "sha256": "12affd3c703779e8548e165d53b6eb924225ebca971ea72c90282543d2decb3b"
+    },
+    {
+      "bytes": 2152,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/fail_to_pass.txt",
+      "sha256": "d490495c76df2f4569c0bdfb4b94da0aa06b99b8b1975906b662285443211659"
+    },
+    {
+      "bytes": 1171,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/pass_to_pass.txt",
+      "sha256": "9f6ee474facd3463d4877a029112499350a7e2d9f271317a6f8c3fbb6ba3bfb1"
+    },
+    {
+      "bytes": 841,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/scripts/parse_bun_junit.py",
+      "sha256": "d1cf1506610c6b08261a920dfe85639a1633c37965f71d295ea1679c07801301"
+    },
+    {
+      "bytes": 537,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/test.sh",
+      "sha256": "441aa9e91efa4896abe4b04f1908b32822af10f37563e9042e94525be69b3ffa"
+    },
+    {
+      "bytes": 4428,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/test_files/cloud/payments/plans.test.ts",
+      "sha256": "30e646fbb607316d7ce39052a10fe42504c1d2c9e44e3d817f457cae160cec28"
+    },
+    {
+      "bytes": 41762,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/test_files/cloud/payments/subscriptions/service.test.ts",
+      "sha256": "12a99cc307d6dd09de82e24bc77c2efd80a8929483de5ffdbe06503f5757b1bb"
+    },
+    {
+      "bytes": 21449,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/test_files/cloud/rate-limiting/service.test.ts",
+      "sha256": "4ffdef42d9a30bce82260c9ca81e3a297098e56fc12e23ae96dbc3cf20c9a0fb"
+    },
+    {
+      "bytes": 590,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/test_files/cloud/workers/dataRetentionContract.test.ts",
+      "sha256": "fa7a047a2f49c9d42b929569adf3e9c5fba0d4d81d35302f15d78d2216a9ad56"
+    },
+    {
+      "bytes": 22452,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/test_files/cloud/workers/dataRetentionCron.test.ts",
+      "sha256": "51347cbd8bb9e185c3f751c72d797ca481d915795e11047f293d17e40c67e82b"
+    },
+    {
+      "bytes": 194,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/test_files_manifest.txt",
+      "sha256": "26e16ded85fd58588b9b043f73fc26f7e12393b04ff5bebeb36ad441d4f50cbd"
+    },
+    {
+      "bytes": 1206,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/test_run.sh",
+      "sha256": "9e4b8e77f9baf160b186fc6320cd58fef78cdb37c6c4b7ea7a91f4f291d7cb2f"
+    },
+    {
+      "bytes": 3323,
+      "path": "tasks/Mirascope__mirascope_pr_2002/dataset/tests/test_targets.txt",
+      "sha256": "4442e3bfb7e8d1b82315bd00ca1155456745dc43fd6e3a25e03c3ab83f699f39"
+    },
+    {
+      "bytes": 4824,
+      "path": "tasks/Mirascope__mirascope_pr_2002/prompt.md",
+      "sha256": "cc56a39a857def730285079b73bc73de991d193bda9c6904dd3cbd4e6f9ce3f5"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/environment/Dockerfile",
+      "sha256": "fa44ca73b6ed61e1f6f0e876939dd6d1acff3a4ba7f8deda2e922ca1d0a69ad0"
+    },
+    {
+      "bytes": 11419,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/instruction.md",
+      "sha256": "d9cc7246cc3d4889d74b8d88aa16f6fc90edb28adf819bd455c3a80c2a59232f"
+    },
+    {
+      "bytes": 85822,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/solution/code.patch",
+      "sha256": "15ea67baa4dfc97b3ecb01af1ae35dcb00234a994a75c253a52c6cf362f0e018"
+    },
+    {
+      "bytes": 101,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/solution/solve.sh",
+      "sha256": "a8f55786e96ac605845c901c0cc15b3169f8f0ebd799bd94cea34a48f9dc8a55"
+    },
+    {
+      "bytes": 1099,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/task.toml",
+      "sha256": "8ea0d5587cf264077a3ebff62f878f3b69636c1aa2353643f9f322e42018faf7"
+    },
+    {
+      "bytes": 740,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/_compute_reward.py",
+      "sha256": "39576a7684581477d47ef8800b9399b9b567c92ed2ac65ec7e22b235665f93f6"
+    },
+    {
+      "bytes": 25622,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/f2p_coverage.json",
+      "sha256": "3f9a2d428b837e9d211dc70aa3286d2a4ce474db4ca6e340eb65c03d2b1815e8"
+    },
+    {
+      "bytes": 11466,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/fail_to_pass.txt",
+      "sha256": "9297749ccf87b2d0be3ef39be0e5d6c996db97d4bc4e24cd6ad931eb314feeaf"
+    },
+    {
+      "bytes": 71,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/pass_to_pass.txt",
+      "sha256": "04104ded067eb594e1b8cb33861e65c4c0f5f11ecb440c587518a01ab595fd3b"
+    },
+    {
+      "bytes": 523,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/test.sh",
+      "sha256": "6692db6d83c9df157549ea880f8ff5d5728e0762cc985ad062b51a65bcd1465d"
+    },
+    {
+      "bytes": 36783,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/test_files/tests/unit_tests/datasets/vlm/test_collate_fns.py",
+      "sha256": "6dc1d584cee3ce64c86f0a1e6859a0a03cace56d63e600331285ffc3fff552ba"
+    },
+    {
+      "bytes": 609,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/test_files/tests/unit_tests/models/kimi_k25_vl/__init__.py",
+      "sha256": "88f08dbe0470108d33accdb6cc9c7abb34e5fde2593935f1ab49c69ae4ecd24c"
+    },
+    {
+      "bytes": 680,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/test_files/tests/unit_tests/models/kimi_k25_vl/test_codex_kimi_k25_vl_smoke.py",
+      "sha256": "4914df71ce192bee2b5748b7ebe2eb3dea0d7fc8d87157454d7b722df5561786"
+    },
+    {
+      "bytes": 65302,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/test_files/tests/unit_tests/models/kimi_k25_vl/test_kimi_k25_vl_model.py",
+      "sha256": "b8d7b0587b21a4048715d3281d28292b4227386981e7011755183d3b6444f78f"
+    },
+    {
+      "bytes": 50309,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/test_files/tests/unit_tests/models/kimi_k25_vl/test_state_dict_adapter.py",
+      "sha256": "1dc4e3095372447213b5bcc540e6e43980041faeee6cfe37f677f8e186cd5995"
+    },
+    {
+      "bytes": 74842,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/test_files/tests/unit_tests/recipes/test_finetune_vlm_helpers.py",
+      "sha256": "2bb65e1ff20957849d6f904bd7b58bd025e0d3c3c2e6b46118c51105234ce2f3"
+    },
+    {
+      "bytes": 345,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/test_files_manifest.txt",
+      "sha256": "83512beef464be3e0f310a71779826a33fab4ec102213de3775a6b5b19a7bb34"
+    },
+    {
+      "bytes": 3261,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/test_run.sh",
+      "sha256": "4a0b74b41fca83f01411e4b1c3ec71e60f32223914208383b2e10f51dd58f458"
+    },
+    {
+      "bytes": 11537,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/dataset/tests/test_targets.txt",
+      "sha256": "c946b2e2b60f632ee908fe9edcb6d838c94b7bd66f07245eec49079a0b0c0560"
+    },
+    {
+      "bytes": 11665,
+      "path": "tasks/NVIDIA-NeMo__Automodel_pr_1132/prompt.md",
+      "sha256": "1da6cf8cab3f1b74a73df3939b8b8826fd9a190801d2361c601e8696bc804e7b"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/environment/Dockerfile",
+      "sha256": "7e5d780f726f543cc17749a9da505447539963c23f298ded846697d146b0484b"
+    },
+    {
+      "bytes": 4191,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/instruction.md",
+      "sha256": "1bc4897f621df10c6881c77e0b8036134def5085ec626a85e389d6161a2a1eef"
+    },
+    {
+      "bytes": 181389,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/solution/code.patch",
+      "sha256": "8ea074ad489b7755d4688e6abe30005fbfe987132ecef49d632ddb6f544c1fca"
+    },
+    {
+      "bytes": 346,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/solution/solve.sh",
+      "sha256": "e5e5c6cf592976ec32969eef274c7337cff135afd9ab5e6028aac4cffcde3f72"
+    },
+    {
+      "bytes": 614,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/task.toml",
+      "sha256": "1bfc64bcb25b0a9afb8e89998d2fc1c2024e99e9f441b4450a448625f5e12272"
+    },
+    {
+      "bytes": 1797,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/tests/_compute_reward.py",
+      "sha256": "840421f3e0555e0ea0dec8f309446c590ec8e15994b659115630873500825a68"
+    },
+    {
+      "bytes": 194,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/tests/fail_to_pass.txt",
+      "sha256": "6c7746610a7c543a49c8fd57fddc5cd5510897db0f8a58fa3023f1ec41e3af62"
+    },
+    {
+      "bytes": 1,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/tests/pass_to_pass.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "bytes": 1057,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/tests/test.sh",
+      "sha256": "df5dab79360b7cc968cc1dc45c64974d921730864ea62f8a3c6b380d82a6baf6"
+    },
+    {
+      "bytes": 3985,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/tests/test_files/utils/matrix-logic/test_generate_sweep_configs.py",
+      "sha256": "b376e903f723466761995850eee0e21de2bd0d63200f1ceda1c16578fa87a1f5"
+    },
+    {
+      "bytes": 50,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/tests/test_files_manifest.txt",
+      "sha256": "95559b03e6f8a4ccb21924e33a134bf559f6838aa9ddcc2c1b509cf0640c50df"
+    },
+    {
+      "bytes": 1805,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/tests/test_run.sh",
+      "sha256": "9147c99132fd1bbcfdcf084d7822af6192d9050ac80b0c500a756fb66fc82b20"
+    },
+    {
+      "bytes": 194,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/dataset/tests/test_targets.txt",
+      "sha256": "6c7746610a7c543a49c8fd57fddc5cd5510897db0f8a58fa3023f1ec41e3af62"
+    },
+    {
+      "bytes": 4206,
+      "path": "tasks/SemiAnalysisAI__InferenceX_pr_145/prompt.md",
+      "sha256": "7252ce969e2ca06fbe4417af150eeb23446fb760f2c882e1c3c41d6b93c8aae1"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/environment/Dockerfile",
+      "sha256": "c20872685f46155402cadae3524821c7ce5d88d35f9836a36559bef21682e538"
+    },
+    {
+      "bytes": 6057,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/instruction.md",
+      "sha256": "0cdcdfb10a71a56a3360cbff45f8db106c0ce7c008113987114c31462c40435f"
+    },
+    {
+      "bytes": 23110,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/solution/code.patch",
+      "sha256": "00e5a48de0321f59c342701bb7f6c61bf5ee3e2b25cb8a267bfa2ffc01820414"
+    },
+    {
+      "bytes": 101,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/solution/solve.sh",
+      "sha256": "a8f55786e96ac605845c901c0cc15b3169f8f0ebd799bd94cea34a48f9dc8a55"
+    },
+    {
+      "bytes": 1090,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/task.toml",
+      "sha256": "da068d48a9471b059680bcb7084fa484f02b002c935455ed90dc62c51e7a3d69"
+    },
+    {
+      "bytes": 660,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/_compute_reward.py",
+      "sha256": "4adf50c871cf5df8d273c5537fc2b025109fd4d7e5374b4eb9a5fc739b642bec"
+    },
+    {
+      "bytes": 2471,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/f2p_coverage.json",
+      "sha256": "aaec50115b5e70bb34f59ff4a82f14dd7afd5980400c5cd12cb03800be209dcf"
+    },
+    {
+      "bytes": 1718,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/fail_to_pass.txt",
+      "sha256": "89bd813579503dc3b65dd3556c4ad7d7c7696e6dea2de29c5664e1b8524eb989"
+    },
+    {
+      "bytes": 498,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/pass_to_pass.txt",
+      "sha256": "f025fad2aeb6a724fd5e301756e4b97921b4e13150cd26bcd9a019eb2089bfd3"
+    },
+    {
+      "bytes": 664,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/test.sh",
+      "sha256": "63eec8cea354f301a0b0d14bf17c48e185b6a200c4574a515d2a6c9bbd45ffb8"
+    },
+    {
+      "bytes": 29219,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/test_files/tests/test_producer.py",
+      "sha256": "d99ae9a50e2a87c161af055cfb706b8e6f1efed022fc9c7f9b2b0166ffe5adc7"
+    },
+    {
+      "bytes": 905,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/test_files/tests/test_rack_additional.py",
+      "sha256": "e29bdf05cbcd392063ad48b0d21bed180a17102ea054ef3d330240d8e9f077d0"
+    },
+    {
+      "bytes": 21135,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/test_files/tests/test_rack_awareness.py",
+      "sha256": "d333593d54da7692aea5b1a74ab40b1e1c3ecb8affa6e27167600187a6db2b20"
+    },
+    {
+      "bytes": 8817,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/test_files/tests/test_transactional_consumer.py",
+      "sha256": "c4359143c704c349e739e7bc813959a83c43fd529dcc5e0e558800b7c0e155fc"
+    },
+    {
+      "bytes": 119,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/test_files_manifest.txt",
+      "sha256": "4425188adf49bf85e2ebab0130526b2ce862ac3e21b7979641c3f651c2dab509"
+    },
+    {
+      "bytes": 1607,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/test_run.sh",
+      "sha256": "5d630e2555470c1001a5df869ef9dd226362937195376fb9a6c560d42fdf66b0"
+    },
+    {
+      "bytes": 2216,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/dataset/tests/test_targets.txt",
+      "sha256": "bf88f30d8769a4c6a52b7ad7eb2795c7560cd80be8c5245f938963d2a8451658"
+    },
+    {
+      "bytes": 6072,
+      "path": "tasks/aio-libs__aiokafka_pr_1159/prompt.md",
+      "sha256": "96e003cc51c0daf1917bfd82380ea7f830268fe544e6b5ed1e82a6b614df63b0"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/environment/Dockerfile",
+      "sha256": "718dfe355b5f857e19529aec463b2a10589e1a7d5740d4d1035d6588cec5dfd9"
+    },
+    {
+      "bytes": 8931,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/instruction.md",
+      "sha256": "047ea00a351147bf7d75914a902f1fa962fcea2f9dac1504650eee3046f5fceb"
+    },
+    {
+      "bytes": 61675,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/solution/code.patch",
+      "sha256": "bda82c34b6b885bca266a0301007ad9654c1eb94f51590c48e7d88038812cb6d"
+    },
+    {
+      "bytes": 90,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/solution/solve.sh",
+      "sha256": "aeea4739088789c59cfb285455b192bcc2fb1e8081193e6898e951e2d5216e2e"
+    },
+    {
+      "bytes": 1111,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/task.toml",
+      "sha256": "ed1330bb872194fceec3a07b70130aa85f1b304cbb34dbb0362511f7e7a75473"
+    },
+    {
+      "bytes": 655,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/_compute_reward.py",
+      "sha256": "0b1c3b296166ac0117f6a975f16cb13fa9c8cf22e00510902c442adb518027e0"
+    },
+    {
+      "bytes": 7010,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/f2p_coverage.json",
+      "sha256": "18f08ed7899f8fb35b7308704c1e3a53d76f142ab6e4d1ca914f98f8e0ffb1ff"
+    },
+    {
+      "bytes": 6071,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/fail_to_pass.txt",
+      "sha256": "f3375395422441f7ab24932f02570ceea3e9116710a2cd2b3f1b2182c0fcbcec"
+    },
+    {
+      "bytes": 1607,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/pass_to_pass.txt",
+      "sha256": "81d0957cafece334d86f2f7cddf82667310ea6101be3e95a3e2bb01262d0b7b6"
+    },
+    {
+      "bytes": 536,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test.sh",
+      "sha256": "13a1470cb91d5211f9c9bef73c6701c435bc6ff519bacb12f50b0d11c4a560cc"
+    },
+    {
+      "bytes": 9729,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/conftest.py",
+      "sha256": "1ffa13b34928353ee0d1cc43b24c3a14b7a611b443846884112edbfd31fbdb8a"
+    },
+    {
+      "bytes": 201,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/data/spark/code/java/hello-java-spark/com/amazonaws/sagemaker/spark/test/HelloJavaSparkApp.java",
+      "sha256": "25f4fa7f45d01ed8389624b514705098911ce4dfe5b1d742095ceb806be696d3"
+    },
+    {
+      "bytes": 65,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/data/spark/code/java/hello-java-spark/manifest.txt",
+      "sha256": "def41848d3ee4cb61964ddf31335395f56840a413b2e3f3a74c8fe559dd5e018"
+    },
+    {
+      "bytes": 0,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/data/spark/code/python/hello_py_spark/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 2089,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/data/spark/code/python/hello_py_spark/hello_py_spark_app.py",
+      "sha256": "a01b0593e2d1353512ae7d8fc8f11526118ad8bab8579d3bb136285e7f6c16bd"
+    },
+    {
+      "bytes": 34,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/data/spark/code/python/hello_py_spark/hello_py_spark_udfs.py",
+      "sha256": "2ca98293d39a165667570457c2881911a8ad5a3e7af41bfa0b7bfbc79aae5b66"
+    },
+    {
+      "bytes": 2260,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/data/spark/conf/configuration.json",
+      "sha256": "81bb074c8cb4acf6247ced6d5d752274d66ce9e827af3475f7cccaa77d1a08d3"
+    },
+    {
+      "bytes": 32882,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/data/spark/files/data.jsonl",
+      "sha256": "667daadf6931744643ed8a10772cdef8e4c7edcfcecddd0f0380da15a73106cb"
+    },
+    {
+      "bytes": 878414,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/data/spark/files/sample_spark_event_logs",
+      "sha256": "cc5e2916b1412cf918b11d40a391b848548bc30db0b77fdd46ac75ed7ce7203e"
+    },
+    {
+      "bytes": 12987,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/integ/test_spark_processing.py",
+      "sha256": "60bb31f9d413e102cb937f76e74b1b179f4574907e8715a1fb868ad7d3fec51e"
+    },
+    {
+      "bytes": 769,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/unit/sagemaker/spark/test_codex_contract.py",
+      "sha256": "d1438b9b9ade43c4bfe5e96ecab04a1f20d8c96fccf9985c9491a126981de376"
+    },
+    {
+      "bytes": 29955,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/unit/sagemaker/spark/test_processing.py",
+      "sha256": "a9520639f7151877bfbe7cef280e50ad6784344d03727dd06e7a5cae0646acc0"
+    },
+    {
+      "bytes": 23054,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files/tests/unit/test_processing.py",
+      "sha256": "c110ea7a87058707a4acbb182d04e6cb1d3cde7ae9101946eebd3c3d0a6aae4a"
+    },
+    {
+      "bytes": 651,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_files_manifest.txt",
+      "sha256": "c4ae1db13c6c093c0bec68f3cf5e9f621bfdaa804ae4af430fddf70c95a68498"
+    },
+    {
+      "bytes": 1539,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_run.sh",
+      "sha256": "336f54d3a9afccaf640f84018e107483dd3c29ec875778805ff08c4aaa07717a"
+    },
+    {
+      "bytes": 7678,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/dataset/tests/test_targets.txt",
+      "sha256": "053ad6dafc469c28a5a24bb8b5362a38f0e8b8b5f57247563bbef969769dbb7d"
+    },
+    {
+      "bytes": 8946,
+      "path": "tasks/aws__sagemaker-python-sdk_pr_1894/prompt.md",
+      "sha256": "97d82b075a87464cf20bda7c6dddfdb11ca7efb32ce4abffab56bab0cb780f26"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/demisto__content_pr_42070/dataset/environment/Dockerfile",
+      "sha256": "3b46ef199ff6223967bf7fa2d66e01f57b6a6a2d2db4c1d0015c5bd5b2fda746"
+    },
+    {
+      "bytes": 6999,
+      "path": "tasks/demisto__content_pr_42070/dataset/instruction.md",
+      "sha256": "e34722813044c10f087b6dc6f219fabec0a2ba09d12c6c8de543c10ac7dd5ece"
+    },
+    {
+      "bytes": 125272,
+      "path": "tasks/demisto__content_pr_42070/dataset/solution/code.patch",
+      "sha256": "e40fc78e6f51f137a05a1580301fed306269fbe1cfcda03058140e51f51791a5"
+    },
+    {
+      "bytes": 101,
+      "path": "tasks/demisto__content_pr_42070/dataset/solution/solve.sh",
+      "sha256": "a8f55786e96ac605845c901c0cc15b3169f8f0ebd799bd94cea34a48f9dc8a55"
+    },
+    {
+      "bytes": 1086,
+      "path": "tasks/demisto__content_pr_42070/dataset/task.toml",
+      "sha256": "789814c215102b7a1f0bacfad9611ec56824f6e0a94ce1a20aefb7cd9ef06617"
+    },
+    {
+      "bytes": 1051,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/_compute_reward.py",
+      "sha256": "ad324e9080b302556e1630284de9dc5e641ddf43468ae260fade69f919692271"
+    },
+    {
+      "bytes": 5725,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/f2p_coverage.json",
+      "sha256": "7ccc64a66eefbea18300f594f2cc29bb68220790c6086fff1ef0af6c10af5477"
+    },
+    {
+      "bytes": 4956,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/fail_to_pass.txt",
+      "sha256": "2ac5675d98fe4a3aedc38f1f0961d5f0b7d5d3a897b47cb15e2cf11b44e42455"
+    },
+    {
+      "bytes": 145,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/pass_to_pass.txt",
+      "sha256": "34d27dd8cc2c3933dada26450332c500262fa978e7d210f12d9ab2c3fef1f0f2"
+    },
+    {
+      "bytes": 1154,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/scripts/omnigril_pytest_result_plugin.py",
+      "sha256": "e8b7ae017e1b3c9672c086147cf850716ee37b1204daeb49bdfcddb62d00b6f1"
+    },
+    {
+      "bytes": 705,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/test.sh",
+      "sha256": "1f7b1662bf801868e01b21f426708e5cf03c54051b9c214090d1df95640e01e9"
+    },
+    {
+      "bytes": 1177,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/test_files/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_authored_test.py",
+      "sha256": "b501d42c54f608bf4245df67212eec59fa5fe53dc54e817a698339816d36c1d6"
+    },
+    {
+      "bytes": 258,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/test_files/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_p2p_test.py",
+      "sha256": "333882a5a004abdeb033fa76d2b5623f66f3300737eb9e4faa10ac64a21ae46f"
+    },
+    {
+      "bytes": 28428,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/test_files/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py",
+      "sha256": "14135b0415656e1689d9a32fd65f2aa16051e082b68a8ba2f4b40ebfcd052151"
+    },
+    {
+      "bytes": 4084,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/test_files/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/conftest.py",
+      "sha256": "e894002cd2a0bb12f3a6079085dfff15149eedb133f7c0be3250673f31b12b98"
+    },
+    {
+      "bytes": 253,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/test_files_manifest.txt",
+      "sha256": "25b1e0a2b15fdb4e4c9a73ffe45b3145a49bc17841275a65e521daea9ae33edd"
+    },
+    {
+      "bytes": 981,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/test_run.sh",
+      "sha256": "915558c5f280440a6c1e2926be9db920522b48c5ed47f9abb6ae35104c1237a5"
+    },
+    {
+      "bytes": 5101,
+      "path": "tasks/demisto__content_pr_42070/dataset/tests/test_targets.txt",
+      "sha256": "164731c4c4da1ea1bc82afefa91908cb727af03a93a2d9e4e7e29a660dcb5bf3"
+    },
+    {
+      "bytes": 7014,
+      "path": "tasks/demisto__content_pr_42070/prompt.md",
+      "sha256": "22d44184ccc5d9b7f5fbccc1394cf7b7eab856c4990ab2370e1d0362e5bab8ff"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/environment/Dockerfile",
+      "sha256": "b722ed0ba1d1df7e05ecabb7528ae6c14529d5e1957d828eacdd03de22004447"
+    },
+    {
+      "bytes": 4053,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/instruction.md",
+      "sha256": "3bca4d07e28f60d01d5df98bb4c70944f6d3a82cf29f7904135ff4784a879960"
+    },
+    {
+      "bytes": 127965,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/solution/code.patch",
+      "sha256": "5b7a8d65f75d4a641ceaf68621a9d5ef1e9e1af1d2fd60817133783a7aa33409"
+    },
+    {
+      "bytes": 101,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/solution/solve.sh",
+      "sha256": "a8f55786e96ac605845c901c0cc15b3169f8f0ebd799bd94cea34a48f9dc8a55"
+    },
+    {
+      "bytes": 1093,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/task.toml",
+      "sha256": "38feaeeec5a6d503e16e7bc79907b253f46cfd12a72eadd40dd55af4a673bcd2"
+    },
+    {
+      "bytes": 752,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/_compute_reward.py",
+      "sha256": "b1cdec428aac93fa47b60388eb7e5a659195eee61c4bdaf0bfce65045b07e3f8"
+    },
+    {
+      "bytes": 1551,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/f2p_coverage.json",
+      "sha256": "80858e6c4163b354c9a529fc8908eeb9fae6e9f2425753430d680e5218e2a326"
+    },
+    {
+      "bytes": 931,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/fail_to_pass.txt",
+      "sha256": "c4a175b371d68d1d8fdacdd9043832fa39720fae8f89769687b136dc5843f001"
+    },
+    {
+      "bytes": 73,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/pass_to_pass.txt",
+      "sha256": "db256e60833389f87c4f05e37c329a7205d01aa4e0d4d39eddeff56d2367066b"
+    },
+    {
+      "bytes": 516,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test.sh",
+      "sha256": "4323a3879c83c890cb2d9abb9f6b22e4b49af47df6246e3a88375ee46fb13fd9"
+    },
+    {
+      "bytes": 1004,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/test_harbor_unexpansion.py",
+      "sha256": "d4f2f0551d6c061e90ef9589c027fe8969316a6dc6e87a10bb08b0f202f26a17"
+    },
+    {
+      "bytes": 970,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_cinterface.py",
+      "sha256": "ea4cb984f4578aefd707efbd30db9e75ad11b373b1d37379fe41db1aaeff07a1"
+    },
+    {
+      "bytes": 29370,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_derivatives.py",
+      "sha256": "a282325ab52edf0b1675c770a729995c535f4a0f723447aa0312d16218b15e96"
+    },
+    {
+      "bytes": 62521,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_dimension.py",
+      "sha256": "5a9d9f43ba03d403da537c80ee124c35c8ead7165a935bfbde12b8be1b07d9cf"
+    },
+    {
+      "bytes": 120376,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_dse.py",
+      "sha256": "6bc3775da5edac7f6fa942f4b015afd46cb0141314ab393cb93d39173b2bed0e"
+    },
+    {
+      "bytes": 1004,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_harbor_unexpansion.py",
+      "sha256": "d4f2f0551d6c061e90ef9589c027fe8969316a6dc6e87a10bb08b0f202f26a17"
+    },
+    {
+      "bytes": 35063,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_ir.py",
+      "sha256": "55382085acf52951efb479984a189f460c0d48a5844b95ce24be4872ebf26168"
+    },
+    {
+      "bytes": 16459,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_linearize.py",
+      "sha256": "340a4b4e2db1168499671c43883ed67052ef16b590d69b2a7199a610647bca83"
+    },
+    {
+      "bytes": 8045,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_lower_exprs.py",
+      "sha256": "e8a21a82278efc69084b00d860aa21b795f44b65959c5300fd70b3d5d1aae5c0"
+    },
+    {
+      "bytes": 76861,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_operator.py",
+      "sha256": "145e5d55e57f208a7250377c512864cb52d6bc3151d5e1da1a645c8fe5f1c536"
+    },
+    {
+      "bytes": 21458,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_subdomains.py",
+      "sha256": "0dfd2c6e6c464bd1ed7905b5790a062aea5bb86db7ff857661a6f1315790754b"
+    },
+    {
+      "bytes": 16130,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests/test_symbolics.py",
+      "sha256": "194d80bcfae3c9af076110ab14875413d70f76cce6078c0eb27b7dbfef32fef8"
+    },
+    {
+      "bytes": 970,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests_test_cinterface.py",
+      "sha256": "ea4cb984f4578aefd707efbd30db9e75ad11b373b1d37379fe41db1aaeff07a1"
+    },
+    {
+      "bytes": 29370,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests_test_derivatives.py",
+      "sha256": "a282325ab52edf0b1675c770a729995c535f4a0f723447aa0312d16218b15e96"
+    },
+    {
+      "bytes": 62521,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests_test_dimension.py",
+      "sha256": "5a9d9f43ba03d403da537c80ee124c35c8ead7165a935bfbde12b8be1b07d9cf"
+    },
+    {
+      "bytes": 120376,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests_test_dse.py",
+      "sha256": "6bc3775da5edac7f6fa942f4b015afd46cb0141314ab393cb93d39173b2bed0e"
+    },
+    {
+      "bytes": 35063,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests_test_ir.py",
+      "sha256": "55382085acf52951efb479984a189f460c0d48a5844b95ce24be4872ebf26168"
+    },
+    {
+      "bytes": 16459,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests_test_linearize.py",
+      "sha256": "340a4b4e2db1168499671c43883ed67052ef16b590d69b2a7199a610647bca83"
+    },
+    {
+      "bytes": 8045,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests_test_lower_exprs.py",
+      "sha256": "e8a21a82278efc69084b00d860aa21b795f44b65959c5300fd70b3d5d1aae5c0"
+    },
+    {
+      "bytes": 76861,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests_test_operator.py",
+      "sha256": "145e5d55e57f208a7250377c512864cb52d6bc3151d5e1da1a645c8fe5f1c536"
+    },
+    {
+      "bytes": 21458,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests_test_subdomains.py",
+      "sha256": "0dfd2c6e6c464bd1ed7905b5790a062aea5bb86db7ff857661a6f1315790754b"
+    },
+    {
+      "bytes": 16130,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files/tests_test_symbolics.py",
+      "sha256": "194d80bcfae3c9af076110ab14875413d70f76cce6078c0eb27b7dbfef32fef8"
+    },
+    {
+      "bytes": 265,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_files_manifest.txt",
+      "sha256": "01391fe2346432183011a747ee430cfcf08d1801679633c84367bfd20320b462"
+    },
+    {
+      "bytes": 1564,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_run.sh",
+      "sha256": "3b35a0b9d7c9164a97fc6373672fdd35966a6629a55eaf577b58118c88055387"
+    },
+    {
+      "bytes": 1004,
+      "path": "tasks/devitocodes__devito_pr_2060/dataset/tests/test_targets.txt",
+      "sha256": "0cb3598e8dd268e510a435274d1722d6518a4b77a4a8fc61e413e805fa7e6487"
+    },
+    {
+      "bytes": 4069,
+      "path": "tasks/devitocodes__devito_pr_2060/prompt.md",
+      "sha256": "eedded0cff26255ee892886ef146e520bde4acc9b90bb8452e849788222e025c"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/environment/Dockerfile",
+      "sha256": "26494a00bdcfb75bcba4cc5b439d34b3482f1d2222dc8fbafb9a15637e198f15"
+    },
+    {
+      "bytes": 5291,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/instruction.md",
+      "sha256": "205393b74b9c38e9fd2d911092343f4bdc10a4f42d847e6553f0629cc11f820b"
+    },
+    {
+      "bytes": 54977,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/solution/code.patch",
+      "sha256": "6b5fe86efe4b2c67bc682f1354dea71ee27b823154d7a196c7b8aec4c488c346"
+    },
+    {
+      "bytes": 101,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/solution/solve.sh",
+      "sha256": "a8f55786e96ac605845c901c0cc15b3169f8f0ebd799bd94cea34a48f9dc8a55"
+    },
+    {
+      "bytes": 1093,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/task.toml",
+      "sha256": "96d281dbf4ba90b74b98048ebcb391536498adeb0ca394be7d009f0e939d1bab"
+    },
+    {
+      "bytes": 715,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/_compute_reward.py",
+      "sha256": "43731143f22de6e981fd6837938ece10fb76f67b68c70752982048cc464767f9"
+    },
+    {
+      "bytes": 5369,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/f2p_coverage.json",
+      "sha256": "501a360d6c6232d3f141150a03f03e44df7b5c590e62fdd1ee3a20c523b7e636"
+    },
+    {
+      "bytes": 1947,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/fail_to_pass.txt",
+      "sha256": "f57db79ab8c1d22029d0610e5b9784769dc16aed22adae0f532d389c39adb547"
+    },
+    {
+      "bytes": 83,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/pass_to_pass.txt",
+      "sha256": "4ddf75cbb1f5512b453c0784f7b53798359bd1a6a2b391fb935de672980fc381"
+    },
+    {
+      "bytes": 523,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test.sh",
+      "sha256": "75c831860b2ef1230b9d96ec7c09dbe9976d31c42bf605f544b48339dff93583"
+    },
+    {
+      "bytes": 3617,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/alias_copy_test.py",
+      "sha256": "04612675f882feeb479c79c1af9b1ac4f981909daa4a62b6e753dc476bfd7cb1"
+    },
+    {
+      "bytes": 172,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/base_environment_smoke_test.py",
+      "sha256": "41428db44a9a50663cc52de4ccb12d9caf0c58b3cb98a0596ee1e370c7808ce8"
+    },
+    {
+      "bytes": 3290,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/eq__test.py",
+      "sha256": "4a8d0941866d731b09d0c142623a8ad17af82b9eea11dd1159e293f5b9f84883"
+    },
+    {
+      "bytes": 3566,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/exp2_test.py",
+      "sha256": "995cdaf1f3a2c55360ab7ab66aa906de0405e0f765348bd2a4bb3a59b5a3250a"
+    },
+    {
+      "bytes": 2145,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/exp__test.py",
+      "sha256": "56d22d7f16624b01d50142c78bfe0501365f44ed0d7b1eda6dd90f9805cebb84"
+    },
+    {
+      "bytes": 2478,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/ge__test.py",
+      "sha256": "1718961bd27f3d12f06979ca12342ebcd4ab17e0004e62cfae10199ed3eea712"
+    },
+    {
+      "bytes": 4621,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/glu_test.py",
+      "sha256": "d3c70706ad4b19aa517ef17f5d37955a683609f4815d350b7a8aec14c55fe417"
+    },
+    {
+      "bytes": 3400,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/i0_test.py",
+      "sha256": "6c4aa47085cea8aca7aba8d9a997314869a0a04c625932e4733e4a686b5fc8f6"
+    },
+    {
+      "bytes": 2314,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/logical_xor__test.py",
+      "sha256": "edb8bd383cd63176ed8a6e55ccaa7b0341d32bc3b2e9a9ae7e6e1ada6a11ee42"
+    },
+    {
+      "bytes": 3313,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/masked_scatter_test.py",
+      "sha256": "f71234f4a349580c5f62a7d278fc42cc23acf091b51eae936b3d66efd9d153d4"
+    },
+    {
+      "bytes": 3218,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/ne__test.py",
+      "sha256": "c9f30bc47aece9595757b6e3a64c30d64389fbb936c0255453ec5c326282ed63"
+    },
+    {
+      "bytes": 4741,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/pixel_shuffle_test.py",
+      "sha256": "eb16420d6e6a39451fa614a7a39a1d67f1ff1bf5288cf5c3862e7231c5ef55fa"
+    },
+    {
+      "bytes": 1526,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/prepared_ops_surface_test.py",
+      "sha256": "6f4e52bff71bc235e3484fff4615fe38bdb35356fb0f839fa3ea82c5842b7565"
+    },
+    {
+      "bytes": 2193,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/reciprocal__test.py",
+      "sha256": "915c07f719270b5ac037fdfbdfbf44f4e15fd2580a48c524eeb9f38d6d7b5d92"
+    },
+    {
+      "bytes": 1987,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/rsqrt__test.py",
+      "sha256": "a927b55ca1c80e5d2fe8b981dcbd34b52362451acd41447dd064910f5c5c0322"
+    },
+    {
+      "bytes": 2101,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/sigmoid__test.py",
+      "sha256": "b613a6fcba2f42f1ca14be0bfc99f71d9fb46bbc4c48c373550b87d5f51c084c"
+    },
+    {
+      "bytes": 2001,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/sin__test.py",
+      "sha256": "1b6c637b894027c7fe728a9ce5f8d8ab6eda20300c81b9395d93b4fc872eed46"
+    },
+    {
+      "bytes": 13701,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/slice_scatter_test.py",
+      "sha256": "2693c3f9e464c6d3530373843ad4908251d4fabc37e615a817ca859a8a52107d"
+    },
+    {
+      "bytes": 4587,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files/tests/experimental_ops/softplus_test.py",
+      "sha256": "62de12433949898d0ac19f821b43e929f4ad6db58f8f870a04b68a0d5b604cd8"
+    },
+    {
+      "bytes": 771,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_files_manifest.txt",
+      "sha256": "ff3a30e911ea5f2b3609013d6afafce12dca574d32139ac27647e9ec500800d4"
+    },
+    {
+      "bytes": 1770,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_run.sh",
+      "sha256": "a4621109b3757ad8cd85090a20bf6f0f549dabd5459cf15ef9dc4900803d0e2f"
+    },
+    {
+      "bytes": 2030,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/dataset/tests/test_targets.txt",
+      "sha256": "66f98c4accd476f9e453f50d5d67c17116682f041a9a03707084d938b9928b85"
+    },
+    {
+      "bytes": 5306,
+      "path": "tasks/flagos-ai__FlagGems_pr_1381/prompt.md",
+      "sha256": "c0f61bebd85844d14fe8794e11b01d8f48e80147c9945d2a7b33ab7fc18fb201"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/environment/Dockerfile",
+      "sha256": "1a72f681bbf1cec25dfb601b213788c31b951184d650790489a5d7f0b96fcfb5"
+    },
+    {
+      "bytes": 3198,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/instruction.md",
+      "sha256": "78c7697f07b6bb61bfb509fe2a9d318a48a5d6b59f8ca53b8ddba49e457ca8db"
+    },
+    {
+      "bytes": 46111,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/solution/code.patch",
+      "sha256": "91a01c214ef769ec9244a228a0bb7168dbaac5406803992b21a88c96e6a7b74d"
+    },
+    {
+      "bytes": 91,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/solution/solve.sh",
+      "sha256": "9659bb4cfdf57fb30004dd72de14ede2ae53306bf415a407a5534c5ea2e61000"
+    },
+    {
+      "bytes": 1096,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/task.toml",
+      "sha256": "4bf46200792c8701232e54289c1a98c62d3f72fa936a1a4f067660fbbfb5001e"
+    },
+    {
+      "bytes": 798,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/_compute_reward.py",
+      "sha256": "e5c8d094e73e42ef1eb54115aeb611a92bb446157925eb3cde22ae82ccb7ad65"
+    },
+    {
+      "bytes": 1711,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/f2p_coverage.json",
+      "sha256": "7dc50700d6f6e2975b159447634ed03af91d6f66194d17d1d901d7c5e1203894"
+    },
+    {
+      "bytes": 1111,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/fail_to_pass.txt",
+      "sha256": "c5a8d1ebca2e3306046ab7c46d9838435f76fed6991ec5495c83c5106d91ff03"
+    },
+    {
+      "bytes": 685,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/pass_to_pass.txt",
+      "sha256": "00a3d4d596b047ba9d97a57c65371ab99f822c824d415edc7406d8cd66dce0ae"
+    },
+    {
+      "bytes": 434,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test.sh",
+      "sha256": "41b213a4f50e28625c5c239c03e5fed6f89c29e89d5968223d81f0efb014b54f"
+    },
+    {
+      "bytes": 13654,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_files/Tests/fontBuilder/fontBuilder_test.py",
+      "sha256": "ab650b3faf803f851640735ff650b800f737ee7fce0eb2bae8f34305272eed83"
+    },
+    {
+      "bytes": 681,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_files/Tests/varLib/instancer/cff2_additional_test.py",
+      "sha256": "a586402947b13b3a8364292333cbd7c89390d10626058677e8c102846b297be0"
+    },
+    {
+      "bytes": 22302,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_files/Tests/varLib/instancer/data/CFF2Instancer-VF-1.ttx",
+      "sha256": "7139e7ac1df2dc90b66fab9b9b95d456a03a873b00473a486a4c55d58e6b48d2"
+    },
+    {
+      "bytes": 19333,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_files/Tests/varLib/instancer/data/CFF2Instancer-VF-2.ttx",
+      "sha256": "7c910f59d2281922c87d46b85d22690dbc7e6585d7cce79f793e658cb6b190c3"
+    },
+    {
+      "bytes": 20219,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_files/Tests/varLib/instancer/data/CFF2Instancer-VF-3.ttx",
+      "sha256": "e671054ec51bd657d721c741659d36fc8510d080ee04c58aafcf1278ff538953"
+    },
+    {
+      "bytes": 14186,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_files/Tests/varLib/instancer/data/test_results/CFF2Instancer-VF-1-instance-400.ttx",
+      "sha256": "c12d20175bddde7623cddd24409f2ee1f02f504cdfcc32cd78cb35e9900042ad"
+    },
+    {
+      "bytes": 10073,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_files/Tests/varLib/instancer/data/test_results/CFF2Instancer-VF-2-instance-400.ttx",
+      "sha256": "b6eeffb49a35db25e28efb1d716695e76846ac35ed144a2cccc67b7075f6894e"
+    },
+    {
+      "bytes": 11464,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_files/Tests/varLib/instancer/data/test_results/CFF2Instancer-VF-3-instance-400.ttx",
+      "sha256": "d2015cf4d117cc4517e4847616c7eb1e4d3f4249a0871e9257f2eb21ca777063"
+    },
+    {
+      "bytes": 84800,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_files/Tests/varLib/instancer/instancer_test.py",
+      "sha256": "41973679ceba345df9915989364123a1876b5c2c38c565ee21d4f3f8c380498e"
+    },
+    {
+      "bytes": 510,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_files_manifest.txt",
+      "sha256": "b18631fd6072e16de0233d63a3938f4645340a412880e2fec1e6af592092b5b6"
+    },
+    {
+      "bytes": 1623,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_run.sh",
+      "sha256": "af8c69713aeaf93398238ab1be6531f0d869776e2df6904353448cf417a39660"
+    },
+    {
+      "bytes": 1796,
+      "path": "tasks/fonttools__fonttools_pr_3506/dataset/tests/test_targets.txt",
+      "sha256": "202ea7c1bad4ccc38a6e7b7d8c73ff8ecee6bbc9b806c6c9cb8247b9437f7664"
+    },
+    {
+      "bytes": 3213,
+      "path": "tasks/fonttools__fonttools_pr_3506/prompt.md",
+      "sha256": "5ec75d12d8d91472ea3ecb548eb507b515474e45fcf8f78530c6ff07044a5062"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/environment/Dockerfile",
+      "sha256": "5f1476675ef9659eb34f01fc03fe1dc8b09defd98e796225e3edcee7478fab84"
+    },
+    {
+      "bytes": 3628,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/instruction.md",
+      "sha256": "a28832c73f752447cfab2d84fa8038643de9fc56ee017cc5e19eabf2c25d36f2"
+    },
+    {
+      "bytes": 3671839,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/solution/code.patch",
+      "sha256": "63fd4b11b89d075b09c46b21e4b23081b141ab06904967ebaf3d9c6400ea3dbe"
+    },
+    {
+      "bytes": 101,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/solution/solve.sh",
+      "sha256": "a8f55786e96ac605845c901c0cc15b3169f8f0ebd799bd94cea34a48f9dc8a55"
+    },
+    {
+      "bytes": 1096,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/task.toml",
+      "sha256": "ef8cdef1a58d4990f7cec03bb864b31030de2da99e6f7834466d75420289fa89"
+    },
+    {
+      "bytes": 687,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/_compute_reward.py",
+      "sha256": "1e86eae6805b4a26e1ba0d60d76def93f57a34f41cbf23306ae8d13fe60d4e46"
+    },
+    {
+      "bytes": 50906,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/f2p_coverage.json",
+      "sha256": "12043a5eeb0c668194d4ec08a86e069a72efab8ed5e34e2985d905977c75d8d6"
+    },
+    {
+      "bytes": 19104,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/fail_to_pass.txt",
+      "sha256": "b3364687313ddd453704679487b7b5fe074b947b44e984eb8bddce961265b043"
+    },
+    {
+      "bytes": 85,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/pass_to_pass.txt",
+      "sha256": "eeeeb376c1455bc7ae92625a68f3bfc7db101ca93775a79058bc8fb6613bd979"
+    },
+    {
+      "bytes": 542,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test.sh",
+      "sha256": "87edea057406f10111def276b6f3adde4e2de58d87ae6605b78624b539df3a21"
+    },
+    {
+      "bytes": 11908,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/conftest.py",
+      "sha256": "0c8a0ddf24602baa979178461afc898b7e100502e10b2ee3a03a6c335e5d7706"
+    },
+    {
+      "bytes": 22501,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data/backends_data.py",
+      "sha256": "cf9120af92d58b513bf0cbc3b41a6783288f244fb887d25608a82abca80c7740"
+    },
+    {
+      "bytes": 4081,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data/binomial_data.py",
+      "sha256": "d55e54cfbf48c7eafcc85a066cba821c8932d3c4271534341c140a5c48451407"
+    },
+    {
+      "bytes": 12249,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data/dirichlet_data.py",
+      "sha256": "e6b98e79bb4655abda4656c81ef77a969bb6b0642ce2e89518f0b6670c7b2d55"
+    },
+    {
+      "bytes": 11402,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data/discrete_curves_data.py",
+      "sha256": "429ca5a1f49b0756bc26a1025dc9250789a3aba06142c10592bb450485cae062"
+    },
+    {
+      "bytes": 3414,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data/exponential_data.py",
+      "sha256": "d424662dac82bb6e4af4b2976fab4141a3f1b34e5da751d7e877a664351d0776"
+    },
+    {
+      "bytes": 15232,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data/invariant_metric_data.py",
+      "sha256": "04fc9de023b00ec801de27cb394217feb665fb83e5e1613f627b32cf83a5be6b"
+    },
+    {
+      "bytes": 5910,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data/landmarks_data.py",
+      "sha256": "fda507f0778a918a395f602544f816cff0b1d6e0a99896257aaf96f2119bc842"
+    },
+    {
+      "bytes": 8108,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data/product_manifold_data.py",
+      "sha256": "9bc6de146ad14a15329f456948f1d1ea5ae1b1ee92b6d11660fbb70807398e8e"
+    },
+    {
+      "bytes": 23113,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data/special_euclidean_data.py",
+      "sha256": "d9a881d93e73fa5b324c54c85b7382051e408f6510dabc20c56aee4875f4dfc0"
+    },
+    {
+      "bytes": 3266,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data/stiefel_data.py",
+      "sha256": "e5b0517026d6046b45eec01b17db396347e08531b0e6b45c7b7c354a183b6ff4"
+    },
+    {
+      "bytes": 42692,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/data_generation.py",
+      "sha256": "4b3ad7fcb5dbd410eef7f0a12d7b8c3476c763e8eaa7ccbc6cddb16b8474666c"
+    },
+    {
+      "bytes": 54463,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/geometry_test_cases.py",
+      "sha256": "d4e42eec2fe4bac15121db0f56e02dbe667996eb97a5b8962884db5202fb06a0"
+    },
+    {
+      "bytes": 899,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/synthetic/test_default_dtype_contract.py",
+      "sha256": "3317252ae649b8f8d678680499ccc0a3279c524cbd1ef57a19cf9a0b22220f0e"
+    },
+    {
+      "bytes": 12534,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/tests_geomstats/test_autodiff.py",
+      "sha256": "9992698ffafc255682c62d26c9174800a24f2424da8a0a22080b6d04903d0696"
+    },
+    {
+      "bytes": 13958,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files/tests/tests_geomstats/test_backends2.py",
+      "sha256": "786f848187c498e54361077d0c9f34eb37c90aeded80a59196527e6b83586bda"
+    },
+    {
+      "bytes": 514,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_files_manifest.txt",
+      "sha256": "c8c79171eb16f2ebfbfa62f31f1c53382f725057d540fc44a1e39bb7d5595961"
+    },
+    {
+      "bytes": 1664,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_run.sh",
+      "sha256": "3827d36e0bfffc0eaac96879947f5e5c17a700386a1f932f447088b4fbcfa2a8"
+    },
+    {
+      "bytes": 19189,
+      "path": "tasks/geomstats__geomstats_pr_1615/dataset/tests/test_targets.txt",
+      "sha256": "04bc7e89815d0d654e82aac52a9b28a55412f53c7a25f40d625d4ff39a6c3c0f"
+    },
+    {
+      "bytes": 3643,
+      "path": "tasks/geomstats__geomstats_pr_1615/prompt.md",
+      "sha256": "e841ed667ccd84a1d8c149681abaa6cf71d722a9f5cc547ddc2716fa828771f1"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/google__openhtf_pr_937/dataset/environment/Dockerfile",
+      "sha256": "5de01c7c4088cbd31fe5426ee202bb0ef201ed3e20ee3f577dcc0c9c18481b15"
+    },
+    {
+      "bytes": 6923,
+      "path": "tasks/google__openhtf_pr_937/dataset/instruction.md",
+      "sha256": "f380b7747cb4c48404c3234ed74e367046794ede1ad222df7709bd0855474ef6"
+    },
+    {
+      "bytes": 82431,
+      "path": "tasks/google__openhtf_pr_937/dataset/solution/code.patch",
+      "sha256": "e1853c2e244c6d42c2fe9ea820dcfd58724c499399b412bffa4c8158df2f666a"
+    },
+    {
+      "bytes": 158,
+      "path": "tasks/google__openhtf_pr_937/dataset/solution/solve.sh",
+      "sha256": "8cc927e87f3815fef73c46f39777b941c173f85232fc5a86a209d3b212d1fe13"
+    },
+    {
+      "bytes": 1079,
+      "path": "tasks/google__openhtf_pr_937/dataset/task.toml",
+      "sha256": "2117e38bb884467a951bf682110016488f9b0c799be6cae80240d4ec78101da5"
+    },
+    {
+      "bytes": 803,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/_compute_reward.py",
+      "sha256": "b4e61584b7834f82308cc3eac9f2b212ed3bc1a459bc67f365bbf97fc2e36290"
+    },
+    {
+      "bytes": 8227,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/f2p_coverage.json",
+      "sha256": "2ea2ccb09f9e8bc4df366851259cc531e3f73f89de81c642835e73409ba91063"
+    },
+    {
+      "bytes": 7081,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/fail_to_pass.txt",
+      "sha256": "739dcee56e02762404bfad58cd0ca66d3638fb06ea4f8247e25d67fc0c6b2b4a"
+    },
+    {
+      "bytes": 3056,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/pass_to_pass.txt",
+      "sha256": "9ce9c429fe90acac1dc36493032cb561de5c045b503abaa7e735007d968c60cd"
+    },
+    {
+      "bytes": 1047,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/scripts/omnigril_pytest_result_plugin.py",
+      "sha256": "9a7f48fa78641367cbe6227d82fd562235e20940c7dd3493dc3d1df7be3b828a"
+    },
+    {
+      "bytes": 552,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/scripts/sitecustomize.py",
+      "sha256": "e8151839a843f62461a37b47449a973def0c04ea28927460e775b5c34b657272"
+    },
+    {
+      "bytes": 588,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test.sh",
+      "sha256": "9c9a03647de5bf8b01c77c650d6b5609cb24619f7ae4a512e46799ac1fbf3e29"
+    },
+    {
+      "bytes": 965,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/core/diagnoses_additional_test.py",
+      "sha256": "78114eb0987599079edca7c34bf80290237ef9113c36c9be0ffc0d2e25e20168"
+    },
+    {
+      "bytes": 41403,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/core/diagnoses_test.py",
+      "sha256": "8ca815b2e6cfb0d468560d3fddf6387e0c51e704a0eefab371e19a393355a7b3"
+    },
+    {
+      "bytes": 29056,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/core/exe_test.py",
+      "sha256": "48e52a0b7a8cf4ee6953e47b7b4131032306803ce5e89ab13ca51ec9db0da533"
+    },
+    {
+      "bytes": 11877,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/core/measurements_test.py",
+      "sha256": "598a8147d58499ad525028d00d217043599c9c107c1d0b3b2c5dac40b9f36d90"
+    },
+    {
+      "bytes": 846,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/core/test_descriptor_test.py",
+      "sha256": "fd8ecb9cff38643afab5ae55399aa3b08d36bf7fb64987d7ddb154cea8199df8"
+    },
+    {
+      "bytes": 5259,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/phase_descriptor_test.py",
+      "sha256": "ecea6ceb2a956c0821fde17bd9646f0e3d8e9110d191011bc0bce29759eaa635"
+    },
+    {
+      "bytes": 6497,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/plugs/plugs_test.py",
+      "sha256": "478ae63f25166199237ef2a542876424eac03c4e7fd35e1819ab2b297154e21b"
+    },
+    {
+      "bytes": 7105,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/test_state_test.py",
+      "sha256": "ac08dcf4dcb1d7bf3537868696ecab7edab52517c5531de2128a9a1a56b2ba28"
+    },
+    {
+      "bytes": 6680,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/util/conf_test.py",
+      "sha256": "d0cd30c0c6e89d57b1ef09371c8595bec554153a10c695a28a6415601f1b63d9"
+    },
+    {
+      "bytes": 3140,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/util/data_test.py",
+      "sha256": "c0da28c20c8b0b2c35b2052749433beefcfb682f96c5e848e18c0a07a1975075"
+    },
+    {
+      "bytes": 6812,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files/test/util/test_test.py",
+      "sha256": "fea5df49141b38cce1ffadeda7b383d9185fc28408637e8aa5373511a87fd0b6"
+    },
+    {
+      "bytes": 302,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_files_manifest.txt",
+      "sha256": "885d2cf4f380100d58c46d538e0ee55f429af2dbb7c6a78d4f88116a74b3da91"
+    },
+    {
+      "bytes": 1212,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_run.sh",
+      "sha256": "a53087aee43f8294c6156219c6f15cd49bbef6a3b49076f2f017b20e34c676e9"
+    },
+    {
+      "bytes": 10137,
+      "path": "tasks/google__openhtf_pr_937/dataset/tests/test_targets.txt",
+      "sha256": "15703b7115ad0662770b1efa0e6f66dd7c33b5516a9b3795675f6c4d20b578ab"
+    },
+    {
+      "bytes": 6938,
+      "path": "tasks/google__openhtf_pr_937/prompt.md",
+      "sha256": "2a304eeef649ec2eccad57c3a6f9c6da9fe459bd7907c3248870c367e102a685"
+    },
+    {
+      "bytes": 151,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/environment/Dockerfile",
+      "sha256": "16ff3de9787f8ab24feee3e0a70167dca97af820df75f4648b37775b59d54589"
+    },
+    {
+      "bytes": 10476,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/instruction.md",
+      "sha256": "607b939fc9835b67a9b03f12a7e4b1d94fb93dad93890567bdf784afae808075"
+    },
+    {
+      "bytes": 40170,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/solution/code.patch",
+      "sha256": "c6ff3cbb98577bb80aa51c4d01519ebdd6ecbdc19cf5e6da34e790fc1fd63006"
+    },
+    {
+      "bytes": 102,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/solution/solve.sh",
+      "sha256": "fe66c8dc5eb7c469a0f59371b3d37446ce25ec46e157cf2f0e9168813f0f1863"
+    },
+    {
+      "bytes": 1065,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/task.toml",
+      "sha256": "074c01e0597741af757919abd7f1372d466a144f6fc36d0a1dc2259f48bd71ab"
+    },
+    {
+      "bytes": 1709,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/_compute_reward.py",
+      "sha256": "1728d37b51e918bc4cade232dca022c2c35255726049b76e0e6b8832b8fa34a3"
+    },
+    {
+      "bytes": 3561,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/f2p_coverage.json",
+      "sha256": "a229ff4f46acfb1beb1ef8ee42b55aa0e6bdbb263242f2c201ee0075ab208976"
+    },
+    {
+      "bytes": 2269,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/fail_to_pass.txt",
+      "sha256": "a7f89142356f58acc0c89af5feeec7f5c68b3bc1a764484183f9480610ca2af0"
+    },
+    {
+      "bytes": 1474,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/pass_to_pass.txt",
+      "sha256": "b2ea3aabac5f7a4a1ff01a96a3ad4d8b01b027d811a90e21d0673c205e3f8654"
+    },
+    {
+      "bytes": 2905,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test.sh",
+      "sha256": "c32ab6dfdf6dc425635a6c5ef4a8876fd4ac538a27eb3f4f5cd6f4cd9c5965e8"
+    },
+    {
+      "bytes": 1111,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_files/datatypes/bytestring_test.go",
+      "sha256": "8653d02c7e8a9fdf0307ce70feb1c1a2b46c71ee02bd570aa26ae98ee521987a"
+    },
+    {
+      "bytes": 4371,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_files/datatypes/localized-text_test.go",
+      "sha256": "3baa98dab5d0c1f526501238a18797ca16c15ae698e273c927a56bbba41f957d"
+    },
+    {
+      "bytes": 2555,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_files/datatypes/localized_text_additional_test.go",
+      "sha256": "54654403e4fc226cc5c9f68d3fc7e5b276fc486ec66327a7591c363e823274b2"
+    },
+    {
+      "bytes": 3546,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_files/datatypes/string_test.go",
+      "sha256": "e37fc8b208cdd266ce751d5057cad8e51f42c08a0f595bb758960795ac9e6c72"
+    },
+    {
+      "bytes": 1933,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_files/services/application-description_test.go",
+      "sha256": "c9e04b00a44383c5c26eb9fa0100a14c75d6ef1bb1a28e58c89d031e4ef247bc"
+    },
+    {
+      "bytes": 11476,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_files/services/endpoint-description_test.go",
+      "sha256": "402dfe7184502e8c280b45a53907226b16d3ec36cff457faa1979ec8e8c3bb88"
+    },
+    {
+      "bytes": 2864,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_files/services/get_endpoint_additional_test.go",
+      "sha256": "0cc9999ef6fda2174112748c1dac1bf04185c434c1bcb13c4f73c55470385c1d"
+    },
+    {
+      "bytes": 14812,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_files/services/service_test.go",
+      "sha256": "53f2bcb08aa1347633f2339f516cce1dda316b5fdbb4e205b7458ad62c1b79d1"
+    },
+    {
+      "bytes": 4722,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_files/services/user-token-policy_test.go",
+      "sha256": "bab850630cb2141f7109b258ddf1310966d0db85629d6329fc6f540966f09c11"
+    },
+    {
+      "bytes": 311,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_files_manifest.txt",
+      "sha256": "53e37c69e71f75712bac6e4d49d7bc9b857ea7e197bc72911d719e8609748ad1"
+    },
+    {
+      "bytes": 4868,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_run.sh",
+      "sha256": "f70cf6a4144e8cb532675859bbfd9ef69da2db74a6be0d088a23f9bdd50c158e"
+    },
+    {
+      "bytes": 3743,
+      "path": "tasks/gopcua__opcua_pr_6/dataset/tests/test_targets.txt",
+      "sha256": "f1488728d27df6de00bbbca5310e2096dc148df742ba06f9db0067c10f635d3d"
+    },
+    {
+      "bytes": 10722,
+      "path": "tasks/gopcua__opcua_pr_6/prompt.md",
+      "sha256": "a36b9f4271b5ef337717280344a4a9b1d562939c60bcda0d5e9319b9f2fb860b"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/environment/Dockerfile",
+      "sha256": "a44dfcaaa8b693bc07f72459086ef82c860a35896ec5c5c07ab29cfd8784e461"
+    },
+    {
+      "bytes": 10534,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/instruction.md",
+      "sha256": "ac6bef18935106d1bbc020ef7881968411f7935b74385ee863dab65a0cc64713"
+    },
+    {
+      "bytes": 193408,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/solution/code.patch",
+      "sha256": "9a720f07746aa9605f294b448872e0d0636d8b998c365d40fc4e7f0f5c8da857"
+    },
+    {
+      "bytes": 343,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/solution/solve.sh",
+      "sha256": "bb19118a31d90a3c4f6f5c26bb7d2a1f9bc410f859b93a9e0eb524e7bc4b3b25"
+    },
+    {
+      "bytes": 1085,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/task.toml",
+      "sha256": "ee590f9c71a0878d21f125d1cfb8b8f561a7f349b6c1da4c61cde2e33b5a6b56"
+    },
+    {
+      "bytes": 1001,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/_compute_reward.py",
+      "sha256": "023edcda373b90ec019091a0ea4322b723de421913f3940be628e6002bf6b23c"
+    },
+    {
+      "bytes": 23393,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/f2p_coverage.json",
+      "sha256": "034bf1dc9e885b4e197f28eff48e1881e7f65d6da0bc6be5e113e1f396678a89"
+    },
+    {
+      "bytes": 10211,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/fail_to_pass.txt",
+      "sha256": "7f0c127b3723ea749091bc2dc1a77d21360143a9b8a7b276aea8ec0868029025"
+    },
+    {
+      "bytes": 30133,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/pass_to_pass.txt",
+      "sha256": "a77a91ddd5fd9969b6418199a8094e3b52a2ad9d7e1541e391be7e29017ad826"
+    },
+    {
+      "bytes": 655,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test.sh",
+      "sha256": "3e867bbab0c5563b02784d3c0ab5d3bc380bdbabb97004d13e601e3e591c1bdc"
+    },
+    {
+      "bytes": 11727,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/events/test_channel_events.py",
+      "sha256": "bc6bed54ab013bd8268ea64081c9dc3cae0a66b1acfd68682c7f465724ab1c89"
+    },
+    {
+      "bytes": 6155,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/events/test_guild_events.py",
+      "sha256": "42a80250c3f5abd9e8336ca7f88e2e44188f5a9cd159aff9378b67a797563eea"
+    },
+    {
+      "bytes": 290383,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/impl/test_entity_factory.py",
+      "sha256": "3d13428de4d99556290bd53942e752619bc5ed91b2ff625d28f99efe732e4de3"
+    },
+    {
+      "bytes": 67398,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/impl/test_event_factory.py",
+      "sha256": "7fe8b68048ba0fa99a8122ee0dc6876b6123bb67a45daf1df4f669d78ad83d46"
+    },
+    {
+      "bytes": 73652,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/impl/test_event_manager.py",
+      "sha256": "d5e2c66434b80bb9fbd1757ff2c9448a7af54189d2c908dccc5ff48af048b381"
+    },
+    {
+      "bytes": 277119,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/impl/test_rest.py",
+      "sha256": "5f2d54ee009a3553d212fea987846557f8e2bd6d4206ed93ecb73dffa4a0ec63"
+    },
+    {
+      "bytes": 57370,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/impl/test_special_endpoints.py",
+      "sha256": "fd24079397444f7f56d4067de261a0d2470684b6d1587cecfd9f5c4f41d79fa9"
+    },
+    {
+      "bytes": 6302,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/interactions/test_command_interactions.py",
+      "sha256": "cd1185df299a04dc1bcdffb2c760abee3a962d7c6b8fa630cb8deaf354f4bba2"
+    },
+    {
+      "bytes": 7351,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/interactions/test_component_interactions.py",
+      "sha256": "903556dadc83ea3a608e78712fa21ed7c8d083141e9e505578c7e42af4f435df"
+    },
+    {
+      "bytes": 6168,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/test_audit_logs.py",
+      "sha256": "bdca909519551bfe266cb4756b7fbdbf8f153096d43faf95d5b7b70ae5d02862"
+    },
+    {
+      "bytes": 16729,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/test_channels.py",
+      "sha256": "15423d88f68afb2e01f86a284248f15382db860ce080d5297d04ee79c9521aa4"
+    },
+    {
+      "bytes": 763,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files/tests/hikari/test_codex_threads.py",
+      "sha256": "7a38e53bc1b9d7f59a8cf61d0e37854fde76db1e7a7fee5f934c97157f7ae57a"
+    },
+    {
+      "bytes": 489,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_files_manifest.txt",
+      "sha256": "328692230e605800b91d0c39c54ec82084c0846e51042142acdd3e4908d9a07d"
+    },
+    {
+      "bytes": 1553,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_run.sh",
+      "sha256": "868688798e900d13055cc2ba7f0bf9da0891f3cefa7ecdc85eaf6c06d162c8ec"
+    },
+    {
+      "bytes": 40344,
+      "path": "tasks/hikari-py__hikari_pr_811/dataset/tests/test_targets.txt",
+      "sha256": "75d0ac9df68b719875d325e02dd18fbd7eae896f778b2e94eda6cb640c677bc1"
+    },
+    {
+      "bytes": 10549,
+      "path": "tasks/hikari-py__hikari_pr_811/prompt.md",
+      "sha256": "ee419b5f5583307809d8f40dbbb3ec03679197c59d84aeb1fb9863a5931ab470"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/environment/Dockerfile",
+      "sha256": "5a0106f74195a2b633a8fd58cade966261b407f32b8e8476d6c48513961ada4e"
+    },
+    {
+      "bytes": 5110,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/instruction.md",
+      "sha256": "d909435185619f6b96aeb3464fc0ee8e8d43d104378b20c55162fc5c07eec6e6"
+    },
+    {
+      "bytes": 66394,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/solution/code.patch",
+      "sha256": "096c004461ae32cf44f8c0e5b65853b0efc3591f6fb68d391e3009f7bab0d7cd"
+    },
+    {
+      "bytes": 91,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/solution/solve.sh",
+      "sha256": "9659bb4cfdf57fb30004dd72de14ede2ae53306bf415a407a5534c5ea2e61000"
+    },
+    {
+      "bytes": 1118,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/task.toml",
+      "sha256": "096cb0e0df4a241cd08780dcbcddac44f99236511bac1412b66c623d15428024"
+    },
+    {
+      "bytes": 817,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/_compute_reward.py",
+      "sha256": "4f5e667223edbb11af6862bb35c96a840ba593aa89b5ce0f4ebe97e81b30481e"
+    },
+    {
+      "bytes": 1684,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/f2p_coverage.json",
+      "sha256": "5374c68a08d7e69abe6541a6487d6a66248e932088ce49a36643521571f659f6"
+    },
+    {
+      "bytes": 801,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/fail_to_pass.txt",
+      "sha256": "d81f97b68de356a569fe402e033cdd928189508b7f7850bdc458fb57f11d5698"
+    },
+    {
+      "bytes": 74,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/pass_to_pass.txt",
+      "sha256": "6d4fe82857dc737b28deb655aa8d56786a43684deae82c43e64967252396d342"
+    },
+    {
+      "bytes": 1123,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/scripts/omnigril_pytest_result_plugin.py",
+      "sha256": "e0c48f98f476a4b929c1d5e1bc41e01b01d02bb3e397cf7e3f0b604d711d5c3d"
+    },
+    {
+      "bytes": 615,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/test.sh",
+      "sha256": "02079432c115229e38c758f6575aa0070ff601fec532b62df2baf02b026d5f9e"
+    },
+    {
+      "bytes": 3508,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/test_files/tests/test_commit_api_local.py",
+      "sha256": "99c857578367d783b93a3376b0410782530bc26e73c7bc8d662651164fe1c52f"
+    },
+    {
+      "bytes": 54251,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/test_files/tests/test_hf_api.py",
+      "sha256": "11d5ea8752a248a68ef865a057da49329afcc20f4ea9f6a5278cbbf989e64f9d"
+    },
+    {
+      "bytes": 9068,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/test_files/tests/test_lfs.py",
+      "sha256": "1d29de50b9856feb1c8ae64cbce3313e6379f32cde2d8730a00d00d94a2fe134"
+    },
+    {
+      "bytes": 1161,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/test_files/tests/test_utils_sha.py",
+      "sha256": "85b452d1e9c48c30bb0ffd2e2167b504ab354a69a9e38f35705a3afebfe35e1d"
+    },
+    {
+      "bytes": 94,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/test_files_manifest.txt",
+      "sha256": "e4d8aca26bc652060e0b7d1a17fcce12dbd2506618ba1acc0d27b250806f0162"
+    },
+    {
+      "bytes": 2107,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/test_run.sh",
+      "sha256": "a7fee77edc7aa92e4563ba2d1097dd27c8ae8051f41ad2825db06aadc00f845a"
+    },
+    {
+      "bytes": 875,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/dataset/tests/test_targets.txt",
+      "sha256": "1b1c35da1c7957629f48dc915527872034ea7ddb151fa994b6a692f5396a10b0"
+    },
+    {
+      "bytes": 5125,
+      "path": "tasks/huggingface__huggingface_hub_pr_888/prompt.md",
+      "sha256": "114ddfcd253d99c209b215a7965a1689e0a75ff67e1390861acaf45af2f40eec"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/istio__istio_pr_6132/dataset/environment/Dockerfile",
+      "sha256": "0b3b59c0cd8a51b7a4ec34c358666d2f0684fb17bab7f78b6e8fb8f202aa771a"
+    },
+    {
+      "bytes": 4806,
+      "path": "tasks/istio__istio_pr_6132/dataset/instruction.md",
+      "sha256": "60268f29846ae2d55f64037f7062e4937738479aaba7eb4dd407793fdbe9b78b"
+    },
+    {
+      "bytes": 44173,
+      "path": "tasks/istio__istio_pr_6132/dataset/solution/code.patch",
+      "sha256": "e8a16c8721b040fb58fd4f5e81832ea8ec58a778f0f03f1a35719c73208f4a6c"
+    },
+    {
+      "bytes": 102,
+      "path": "tasks/istio__istio_pr_6132/dataset/solution/solve.sh",
+      "sha256": "fe66c8dc5eb7c469a0f59371b3d37446ce25ec46e157cf2f0e9168813f0f1863"
+    },
+    {
+      "bytes": 1068,
+      "path": "tasks/istio__istio_pr_6132/dataset/task.toml",
+      "sha256": "c4915eb55223978674e77e91a04a657445e94230aaa08c4fa323589e53aa79ce"
+    },
+    {
+      "bytes": 1662,
+      "path": "tasks/istio__istio_pr_6132/dataset/tests/_compute_reward.py",
+      "sha256": "0e737cf73c1ff83cfe913d735cce3ab5d9112a57a4d69a96573dc17ee9716517"
+    },
+    {
+      "bytes": 1989,
+      "path": "tasks/istio__istio_pr_6132/dataset/tests/f2p_coverage.json",
+      "sha256": "5927153df53124d2dbce5589114efe0a11b26ab96d1fdf8216436cf81c58e85f"
+    },
+    {
+      "bytes": 1343,
+      "path": "tasks/istio__istio_pr_6132/dataset/tests/fail_to_pass.txt",
+      "sha256": "0e9fc27c29c096316aee71f30920965b5d2cd40b8a610bd98ad6ae58dc0e47a2"
+    },
+    {
+      "bytes": 190,
+      "path": "tasks/istio__istio_pr_6132/dataset/tests/pass_to_pass.txt",
+      "sha256": "56b87649f9882f0eba732ed83b5620d594db503ba8129e7296276d49ce8b1c43"
+    },
+    {
+      "bytes": 2754,
+      "path": "tasks/istio__istio_pr_6132/dataset/tests/test.sh",
+      "sha256": "ef02445e6c0103e5bddb714c7c03b6d1286968ece1c06aaf092fd4066ca5ec10"
+    },
+    {
+      "bytes": 719,
+      "path": "tasks/istio__istio_pr_6132/dataset/tests/test_files_manifest.txt",
+      "sha256": "db541bc7b594d3df4a181b39cc214df2f50b2fd338ef36ddeb3b1c3758671ece"
+    },
+    {
+      "bytes": 3266,
+      "path": "tasks/istio__istio_pr_6132/dataset/tests/test_run.sh",
+      "sha256": "ae4379e670b1d859beb649dc29f2a5388185752ff541c9288215f23764d6e286"
+    },
+    {
+      "bytes": 1533,
+      "path": "tasks/istio__istio_pr_6132/dataset/tests/test_targets.txt",
+      "sha256": "938e5905224056aaa2c2f8cca662f0a272c5cfd2333e04d18ead2f0bd9770811"
+    },
+    {
+      "bytes": 5052,
+      "path": "tasks/istio__istio_pr_6132/prompt.md",
+      "sha256": "e9c8f365e8fcba82e8127cbe44f8016db11e96ed3ca3d082f09ca861e4fd88e6"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/environment/Dockerfile",
+      "sha256": "1252213dc749619f8fb6213a932e35eb953464eb5a0b16cd9abe2271db143cc4"
+    },
+    {
+      "bytes": 6422,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/instruction.md",
+      "sha256": "6f22f3450f222ae219cf5ff44fd0c3e76ff37a1c508671ecad2bd0624ffaa238"
+    },
+    {
+      "bytes": 125233,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/solution/code.patch",
+      "sha256": "d28a779be831303b452cf55614b52c72be225a3001a06951d6eabf3d1d7210ad"
+    },
+    {
+      "bytes": 216,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/solution/solve.sh",
+      "sha256": "216c2d4b5340a8e61a5242d6ae323c7086ac9601de80bd7a71c1607ce5559c9b"
+    },
+    {
+      "bytes": 1099,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/task.toml",
+      "sha256": "975f9eebb1f0df1746389d0a44e0bf4e3c66a152b08c01de62649f6aa40bd7b8"
+    },
+    {
+      "bytes": 638,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/_compute_reward.py",
+      "sha256": "9488c1adfa44d6546057e3dcdfc9a03502c39d5e818923159cc7b740308bea51"
+    },
+    {
+      "bytes": 1449,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/f2p_coverage.json",
+      "sha256": "153e5209e554c7401503110dc007292bc219822b8a49af9de5c953abd61ca88d"
+    },
+    {
+      "bytes": 794,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/fail_to_pass.txt",
+      "sha256": "9ee8673ab0cf2b8bae15cd78906cc264022fae97e4e4c7c29a9febb066235075"
+    },
+    {
+      "bytes": 82,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/pass_to_pass.txt",
+      "sha256": "9a17b2ed240975d2409d739fc026bbcb4ad8757bd86ed69d2f6b779a571cf94f"
+    },
+    {
+      "bytes": 513,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/test.sh",
+      "sha256": "3cbed03b1c2edb42a24bcac005327657ca2d3d6ec914031d617f51288cb8a40d"
+    },
+    {
+      "bytes": 3841,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/test_files/keras_hub/src/models/t5gemma/t5gemma_backbone_test.py",
+      "sha256": "21ab8eb09485288c6bdff8a49a27f34ff48729ca15e0cff8fd6d1e197de919ca"
+    },
+    {
+      "bytes": 587,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/test_files/keras_hub/src/models/t5gemma/t5gemma_public_api_test.py",
+      "sha256": "aac774a4b42a09969a8945c59a2d4a7b859cb2d929c5d158b55c0c67c398a289"
+    },
+    {
+      "bytes": 5986,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/test_files/keras_hub/src/models/t5gemma/t5gemma_seq_2_seq_lm_test.py",
+      "sha256": "e8827179b5ec5175186476150fe5e69122fbad304eef8a71f1ce9f9707bc182c"
+    },
+    {
+      "bytes": 1065,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/test_files/keras_hub/src/utils/transformers/convert_t5gemma_test.py",
+      "sha256": "dd0117cfbdc3e4899c9e004e3cd343720393976813ca6ca00f382ed687483868"
+    },
+    {
+      "bytes": 225,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/test_files_manifest.txt",
+      "sha256": "2300158c0f5b374b0c60b814646272ffec9c9e3a42b4c1e9f5ae9fda3bd5a77b"
+    },
+    {
+      "bytes": 1428,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/test_run.sh",
+      "sha256": "7518dca37714cce1f997b7db4dd897a09c37412bbc9e8904150b25987757e316"
+    },
+    {
+      "bytes": 876,
+      "path": "tasks/keras-team__keras-hub_pr_2339/dataset/tests/test_targets.txt",
+      "sha256": "542902f8aed5f86e4a6a8ba200773520b124bec3088024e4d3635903e2e229b2"
+    },
+    {
+      "bytes": 6437,
+      "path": "tasks/keras-team__keras-hub_pr_2339/prompt.md",
+      "sha256": "e582610e8cbe25a03e1f4b1656a000a33476dda6843e90e3a76d7e0b2933d0bb"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/environment/Dockerfile",
+      "sha256": "e180ef1f60187c9aa00928ef7ae383df6603a0ac8e2568a2340f0f224fd623ed"
+    },
+    {
+      "bytes": 4388,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/instruction.md",
+      "sha256": "649dad39f49da9368b921c0926ea357d00b1bb44602bd17a8d3932b57808973d"
+    },
+    {
+      "bytes": 24658,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/solution/code.patch",
+      "sha256": "0cdf6df130de03e5b3fe2a497587721458d8f115b515d5c590adc36b05da12fd"
+    },
+    {
+      "bytes": 101,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/solution/solve.sh",
+      "sha256": "a8f55786e96ac605845c901c0cc15b3169f8f0ebd799bd94cea34a48f9dc8a55"
+    },
+    {
+      "bytes": 1134,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/task.toml",
+      "sha256": "6d73d6c90b2860471947d084708caba644accb617e6647607b071d51a1a2e6aa"
+    },
+    {
+      "bytes": 611,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/_compute_reward.py",
+      "sha256": "8d69ffb5bef257a6225e850b6f70fbc69c577ecd3b6c89f0f897cdb3e94ca1ab"
+    },
+    {
+      "bytes": 470,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/f2p_coverage.json",
+      "sha256": "7fa4df6631546591e6b4ffd1af987f835d332dcd7756d9ba6b8c78b87e2c6ac2"
+    },
+    {
+      "bytes": 229,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/fail_to_pass.txt",
+      "sha256": "3fa157b5e88baa31afa0a23cdaf89538ffbf05f45e47e3c2f2e1865902fd6be6"
+    },
+    {
+      "bytes": 30,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/pass_to_pass.txt",
+      "sha256": "ef778a2f00a47022da21796548a3ea78707f9958afe0170d3ac199a86f7c1f2a"
+    },
+    {
+      "bytes": 545,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test.sh",
+      "sha256": "6e0ab22f9583f10a8577ad8aa19543111b9014b20ec3eb0e5c7893caffa45c24"
+    },
+    {
+      "bytes": 4785,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_files/tests/data/allof.yaml",
+      "sha256": "088b3b8a53e64e07656d98836d5748134432350c967c238e170851e52fea5ac1"
+    },
+    {
+      "bytes": 801,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_files/tests/hidden/test_allof_behavior.py",
+      "sha256": "5195682d5be5588b595184fa29ce0116811437e6451ce410fe92a8d521859004"
+    },
+    {
+      "bytes": 1685,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_files/tests/model/pydantic/test_base_model.py",
+      "sha256": "cb504dff1a348f1f78409c1ff9991b0f02a55be48289705f18cdb90dfd41bb48"
+    },
+    {
+      "bytes": 1830,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_files/tests/model/pydantic/test_custom_root_type.py",
+      "sha256": "8f8096ed4c7634709d2ce0a640cdfd33c85dba9f1ce546fd883ffcb40a3c7b79"
+    },
+    {
+      "bytes": 1519,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_files/tests/model/pydantic/test_data_class.py",
+      "sha256": "1b8544a4392a3dedde91cc3f053d016505133724e70e7694eab43e854920748a"
+    },
+    {
+      "bytes": 2334,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_files/tests/model/test_base.py",
+      "sha256": "558f0bba9a1b180703508f4b2e7a2a3b35b4b5d889d746dbb46ea978c3ed1c62"
+    },
+    {
+      "bytes": 1720,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_files/tests/parser/test_base.py",
+      "sha256": "03d076a199b70f1ae7a15949e8416b38f12a560d22e64a9ce5a8b11132c1502e"
+    },
+    {
+      "bytes": 17786,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_files/tests/parser/test_openapi.py",
+      "sha256": "3acc337ade9713f10c2ff2a61f616a4232eca784021a1054aa32c9eb4729c18f"
+    },
+    {
+      "bytes": 264,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_files_manifest.txt",
+      "sha256": "52d16e2735959272993eb035efec55289ba378d2f626a13fe1f2b6c974430d01"
+    },
+    {
+      "bytes": 1699,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_run.sh",
+      "sha256": "8b88e5121c9b94f53859877346f0d1f6573d082424d916596e6361956581dea6"
+    },
+    {
+      "bytes": 259,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/dataset/tests/test_targets.txt",
+      "sha256": "8add8263279920ac076a91d8500cb3a8b5be66b018f4a580749b552783c171d4"
+    },
+    {
+      "bytes": 4403,
+      "path": "tasks/koxudaxi__datamodel-code-generator_pr_53/prompt.md",
+      "sha256": "9725fb8c338b2c2355bc756b1a3e92821cc53ca93c5397f67a207ac5504b3777"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/environment/Dockerfile",
+      "sha256": "9c56f9fe7d2efbe6aa97395d7b68b9078b4f1316edf737c0fbebbdf8485d7e47"
+    },
+    {
+      "bytes": 7583,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/instruction.md",
+      "sha256": "bf3ef558eb0e11aec05f3fb94e7a458794c75a93607e4e3fdd2336f0c252b407"
+    },
+    {
+      "bytes": 40533,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/solution/code.patch",
+      "sha256": "ebf42e1746b4881f0dd001f00c991de99ee66bf1bcbe64ed2dde150117437576"
+    },
+    {
+      "bytes": 102,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/solution/solve.sh",
+      "sha256": "fe66c8dc5eb7c469a0f59371b3d37446ce25ec46e157cf2f0e9168813f0f1863"
+    },
+    {
+      "bytes": 1100,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/task.toml",
+      "sha256": "4ebad5d3cb55bf0619f9505ea610598448980674e760cc72fab574595fb546ab"
+    },
+    {
+      "bytes": 1586,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/_compute_reward.py",
+      "sha256": "e16783b283ae410c9922f776bb9c0ab97ad777cf121bbf43e609e2daea462c51"
+    },
+    {
+      "bytes": 4936,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/f2p_coverage.json",
+      "sha256": "ed63dfdcbf5660e3c2274c241b84e70b3b3cf11c2c927be5530b3893fea1c2ae"
+    },
+    {
+      "bytes": 3233,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/fail_to_pass.txt",
+      "sha256": "244f650b15b5e56b2cc6d040f6f7aa54b6f5baeb26b1c22efe22d653eef39b51"
+    },
+    {
+      "bytes": 419,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/pass_to_pass.txt",
+      "sha256": "bf96a85b1def2a5962e043f0e1669b01cd7ff37e2a058561259b45b99b58d103"
+    },
+    {
+      "bytes": 2790,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/test.sh",
+      "sha256": "17c9c40ee335c1c50c174105b8d8187c8809c300019ccec760043e25478035b6"
+    },
+    {
+      "bytes": 850,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/test_files/prow/apis/prowjobs/v1/resultstore_reporter_config_test.go",
+      "sha256": "99e7c462ac83379754a0a5f5f5d8b9faefb9d0fc8a8de1a74d0337bfa68bd602"
+    },
+    {
+      "bytes": 9166,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/test_files/prow/cmd/crier/main_test.go",
+      "sha256": "5b790843970a78176a01e7f0a043b9952f14c6be36c364e12e2d578c0e17f4b6"
+    },
+    {
+      "bytes": 1059,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/test_files/prow/crier/reporters/gcs/util/resultstore_gcs_test.go",
+      "sha256": "868991c5684bedeeb07662b68d1f920a559aed3e12f93e1006a9d69dc4e1b239"
+    },
+    {
+      "bytes": 7925,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/test_files/prow/crier/reporters/resultstore/reporter_test.go",
+      "sha256": "dc3b5e60fb0accece8250568c0943537f789e7ab47418c118cf72768db647a19"
+    },
+    {
+      "bytes": 8997,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/test_files/prow/resultstore/files_test.go",
+      "sha256": "0670418fc869ac895234d00ca18d875d450b2af0fb2337142c474d3234aa20f0"
+    },
+    {
+      "bytes": 20839,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/test_files/prow/resultstore/payload_test.go",
+      "sha256": "01737feef7a0530518b55fdf664d184d9621ea158d17b8a57f293dfc566bc005"
+    },
+    {
+      "bytes": 254,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/test_files_manifest.txt",
+      "sha256": "539a72c66a2dc989e8be41ab42496f941abda5402be30d521ff7ea7bacbcd5ea"
+    },
+    {
+      "bytes": 4343,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/test_run.sh",
+      "sha256": "e3ced3384f0737383babc87c28e190b73b0bc031d2e477c27156d30a12dcc927"
+    },
+    {
+      "bytes": 3652,
+      "path": "tasks/kubernetes__test-infra_pr_30813/dataset/tests/test_targets.txt",
+      "sha256": "8081286f704759c4c18d0e2568f1b0941f476c44d29a55c9cece87b6bb03bd01"
+    },
+    {
+      "bytes": 7829,
+      "path": "tasks/kubernetes__test-infra_pr_30813/prompt.md",
+      "sha256": "ccafe878cb3bee999cc4e4b49558acb7f40a6c9f7453a81ea9cb2525f47d74bb"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/environment/Dockerfile",
+      "sha256": "e1cab086cd3770e6e6e45a8cbdf09f0bfdd07b4ca3e7cc82695fd725becde8cf"
+    },
+    {
+      "bytes": 4912,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/instruction.md",
+      "sha256": "cb2eafa362dc3489ee5a60e3407355869ec01ea9efe7089e01b9ae8f1c1b7ab0"
+    },
+    {
+      "bytes": 41774,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/solution/code.patch",
+      "sha256": "2d688234cbc2ca28bf8e298f06e3b2a1f0e8685fa150686ef3d6a5436cb2696b"
+    },
+    {
+      "bytes": 352,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/solution/solve.sh",
+      "sha256": "a5517951ae9f6a6af750bd5f2e5ec4aed799044198e58b99db8139e2fdffe69b"
+    },
+    {
+      "bytes": 717,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/task.toml",
+      "sha256": "55c9c69523e2672db42db6d46a3ab3db5c2c3a06b68ccfb2457041b93c57d719"
+    },
+    {
+      "bytes": 2878,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/_compute_reward.py",
+      "sha256": "90e2d018e3ce5f515ec98f003297ee029b24f0587cc36cfb924d682c639a7b30"
+    },
+    {
+      "bytes": 2025,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/fail_to_pass.txt",
+      "sha256": "959bdaa6df1452ea6d655338feb876771d32804f01cf0accd974cf05ea4aaa6b"
+    },
+    {
+      "bytes": 1,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/pass_to_pass.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "bytes": 411,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/scripts/activate.sh",
+      "sha256": "9d9c3b6e8932b96b18bee97c2b9d52010f9a893564375af2cce82c1eeaf4ee72"
+    },
+    {
+      "bytes": 31235,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/test.patch",
+      "sha256": "6ed6d4538b45c90d4068c4588f09b8f7a819bf3fe3bf4a75d94fbe46df3a41f7"
+    },
+    {
+      "bytes": 1255,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/test.sh",
+      "sha256": "f811321f1bc7631c57a6199e9cf18d28eb22b785a57aa2dc0279424cd99cbc68"
+    },
+    {
+      "bytes": 13499,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/test_files/tests/core/network/test_net_stream_concurrency.py",
+      "sha256": "38a0ecbb36462af994b5ab756c265e62f0fc3c2bef3649c6fd1d58313f9465f5"
+    },
+    {
+      "bytes": 7053,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/test_files/tests/core/network/test_net_stream_error_state.py",
+      "sha256": "5088c70da453e50fa0b220fa6dd9f5220d391397a8a82d0b4b80ef84b49c1d3c"
+    },
+    {
+      "bytes": 3559,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/test_files/tests/core/network/test_net_stream_state_transitions.py",
+      "sha256": "f8ec95cbfc0b106e62f3813a2cb941437bb96a817fd711d70120beffb3fcd849"
+    },
+    {
+      "bytes": 156,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/test_files_manifest.txt",
+      "sha256": "b4e3a34b6ac170036a011b09a14561781a6754f24d7a0fa80b6ecee65c02329b"
+    },
+    {
+      "bytes": 1899,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/test_run.sh",
+      "sha256": "bba6bf2870d8d2df0d4f0aae6745e87967185f9962a73956b70250a70f1b3b19"
+    },
+    {
+      "bytes": 2025,
+      "path": "tasks/libp2p__py-libp2p_pr_637/dataset/tests/test_targets.txt",
+      "sha256": "959bdaa6df1452ea6d655338feb876771d32804f01cf0accd974cf05ea4aaa6b"
+    },
+    {
+      "bytes": 4927,
+      "path": "tasks/libp2p__py-libp2p_pr_637/prompt.md",
+      "sha256": "4f68f73fbba526fcce0dc0f35141a9a4cdd05ad3be6863aba455ed696f356edc"
+    },
+    {
+      "bytes": 150,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/environment/Dockerfile",
+      "sha256": "c8c9749769ec728f42d5813cdcea9084917eb3dfc160e24a1c172da34e143184"
+    },
+    {
+      "bytes": 7296,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/instruction.md",
+      "sha256": "5eed8c3bf633f15dc91ebe3f16b1e08c6213399ca656a5712d37c3b29ce6fab8"
+    },
+    {
+      "bytes": 105323,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/solution/code.patch",
+      "sha256": "b084a3697ff8e0fe55c8497886ff5774f082076aa9f6a5d5b0b1e75b313517f3"
+    },
+    {
+      "bytes": 158,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/solution/solve.sh",
+      "sha256": "c00d2ff44f2de6838ec0e40519909f5f98ab6c78f35a11482150e29ff1fee5c2"
+    },
+    {
+      "bytes": 1084,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/task.toml",
+      "sha256": "c0cdf21161cb962f5422b5cdb4a972def6d71d924168975a905afee74a29136d"
+    },
+    {
+      "bytes": 706,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/tests/_compute_reward.py",
+      "sha256": "6b4d81e9f9937851881621088340a8999fa25a24d38983357eb2dae49d6151ca"
+    },
+    {
+      "bytes": 1806,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/tests/f2p_coverage.json",
+      "sha256": "442af5bd6db4877cafc982c7a4c722fd6cde45f6b1b6da2786f2d92b13447b43"
+    },
+    {
+      "bytes": 1200,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/tests/fail_to_pass.txt",
+      "sha256": "1067054e7c82c4d6ef6cc25b7fdf3681ada430d2136719abccf13eaadeca1089"
+    },
+    {
+      "bytes": 117,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/tests/pass_to_pass.txt",
+      "sha256": "d8685a247bd2756f88ab85c82e6f2bf5178a7ca5c4b83e169dedc00855edf3ac"
+    },
+    {
+      "bytes": 655,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/tests/test.sh",
+      "sha256": "3062728746a13214cd6425f77aceb42d395d23106e91a7dacd2e2cd64adae377"
+    },
+    {
+      "bytes": 21650,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/tests/test_files/massgen/tests/test_bootstrap_criteria.py",
+      "sha256": "a66a912398ef83af18328756d4145ec111138bd0846355d7641caf868f4a6fba"
+    },
+    {
+      "bytes": 41,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/tests/test_files_manifest.txt",
+      "sha256": "4bc0ff6d6a3984087f73dff044a2176dbbbffaaf1b59857e0b9f0568057504bb"
+    },
+    {
+      "bytes": 1618,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/tests/test_run.sh",
+      "sha256": "292a7acb6ed3470b55f82b890881645eeb2905dd47d6c140e8a6c9c9cf5a201e"
+    },
+    {
+      "bytes": 1317,
+      "path": "tasks/massgen__MassGen_pr_1087/dataset/tests/test_targets.txt",
+      "sha256": "c9dbc654865bafd3d8b26d44d6726898903bb4babb49d608c3c610355dcd85c8"
+    },
+    {
+      "bytes": 7311,
+      "path": "tasks/massgen__MassGen_pr_1087/prompt.md",
+      "sha256": "63ef470784c8f85febb1be1eaec1158d089657052cce645f936bd12d831d75a1"
+    },
+    {
+      "bytes": 167,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/environment/Dockerfile",
+      "sha256": "c4ae1305c9616206988b1475ca4cc2c5ab4eb3ca2e3da13b845a9cc36c093f5c"
+    },
+    {
+      "bytes": 5746,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/instruction.md",
+      "sha256": "03dbb5f41f8ff963c2244d6584a71e06771f5dd336201b38f2f3a835920f3efa"
+    },
+    {
+      "bytes": 100024,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/solution/code.patch",
+      "sha256": "95b39f14165b6666cc155ee96b18aa88f1c80350406d940f4726aa885b693188"
+    },
+    {
+      "bytes": 90,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/solution/solve.sh",
+      "sha256": "0f5a794163dfbd8d69c7d09d70e4b7f04c8fad74c990031064ea5b183884d199"
+    },
+    {
+      "bytes": 1081,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/task.toml",
+      "sha256": "e9dfa88c29ed0b2f92c61ffc0c1d4ba9cc0f9c2fbf945a01373f8538adbfad67"
+    },
+    {
+      "bytes": 738,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/_compute_reward.py",
+      "sha256": "1b0b714bfa0f20a6fc160a4ea90d0c54f4e4d78fe7269f235662bb0e225f7bb4"
+    },
+    {
+      "bytes": 4613,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/f2p_coverage.json",
+      "sha256": "348849e7dd4c336fd3e27d163278350a4a5a389ac08c493e22af9f3285a6d456"
+    },
+    {
+      "bytes": 3799,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/fail_to_pass.txt",
+      "sha256": "16e0ac3a5475a01948f6953b3c639ba4983cf245753e9dcf5fb4b81ba3614a85"
+    },
+    {
+      "bytes": 124,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/pass_to_pass.txt",
+      "sha256": "80f95428056166cc9534ca42cc614bf64029905065d5c14b0f86bd26e5d9ff18"
+    },
+    {
+      "bytes": 598,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test.sh",
+      "sha256": "103c7056e6fe130e6be0cf8858f08c8085ece11b513987fe70c645d099dbd582"
+    },
+    {
+      "bytes": 4422,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_files/python/xorq/catalog/tests/conftest.py",
+      "sha256": "a2007f9457a83046c6596b2729bbfe0ef08cec987b5fbb6838c920da8242a4e5"
+    },
+    {
+      "bytes": 12967,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_files/python/xorq/catalog/tests/test_annex.py",
+      "sha256": "5a6af0f04327bafadc4c1414cf1ca7a308e310f00aae7dd9fcf87a97e2d62063"
+    },
+    {
+      "bytes": 32206,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_files/python/xorq/catalog/tests/test_bind.py",
+      "sha256": "560c3d322b5fcf4d9d30b62644248ee204196a00ea6dfd834b1fceedbc7b151a"
+    },
+    {
+      "bytes": 23555,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_files/python/xorq/catalog/tests/test_catalog.py",
+      "sha256": "2d8e9538c10b7b8d91e1b8e77f26dad00d0b56fc49a04920c4042a899677655e"
+    },
+    {
+      "bytes": 976,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_files/python/xorq/catalog/tests/test_catalog_compose.py",
+      "sha256": "7bee5490ec99fa461e2e634b7096ee7e342e8e286a2c169231a38c55fb86c05f"
+    },
+    {
+      "bytes": 10136,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_files/python/xorq/catalog/tests/test_catalog_ctor.py",
+      "sha256": "dbca6e151acfb6dbb01061f39452b5ab615bea8377494613d7eeff1c8e18f408"
+    },
+    {
+      "bytes": 43873,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_files/python/xorq/catalog/tests/test_cli.py",
+      "sha256": "550db7cad499f85eff4c441541c50562dde470764fb615e9fa3522f6a3d4e998"
+    },
+    {
+      "bytes": 1201,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_files/python/xorq/catalog/tests/test_codex_catalog_behavior.py",
+      "sha256": "9e0acc727c075df787d95a787a0e59066c7db4b600ec63ce63575ca04d273d38"
+    },
+    {
+      "bytes": 4088,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_files/python/xorq/catalog/tests/test_git_backend.py",
+      "sha256": "d7023472b75ae12fbe0c15ec9781fbe315a9c471d179b468ae2fb32850f68af8"
+    },
+    {
+      "bytes": 397,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_files_manifest.txt",
+      "sha256": "a12bc93a2a443b64cbe057988cf274cd7790dc41847e37141b0d28370e51419f"
+    },
+    {
+      "bytes": 2854,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_run.sh",
+      "sha256": "35e89ade262742e3da3d9e9996ebdeb1d3677f3886932a6b638f06efddcbc57b"
+    },
+    {
+      "bytes": 3923,
+      "path": "tasks/xorq-labs__xorq_pr_1752/dataset/tests/test_targets.txt",
+      "sha256": "ba2938ff626cb674abe0dbab67a4a6e884363395423d189dfa352938746665c8"
+    },
+    {
+      "bytes": 5992,
+      "path": "tasks/xorq-labs__xorq_pr_1752/prompt.md",
+      "sha256": "13c7b742400e1d3f071e8496c8e989d3cfdb696693afed018d1e18fd8dfb1940"
+    }
+  ]
+}

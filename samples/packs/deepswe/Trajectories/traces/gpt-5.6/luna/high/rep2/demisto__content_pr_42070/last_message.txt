@@ -1,0 +1,16 @@
+Implemented mixed indicator enrichment with:
+
+- IP, URL, Domain, CVE, and File support
+- Text extraction and `indicator_list` inputs
+- Deduplication, validation, limits, and invalid-item reporting
+- Batched child enrichment with partial-failure handling
+- Unified `IndicatorEnrichment` output and Markdown formatting
+- Raw child-context filtering
+- Command entry point and YAML definition
+
+Files:
+
+- [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py)
+- [IndicatorEnrichment.yml](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.yml)
+
+Python compilation, focused behavioral checks, and `git diff --check` passed. Broader pytest/ruff tools were unavailable in the workspace.

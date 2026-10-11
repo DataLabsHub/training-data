@@ -1,0 +1,100 @@
+{
+  "agent_rc": 0,
+  "agent_step_rc": 0,
+  "apply_rc": 0,
+  "auth_transport": "chatgpt",
+  "finished_unix": 1788078746.4574707,
+  "index": 443,
+  "model": "gpt-5.6-terra",
+  "network": {
+    "checked_unix": 1788078744.0355134,
+    "offline_fallback": false,
+    "probes": [
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      }
+    ],
+    "schema": "coding-synthesis.verifier-online-network/v1",
+    "valid": true,
+    "verifier_network_mode": "enabled-default"
+  },
+  "network_valid": true,
+  "offline_fallback": false,
+  "patch_bytes": 26182,
+  "prior_status": "instruction_repaired_pygo25",
+  "reasoning_effort": "high",
+  "repetition": 3,
+  "reward": 0.0,
+  "reward_data": {
+    "core": 0.9565217391304348,
+    "regression": 1.0,
+    "results": {
+      "tests/core/network/test_net_stream_concurrency.py::test_atomic_state_io_operations": "PASSED",
+      "tests/core/network/test_net_stream_concurrency.py::test_concurrent_read_write_with_state_changes": "PASSED",
+      "tests/core/network/test_net_stream_concurrency.py::test_concurrent_state_access": "PASSED",
+      "tests/core/network/test_net_stream_concurrency.py::test_lock_behavior_during_cancellation": "PASSED",
+      "tests/core/network/test_net_stream_concurrency.py::test_lock_performance_under_load": "PASSED",
+      "tests/core/network/test_net_stream_concurrency.py::test_lock_prevents_concurrent_state_modifications": "PASSED",
+      "tests/core/network/test_net_stream_concurrency.py::test_multiple_readers_with_state_lock": "PASSED",
+      "tests/core/network/test_net_stream_concurrency.py::test_race_condition_prevention_in_read": "PASSED",
+      "tests/core/network/test_net_stream_concurrency.py::test_race_condition_prevention_in_write": "PASSED",
+      "tests/core/network/test_net_stream_concurrency.py::test_state_lock_with_error_conditions": "PASSED",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_allows_reset_for_cleanup": "FAILED",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_lifecycle": "PASSED",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_close_read": "PASSED",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_close_write": "PASSED",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_read": "PASSED",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_write": "PASSED",
+      "tests/core/network/test_net_stream_error_state.py::test_is_operational_with_error_state": "PASSED",
+      "tests/core/network/test_net_stream_error_state.py::test_is_operational_with_open_state": "PASSED",
+      "tests/core/network/test_net_stream_error_state.py::test_read_error_triggers_error_state": "PASSED",
+      "tests/core/network/test_net_stream_error_state.py::test_write_error_triggers_error_state": "PASSED",
+      "tests/core/network/test_net_stream_state_transitions.py::test_state_transition_lifecycle": "PASSED",
+      "tests/core/network/test_net_stream_state_transitions.py::test_state_transition_logging": "PASSED",
+      "tests/core/network/test_net_stream_state_transitions.py::test_state_transition_validation": "PASSED"
+    },
+    "reward": 0.0,
+    "targets": [
+      "tests/core/network/test_net_stream_state_transitions.py::test_state_transition_logging",
+      "tests/core/network/test_net_stream_state_transitions.py::test_state_transition_validation",
+      "tests/core/network/test_net_stream_state_transitions.py::test_state_transition_lifecycle",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_read",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_write",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_close_read",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_prevents_close_write",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_allows_reset_for_cleanup",
+      "tests/core/network/test_net_stream_error_state.py::test_read_error_triggers_error_state",
+      "tests/core/network/test_net_stream_error_state.py::test_write_error_triggers_error_state",
+      "tests/core/network/test_net_stream_error_state.py::test_is_operational_with_error_state",
+      "tests/core/network/test_net_stream_error_state.py::test_is_operational_with_open_state",
+      "tests/core/network/test_net_stream_error_state.py::test_error_state_lifecycle",
+      "tests/core/network/test_net_stream_concurrency.py::test_concurrent_state_access",
+      "tests/core/network/test_net_stream_concurrency.py::test_race_condition_prevention_in_read",
+      "tests/core/network/test_net_stream_concurrency.py::test_race_condition_prevention_in_write",
+      "tests/core/network/test_net_stream_concurrency.py::test_atomic_state_io_operations",
+      "tests/core/network/test_net_stream_concurrency.py::test_lock_prevents_concurrent_state_modifications",
+      "tests/core/network/test_net_stream_concurrency.py::test_concurrent_read_write_with_state_changes",
+      "tests/core/network/test_net_stream_concurrency.py::test_lock_behavior_during_cancellation",
+      "tests/core/network/test_net_stream_concurrency.py::test_multiple_readers_with_state_lock",
+      "tests/core/network/test_net_stream_concurrency.py::test_state_lock_with_error_conditions",
+      "tests/core/network/test_net_stream_concurrency.py::test_lock_performance_under_load"
+    ]
+  },
+  "schema": "coding-synthesis.codex-eval-result/v2",
+  "source_index": 23,
+  "status": "unsolved",
+  "task_id": "libp2p__py-libp2p_pr_637",
+  "test_rc": 0,
+  "verifier_network_mode": "enabled-default",
+  "verifier_rc": 0,
+  "verifier_step_rc": 0
+}

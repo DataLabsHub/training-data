@@ -1,0 +1,20 @@
+Implemented the new `indicator-enrichment` command module in [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+It now supports:
+
+- IP, URL, Domain, CVE, and File detection and grouped enrichment
+- Text extraction and explicit indicator lists
+- Order-preserving deduplication and the 100-indicator limit
+- Unsupported and invalid indicator reporting
+- Unified `IndicatorEnrichment` context
+- Optional raw child contexts
+- Partial and total child-command failure handling
+- User-facing Markdown and status information
+- Required public classes, exceptions, and `main()`
+
+Validation completed:
+
+- Python compilation passed
+- Focused builder/service/formatter checks passed
+- Existing IP enrichment tests passed: 2 tests
+- `git diff --check` passed

@@ -1,0 +1,27 @@
+{
+  "task_id": "ds9_g21.5_aperture_photometry",
+  "gold_values": {
+    "source_ra_deg": {
+      "value": 278.389809,
+      "tolerance_arcsec": 2.0
+    },
+    "source_dec_deg": {
+      "value": -10.56866,
+      "tolerance_arcsec": 2.0
+    },
+    "gross_counts": {
+      "value": 10431.0,
+      "n_pixels": 181
+    },
+    "bkg_counts_per_pix": {
+      "value": 11.0,
+      "n_pixels": 2526,
+      "method": "sigma-clipped median, 3σ, 5 iter"
+    },
+    "net_counts": {
+      "value": 8440.0,
+      "tolerance_pct": 15.0,
+      "definition": "gross_counts - bkg_per_pix * n_src_pixels"
+    }
+  }
+}

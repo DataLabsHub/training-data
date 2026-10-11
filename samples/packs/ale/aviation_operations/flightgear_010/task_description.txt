@@ -1,0 +1,9 @@
+Task ID: flightgear_010
+Domain: Aviation Operations
+Title: FlightGear KSFO RWY 28R ILS workflow with live flight and replay analysis
+
+This task asks the solver to use FlightGear 2024.1.1+ with the Cessna 172P to complete a three-phase GUI workflow: pre-flight route/radio/property setup at KSFO, a live ILS Z RWY 28R approach, and replay-based cockpit instrument readings from the solver's own recorded tape.
+
+Solver-visible inputs are `input/launch_args.txt`, `input/logging.xml`, `input/metar.txt`, and `input/procedure_brief.md`. The reference artifact is `reference/gold_property_log.csv`, an externally grounded trajectory/property reference for the prescribed procedure and weather setup.
+
+The task is GUI-heavy because it requires FlightGear launcher, cockpit radio setup, route manager, map/property browser screenshots, live flight recording, property logging, replay loading, cockpit instrument reading, and video evidence. The evaluator checks native FlightGear outputs, property-log physics and autopilot-state consistency, replay readings against the submitted log, screenshots/video evidence, and agreement with the reference trajectory envelope.

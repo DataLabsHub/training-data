@@ -1,0 +1,53 @@
+You are working on an ALE desktop benchmark task.
+
+## Your Task
+Recreate the official OpenRocket example `A simple model rocket` from the bundled local specification, keep the default `C6-5` flight configuration, run the default `Simulation 4`, and export the native design plus the key flight metrics.
+
+## Input Files
+- `input/rocket_spec.csv` - official example geometry, component, and simulation contract distilled from OpenRocket's public `A simple model rocket` example.
+- `input/output_contract.json` - required output filenames and `results.json` fields.
+
+## Software
+- Use OpenRocket.
+- Complete the task through the application's GUI or native workflow unless the visible task inputs explicitly allow a helper command for packaging or export.
+
+## What You Must Do
+1. Open OpenRocket 24.12 on Windows 11 x64 and start a new design.
+2. Recreate the official `A simple model rocket` using `input/rocket_spec.csv`, including the nose cone, body tube, parachute, shock cord, wadding, launch lug, fin set, centering rings, inner tube, and engine block.
+3. Use the built-in Estes motor database and set the required motor configuration to `C6-5`.
+4. Set the launch and atmosphere conditions from `input/rocket_spec.csv`, including a 1.0 m launch rod, `launch_into_wind = true`, average wind speed `2.0 m/s`, turbulence `0.1`, and ISA atmosphere.
+5. Run the required simulation corresponding to the default `Simulation 4` / `C6-5` configuration.
+6. From the OpenRocket Plot/Export dialog for that simulation, export the time-series flight data as CSV. The export must include at least the following columns: Time, Altitude, Vertical velocity, Vertical acceleration. This file is `output/simulation_data.csv`.
+7. Save the native OpenRocket design (`output/rocket_design.ork`) AFTER running the required simulation, so that the saved file embeds the full `<flightdata>`/`<databranch>` time-series for `Simulation 4` (this is automatic when you save after running).
+8. Export all remaining required deliverables under `output/`.
+
+## Output Requirements
+- `output/rocket_design.ork`
+- `output/results.json`
+- `output/rocket_design_view.png`
+- `output/simulation_plot.png`
+- `output/simulation_data.csv`
+
+Required `output/results.json` schema:
+```json
+{
+  "simulation_name": "Simulation 4",
+  "motor_designation": "C6-5",
+  "apogee_m": "<float>",
+  "max_velocity_m_s": "<float>",
+  "max_acceleration_m_s2": "<float>",
+  "time_to_apogee_s": "<float>",
+  "flight_time_s": "<float>",
+  "launchrod_velocity_m_s": "<float>",
+  "deployment_velocity_m_s": "<float>"
+}
+```
+
+## Constraints
+- Do not modify files under `input/`.
+- Write final deliverables only under `output/`.
+- Use exact filenames and schemas requested above or in the visible input contract.
+- Ensure native project/session/model files, exported data, screenshots, logs, and JSON summaries all come from the same completed workflow.
+
+## Failure Exit
+If the VM software environment makes the task genuinely infeasible after a reasonable expert attempt, write `output/infeasible.md` with the specific blocker, software state, and attempted workflow. Do not submit fabricated or placeholder deliverables. This exit is only for genuine blockers; otherwise produce every required artifact exactly as specified.

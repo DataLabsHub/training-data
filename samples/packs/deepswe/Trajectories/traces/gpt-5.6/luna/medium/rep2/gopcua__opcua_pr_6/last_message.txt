@@ -1,0 +1,14 @@
+Implemented GetEndpoints support across datatypes and services.
+
+Changes include:
+
+- Added `LocalizedText` and `StringArray`.
+- Added application, token policy, and endpoint discovery structures/arrays.
+- Added GetEndpoints request/response services and decoders.
+- Updated generic service dispatch for IDs 428 and 431.
+- Preserved OpenSecureChannel behavior.
+- Added null ByteString handling and safer String decoding.
+- Verified formatting and `git diff --check`.
+- Existing test suite passes in GOPATH mode:
+
+`go test github.com/wmnsk/gopcua/...`

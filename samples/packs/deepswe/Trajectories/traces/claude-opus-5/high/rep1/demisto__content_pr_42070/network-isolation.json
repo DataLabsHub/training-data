@@ -1,0 +1,11 @@
+{
+  "disabled_claude_tools": [
+    "WebFetch",
+    "WebSearch"
+  ],
+  "namespace": "container-default",
+  "network_policy": "direct_provider_with_claude_web_tools_disabled",
+  "provider_reachable": true,
+  "schema": "model-eval.opus-direct-provider-network/v1",
+  "valid": true
+}

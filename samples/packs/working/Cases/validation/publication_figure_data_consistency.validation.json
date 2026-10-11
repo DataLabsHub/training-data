@@ -1,0 +1,12 @@
+{
+  "package_root": "publication_figure_data_consistency.harbor.zip",
+  "valid": true,
+  "task_count": 1,
+  "issues": [],
+  "leak_scan": {
+    "root": ".",
+    "clean": true,
+    "scanned_files": 210,
+    "findings": []
+  }
+}

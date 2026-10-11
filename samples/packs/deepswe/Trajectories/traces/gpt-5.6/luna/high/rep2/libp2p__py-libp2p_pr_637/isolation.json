@@ -1,0 +1,16 @@
+{
+  "agent_visible": [
+    "/testbed",
+    "/run/task/prompt.md"
+  ],
+  "auth_transport": "ChatGPT local Codex auth copy",
+  "codex_tool_sandbox": "disabled_by_yolo_inside_external_pyxis_netns",
+  "dataset_mounted": false,
+  "fresh_writable_overlay": true,
+  "hidden_absent": [
+    "/tests",
+    "/solution",
+    "/tmp/blueprint"
+  ],
+  "network_policy": "fixed_<MODEL_PROVIDER>_443_tunnel"
+}

@@ -1,0 +1,3 @@
+2026-08-30T08:23:48.743427Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/libp2p/network/stream/net_stream.py:
+        CLOSE_BOTH: read ✗  write ✗  close ✓  reset ✓
+        RESET:       read ✗  write ✗  close ✓  reset ✓

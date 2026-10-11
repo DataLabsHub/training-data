@@ -1,0 +1,11 @@
+Implemented [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py) with:
+
+- IP, URL, Domain, CVE, and File detection
+- Text extraction and list inputs
+- Deduplication and 100-indicator validation
+- Unsupported/invalid item reporting
+- Batched child enrichment with partial-failure handling
+- Unified context and configurable raw child contexts
+- Markdown formatting and complete `main()` error handling
+
+Targeted API, validation, aggregation, partial-failure, and formatting checks passed. Syntax and whitespace checks also passed. Existing IP enrichment tests could not collect because this checkout lacks `CommonServerUserPython`.

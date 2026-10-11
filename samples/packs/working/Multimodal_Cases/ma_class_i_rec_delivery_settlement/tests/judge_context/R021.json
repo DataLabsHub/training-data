@@ -1,0 +1,556 @@
+{
+  "claim": {
+    "binary_failure_condition": "Any trade, allocation, unit, period, serial, account, transaction, status, or timing element is wrong or unsupported; custody is inferred from allocation or execution alone; a pending, reversed, late, or wrong-account receipt is treated as buyer-held; the inventory gate is omitted; the executed-trade damage consequence is incorrectly conditioned on custody; or precise locators are missing.",
+    "binary_pass_condition": "The workpaper correctly matches BRK-88402 and ALLOC-88402-A across the allocation and registry views; matches MA RPS 7031-24, MSS424, 2024Q4, inclusive serials 004101 through 004140, and buyer account BSC-MA-4421; records TX-772044 as finally settled at 11:18:06 EDT before the cutoff; admits the cover batch to compliance inventory only on that basis; keeps the executed-trade damage consequence separate; and provides precise locators for every material element.",
+    "candidate_evidence_requirements": [
+      "A cover-custody control record in the workbook showing trade and allocation identity, qualified-unit identity, generation period, inclusive serial endpoints, buyer account, registry transaction, final status, settlement time, cutoff test, inventory-admission conclusion, and precise source locators.",
+      "A decision-summary statement consistent with the custody conclusion and clearly separating inventory custody from the executed-cover damage calculation."
+    ],
+    "causal_owner_id": "FACT042",
+    "claim_id": "R021",
+    "contract_basis_ids": [
+      "FACT004",
+      "FACT024",
+      "FACT026",
+      "FACT033",
+      "FACT042",
+      "RULE016",
+      "PRED017",
+      "CROUTE001"
+    ],
+    "description": "The workpaper reconciles the executed cover allocation to the live registry receipt for the exact certificate batch and treats final buyer-held custody as the prerequisite for compliance-inventory admission, separately from the executed-trade damage calculation.",
+    "importance_weight": 5,
+    "independent_failure_mode": "The executed cover trade can be economically valid while the allocated certificates are independently misclassified as buyer-held and inventory-eligible at the cutoff.",
+    "method": "llm_judge",
+    "program_check": null,
+    "required_media_node_ids": [
+      "MGN014",
+      "MGN015"
+    ],
+    "title": "Cover batch reaches final buyer custody",
+    "visual_reasoning_requirement": "Compare the broker allocation-ticket pixels with the live registry-receipt pixels to establish exact continuity of trade, allocation, qualified unit, generation period, serial block, and buyer account, then use the receipt pixels to establish final pre-cutoff settlement. The allocation image alone proves only intended release, while the registry image alone cannot tie final ownership back to the executed trade allocation; either image by itself is insufficient."
+  },
+  "contract_basis": {
+    "artifact_edges": [
+      {
+        "artifact_edge_id": "AEDGE047",
+        "contract_edge_id": "CEDGE012",
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "business_dependency",
+        "semantic_purpose": "Provisional inventory consequences identify the cover component requiring the added custody review.",
+        "source_locator": null,
+        "source_node_id": "CF018",
+        "target_locator": null,
+        "target_node_id": "CF022"
+      },
+      {
+        "artifact_edge_id": "AEDGE048",
+        "contract_edge_id": "CEDGE012",
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "business_dependency",
+        "semantic_purpose": "Accounting consequences bring the executed cover identity and separately supportable payable into the added custody review.",
+        "source_locator": null,
+        "source_node_id": "CF020",
+        "target_locator": null,
+        "target_node_id": "CF022"
+      },
+      {
+        "artifact_edge_id": "AEDGE049",
+        "contract_edge_id": "CEDGE013",
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "business_dependency",
+        "semantic_purpose": "The resolved cover custody state authorizes the terminal inventory and residual entries in the close checklist.",
+        "source_locator": null,
+        "source_node_id": "CF022",
+        "target_locator": null,
+        "target_node_id": "CF021"
+      },
+      {
+        "artifact_edge_id": "AEDGE050",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed the broker allocation ticket as the first member of the cover custody comparison.",
+        "source_locator": null,
+        "source_node_id": "MGN014",
+        "target_locator": "page[1].image[0]",
+        "target_node_id": "CF022"
+      },
+      {
+        "artifact_edge_id": "AEDGE051",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed the live registry receipt as the second member of the cover custody comparison.",
+        "source_locator": null,
+        "source_node_id": "MGN015",
+        "target_locator": "page[2].image[0]",
+        "target_node_id": "CF022"
+      }
+    ],
+    "as_of": "2025-06-09T12:00:00-04:00",
+    "causal_owner_id": "FACT042",
+    "claim_basis_ids": [
+      "FACT004",
+      "FACT024",
+      "FACT026",
+      "FACT033",
+      "FACT042",
+      "RULE016",
+      "PRED017",
+      "CROUTE001"
+    ],
+    "entities": [
+      {
+        "description": "Fictional Massachusetts competitive supplier buying Class I certificates.",
+        "entity_id": "ENT001",
+        "entity_type": "retail_electricity_supplier",
+        "natural_identity": [
+          "Bay State Competitive Supply LLC",
+          "buyer GIS account BSC-MA-4421"
+        ]
+      },
+      {
+        "description": "Executed confirmation and its cure-and-cover amendment.",
+        "entity_id": "ENT003",
+        "entity_type": "purchase_contract",
+        "natural_identity": [
+          "REC-2024-017",
+          "executed 2024-11-18"
+        ]
+      },
+      {
+        "description": "Official DOER hydroelectric unit effective January 1, 2024.",
+        "entity_id": "ENT011",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "MSS424",
+          "MA RPS 7031-24",
+          "Weldon"
+        ]
+      },
+      {
+        "description": "Buyer cover purchase for forty 2024 Class I certificates.",
+        "entity_id": "ENT014",
+        "entity_type": "cover_trade",
+        "natural_identity": [
+          "COVER-2025-0609-40",
+          "broker fill BRK-88402"
+        ]
+      },
+      {
+        "description": "Buyer inventory control receiving accepted and cover certificates.",
+        "entity_id": "ENT015",
+        "entity_type": "compliance_inventory",
+        "natural_identity": [
+          "CY2024 Class I close",
+          "BSC-MA-4421"
+        ]
+      }
+    ],
+    "file_nodes": [
+      {
+        "artifact_kind": "spreadsheet",
+        "contract_file_id": "CF018",
+        "description_text": "Pre-settlement inventory control with a 1,000-MWh close requirement and blank separate seller, cover, errant, and residual fields; no terminal results or hidden formulas.",
+        "embedded_media_node_ids": [],
+        "expected_format": "xlsx",
+        "graph_node_id": "GN008",
+        "stored_relative_path": "Compliance/2024 Class I Inventory Control.xlsx"
+      },
+      {
+        "artifact_kind": "structured_data",
+        "contract_file_id": "CF020",
+        "description_text": "AP booking for USD 18,000, status unapproved, zero paid, zero prior credits, and open adjustment fields; no accepted quantity or net payable.",
+        "embedded_media_node_ids": [],
+        "expected_format": "csv",
+        "graph_node_id": "GN009",
+        "stored_relative_path": "Accounting/Invoice Ledger.csv"
+      },
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF021",
+        "description_text": "Pending control checklist listing required evidence categories, reviewers, and empty outcome fields; it contains no formulas, final quantities, amounts, dispositions, or model hints.",
+        "embedded_media_node_ids": [],
+        "expected_format": "docx",
+        "graph_node_id": "GN010",
+        "stored_relative_path": "Settlement/Certificate Close Checklist.docx"
+      },
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF022",
+        "description_text": "Ordinary custody-review PDF embedding a photographed broker allocation ticket and a distinct live registry receipt; surrounding text records only review purpose, preparer, and capture time and does not transcribe batch, account, status, or settlement conclusions.",
+        "embedded_media_node_ids": [
+          "MGN014",
+          "MGN015"
+        ],
+        "expected_format": "pdf",
+        "graph_node_id": "GN011",
+        "stored_relative_path": "Registry Evidence/Cover Custody Confirmation BRK-88402.pdf"
+      }
+    ],
+    "media_nodes": [
+      {
+        "artifact_purpose": "Broker allocation evidence linking the executed cover trade to one exact certificate batch and intended buyer account.",
+        "comparison_group_ids": [
+          "cover_allocation_custody_pair"
+        ],
+        "distinct_information": "Shows the post-execution allocation code, qualified-unit identity, generation period, inclusive serial block, intended buyer account, and release time that the trading-terminal view does not contain.",
+        "evidence_family": "cover_allocation",
+        "media_node_id": "MGN014",
+        "operation": "text_to_image",
+        "output_format": "jpg",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "photographed broker certificate allocation ticket",
+          "avoid": [
+            "registry final-status badge",
+            "invoice amount",
+            "settlement recommendation",
+            "decorative illustration"
+          ],
+          "color_palette": "off-white paper charcoal print and blue pen",
+          "composition_framing": "oblique close-up of one allocation ticket with approval initials and time stamp",
+          "constraints": [
+            "All identity fields readable",
+            "Show intended buyer but not final registry ownership",
+            "No compliance total or residual quantity"
+          ],
+          "exact_text": [
+            "BRK-88402",
+            "ALLOC-88402-A",
+            "MA RPS 7031-24",
+            "MSS424",
+            "2024 Q4",
+            "004101 - 004140",
+            "BSC-MA-4421",
+            "RELEASED 11:06:14 EDT"
+          ],
+          "lighting_mood": "neutral late-morning office light",
+          "primary_request": "Create a realistic photographed broker allocation ticket linking executed REC trade BRK-88402 to one exact forty-certificate batch intended for the buyer account.",
+          "scene_backdrop": "settlement operations desk with a keyboard edge",
+          "style_medium": "photorealistic smartphone document photograph",
+          "subject": "certificate allocation ALLOC-88402-A for BRK-88402",
+          "use_case": "photorealistic-natural"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Readable allocation, unit, period, endpoints, account, and release time",
+          "Distinct physical evidence form from the live registry view",
+          "No text outside the pixels states final custody"
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Live registry receipt proving final settlement of the allocated cover batch into the buyer account.",
+        "comparison_group_ids": [
+          "cover_allocation_custody_pair"
+        ],
+        "distinct_information": "Shows the matching allocation and certificate identity together with registry transaction TX-772044, current-owner account, final settled status, and time; the allocation ticket alone cannot establish these lifecycle facts.",
+        "evidence_family": "registry_ui",
+        "media_node_id": "MGN015",
+        "operation": "text_to_image",
+        "output_format": "png",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "live registry transfer receipt screen",
+          "avoid": [
+            "broker price",
+            "invoice decision",
+            "residual calculation",
+            "same physical-paper viewpoint as allocation ticket"
+          ],
+          "color_palette": "white slate blue green and charcoal",
+          "composition_framing": "full receipt panel with transfer status, current owner, certificate identity, and event time",
+          "constraints": [
+            "Match the allocation code and exact certificate batch in MGN014",
+            "Make current owner and final status readable",
+            "No explanatory caption or compliance arithmetic"
+          ],
+          "exact_text": [
+            "TX-772044",
+            "ALLOC-88402-A",
+            "MA RPS 7031-24",
+            "MSS424",
+            "2024 Q4",
+            "004101 - 004140",
+            "CURRENT OWNER BSC-MA-4421",
+            "SETTLED",
+            "06/09/2025 11:18:06 EDT"
+          ],
+          "lighting_mood": "neutral",
+          "primary_request": "Create a crisp enterprise registry receipt showing final settlement of the exact allocated cover certificate batch into buyer account BSC-MA-4421 before noon.",
+          "scene_backdrop": "certificate registry receipt application",
+          "style_medium": "realistic enterprise UI screenshot",
+          "subject": "registry receipt TX-772044 for allocation ALLOC-88402-A",
+          "use_case": "ui-mockup"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Readable transaction, allocation, batch, owner, status, and time",
+          "Identity fields agree exactly with MGN014",
+          "Final custody remains unavailable from nonpixel text"
+        ],
+        "visibility": "embedded_only"
+      }
+    ],
+    "predicates": [
+      {
+        "applies_to_ids": [
+          "GN011",
+          "CF022",
+          "MGN014",
+          "MGN015",
+          "CEDGE012",
+          "CEDGE013",
+          "AEDGE047",
+          "AEDGE048",
+          "AEDGE049",
+          "AEDGE050",
+          "AEDGE051",
+          "FACT042",
+          "RULE016",
+          "FACT027",
+          "FACT033"
+        ],
+        "counterexample": "A matching filled trade paired with a pending receipt, another buyer account, a different allocation, or a post-cutoff settlement does not authorize forty cover certificates in inventory.",
+        "evaluation_mode": "grounded_agent",
+        "evidence_requirements": [
+          "Inspect both CF022 embedded images and compare trade, allocation, qualified-unit identity, generation period, serial endpoints, buyer account, status, and timestamps.",
+          "Trace CEDGE012-CEDGE013 and AEDGE047-AEDGE051 from the provisional ledger merge through the new custody file into CF021.",
+          "Search nonpixel content for a duplicated custody conclusion and recompute cover posting and residual with the receipt removed or changed to pending."
+        ],
+        "kind": "multimodal_fidelity",
+        "origin_refs": [
+          "workspace_policy",
+          "scenario_scout"
+        ],
+        "pass_condition": "MGN014 and MGN015 share cover_allocation_custody_pair and agree on BRK-88402, ALLOC-88402-A, MA RPS 7031-24, MSS424 2024Q4, serials 004101-004140, and BSC-MA-4421; only MGN015 establishes TX-772044 as SETTLED at 11:18:06 EDT. Both images embed through AEDGE050-AEDGE051, CEDGE012-CEDGE013 and AEDGE047-AEDGE049 provide complete file-level lineage through CF022, no nonpixel text states final custody, and RULE016 derives FACT042 from prior executed-cover facts before propagating forty cover certificates and a ten-certificate residual.",
+        "predicate_id": "PRED017",
+        "severity": "blocking",
+        "statement": "Distinct allocation and registry-receipt images jointly establish the execution-to-custody handoff required before buyer cover enters compliance inventory."
+      }
+    ],
+    "required_media_node_ids": [
+      "MGN014",
+      "MGN015"
+    ],
+    "route_context": {
+      "business_goal": "Close the seller's 2024 Class I delivery without paying for unusable certificates and preserve a supportable compliance inventory.",
+      "contract_edge_ids": [
+        "CEDGE001",
+        "CEDGE002",
+        "CEDGE003",
+        "CEDGE004",
+        "CEDGE005",
+        "CEDGE006",
+        "CEDGE007",
+        "CEDGE008",
+        "CEDGE014",
+        "CEDGE015",
+        "CEDGE012",
+        "CEDGE013",
+        "CEDGE011"
+      ],
+      "contract_route_id": "CROUTE001",
+      "deliverable_class": "Auditable certificate-delivery settlement workbook with embedded procurement and accounting decision summary",
+      "difficulty_sources": [
+        "Temporal qualification and lifecycle precedence across different systems",
+        "Pixel-essential reversal and overlap evidence whose raw baselines and dimension-preserved annotations traverse two independently auditable PDF-to-DOCX chains",
+        "Ordered cure then cover logic",
+        "Cross-ledger quantity and money propagation",
+        "Visual trade-to-allocation-to-registry custody handoff that separates executed cover damages from buyer-held compliance inventory",
+        "As-of qualification-exception event precedence after exact unit authority matching and before downstream settlement propagation"
+      ],
+      "natural_request_context": "A settlement manager needs a single spreadsheet workpaper for the procurement director and controller after the final tender arrived on June 9.",
+      "required_graph_node_ids": [
+        "GN001",
+        "GN002",
+        "GN003",
+        "GN004",
+        "GN005",
+        "GN006",
+        "GN007",
+        "GN008",
+        "GN009",
+        "GN010",
+        "GN011",
+        "GN012"
+      ],
+      "required_rule_ids": [
+        "RULE001",
+        "RULE002",
+        "RULE003",
+        "RULE004",
+        "RULE005",
+        "RULE006",
+        "RULE007",
+        "RULE008",
+        "RULE009",
+        "RULE010",
+        "RULE011",
+        "RULE012",
+        "RULE013",
+        "RULE014",
+        "RULE015",
+        "RULE016",
+        "RULE017"
+      ],
+      "target_fact_ids": [
+        "FACT007",
+        "FACT022",
+        "FACT023",
+        "FACT027",
+        "FACT031",
+        "FACT032",
+        "FACT033",
+        "FACT042",
+        "FACT043"
+      ],
+      "terminal_decision": "After admitting the reversal and overlap only from the two raw-plus-marked cross-document evidence pairs, approve USD 16,920 net payable; post 950 seller RECs and 40 cover RECs separately; dispute 50 seller RECs, record a 10-REC residual shortfall, send dispute by June 16, and preserve July 1 filing readiness.",
+      "unique_resolution": "Exact source precedence, inclusive serial arithmetic, lifecycle event order, signed cure hierarchy, cover execution, paired raw/derived lineage admissibility, and conservation equations admit only the stated quantities, payable, and deadlines. The cover inventory component additionally requires an exact trade-to-allocation-to-final-registry-custody match by the cutoff; absent that final handoff, the cover posting is zero and the residual is fifty while the damage offset remains unchanged. The otherwise valid LOT-D unit must additionally have QX-38983-2025 in a final released state by noon; a pending, late, or mismatched release withholds its 150 certificates from the close and forces the stated downstream quantity, payable, inventory, and residual counterfactual."
+    },
+    "rules": [
+      {
+        "counterexample": "Posting forty cover certificates from a filled trade while the matched registry receipt is pending or names another account fails.",
+        "input_fact_ids": [
+          "FACT004",
+          "FACT024",
+          "FACT026"
+        ],
+        "operator_family": "cover_custody_handoff",
+        "output_fact_ids": [
+          "FACT042",
+          "FACT027",
+          "FACT033"
+        ],
+        "resolution_order": "Executed trade; exact allocation identity; qualified certificate batch; final registry settlement into the buyer account by the cutoff; inventory posting; residual recomputation.",
+        "rule_id": "RULE016",
+        "source_anchor_ids": [],
+        "statement": "Reconcile the executed cover trade to the paired broker allocation and live registry receipt; establish buyer-held custody only when trade, allocation, qualified-unit identity, generation period, inclusive serial block, buyer account, final status, and pre-cutoff settlement all agree, then propagate the admitted cover quantity to inventory and residual.",
+        "truth_conditions": [
+          "The allocation ticket and registry receipt both identify BRK-88402 and ALLOC-88402-A.",
+          "Both views identify MA RPS 7031-24, MSS424 2024Q4, and serials 004101 through 004140.",
+          "The registry view shows BSC-MA-4421 as current owner with TX-772044 settled at 11:18:06 EDT.",
+          "When the pair is complete, FACT042 is true, cover inventory remains forty, and residual remains ten.",
+          "If the registry receipt is pending, reversed, late, or names another account, FACT042 is false, cover inventory is zero, and residual shortfall is fifty while the executed-trade damage offset remains unchanged."
+        ]
+      }
+    ],
+    "schema_version": "statechain-contract-basis/v1",
+    "state_facts": [
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT004",
+        "interpretation": "Issuance or transfer year cannot replace generation vintage.",
+        "materialization_obligation": "Contract and authority files must expose product, vintage, and custody requirements.",
+        "predicate": "product_definition",
+        "source_anchor_ids": [
+          "ANCH001",
+          "ANCH003",
+          "ANCH016"
+        ],
+        "status": "executed",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": "Massachusetts RPS Class I; generation vintage 2024; buyer-held in GIS"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT024",
+        "interpretation": "Only an executed fill counts as cover.",
+        "materialization_obligation": "Terminal and broker images must agree on trade ID, quantity, product, and execution state while accounting text contains only payment linkage.",
+        "predicate": "executed_cover_quantity",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT014"
+        ],
+        "value": 40
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT026",
+        "interpretation": "The trade is eligible under the amendment remedy order.",
+        "materialization_obligation": "Paired trade images must show execution after cure expiry and before the evidence cutoff.",
+        "predicate": "cover_executed_at",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT014"
+        ],
+        "value": "2025-06-09T10:47:26-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT027",
+        "interpretation": "Ten certificates remain unresolved as of noon.",
+        "materialization_obligation": "Inventory control must compute 1,000 minus 950 minus 40.",
+        "predicate": "residual_shortfall_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT015"
+        ],
+        "value": 10
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT033",
+        "interpretation": "Together the seller and cover contribute 990 MWh.",
+        "materialization_obligation": "Inventory control must post cover separately and retain trade linkage.",
+        "predicate": "cover_inventory_posting_mwh",
+        "source_anchor_ids": [
+          "ANCH010"
+        ],
+        "status": "terminal_derived",
+        "subject_entity_ids": [
+          "ENT015",
+          "ENT014"
+        ],
+        "value": 40
+      },
+      {
+        "effective_from": "2025-06-09T11:18:06-04:00",
+        "effective_until": null,
+        "fact_id": "FACT042",
+        "interpretation": "The executed purchase changes compliance inventory only after the allocated certificate batch reaches the buyer registry account; execution alone remains sufficient for the separate cover-damage calculation.",
+        "materialization_obligation": "Paired allocation-ticket and live-registry pixels must match BRK-88402, allocation ALLOC-88402-A, MA RPS 7031-24, MSS424 2024Q4 serials 004101 through 004140, buyer account BSC-MA-4421, and a final settled time before noon; nonpixel text must not state the custody conclusion.",
+        "predicate": "executed_cover_batch_buyer_held_at_cutoff",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT014",
+          "ENT011",
+          "ENT015",
+          "ENT001"
+        ],
+        "value": true
+      }
+    ],
+    "visual_disclosure_plans": [],
+    "visual_reasoning_requirement": "Compare the broker allocation-ticket pixels with the live registry-receipt pixels to establish exact continuity of trade, allocation, qualified unit, generation period, serial block, and buyer account, then use the receipt pixels to establish final pre-cutoff settlement. The allocation image alone proves only intended release, while the registry image alone cannot tie final ownership back to the executed trade allocation; either image by itself is insufficient."
+  },
+  "reference_claim_evidence": {
+    "citations": [
+      {
+        "locator": "Cover Custody!A4:L8; Decision Summary!A23:H23",
+        "observation": "BRK-88402 matches ALLOC-88402-A and TX-772044 for MA RPS 7031-24/MSS424/2024Q4/004101-004140; BSC-MA-4421 is final owner and status is SETTLED at 11:18:06 EDT.",
+        "path": "deliverables/rec_settlement_workpaper.xlsx"
+      }
+    ],
+    "claim_id": "R021",
+    "why_full_pass": "Every allocation-to-registry identity field and the pre-cutoff final custody state match; the workbook admits 40 to inventory only on that basis and separately explains executed-trade damages."
+  }
+}

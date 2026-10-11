@@ -1,0 +1,3 @@
+ M Packs/AggregatedScripts/pack_metadata.json
+?? Packs/AggregatedScripts/ReleaseNotes/1_4_0.md
+?? Packs/AggregatedScripts/Scripts/IndicatorEnrichment/

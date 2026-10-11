@@ -1,0 +1,14 @@
+Implemented `IndicatorEnrichment.py` with:
+
+- Multi-type indicator detection and grouping
+- Text extraction and list input support
+- Deduplication and 100-indicator limit
+- Invalid/unsupported indicator reporting
+- Child enrichment dispatch through `BatchExecutor`
+- Partial failure handling
+- Unified `IndicatorEnrichment` context
+- Optional raw child context
+- Markdown formatting and status/error handling
+- Required public API and `main()`
+
+Validation completed with `py_compile`. Repository pytest could not run because pytest and runtime dependencies are unavailable in the container.

@@ -1,0 +1,260 @@
+{
+  "created_unix": 1788106708.8642602,
+  "image_file_count": 0,
+  "image_reference_contract": "task.toml docker_image exactly equals Dockerfile FROM",
+  "records": [
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:0bddcce483ff6c0cf296fdf3dae901ab81a11a42ed1f1cbb2dea2142b9fc4eb6",
+      "docker_image_normalized": true,
+      "instruction_sha256": "4ca01e30b610a5586bc8f84040e3f5522e9750df44f6cd484853867e2a55a7b0",
+      "solution_patch_sha256": "7cb9273dbf288d4227a0e6fc8d80b68ad2340b486c33e8c80c617f7362ee8e58",
+      "source_class": "prior_finalized10",
+      "task_id": "Azure-Samples__azure-search-openai-demo_pr_113",
+      "task_toml_sha256": "56a7047b6d1b3dc5a8cbb2593e50d3259027409bce16d64f1c9bf7a66d1becf6",
+      "test_sh_sha256": "8541f08f885424903594a22d977c45eae0ab26f56d7ae39685e140656d91e590"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:539e66c9b8aee4bb5ddaaaaaba82eac55bc29cff2d8ee592c9ea2b8388c9ebf0",
+      "docker_image_normalized": false,
+      "instruction_sha256": "d9cc7246cc3d4889d74b8d88aa16f6fc90edb28adf819bd455c3a80c2a59232f",
+      "solution_patch_sha256": "15ea67baa4dfc97b3ecb01af1ae35dcb00234a994a75c253a52c6cf362f0e018",
+      "source_class": "prior_finalized10",
+      "task_id": "NVIDIA-NeMo__Automodel_pr_1132",
+      "task_toml_sha256": "8ea0d5587cf264077a3ebff62f878f3b69636c1aa2353643f9f322e42018faf7",
+      "test_sh_sha256": "6692db6d83c9df157549ea880f8ff5d5728e0762cc985ad062b51a65bcd1465d"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:25a4a98cc58269643cb37cad26626f1df6a948b2a9a2b9ca856851caf2f68899",
+      "docker_image_normalized": true,
+      "instruction_sha256": "0cdcdfb10a71a56a3360cbff45f8db106c0ce7c008113987114c31462c40435f",
+      "solution_patch_sha256": "00e5a48de0321f59c342701bb7f6c61bf5ee3e2b25cb8a267bfa2ffc01820414",
+      "source_class": "prior_finalized10",
+      "task_id": "aio-libs__aiokafka_pr_1159",
+      "task_toml_sha256": "da068d48a9471b059680bcb7084fa484f02b002c935455ed90dc62c51e7a3d69",
+      "test_sh_sha256": "63eec8cea354f301a0b0d14bf17c48e185b6a200c4574a515d2a6c9bbd45ffb8"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:3c8deb74a58db6b7a0aaea0b1774006cda889c0593c7dbfdd054775c85cfa6aa",
+      "docker_image_normalized": true,
+      "instruction_sha256": "e34722813044c10f087b6dc6f219fabec0a2ba09d12c6c8de543c10ac7dd5ece",
+      "solution_patch_sha256": "e40fc78e6f51f137a05a1580301fed306269fbe1cfcda03058140e51f51791a5",
+      "source_class": "prior_finalized10",
+      "task_id": "demisto__content_pr_42070",
+      "task_toml_sha256": "789814c215102b7a1f0bacfad9611ec56824f6e0a94ce1a20aefb7cd9ef06617",
+      "test_sh_sha256": "1f7b1662bf801868e01b21f426708e5cf03c54051b9c214090d1df95640e01e9"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:9da41a9ae5a75145434401eeae9b6cb3f7b0bb4e6070df948bca3f656b1d2c84",
+      "docker_image_normalized": true,
+      "instruction_sha256": "f380b7747cb4c48404c3234ed74e367046794ede1ad222df7709bd0855474ef6",
+      "solution_patch_sha256": "e1853c2e244c6d42c2fe9ea820dcfd58724c499399b412bffa4c8158df2f666a",
+      "source_class": "prior_finalized10",
+      "task_id": "google__openhtf_pr_937",
+      "task_toml_sha256": "2117e38bb884467a951bf682110016488f9b0c799be6cae80240d4ec78101da5",
+      "test_sh_sha256": "9c9a03647de5bf8b01c77c650d6b5609cb24619f7ae4a512e46799ac1fbf3e29"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:f9d4df80aa5d7445794f121cb475ff1edeb34583a1a3e14bca8ec6aca30bbf1a",
+      "docker_image_normalized": false,
+      "instruction_sha256": "607b939fc9835b67a9b03f12a7e4b1d94fb93dad93890567bdf784afae808075",
+      "solution_patch_sha256": "c6ff3cbb98577bb80aa51c4d01519ebdd6ecbdc19cf5e6da34e790fc1fd63006",
+      "source_class": "prior_finalized10",
+      "task_id": "gopcua__opcua_pr_6",
+      "task_toml_sha256": "074c01e0597741af757919abd7f1372d466a144f6fc36d0a1dc2259f48bd71ab",
+      "test_sh_sha256": "c32ab6dfdf6dc425635a6c5ef4a8876fd4ac538a27eb3f4f5cd6f4cd9c5965e8"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:897e755408a2cace55356c2180ca95ecfc9b1eded1dba377777483f2a8de840d",
+      "docker_image_normalized": true,
+      "instruction_sha256": "d909435185619f6b96aeb3464fc0ee8e8d43d104378b20c55162fc5c07eec6e6",
+      "solution_patch_sha256": "096c004461ae32cf44f8c0e5b65853b0efc3591f6fb68d391e3009f7bab0d7cd",
+      "source_class": "prior_finalized10",
+      "task_id": "huggingface__huggingface_hub_pr_888",
+      "task_toml_sha256": "096cb0e0df4a241cd08780dcbcddac44f99236511bac1412b66c623d15428024",
+      "test_sh_sha256": "02079432c115229e38c758f6575aa0070ff601fec532b62df2baf02b026d5f9e"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:4ea25bfb0a3397250cdf28752cbf0617ec9f4550ea63ae737a7adf619372eda0",
+      "docker_image_normalized": false,
+      "instruction_sha256": "60268f29846ae2d55f64037f7062e4937738479aaba7eb4dd407793fdbe9b78b",
+      "solution_patch_sha256": "e8a16c8721b040fb58fd4f5e81832ea8ec58a778f0f03f1a35719c73208f4a6c",
+      "source_class": "prior_finalized10",
+      "task_id": "istio__istio_pr_6132",
+      "task_toml_sha256": "c4915eb55223978674e77e91a04a657445e94230aaa08c4fa323589e53aa79ce",
+      "test_sh_sha256": "ef02445e6c0103e5bddb714c7c03b6d1286968ece1c06aaf092fd4066ca5ec10"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:8565fe005fae8b68e6d204e9f4a67f6c15b30ab7557c27f0b7562dc6b5f1e8aa",
+      "docker_image_normalized": false,
+      "instruction_sha256": "bf3ef558eb0e11aec05f3fb94e7a458794c75a93607e4e3fdd2336f0c252b407",
+      "solution_patch_sha256": "ebf42e1746b4881f0dd001f00c991de99ee66bf1bcbe64ed2dde150117437576",
+      "source_class": "prior_finalized10",
+      "task_id": "kubernetes__test-infra_pr_30813",
+      "task_toml_sha256": "4ebad5d3cb55bf0619f9505ea610598448980674e760cc72fab574595fb546ab",
+      "test_sh_sha256": "17c9c40ee335c1c50c174105b8d8187c8809c300019ccec760043e25478035b6"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:95f8fce1ae9b5abdd4d35f654eb1592978a44def63d67e69c0290431aa6cfee6",
+      "docker_image_normalized": false,
+      "instruction_sha256": "03dbb5f41f8ff963c2244d6584a71e06771f5dd336201b38f2f3a835920f3efa",
+      "solution_patch_sha256": "95b39f14165b6666cc155ee96b18aa88f1c80350406d940f4726aa885b693188",
+      "source_class": "prior_finalized10",
+      "task_id": "xorq-labs__xorq_pr_1752",
+      "task_toml_sha256": "e9dfa88c29ed0b2f92c61ffc0c1d4ba9cc0f9c2fbf945a01373f8538adbfad67",
+      "test_sh_sha256": "103c7056e6fe130e6be0cf8858f08c8085ece11b513987fe70c645d099dbd582"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:adbd000d3976c2c5d6430a980779be857a6e67be1602848a13bb29d71295c57b",
+      "docker_image_normalized": true,
+      "instruction_sha256": "ec1f67c99907e1ec567eb2e371f5bd0572517e16a9ab7c2bb5f2deca674822a1",
+      "solution_patch_sha256": "6ed952ac6458641601d2e9187f36fd5694139e3752f4f272e9fd608d8e7d1fb6",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "AI-Hypercomputer__maxtext_pr_2920",
+      "task_toml_sha256": "455f7b3169bc2580a534bde264fef58b253ac704e494a69f97bdf91504ef78d1",
+      "test_sh_sha256": "9c9ce412e6ca58dbbfb75feefb7bc15aa7b03db214ee4fed16ef906089777d82"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:dbe866d34f4000709d4c4e896ab02a7cbf7bd6f87af75d62c1e18123097f46e7",
+      "docker_image_normalized": true,
+      "instruction_sha256": "a35f816d041579419c6a77242041c6d6edfe52c825e004e4b5ba967498c8168d",
+      "solution_patch_sha256": "0037a3afc7cdd4872da0eaf3326872c4a633df7c3ff98443af98006e35e74644",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "Azure__azure-sdk-for-python_pr_39954",
+      "task_toml_sha256": "bd9936ba0058c4b13bbbebb2b2c6b1a013bf83b7a97632339472026f1324532c",
+      "test_sh_sha256": "7c295cd5323c99bedb15b997f21bf500a94ed7051a67889061fd4549b59909f4"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:634e1775f27cf17838039486f0abf342e61c9ff51831f61d6ed019e55da57381",
+      "docker_image_normalized": true,
+      "instruction_sha256": "b49ced5efa6f4f667052e6fb6a6b15d495ae08b61d7fe10db53c7e44d279a120",
+      "solution_patch_sha256": "bfc57555fd615562b769bccafbe56f4a59c03d9f017c846a0b26973b51cd0bfa",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "Mirascope__mirascope_pr_1288",
+      "task_toml_sha256": "1cad3f47096c886d44816624df5624084f739202b4c23f39eb2d4d2a2a8f0554",
+      "test_sh_sha256": "be02a5278be8ae8a858afd7b280504b840ded37ff03382f05dd492885be95eaf"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:08822231c45a0144d9d15fb50bac51e90c18e43a28ced61992fc7edeca04c013",
+      "docker_image_normalized": true,
+      "instruction_sha256": "cb94dc70c0d05647751b1cd5106e2ea3bc16963b5bc4fdf07761d7d54cc55408",
+      "solution_patch_sha256": "4db767a2f406d5ceb142daa72265f33f01797359a6c5e33d8d1b73ca753f47ea",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "Mirascope__mirascope_pr_2002",
+      "task_toml_sha256": "dd213ae89c457c8f77eadd69c285a0af83770baf937be910e882108f0c1f65a8",
+      "test_sh_sha256": "441aa9e91efa4896abe4b04f1908b32822af10f37563e9042e94525be69b3ffa"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:3d5c2090e8837b58651dc202102f330ee375c9912ec308daeb7f4155a85205fc",
+      "docker_image_normalized": false,
+      "instruction_sha256": "1bc4897f621df10c6881c77e0b8036134def5085ec626a85e389d6161a2a1eef",
+      "solution_patch_sha256": "8ea074ad489b7755d4688e6abe30005fbfe987132ecef49d632ddb6f544c1fca",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "SemiAnalysisAI__InferenceX_pr_145",
+      "task_toml_sha256": "1bfc64bcb25b0a9afb8e89998d2fc1c2024e99e9f441b4450a448625f5e12272",
+      "test_sh_sha256": "df5dab79360b7cc968cc1dc45c64974d921730864ea62f8a3c6b380d82a6baf6"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:af982e7b80d3345eed1975c26528e4843632a705103d001ed40811d4dfb7a698",
+      "docker_image_normalized": true,
+      "instruction_sha256": "047ea00a351147bf7d75914a902f1fa962fcea2f9dac1504650eee3046f5fceb",
+      "solution_patch_sha256": "bda82c34b6b885bca266a0301007ad9654c1eb94f51590c48e7d88038812cb6d",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "aws__sagemaker-python-sdk_pr_1894",
+      "task_toml_sha256": "ed1330bb872194fceec3a07b70130aa85f1b304cbb34dbb0362511f7e7a75473",
+      "test_sh_sha256": "13a1470cb91d5211f9c9bef73c6701c435bc6ff519bacb12f50b0d11c4a560cc"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:d47c5eaaa6e1769df49eac24d708d0d7c82073e5ed6268420d52ab522b99417e",
+      "docker_image_normalized": true,
+      "instruction_sha256": "3bca4d07e28f60d01d5df98bb4c70944f6d3a82cf29f7904135ff4784a879960",
+      "solution_patch_sha256": "5b7a8d65f75d4a641ceaf68621a9d5ef1e9e1af1d2fd60817133783a7aa33409",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "devitocodes__devito_pr_2060",
+      "task_toml_sha256": "38feaeeec5a6d503e16e7bc79907b253f46cfd12a72eadd40dd55af4a673bcd2",
+      "test_sh_sha256": "4323a3879c83c890cb2d9abb9f6b22e4b49af47df6246e3a88375ee46fb13fd9"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:54853d12d711861c7b92e7b4a3b79db4dd68b69805c227dd217523138b207c9d",
+      "docker_image_normalized": true,
+      "instruction_sha256": "205393b74b9c38e9fd2d911092343f4bdc10a4f42d847e6553f0629cc11f820b",
+      "solution_patch_sha256": "6b5fe86efe4b2c67bc682f1354dea71ee27b823154d7a196c7b8aec4c488c346",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "flagos-ai__FlagGems_pr_1381",
+      "task_toml_sha256": "96d281dbf4ba90b74b98048ebcb391536498adeb0ca394be7d009f0e939d1bab",
+      "test_sh_sha256": "75c831860b2ef1230b9d96ec7c09dbe9976d31c42bf605f544b48339dff93583"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:ec219dca05f193d60e8efa4bc9806db51adfb3b308bb092f2d7131936490265c",
+      "docker_image_normalized": true,
+      "instruction_sha256": "78c7697f07b6bb61bfb509fe2a9d318a48a5d6b59f8ca53b8ddba49e457ca8db",
+      "solution_patch_sha256": "91a01c214ef769ec9244a228a0bb7168dbaac5406803992b21a88c96e6a7b74d",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "fonttools__fonttools_pr_3506",
+      "task_toml_sha256": "4bf46200792c8701232e54289c1a98c62d3f72fa936a1a4f067660fbbfb5001e",
+      "test_sh_sha256": "41b213a4f50e28625c5c239c03e5fed6f89c29e89d5968223d81f0efb014b54f"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:c062fe993dd48a191c637551734d0fa78ad77fc0da410d62fc2cb9e6c0167e3e",
+      "docker_image_normalized": true,
+      "instruction_sha256": "a28832c73f752447cfab2d84fa8038643de9fc56ee017cc5e19eabf2c25d36f2",
+      "solution_patch_sha256": "63fd4b11b89d075b09c46b21e4b23081b141ab06904967ebaf3d9c6400ea3dbe",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "geomstats__geomstats_pr_1615",
+      "task_toml_sha256": "ef8cdef1a58d4990f7cec03bb864b31030de2da99e6f7834466d75420289fa89",
+      "test_sh_sha256": "87edea057406f10111def276b6f3adde4e2de58d87ae6605b78624b539df3a21"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:77c7aaaf8b9c2c8993e827b7c3d0aa1b0aedd4b33e3e4cdf46e858b577ee01b9",
+      "docker_image_normalized": true,
+      "instruction_sha256": "ac6bef18935106d1bbc020ef7881968411f7935b74385ee863dab65a0cc64713",
+      "solution_patch_sha256": "9a720f07746aa9605f294b448872e0d0636d8b998c365d40fc4e7f0f5c8da857",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "hikari-py__hikari_pr_811",
+      "task_toml_sha256": "ee590f9c71a0878d21f125d1cfb8b8f561a7f349b6c1da4c61cde2e33b5a6b56",
+      "test_sh_sha256": "3e867bbab0c5563b02784d3c0ab5d3bc380bdbabb97004d13e601e3e591c1bdc"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:8a4e14a198a3e739b48ccbac3a03699781d42c849a3d95fa60d24bd403fa8d99",
+      "docker_image_normalized": true,
+      "instruction_sha256": "6f22f3450f222ae219cf5ff44fd0c3e76ff37a1c508671ecad2bd0624ffaa238",
+      "solution_patch_sha256": "d28a779be831303b452cf55614b52c72be225a3001a06951d6eabf3d1d7210ad",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "keras-team__keras-hub_pr_2339",
+      "task_toml_sha256": "975f9eebb1f0df1746389d0a44e0bf4e3c66a152b08c01de62649f6aa40bd7b8",
+      "test_sh_sha256": "3cbed03b1c2edb42a24bcac005327657ca2d3d6ec914031d617f51288cb8a40d"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:9fa6735a8bab447f3f71aa47b5b2e5769403cd1aae02e80bbe710d633ec32515",
+      "docker_image_normalized": true,
+      "instruction_sha256": "649dad39f49da9368b921c0926ea357d00b1bb44602bd17a8d3932b57808973d",
+      "solution_patch_sha256": "0cdf6df130de03e5b3fe2a497587721458d8f115b515d5c590adc36b05da12fd",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "koxudaxi__datamodel-code-generator_pr_53",
+      "task_toml_sha256": "6d73d6c90b2860471947d084708caba644accb617e6647607b071d51a1a2e6aa",
+      "test_sh_sha256": "6e0ab22f9583f10a8577ad8aa19543111b9014b20ec3eb0e5c7893caffa45c24"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:4c14d67f86e8d535ba17292dba205bb6458995cfe89d02ac2225ac88f9b3a4ce",
+      "docker_image_normalized": false,
+      "instruction_sha256": "cb2eafa362dc3489ee5a60e3407355869ec01ea9efe7089e01b9ae8f1c1b7ab0",
+      "solution_patch_sha256": "2d688234cbc2ca28bf8e298f06e3b2a1f0e8685fa150686ef3d6a5436cb2696b",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "libp2p__py-libp2p_pr_637",
+      "task_toml_sha256": "55c9c69523e2672db42db6d46a3ab3db5c2c3a06b68ccfb2457041b93c57d719",
+      "test_sh_sha256": "f811321f1bc7631c57a6199e9cf18d28eb22b785a57aa2dc0279424cd99cbc68"
+    },
+    {
+      "docker_image": "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:47ce79893d0cc10b7ea7506ff051f1663d6fb944bc9ddb00bbf3ca2b40088d82",
+      "docker_image_normalized": true,
+      "instruction_sha256": "5eed8c3bf633f15dc91ebe3f16b1e08c6213399ca656a5712d37c3b29ce6fab8",
+      "solution_patch_sha256": "b084a3697ff8e0fe55c8497886ff5774f082076aa9f6a5d5b0b1e75b313517f3",
+      "source_class": "instruction_only_gold_final15",
+      "task_id": "massgen__MassGen_pr_1087",
+      "task_toml_sha256": "c0cdf21161cb962f5422b5cdb4a972def6d71d924168975a905afee74a29136d",
+      "test_sh_sha256": "3062728746a13214cd6425f77aceb42d395d23106e91a7dacd2e2cd64adae377"
+    }
+  ],
+  "schema": "coding-synthesis.pygo25-finalized-tasks/v2",
+  "task_count": 25,
+  "valid": true
+}

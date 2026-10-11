@@ -1,0 +1,9 @@
+ M datatypes/bytestring.go
+ M datatypes/string.go
+ M services/response-header.go
+ M services/service.go
+?? datatypes/localized-text.go
+?? datatypes/localized-text_test.go
+?? services/endpoint-description.go
+?? services/get-endpoint.go
+?? services/get-endpoint_test.go

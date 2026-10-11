@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "1.0",
+  "taskId": "biomechanics_upper_limb_simulation/opensim_arm26_cmc_native",
+  "title": "OpenSim Arm26 Computed Muscle Control Native Artifacts",
+  "humanHandlingTimeHours": 8.0,
+  "summary": "You are working on an ALE desktop benchmark task. ## Your Task Starting only from the files in `input/`, reproduce the official OpenSim arm26 inverse-kinematics plus computed-muscle-control workflow and save the native setup XMLs and generated result files. ## Input Files The input directory contains the arm26 model, marker trajectory, CMC task set, and reserve actuator set from the official OpenSim tutorial tree. Generate the requested result files locally from the bundled starter files. ## Sof",
+  "value": "Musculoskeletal simulation workflows used in biomechanics research and motion-analysis engineering.",
+  "domain": "biomechanics_upper_limb_simulation",
+  "subdomain": "biomechanics_upper_limb_simulation",
+  "software": [
+    "OpenSim",
+    "Windows 10/11"
+  ],
+  "taskPrompt": "You are working on an ALE desktop benchmark task.\n\n## Your Task\nStarting only from the files in `input/`, reproduce the official OpenSim arm26 inverse-kinematics plus computed-muscle-control workflow and save the native setup XMLs and generated result files.\n\n## Input Files\nThe input directory contains the arm26 model, marker trajectory, CMC task set, and reserve actuator set from the official OpenSim tutorial tree. Generate the requested result files locally from the bundled starter files.\n\n## Software\n- Use OpenSim, Windows 10/11.\n- Complete the task through the application's GUI or native workflow unless the visible task inputs explicitly allow a helper command for packaging or export.\n\n## What You Must Do\n1. Verify `input/checksums.sha256`.\n2. Run inverse kinematics on `arm26.osim` using `arm26_elbow_flex.trc` over the full 0.0-1.0 s motion.\n3. Run CMC on the same starter model, using the IK motion generated in step 2 as the desired kinematics and the bundled CMC task/actuator files.\n4. Save the exact setup XML files used for the final IK and CMC runs under `output/setup/`.\n5. Preserve the generated OpenSim result files under `output/ik/` and `output/cmc/`.\n6. Write a concise `output/run_log.txt` identifying OpenSim 4.5, the command or GUI workflow used, and the two setup XML files executed.\n7. Write `output/provenance.json` with `task_id`, `opensim_version`, `input_manifest_sha256`, a `setup_commands` list, and SHA-256 hashes for every required output file except `provenance.json`.\n\n## Output Requirements\nCreate these paths exactly:\n- `output/setup/arm26_Setup_InverseKinematics.xml`\n- `output/setup/arm26_Setup_ComputedMuscleControl.xml`\n- `output/ik/arm26_InverseKinematics.mot`\n- `output/cmc/arm26_states.sto`\n- `output/cmc/arm26_controls.sto`\n- `output/cmc/arm26_Kinematics_q.sto`\n- `output/cmc/arm26_pErr.sto`\n- `output/run_log.txt`\n- `output/provenance.json`\n\n## Constraints\n- Do not modify files under `input/`.\n- Write final deliverables only under `output/`.\n- Use exact filenames and schemas requested above or in the visible input contract.\n- Ensure native project/session/model files, exported data, screenshots, logs, and JSON summaries all come from the same completed workflow.\n\n## Failure Exit\nIf the VM software environment makes the task genuinely infeasible after a reasonable expert attempt, write `output/infeasible.md` with the specific blocker, software state, and attempted workflow. Do not submit fabricated or placeholder deliverables. This exit is only for genuine blockers; otherwise produce every required artifact exactly as specified.\n",
+  "agentMustDo": [
+    "Read the task prompt and all files under input/.",
+    "Use the specified professional software/workflow to produce the required deliverables under output/.",
+    "Save native project/model/state artifacts requested by the output contract.",
+    "Export required structured tables, summaries, screenshots, or logs when specified.",
+    "Do not rely on external downloads unless the task prompt explicitly permits them.",
+    "Produce output/setup/arm26_Setup_InverseKinematics.xml.",
+    "Produce output/setup/arm26_Setup_ComputedMuscleControl.xml.",
+    "Produce output/ik/arm26_InverseKinematics.mot.",
+    "Produce output/cmc/arm26_states.sto.",
+    "Produce output/cmc/arm26_controls.sto.",
+    "Produce output/cmc/arm26_Kinematics_q.sto.",
+    "Produce output/cmc/arm26_pErr.sto.",
+    "Produce output/run_log.txt.",
+    "Produce output/provenance.json.",
+    "Use output/infeasible.md only for genuine VM/software blockers."
+  ],
+  "inputFiles": [
+    {
+      "name": "arm26.osim",
+      "format": "OSIM",
+      "path": "input/arm26.osim",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 91342,
+      "sha256": "9e08dc03137b57d8bb446520d178c5826ecbb34bfa5c81641fca315c1ab32406",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_ComputedMuscleControl_Tasks.xml",
+      "format": "XML",
+      "path": "input/arm26_ComputedMuscleControl_Tasks.xml",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 3218,
+      "sha256": "66bf6f856ab3737ec3d9ca58e73b8268f62469d74e2c8d4aea6e0585bfa53e48",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_Reserve_Actuators.xml",
+      "format": "XML",
+      "path": "input/arm26_Reserve_Actuators.xml",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 1240,
+      "sha256": "1c43ea14413ada676a53bed2fd4f89a46f187257c93a5b89b3c69f996194ce35",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_elbow_flex.trc",
+      "format": "TRC",
+      "path": "input/arm26_elbow_flex.trc",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 15612,
+      "sha256": "4c7d8d8f4fba5f63f20ca9778093a1776e71542f6a5dfddb118f5a75fb43a4b4",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "checksums.sha256",
+      "format": "SHA256",
+      "path": "input/checksums.sha256",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 449,
+      "sha256": "6b2506d16bb711f0d29ea4363d3cdca0566573a52e327196f18ffed701e3789c",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 1010,
+      "sha256": "92a076c46aa32fa8917f309281dabcea495e40a7a12471cef5565add42305ac6",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ],
+  "taxonomy": {
+    "domain_code": "biomechanics",
+    "subdomain_code": "OpenSim_upper_limb_dynamics",
+    "category_path": "biomechanics_upper_limb_simulation"
+  },
+  "vm": {
+    "os": "Windows 10/11 x64 workstation",
+    "timeoutSeconds": 7200,
+    "notes": "Use the benchmark VM image configured with the listed professional software."
+  },
+  "requiredSystemPackages": [
+    "OpenSim",
+    "Windows 10/11"
+  ],
+  "evaluation": "The evaluator is implemented in main.py. It checks required deliverables (output/cmc/, output/cmc/arm26_Kinematics_q.sto, output/cmc/arm26_controls.sto, output/cmc/arm26_pErr.sto, output/cmc/arm26_states.sto, output/ik/, output/ik/arm26_InverseKinematics.mot, output/provenance.json, output/run_log.txt, output/setup/, output/setup/arm26_Setup_ComputedMuscleControl.xml, output/setup/arm26_Setup_InverseKinematics.xml), validates parseable native/project artifacts where required, cross-checks structured outputs against reference artifacts under reference/, and applies GUI or native-workflow evidence checks for tasks whose solution requires professional desktop software.",
+  "referenceFiles": [
+    {
+      "name": "arm26_InverseKinematics.mot",
+      "format": "MOT",
+      "path": "reference/arm26_InverseKinematics.mot",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 6481,
+      "sha256": "731af629384d9ebc02ae239783bbac3dbdaf85a87bec6fc501ffca21ffb4ecd7",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_Kinematics_q.sto",
+      "format": "STO",
+      "path": "reference/arm26_Kinematics_q.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 50080,
+      "sha256": "018c504786e5a40577e64feae164f17672af90ee4ee87bcdd9b46d93955b1d52",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_Setup_ComputedMuscleControl.xml",
+      "format": "XML",
+      "path": "reference/arm26_Setup_ComputedMuscleControl.xml",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 6873,
+      "sha256": "6861593890889cd46f61c81b17dbbcec72dadfc36f296c94ce88a6882b708bbf",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_Setup_InverseKinematics.xml",
+      "format": "XML",
+      "path": "reference/arm26_Setup_InverseKinematics.xml",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 3198,
+      "sha256": "aec21026821d53f7601ec490e4e4e8b4cd7e9e800bf35924aa7d7fb55e25a875",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_controls.sto",
+      "format": "STO",
+      "path": "reference/arm26_controls.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 68077,
+      "sha256": "17368310b7fafb2ffda5082e7ae2e63e4db81e4e00393c36c1e76d4c547b61a0",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_pErr.sto",
+      "format": "STO",
+      "path": "reference/arm26_pErr.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 5153,
+      "sha256": "752d33c7ad522825147099f3f722f0a60b13652eedd3e61e052c1c8abc692cf4",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_states.sto",
+      "format": "STO",
+      "path": "reference/arm26_states.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 128262,
+      "sha256": "3b24c20332ba0b229093cf5fa3c93b2edb51bb19d53bfe60d52691e49cb8b4ce",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+You are working on an ALE desktop benchmark task.
+
+## Your Task
+Starting only from `input/`, run arm26 inverse kinematics and then physiological static optimization using the generated IK motion.
+
+## Input Files
+The input directory contains the official arm26 starter model and elbow-flex marker trajectory from `Tutorials/Computed_Muscle_Control`. Generate the requested outputs locally from the bundled starter files.
+
+## Software
+- Use OpenSim, Windows 10/11.
+- Complete the task through the application's GUI or native workflow unless the visible task inputs explicitly allow a helper command for packaging or export.
+
+## What You Must Do
+1. Verify `input/checksums.sha256`.
+2. Run IK on `arm26.osim` with `arm26_elbow_flex.trc` over 0.0-1.0 s.
+3. Run Static Optimization with `use_muscle_physiology=true`, using the generated `arm26_InverseKinematics.mot` as the coordinates file.
+4. Save the final setup XMLs under `output/setup/`.
+5. Write `output/run_log.txt` with the OpenSim command/version and setup XMLs executed.
+6. Write `output/provenance.json` with `task_id`, `opensim_version`, `input_manifest_sha256`, a `setup_commands` list, and SHA-256 hashes for every required output file except `provenance.json`.
+
+## Output Requirements
+Create these paths exactly:
+- `output/setup/arm26_Setup_InverseKinematics.xml`
+- `output/setup/arm26_Setup_StaticOptimization.xml`
+- `output/ik/arm26_InverseKinematics.mot`
+- `output/static/arm26_StaticOptimization_force.sto`
+- `output/static/arm26_StaticOptimization_activation.sto`
+- `output/static/arm26_StaticOptimization_controls.xml`
+- `output/run_log.txt`
+- `output/provenance.json`
+
+## Constraints
+- Do not modify files under `input/`.
+- Write final deliverables only under `output/`.
+- Use exact filenames and schemas requested above or in the visible input contract.
+- Ensure native project/session/model files, exported data, screenshots, logs, and JSON summaries all come from the same completed workflow.
+
+## Failure Exit
+If the VM software environment makes the task genuinely infeasible after a reasonable expert attempt, write `output/infeasible.md` with the specific blocker, software state, and attempted workflow. Do not submit fabricated or placeholder deliverables. This exit is only for genuine blockers; otherwise produce every required artifact exactly as specified.

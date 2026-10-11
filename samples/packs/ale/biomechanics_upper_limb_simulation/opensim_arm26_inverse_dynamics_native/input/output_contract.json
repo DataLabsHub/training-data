@@ -1,0 +1,22 @@
+{
+  "task_id": "opensim_arm26_inverse_dynamics_native",
+  "required_outputs": [
+    "setup/arm26_Setup_InverseKinematics.xml",
+    "setup/arm26_Setup_InverseDynamics_Filtered.xml",
+    "setup/arm26_Setup_InverseDynamics_Unfiltered.xml",
+    "ik/arm26_InverseKinematics.mot",
+    "id_filtered/arm26_InverseDynamics.sto",
+    "id_unfiltered/arm26_InverseDynamics.sto",
+    "run_log.txt",
+    "provenance.json"
+  ],
+  "native_software": "OpenSim 4.5 GUI or opensim-cmd on Windows 10/11 x64",
+  "provenance_schema": {
+    "task_id": "opensim_arm26_inverse_dynamics_native",
+    "opensim_version": "string containing OpenSim 4.5",
+    "input_manifest_sha256": "sha256 of input/checksums.sha256",
+    "setup_commands": "array naming the IK and both inverse dynamics setup XML executions",
+    "output_file_sha256": "object mapping each required output path except provenance.json to its sha256"
+  },
+  "notes": "A complete submission must include the requested native artifacts, structured outputs, GUI evidence where requested, and mutually consistent files matching this output contract."
+}

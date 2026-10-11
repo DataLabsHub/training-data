@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0",
+  "storageRoot": "input",
+  "note": "The task package stores solver-visible input files in input/. This manifest indexes those files without duplicating them.",
+  "files": [
+    {
+      "name": "arm26.osim",
+      "format": "OSIM",
+      "path": "input/arm26.osim",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 91342,
+      "sha256": "9e08dc03137b57d8bb446520d178c5826ecbb34bfa5c81641fca315c1ab32406",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_elbow_flex.trc",
+      "format": "TRC",
+      "path": "input/arm26_elbow_flex.trc",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 15612,
+      "sha256": "4c7d8d8f4fba5f63f20ca9778093a1776e71542f6a5dfddb118f5a75fb43a4b4",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "checksums.sha256",
+      "format": "SHA256",
+      "path": "input/checksums.sha256",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 251,
+      "sha256": "e1dc247a6c3805ab13475f595cc646b06e78f94cda28d8830f87309f8fc10e3b",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 1301,
+      "sha256": "a554bd8a29d1c5b98c4fa68c25f18280bc325f8e455251d3d8c4940872ec07fa",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Implemented full GetEndpoints support.
+
+- Added `LocalizedText`, signed `StringArray`, and null/empty array handling in [datatypes](/testbed/datatypes/localized-text.go).
+- Added application, token-policy, and endpoint discovery structures in [services](/testbed/services/application-description.go).
+- Added GetEndpoints request/response serialization, decoding, constructors, constants, and generic dispatcher support in [service.go](/testbed/services/service.go:12).
+- Preserved null `ByteString` values and existing OpenSecureChannel behavior.
+- Added round-trip, dispatcher, mask, array, and certificate tests.
+
+Validation: full Go test suite and focused uncached datatype/service tests pass.

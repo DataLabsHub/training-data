@@ -1,0 +1,53 @@
+{
+  "profile_id": "gb200_sm100_torch290_cu128",
+  "hardware": {
+    "gpu_model": "NVIDIA GB200",
+    "compute_capability": "10.0",
+    "vendor": "nvidia",
+    "arch": "blackwell",
+    "gpu_count": 1,
+    "exclusive": true,
+    "min_memory_mb": 180000.0
+  },
+  "software": {
+    "image_digest": "",
+    "driver": "580.126.20",
+    "python": "3.10",
+    "cuda": "12.8",
+    "torch": "2.9.0+cu128",
+    "triton": "3.5.0",
+    "cutlass_commit": "",
+    "extra": {
+      "docker-base-image": "nvidia/cuda:12.8.1-devel-ubuntu22.04",
+      "docker-base-digest": "sha256:a99a1860ba8e2916e5c3e73b72ec4c4301653a84586e05bfc9a2aa2d58027e97",
+      "docker-from": "nvidia/cuda:12.8.1-devel-ubuntu22.04@sha256:a99a1860ba8e2916e5c3e73b72ec4c4301653a84586e05bfc9a2aa2d58027e97",
+      "torch-wheel-sha256": "816540286fce245a8af3904a194a83af9c9292ad7452eb79160b7a3b1cefb7e3"
+    }
+  },
+  "timing": {
+    "primary": "cuda_event",
+    "secondary": "host_e2e",
+    "cache_mode": "steady_state_warm",
+    "clock_policy": "recorded",
+    "warmup_iters": 25,
+    "iters": 100,
+    "cv_threshold": 0.20,
+    "max_retries": 0,
+    "retry_iters_multiplier": 1
+  },
+  "compilation": {
+    "compile_time_scored": "separately",
+    "autotune_allowed": true,
+    "autotune_budget_s": 60,
+    "cache_persistence": "per_submission",
+    "allow_prepack": false
+  },
+  "sandbox": {
+    "network": "disabled",
+    "grader_mount": "read_only",
+    "hidden_inputs_visible_to_candidate": false
+  },
+  "workspace_limit_mb": null,
+  "peak_memory_limit_mb": 180000.0,
+  "timeout_s": 1200
+}

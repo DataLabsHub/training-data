@@ -1,0 +1,7 @@
+{
+  "filled_error": 16,
+  "observed_before": 44,
+  "required": 60,
+  "schema": "coding-synthesis.verifier-evidence-normalization/v1",
+  "valid": true
+}

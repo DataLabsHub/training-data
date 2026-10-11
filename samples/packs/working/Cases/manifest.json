@@ -1,0 +1,97 @@
+{
+  "case_count": 5,
+  "cases": [
+    {
+      "case_id": "photographic_archive_rights",
+      "harbor_archive": "harbor_cases/photographic_archive_rights.harbor.zip",
+      "industry": "art",
+      "maximum_score": 0.5555555555555556,
+      "scores": {
+        "claude_opus_5_high": 0.4444444444444444,
+        "gpt_5_6_sol_high": 0.5555555555555556,
+        "kimi_k3_high": 0.5
+      },
+      "sha256": "68b009485213b011017d4343404107a4fcf93774b6cda1a04c503f3cf1d7973d",
+      "size_bytes": 24038800,
+      "validation_report": "validation/photographic_archive_rights.validation.json"
+    },
+    {
+      "case_id": "procurement_protest_record_review",
+      "harbor_archive": "harbor_cases/procurement_protest_record_review.harbor.zip",
+      "industry": "legal",
+      "maximum_score": 0.43478260869565216,
+      "scores": {
+        "claude_opus_5_high": 0.391304347826087,
+        "gpt_5_6_sol_high": 0.391304347826087,
+        "kimi_k3_high": 0.43478260869565216
+      },
+      "sha256": "bbc832d52cd09fde9c032f2ec5b268bb8b7bef7e5468582840e84ece404b4d5c",
+      "size_bytes": 14871949,
+      "validation_report": "validation/procurement_protest_record_review.validation.json"
+    },
+    {
+      "case_id": "pension_funding_contribution_control",
+      "harbor_archive": "harbor_cases/pension_funding_contribution_control.harbor.zip",
+      "industry": "finance",
+      "maximum_score": 0.5238095238095238,
+      "scores": {
+        "claude_opus_5_high": 0.5238095238095238,
+        "gpt_5_6_sol_high": 0.38095238095238093,
+        "kimi_k3_high": 0.2857142857142857
+      },
+      "sha256": "8f1756dd2c6893428e6a250dc19fd41d14963cdc20662eba56c869c0d6d447b5",
+      "size_bytes": 36303194,
+      "validation_report": "validation/pension_funding_contribution_control.validation.json"
+    },
+    {
+      "case_id": "home_health_authorization_control",
+      "harbor_archive": "harbor_cases/home_health_authorization_control.harbor.zip",
+      "industry": "medical",
+      "maximum_score": 0.631578947368421,
+      "scores": {
+        "claude_opus_5_high": 0.631578947368421,
+        "gpt_5_6_sol_high": 0.42105263157894735,
+        "kimi_k3_high": 0.5789473684210527
+      },
+      "sha256": "bb2119eb8955a403342f8cf2530f9957ff98a74b3495fa8756c0ff541467e753",
+      "size_bytes": 17691147,
+      "validation_report": "validation/home_health_authorization_control.validation.json"
+    },
+    {
+      "case_id": "publication_figure_data_consistency",
+      "harbor_archive": "harbor_cases/publication_figure_data_consistency.harbor.zip",
+      "industry": "academic",
+      "maximum_score": 0.5,
+      "scores": {
+        "claude_opus_5_high": 0.5,
+        "gpt_5_6_sol_high": 0.42857142857142855,
+        "kimi_k3_high": 0.21428571428571427
+      },
+      "sha256": "2a41186b2021a3165f224213160e8a2d69abfcbddaeb564cbcab638e6ab076bf",
+      "size_bytes": 5057911,
+      "validation_report": "validation/publication_figure_data_consistency.validation.json"
+    }
+  ],
+  "privacy": {
+    "credentials_included": false,
+    "executor_and_judge_trajectories": "included after sanitization",
+    "host_absolute_paths_included": false,
+    "raw_provider_endpoints_included": false,
+    "synthesis_private_artifacts_included": false
+  },
+  "schema_version": "statechain-harbor-review-bundle/v1",
+  "selection": {
+    "maximum_score_delta_inclusive": 0.3,
+    "preferred_model_order_strongest_to_weakest": [],
+    "rank_agreement_metric": null,
+    "required_measurement_status": "valid_measurement",
+    "required_models": [
+      "kimi_k3_high",
+      "gpt_5_6_sol_high",
+      "claude_opus_5_high"
+    ],
+    "required_reference_score": 1.0,
+    "score_metric": "unweighted_binary_claim_pass_rate",
+    "threshold_exclusive": 0.7
+  }
+}

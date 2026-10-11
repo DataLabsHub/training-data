@@ -1,0 +1,5 @@
+Implemented [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+Covers mixed indicator extraction, deduplication, validation/limits, grouped child enrichment, partial failures, unified outputs, Markdown formatting, raw-context filtering, and required exception handling.
+
+Verified with `py_compile` and focused mocked smoke tests for all major behaviors.

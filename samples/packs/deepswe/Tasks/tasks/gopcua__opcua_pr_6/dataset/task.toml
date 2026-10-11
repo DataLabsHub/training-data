@@ -1,0 +1,51 @@
+schema_version = "1.3"
+
+artifacts = ["/logs/artifacts/model.patch"]
+
+[task]
+name = "gopcua__opcua_pr_6"
+description = ""
+authors = []
+keywords = []
+
+[metadata]
+task_id = "gopcua__opcua_pr_6"
+language = "go"
+repository_url = "https://github.com/gopcua/opcua"
+base_commit_hash = "bd3e0ac77603af99f4c3adbb5c9b023902dca4ee"
+category = "feature"
+
+[verifier]
+network_mode = "no-network"
+environment_mode = "separate"
+timeout_sec = 1800.0
+
+[verifier.environment]
+build_timeout_sec = 1800.0
+cpus = 2
+memory_mb = 8192
+storage_mb = 20480
+
+[[verifier.collect]]
+command = "cd /app && git diff --binary BASE_COMMIT HEAD > /logs/artifacts/model.patch"
+timeout_sec = 300.0
+
+[agent]
+network_mode = "no-network"
+timeout_sec = 5400.0
+
+[environment]
+build_timeout_sec = 1800.0
+docker_image = "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:f9d4df80aa5d7445794f121cb475ff1edeb34583a1a3e14bca8ec6aca30bbf1a"
+os = "linux"
+cpus = 2
+memory_mb = 8192
+storage_mb = 20480
+gpus = 0
+mcp_servers = []
+
+[verifier.env]
+
+[environment.env]
+
+[solution.env]

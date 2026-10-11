@@ -1,0 +1,9 @@
+datatypes/bytestring_test.go
+datatypes/localized-text_test.go
+datatypes/localized_text_additional_test.go
+datatypes/string_test.go
+services/application-description_test.go
+services/endpoint-description_test.go
+services/get_endpoint_additional_test.go
+services/service_test.go
+services/user-token-policy_test.go

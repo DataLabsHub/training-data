@@ -1,0 +1,14 @@
+Implemented NetStream lifecycle state support.
+
+- Added `INIT` and `ERROR` states, async `set_state()` and `is_operational()`.
+- Added state-checked `close_read()` / `close_write()`; `close()` closes write side.
+- Wrapped unexpected read/write failures in `StreamError` and transition to `ERROR`.
+- Allowed reset from `ERROR`; state commits are lock-synchronized and cancellation-safe.
+- Updated `SwarmConn` to construct streams with `swarm_conn` and promote established streams to `OPEN`.
+- Added focused lifecycle/error tests.
+
+Validated with:
+
+```text
+15 passed: tests/core/network/test_net_stream.py tests/core/network/test_swarm_conn.py
+```

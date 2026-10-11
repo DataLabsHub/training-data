@@ -1,0 +1,67 @@
+{
+  "agent_rc": 0,
+  "agent_step_rc": 0,
+  "apply_rc": 0,
+  "auth_transport": "chatgpt",
+  "finished_unix": 1788078136.524069,
+  "index": 205,
+  "model": "gpt-5.6-luna",
+  "network": {
+    "checked_unix": 1788078125.755599,
+    "offline_fallback": false,
+    "probes": [
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      }
+    ],
+    "schema": "coding-synthesis.verifier-online-network/v1",
+    "valid": true,
+    "verifier_network_mode": "enabled-default"
+  },
+  "network_valid": true,
+  "offline_fallback": false,
+  "patch_bytes": 39323,
+  "prior_status": "instruction_repaired_pygo25",
+  "reasoning_effort": "high",
+  "repetition": 3,
+  "reward": 0.0,
+  "reward_data": {
+    "missing_or_bad": [
+      "github.com/wmnsk/gopcua/services::TestSerializeApplicationDescription",
+      "github.com/wmnsk/gopcua/services::TestDecodeEndpointDescription/single",
+      "github.com/wmnsk/gopcua/services::TestDecodeEndpointDescription/multiple",
+      "github.com/wmnsk/gopcua/services::TestSerializeEndpointDescription/single",
+      "github.com/wmnsk/gopcua/services::TestSerializeEndpointDescription/multiple",
+      "github.com/wmnsk/gopcua/services::TestAdditionalGetEndpointRequestServiceDispatch",
+      "github.com/wmnsk/gopcua/services::TestAdditionalGetEndpointResponseRoundTripEndpoints",
+      "github.com/wmnsk/gopcua/services::TestDecode/get-endpoint-req",
+      "github.com/wmnsk/gopcua/services::TestDecode/get-endpoint-res",
+      "github.com/wmnsk/gopcua/services::TestSerializeServices/get-endpoint-res",
+      "github.com/wmnsk/gopcua/services::TestSerializeServices/get-endpoint-req",
+      "github.com/wmnsk/gopcua/services::TestDecodeUserTokenPolicy/single",
+      "github.com/wmnsk/gopcua/services::TestDecodeUserTokenPolicy/multiple",
+      "github.com/wmnsk/gopcua/services::TestSerializeUserTokenPolicy/single",
+      "github.com/wmnsk/gopcua/services::TestSerializeUserTokenPolicy/multiple"
+    ],
+    "passed": 45,
+    "reward": 0.0,
+    "total": 60
+  },
+  "schema": "coding-synthesis.codex-eval-result/v2",
+  "source_index": 5,
+  "status": "unsolved",
+  "task_id": "gopcua__opcua_pr_6",
+  "test_rc": 0,
+  "verifier_network_mode": "enabled-default",
+  "verifier_rc": 0,
+  "verifier_step_rc": 0
+}

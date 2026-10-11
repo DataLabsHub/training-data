@@ -1,0 +1,20 @@
+Implemented NetStream lifecycle state support.
+
+Key changes:
+
+- Added `INIT` and `ERROR` to `StreamState`.
+- New streams begin in `INIT`; `SwarmConn` moves established streams to `OPEN`.
+- Added awaitable `set_state()`, `is_operational()`, `close_read()`, and `close_write()`.
+- Added synchronized state checks and transitions around underlying I/O.
+- Tracks independent read/write half-closes and `CLOSE_BOTH`.
+- Unexpected read/write failures become `StreamError` and transition to `ERROR`.
+- Operations in `ERROR` fail before touching the muxed stream.
+- Reset remains available from `ERROR` and transitions to `RESET`.
+- Updated constructor to support `NetStream(muxed_stream, swarm_conn)` and `swarm_conn=None`.
+
+Validation completed:
+
+- Existing NetStream tests: 9 passed.
+- Broader network test suite completed successfully.
+- Targeted lifecycle/error-state checks passed.
+- Compilation and `git diff --check` passed.

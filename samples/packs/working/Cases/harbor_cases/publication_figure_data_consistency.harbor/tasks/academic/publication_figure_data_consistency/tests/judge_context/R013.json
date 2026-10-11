@@ -1,0 +1,222 @@
+{
+  "claim": {
+    "binary_failure_condition": "Fail if the memo lacks or materially misstates the as-of time, reviewed components, decision purpose, current gate context, production lock, intended operational audience, or concise next-step framing, even if isolated technical facts elsewhere are correct.",
+    "binary_pass_condition": "Pass only if the memo clearly states the 2026-08-26T17:00:00+08:00 as-of boundary, identifies PRF-02 and DEP-V3 as the linked components under the open quality-review gate, explains that the job is a publication-consistency decision triggered by the production alert, notes the 2026-08-28T18:00:00+08:00 lock, and gives the centre director, corresponding author, and production editor a concise decision summary and executable next steps while directing detailed evidence to the register.",
+    "candidate_evidence_requirements": [
+      "The candidate DOCX's opening context, decision summary, and next-actions section."
+    ],
+    "causal_owner_id": "FACT048",
+    "claim_id": "R013",
+    "contract_basis_ids": [
+      "FACT001",
+      "FACT002",
+      "FACT003",
+      "FACT048",
+      "CROUTE001"
+    ],
+    "description": "The release memo is a concise operational communication that identifies the review boundary, linked components, decision context, lock urgency, and intended business consumers without replacing the detailed register.",
+    "importance_weight": 3,
+    "independent_failure_mode": "The memo is not usable as an as-of operational decision communication for the named consumers.",
+    "method": "llm_judge",
+    "program_check": null,
+    "title": "Memo frames the decision for its consumers"
+  },
+  "contract_basis": {
+    "artifact_edges": [],
+    "as_of": "2026-08-26T17:00:00+08:00",
+    "causal_owner_id": "FACT048",
+    "claim_basis_ids": [
+      "FACT001",
+      "FACT002",
+      "FACT003",
+      "FACT048",
+      "CROUTE001"
+    ],
+    "entities": [
+      {
+        "description": "The frozen publication-consistency case for an accepted multisite education manuscript and its coupled repository deposit.",
+        "entity_id": "ENT001",
+        "entity_type": "publication_release_case",
+        "natural_identity": [
+          "CASE-EMC-2026-0147",
+          "Singapore",
+          "Asia/Singapore"
+        ]
+      },
+      {
+        "description": "The production role that inserted the late figure, owns proof changes, and controls the publisher lock.",
+        "entity_id": "ENT005",
+        "entity_type": "journal_production_editor_role",
+        "natural_identity": [
+          "PD-EDITOR",
+          "Journal production editor, Production Desk"
+        ]
+      },
+      {
+        "description": "The current journal production proof containing the inserted late Figure 3 replacement.",
+        "entity_id": "ENT007",
+        "entity_type": "production_proof_version",
+        "natural_identity": [
+          "PRF-02",
+          "proof built 2026-08-26T09:18:00+08:00"
+        ]
+      },
+      {
+        "description": "The operational gate that must resolve to release, release-after-corrections, or hold for both proof and deposit together.",
+        "entity_id": "ENT022",
+        "entity_type": "release_gate",
+        "natural_identity": [
+          "GATE-0147",
+          "proof and deposit coupled lock"
+        ]
+      }
+    ],
+    "file_nodes": [],
+    "media_nodes": [],
+    "predicates": [],
+    "route_context": {
+      "business_goal": "Determine panel-level proof consistency, propagate every mapped impact, and issue one coupled proof-and-deposit release state as of the cutoff.",
+      "contract_edge_ids": [
+        "CEDGE001",
+        "CEDGE002",
+        "CEDGE003",
+        "CEDGE004",
+        "CEDGE005",
+        "CEDGE006",
+        "CEDGE007",
+        "CEDGE008",
+        "CEDGE009",
+        "CEDGE010",
+        "CEDGE011",
+        "CEDGE012",
+        "CEDGE013",
+        "CEDGE014"
+      ],
+      "contract_route_id": "CROUTE001",
+      "deliverable_class": "Publication release package comprising an editable XLSX reconciliation register and concise editable DOCX release memo.",
+      "difficulty_sources": [
+        "Panel-scoped version authority must be resolved from request, approval, time, hash, and proof linkage rather than filename recency.",
+        "The structured truth set must be reconstructed through the ordered observation-input -> finalized-export -> environment-attestation lineage, with byte hashes and QC totals conserved across three separate files.",
+        "Decisive legend, whisker, and annotation facts exist only in pixels and must be joined to separate R17 display and estimate fields.",
+        "Four panel branches propagate through an exact dependency map into manuscript, supplement, deposit, owner, and deadline states before merging.",
+        "Stale R16, public V2, and orphan LR3 records are plausible but conditionally noncontrolling.",
+        "Coupled status precedence prevents proof and repository decisions from diverging."
+      ],
+      "natural_request_context": "A publication quality lead can naturally ask a colleague to reconcile every Figure 3 panel and linked content before the 28 August production lock and to return the standard register and memo.",
+      "required_graph_node_ids": [
+        "GN001",
+        "GN002",
+        "GN003",
+        "GN004",
+        "GN005",
+        "GN006",
+        "GN007",
+        "GN008",
+        "GN009",
+        "GN010",
+        "GN011"
+      ],
+      "required_rule_ids": [
+        "RULE001",
+        "RULE002",
+        "RULE003",
+        "RULE004",
+        "RULE005",
+        "RULE006",
+        "RULE007",
+        "RULE008",
+        "RULE009",
+        "RULE010",
+        "RULE011"
+      ],
+      "target_fact_ids": [
+        "FACT030",
+        "FACT031",
+        "FACT032",
+        "FACT033",
+        "FACT044",
+        "FACT045",
+        "FACT046",
+        "FACT047",
+        "FACT052",
+        "FACT053"
+      ],
+      "terminal_decision": "ISSUE HOLD_CURRENT_PROOF_AND_LINKED_DEPOSIT for PRF-02 and DEP-V3 under the verified OBS-R17 -> FIG3-EST-R17 -> R17 environment-attestation lineage; correct A legend, B interval and linked text, and C annotation; D is clear; complete named actions and PQL re-review before release.",
+      "unique_resolution": "Time filtering admits LR2 approvals and orphan LR3; hash and scope rules select LR2 only for A/B and the accepted baseline for C/D; the required CF007 -> CF006 -> CF008 lineage admits exactly one observation input, finalized structured export, and non-earlier attestation; mandatory visual comparisons yield exactly three nonclear panels; dependency conservation fixes the downstream action set; and HOLD precedence forces the same terminal status for PRF-02 and DEP-V3. Removing either AEDGE035 or AEDGE036 leaves RULE003 unsatisfied, while no alternative terminal state satisfies all predicates."
+    },
+    "rules": [],
+    "schema_version": "agent-first-contract-basis/v1",
+    "state_facts": [
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT001",
+        "interpretation": "Only evidence effective at or before this instant may control the requested as-of decision.",
+        "materialization_obligation": "State the cutoff and Asia/Singapore timezone in Workspace/01_Governance/publication_release_policy.pdf and Workspace/07_Release_Control/production_lock_schedule.md.",
+        "predicate": "evidence_cutoff",
+        "source_anchor_ids": [],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT001"
+        ],
+        "value": "2026-08-26T17:00:00+08:00"
+      },
+      {
+        "effective_from": "2026-08-26T09:30:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT002",
+        "interpretation": "This is the frozen trigger; it is a consistency alert rather than a scientific-validity finding.",
+        "materialization_obligation": "Record this event verbatim with business IDs and timestamp in Proof_Events of Workspace/01_Governance/accepted_submission_manifest.xlsx and page 1 of the approval log.",
+        "predicate": "production_flag",
+        "source_anchor_ids": [],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT001",
+          "ENT005",
+          "ENT007"
+        ],
+        "value": "At 2026-08-26T09:30:00+08:00 the production editor flagged Figure 3 because cohort labels and uncertainty whiskers appeared inconsistent with the accepted figure and supporting workbook."
+      },
+      {
+        "effective_from": "2026-08-19T15:10:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT003",
+        "interpretation": "All correction and reapproval deadlines must precede this coupled proof-and-deposit lock.",
+        "materialization_obligation": "Show the exact lock instant, timezone, gate owner, and escalation window in Workspace/07_Release_Control/production_lock_schedule.md.",
+        "predicate": "production_lock_deadline",
+        "source_anchor_ids": [],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT005",
+          "ENT022"
+        ],
+        "value": "2026-08-28T18:00:00+08:00"
+      },
+      {
+        "effective_from": "2026-08-26T09:30:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT048",
+        "interpretation": "The public gate record is an unresolved starting state, not the synthetic answer.",
+        "materialization_obligation": "State only QA_REVIEW_OPEN, linked component IDs, allowed terminal states, and lock schedule in Workspace/07_Release_Control/production_lock_schedule.md.",
+        "predicate": "pre_audit_gate_state",
+        "source_anchor_ids": [],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT022"
+        ],
+        "value": "GATE-0147 is QA_REVIEW_OPEN with proof component PRF-02 and deposit component DEP-V3; no final release recommendation is recorded."
+      }
+    ]
+  },
+  "reference_claim_evidence": {
+    "citations": [
+      {
+        "locator": "Opening title/as-of line, recipient table, sections 'Decision', 'Executable sequence before any later release', and 'Evidence and scope boundary'",
+        "observation": "The memo addresses the Centre Director, CA-STUDY, and PD-EDITOR; names the exact cutoff, PRF-02, DEP-V3, GATE-0147, the production alert, the 2026-08-28T18:00:00+08:00 lock, the hold, and an executable owner sequence, while directing detailed evidence to exact register ranges.",
+        "path": "deliverables/publication_release_memo.docx"
+      }
+    ],
+    "claim_id": "R013",
+    "why_full_pass": "The two-page memo gives its intended consumers the business decision, trigger, linked components, deadline pressure, actionable sequence, and concise evidence handoff without displacing the detailed register."
+  }
+}

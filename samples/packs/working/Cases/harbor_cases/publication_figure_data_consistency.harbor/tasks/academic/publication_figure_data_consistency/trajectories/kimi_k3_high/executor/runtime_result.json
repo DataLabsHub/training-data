@@ -1,0 +1,82 @@
+{
+  "run_id": "publication_figure_data_consistency-executor-02",
+  "runtime": "harness-runtime:ClaudeCodeRuntime:4",
+  "model": "k3-256k",
+  "reasoning_effort": "high",
+  "status": "succeeded",
+  "return_code": 0,
+  "duration_seconds": 1778.7891215628479,
+  "timed_out": false,
+  "infrastructure_valid": true,
+  "trace_path": "trace.jsonl",
+  "stderr_path": "stderr.log",
+  "last_message_path": "last_message.txt",
+  "json_output_path": null,
+  "trace": {
+    "event_count": 19512,
+    "tool_call_count": 27,
+    "tool_names": [
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Read",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Bash",
+      "Write",
+      "Bash",
+      "Write",
+      "Bash"
+    ],
+    "session_id": "[SESSION_ID]",
+    "final_message": "Both deliverables are complete, validated, and mutually consistent. Here is the summary of the review.\n\n## Decision: **RELEASE_AFTER_CORRECTIONS** (coupled gate GATE-0147, applied identically to proof PRF-02 and staged deposit DEP-V3)\n\nRELEASE is blocked today; HOLD is not yet required because every correction is schedulable before the PQL re-review (2026-08-27T14:00) and the production lock (2026-08-28T18:00). The gate converts to HOLD if anything is unresolved at the 2026-08-27T14:30 escalation.\n\n## What the evidence showed\n\n**Blocking findings** (measured from the hash-verified proof rendition at native pixels against the approved R17 export):\n- **FIG3-A** — legend colour/label swap: displayed teal=Non-incentivized / amber=Incentivized vs mandatory teal=Incentivized / amber=Non-incentivized. Geometry itself matches R17 within ≤0.001, but that does not cure the label/colour failure (SOP §2).\n- **FIG3-B** — displayed median 0.05 and upper endpoint 0.11 vs approved 0.02 / 0.07 (Δ +0.03 and +0.04, ≈77 and ≈105 px; tolerance 0.005 / 1 px). CAP-3B and RS-3B echo the wrong 0.11; the R16-era 0.05 values are superseded context, not a fallback.\n- **FIG3-C** — displayed median 0.075 vs approved 0.06 (Δ +0.015) and annotation \"n=24\" vs mandatory \"n=42\"; since RR-017 scoped only A/B, this is also an **unapproved changed component** requiring scoped approval or rollback.\n- **SUP-F3** — printed run label still cites superseded AR-2026-08-18-R16 while the linked file is the hash-verified R17 export.\n- **Deposit README** colour key repeats the swapped mapping (unsynchronized mapped deposit item).\n\n**Verified consistent**: FIG3-D (all marks within tolerance, order and no-exploratory-marker exact), deposit rows DEP-3B/3C/3D equal the R17 export exactly, and all recomputed SHA-256 links match (extraction PNG is byte-identical to approved FIG3-LR2). Orphan attachment FIG3-LR3 arrived before the 17:00 cutoff but carries no authority and must not be used.\n\n## Deliverables\n- `deliverables/figure3_reconciliation_register.xlsx` — 5 sheets: **Register** (20 rows: every panel + every mapped caption clause, results statement, supplement reference and deposit entry, with displayed vs controlling values, variances vs tolerance, visual pixel locators *and* structured sheet/row/cell locators, controlling version/approval state, disposition, impact, action, single owner, due time, superseded-context distinction, hash evidence), **Geometry_Measurements** (21 measured marks), **Version_Hash_Lineage** (recomputed vs asserted hashes, controlling vs superseded objects), **Gate_And_Prerequisites**, **Rules_Applied**.\n- `deliverables/publication_release_memo.docx` — concise memo to the centre director, corresponding author and production editor stating the decision, blocking findings, verified-consistent items, an 8-condition release table with owners/deadlines, the orphan-attachment and escalation notes, and an explicit no-scientific-merit-claims scope statement. Status, actions, owners and deadlines were programmatically cross-checked to agree with the register.",
+    "usage": {
+      "input_tokens": 76513,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 1140546,
+      "output_tokens": 56474,
+      "output_tokens_details": {
+        "thinking_tokens": 19501
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [],
+      "speed": "standard"
+    },
+    "turn_completed": true,
+    "infrastructure_error": null
+  },
+  "workspace_delta": {
+    "created": [
+      "deliverables/figure3_reconciliation_register.xlsx",
+      "deliverables/publication_release_memo.docx"
+    ],
+    "modified": [],
+    "deleted": []
+  },
+  "error": null
+}

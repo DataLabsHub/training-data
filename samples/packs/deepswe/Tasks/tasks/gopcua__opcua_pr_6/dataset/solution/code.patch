@@ -1,0 +1,1521 @@
+diff --git a/datatypes/localized-text.go b/datatypes/localized-text.go
+new file mode 100644
+index 0000000000000000000000000000000000000000..a04be839c83f8889659569fcb2558babb91403af
+--- /dev/null
++++ b/datatypes/localized-text.go
+@@ -0,0 +1,134 @@
++// Copyright 2018 gopcua authors. All rights reserved.
++// Use of this source code is governed by a MIT-style license that can be
++// found in the LICENSE file.
++
++package datatypes
++
++import (
++	"fmt"
++)
++
++// LocalizedText represents a LocalizedText.
++type LocalizedText struct {
++	EncodingMask uint8
++	Locale       *String
++	Text         *String
++}
++
++// NewLocalizedText creates a new NewLocalizedText.
++func NewLocalizedText(locale, text string) *LocalizedText {
++	var l = &LocalizedText{}
++	if locale != "" {
++		l.Locale = NewString(locale)
++		l.SetLocaleMask()
++	}
++	if text != "" {
++		l.Text = NewString(text)
++		l.SetTextMask()
++	}
++
++	return l
++}
++
++// DecodeLocalizedText decodes given bytes into LocalizedText.
++func DecodeLocalizedText(b []byte) (*LocalizedText, error) {
++	l := &LocalizedText{}
++	if err := l.DecodeFromBytes(b); err != nil {
++		return nil, err
++	}
++	return l, nil
++}
++
++// DecodeFromBytes decodes given bytes into LocalizedText.
++func (l *LocalizedText) DecodeFromBytes(b []byte) error {
++	l.EncodingMask = b[0]
++
++	var offset = 1
++	if l.HasLocale() {
++		l.Locale = &String{}
++		if err := l.Locale.DecodeFromBytes(b[offset:]); err != nil {
++			return err
++		}
++		offset += l.Locale.Len()
++	}
++
++	if l.HasText() {
++		l.Text = &String{}
++		if err := l.Text.DecodeFromBytes(b[offset:]); err != nil {
++			return err
++		}
++		offset += l.Text.Len()
++	}
++
++	return nil
++}
++
++// Serialize serializes LocalizedText into bytes.
++func (l *LocalizedText) Serialize() ([]byte, error) {
++	b := make([]byte, l.Len())
++	if err := l.SerializeTo(b); err != nil {
++		return nil, err
++	}
++
++	return b, nil
++}
++
++// SerializeTo serializes LocalizedText into bytes.
++func (l *LocalizedText) SerializeTo(b []byte) error {
++	b[0] = l.EncodingMask
++
++	var offset = 1
++	if l.Locale != nil {
++		if err := l.Locale.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += l.Locale.Len()
++	}
++
++	if l.Text != nil {
++		if err := l.Text.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += l.Text.Len()
++	}
++
++	return nil
++}
++
++// HasLocale checks if the LocalizedText has HasLocale mask in EncodingMask.
++func (l *LocalizedText) HasLocale() bool {
++	return l.EncodingMask&0x1 == 1
++}
++
++// SetLocaleMask sets the HasLocale mask in EncodingMask.
++func (l *LocalizedText) SetLocaleMask() {
++	l.EncodingMask |= 0x1
++}
++
++// HasText checks if the LocalizedText has HasText mask in EncodingMask.
++func (l *LocalizedText) HasText() bool {
++	return (l.EncodingMask>>1)&0x1 == 1
++}
++
++// SetTextMask sets the HasText mask in EncodingMask.
++func (l *LocalizedText) SetTextMask() {
++	l.EncodingMask |= 0x2
++}
++
++// Len returns the actual length of LocalizedText in int.
++func (l *LocalizedText) Len() int {
++	var ll = 1
++	if l.Locale != nil {
++		ll += l.Locale.Len()
++	}
++	if l.Text != nil {
++		ll += l.Text.Len()
++	}
++
++	return ll
++}
++
++// String retunrs LocalizedText in string.
++func (l *LocalizedText) String() string {
++	return fmt.Sprintf("%x, %s, %s", l.EncodingMask, l.Locale, l.Text)
++}
+diff --git a/datatypes/string.go b/datatypes/string.go
+index b407f62a94f9d141cf9e6b54d7daccbfc8de89f7..bf1c0238b9948e335ee3d538bd3cac666b130588 100644
+--- a/datatypes/string.go
++++ b/datatypes/string.go
+@@ -6,6 +6,7 @@ package datatypes
+ 
+ import (
+ 	"encoding/binary"
++	"fmt"
+ 
+ 	"github.com/wmnsk/gopcua/errors"
+ )
+@@ -95,16 +96,28 @@ func (s *String) Set(str string) {
+ 	s.Length = int32(len(s.Value))
+ }
+ 
+-// StringTable represents the StringTable.
+-type StringTable struct {
+-	ArraySize uint32
++// String returns String in string.
++func (s *String) String() string {
++	return fmt.Sprintf("%d, %s", s.Length, s.Get())
++}
++
++// StringArray represents the StringArray.
++type StringArray struct {
++	ArraySize int32
+ 	Strings   []*String
+ }
+ 
+-// NewStringTable creates a new StringTable from multiple strings.
+-func NewStringTable(strs []string) *StringTable {
+-	s := &StringTable{
+-		ArraySize: uint32(len(strs)),
++// NewStringArray creates a new StringArray from multiple strings.
++func NewStringArray(strs []string) *StringArray {
++	if strs == nil {
++		s := &StringArray{
++			ArraySize: -1,
++		}
++		return s
++	}
++
++	s := &StringArray{
++		ArraySize: int32(len(strs)),
+ 	}
+ 	for _, ss := range strs {
+ 		s.Strings = append(s.Strings, NewString(ss))
+@@ -113,9 +126,9 @@ func NewStringTable(strs []string) *StringTable {
+ 	return s
+ }
+ 
+-// DecodeStringTable decodes given bytes into StringTable.
+-func DecodeStringTable(b []byte) (*StringTable, error) {
+-	s := &StringTable{}
++// DecodeStringArray decodes given bytes into StringArray.
++func DecodeStringArray(b []byte) (*StringArray, error) {
++	s := &StringArray{}
+ 	if err := s.DecodeFromBytes(b); err != nil {
+ 		return nil, err
+ 	}
+@@ -123,11 +136,15 @@ func DecodeStringTable(b []byte) (*StringTable, error) {
+ 	return s, nil
+ }
+ 
+-// DecodeFromBytes decodes given bytes into StringTable.
++// DecodeFromBytes decodes given bytes into StringArray.
+ // TODO: add validation to avoid crash.
+-func (s *StringTable) DecodeFromBytes(b []byte) error {
++func (s *StringArray) DecodeFromBytes(b []byte) error {
++	s.ArraySize = int32(binary.LittleEndian.Uint32(b[:4]))
++	if s.ArraySize <= 0 {
++		return nil
++	}
++
+ 	var offset = 4
+-	s.ArraySize = binary.LittleEndian.Uint32(b[:4])
+ 	for i := 1; i <= int(s.ArraySize); i++ {
+ 		str, err := DecodeString(b[offset:])
+ 		if err != nil {
+@@ -140,8 +157,8 @@ func (s *StringTable) DecodeFromBytes(b []byte) error {
+ 	return nil
+ }
+ 
+-// Serialize serializes StringTable into bytes.
+-func (s *StringTable) Serialize() ([]byte, error) {
++// Serialize serializes StringArray into bytes.
++func (s *StringArray) Serialize() ([]byte, error) {
+ 	b := make([]byte, s.Len())
+ 	if err := s.SerializeTo(b); err != nil {
+ 		return nil, err
+@@ -150,10 +167,10 @@ func (s *StringTable) Serialize() ([]byte, error) {
+ 	return b, nil
+ }
+ 
+-// SerializeTo serializes StringTable into bytes.
+-func (s *StringTable) SerializeTo(b []byte) error {
++// SerializeTo serializes StringArray into bytes.
++func (s *StringArray) SerializeTo(b []byte) error {
+ 	var offset = 4
+-	binary.LittleEndian.PutUint32(b[:4], s.ArraySize)
++	binary.LittleEndian.PutUint32(b[:4], uint32(s.ArraySize))
+ 
+ 	for _, ss := range s.Strings {
+ 		if err := ss.SerializeTo(b[offset:]); err != nil {
+@@ -166,7 +183,7 @@ func (s *StringTable) SerializeTo(b []byte) error {
+ }
+ 
+ // Len returns the actual length in int.
+-func (s *StringTable) Len() int {
++func (s *StringArray) Len() int {
+ 	l := 4
+ 	for _, ss := range s.Strings {
+ 		l += ss.Len()
+diff --git a/services/application-description.go b/services/application-description.go
+new file mode 100644
+index 0000000000000000000000000000000000000000..c9d158f362981a15d57eec1c071c1a52fd835c27
+--- /dev/null
++++ b/services/application-description.go
+@@ -0,0 +1,197 @@
++// Copyright 2018 gopcua authors. All rights reserved.
++// Use of this source code is governed by a MIT-style license that can be
++// found in the LICENSE file.
++
++package services
++
++import (
++	"encoding/binary"
++	"fmt"
++
++	"github.com/wmnsk/gopcua/datatypes"
++)
++
++// ApplicationType definitions.
++const (
++	AppTypeServer uint32 = iota
++	AppTypeClient
++	AppTypeClientAndServer
++	AppTypeDiscoveryServer
++)
++
++// ApplicationDescription represents an ApplicationDescription.
++type ApplicationDescription struct {
++	ApplicationURI      *datatypes.String
++	ProductURI          *datatypes.String
++	ApplicationName     *datatypes.LocalizedText
++	ApplicationType     uint32
++	GatewayServerURI    *datatypes.String
++	DiscoveryProfileURI *datatypes.String
++	DiscoveryURIs       *datatypes.StringArray
++}
++
++// NewApplicationDescription creates a new NewApplicationDescription.
++func NewApplicationDescription(appURI, prodURI, appName string, appType uint32, gwURI, profileURI string, discovURIs []string) *ApplicationDescription {
++	return &ApplicationDescription{
++		ApplicationURI:      datatypes.NewString(appURI),
++		ProductURI:          datatypes.NewString(prodURI),
++		ApplicationName:     datatypes.NewLocalizedText("", appName),
++		ApplicationType:     appType,
++		GatewayServerURI:    datatypes.NewString(gwURI),
++		DiscoveryProfileURI: datatypes.NewString(prodURI),
++		DiscoveryURIs:       datatypes.NewStringArray(discovURIs),
++	}
++}
++
++// DecodeApplicationDescription decodes given bytes into ApplicationDescription.
++func DecodeApplicationDescription(b []byte) (*ApplicationDescription, error) {
++	a := &ApplicationDescription{}
++	if err := a.DecodeFromBytes(b); err != nil {
++		return nil, err
++	}
++
++	return a, nil
++}
++
++// DecodeFromBytes decodes given bytes into ApplicationDescription.
++func (a *ApplicationDescription) DecodeFromBytes(b []byte) error {
++	var offset = 0
++	a.ApplicationURI = &datatypes.String{}
++	if err := a.ApplicationURI.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += a.ApplicationURI.Len()
++
++	a.ProductURI = &datatypes.String{}
++	if err := a.ProductURI.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += a.ProductURI.Len()
++
++	a.ApplicationName = &datatypes.LocalizedText{}
++	if err := a.ApplicationName.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += a.ApplicationName.Len()
++
++	a.ApplicationType = binary.LittleEndian.Uint32(b[offset : offset+4])
++	offset += 4
++
++	a.GatewayServerURI = &datatypes.String{}
++	if err := a.GatewayServerURI.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += a.GatewayServerURI.Len()
++
++	a.DiscoveryProfileURI = &datatypes.String{}
++	if err := a.DiscoveryProfileURI.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += a.DiscoveryProfileURI.Len()
++
++	a.DiscoveryURIs = &datatypes.StringArray{}
++	if err := a.DiscoveryURIs.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += a.DiscoveryURIs.Len()
++
++	return nil
++}
++
++// Serialize serializes ApplicationDescription into bytes.
++func (a *ApplicationDescription) Serialize() ([]byte, error) {
++	b := make([]byte, a.Len())
++	if err := a.SerializeTo(b); err != nil {
++		return nil, err
++	}
++
++	return b, nil
++}
++
++// SerializeTo serializes ApplicationDescription into bytes.
++func (a *ApplicationDescription) SerializeTo(b []byte) error {
++	var offset = 0
++	if a.ApplicationURI != nil {
++		if err := a.ApplicationURI.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += a.ApplicationURI.Len()
++	}
++
++	if a.ProductURI != nil {
++		if err := a.ProductURI.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += a.ProductURI.Len()
++	}
++
++	if a.ApplicationName != nil {
++		if err := a.ApplicationName.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += a.ApplicationName.Len()
++	}
++
++	binary.LittleEndian.PutUint32(b[offset:offset+4], a.ApplicationType)
++	offset += 4
++
++	if a.GatewayServerURI != nil {
++		if err := a.GatewayServerURI.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += a.GatewayServerURI.Len()
++	}
++
++	if a.DiscoveryProfileURI != nil {
++		if err := a.DiscoveryProfileURI.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += a.DiscoveryProfileURI.Len()
++	}
++
++	if a.DiscoveryURIs != nil {
++		if err := a.DiscoveryURIs.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += a.DiscoveryURIs.Len()
++	}
++
++	return nil
++}
++
++// Len returns the actual length of ApplicationDescription in int.
++func (a *ApplicationDescription) Len() int {
++	var l = 4
++	if a.ApplicationURI != nil {
++		l += a.ApplicationURI.Len()
++	}
++	if a.ProductURI != nil {
++		l += a.ProductURI.Len()
++	}
++	if a.ApplicationName != nil {
++		l += a.ApplicationName.Len()
++	}
++	if a.GatewayServerURI != nil {
++		l += a.GatewayServerURI.Len()
++	}
++	if a.DiscoveryProfileURI != nil {
++		l += a.DiscoveryProfileURI.Len()
++	}
++	if a.DiscoveryURIs != nil {
++		l += a.DiscoveryURIs.Len()
++	}
++
++	return l
++}
++
++// String returns ApplicationDescription in string.
++func (a *ApplicationDescription) String() string {
++	return fmt.Sprintf("%s, %s, %s, %s, %s, %v",
++		a.ApplicationURI.Get(),
++		a.ProductURI.Get(),
++		a.ApplicationName.Text,
++		a.GatewayServerURI.Get(),
++		a.DiscoveryProfileURI.Get(),
++		a.DiscoveryURIs.Strings,
++	)
++}
+diff --git a/services/endpoint-description.go b/services/endpoint-description.go
+new file mode 100644
+index 0000000000000000000000000000000000000000..382764540c7a336352efbc85a6260460df5167b2
+--- /dev/null
++++ b/services/endpoint-description.go
+@@ -0,0 +1,292 @@
++// Copyright 2018 gopcua authors. All rights reserved.
++// Use of this source code is governed by a MIT-style license that can be
++// found in the LICENSE file.
++
++package services
++
++import (
++	"encoding/binary"
++	"fmt"
++
++	"github.com/wmnsk/gopcua/datatypes"
++	"github.com/wmnsk/gopcua/errors"
++)
++
++// EndpointDescription represents an EndpointDescription.
++type EndpointDescription struct {
++	EndpointURL         *datatypes.String
++	Server              *ApplicationDescription
++	ServerCertificate   *datatypes.ByteString
++	MessageSecurityMode uint32
++	SecurityPolicyURI   *datatypes.String
++	UserIdentityTokens  *UserTokenPolicyArray
++	TransportProfileURI *datatypes.String
++	SecurityLevel       uint8
++}
++
++// NewEndpointDesctiption creates a new NewEndpointDesctiption.
++func NewEndpointDesctiption(url string, server *ApplicationDescription, cert []byte, secMode uint32, secURI string, tokens *UserTokenPolicyArray, transportURI string, secLevel uint8) *EndpointDescription {
++	return &EndpointDescription{
++		EndpointURL:         datatypes.NewString(url),
++		Server:              server,
++		ServerCertificate:   datatypes.NewByteString(cert),
++		MessageSecurityMode: secMode,
++		SecurityPolicyURI:   datatypes.NewString(secURI),
++		UserIdentityTokens:  tokens,
++		TransportProfileURI: datatypes.NewString(transportURI),
++		SecurityLevel:       secLevel,
++	}
++}
++
++// DecodeEndpointDescription decodes given bytes into EndpointDescription.
++func DecodeEndpointDescription(b []byte) (*EndpointDescription, error) {
++	e := &EndpointDescription{}
++	if err := e.DecodeFromBytes(b); err != nil {
++		return nil, err
++	}
++
++	return e, nil
++}
++
++// DecodeFromBytes decodes given bytes into EndpointDescription.
++func (e *EndpointDescription) DecodeFromBytes(b []byte) error {
++	if len(b) < 6 {
++		return &errors.ErrTooShortToDecode{e, "should be longer than 6 bytes."}
++	}
++
++	var offset = 0
++	e.EndpointURL = &datatypes.String{}
++	if err := e.EndpointURL.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += e.EndpointURL.Len()
++
++	e.Server = &ApplicationDescription{}
++	if err := e.Server.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += e.Server.Len()
++
++	e.ServerCertificate = &datatypes.ByteString{}
++	if err := e.ServerCertificate.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += e.ServerCertificate.Len()
++
++	e.MessageSecurityMode = binary.LittleEndian.Uint32(b[offset : offset+4])
++	offset += 4
++
++	e.SecurityPolicyURI = &datatypes.String{}
++	if err := e.SecurityPolicyURI.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += e.SecurityPolicyURI.Len()
++
++	e.UserIdentityTokens = &UserTokenPolicyArray{}
++	if err := e.UserIdentityTokens.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += e.UserIdentityTokens.Len()
++
++	e.TransportProfileURI = &datatypes.String{}
++	if err := e.TransportProfileURI.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += e.TransportProfileURI.Len()
++
++	e.SecurityLevel = b[offset]
++
++	return nil
++}
++
++// Serialize serializes EndpointDescription into bytes.
++func (e *EndpointDescription) Serialize() ([]byte, error) {
++	b := make([]byte, e.Len())
++	if err := e.SerializeTo(b); err != nil {
++		return nil, err
++	}
++
++	return b, nil
++}
++
++// SerializeTo serializes EndpointDescription into bytes.
++func (e *EndpointDescription) SerializeTo(b []byte) error {
++	var offset = 0
++	if e.EndpointURL != nil {
++		if err := e.EndpointURL.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += e.EndpointURL.Len()
++	}
++
++	if e.Server != nil {
++		if err := e.Server.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += e.Server.Len()
++	}
++
++	if e.ServerCertificate != nil {
++		if err := e.ServerCertificate.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += e.ServerCertificate.Len()
++	}
++
++	binary.LittleEndian.PutUint32(b[offset:offset+4], e.MessageSecurityMode)
++	offset += 4
++
++	if e.SecurityPolicyURI != nil {
++		if err := e.SecurityPolicyURI.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += e.SecurityPolicyURI.Len()
++	}
++
++	if e.UserIdentityTokens != nil {
++		if err := e.UserIdentityTokens.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += e.UserIdentityTokens.Len()
++	}
++
++	if e.TransportProfileURI != nil {
++		if err := e.TransportProfileURI.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += e.TransportProfileURI.Len()
++	}
++
++	b[offset] = e.SecurityLevel
++
++	return nil
++}
++
++// Len returns the actual length of EndpointDescription in int.
++func (e *EndpointDescription) Len() int {
++	var l = 5
++	if e.EndpointURL != nil {
++		l += e.EndpointURL.Len()
++	}
++	if e.Server != nil {
++		l += e.Server.Len()
++	}
++	if e.ServerCertificate != nil {
++		l += e.ServerCertificate.Len()
++	}
++	if e.SecurityPolicyURI != nil {
++		l += e.SecurityPolicyURI.Len()
++	}
++	if e.UserIdentityTokens != nil {
++		l += e.UserIdentityTokens.Len()
++	}
++	if e.TransportProfileURI != nil {
++		l += e.TransportProfileURI.Len()
++	}
++
++	return l
++}
++
++// String returns EndpointDescription in string.
++func (e *EndpointDescription) String() string {
++	return fmt.Sprintf("%s, %v, %x, %d, %s, %s, %d",
++		e.EndpointURL.Get(),
++		e.Server,
++		e.ServerCertificate.Get(),
++		e.MessageSecurityMode,
++		e.SecurityPolicyURI.Get(),
++		e.TransportProfileURI.Get(),
++		e.SecurityLevel,
++	)
++}
++
++// EndpointDescriptionArray represents an EndpointDescriptionArray.
++type EndpointDescriptionArray struct {
++	ArraySize            int32
++	EndpointDescriptions []*EndpointDescription
++}
++
++// NewEndpointDesctiptionArray creates an NewEndpointDesctiptionArray from multiple EndpointDesctiption.
++func NewEndpointDesctiptionArray(descs []*EndpointDescription) *EndpointDescriptionArray {
++	e := &EndpointDescriptionArray{
++		ArraySize: int32(len(descs)),
++	}
++
++	for _, desc := range descs {
++		e.EndpointDescriptions = append(e.EndpointDescriptions, desc)
++	}
++
++	return e
++}
++
++// DecodeEndpointDescriptionArray decodes given bytes into EndpointDescriptionArray.
++func DecodeEndpointDescriptionArray(b []byte) (*EndpointDescriptionArray, error) {
++	e := &EndpointDescriptionArray{}
++	if err := e.DecodeFromBytes(b); err != nil {
++		return nil, err
++	}
++
++	return e, nil
++}
++
++// DecodeFromBytes decodes given bytes into EndpointDescriptionArray.
++func (e *EndpointDescriptionArray) DecodeFromBytes(b []byte) error {
++	if len(b) < 4 {
++		return &errors.ErrTooShortToDecode{e, "should be longer than 4 bytes."}
++	}
++
++	e.ArraySize = int32(binary.LittleEndian.Uint32(b[:4]))
++	if e.ArraySize <= 0 {
++		return nil
++	}
++
++	var offset = 4
++	for i := 0; i < int(e.ArraySize); i++ {
++		ed, err := DecodeEndpointDescription(b[offset:])
++		if err != nil {
++			return err
++		}
++		e.EndpointDescriptions = append(e.EndpointDescriptions, ed)
++		offset += e.EndpointDescriptions[i].Len()
++	}
++
++	return nil
++}
++
++// Serialize serializes EndpointDescriptionArray into bytes.
++func (e *EndpointDescriptionArray) Serialize() ([]byte, error) {
++	b := make([]byte, e.Len())
++	if err := e.SerializeTo(b); err != nil {
++		return nil, err
++	}
++
++	return b, nil
++}
++
++// SerializeTo serializes EndpointDescriptionArray into bytes.
++func (e *EndpointDescriptionArray) SerializeTo(b []byte) error {
++	binary.LittleEndian.PutUint32(b[:4], uint32(e.ArraySize))
++	if e.ArraySize <= 0 {
++		return nil
++	}
++
++	var offset = 4
++	for _, ed := range e.EndpointDescriptions {
++		if err := ed.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += ed.Len()
++	}
++
++	return nil
++}
++
++// Len returns the actual length of EndpointDescriptionArray in int.
++func (e *EndpointDescriptionArray) Len() int {
++	var l = 4
++	for _, ed := range e.EndpointDescriptions {
++		l += ed.Len()
++	}
++
++	return l
++}
+diff --git a/services/get-endpoint-request.go b/services/get-endpoint-request.go
+new file mode 100644
+index 0000000000000000000000000000000000000000..10a5fdef66042230a9fba4f52266fdec1cfe6ec1
+--- /dev/null
++++ b/services/get-endpoint-request.go
+@@ -0,0 +1,184 @@
++// Copyright 2018 gopcua authors. All rights reserved.
++// Use of this source code is governed by a MIT-style license that can be
++// found in the LICENSE file.
++
++package services
++
++import (
++	"time"
++
++	"github.com/wmnsk/gopcua/datatypes"
++	"github.com/wmnsk/gopcua/errors"
++)
++
++// GetEndpointRequest represents an GetEndpointRequest.
++type GetEndpointRequest struct {
++	TypeID *datatypes.ExpandedNodeID
++	*RequestHeader
++	EndpointURL *datatypes.String
++	LocalIDs    *datatypes.StringArray
++	ProfileURIs *datatypes.StringArray
++}
++
++// NewGetEndpointRequest creates an GetEndpointRequest.
++func NewGetEndpointRequest(ts time.Time, handle, diag, timeout uint32, auditID string, endpoint string, localIDs, profileURIs []string) *GetEndpointRequest {
++	g := &GetEndpointRequest{
++		TypeID: datatypes.NewExpandedNodeID(
++			false, false,
++			datatypes.NewFourByteNodeID(
++				0, ServiceTypeGetEndpointRequest,
++			),
++			"", 0,
++		),
++		RequestHeader: NewRequestHeader(
++			datatypes.NewTwoByteNodeID(0x00),
++			ts,
++			handle,
++			diag,
++			timeout,
++			auditID,
++			NewAdditionalHeader(
++				datatypes.NewExpandedNodeID(
++					false, false,
++					datatypes.NewTwoByteNodeID(0),
++					"", 0,
++				),
++				0x00,
++			),
++			nil,
++		),
++		EndpointURL: datatypes.NewString(endpoint),
++		LocalIDs:    datatypes.NewStringArray(localIDs),
++		ProfileURIs: datatypes.NewStringArray(profileURIs),
++	}
++
++	return g
++}
++
++// DecodeGetEndpointRequest decodes given bytes into GetEndpointRequest.
++func DecodeGetEndpointRequest(b []byte) (*GetEndpointRequest, error) {
++	g := &GetEndpointRequest{}
++	if err := g.DecodeFromBytes(b); err != nil {
++		return nil, err
++	}
++
++	return g, nil
++}
++
++// DecodeFromBytes decodes given bytes into GetEndpointRequest.
++func (g *GetEndpointRequest) DecodeFromBytes(b []byte) error {
++	if len(b) < 16 {
++		return &errors.ErrTooShortToDecode{g, "should be longer than 16 bytes"}
++	}
++
++	var offset = 0
++	g.TypeID = &datatypes.ExpandedNodeID{}
++	if err := g.TypeID.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += g.TypeID.Len()
++
++	g.RequestHeader = &RequestHeader{}
++	if err := g.RequestHeader.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += g.RequestHeader.Len() - len(g.RequestHeader.Payload)
++
++	g.EndpointURL = &datatypes.String{}
++	if err := g.EndpointURL.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += g.EndpointURL.Len()
++
++	g.LocalIDs = &datatypes.StringArray{}
++	if err := g.LocalIDs.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += g.LocalIDs.Len()
++
++	g.ProfileURIs = &datatypes.StringArray{}
++	if err := g.ProfileURIs.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += g.ProfileURIs.Len()
++
++	return nil
++}
++
++// Serialize serializes GetEndpointRequest into bytes.
++func (g *GetEndpointRequest) Serialize() ([]byte, error) {
++	b := make([]byte, g.Len())
++	if err := g.SerializeTo(b); err != nil {
++		return nil, err
++	}
++
++	return b, nil
++}
++
++// SerializeTo serializes GetEndpointRequest into bytes.
++func (g *GetEndpointRequest) SerializeTo(b []byte) error {
++	var offset = 0
++	if g.TypeID != nil {
++		if err := g.TypeID.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += g.TypeID.Len()
++	}
++
++	if g.RequestHeader != nil {
++		if err := g.RequestHeader.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += g.RequestHeader.Len() - len(g.Payload)
++	}
++
++	if g.EndpointURL != nil {
++		if err := g.EndpointURL.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += g.EndpointURL.Len()
++	}
++
++	if g.LocalIDs != nil {
++		if err := g.LocalIDs.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += g.LocalIDs.Len()
++	}
++
++	if g.ProfileURIs != nil {
++		if err := g.ProfileURIs.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += g.ProfileURIs.Len()
++	}
++
++	return nil
++}
++
++// Len returns the actual length of GetEndpointRequest.
++func (g *GetEndpointRequest) Len() int {
++	var l = 0
++	if g.TypeID != nil {
++		l += g.TypeID.Len()
++	}
++	if g.RequestHeader != nil {
++		l += (g.RequestHeader.Len() - len(g.Payload))
++	}
++	if g.EndpointURL != nil {
++		l += g.EndpointURL.Len()
++	}
++	if g.LocalIDs != nil {
++		l += g.LocalIDs.Len()
++	}
++	if g.ProfileURIs != nil {
++		l += g.ProfileURIs.Len()
++	}
++
++	return l
++}
++
++// ServiceType returns type of Service in uint16.
++func (g *GetEndpointRequest) ServiceType() uint16 {
++	return ServiceTypeGetEndpointRequest
++}
+diff --git a/services/get-endpoint-response.go b/services/get-endpoint-response.go
+new file mode 100644
+index 0000000000000000000000000000000000000000..3266ae7140b21c187bc193f71667d8e61f3bbeb0
+--- /dev/null
++++ b/services/get-endpoint-response.go
+@@ -0,0 +1,146 @@
++// Copyright 2018 gopcua authors. All rights reserved.
++// Use of this source code is governed by a MIT-style license that can be
++// found in the LICENSE file.
++
++package services
++
++import (
++	"time"
++
++	"github.com/wmnsk/gopcua/datatypes"
++	"github.com/wmnsk/gopcua/errors"
++)
++
++// GetEndpointResponse represents an GetEndpointResponse.
++type GetEndpointResponse struct {
++	TypeID *datatypes.ExpandedNodeID
++	*ResponseHeader
++	Endpoints *EndpointDescriptionArray
++}
++
++// NewGetEndpointResponse creates an GetEndpointResponse.
++func NewGetEndpointResponse(ts time.Time, handle, code uint32, diag *DiagnosticInfo, strs []string, endpoints ...*EndpointDescription) *GetEndpointResponse {
++	g := &GetEndpointResponse{
++		TypeID: datatypes.NewExpandedNodeID(
++			false, false,
++			datatypes.NewFourByteNodeID(
++				0, ServiceTypeGetEndpointResponse,
++			),
++			"", 0,
++		),
++		ResponseHeader: NewResponseHeader(
++			ts,
++			handle,
++			code,
++			diag,
++			strs,
++			NewAdditionalHeader(
++				datatypes.NewExpandedNodeID(
++					false, false,
++					datatypes.NewTwoByteNodeID(0),
++					"", 0,
++				),
++				0x00,
++			),
++			nil,
++		),
++		Endpoints: NewEndpointDesctiptionArray(endpoints),
++	}
++
++	return g
++}
++
++// DecodeGetEndpointResponse decodes given bytes into GetEndpointResponse.
++func DecodeGetEndpointResponse(b []byte) (*GetEndpointResponse, error) {
++	g := &GetEndpointResponse{}
++	if err := g.DecodeFromBytes(b); err != nil {
++		return nil, err
++	}
++
++	return g, nil
++}
++
++// DecodeFromBytes decodes given bytes into GetEndpointResponse.
++func (g *GetEndpointResponse) DecodeFromBytes(b []byte) error {
++	if len(b) < 16 {
++		return &errors.ErrTooShortToDecode{g, "should be longer than 16 bytes"}
++	}
++
++	var offset = 0
++	g.TypeID = &datatypes.ExpandedNodeID{}
++	if err := g.TypeID.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += g.TypeID.Len()
++
++	g.ResponseHeader = &ResponseHeader{}
++	if err := g.ResponseHeader.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += g.ResponseHeader.Len() - len(g.ResponseHeader.Payload)
++
++	g.Endpoints = &EndpointDescriptionArray{}
++	if err := g.Endpoints.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += g.Endpoints.Len()
++
++	return nil
++}
++
++// Serialize serializes GetEndpointResponse into bytes.
++func (g *GetEndpointResponse) Serialize() ([]byte, error) {
++	b := make([]byte, g.Len())
++	if err := g.SerializeTo(b); err != nil {
++		return nil, err
++	}
++
++	return b, nil
++}
++
++// SerializeTo serializes GetEndpointResponse into bytes.
++func (g *GetEndpointResponse) SerializeTo(b []byte) error {
++	var offset = 0
++	if g.TypeID != nil {
++		if err := g.TypeID.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += g.TypeID.Len()
++	}
++
++	if g.ResponseHeader != nil {
++		if err := g.ResponseHeader.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += g.ResponseHeader.Len() - len(g.Payload)
++	}
++
++	if g.Endpoints != nil {
++		if err := g.Endpoints.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++	}
++
++	return nil
++}
++
++// Len returns the actual length of GetEndpointResponse.
++func (g *GetEndpointResponse) Len() int {
++	var l = 0
++	if g.TypeID != nil {
++		l += g.TypeID.Len()
++	}
++	if g.ResponseHeader != nil {
++		l += (g.ResponseHeader.Len() - len(g.Payload))
++	}
++	if g.Endpoints != nil {
++		l += g.Endpoints.Len()
++	}
++
++	return l
++}
++
++// ServiceType returns type of Service in uint16.
++func (g *GetEndpointResponse) ServiceType() uint16 {
++	return ServiceTypeGetEndpointResponse
++}
+diff --git a/services/response-header.go b/services/response-header.go
+index 159a725577718abece01d7f69dc0ee1d75b1194f..ff1b3c74009413d2a2db0675cd2c6c59071be673 100644
+--- a/services/response-header.go
++++ b/services/response-header.go
+@@ -19,7 +19,7 @@ type ResponseHeader struct {
+ 	RequestHandle      uint32
+ 	ServiceResult      uint32
+ 	ServiceDiagnostics *DiagnosticInfo
+-	StringTable        *datatypes.StringTable
++	StringTable        *datatypes.StringArray
+ 	AdditionalHeader   *AdditionalHeader
+ 	Payload            []byte
+ }
+@@ -32,7 +32,7 @@ func NewResponseHeader(timestamp time.Time, handle, code uint32, diag *Diagnosti
+ 		RequestHandle:      handle,
+ 		ServiceResult:      code,
+ 		ServiceDiagnostics: diag,
+-		StringTable:        datatypes.NewStringTable(strs),
++		StringTable:        datatypes.NewStringArray(strs),
+ 		AdditionalHeader:   additionalHeader,
+ 		Payload:            payload,
+ 	}
+@@ -65,7 +65,7 @@ func (r *ResponseHeader) DecodeFromBytes(b []byte) error {
+ 	}
+ 	offset += r.ServiceDiagnostics.Len()
+ 
+-	r.StringTable = &datatypes.StringTable{}
++	r.StringTable = &datatypes.StringArray{}
+ 	if err := r.StringTable.DecodeFromBytes(b[offset:]); err != nil {
+ 		return err
+ 	}
+diff --git a/services/service.go b/services/service.go
+index 1d99948d70fbb25cd0fdbd2281ab609980e864d5..845d4e0ec24a2a361ac6a431d8e23e2af515388f 100644
+--- a/services/service.go
++++ b/services/service.go
+@@ -11,7 +11,9 @@ import (
+ 
+ // ServiceType definitions.
+ const (
+-	ServiceTypeOpenSecureChannelRequest  uint16 = 446
++	ServiceTypeGetEndpointRequest        uint16 = 428
++	ServiceTypeGetEndpointResponse              = 431
++	ServiceTypeOpenSecureChannelRequest         = 446
+ 	ServiceTypeOpenSecureChannelResponse        = 449
+ )
+ 
+@@ -31,20 +33,24 @@ func Decode(b []byte) (Service, error) {
+ 
+ 	typeID, err := datatypes.DecodeExpandedNodeID(b)
+ 	if err != nil {
+-		return nil, &errors.ErrUnsupported{typeID, "cannot decode TypeID"}
++		return nil, &errors.ErrUnsupported{typeID, "cannot decode TypeID."}
+ 	}
+ 	n, ok := typeID.NodeID.(*datatypes.FourByteNodeID)
+ 	if !ok {
+-		return nil, &errors.ErrUnsupported{typeID.NodeID, "should be FourByteNodeID"}
++		return nil, &errors.ErrUnsupported{typeID.NodeID, "should be FourByteNodeID."}
+ 	}
+ 
+ 	switch n.Identifier {
++	case ServiceTypeGetEndpointRequest:
++		s = &GetEndpointRequest{}
++	case ServiceTypeGetEndpointResponse:
++		s = &GetEndpointResponse{}
+ 	case ServiceTypeOpenSecureChannelRequest:
+ 		s = &OpenSecureChannelRequest{}
+ 	case ServiceTypeOpenSecureChannelResponse:
+ 		s = &OpenSecureChannelResponse{}
+ 	default:
+-		return nil, &errors.ErrUnsupported{n.Identifier, "unsupported type"}
++		return nil, &errors.ErrUnsupported{n.Identifier, "unsupported or not implemented yet."}
+ 	}
+ 
+ 	if err := s.DecodeFromBytes(b); err != nil {
+@@ -53,94 +59,3 @@ func Decode(b []byte) (Service, error) {
+ 
+ 	return s, nil
+ }
+-
+-/*
+-// Message represents a Message layer in OPC UA Binary Protocol.
+-type Message struct {
+-	TypeID *datatypes.ExpandedNodeID
+-	Service
+-}
+-
+-// NewMessage creates a new Message.
+-func NewMessage(idx uint8, service Service) *Message {
+-	m := &Message{
+-		TypeID: datatypes.NewExpandedNodeID(
+-			false, false,
+-			datatypes.NewFourByteNodeID(idx, service.ServiceType()),
+-			"", 0,
+-		),
+-		Service: service,
+-	}
+-
+-	return m
+-}
+-
+-// DecodeMessage decodes given bytes into Message.
+-func DecodeMessage(b []byte) (*Message, error) {
+-	m := &Message{}
+-	if err := m.DecodeFromBytes(b); err != nil {
+-		return nil, err
+-	}
+-
+-	return m, nil
+-}
+-
+-// DecodeFromBytes decodes given bytes into Message.
+-func (m *Message) DecodeFromBytes(b []byte) error {
+-	if len(b) < 2 {
+-		return &errors.ErrTooShortToDecode{m, "should be longer than 2 bytes"}
+-	}
+-
+-	var offset = 0
+-	m.TypeID = &datatypes.ExpandedNodeID{}
+-	if err := m.TypeID.DecodeFromBytes(b[offset:]); err != nil {
+-		return err
+-	}
+-	offset += m.TypeID.Len()
+-
+-	n, ok := m.TypeID.NodeID.(*datatypes.FourByteNodeID)
+-	if !ok {
+-		return &errors.ErrUnsupported{m.TypeID.NodeID, "should be FourByteNodeID."}
+-	}
+-
+-	switch n.Identifier {
+-	case ServiceTypeOpenSecureChannelRequest:
+-		m.Service = &OpenSecureChannelRequest{}
+-	}
+-
+-	if err := m.Service.DecodeFromBytes(b[offset:]); err != nil {
+-		return err
+-	}
+-
+-	return nil
+-}
+-
+-// Serialize serializes Message into bytes.
+-func (m *Message) Serialize() ([]byte, error) {
+-	return nil, nil
+-}
+-
+-// SerializeTo serializes Message into bytes.
+-func (m *Message) SerializeTo(b []byte) error {
+-	return nil
+-}
+-
+-// Len returns the actual length of Message.
+-func (m *Message) Len() int {
+-	var l = 0
+-	if m.TypeID != nil {
+-		l += m.TypeID.Len()
+-	}
+-	if m.Service != nil {
+-		l += m.Service.Len()
+-	}
+-
+-	return l
+-}
+-
+-// String returns Message in string.
+-func (m *Message) String() string {
+-	return fmt.Sprintf("%v, %v", m.TypeID, m.Service)
+-}
+-
+-*/
+diff --git a/services/user-token-policy.go b/services/user-token-policy.go
+new file mode 100644
+index 0000000000000000000000000000000000000000..5e40a6cb3e93ad45c4ce6c4f5955f68325446134
+--- /dev/null
++++ b/services/user-token-policy.go
+@@ -0,0 +1,249 @@
++// Copyright 2018 gopcua authors. All rights reserved.
++// Use of this source code is governed by a MIT-style license that can be
++// found in the LICENSE file.
++
++package services
++
++import (
++	"encoding/binary"
++	"fmt"
++
++	"github.com/wmnsk/gopcua/datatypes"
++)
++
++// UserIdentityToken definitions.
++const (
++	UserTokenAnonymous uint32 = iota
++	UserTokenUsername
++	UserTokenCertificate
++	UserTokenIssuedToken
++)
++
++// UserTokenPolicy represents an UserTokenPolicy.
++type UserTokenPolicy struct {
++	PolicyID          *datatypes.String
++	TokenType         uint32
++	IssuedTokenType   *datatypes.String
++	IssuerEndpointURI *datatypes.String
++	SecurityPolicyURI *datatypes.String
++}
++
++// NewUserTokenPolicy creates a new NewUserTokenPolicy.
++func NewUserTokenPolicy(id string, tokenType uint32, issuedToken, issuerURI, secURI string) *UserTokenPolicy {
++	return &UserTokenPolicy{
++		PolicyID:          datatypes.NewString(id),
++		TokenType:         tokenType,
++		IssuedTokenType:   datatypes.NewString(issuedToken),
++		IssuerEndpointURI: datatypes.NewString(issuerURI),
++		SecurityPolicyURI: datatypes.NewString(secURI),
++	}
++}
++
++// DecodeUserTokenPolicy decodes given bytes into UserTokenPolicy.
++func DecodeUserTokenPolicy(b []byte) (*UserTokenPolicy, error) {
++	u := &UserTokenPolicy{}
++	if err := u.DecodeFromBytes(b); err != nil {
++		return nil, err
++	}
++
++	return u, nil
++}
++
++// DecodeFromBytes decodes given bytes into UserTokenPolicy.
++func (u *UserTokenPolicy) DecodeFromBytes(b []byte) error {
++	var offset = 0
++	u.PolicyID = &datatypes.String{}
++	if err := u.PolicyID.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += u.PolicyID.Len()
++
++	u.TokenType = binary.LittleEndian.Uint32(b[offset : offset+4])
++	offset += 4
++
++	u.IssuedTokenType = &datatypes.String{}
++	if err := u.IssuedTokenType.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += u.IssuedTokenType.Len()
++
++	u.IssuerEndpointURI = &datatypes.String{}
++	if err := u.IssuerEndpointURI.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += u.IssuerEndpointURI.Len()
++
++	u.SecurityPolicyURI = &datatypes.String{}
++	if err := u.SecurityPolicyURI.DecodeFromBytes(b[offset:]); err != nil {
++		return err
++	}
++	offset += u.SecurityPolicyURI.Len()
++
++	return nil
++}
++
++// Serialize serializes UserTokenPolicy into bytes.
++func (u *UserTokenPolicy) Serialize() ([]byte, error) {
++	b := make([]byte, u.Len())
++	if err := u.SerializeTo(b); err != nil {
++		return nil, err
++	}
++
++	return b, nil
++}
++
++// SerializeTo serializes UserTokenPolicy into bytes.
++func (u *UserTokenPolicy) SerializeTo(b []byte) error {
++	var offset = 0
++	if u.PolicyID != nil {
++		if err := u.PolicyID.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += u.PolicyID.Len()
++	}
++
++	binary.LittleEndian.PutUint32(b[offset:offset+4], u.TokenType)
++	offset += 4
++
++	if u.IssuedTokenType != nil {
++		if err := u.IssuedTokenType.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += u.IssuedTokenType.Len()
++	}
++
++	if u.IssuerEndpointURI != nil {
++		if err := u.IssuerEndpointURI.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += u.IssuerEndpointURI.Len()
++	}
++
++	if u.SecurityPolicyURI != nil {
++		if err := u.SecurityPolicyURI.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += u.SecurityPolicyURI.Len()
++	}
++
++	return nil
++}
++
++// Len returns the actual length of UserTokenPolicy in int.
++func (u *UserTokenPolicy) Len() int {
++	var l = 4
++	if u.PolicyID != nil {
++		l += u.PolicyID.Len()
++	}
++
++	if u.IssuedTokenType != nil {
++		l += u.IssuedTokenType.Len()
++	}
++
++	if u.IssuerEndpointURI != nil {
++		l += u.IssuerEndpointURI.Len()
++	}
++
++	if u.SecurityPolicyURI != nil {
++		l += u.SecurityPolicyURI.Len()
++	}
++
++	return l
++}
++
++//
++func (u *UserTokenPolicy) String() string {
++	return fmt.Sprintf("%s, %#x, %s, %s, %s",
++		u.PolicyID,
++		u.TokenType,
++		u.IssuedTokenType,
++		u.IssuerEndpointURI,
++		u.SecurityPolicyURI,
++	)
++}
++
++// UserTokenPolicyArray represents an UserTokenPolicyArray.
++type UserTokenPolicyArray struct {
++	ArraySize         int32
++	UserTokenPolicies []*UserTokenPolicy
++}
++
++// NewUserTokenPolicyArray creates a new NewUserTokenPolicyArray.
++func NewUserTokenPolicyArray(uts []*UserTokenPolicy) *UserTokenPolicyArray {
++	if uts == nil {
++		u := &UserTokenPolicyArray{
++			ArraySize: -1,
++		}
++		return u
++	}
++
++	return &UserTokenPolicyArray{
++		ArraySize:         int32(len(uts)),
++		UserTokenPolicies: uts,
++	}
++}
++
++// DecodeUserTokenPolicyArray decodes given bytes into UserTokenPolicyArray.
++func DecodeUserTokenPolicyArray(b []byte) (*UserTokenPolicyArray, error) {
++	u := &UserTokenPolicyArray{}
++	if err := u.DecodeFromBytes(b); err != nil {
++		return nil, err
++	}
++
++	return u, nil
++}
++
++// DecodeFromBytes decodes given bytes into UserTokenPolicyArray.
++func (u *UserTokenPolicyArray) DecodeFromBytes(b []byte) error {
++	u.ArraySize = int32(binary.LittleEndian.Uint32(b[:4]))
++	if u.ArraySize <= 0 {
++		return nil
++	}
++
++	var offset = 4
++	for i := 0; i < int(u.ArraySize); i++ {
++		ut, err := DecodeUserTokenPolicy(b[offset:])
++		if err != nil {
++			return err
++		}
++		u.UserTokenPolicies = append(u.UserTokenPolicies, ut)
++		offset += ut.Len()
++	}
++
++	return nil
++}
++
++// Serialize serializes UserTokenPolicyArray into bytes.
++func (u *UserTokenPolicyArray) Serialize() ([]byte, error) {
++	b := make([]byte, u.Len())
++	if err := u.SerializeTo(b); err != nil {
++		return nil, err
++	}
++
++	return b, nil
++}
++
++// SerializeTo serializes UserTokenPolicyArray into bytes.
++func (u *UserTokenPolicyArray) SerializeTo(b []byte) error {
++	binary.LittleEndian.PutUint32(b[:4], uint32(u.ArraySize))
++
++	var offset = 4
++	for _, ut := range u.UserTokenPolicies {
++		if err := ut.SerializeTo(b[offset:]); err != nil {
++			return err
++		}
++		offset += ut.Len()
++	}
++
++	return nil
++}
++
++// Len returns the actual length of UserTokenPolicyArray in int.
++func (u *UserTokenPolicyArray) Len() int {
++	var l = 4
++
++	for _, ut := range u.UserTokenPolicies {
++		l += ut.Len()
++	}
++	return l
++}

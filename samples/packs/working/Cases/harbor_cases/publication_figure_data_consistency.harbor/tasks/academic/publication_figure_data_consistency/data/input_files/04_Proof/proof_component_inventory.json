@@ -1,0 +1,70 @@
+{
+  "proof": {
+    "proof_id": "PRF-02",
+    "built_at": "2026-08-26T09:18:00+08:00",
+    "manuscript_id": "AM-2026-0147-v5",
+    "proof_sha256": "6ed5d5954db9225c97e69adba54f9196c7a162c2df060f5c0c3ae4b71c19b347"
+  },
+  "figure_components": {
+    "FIG3": {
+      "attachment_id": "FIG3-LR2",
+      "page_number": 6,
+      "image_index": 0,
+      "evidence_locator": "page[6].image[0]",
+      "embedded_rendition_sha256": "779d11a0b97371edf7296b7818d83c8c5e93ac78da2a67f3b9b31c44e47106b5",
+      "width": 2400,
+      "height": 1800,
+      "panel_bounds": {
+        "FIG3-A": [
+          80,
+          90,
+          1190,
+          870
+        ],
+        "FIG3-B": [
+          1210,
+          90,
+          2320,
+          870
+        ],
+        "FIG3-C": [
+          80,
+          930,
+          1190,
+          1710
+        ],
+        "FIG3-D": [
+          1210,
+          930,
+          2320,
+          1710
+        ]
+      },
+      "render_calibration": {
+        "x_axis_min": -0.1,
+        "x_axis_max": 0.2,
+        "major_tick_step": 0.05,
+        "native_scale": 1.0
+      }
+    }
+  },
+  "attachment_history": {
+    "FIG3-LR2": {
+      "request_id": "[REDACTED_RUNTIME_ID]",
+      "author_approval_id": "APPR-RR017-CA",
+      "pql_approval_id": "APPR-RR017-PQL",
+      "proof_component_link": "PRF-02/page[6].image[0]",
+      "sha256": "779d11a0b97371edf7296b7818d83c8c5e93ac78da2a67f3b9b31c44e47106b5"
+    },
+    "FIG3-LR3": {
+      "filename": "Figure3_final_v9.png",
+      "received_at": "2026-08-26T16:40:00+08:00",
+      "sha256": "536e3d5c0b2cd355ba62f546979d24f389e4425c19bd8cd4b3e95b7a59b89566",
+      "request_id": null,
+      "author_approval_id": null,
+      "pql_approval_id": null,
+      "proof_component_link": null
+    }
+  },
+  "inventory_note": "Coordinates locate components for measurement. This inventory does not transcribe labels, colours, marks, annotations, findings, or dispositions."
+}

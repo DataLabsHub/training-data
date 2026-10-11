@@ -1,0 +1,16 @@
+Implemented lifecycle state support for `NetStream`.
+
+Changes:
+- Added `StreamState`: `INIT`, `OPEN`, half-close, terminal, and `ERROR` states.
+- Added synchronized awaitable `state`, `set_state()`, and `is_operational()`.
+- Added `close_read()` / `close_write()` with independent state tracking.
+- Added required state validation and error messages.
+- Converted unexpected read/write failures to `StreamError` and `ERROR`.
+- Updated `SwarmConn` to pass itself and transition established streams to `OPEN`.
+- Added cancellation-safe cleanup and parent stream removal.
+
+Validation passed:
+
+- `tests/core/network`: 41 passed
+- `tests/core/stream_muxer`: 61 passed
+- Compilation, API signature, edge-case, and diff checks passed.

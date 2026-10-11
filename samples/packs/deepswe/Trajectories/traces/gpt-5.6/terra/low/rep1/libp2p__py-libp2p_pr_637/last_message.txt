@@ -1,0 +1,17 @@
+Implemented NetStream lifecycle state support.
+
+- Added public `StreamState`: `INIT`, `OPEN`, half-close states, `CLOSE_BOTH`, `RESET`, `ERROR`.
+- `NetStream` now starts in `INIT`; `SwarmConn` establishes it as `OPEN`.
+- Added awaitable `set_state`, `is_operational`, `close_read`, and `close_write`.
+- Added synchronized state-aware I/O validation and ERROR-state failures.
+- Unexpected read/write failures now raise `StreamError` and set `ERROR`; expected lifecycle errors retain existing behavior.
+- Reset is permitted from `ERROR`.
+- Updated cleanup to use the supplied `swarm_conn`.
+
+Validated with:
+
+```text
+.venv/bin/pytest tests/core/network/test_net_stream.py -q
+```
+
+All 9 focused tests pass.

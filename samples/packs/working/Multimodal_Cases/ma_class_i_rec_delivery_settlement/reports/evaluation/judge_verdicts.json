@@ -1,0 +1,2159 @@
+{
+  "runs": [
+    {
+      "attempts": 0,
+      "claim_id": "R001",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "container",
+            "observation": "The xlsx_openable check passed.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R001",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The deterministic registered container check passed completely.",
+        "reference_evidence": [],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R002",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 143.62779271206819,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 10,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 267008,
+          "input_tokens": 309419,
+          "output_tokens": 4897,
+          "reasoning_output_tokens": 1551
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "2. Evidence Register!A8:G8",
+            "observation": "The row states that Amendment 1 was executed May 20, 2025, received at 3:42 PM EDT, and fully executed by both parties, and it cites page 5 execution-page and page 6 received-stamp images; however, it records no observed document-control identifier and no identifier match across those two images.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "8. Conflicts and Controls!A19:F19",
+            "observation": "The control concludes that Amendment 1 was fully executed May 20, 2025 by both parties, but its support is only Sheet 2 ref E4, whose paired-image record omits the control-identity comparison required to authenticate the two views.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "1. Decision Summary!A38",
+            "observation": "The summary treats Amendment 1 as executed and controlling commercial remedies, but cites only the authority-order index and does not state or locate the paired-image control-identity match.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R002",
+        "material_contradiction": false,
+        "raw_reward": 0,
+        "reason": "The candidate correctly reports bilateral execution, the May 20, 2025 date, the 3:42 PM EDT receipt time, and pages 5-6, so those shared material facts receive the same treatment as in the reference. It nevertheless fails the binary pass condition because nowhere in the workbook does it record any observed control identifier or establish that the identifier on the signature-page pixels matches the identifier on the receipt-reverse pixels. Citing two pages of one PDF is not the required image-identity comparison: the frozen counterexample expressly permits a mismatched reverse, and the controlling resolution order begins with document-code match. This is a material omission rather than a contradiction of the public evidence.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A4:H6",
+            "observation": "Rows 4-6 explicitly pair the signature page and receipt reverse through observed identifier AMD-REC-017-A1, record Bay State and GreenArc signatures dated May 20, 2025, record the reverse as RECEIVED MAY 20 2025 3:42 PM EDT and 2 OF 2, classify the amendment as fully executed, and cite PDF pages 5-6 embedded images.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Decision Summary!A20:F20",
+            "observation": "The decision summary states that bilateral signatures dated 2025-05-20 and the matching AMD-REC-017-A1 reverse received at 15:42 EDT authenticate the amendment, with precise page 5 and page 6 embedded-image locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R003",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 180.07935865898617,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 14,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 315648,
+          "input_tokens": 420459,
+          "output_tokens": 6169,
+          "reasoning_output_tokens": 2659
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "2. Evidence Register!A8:G8; 1. Decision Summary!A38; 8. Conflicts and Controls!A19:F19",
+            "observation": "The workbook cites Amendment 1 §§1-5 plus both execution-image pages, finds bilateral execution and receipt before the cutoff, states that the amendment controls cure, cover, and damages over the base confirmation, and assigns eligibility and custody to program/DOER and registry sources rather than the amendment or EPA guidance.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1 §1; p.5 embedded execution image; p.6 embedded receipt-control image",
+            "observation": "Direct inspection shows p.5 bearing AMD-REC-017-A1, both dated party signatures, and both Section 3 initials; p.6 bears the same code, RECEIVED MAY 20 2025 3:42 PM EDT, and 2 OF 2. Section 1 gives the fully executed amendment precedence only over inconsistent base terms within its stated limited scope.",
+            "path": "public_input/Contracts/Amendment 1 - Cure and Cover.pdf"
+          }
+        ],
+        "claim_id": "R003",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the same frozen condition. Its evidence register supplies precise clause and image-page locators, its controls record full execution before remedy application, and its authority-order statement preserves program eligibility and registry custody outside the amendment's bounded commercial precedence.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A4:H6; Decision Summary!A21:F21",
+            "observation": "The workbook pairs the bilateral signature/initial page with the matching receipt-control page, authenticates AMD-REC-017-A1 before the cutoff, and confines its precedence to exception cure, buyer cover, and damages while reserving eligibility and custody to their proper authorities.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1 §1; p.5 embedded execution image; p.6 embedded receipt-control image",
+            "observation": "Direct inspection shows p.5 bearing AMD-REC-017-A1, both dated party signatures, and both Section 3 initials; p.6 bears the same code, RECEIVED MAY 20 2025 3:42 PM EDT, and 2 OF 2. Section 1 gives the fully executed amendment precedence only over inconsistent base terms within its stated limited scope.",
+            "path": "public_input/Contracts/Amendment 1 - Cure and Cover.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R004",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 196.74181001097895,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 15,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 404992,
+          "input_tokens": 459918,
+          "output_tokens": 7310,
+          "reasoning_output_tokens": 2971
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "2. Evidence Register!A14:G15",
+            "observation": "The paired entries identify the notice and election files as EXC-24017 and correctly record the election checkbox, June 6 16:41 receipt, and 17:00 cutoff, but the notice entry records only 'Notice date June 3, 2025' and a generic 'p.2 receipt channel' locator; it does not record the visible DELIVERED receipt state or 4:18 PM receipt time, and it does not state that substitute delivery was the sole checked option.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "5. Cure Cover Reconcile!A9:F10",
+            "observation": "The sequence lists a June 3 notice before the timely June 6 16:41 substitute election, but cites only notice p.1 and calls June 3 the notice date; it omits the receipt-channel delivery state and timestamp required to establish received notice before election.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R004",
+        "material_contradiction": false,
+        "raw_reward": 0,
+        "reason": "The candidate correctly records the case-linked June 6 election time, cutoff comparison, and substitute choice, so those matching aspects receive the same treatment as the reference. It nevertheless fails the binary claim because its cure-event records omit the actual notice-receipt value: the public pixel says DELIVERED at 4:18 PM EDT, while the workbook states only a June 3 notice date and points generically to a receipt channel. It also never records that substitute delivery was the sole checked option. These are material omissions under the frozen pass and failure conditions, not style defects.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A7:H8",
+            "observation": "The workpaper records EXC-24017 on both the notice and election rows, the notice as DELIVERED JUN 3 2025 4:18 PM EDT, SUBSTITUTE DELIVERY as the sole checked option, and the election as RECEIVED JUN 6 2025 4:41 PM EDT against a Jun 6 17:00 EDT cutoff, with precise source-image locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.2 embedded receipt image",
+            "observation": "The photographed receipt strip visibly shows EXC-24017, DELIVERED, and JUN 3 2025 4:18 PM EDT.",
+            "path": "public_input/Correspondence/Prior Exception Notice EXC-24017.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg",
+            "observation": "The signed scan visibly shows EXC-24017, only SUBSTITUTE DELIVERY checked, and RECEIVED JUN 6 2025 4:41 PM EDT.",
+            "path": "public_input/Correspondence/Seller Cure Election EXC-24017.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R005",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 158.87815673300065,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 12,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 274176,
+          "input_tokens": 341955,
+          "output_tokens": 5033,
+          "reasoning_output_tokens": 1410
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "2. Evidence Register!A8:G8 and A14:G15; 3. Lot Dispositions!A9:N10; 5. Cure Cover Reconcile!A9:F12",
+            "observation": "The workpaper precisely locates the governing Amendment p.2 Section 2, the notice p.1/p.2 receipt channel, and the election image; it treats the 16:41 election as timely authorization, then separately accepts REPL-B and accepts only 150 of REPL-C after rejecting 50 duplicate serials.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "1. Decision Summary!A32:G32; 3. Lot Dispositions!G9:J10",
+            "observation": "The summary expressly states that the substitutes were still tested independently, while the lot-level final-disposition and remedy-path fields distinguish the cure route from REPL-B's full acceptance and REPL-C's partial acceptance.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1 questioned-lot text; p.2 embedded receipt image",
+            "observation": "The notice identifies case EXC-24017 and LOT-B/LOT-C, makes no disposition, and its rendered receipt image shows DELIVERED JUN 3 2025 4:18 PM EDT.",
+            "path": "public_input/Correspondence/Prior Exception Notice EXC-24017.pdf"
+          },
+          {
+            "locator": "transmittal paragraphs; embedded word/media/image1.jpg",
+            "observation": "The rendered signed form matches EXC-24017, has only SUBSTITUTE DELIVERY checked, and shows RECEIVED JUN 6 2025 4:41 PM EDT; the transmittal leaves outcome fields pending validation.",
+            "path": "public_input/Correspondence/Seller Cure Election EXC-24017.docx"
+          },
+          {
+            "locator": "p.2, Section 2 — Seller Cure",
+            "observation": "The clause requires election and completed substitute tender by June 6, 2025 at 17:00 EDT and requires independent product, vintage, qualification, serial identity, custody, and uniqueness testing; election does not guarantee acceptance.",
+            "path": "public_input/Contracts/Amendment 1 - Cure and Cover.pdf"
+          }
+        ],
+        "claim_id": "R005",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate correctly uses the paired scans to establish a timely substitute election for EXC-24017, cites the governing deadline clause and both cure records, and does not convert the checked election into acceptance. Its separate replacement dispositions show independent testing and the correct different outcomes for REPL-B and REPL-C.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A7:H9; Lot Dispositions!A8:U9",
+            "observation": "The workpaper links notice and election under EXC-24017, records the June 6 16:41 EDT substitute election as timely against the 17:00 EDT deadline, explicitly says it authorizes testing rather than acceptance, and independently accepts REPL-B while accepting only 150 of REPL-C after the uniqueness test.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1 questioned-lot text; p.2 embedded receipt image",
+            "observation": "The notice identifies case EXC-24017 and LOT-B/LOT-C, makes no disposition, and its rendered receipt image shows DELIVERED JUN 3 2025 4:18 PM EDT.",
+            "path": "public_input/Correspondence/Prior Exception Notice EXC-24017.pdf"
+          },
+          {
+            "locator": "transmittal paragraphs; embedded word/media/image1.jpg",
+            "observation": "The rendered signed form matches EXC-24017, has only SUBSTITUTE DELIVERY checked, and shows RECEIVED JUN 6 2025 4:41 PM EDT; the transmittal leaves outcome fields pending validation.",
+            "path": "public_input/Correspondence/Seller Cure Election EXC-24017.docx"
+          },
+          {
+            "locator": "p.2, Section 2 — Seller Cure",
+            "observation": "The clause requires election and completed substitute tender by June 6, 2025 at 17:00 EDT and requires independent product, vintage, qualification, serial identity, custody, and uniqueness testing; election does not guarantee acceptance.",
+            "path": "public_input/Contracts/Amendment 1 - Cure and Cover.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R006",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 151.284250253113,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 12,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 280832,
+          "input_tokens": 320177,
+          "output_tokens": 4996,
+          "reasoning_output_tokens": 1313
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "8. Conflicts and Controls!B5:F5",
+            "observation": "The workpaper identifies the earlier completed LOT-C transfer TX-770512 to BSC-MA-4421, the later TX-771903 reversal at 10:03:11 EDT, and resolves the 09:30 export conflict in favor of the live views.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "3. Lot Dispositions!A7:N7; 1. Decision Summary!B29:G29",
+            "observation": "The candidate scopes LOT-C to MSS424 2024Q3 serials 001001-001200 and quantity 200, records TX-771903 as moving the block out of BSC-MA-4421 at 10:03:11 EDT, and rejects the lot at the noon cutoff.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded overview image; page 2 embedded detail image",
+            "observation": "Direct pixel inspection shows transfer TX-770512 completed to BSC-MA-4421 before reversal TX-771903 at 10:03:11 on page 1, while page 2 ties TX-771903 and REVERSED to LOT-C, MSS424 2024 Q3, inclusive serial block 001001-001200, and buyer BSC-MA-4421.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "claim_id": "R006",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the frozen condition: it reconciles the earlier transfer and later reversal with the exact transaction, account, serial block, adverse status, and cutoff timing, while explicitly rejecting reliance on the stale export.",
+        "reference_evidence": [
+          {
+            "locator": "Registry Lineage!A4:J5",
+            "observation": "The workpaper records LOT-C's ordered TX-770512 transfer and later TX-771903 reversal, then scopes TX-771903 to MSS424 2024Q3 serials 001001-001200, buyer BSC-MA-4421, status REVERSED, and 10:03:11 EDT.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Registry Lineage!A10:J10; Lot Dispositions!A6:U6",
+            "observation": "The 09:30 export is expressly treated as stale relative to the 10:03:11 reversal, and LOT-C is rejected with zero custody-valid certificates at the noon cutoff.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded overview image; page 2 embedded detail image",
+            "observation": "Direct pixel inspection shows transfer TX-770512 completed to BSC-MA-4421 before reversal TX-771903 at 10:03:11 on page 1, while page 2 ties TX-771903 and REVERSED to LOT-C, MSS424 2024 Q3, inclusive serial block 001001-001200, and buyer BSC-MA-4421.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R007",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 157.74937162012793,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 15,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 286208,
+          "input_tokens": 346273,
+          "output_tokens": 5306,
+          "reasoning_output_tokens": 1532
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "3. Lot Dispositions!A7:N7",
+            "observation": "LOT-C is given one final disposition for the exact 001001-001200 range and quantity 200: REJECTED for failed custody, 0 accepted and 200 deficient; the row identifies TX-771903 and its timing, rejects the stale 09:30 export, assigns seller responsibility, and sends the deficiency to REPL-C cure.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "5. Cure Cover Reconcile!A8:F16",
+            "observation": "The waterfall removes all 200 LOT-C certificates, records timely seller substitution and 150 accepted REPL-C certificates, derives the 50-certificate deficiency only after cure is exhausted, then records 40 buyer-cover certificates and a 10-certificate residual.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page[1].image[0]; page[2].image[0]",
+            "observation": "Direct pixel inspection jointly shows LOT-C transfer at 06/01/2025 09:15:42 EDT followed by TX-771903 reversal at 06/09/2025 10:03:11 EDT for quantity 200, while the detail binds REVERSED to buyer BSC-MA-4421 and inclusive serials 001001-001200.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "claim_id": "R007",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the frozen condition: it rejects the full LOT-C block under later-adverse-event precedence, does not treat the stale export as controlling custody, gives the lot one disposition, and applies the contractual sequence of seller cure before buyer cover and residual.",
+        "reference_evidence": [
+          {
+            "locator": "Lot Dispositions!A6:U6",
+            "observation": "LOT-C is given one final disposition for all 200 tendered certificates: 0 accepted and 200 deficient because later reversal TX-771903 supersedes the earlier transfer; the row routes the deficiency to timely REPL-C cure, then 40 buyer cover and a 10-certificate residual, and identifies the responsible parties and cutoff consequence.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Quantity Reconciliation!A7:G15",
+            "observation": "The ordered waterfall records original deficiency, timely replacement testing and acceptance, a 50-certificate post-cure deficiency, 40 certificates of buyer cover, and a 10-certificate residual, so cover follows rather than precedes cure.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page[1].image[0]; page[2].image[0]",
+            "observation": "Direct pixel inspection jointly shows LOT-C transfer at 06/01/2025 09:15:42 EDT followed by TX-771903 reversal at 06/09/2025 10:03:11 EDT for quantity 200, while the detail binds REVERSED to buyer BSC-MA-4421 and inclusive serials 001001-001200.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R008",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 240.69135822495446,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 12,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 273408,
+          "input_tokens": 334887,
+          "output_tokens": 6191,
+          "reasoning_output_tokens": 2457
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "2. Evidence Register!A12:G12",
+            "observation": "The entry groups image1/image2 as a LOT-C source and analyst layer and says markup is only corroborative, but it records no dimensions and does not confirm unchanged reversal identity, source content, status, or time across the pair; its described highlight concerns the separate serial-overlap pair.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "8. Conflicts and Controls!A9:F9",
+            "observation": "The control says no disposition rests on markup alone, but it does not reconcile raw image1 to marked image2 or confirm same dimensions and unchanged source content for the reversal pair.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "embedded word/media/image1.png and word/media/image2.png",
+            "observation": "The underlying public views do preserve the same reversal business values and 1536×1024 dimensions, so the failure is the candidate workpaper's missing lineage confirmation rather than an altered public image pair.",
+            "path": "public_input/Registry Evidence/Exception Markup.docx"
+          }
+        ],
+        "claim_id": "R008",
+        "material_contradiction": false,
+        "raw_reward": 0,
+        "reason": "The candidate reaches the correct reversal result, cites both images, and states that markup is not sole evidence. However, it never documents the required raw-to-marked reconciliation: there is no confirmation of equal dimensions or unchanged reversal identity and source content. That material provenance omission is expressly within the frozen failure mode, so the candidate does not completely satisfy the binary pass condition.",
+        "reference_evidence": [
+          {
+            "locator": "Registry Lineage!A2:J7",
+            "observation": "The workpaper separately locates raw image1 and marked image2, records both as 1536×1024, states that transaction/status/time and source content are unchanged, identifies only orange boxes and one arrow as additions, and admits the marked layer only together with the raw baseline.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "embedded word/media/image1.png and word/media/image2.png",
+            "observation": "Direct inspection shows the same LOT-C, TX-771903, REVERSED status, and 06/09/2025 10:03:11 EDT in both 1536×1024 views; the marked member adds bounded amber boxes and one arrow without changing those business values.",
+            "path": "public_input/Registry Evidence/Exception Markup.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R009",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 145.35043270397,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 12,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 278016,
+          "input_tokens": 369343,
+          "output_tokens": 4362,
+          "reasoning_output_tokens": 1151
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "3. Lot Dispositions!C5:N5, C7:N7, C10:N10",
+            "observation": "The candidate separately records LOT-A as MSS424/2024Q2/000001-000400, LOT-C as MSS424/2024Q3/001001-001200 with the pre-cutoff reversal, and REPL-C as MSS424/2024Q2/000351-000550 with only the Q2 duplicate band rejected.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "4. Serial Uniqueness!A2:H7, A14:H15",
+            "observation": "The candidate expressly defines uniqueness by unit plus generation period, lists exact endpoints for all three relevant lots, identifies LOT-C's range as unique but custody-reversed, and confines the 000351-000400 collision to LOT-A and REPL-C in MSS424/2024Q2.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded overview image and page 4 embedded range-matrix image",
+            "observation": "Direct pixel inspection shows LOT-C as MSS424, 2024Q3, serials 001001-001200 with reversal TX-771903, while the separate range matrix shows MSS424, 2024Q2, LOT-A 000001-000400 and REPL-C 000351-000550.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "claim_id": "R009",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the same exact-identity standard. It uses unit, generation period, and serial endpoints, places the reversal only on the Q3 LOT-C block, and performs the overlap test only between the two Q2 ranges; therefore none of the frozen binary failure conditions occurs.",
+        "reference_evidence": [
+          {
+            "locator": "Lot Dispositions!C4:H4, C6:H6, C9:H9; K6:N6",
+            "observation": "The reference keys LOT-A as MSS424/2024Q2/000001-000400, LOT-C as MSS424/2024Q3/001001-001200, and REPL-C as MSS424/2024Q2/000351-000550; it assigns the reversal to LOT-C and the Q2 overlap analysis to LOT-A and REPL-C.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Eligibility!A4:K4, A6:K6, A9:K9",
+            "observation": "The separate eligibility rows repeat the distinct generation periods and state that LOT-C fails custody due to the later reversal while REPL-C has only 150 unique certificates after its Q2 overlap with LOT-A.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded overview image and page 4 embedded range-matrix image",
+            "observation": "Direct pixel inspection shows LOT-C as MSS424, 2024Q3, serials 001001-001200 with reversal TX-771903, while the separate range matrix shows MSS424, 2024Q2, LOT-A 000001-000400 and REPL-C 000351-000550.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R010",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 171.78200016985647,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 14,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 365184,
+          "input_tokens": 431116,
+          "output_tokens": 5834,
+          "reasoning_output_tokens": 2465
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "2. Evidence Register!B11:G12; 3. Lot Dispositions!A10:N10; 4. Serial Uniqueness!A5:H6,A13:H17",
+            "observation": "The workpaper identifies the raw packet range matrix and the DOCX image3/image4 source-and-analyst pair, states the original and replacement endpoints, computes collision 000351-000400 as 50, awards that band to original LOT-A, rejects it from REPL-C, and accepts only 000401-000550 as 150 unique certificates.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "word/media/image3.png and word/media/image4.png",
+            "observation": "Direct inspection of both 1693x929 images shows identical serial endpoints and interval-bar geometry; image4 adds the bounded bracket exactly from 000351 through 000400 while image3 preserves the unobscured raw baseline.",
+            "path": "public_input/Registry Evidence/Exception Markup.docx"
+          }
+        ],
+        "claim_id": "R010",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the same frozen condition. Its wording and sheet organization differ from the reference, but its material values, priority rule, unique replacement remainder, disposition, and precise raw/marked evidence pair are equivalent and correct.",
+        "reference_evidence": [
+          {
+            "locator": "Registry Lineage!A8:J9; Lot Dispositions!A9:U9",
+            "observation": "The workpaper records LOT-A 000001-000400 and REPL-C 000351-000550, computes the inclusive shared range 000351-000400 as 50, gives the original lot priority, retains REPL-C 000401-000550 as 150 unique, and precisely identifies the raw image3 and marked image4 lineage members as 1693x929 with unchanged source geometry.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "word/media/image3.png and word/media/image4.png",
+            "observation": "Direct inspection of both 1693x929 images shows identical serial endpoints and interval-bar geometry; image4 adds the bounded bracket exactly from 000351 through 000400 while image3 preserves the unobscured raw baseline.",
+            "path": "public_input/Registry Evidence/Exception Markup.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R011",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 173.94823923590593,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 18,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 309248,
+          "input_tokens": 377200,
+          "output_tokens": 5884,
+          "reasoning_output_tokens": 1738
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "2. Evidence Register!A16:G17",
+            "observation": "Row 16 assigns quantity, price, time, and FILLED status to the broker image; row 17 describes the terminal only as a retained desk capture that corroborates trade identity and expressly states 'No economic fields — identity only.'",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "5. Cure Cover Reconcile!A14:F14 and B23:F23",
+            "observation": "The candidate records the correct 40-unit executed result but cites only Broker Confirmation image1 for the executed cover quantity and damage-track economics.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1, embedded terminal order detail and FILLS row",
+            "observation": "Contrary to the candidate's characterization, the terminal pixels visibly contain product, quantity, price, execution state, and execution time in addition to trade identity.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focal BRK-88402 blotter row",
+            "observation": "The broker pixels show the matching BRK-88402 fill fields, but this record alone is only a single-source assertion under the frozen claim.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "claim_id": "R011",
+        "material_contradiction": true,
+        "raw_reward": 0,
+        "reason": "Although the candidate records the correct BRK-88402 quantity and executed result, it does not establish the required independent cross-record corroboration. It materially misstates the terminal as identity-only and uses the broker image alone for quantity, price, time, and filled state, triggering the explicit failure condition that only one corroborating record is cited.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A10:H10",
+            "observation": "The row records BRK-88402, MAI24 / 2024 MA CLASS I, quantity 40, USD 22.50, FILLED/EXECUTED, and 2025-06-09 10:47:26 EDT, and separately locates the terminal at PDF page 1 and broker blotter at DOCX word/media/image1.jpg.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Evidence Index!A14:E14 and A16:E16",
+            "observation": "Separate evidence-index entries transcribe the matching broker and terminal fields and identify each embedded visual precisely.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1, embedded terminal order detail and FILLS row",
+            "observation": "The rendered terminal pixels show BRK-88402 as EXECUTED for 40 MWh of 2024 MA CLASS I at USD 22.50 at 06/09/2025 10:47:26 EDT, with Total Fills: 1.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focal BRK-88402 blotter row",
+            "observation": "The photographed blotter pixels independently show BRK-88402, MAI24, quantity 40, price 22.50, time 10:47:26, and status FILLED.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R012",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 175.11947714490816,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 13,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 276096,
+          "input_tokens": 343351,
+          "output_tokens": 6738,
+          "reasoning_output_tokens": 2646
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "2. Evidence Register!B16:G17",
+            "observation": "Row 16 attributes quantity 40 and price 22.50 to the broker image, but row 17 describes the terminal capture only as corroborating trade identity and states 'No economic fields — identity only.'",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "5. Cure Cover Reconcile!B14:F14; C23:F23",
+            "observation": "The candidate records BRK-88402 at USD 22.50 and correctly computes 40 x (22.50 - 18.00) = USD 180, but both price-bearing rows cite only Broker Confirmation image1 rather than the required terminal-and-broker pair.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "7. Financial Settlement!A24:F24; A37:F39",
+            "observation": "The financial section correctly uses 22.50 as the separate cover rate and 18.00 as the seller contract rate, but its executed-trade price support points only to the broker image; the cover payment citation is used for cash movement, not independent terminal-price corroboration.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1, embedded terminal order detail and Fills row",
+            "observation": "Contrary to the candidate's 'No economic fields' statement, the terminal pixels visibly contain the BRK-88402 price USD 22.50 along with quantity, product, execution state, and time.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focused blotter row BRK-88402",
+            "observation": "The broker pixels show the same 22.50 price for BRK-88402, so the public evidence supports paired agreement even though the candidate workpaper does not record it as paired price support.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "claim_id": "R012",
+        "material_contradiction": true,
+        "raw_reward": 0,
+        "reason": "The candidate gets the economic values and treatment right, but it fails the claim's blocking paired-support requirement. It assigns USD 22.50 to the broker blotter while expressly denying that the terminal capture contains economic fields, and its cover-price and damage rows cite only the broker image. Because the required terminal pixels visibly show USD 22.50, this is both a material contradiction and an omission of the required independent terminal-price corroboration; precise support from one view plus non-price corroboration is insufficient under the frozen binary condition.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!B10:H10",
+            "observation": "B10 records BRK-88402, quantity 40, and USD 22.50 as FILLED/EXECUTED; G10 and H10 precisely identify the PDF page-1 terminal view and DOCX word/media/image1.jpg broker view as the paired support.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Financial Bridge!A7:F12",
+            "observation": "Row 7 uses 22.50 as the executed cover price for the separate 40-unit trade, row 8 retains 18.00 as the contract benchmark, and row 12 calculates the recoverable 40 x 4.50 differential rather than deducting the USD 900 cover cost.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1, embedded terminal order detail and Fills row",
+            "observation": "The rendered terminal pixels show BRK-88402, EXECUTED, 2024 MA CLASS I, 40 MWh, USD 22.50, and 10:47:26 EDT.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focused blotter row BRK-88402",
+            "observation": "The broker blotter pixels independently show BRK-88402, MAI24, quantity 40, price 22.50, time 10:47:26, and FILLED.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R013",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 178.87939912779257,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 12,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 298496,
+          "input_tokens": 337349,
+          "output_tokens": 6466,
+          "reasoning_output_tokens": 2612
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "2. Evidence Register!A16:G17",
+            "observation": "Row 16 records 10:47:26 from the broker blotter, while row 17 describes the terminal page only as retained at 10:49, says it corroborates trade identity, and labels it 'No economic fields — identity only'; it does not record the terminal's 10:47:26 execution time.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "5. Cure Cover Reconcile!A13:F16 and A23:F23",
+            "observation": "The reconciliation records BRK-88402 at 10:47:26 and sequences cover after exhausted cure, but its execution-time and damage entries cite only Broker Confirmation image1; they do not cite the terminal view or explicitly compare the execution time against both June 6 17:00 and June 9 noon.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1, embedded terminal order detail and Fills row",
+            "observation": "The terminal pixels themselves show BRK-88402's execution time as 06/09/2025 10:47:26 EDT, distinct from the document's 10:49 capture-retention metadata.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focal blotter row TRADE ID BRK-88402",
+            "observation": "The independent broker row shows the same trade at 10:47:26 and FILLED, so the public pixels support corroboration that the candidate workpaper does not itself state and locate on both sides.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "claim_id": "R013",
+        "material_contradiction": false,
+        "raw_reward": 0,
+        "reason": "The candidate records the correct broker time and the correct trade, but it fails the claim's independent cross-image timing requirement. Its terminal evidence entry substitutes the 10:49 capture-retention time and limits the terminal's role to identity, while the execution timing and remedy entries cite only the broker image and never make the required explicit cure-expiry and cutoff comparison with precise locators to both trade views. This is a material omission under the binary failure condition.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A10:H10",
+            "observation": "The executed-cover control records BRK-88402, 40, USD 22.50, FILLED/EXECUTED, and 2025-06-09 10:47:26 EDT; it concludes the fill is after the June 6 17:00 cure expiry and before June 9 noon and cites the terminal at PDF p.1 plus the broker blotter at word/media/image1.jpg.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1, embedded terminal order detail and Fills row",
+            "observation": "The pixels identify BRK-88402 as EXECUTED for 40 MWh of 2024 MA CLASS I at USD 22.50 and show execution/fill time 06/09/2025 10:47:26 EDT.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focal blotter row TRADE ID BRK-88402",
+            "observation": "The photographed blotter row identifies BRK-88402 / MAI24 / 40 / 22.50 / 10:47:26 / FILLED, independently matching the terminal trade and exact time.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R014",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 177.2494835460093,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 11,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 288768,
+          "input_tokens": 338366,
+          "output_tokens": 6586,
+          "reasoning_output_tokens": 2586
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "'3. Lot Dispositions'!A4:N10",
+            "observation": "The lot table has GIS unit, generation period, disposition, timing/custody narrative, and a narrative evidence column, but it has no per-lot fields for MA RPS identity, unit name, RPS effective date, output limitation, vintage result, or qualification result; COVER is not a row in this table.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "'4. Serial Uniqueness'!A4:H11; '8. Conflicts and Controls'!A4:F7",
+            "observation": "The serial table adds COVER's GIS unit, generation period, range, and uniqueness only, while the conflict table discusses the MSS424-to-7031-24 resolution globally; neither supplies the missing per-record effective-date, output-limitation, qualification-result, and custody-test fields for every relevant record.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R014",
+        "material_contradiction": false,
+        "raw_reward": 0,
+        "reason": "The candidate reaches the same material eligibility and custody outcomes as the reference and does not materially contradict the controlling values. It nevertheless fails the binary completeness condition because it does not provide the required structured eligibility fields for every record: effective date and output limitation are embedded only selectively in narrative, several rows lack exact RPS/unit identity, and COVER lacks a complete eligibility row. Under the frozen condition, these material omissions require a zero rather than partial credit.",
+        "reference_evidence": [
+          {
+            "locator": "Eligibility!A2:L10",
+            "observation": "The dedicated eligibility matrix covers LOT-A, LOT-B, LOT-C, LOT-D, REPL-B, REPL-C, and COVER, with separate columns for exact GIS/RPS/unit identity, generation period, RPS effective date, output limitation, vintage result, qualification result, custody/uniqueness result, and precise evidence locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R015",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 126.60681628598832,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 10,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 277760,
+          "input_tokens": 332661,
+          "output_tokens": 4811,
+          "reasoning_output_tokens": 1245
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "3. Lot Dispositions!A4:N13",
+            "observation": "Rows 5-10 give exactly one disposition to LOT-A, LOT-B, LOT-C, LOT-D, REPL-B, and REPL-C; accepted quantities are respectively 400, 0, 0, 150, 250, and 150, while row 13 explains why lot-level rejected quantities are not the net post-cure deficiency.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "4. Serial Uniqueness!A4:H17",
+            "observation": "The serial control identifies the inclusive 000351-000400 collision as 50 certificates, awards that band to original LOT-A, rejects it from REPL-C, and enumerates the nonduplicated accepted seller blocks totaling 950.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "5. Cure Cover Reconcile!A4:F17",
+            "observation": "The waterfall shows the 1,000 original tender, 550 original acceptance after LOT-B and LOT-C rejection, 250 REPL-B plus 150 unique REPL-C cure acceptance, 950 accepted-seller total, 50 post-cure deficiency, and the closing equation 950 + 40 cover + 10 residual = 1,000.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R015",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate workbook completely satisfies the same frozen standard. It accounts for every original and replacement lot once, presents the required accepted-seller component vector totaling 950, expressly removes the 50 duplicated REPL-C serials, distinguishes the 500 lot-row rejection count from the 50 net post-cure deficiency, and closes the contract reconciliation without an unexplained balance.",
+        "reference_evidence": [
+          {
+            "locator": "Lot Dispositions!A4:P9",
+            "observation": "The six tender rows each have one final disposition: LOT-A accepts 400, LOT-B rejects 250, LOT-C rejects 200, LOT-D accepts 150, REPL-B accepts 250, and REPL-C accepts 150 while rejecting 50 duplicate serials.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Quantity Reconciliation!A4:G12",
+            "observation": "The schedule derives original accepted quantity 550, unique replacement acceptance 400, accepted-seller total 950, and post-cure deficiency 50 against the 1,000-REC contract, with the duplicate 000351-000400 band counted as 50 rejected certificates.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R016",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 132.50124313496053,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 12,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 228864,
+          "input_tokens": 332710,
+          "output_tokens": 4273,
+          "reasoning_output_tokens": 1299
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "5. Cure Cover Reconcile!B13:F17",
+            "observation": "The waterfall records 50 deficient after timely seller cure, 40 executed cover, and a residual 10 neither cured nor covered, explicitly giving the arithmetic 50 minus 40 and reconciling 950 accepted plus 40 cover plus 10 residual to 1,000.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "6. Compliance Inventory!A7:G11; 9. Notices and Actions!B18:F18",
+            "observation": "The candidate posts only 950 seller plus 40 cover certificates, carries the 10 as an open shortfall, and assigns Compliance with Energy Procurement to resolve it by procuring eligible certificates or using the alternative compliance path before the July 1 filing.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R016",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the same frozen condition: its ordered cure-and-cover reconciliation yields the correct residual 10, does not classify that balance as accepted or covered, and provides a clear responsible owner and follow-up action.",
+        "reference_evidence": [
+          {
+            "locator": "Quantity Reconciliation!B12:G16",
+            "observation": "The workbook shows a 50-REC post-cure deficiency, 40 RECs admitted as cover, and the formula B15=B12-B14 returning a 10-REC residual; row 15 labels it not accepted, not covered, not posted, owned by Energy Procurement, and open.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Action Register!A5:F5",
+            "observation": "The open action directs Energy Procurement to acquire or otherwise resolve the residual 10 Class I RECs before inventory finalization and requires verified final GIS ownership before posting.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R017",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 102.83646069513634,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 8,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 178944,
+          "input_tokens": 213627,
+          "output_tokens": 3816,
+          "reasoning_output_tokens": 1299
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "3. Lot Dispositions!H5:I11; 7. Financial Settlement!B23:F25",
+            "observation": "The disposition rows accept 400, 0, 0, 150, 250, and 150 certificates, totaling 950 and excluding the rejected original lots and 50 duplicate REPL-C serials; the financial schedule separately shows 950 at USD 18.00 as USD 17,100 gross, a USD 180 cover-damage line, and USD 16,920 approved payable.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p. 1, Section 2; p. 2, Section 4",
+            "observation": "The executed confirmation sets the price at USD 18.00 per accepted REC and permits rejection of certificates that fail the product definition, lack buyer-account custody, or duplicate an already accepted serial.",
+            "path": "public_input/Contracts/REC Purchase Confirmation REC-2024-017.pdf"
+          }
+        ],
+        "claim_id": "R017",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the same frozen business meaning: it derives 950 accepted seller certificates after excluding rejected and duplicate certificates, values only that quantity at the executed USD 18.00 unit price for the correct USD 17,100 gross, and presents the cover differential and final payable on distinct lines rather than combining them into the gross.",
+        "reference_evidence": [
+          {
+            "locator": "Lot Dispositions!O4:P9; Financial Bridge!B6:F14",
+            "observation": "The accepted-quantity vector is 400, 0, 0, 150, 250, and 150, totaling 950; the gross line calculates 950 at USD 18.00 as USD 17,100, while the cover cost, USD 180 cover differential, and net USD 16,920 payable appear on separate later lines.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p. 1, Section 2; p. 2, Section 4",
+            "observation": "The executed confirmation sets the price at USD 18.00 per accepted REC and permits rejection of certificates that fail the product definition, lack buyer-account custody, or duplicate an already accepted serial.",
+            "path": "public_input/Contracts/REC Purchase Confirmation REC-2024-017.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R018",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 109.91718123294413,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 9,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 173056,
+          "input_tokens": 241211,
+          "output_tokens": 3814,
+          "reasoning_output_tokens": 791
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "7. Financial Settlement!A5:F47",
+            "observation": "The settlement shows USD 18,000 billed, USD 0 paid and USD 0 prior credits, USD 17,100 net accepted certificate value, a USD 180 executed-trade cover differential, USD 16,920 approved payable, and USD 1,080 total disputed; the separate USD 900 broker payment is expressly excluded as a seller credit.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "1. Decision Summary!A4:G15",
+            "observation": "The embedded decision summary approves USD 16,920 and disputes USD 1,080, with rows 9-13 bridging the USD 18,000 invoice through the USD 900 unaccepted-certificate reduction and USD 180 cover differential and pointing to the detailed settlement sheet.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R018",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the same frozen condition: it derives USD 17,100 from 950 accepted certificates at USD 18, deducts only the permitted USD 180 cover-price differential and supported prior credits of USD 0, keeps the USD 900 broker cover payment separate, and reconciles USD 16,920 payable and USD 1,080 disputed to its embedded decision summary without unexplained variance.",
+        "reference_evidence": [
+          {
+            "locator": "Financial Bridge!A4:F15",
+            "observation": "The bridge shows USD 18,000 billed, USD 17,100 gross accepted seller value, USD 180 recoverable cover differential, USD 0 prior supported credits, USD 16,920 net payable, and USD 1,080 disputed; the formulas and cached values reconcile without variance.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Decision Summary!A5:H17",
+            "observation": "The embedded summary recommends approving USD 16,920 and disputing USD 1,080, and rows 12-17 repeat the billed amount, gross accepted value, cover differential, prior credits, payable, and dispute amount with source locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R019",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 167.91507828701288,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 14,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 388608,
+          "input_tokens": 455439,
+          "output_tokens": 5851,
+          "reasoning_output_tokens": 2060
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "1. Decision Summary!A18:G23",
+            "observation": "The certificate position separately states 950 accepted seller certificates, 40 buyer cover certificates, and a positive 10-REC OPEN residual; it reports 990 held and postable and explicitly reconciles 950 + 40 + 10 residual to 1,000.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "6. Compliance Inventory!A4:G19",
+            "observation": "The inventory schedule has separate POST lines for 950 seller and 40 cover certificates, identifies ALLOC-88402-A, TX-772044, serials 004101-004140, and the custody source, excludes errant certificates, reports only 990 as postable, carries the residual as a signed -10 SHORT open item and also as a positive 10-REC follow-up quantity, and maps the posting to the official workbook interface at 5. RPS I non-SCO column F/F13.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "4. Serial Uniqueness!A4:H17",
+            "observation": "The uniqueness control identifies the 50-certificate LOT-A/REPL-C collision, assigns the overlapping band to LOT-A, rejects it from REPL-C, and states that the accepted 950 seller certificates plus 40 cover certificates are distinct with no serial counted twice.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R019",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the frozen standard. Its seller and cover postings are separately labeled at 950 and 40 with lot, allocation, transaction, custody, source, and official-interface locators; duplicate and rejected certificates are excluded from the 990 postable total. The -10 shown in the inventory balance is explicitly a signed deficit, not a settled certificate posting: the same answer labels the residual OPEN, states the unsigned shortfall as 10, and reconciles 950 + 40 + 10 to 1,000.",
+        "reference_evidence": [
+          {
+            "locator": "Inventory Posting!A3:F10",
+            "observation": "The posting schedule separately records 950 accepted seller certificates and 40 buyer cover certificates, excludes 500 rejected or duplicate source certificates from posting, keeps a 10-REC residual outside settled inventory, and reconciles 950 + 40 + 10 to 1,000.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Cover Custody!A3:L4",
+            "observation": "The cover line links BRK-88402 to ALLOC-88402-A and TX-772044, identifies 40 certificates in BSC-MA-4421, and records final SETTLED custody at 2025-06-09 11:18:06 EDT.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R020",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 135.63690407993272,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 8,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 177920,
+          "input_tokens": 212980,
+          "output_tokens": 5236,
+          "reasoning_output_tokens": 2368
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "1. Decision Summary!A4:G4; A34:G34",
+            "observation": "The labeled decision states the USD 1,080 dispute is due June 16, 2025 at 17:00 EDT and separately identifies the 10-REC compliance follow-up before the July 1 filing.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "9. Notices and Actions!A2:G10; A14:G21",
+            "observation": "The workbook explicitly treats commercial and regulatory controls as independent, lists June 10, 11, 12, 13, and 16 as business days 1 through 5, gives the June 16 17:00 EDT dispute deadline, and assigns the notice, AP, residual, inventory, ownership-support, and date-only July 1 filing actions to named functions with governing-source locators.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R020",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the frozen condition: its five-business-day computation and June 16, 2025 17:00 EDT response deadline are correct; its July 1, 2025 filing control is separate and has no unsupported time; and its action register includes responsible functions, governing deadlines, required content, and precise locators for commercial response and filing readiness.",
+        "reference_evidence": [
+          {
+            "locator": "Decision Summary!A27:F30",
+            "observation": "The labeled decision summary separately assigns the supported invoice dispute to Procurement and Legal with an Accounting hold by 2025-06-16 17:00 EDT, residual follow-up to Energy Procurement and Registry Operations, and date-only 2025-07-01 filing readiness to Compliance, with contract, calendar, and regulation locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Action Register!A2:G8",
+            "observation": "The action register expressly separates the commercial and regulatory clocks without inventing a filing time, and states each action, owner, trigger or scope, governing deadline, output, and precise public-evidence locator.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R021",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 137.38367107091472,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 11,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 251648,
+          "input_tokens": 307337,
+          "output_tokens": 4397,
+          "reasoning_output_tokens": 1564
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "'1. Decision Summary'!A18:G22 and A33:G34; '5. Cure Cover Reconcile'!A14:F23; '6. Compliance Inventory'!A7:G11",
+            "observation": "The workbook identifies BRK-88402, ALLOC-88402-A, MA RPS 7031-24, MSS424, 2024 Q4, serials 004101-004140, BSC-MA-4421, TX-772044, and final settlement at 11:18:06 EDT before noon; it posts 40 to inventory and expressly states that custody controls posting while the USD 180 damage computation depends on the executed trade.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded allocation-ticket image; page 2 embedded live-registry-receipt image",
+            "observation": "Direct pixel comparison shows page 1 tying BRK-88402 to ALLOC-88402-A, MA RPS 7031-24/MSS424, 2024 Q4, serials 004101-004140, and intended account BSC-MA-4421, while page 2 shows the same allocation and batch as TX-772044, CURRENT OWNER BSC-MA-4421, SETTLED at 06/09/2025 11:18:06 EDT.",
+            "path": "public_input/Registry Evidence/Cover Custody Confirmation BRK-88402.pdf"
+          }
+        ],
+        "claim_id": "R021",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the same frozen condition. Across its decision summary, cure/cover custody control, and inventory schedule, it records the exact trade-to-allocation-to-receipt continuity, final pre-cutoff buyer ownership, 40-certificate inventory gate, and independent executed-trade damage calculation, with precise sheet/cell and source-page locators.",
+        "reference_evidence": [
+          {
+            "locator": "Cover Custody!A3:L8; Decision Summary!A23:F23",
+            "observation": "The control records BRK-88402, ALLOC-88402-A, MA RPS 7031-24, MSS424, 2024Q4, inclusive serials 004101-004140, BSC-MA-4421, TX-772044, and SETTLED at 2025-06-09 11:18:06 EDT; it posts 40 only after that final custody test and explicitly keeps the executed-trade USD 180 damage analysis separate.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded allocation-ticket image; page 2 embedded live-registry-receipt image",
+            "observation": "Direct pixel comparison shows page 1 tying BRK-88402 to ALLOC-88402-A, MA RPS 7031-24/MSS424, 2024 Q4, serials 004101-004140, and intended account BSC-MA-4421, while page 2 shows the same allocation and batch as TX-772044, CURRENT OWNER BSC-MA-4421, SETTLED at 06/09/2025 11:18:06 EDT.",
+            "path": "public_input/Registry Evidence/Cover Custody Confirmation BRK-88402.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R022",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 131.45092612714507,
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:5",
+        "tool_calls": 10,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 253184,
+          "input_tokens": 310540,
+          "output_tokens": 4526,
+          "reasoning_output_tokens": 1354
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "3. Lot Dispositions!A8:N8",
+            "observation": "The LOT-D row identifies NON38983, Deer Island Treatment Plant STG, and MA RPS 1015-02; cites QX-38983-2025 rows 4, 6, and 8 in order as REVIEW_HOLD, EVIDENCE_MATCHED, and RELEASED; records release at 11:36:20 by the Compliance Qualification Manager; states clearance before the 12:00 cutoff; and accepts 150 after the internal control clears.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "1. Decision Summary!B31:G31; 2. Evidence Register!B13:G13",
+            "observation": "The summary identifies LOT-D, NON38983, QX-38983-2025, all three event statuses and times, pre-noon release by the qualification manager, and admission of 150; it explicitly calls the exception an internal settlement control and treats DOER qualification as separate, while the evidence register supplies precise CSV row locators.",
+            "path": "candidate_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R022",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the same frozen standard. Its LOT-D disposition and supporting summary collectively provide the exact case, lot, GIS unit, RPS number, unit name, ordered event history, final RELEASED status and time, accountable owner, noon cutoff test, settlement-clearance conclusion, accepted quantity, and precise source locators. It also expressly preserves official DOER eligibility as an independent prerequisite that the internal release does not create.",
+        "reference_evidence": [
+          {
+            "locator": "Qualification Exception!A4:J13",
+            "observation": "The control record links QX-38983-2025 and LOT-D to NON38983, MA RPS 1015-02, and Deer Island Treatment Plant STG; orders REVIEW_HOLD, EVIDENCE_MATCHED, and RELEASED; records the final release at 2025-06-09 11:36:20 EDT by the Compliance Qualification Manager; concludes the gate passed before noon; and states that internal release cannot create or override DOER eligibility, with row-level public-source locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Lot Dispositions!A7:U7; Decision Summary!A24:F24",
+            "observation": "LOT-D is accepted for 150 only after the final pre-cutoff RELEASED event, while the summary separately identifies official program eligibility and describes the exception release as settlement-only clearance.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 0,
+      "claim_id": "R001",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "container",
+            "observation": "The xlsx_openable check passed.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R001",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The deterministic registered container check passed completely.",
+        "reference_evidence": [
+          {
+            "locator": "container",
+            "observation": "The xlsx_openable check passed.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R002",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Contract Cure Controls!A4:H6",
+            "observation": "Rows 4-6 explicitly pair the signature page and receipt reverse through observed identifier AMD-REC-017-A1, record Bay State and GreenArc signatures dated May 20, 2025, record the reverse as RECEIVED MAY 20 2025 3:42 PM EDT and 2 OF 2, classify the amendment as fully executed, and cite PDF pages 5-6 embedded images.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Decision Summary!A20:F20",
+            "observation": "The decision summary states that bilateral signatures dated 2025-05-20 and the matching AMD-REC-017-A1 reverse received at 15:42 EDT authenticate the amendment, with precise page 5 and page 6 embedded-image locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R002",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference fully satisfies the frozen standard. Its control rows preserve the required two-image reasoning: public PDF page 5 visibly shows different Bay State and GreenArc signatures, both dated May 20, 2025, plus Section 3 initials and AMD-REC-017-A1; page 6 visibly shows the same identifier, the May 20, 2025 3:42 PM EDT receipt stamp, and 2 OF 2. The workbook records each member separately, concludes full execution before the June 9 cutoff, and repeats the authenticated conclusion in its decision summary with precise locators.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A4:H6",
+            "observation": "Rows 4-6 explicitly pair the signature page and receipt reverse through observed identifier AMD-REC-017-A1, record Bay State and GreenArc signatures dated May 20, 2025, record the reverse as RECEIVED MAY 20 2025 3:42 PM EDT and 2 OF 2, classify the amendment as fully executed, and cite PDF pages 5-6 embedded images.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Decision Summary!A20:F20",
+            "observation": "The decision summary states that bilateral signatures dated 2025-05-20 and the matching AMD-REC-017-A1 reverse received at 15:42 EDT authenticate the amendment, with precise page 5 and page 6 embedded-image locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R003",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Contract Cure Controls!A4:H6; Decision Summary!A21:F21",
+            "observation": "The workbook pairs the bilateral signature/initial page with the matching receipt-control page, authenticates AMD-REC-017-A1 before the cutoff, and confines its precedence to exception cure, buyer cover, and damages while reserving eligibility and custody to their proper authorities.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1 §1; p.5 embedded execution image; p.6 embedded receipt-control image",
+            "observation": "Direct inspection shows p.5 bearing AMD-REC-017-A1, both dated party signatures, and both Section 3 initials; p.6 bears the same code, RECEIVED MAY 20 2025 3:42 PM EDT, and 2 OF 2. Section 1 gives the fully executed amendment precedence only over inconsistent base terms within its stated limited scope.",
+            "path": "public_input/Contracts/Amendment 1 - Cure and Cover.pdf"
+          }
+        ],
+        "claim_id": "R003",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition. It authenticates the amendment from both required images and then applies it only to cure, cover, and differential terms, while preserving regulatory/DOER authority for eligibility, registry authority for custody, the base confirmation outside the modified scope, and the EPA guide as noncontrolling.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A4:H6; Decision Summary!A21:F21",
+            "observation": "The workbook pairs the bilateral signature/initial page with the matching receipt-control page, authenticates AMD-REC-017-A1 before the cutoff, and confines its precedence to exception cure, buyer cover, and damages while reserving eligibility and custody to their proper authorities.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1 §1; p.5 embedded execution image; p.6 embedded receipt-control image",
+            "observation": "Direct inspection shows p.5 bearing AMD-REC-017-A1, both dated party signatures, and both Section 3 initials; p.6 bears the same code, RECEIVED MAY 20 2025 3:42 PM EDT, and 2 OF 2. Section 1 gives the fully executed amendment precedence only over inconsistent base terms within its stated limited scope.",
+            "path": "public_input/Contracts/Amendment 1 - Cure and Cover.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R004",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Contract Cure Controls!A7:H8",
+            "observation": "The workpaper records EXC-24017 on both the notice and election rows, the notice as DELIVERED JUN 3 2025 4:18 PM EDT, SUBSTITUTE DELIVERY as the sole checked option, and the election as RECEIVED JUN 6 2025 4:41 PM EDT against a Jun 6 17:00 EDT cutoff, with precise source-image locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.2 embedded receipt image",
+            "observation": "The photographed receipt strip visibly shows EXC-24017, DELIVERED, and JUN 3 2025 4:18 PM EDT.",
+            "path": "public_input/Correspondence/Prior Exception Notice EXC-24017.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg",
+            "observation": "The signed scan visibly shows EXC-24017, only SUBSTITUTE DELIVERY checked, and RECEIVED JUN 6 2025 4:41 PM EDT.",
+            "path": "public_input/Correspondence/Seller Cure Election EXC-24017.docx"
+          }
+        ],
+        "claim_id": "R004",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition: its structured cure-control record links the same case, records the antecedent delivered notice and its time, identifies substitute delivery as the sole selection, and compares the received election time to the contractual cutoff using precise pixel locators. Direct inspection of both required public images confirms every recorded value.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A7:H8",
+            "observation": "The workpaper records EXC-24017 on both the notice and election rows, the notice as DELIVERED JUN 3 2025 4:18 PM EDT, SUBSTITUTE DELIVERY as the sole checked option, and the election as RECEIVED JUN 6 2025 4:41 PM EDT against a Jun 6 17:00 EDT cutoff, with precise source-image locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.2 embedded receipt image",
+            "observation": "The photographed receipt strip visibly shows EXC-24017, DELIVERED, and JUN 3 2025 4:18 PM EDT.",
+            "path": "public_input/Correspondence/Prior Exception Notice EXC-24017.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg",
+            "observation": "The signed scan visibly shows EXC-24017, only SUBSTITUTE DELIVERY checked, and RECEIVED JUN 6 2025 4:41 PM EDT.",
+            "path": "public_input/Correspondence/Seller Cure Election EXC-24017.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R005",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Contract Cure Controls!A7:H9; Lot Dispositions!A8:U9",
+            "observation": "The workpaper links notice and election under EXC-24017, records the June 6 16:41 EDT substitute election as timely against the 17:00 EDT deadline, explicitly says it authorizes testing rather than acceptance, and independently accepts REPL-B while accepting only 150 of REPL-C after the uniqueness test.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1 questioned-lot text; p.2 embedded receipt image",
+            "observation": "The notice identifies case EXC-24017 and LOT-B/LOT-C, makes no disposition, and its rendered receipt image shows DELIVERED JUN 3 2025 4:18 PM EDT.",
+            "path": "public_input/Correspondence/Prior Exception Notice EXC-24017.pdf"
+          },
+          {
+            "locator": "transmittal paragraphs; embedded word/media/image1.jpg",
+            "observation": "The rendered signed form matches EXC-24017, has only SUBSTITUTE DELIVERY checked, and shows RECEIVED JUN 6 2025 4:41 PM EDT; the transmittal leaves outcome fields pending validation.",
+            "path": "public_input/Correspondence/Seller Cure Election EXC-24017.docx"
+          },
+          {
+            "locator": "p.2, Section 2 — Seller Cure",
+            "observation": "The clause requires election and completed substitute tender by June 6, 2025 at 17:00 EDT and requires independent product, vintage, qualification, serial identity, custody, and uniqueness testing; election does not guarantee acceptance.",
+            "path": "public_input/Contracts/Amendment 1 - Cure and Cover.pdf"
+          }
+        ],
+        "claim_id": "R005",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The required business meaning is that the case-linked notice and sole checked substitute election establish timely cure authority, but every replacement must still pass the independent tests in Amendment Section 2. The reference workbook applies that meaning exactly and gives REPL-B and REPL-C separate tested dispositions.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A7:H9; Lot Dispositions!A8:U9",
+            "observation": "The workpaper links notice and election under EXC-24017, records the June 6 16:41 EDT substitute election as timely against the 17:00 EDT deadline, explicitly says it authorizes testing rather than acceptance, and independently accepts REPL-B while accepting only 150 of REPL-C after the uniqueness test.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1 questioned-lot text; p.2 embedded receipt image",
+            "observation": "The notice identifies case EXC-24017 and LOT-B/LOT-C, makes no disposition, and its rendered receipt image shows DELIVERED JUN 3 2025 4:18 PM EDT.",
+            "path": "public_input/Correspondence/Prior Exception Notice EXC-24017.pdf"
+          },
+          {
+            "locator": "transmittal paragraphs; embedded word/media/image1.jpg",
+            "observation": "The rendered signed form matches EXC-24017, has only SUBSTITUTE DELIVERY checked, and shows RECEIVED JUN 6 2025 4:41 PM EDT; the transmittal leaves outcome fields pending validation.",
+            "path": "public_input/Correspondence/Seller Cure Election EXC-24017.docx"
+          },
+          {
+            "locator": "p.2, Section 2 — Seller Cure",
+            "observation": "The clause requires election and completed substitute tender by June 6, 2025 at 17:00 EDT and requires independent product, vintage, qualification, serial identity, custody, and uniqueness testing; election does not guarantee acceptance.",
+            "path": "public_input/Contracts/Amendment 1 - Cure and Cover.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R006",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Registry Lineage!A4:J5",
+            "observation": "The workpaper records LOT-C's ordered TX-770512 transfer and later TX-771903 reversal, then scopes TX-771903 to MSS424 2024Q3 serials 001001-001200, buyer BSC-MA-4421, status REVERSED, and 10:03:11 EDT.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Registry Lineage!A10:J10; Lot Dispositions!A6:U6",
+            "observation": "The 09:30 export is expressly treated as stale relative to the 10:03:11 reversal, and LOT-C is rejected with zero custody-valid certificates at the noon cutoff.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded overview image; page 2 embedded detail image",
+            "observation": "Direct pixel inspection shows transfer TX-770512 completed to BSC-MA-4421 before reversal TX-771903 at 10:03:11 on page 1, while page 2 ties TX-771903 and REVERSED to LOT-C, MSS424 2024 Q3, inclusive serial block 001001-001200, and buyer BSC-MA-4421.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "claim_id": "R006",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition: it reconciles the overview chronology with the detail identity and scope, identifies the post-export adverse event, and applies the later reversal rather than the stale export at the cutoff.",
+        "reference_evidence": [
+          {
+            "locator": "Registry Lineage!A4:J5",
+            "observation": "The workpaper records LOT-C's ordered TX-770512 transfer and later TX-771903 reversal, then scopes TX-771903 to MSS424 2024Q3 serials 001001-001200, buyer BSC-MA-4421, status REVERSED, and 10:03:11 EDT.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Registry Lineage!A10:J10; Lot Dispositions!A6:U6",
+            "observation": "The 09:30 export is expressly treated as stale relative to the 10:03:11 reversal, and LOT-C is rejected with zero custody-valid certificates at the noon cutoff.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded overview image; page 2 embedded detail image",
+            "observation": "Direct pixel inspection shows transfer TX-770512 completed to BSC-MA-4421 before reversal TX-771903 at 10:03:11 on page 1, while page 2 ties TX-771903 and REVERSED to LOT-C, MSS424 2024 Q3, inclusive serial block 001001-001200, and buyer BSC-MA-4421.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R007",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Lot Dispositions!A6:U6",
+            "observation": "LOT-C is given one final disposition for all 200 tendered certificates: 0 accepted and 200 deficient because later reversal TX-771903 supersedes the earlier transfer; the row routes the deficiency to timely REPL-C cure, then 40 buyer cover and a 10-certificate residual, and identifies the responsible parties and cutoff consequence.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Quantity Reconciliation!A7:G15",
+            "observation": "The ordered waterfall records original deficiency, timely replacement testing and acceptance, a 50-certificate post-cure deficiency, 40 certificates of buyer cover, and a 10-certificate residual, so cover follows rather than precedes cure.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page[1].image[0]; page[2].image[0]",
+            "observation": "Direct pixel inspection jointly shows LOT-C transfer at 06/01/2025 09:15:42 EDT followed by TX-771903 reversal at 06/09/2025 10:03:11 EDT for quantity 200, while the detail binds REVERSED to buyer BSC-MA-4421 and inclusive serials 001001-001200.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "claim_id": "R007",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition: it rejects the full LOT-C block under later-adverse-event precedence, does not treat the stale export as controlling custody, gives the lot one disposition, and applies the contractual sequence of seller cure before buyer cover and residual.",
+        "reference_evidence": [
+          {
+            "locator": "Lot Dispositions!A6:U6",
+            "observation": "LOT-C is given one final disposition for all 200 tendered certificates: 0 accepted and 200 deficient because later reversal TX-771903 supersedes the earlier transfer; the row routes the deficiency to timely REPL-C cure, then 40 buyer cover and a 10-certificate residual, and identifies the responsible parties and cutoff consequence.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Quantity Reconciliation!A7:G15",
+            "observation": "The ordered waterfall records original deficiency, timely replacement testing and acceptance, a 50-certificate post-cure deficiency, 40 certificates of buyer cover, and a 10-certificate residual, so cover follows rather than precedes cure.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page[1].image[0]; page[2].image[0]",
+            "observation": "Direct pixel inspection jointly shows LOT-C transfer at 06/01/2025 09:15:42 EDT followed by TX-771903 reversal at 06/09/2025 10:03:11 EDT for quantity 200, while the detail binds REVERSED to buyer BSC-MA-4421 and inclusive serials 001001-001200.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R008",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Registry Lineage!A2:J7",
+            "observation": "The workpaper separately locates raw image1 and marked image2, records both as 1536×1024, states that transaction/status/time and source content are unchanged, identifies only orange boxes and one arrow as additions, and admits the marked layer only together with the raw baseline.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "embedded word/media/image1.png and word/media/image2.png",
+            "observation": "Direct inspection shows the same LOT-C, TX-771903, REVERSED status, and 06/09/2025 10:03:11 EDT in both 1536×1024 views; the marked member adds bounded amber boxes and one arrow without changing those business values.",
+            "path": "public_input/Registry Evidence/Exception Markup.docx"
+          }
+        ],
+        "claim_id": "R008",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The required business meaning is an auditable raw-to-marked reversal chain: both members must be precisely locatable, preserve identity, dimensions, and source meaning, and use annotation only as bounded attention. The reference workpaper expressly performs and records that reconciliation and therefore completely satisfies the binary pass condition.",
+        "reference_evidence": [
+          {
+            "locator": "Registry Lineage!A2:J7",
+            "observation": "The workpaper separately locates raw image1 and marked image2, records both as 1536×1024, states that transaction/status/time and source content are unchanged, identifies only orange boxes and one arrow as additions, and admits the marked layer only together with the raw baseline.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "embedded word/media/image1.png and word/media/image2.png",
+            "observation": "Direct inspection shows the same LOT-C, TX-771903, REVERSED status, and 06/09/2025 10:03:11 EDT in both 1536×1024 views; the marked member adds bounded amber boxes and one arrow without changing those business values.",
+            "path": "public_input/Registry Evidence/Exception Markup.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R009",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Lot Dispositions!C4:H4, C6:H6, C9:H9; K6:N6",
+            "observation": "The reference keys LOT-A as MSS424/2024Q2/000001-000400, LOT-C as MSS424/2024Q3/001001-001200, and REPL-C as MSS424/2024Q2/000351-000550; it assigns the reversal to LOT-C and the Q2 overlap analysis to LOT-A and REPL-C.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Eligibility!A4:K4, A6:K6, A9:K9",
+            "observation": "The separate eligibility rows repeat the distinct generation periods and state that LOT-C fails custody due to the later reversal while REPL-C has only 150 unique certificates after its Q2 overlap with LOT-A.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded overview image and page 4 embedded range-matrix image",
+            "observation": "Direct pixel inspection shows LOT-C as MSS424, 2024Q3, serials 001001-001200 with reversal TX-771903, while the separate range matrix shows MSS424, 2024Q2, LOT-A 000001-000400 and REPL-C 000351-000550.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "claim_id": "R009",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The required business meaning is an exact identity join on GIS unit, generation period, and both inclusive serial endpoints. The reference completely satisfies it: the shared MSS424 label does not collapse the Q3 LOT-C reversal into the Q2 LOT-A/REPL-C uniqueness comparison, and its lifecycle and overlap conclusions agree with both required images.",
+        "reference_evidence": [
+          {
+            "locator": "Lot Dispositions!C4:H4, C6:H6, C9:H9; K6:N6",
+            "observation": "The reference keys LOT-A as MSS424/2024Q2/000001-000400, LOT-C as MSS424/2024Q3/001001-001200, and REPL-C as MSS424/2024Q2/000351-000550; it assigns the reversal to LOT-C and the Q2 overlap analysis to LOT-A and REPL-C.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Eligibility!A4:K4, A6:K6, A9:K9",
+            "observation": "The separate eligibility rows repeat the distinct generation periods and state that LOT-C fails custody due to the later reversal while REPL-C has only 150 unique certificates after its Q2 overlap with LOT-A.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded overview image and page 4 embedded range-matrix image",
+            "observation": "Direct pixel inspection shows LOT-C as MSS424, 2024Q3, serials 001001-001200 with reversal TX-771903, while the separate range matrix shows MSS424, 2024Q2, LOT-A 000001-000400 and REPL-C 000351-000550.",
+            "path": "public_input/Registry Evidence/Final Lot Review Packet.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R010",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Registry Lineage!A8:J9; Lot Dispositions!A9:U9",
+            "observation": "The workpaper records LOT-A 000001-000400 and REPL-C 000351-000550, computes the inclusive shared range 000351-000400 as 50, gives the original lot priority, retains REPL-C 000401-000550 as 150 unique, and precisely identifies the raw image3 and marked image4 lineage members as 1693x929 with unchanged source geometry.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "word/media/image3.png and word/media/image4.png",
+            "observation": "Direct inspection of both 1693x929 images shows identical serial endpoints and interval-bar geometry; image4 adds the bounded bracket exactly from 000351 through 000400 while image3 preserves the unobscured raw baseline.",
+            "path": "public_input/Registry Evidence/Exception Markup.docx"
+          }
+        ],
+        "claim_id": "R010",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition: it derives the correct inclusive 50-certificate intersection, preserves original-lot priority, accepts only the 150-certificate replacement remainder, and ties the conclusion to both precisely located preserved lineage members.",
+        "reference_evidence": [
+          {
+            "locator": "Registry Lineage!A8:J9; Lot Dispositions!A9:U9",
+            "observation": "The workpaper records LOT-A 000001-000400 and REPL-C 000351-000550, computes the inclusive shared range 000351-000400 as 50, gives the original lot priority, retains REPL-C 000401-000550 as 150 unique, and precisely identifies the raw image3 and marked image4 lineage members as 1693x929 with unchanged source geometry.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "word/media/image3.png and word/media/image4.png",
+            "observation": "Direct inspection of both 1693x929 images shows identical serial endpoints and interval-bar geometry; image4 adds the bounded bracket exactly from 000351 through 000400 while image3 preserves the unobscured raw baseline.",
+            "path": "public_input/Registry Evidence/Exception Markup.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R011",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Contract Cure Controls!A10:H10",
+            "observation": "The row records BRK-88402, MAI24 / 2024 MA CLASS I, quantity 40, USD 22.50, FILLED/EXECUTED, and 2025-06-09 10:47:26 EDT, and separately locates the terminal at PDF page 1 and broker blotter at DOCX word/media/image1.jpg.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Evidence Index!A14:E14 and A16:E16",
+            "observation": "Separate evidence-index entries transcribe the matching broker and terminal fields and identify each embedded visual precisely.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1, embedded terminal order detail and FILLS row",
+            "observation": "The rendered terminal pixels show BRK-88402 as EXECUTED for 40 MWh of 2024 MA CLASS I at USD 22.50 at 06/09/2025 10:47:26 EDT, with Total Fills: 1.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focal BRK-88402 blotter row",
+            "observation": "The photographed blotter pixels independently show BRK-88402, MAI24, quantity 40, price 22.50, time 10:47:26, and status FILLED.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "claim_id": "R011",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition. It records one 40-unit executed fill for the same trade and product, distinguishes FILLED/EXECUTED from an open quote, and supplies precise, separate locators to both independently matching visual records.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A10:H10",
+            "observation": "The row records BRK-88402, MAI24 / 2024 MA CLASS I, quantity 40, USD 22.50, FILLED/EXECUTED, and 2025-06-09 10:47:26 EDT, and separately locates the terminal at PDF page 1 and broker blotter at DOCX word/media/image1.jpg.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Evidence Index!A14:E14 and A16:E16",
+            "observation": "Separate evidence-index entries transcribe the matching broker and terminal fields and identify each embedded visual precisely.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1, embedded terminal order detail and FILLS row",
+            "observation": "The rendered terminal pixels show BRK-88402 as EXECUTED for 40 MWh of 2024 MA CLASS I at USD 22.50 at 06/09/2025 10:47:26 EDT, with Total Fills: 1.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focal BRK-88402 blotter row",
+            "observation": "The photographed blotter pixels independently show BRK-88402, MAI24, quantity 40, price 22.50, time 10:47:26, and status FILLED.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R012",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Contract Cure Controls!B10:H10",
+            "observation": "B10 records BRK-88402, quantity 40, and USD 22.50 as FILLED/EXECUTED; G10 and H10 precisely identify the PDF page-1 terminal view and DOCX word/media/image1.jpg broker view as the paired support.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Financial Bridge!A7:F12",
+            "observation": "Row 7 uses 22.50 as the executed cover price for the separate 40-unit trade, row 8 retains 18.00 as the contract benchmark, and row 12 calculates the recoverable 40 x 4.50 differential rather than deducting the USD 900 cover cost.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1, embedded terminal order detail and Fills row",
+            "observation": "The rendered terminal pixels show BRK-88402, EXECUTED, 2024 MA CLASS I, 40 MWh, USD 22.50, and 10:47:26 EDT.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focused blotter row BRK-88402",
+            "observation": "The broker blotter pixels independently show BRK-88402, MAI24, quantity 40, price 22.50, time 10:47:26, and FILLED.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "claim_id": "R012",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition. It records the contract-required USD 22.50 cover unit price for the same BRK-88402 executed fill, explicitly ties that value to both required visual records with precise locators, and uses it only as the cover price against the separate USD 18.00 seller benchmark. Direct inspection of both required images confirms the paired agreement. There is no material contradiction.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!B10:H10",
+            "observation": "B10 records BRK-88402, quantity 40, and USD 22.50 as FILLED/EXECUTED; G10 and H10 precisely identify the PDF page-1 terminal view and DOCX word/media/image1.jpg broker view as the paired support.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Financial Bridge!A7:F12",
+            "observation": "Row 7 uses 22.50 as the executed cover price for the separate 40-unit trade, row 8 retains 18.00 as the contract benchmark, and row 12 calculates the recoverable 40 x 4.50 differential rather than deducting the USD 900 cover cost.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1, embedded terminal order detail and Fills row",
+            "observation": "The rendered terminal pixels show BRK-88402, EXECUTED, 2024 MA CLASS I, 40 MWh, USD 22.50, and 10:47:26 EDT.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focused blotter row BRK-88402",
+            "observation": "The broker blotter pixels independently show BRK-88402, MAI24, quantity 40, price 22.50, time 10:47:26, and FILLED.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R013",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Contract Cure Controls!A10:H10",
+            "observation": "The executed-cover control records BRK-88402, 40, USD 22.50, FILLED/EXECUTED, and 2025-06-09 10:47:26 EDT; it concludes the fill is after the June 6 17:00 cure expiry and before June 9 noon and cites the terminal at PDF p.1 plus the broker blotter at word/media/image1.jpg.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1, embedded terminal order detail and Fills row",
+            "observation": "The pixels identify BRK-88402 as EXECUTED for 40 MWh of 2024 MA CLASS I at USD 22.50 and show execution/fill time 06/09/2025 10:47:26 EDT.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focal blotter row TRADE ID BRK-88402",
+            "observation": "The photographed blotter row identifies BRK-88402 / MAI24 / 40 / 22.50 / 10:47:26 / FILLED, independently matching the terminal trade and exact time.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "claim_id": "R013",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition. Its cover-control row carries the contract execution time, ties it to the correct executed trade, explicitly compares it with both the cure-expiry and evidence-cutoff bounds, and provides precise locators to both independently inspected trade images, whose pixels agree.",
+        "reference_evidence": [
+          {
+            "locator": "Contract Cure Controls!A10:H10",
+            "observation": "The executed-cover control records BRK-88402, 40, USD 22.50, FILLED/EXECUTED, and 2025-06-09 10:47:26 EDT; it concludes the fill is after the June 6 17:00 cure expiry and before June 9 noon and cites the terminal at PDF p.1 plus the broker blotter at word/media/image1.jpg.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p.1, embedded terminal order detail and Fills row",
+            "observation": "The pixels identify BRK-88402 as EXECUTED for 40 MWh of 2024 MA CLASS I at USD 22.50 and show execution/fill time 06/09/2025 10:47:26 EDT.",
+            "path": "public_input/Procurement/Cover Trade Capture BRK-88402.pdf"
+          },
+          {
+            "locator": "word/media/image1.jpg, focal blotter row TRADE ID BRK-88402",
+            "observation": "The photographed blotter row identifies BRK-88402 / MAI24 / 40 / 22.50 / 10:47:26 / FILLED, independently matching the terminal trade and exact time.",
+            "path": "public_input/Procurement/Broker Confirmation BRK-88402.docx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R014",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Eligibility!A2:L10",
+            "observation": "The dedicated eligibility matrix covers LOT-A, LOT-B, LOT-C, LOT-D, REPL-B, REPL-C, and COVER, with separate columns for exact GIS/RPS/unit identity, generation period, RPS effective date, output limitation, vintage result, qualification result, custody/uniqueness result, and precise evidence locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R014",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The required business meaning is a record-by-record Class I decision driven by generation period, exact unit identity, the matched unit's qualification effective date and output limitation, and a separate custody test under the stated authority order. The reference fully materializes those fields for every relevant original, replacement, and cover record. Its values are consistent with the public sources: all generation periods are in 2024; LOT-B's 2024Q1 generation precedes NON208580's 2024-04-01 effective date and is ineligible; the other matched units' effective dates precede generation; the cited DOER output-limitation cells are blank; and the custody results distinguish LOT-C's reversal, REPL-C's overlap, and settled cover custody.",
+        "reference_evidence": [
+          {
+            "locator": "Eligibility!A2:L10",
+            "observation": "The dedicated eligibility matrix covers LOT-A, LOT-B, LOT-C, LOT-D, REPL-B, REPL-C, and COVER, with separate columns for exact GIS/RPS/unit identity, generation period, RPS effective date, output limitation, vintage result, qualification result, custody/uniqueness result, and precise evidence locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R015",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Lot Dispositions!A4:P9",
+            "observation": "The six tender rows each have one final disposition: LOT-A accepts 400, LOT-B rejects 250, LOT-C rejects 200, LOT-D accepts 150, REPL-B accepts 250, and REPL-C accepts 150 while rejecting 50 duplicate serials.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Quantity Reconciliation!A4:G12",
+            "observation": "The schedule derives original accepted quantity 550, unique replacement acceptance 400, accepted-seller total 950, and post-cure deficiency 50 against the 1,000-REC contract, with the duplicate 000351-000400 band counted as 50 rejected certificates.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R015",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference workbook completely satisfies the frozen conservation standard: all four originals and both replacements have one disposition, the accepted component vector is 400 + 150 + 250 + 150 = 950, the 50 overlapping REPL-C serials are excluded once, and 1,000 less 950 yields the stated 50 post-cure deficiency with no unexplained balancing item.",
+        "reference_evidence": [
+          {
+            "locator": "Lot Dispositions!A4:P9",
+            "observation": "The six tender rows each have one final disposition: LOT-A accepts 400, LOT-B rejects 250, LOT-C rejects 200, LOT-D accepts 150, REPL-B accepts 250, and REPL-C accepts 150 while rejecting 50 duplicate serials.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Quantity Reconciliation!A4:G12",
+            "observation": "The schedule derives original accepted quantity 550, unique replacement acceptance 400, accepted-seller total 950, and post-cure deficiency 50 against the 1,000-REC contract, with the duplicate 000351-000400 band counted as 50 rejected certificates.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R016",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Quantity Reconciliation!B12:G16",
+            "observation": "The workbook shows a 50-REC post-cure deficiency, 40 RECs admitted as cover, and the formula B15=B12-B14 returning a 10-REC residual; row 15 labels it not accepted, not covered, not posted, owned by Energy Procurement, and open.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Action Register!A5:F5",
+            "observation": "The open action directs Energy Procurement to acquire or otherwise resolve the residual 10 Class I RECs before inventory finalization and requires verified final GIS ownership before posting.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R016",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition: it derives 10 from 50 less 40, preserves the residual outside accepted, covered, and posted quantities, and assigns a clear owner and operational follow-up as of the cutoff.",
+        "reference_evidence": [
+          {
+            "locator": "Quantity Reconciliation!B12:G16",
+            "observation": "The workbook shows a 50-REC post-cure deficiency, 40 RECs admitted as cover, and the formula B15=B12-B14 returning a 10-REC residual; row 15 labels it not accepted, not covered, not posted, owned by Energy Procurement, and open.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Action Register!A5:F5",
+            "observation": "The open action directs Energy Procurement to acquire or otherwise resolve the residual 10 Class I RECs before inventory finalization and requires verified final GIS ownership before posting.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R017",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Lot Dispositions!O4:P9; Financial Bridge!B6:F14",
+            "observation": "The accepted-quantity vector is 400, 0, 0, 150, 250, and 150, totaling 950; the gross line calculates 950 at USD 18.00 as USD 17,100, while the cover cost, USD 180 cover differential, and net USD 16,920 payable appear on separate later lines.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p. 1, Section 2; p. 2, Section 4",
+            "observation": "The executed confirmation sets the price at USD 18.00 per accepted REC and permits rejection of certificates that fail the product definition, lack buyer-account custody, or duplicate an already accepted serial.",
+            "path": "public_input/Contracts/REC Purchase Confirmation REC-2024-017.pdf"
+          }
+        ],
+        "claim_id": "R017",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen business meaning: it derives 950 accepted seller certificates after excluding rejected and duplicate certificates, multiplies that accepted quantity by the executed USD 18.00 unit price to obtain the arithmetically correct USD 17,100 gross, and keeps cover cost and offsets separate from that gross amount.",
+        "reference_evidence": [
+          {
+            "locator": "Lot Dispositions!O4:P9; Financial Bridge!B6:F14",
+            "observation": "The accepted-quantity vector is 400, 0, 0, 150, 250, and 150, totaling 950; the gross line calculates 950 at USD 18.00 as USD 17,100, while the cover cost, USD 180 cover differential, and net USD 16,920 payable appear on separate later lines.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "p. 1, Section 2; p. 2, Section 4",
+            "observation": "The executed confirmation sets the price at USD 18.00 per accepted REC and permits rejection of certificates that fail the product definition, lack buyer-account custody, or duplicate an already accepted serial.",
+            "path": "public_input/Contracts/REC Purchase Confirmation REC-2024-017.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R018",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Financial Bridge!A4:F15",
+            "observation": "The bridge shows USD 18,000 billed, USD 17,100 gross accepted seller value, USD 180 recoverable cover differential, USD 0 prior supported credits, USD 16,920 net payable, and USD 1,080 disputed; the formulas and cached values reconcile without variance.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Decision Summary!A5:H17",
+            "observation": "The embedded summary recommends approving USD 16,920 and disputing USD 1,080, and rows 12-17 repeat the billed amount, gross accepted value, cover differential, prior credits, payable, and dispute amount with source locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R018",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition: 950 accepted certificates at USD 18 produce USD 17,100, only the permitted 40 x USD 4.50 positive cover-price differential of USD 180 and supported prior credits of USD 0 are deducted, and the resulting USD 16,920 payable reconciles to both the financial bridge and decision summary with no unexplained difference.",
+        "reference_evidence": [
+          {
+            "locator": "Financial Bridge!A4:F15",
+            "observation": "The bridge shows USD 18,000 billed, USD 17,100 gross accepted seller value, USD 180 recoverable cover differential, USD 0 prior supported credits, USD 16,920 net payable, and USD 1,080 disputed; the formulas and cached values reconcile without variance.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Decision Summary!A5:H17",
+            "observation": "The embedded summary recommends approving USD 16,920 and disputing USD 1,080, and rows 12-17 repeat the billed amount, gross accepted value, cover differential, prior credits, payable, and dispute amount with source locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R019",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Inventory Posting!A3:F10",
+            "observation": "The posting schedule separately records 950 accepted seller certificates and 40 buyer cover certificates, excludes 500 rejected or duplicate source certificates from posting, keeps a 10-REC residual outside settled inventory, and reconciles 950 + 40 + 10 to 1,000.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Cover Custody!A3:L4",
+            "observation": "The cover line links BRK-88402 to ALLOC-88402-A and TX-772044, identifies 40 certificates in BSC-MA-4421, and records final SETTLED custody at 2025-06-09 11:18:06 EDT.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R019",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen standard: seller and cover are separately labeled at 950 and 40 with distinct lot and trade-to-registry lineage, rejected and duplicate certificates do not enter settled inventory, the 10-REC residual remains open outside settled inventory, and the vector reconciles to the 1,000 close requirement with official-interface and source locators.",
+        "reference_evidence": [
+          {
+            "locator": "Inventory Posting!A3:F10",
+            "observation": "The posting schedule separately records 950 accepted seller certificates and 40 buyer cover certificates, excludes 500 rejected or duplicate source certificates from posting, keeps a 10-REC residual outside settled inventory, and reconciles 950 + 40 + 10 to 1,000.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Cover Custody!A3:L4",
+            "observation": "The cover line links BRK-88402 to ALLOC-88402-A and TX-772044, identifies 40 certificates in BSC-MA-4421, and records final SETTLED custody at 2025-06-09 11:18:06 EDT.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R020",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Decision Summary!A27:F30",
+            "observation": "The labeled decision summary separately assigns the supported invoice dispute to Procurement and Legal with an Accounting hold by 2025-06-16 17:00 EDT, residual follow-up to Energy Procurement and Registry Operations, and date-only 2025-07-01 filing readiness to Compliance, with contract, calendar, and regulation locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Action Register!A2:G8",
+            "observation": "The action register expressly separates the commercial and regulatory clocks without inventing a filing time, and states each action, owner, trigger or scope, governing deadline, output, and precise public-evidence locator.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R020",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition: it gives the correct June 16, 2025 17:00 EDT contractual response deadline from the five-business-day clock, keeps the July 1, 2025 annual filing deadline as a separate date-only control, and supplies the required actions, owners, outputs, and precise locators.",
+        "reference_evidence": [
+          {
+            "locator": "Decision Summary!A27:F30",
+            "observation": "The labeled decision summary separately assigns the supported invoice dispute to Procurement and Legal with an Accounting hold by 2025-06-16 17:00 EDT, residual follow-up to Energy Procurement and Registry Operations, and date-only 2025-07-01 filing readiness to Compliance, with contract, calendar, and regulation locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Action Register!A2:G8",
+            "observation": "The action register expressly separates the commercial and regulatory clocks without inventing a filing time, and states each action, owner, trigger or scope, governing deadline, output, and precise public-evidence locator.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R021",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Cover Custody!A3:L8; Decision Summary!A23:F23",
+            "observation": "The control records BRK-88402, ALLOC-88402-A, MA RPS 7031-24, MSS424, 2024Q4, inclusive serials 004101-004140, BSC-MA-4421, TX-772044, and SETTLED at 2025-06-09 11:18:06 EDT; it posts 40 only after that final custody test and explicitly keeps the executed-trade USD 180 damage analysis separate.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded allocation-ticket image; page 2 embedded live-registry-receipt image",
+            "observation": "Direct pixel comparison shows page 1 tying BRK-88402 to ALLOC-88402-A, MA RPS 7031-24/MSS424, 2024 Q4, serials 004101-004140, and intended account BSC-MA-4421, while page 2 shows the same allocation and batch as TX-772044, CURRENT OWNER BSC-MA-4421, SETTLED at 06/09/2025 11:18:06 EDT.",
+            "path": "public_input/Registry Evidence/Cover Custody Confirmation BRK-88402.pdf"
+          }
+        ],
+        "claim_id": "R021",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen condition. Its workbook reproduces every material identity and timing element established jointly by the two required images, applies the noon cutoff, admits 40 cover certificates to compliance inventory only after final buyer-held custody, and separately preserves the executed-fill damage consequence with precise workbook and public-page locators.",
+        "reference_evidence": [
+          {
+            "locator": "Cover Custody!A3:L8; Decision Summary!A23:F23",
+            "observation": "The control records BRK-88402, ALLOC-88402-A, MA RPS 7031-24, MSS424, 2024Q4, inclusive serials 004101-004140, BSC-MA-4421, TX-772044, and SETTLED at 2025-06-09 11:18:06 EDT; it posts 40 only after that final custody test and explicitly keeps the executed-trade USD 180 damage analysis separate.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "page 1 embedded allocation-ticket image; page 2 embedded live-registry-receipt image",
+            "observation": "Direct pixel comparison shows page 1 tying BRK-88402 to ALLOC-88402-A, MA RPS 7031-24/MSS424, 2024 Q4, serials 004101-004140, and intended account BSC-MA-4421, while page 2 shows the same allocation and batch as TX-772044, CURRENT OWNER BSC-MA-4421, SETTLED at 06/09/2025 11:18:06 EDT.",
+            "path": "public_input/Registry Evidence/Cover Custody Confirmation BRK-88402.pdf"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R022",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Qualification Exception!A4:J13",
+            "observation": "The control record links QX-38983-2025 and LOT-D to NON38983, MA RPS 1015-02, and Deer Island Treatment Plant STG; orders REVIEW_HOLD, EVIDENCE_MATCHED, and RELEASED; records the final release at 2025-06-09 11:36:20 EDT by the Compliance Qualification Manager; concludes the gate passed before noon; and states that internal release cannot create or override DOER eligibility, with row-level public-source locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Lot Dispositions!A7:U7; Decision Summary!A24:F24",
+            "observation": "LOT-D is accepted for 150 only after the final pre-cutoff RELEASED event, while the summary separately identifies official program eligibility and describes the exception release as settlement-only clearance.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "claim_id": "R022",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The required business meaning is that official program eligibility must first be established independently, after which the exact qualification-exception case's last effective pre-cutoff event supplies an internal close gate. The reference completely implements that meaning with the exact case, lot, unit identity, ordered event sequence, terminal status and time, accountable owner, cutoff comparison, clearance conclusion, downstream LOT-D disposition, and precise public-source locators.",
+        "reference_evidence": [
+          {
+            "locator": "Qualification Exception!A4:J13",
+            "observation": "The control record links QX-38983-2025 and LOT-D to NON38983, MA RPS 1015-02, and Deer Island Treatment Plant STG; orders REVIEW_HOLD, EVIDENCE_MATCHED, and RELEASED; records the final release at 2025-06-09 11:36:20 EDT by the Compliance Qualification Manager; concludes the gate passed before noon; and states that internal release cannot create or override DOER eligibility, with row-level public-source locators.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          },
+          {
+            "locator": "Lot Dispositions!A7:U7; Decision Summary!A24:F24",
+            "observation": "LOT-D is accepted for 150 only after the final pre-cutoff RELEASED event, while the summary separately identifies official program eligibility and describes the exception release as settlement-only clearance.",
+            "path": "reference_answer/deliverables/rec_settlement_workpaper.xlsx"
+          }
+        ],
+        "schema_version": "statechain-claim-verdict/v1"
+      }
+    }
+  ],
+  "schema_version": "statechain-release-verdicts/v1"
+}

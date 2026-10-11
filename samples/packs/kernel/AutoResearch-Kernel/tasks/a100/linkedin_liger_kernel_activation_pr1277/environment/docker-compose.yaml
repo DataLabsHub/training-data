@@ -1,0 +1,12 @@
+services:
+  main:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: cdi
+              capabilities: ["gpu"]
+              device_ids:
+                - "${HARBOR_CDI_GPU:-nvidia.com/gpu=0}"

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "storageRoot": "input",
+  "note": "The task package stores solver-visible input files in input/. This manifest indexes those files without duplicating them.",
+  "files": [
+    {
+      "name": "chandra_acis_obs1843.fits",
+      "format": "FITS",
+      "path": "input/chandra_acis_obs1843.fits",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 691200,
+      "sha256": "000abc952b0537225bc05101096c983be12bd0e3bd629690e7683362592c5a1f",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

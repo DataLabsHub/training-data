@@ -1,0 +1,26 @@
+{
+  "schema_version": "1",
+  "task_id": "task_010",
+  "instruction": "Please prepare a conceptual physics mini-lesson for an online science class. In LibreOffice Impress, create exactly five slides titled Force, Motion, and Energy: Core Ideas: a title slide, a force and Newton's laws slide, a motion and velocity slide, an energy transformations slide, and a recap slide. Use explanatory statements and diagrams or examples, and do not include multiple-choice questions or answer options. Save the editable presentation as /home/user/Desktop/physics_concepts_lesson.pptx and export it as /home/user/Desktop/physics_concepts_lesson.pdf. Import the PDF into OpenBoard, add one revealable teaching annotation to each slide, and save the OpenBoard session as /home/user/Desktop/physics_concepts_lesson.ubz.",
+  "instruction_requirements": [
+    "conceptual_physics_lesson_deck",
+    "conceptual_lesson_pdf_export",
+    "openboard_reveal_session"
+  ],
+  "evaluator_checks": [
+    {
+      "covers": [
+        "conceptual_physics_lesson_deck",
+        "conceptual_lesson_pdf_export",
+        "openboard_reveal_session"
+      ],
+      "description": "The named editable deck, PDF export, and OpenBoard session all exist; the deck has exactly five slides and the PDF has exactly five pages.",
+      "helper_name": "check_concept_lesson_artifacts",
+      "helper_source": "import re\n\ndef check_concept_lesson_artifacts(env):\n    deck = env.controller.get_file('/home/user/Desktop/physics_concepts_lesson.pptx')\n    pdf = env.controller.get_file('/home/user/Desktop/physics_concepts_lesson.pdf')\n    ubz = env.controller.get_file('/home/user/Desktop/physics_concepts_lesson.ubz')\n    if deck is None or pdf is None or ubz is None:\n        return 0.0\n    deck_bytes = deck if isinstance(deck, (bytes, bytearray)) else str(deck).encode('utf-8')\n    pdf_bytes = pdf if isinstance(pdf, (bytes, bytearray)) else str(pdf).encode('utf-8')\n    ubz_bytes = ubz if isinstance(ubz, (bytes, bytearray)) else str(ubz).encode('utf-8')\n    slide_numbers = {int(value) for value in re.findall(rb'ppt/slides/slide(\\d+)\\.xml', deck_bytes)}\n    page_count = len(re.findall(rb'/Type\\s*/Page\\b', pdf_bytes))\n    valid_deck = deck_bytes[:2] == b'PK' and b'ppt/presentation.xml' in deck_bytes\n    valid_pdf = pdf_bytes.startswith(b'%PDF-') and b'%%EOF' in pdf_bytes\n    valid_ubz = ubz_bytes[:2] == b'PK' and len(ubz_bytes) > 1000\n    return float(valid_deck and valid_pdf and valid_ubz and slide_numbers == {1, 2, 3, 4, 5} and page_count == 5)\n",
+      "kind": "python",
+      "name": "concept_lesson_artifacts",
+      "weight": 1.0
+    }
+  ],
+  "pass_threshold": 1.0
+}

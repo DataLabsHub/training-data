@@ -1,0 +1,68 @@
+diff --git a/datatypes/localized-text.go b/datatypes/localized-text.go
+new file mode 100644
+index 0000000..4b5ecdd
+--- /dev/null
++++ b/datatypes/localized-text.go
+@@ -0,0 +1,12 @@
++package datatypes
++
++import "github.com/wmnsk/gopcua/errors"
++
++type LocalizedText struct { EncodingMask uint8; Locale *String; Text *String }
++func NewLocalizedText(locale, text string) *LocalizedText { l:=&LocalizedText{}; if locale!="" { l.Locale=NewString(locale); l.SetLocaleMask() }; if text!="" { l.Text=NewString(text); l.SetTextMask() }; return l }
++func DecodeLocalizedText(b []byte)(*LocalizedText,error){ x:=&LocalizedText{}; if err:=x.DecodeFromBytes(b);err!=nil{return nil,err};return x,nil }
++func (x *LocalizedText) DecodeFromBytes(b []byte) error { if len(b)<1{return &errors.ErrTooShortToDecode{x,"missing mask"}}; x.EncodingMask=b[0]; o:=1; if x.EncodingMask&1!=0 {x.Locale=&String{};if err:=x.Locale.DecodeFromBytes(b[o:]);err!=nil{return err};o+=x.Locale.Len()};if x.EncodingMask&2!=0{x.Text=&String{};if err:=x.Text.DecodeFromBytes(b[o:]);err!=nil{return err}};return nil }
++func (x *LocalizedText) Serialize()([]byte,error){b:=make([]byte,x.Len());if err:=x.SerializeTo(b);err!=nil{return nil,err};return b,nil}
++func (x *LocalizedText) SerializeTo(b []byte) error {if len(b)<x.Len(){return &errors.ErrInvalidLength{x,"bytes should be longer"}};b[0]=x.EncodingMask;o:=1;if x.HasLocale(){if err:=x.Locale.SerializeTo(b[o:]);err!=nil{return err};o+=x.Locale.Len()};if x.HasText(){return x.Text.SerializeTo(b[o:])};return nil}
++func(x *LocalizedText)Len()int{n:=1;if x.HasLocale(){n+=x.Locale.Len()};if x.HasText(){n+=x.Text.Len()};return n}
++func(x *LocalizedText)HasLocale()bool{return x.EncodingMask&1!=0&&x.Locale!=nil};func(x *LocalizedText)HasText()bool{return x.EncodingMask&2!=0&&x.Text!=nil};func(x *LocalizedText)SetLocaleMask(){x.EncodingMask|=1};func(x *LocalizedText)SetTextMask(){x.EncodingMask|=2}
+diff --git a/datatypes/string-array.go b/datatypes/string-array.go
+new file mode 100644
+index 0000000..2b4978b
+--- /dev/null
++++ b/datatypes/string-array.go
+@@ -0,0 +1,8 @@
++package datatypes
++import("encoding/binary";"github.com/wmnsk/gopcua/errors")
++type StringArray struct{ArraySize int32;Strings []*String}
++func NewStringArray(v []string)*StringArray{x:=&StringArray{ArraySize:-1};if v!=nil{x.ArraySize=int32(len(v));for _,s:=range v{x.Strings=append(x.Strings,NewString(s))}};return x}
++func DecodeStringArray(b []byte)(*StringArray,error){x:=&StringArray{};if err:=x.DecodeFromBytes(b);err!=nil{return nil,err};return x,nil}
++func(x *StringArray)DecodeFromBytes(b []byte)error{if len(b)<4{return &errors.ErrTooShortToDecode{x,"missing array size"}};x.ArraySize=int32(binary.LittleEndian.Uint32(b));x.Strings=nil;o:=4;for i:=int32(0);i<x.ArraySize;i++{s,e:=DecodeString(b[o:]);if e!=nil{return e};x.Strings=append(x.Strings,s);o+=s.Len()};return nil}
++func(x *StringArray)Serialize()([]byte,error){b:=make([]byte,x.Len());if e:=x.SerializeTo(b);e!=nil{return nil,e};return b,nil};func(x *StringArray)SerializeTo(b []byte)error{if len(b)<x.Len(){return &errors.ErrInvalidLength{x,"bytes should be longer"}};binary.LittleEndian.PutUint32(b,int32bytes(x.ArraySize));o:=4;for _,s:=range x.Strings{if e:=s.SerializeTo(b[o:]);e!=nil{return e};o+=s.Len()};return nil};func(x *StringArray)Len()int{n:=4;for _,s:=range x.Strings{n+=s.Len()};return n}
++func int32bytes(v int32)[]byte{b:=make([]byte,4);binary.LittleEndian.PutUint32(b,uint32(v));return b}
+diff --git a/services/get-endpoints.go b/services/get-endpoints.go
+new file mode 100644
+index 0000000..566a87b
+--- /dev/null
++++ b/services/get-endpoints.go
+@@ -0,0 +1,30 @@
++package services
++import("encoding/binary";"fmt";"github.com/wmnsk/gopcua/datatypes")
++const(ServiceTypeGetEndpointRequest uint16=428;ServiceTypeGetEndpointResponse uint16=431;AppTypeServer uint32=iota;AppTypeClient;AppTypeClientAndServer;AppTypeDiscoveryServer)
++const(UserTokenAnonymous uint32=iota;UserTokenUsername;UserTokenCertificate;UserTokenIssuedToken)
++type ApplicationDescription struct{ApplicationURI,ProductURI *datatypes.String;ApplicationName *datatypes.LocalizedText;ApplicationType uint32;GatewayServerURI,DiscoveryProfileURI *datatypes.String;DiscoveryURIs *datatypes.StringArray}
++func NewApplicationDescription(a,p,n string,t uint32,g,q string,d []string)*ApplicationDescription{return &ApplicationDescription{datatypes.NewString(a),datatypes.NewString(p),datatypes.NewLocalizedText("",n),t,datatypes.NewString(g),datatypes.NewString(p),datatypes.NewStringArray(d)}}
++type UserTokenPolicy struct{PolicyID *datatypes.String;TokenType uint32;IssuedTokenType,IssuerEndpointURI,SecurityPolicyURI *datatypes.String}
++func NewUserTokenPolicy(i string,t uint32,a,b,c string)*UserTokenPolicy{return &UserTokenPolicy{datatypes.NewString(i),t,datatypes.NewString(a),datatypes.NewString(b),datatypes.NewString(c)}}
++type UserTokenPolicyArray struct{ArraySize int32;UserTokenPolicies []*UserTokenPolicy}
++func NewUserTokenPolicyArray(v []*UserTokenPolicy)*UserTokenPolicyArray{x:=&UserTokenPolicyArray{ArraySize:-1};if v!=nil{x.ArraySize=int32(len(v));x.UserTokenPolicies=v};return x}
++type EndpointDescription struct{EndpointURL *datatypes.String;Server *ApplicationDescription;ServerCertificate *datatypes.ByteString;MessageSecurityMode uint32;SecurityPolicyURI *datatypes.String;UserIdentityTokens *UserTokenPolicyArray;TransportProfileURI *datatypes.String;SecurityLevel uint8}
++func NewEndpointDesctiption(u string,s *ApplicationDescription,c []byte,m uint32,p string,t *UserTokenPolicyArray,q string,l uint8)*EndpointDescription{return &EndpointDescription{datatypes.NewString(u),s,datatypes.NewByteString(c),m,datatypes.NewString(p),t,datatypes.NewString(q),l}}
++type EndpointDescriptionArray struct{ArraySize int32;EndpointDescriptions []*EndpointDescription}
++func NewEndpointDesctiptionArray(v []*EndpointDescription)*EndpointDescriptionArray{x:=&EndpointDescriptionArray{ArraySize:-1};if v!=nil{x.ArraySize=int32(len(v));x.EndpointDescriptions=v};return x}
++type wire interface{SerializeTo([]byte)error;DecodeFromBytes([]byte)error;Len()int}
++func enc(b []byte,o *int,x wire)error{if e:=x.SerializeTo(b[*o:]);e!=nil{return e};*o+=x.Len();return nil}
++func dec(b []byte,o *int,x wire)error{if e:=x.DecodeFromBytes(b[*o:]);e!=nil{return e};*o+=x.Len();return nil}
++func u32(b []byte,o *int,v *uint32){*v=binary.LittleEndian.Uint32(b[*o:]);*o+=4}
++func appFields(x *ApplicationDescription,b []byte,o *int, put bool)error{if put{for _,v:=range []wire{x.ApplicationURI,x.ProductURI,x.ApplicationName}{if e:=enc(b,o,v);e!=nil{return e}};binary.LittleEndian.PutUint32(b[*o:],x.ApplicationType);*o+=4;for _,v:=range []wire{x.GatewayServerURI,x.DiscoveryProfileURI,x.DiscoveryURIs}{if e:=enc(b,o,v);e!=nil{return e}};return nil};for _,v:=range []wire{x.ApplicationURI,x.ProductURI,x.ApplicationName}{if e:=dec(b,o,v);e!=nil{return e}};u32(b,o,&x.ApplicationType);for _,v:=range []wire{x.GatewayServerURI,x.DiscoveryProfileURI,x.DiscoveryURIs}{if e:=dec(b,o,v);e!=nil{return e}};return nil}
++func(x *ApplicationDescription)DecodeFromBytes(b []byte)error{x.ApplicationURI=&datatypes.String{};x.ProductURI=&datatypes.String{};x.ApplicationName=&datatypes.LocalizedText{};x.GatewayServerURI=&datatypes.String{};x.DiscoveryProfileURI=&datatypes.String{};x.DiscoveryURIs=&datatypes.StringArray{};o:=0;return appFields(x,b,&o,false)}
++func(x *ApplicationDescription)Serialize()([]byte,error){b:=make([]byte,x.Len());return b,x.SerializeTo(b)};func(x *ApplicationDescription)SerializeTo(b []byte)error{o:=0;return appFields(x,b,&o,true)};func(x *ApplicationDescription)Len()int{return x.ApplicationURI.Len()+x.ProductURI.Len()+x.ApplicationName.Len()+4+x.GatewayServerURI.Len()+x.DiscoveryProfileURI.Len()+x.DiscoveryURIs.Len()};func(x *ApplicationDescription)String()string{return fmt.Sprintf("%v",x.ApplicationURI)};func DecodeApplicationDescription(b []byte)(*ApplicationDescription,error){x:=&ApplicationDescription{};return x,x.DecodeFromBytes(b)}
++
++func(x *UserTokenPolicy)Len()int{return x.PolicyID.Len()+4+x.IssuedTokenType.Len()+x.IssuerEndpointURI.Len()+x.SecurityPolicyURI.Len()}
++func(x *UserTokenPolicy)Serialize()([]byte,error){b:=make([]byte,x.Len());return b,x.SerializeTo(b)}
++func(x *UserTokenPolicy)SerializeTo(b []byte)error{o:=0;for _,v:=range []wire{x.PolicyID}{if e:=enc(b,&o,v);e!=nil{return e}};binary.LittleEndian.PutUint32(b[o:],x.TokenType);o+=4;for _,v:=range []wire{x.IssuedTokenType,x.IssuerEndpointURI,x.SecurityPolicyURI}{if e:=enc(b,&o,v);e!=nil{return e}};return nil}
++func(x *UserTokenPolicy)DecodeFromBytes(b []byte)error{o:=0;x.PolicyID=&datatypes.String{};x.IssuedTokenType=&datatypes.String{};x.IssuerEndpointURI=&datatypes.String{};x.SecurityPolicyURI=&datatypes.String{};if e:=dec(b,&o,x.PolicyID);e!=nil{return e};u32(b,&o,&x.TokenType);for _,v:=range []wire{x.IssuedTokenType,x.IssuerEndpointURI,x.SecurityPolicyURI}{if e:=dec(b,&o,v);e!=nil{return e}};return nil}
++func DecodeUserTokenPolicy(b []byte)(*UserTokenPolicy,error){x:=&UserTokenPolicy{};return x,x.DecodeFromBytes(b)}
++func(x *UserTokenPolicyArray)Len()int{n:=4;for _,v:=range x.UserTokenPolicies{n+=v.Len()};return n}
++func(x *UserTokenPolicyArray)Serialize()([]byte,error){b:=make([]byte,x.Len());return b,x.SerializeTo(b)};func(x *UserTokenPolicyArray)SerializeTo(b []byte)error{binary.LittleEndian.PutUint32(b,uint32(x.ArraySize));o:=4;for _,v:=range x.UserTokenPolicies{if e:=v.SerializeTo(b[o:]);e!=nil{return e};o+=v.Len()};return nil}
++func(x *UserTokenPolicyArray)DecodeFromBytes(b []byte)error{x.ArraySize=int32(binary.LittleEndian.Uint32(b));o:=4;for i:=int32(0);i<x.ArraySize;i++{v:=&UserTokenPolicy{};if e:=v.DecodeFromBytes(b[o:]);e!=nil{return e};x.UserTokenPolicies=append(x.UserTokenPolicies,v);o+=v.Len()};return nil};func DecodeUserTokenPolicyArray(b []byte)(*UserTokenPolicyArray,error){x:=&UserTokenPolicyArray{};return x,x.DecodeFromBytes(b)}

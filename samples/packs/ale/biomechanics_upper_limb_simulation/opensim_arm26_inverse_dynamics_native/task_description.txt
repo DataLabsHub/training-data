@@ -1,0 +1,36 @@
+## OpenSim Arm26 Filtered and Unfiltered Inverse Dynamics Native Artifacts
+
+### Software
+OpenSim 4.5 on Windows 10/11 x64, using the OpenSim GUI workflow or `opensim-cmd`. OpenSim is free public biomechanics software; no license key or credentials are required.
+
+### Objective
+Starting only from `input/`, run arm26 inverse kinematics and then produce both filtered and unfiltered inverse dynamics results from the generated IK motion.
+
+### Inputs
+The input directory contains the official arm26 starter model and elbow-flex marker trajectory from `Tutorials/Computed_Muscle_Control`. Generate the requested outputs locally from the bundled starter files.
+
+### Required Workflow
+1. Verify `input/checksums.sha256`.
+2. Run IK on `arm26.osim` with `arm26_elbow_flex.trc` over 0.0-1.0 s.
+3. Run Inverse Dynamics using the generated IK motion with a 6 Hz coordinate low-pass cutoff.
+4. Run Inverse Dynamics again using the generated IK motion with no coordinate filtering.
+5. Save the final setup XMLs under `output/setup/`.
+6. Write `output/run_log.txt` with the OpenSim command/version and setup XMLs executed.
+7. Write `output/provenance.json` with `task_id`, `opensim_version`, `input_manifest_sha256`, a `setup_commands` list, and SHA-256 hashes for every required output file except `provenance.json`.
+
+### Required Outputs
+Create these paths exactly:
+- `output/setup/arm26_Setup_InverseKinematics.xml`
+- `output/setup/arm26_Setup_InverseDynamics_Filtered.xml`
+- `output/setup/arm26_Setup_InverseDynamics_Unfiltered.xml`
+- `output/ik/arm26_InverseKinematics.mot`
+- `output/id_filtered/arm26_InverseDynamics.sto`
+- `output/id_unfiltered/arm26_InverseDynamics.sto`
+- `output/run_log.txt`
+- `output/provenance.json`
+
+### Evaluation
+The grader checks provenance hashes, OpenSim 4.5 run-log evidence, the setup XMLs, verifies the generated IK intermediate exists, rejects stale path references and copied precomputed outputs, and numerically compares the filtered and unfiltered `.sto` outputs to official OpenSim artifacts.
+
+### Failure exit
+If the VM software environment makes the task genuinely infeasible after a reasonable expert attempt, write `output/infeasible.md` with the specific blocker, software state, and attempted workflow. Do not submit fabricated or placeholder deliverables. This exit is only for genuine blockers; otherwise produce every required artifact exactly as specified.

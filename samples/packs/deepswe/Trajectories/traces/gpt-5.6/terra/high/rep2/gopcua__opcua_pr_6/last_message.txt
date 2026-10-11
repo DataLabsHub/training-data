@@ -1,0 +1,10 @@
+Implemented GetEndpoints discovery support.
+
+- Added `LocalizedText` and signed `StringArray` codecs.
+- Added application, user-token, and endpoint discovery structures/arrays.
+- Added GetEndpoint request/response encoding, decoding, constructors, and dispatcher IDs 428/431.
+- Updated response string tables to use `StringArray` (with legacy aliases retained).
+- Ensured null ByteStrings decode to nil bytes.
+- Added focused round-trip/dispatch tests.
+
+Verified with the full Go test suite: all packages pass.

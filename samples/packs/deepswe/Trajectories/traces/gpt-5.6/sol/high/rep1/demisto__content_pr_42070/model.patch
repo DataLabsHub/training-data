@@ -1,0 +1,437 @@
+diff --git a/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py b/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py
+new file mode 100644
+index 0000000..97bc953
+--- /dev/null
++++ b/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py
+@@ -0,0 +1,431 @@
++import copy
++from dataclasses import dataclass
++from enum import Enum
++from typing import Any
++
++import demistomock as demisto
++from CommonServerPython import *
++from CommonServerUserPython import *
++from AggregatedCommandApiModule import *
++
++
++MAX_INDICATORS = 100
++
++
++class IndicatorType(Enum):
++    IP = "IP"
++    URL = "URL"
++    DOMAIN = "Domain"
++    CVE = "CVE"
++    FILE = "File"
++
++    @classmethod
++    def resolve_from_string(cls, value):
++        if not isinstance(value, str) or not value.strip():
++            return None
++
++        normalized = value.strip().lower()
++        aliases = {
++            "ip": cls.IP,
++            "ipv4": cls.IP,
++            "url": cls.URL,
++            "domain": cls.DOMAIN,
++            "cve": cls.CVE,
++            "file": cls.FILE,
++        }
++        return aliases.get(normalized)
++
++
++@dataclass
++class UnsupportedIndicator:
++    type: Any
++    value: Any
++
++
++class ValidationError(Exception):
++    pass
++
++
++class AllExecutionsFailedError(Exception):
++    pass
++
++
++class GracefulExit(Exception):
++    pass
++
++
++class EnrichmentRequest:
++    def __init__(
++        self,
++        valid_indicators_by_type,
++        unsupported_items,
++        unknown_items,
++        duplicates_removed_count,
++        sub_command_arguments,
++        include_raw_context,
++    ):
++        self.valid_indicators_by_type = valid_indicators_by_type
++        self.unsupported_items = unsupported_items
++        self.unknown_items = unknown_items
++        self.duplicates_removed_count = duplicates_removed_count
++        self.sub_command_arguments = sub_command_arguments
++        self.include_raw_context = include_raw_context
++
++    @property
++    def total_valid_count(self):
++        return sum(len(values) for values in self.valid_indicators_by_type.values())
++
++
++class EnrichmentResult:
++    def __init__(self):
++        self.enriched_data = []
++        self.raw_context = {}
++        self.markdown_sections = []
++        self.execution_errors = []
++
++
++class EnrichmentRequestBuilder:
++    def __init__(self, raw_arguments):
++        self.raw_arguments = raw_arguments or {}
++
++    @staticmethod
++    def _extracted_indicators(extraction_result):
++        """Return ExtractedIndicators mappings from the common command result shapes."""
++        extracted = []
++
++        def visit(value):
++            if isinstance(value, list):
++                for item in value:
++                    visit(item)
++                return
++            if not isinstance(value, dict):
++                return
++
++            direct = value.get("EntryContext.ExtractedIndicators")
++            if isinstance(direct, dict):
++                extracted.append(direct)
++
++            entry_context = value.get("EntryContext")
++            if isinstance(entry_context, dict):
++                indicators = entry_context.get("ExtractedIndicators")
++                if isinstance(indicators, dict):
++                    extracted.append(indicators)
++
++            indicators = value.get("ExtractedIndicators")
++            if isinstance(indicators, dict):
++                extracted.append(indicators)
++
++            # Some execute_command implementations expose the command Contents
++            # directly. Accept that form when it is clearly an indicator map.
++            wrapper_keys = {"EntryContext", "EntryContext.ExtractedIndicators", "ExtractedIndicators", "Contents"}
++            if not wrapper_keys.intersection(value) and any(
++                IndicatorType.resolve_from_string(key)
++                or (isinstance(key, str) and FeedIndicatorType.is_valid_type(key))
++                for key in value
++            ):
++                extracted.append(value)
++
++            # execute_command may return either complete entries or their Contents.
++            contents = value.get("Contents")
++            if isinstance(contents, (dict, list)):
++                visit(contents)
++
++        visit(extraction_result)
++        return extracted
++
++    @staticmethod
++    def _has_value(value):
++        if value is None:
++            return False
++        if isinstance(value, str):
++            return bool(value.strip())
++        if isinstance(value, (list, tuple, set, dict)):
++            return bool(value)
++        return True
++
++    def build_and_validate(self):
++        valid_indicators_by_type = {}
++        unsupported_items = []
++        unknown_items = []
++        seen_values = set()
++        duplicates_removed_count = 0
++
++        def add_indicator(indicator_type, raw_value):
++            nonlocal duplicates_removed_count
++
++            value = raw_value.strip() if isinstance(raw_value, str) else raw_value
++            if value is None or value == "":
++                return
++
++            try:
++                duplicate_key = (type(value), value)
++                already_seen = duplicate_key in seen_values
++            except TypeError:
++                duplicate_key = (type(value), repr(value))
++                already_seen = duplicate_key in seen_values
++
++            if already_seen:
++                duplicates_removed_count += 1
++                return
++            seen_values.add(duplicate_key)
++
++            resolved_type = IndicatorType.resolve_from_string(indicator_type)
++            if resolved_type:
++                valid_indicators_by_type.setdefault(resolved_type, []).append(value)
++            elif indicator_type is not None and str(indicator_type).strip():
++                unsupported_items.append(UnsupportedIndicator(indicator_type, value))
++            else:
++                unknown_items.append(value)
++
++        indicator_list_supplied = self._has_value(self.raw_arguments.get("indicator_list"))
++        if indicator_list_supplied:
++            for value in argToList(self.raw_arguments.get("indicator_list")):
++                normalized_value = value.strip() if isinstance(value, str) else value
++                if normalized_value is None or normalized_value == "":
++                    continue
++                try:
++                    detected_type = auto_detect_indicator_type(normalized_value)
++                except Exception:
++                    detected_type = None
++                add_indicator(detected_type, normalized_value)
++
++        text = self.raw_arguments.get("text")
++        text_supplied = self._has_value(text)
++        if text_supplied:
++            extraction_result = execute_command("extractIndicators", {"text": text})
++            for extracted_mapping in self._extracted_indicators(extraction_result):
++                for extracted_type, extracted_values in extracted_mapping.items():
++                    values = extracted_values if isinstance(extracted_values, list) else [extracted_values]
++                    for value in values:
++                        add_indicator(extracted_type, value)
++
++        sub_command_arguments = {
++            key: self.raw_arguments[key]
++            for key in ("external_enrichment", "brands", "additional_fields")
++            if key in self.raw_arguments
++        }
++        include_raw_context = argToBoolean(self.raw_arguments.get("raw_context") or False)
++
++        request = EnrichmentRequest(
++            valid_indicators_by_type=valid_indicators_by_type,
++            unsupported_items=unsupported_items,
++            unknown_items=unknown_items,
++            duplicates_removed_count=duplicates_removed_count,
++            sub_command_arguments=sub_command_arguments,
++            include_raw_context=include_raw_context,
++        )
++
++        if request.total_valid_count == 0:
++            message = "No valid indicators provided."
++            if text_supplied and not indicator_list_supplied:
++                raise GracefulExit(message)
++            raise ValidationError(message)
++
++        ignore_limit = argToBoolean(self.raw_arguments.get("ignore_indicator_limit") or False)
++        if request.total_valid_count > MAX_INDICATORS and not ignore_limit:
++            raise ValidationError(
++                f"Indicator limit exceeded: {request.total_valid_count} unique valid indicators were provided; "
++                f"the limit is {MAX_INDICATORS}."
++            )
++
++        return request
++
++
++class EnrichmentService:
++    COMMAND_DETAILS = {
++        IndicatorType.IP: ("ip-enrichment", "ip_list"),
++        IndicatorType.URL: ("url-enrichment", "url_list"),
++        IndicatorType.DOMAIN: ("domain-enrichment", "domain_list"),
++        IndicatorType.CVE: ("cve-enrichment", "cve_list"),
++        IndicatorType.FILE: ("file-enrichment", "file_list"),
++    }
++
++    CHILD_CONTEXT_TYPES = {
++        "IPEnrichment": IndicatorType.IP,
++        "URLEnrichment": IndicatorType.URL,
++        "DomainEnrichment": IndicatorType.DOMAIN,
++        "CVEEnrichment": IndicatorType.CVE,
++        "FileEnrichment": IndicatorType.FILE,
++    }
++
++    def __init__(self, request):
++        self.request = request
++
++    @staticmethod
++    def _iter_processed_results(value):
++        if isinstance(value, tuple) and len(value) == 3:
++            yield value
++        elif isinstance(value, list):
++            for item in value:
++                yield from EnrichmentService._iter_processed_results(item)
++
++    @staticmethod
++    def _entry_context(entry):
++        if not isinstance(entry, dict):
++            return {}
++        context = entry.get("EntryContext")
++        if isinstance(context, dict):
++            return context
++        # This also makes the service convenient to use with already-extracted
++        # context in unit tests, without treating regular entry metadata as context.
++        if any(EnrichmentService._child_type_for_key(key) for key in entry):
++            return entry
++        return {}
++
++    @staticmethod
++    def _child_type_for_key(key):
++        if not isinstance(key, str):
++            return None
++        for prefix, indicator_type in EnrichmentService.CHILD_CONTEXT_TYPES.items():
++            if key == prefix or key.startswith(prefix + "("):
++                return indicator_type
++        return None
++
++    @staticmethod
++    def _merge_context(target, source):
++        for key, value in source.items():
++            value_copy = copy.deepcopy(value)
++            if key not in target:
++                target[key] = value_copy
++            elif isinstance(target[key], list) and isinstance(value_copy, list):
++                target[key].extend(value_copy)
++            elif isinstance(target[key], dict) and isinstance(value_copy, dict):
++                target[key].update(value_copy)
++            else:
++                target[key] = value_copy
++
++    def execute(self):
++        result = EnrichmentResult()
++        if not self.request.valid_indicators_by_type:
++            return result
++
++        commands = []
++        for indicator_type, values in self.request.valid_indicators_by_type.items():
++            command_name, list_argument = self.COMMAND_DETAILS[indicator_type]
++            command_arguments = dict(self.request.sub_command_arguments)
++            command_arguments[list_argument] = values
++            commands.append(
++                Command(
++                    name=command_name,
++                    args=command_arguments,
++                    command_type=CommandType.INTERNAL,
++                    ignore_using_brand=True,
++                )
++            )
++
++        # The formatter consolidates the child commands' readable output, so ask
++        # the batch processor to retain it.
++        processed_results = BatchExecutor().execute_batch(commands, verbose=True)
++        for entry, human_readable, error in self._iter_processed_results(processed_results):
++            if human_readable:
++                result.markdown_sections.append(human_readable)
++            if error:
++                result.execution_errors.append(str(error))
++
++            entry_context = self._entry_context(entry)
++            if not entry_context:
++                continue
++            self._merge_context(result.raw_context, entry_context)
++
++            for key, context_value in entry_context.items():
++                indicator_type = self._child_type_for_key(key)
++                if not indicator_type:
++                    continue
++                values = context_value if isinstance(context_value, list) else [context_value]
++                for value in values:
++                    if isinstance(value, dict):
++                        enriched_value = copy.deepcopy(value)
++                        enriched_value["Type"] = indicator_type.value
++                        result.enriched_data.append(enriched_value)
++
++        return result
++
++
++class ResponseFormatter:
++    CHILD_CONTEXT_PREFIXES = tuple(EnrichmentService.CHILD_CONTEXT_TYPES)
++
++    @staticmethod
++    def _unsupported_rows(request):
++        rows = []
++        for item in request.unsupported_items:
++            rows.append(
++                {
++                    "Type": item.type,
++                    "Value": item.value,
++                    "Status": "Error",
++                    "Message": "Unsupported indicator type.",
++                }
++            )
++        for value in request.unknown_items:
++            rows.append(
++                {
++                    "Type": "Unknown",
++                    "Value": value,
++                    "Status": "Error",
++                    "Message": "Not a valid indicator.",
++                }
++            )
++        return rows
++
++    @classmethod
++    def _is_child_context_key(cls, key):
++        if not isinstance(key, str):
++            return False
++        return any(key == prefix or key.startswith(prefix + "(") for prefix in cls.CHILD_CONTEXT_PREFIXES)
++
++    def format(self, result, request):
++        if not result.enriched_data and result.execution_errors:
++            errors = "\n".join(str(error) for error in result.execution_errors)
++            raise AllExecutionsFailedError(
++                "Fatal error while executing enrichment. View the logs or try again.\n" + errors
++            )
++
++        invalid_rows = self._unsupported_rows(request)
++        outputs = copy.deepcopy(result.raw_context)
++        if not request.include_raw_context:
++            outputs = {key: value for key, value in outputs.items() if not self._is_child_context_key(key)}
++
++        unified_entries = copy.deepcopy(result.enriched_data)
++        unified_entries.extend(copy.deepcopy(invalid_rows))
++        outputs["IndicatorEnrichment"] = unified_entries
++
++        markdown_parts = []
++        if request.duplicates_removed_count:
++            markdown_parts.append(
++                f"Note: Removed {request.duplicates_removed_count} duplicate indicator occurrences before enrichment."
++            )
++        markdown_parts.extend(result.markdown_sections)
++        if invalid_rows:
++            markdown_parts.append(
++                tableToMarkdown(
++                    "Invalid or unsupported indicators",
++                    invalid_rows,
++                    headers=["Type", "Value", "Status", "Message"],
++                ).rstrip()
++            )
++        if result.execution_errors:
++            error_lines = "\n".join(f"- {error}" for error in result.execution_errors)
++            markdown_parts.append("### Enrichment execution errors\n\n" + error_lines)
++        if not markdown_parts:
++            markdown_parts.append("No enrichment data was returned.")
++
++        return CommandResults(readable_output="\n\n".join(markdown_parts), outputs=outputs)
++
++
++def main():
++    try:
++        request = EnrichmentRequestBuilder(demisto.args()).build_and_validate()
++        result = EnrichmentService(request).execute()
++        return_results(ResponseFormatter().format(result, request))
++    except GracefulExit as ex:
++        return_results(CommandResults(readable_output=str(ex), outputs={}))
++    except (ValidationError, AllExecutionsFailedError) as ex:
++        return_error(str(ex))
++    except Exception as ex:
++        message = f"Failed to execute !indicator-enrichment. Error: {str(ex)}"
++        demisto.error(message)
++        return_error(message)
++
++
++if __name__ in ("__main__", "__builtin__", "builtins"):  # pragma: no cover
++    main()

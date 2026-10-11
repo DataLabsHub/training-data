@@ -1,0 +1,21 @@
+{
+  "Workspace/00_Provenance/source_provenance.json": "sha256:4bc5cd5741de3afac479e6195fe3439f273c1ed86b29d37cb53039bf39f401a9",
+  "Workspace/01_Governance/accepted_submission_manifest.xlsx": "sha256:ebcffa79ec9423c3640295cdd412009f6b56aec8a329953887eed332e06f61fc",
+  "Workspace/01_Governance/late_replacement_approval_log.pdf": "sha256:80d9eb4af74d2ef118ef0c8954cc8526811b3f4f883dcf492e653a17581e229b",
+  "Workspace/01_Governance/publication_release_policy.pdf": "sha256:55c3e10fa8fbb36828cd106a0707896df1a1b1ab80efdd7fc26909228e83b2d6",
+  "Workspace/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf": "sha256:58dd21c4f41658c8685861d5eee0c24fd728a2bfb644b82e71ad7bf2503e9935",
+  "Workspace/03_Analysis/analysis_environment_R17.json": "sha256:e2a850c8aa68ab64f6bd02cf5ed9e7796f13df54ef79cbb695ceb277e8dec18d",
+  "Workspace/03_Analysis/analysis_observations_R17.csv": "sha256:7381f1740a23ca4af11b780e78c003869d0590a990e5b984caa7c613555c018c",
+  "Workspace/03_Analysis/fig3_analysis_export_R17.xlsx": "sha256:cd122e8b72c520eba3c8efa9f96799f3de579f9353cdb6712b337fe6f0c01113",
+  "Workspace/04_Proof/current_production_proof_PRF-02.pdf": "sha256:6ed5d5954db9225c97e69adba54f9196c7a162c2df060f5c0c3ae4b71c19b347",
+  "Workspace/04_Proof/figure3_current_proof_extracted.png": "sha256:779d11a0b97371edf7296b7818d83c8c5e93ac78da2a67f3b9b31c44e47106b5",
+  "Workspace/04_Proof/figure3_registration_overlay.docx": "sha256:01e6255a56d93bdbd729a103673f0100d1214d78270471c8718c5d78755710a9",
+  "Workspace/04_Proof/proof_component_inventory.json": "sha256:37935fee856324fd7abb3169514834e851ffee2afcb9c5ab27d3e0347ae5698c",
+  "Workspace/05_Dependencies/panel_content_dependency_map.xlsx": "sha256:4b2cbb8d98df68583d2064f5761497c2df448688b493fd6d45f57b43db43f788",
+  "Workspace/06_Deposit/deposit_v3_manifest.xlsx": "sha256:b0e4bfd22e1fb7e94698e0cb1d88b6379f8d47ff3b7b2d1d2dc87e83f59d6c15",
+  "Workspace/06_Deposit/deposit_version_history.csv": "sha256:a8c620f06886555a6ac3d0a3ce38ad4a586bfc089bb5048e1e22ee35d2b72dc6",
+  "Workspace/07_Release_Control/author_correction_tracker.xlsx": "sha256:e672950b09db088b9b69dd06f1db66bfe9b026c0c831eec665466f5247d82ebf",
+  "Workspace/07_Release_Control/production_lock_schedule.md": "sha256:a143157c290f4e78921fa69d82ea87481aa8947da323807aa18196c997bbe3a3",
+  "deliverables/figure3_reconciliation_register.xlsx": "sha256:07e84997e68ad3a4e6248e5ed3522c94e1481998b2cafba82bf1ef602f9561c4",
+  "deliverables/publication_release_memo.docx": "sha256:a032dc7e9d2f1861668fd26a69951992b3fbab02547e4b922ba1a1fc39fb699c"
+}

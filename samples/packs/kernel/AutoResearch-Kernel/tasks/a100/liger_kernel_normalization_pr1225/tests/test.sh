@@ -1,0 +1,200 @@
+#!/usr/bin/env bash
+# tests/test.sh - AutoResearch/Harbor verifier for a autoresearch-kernel task.
+# DO NOT MODIFY. Mounted by the harness AFTER the agent's /app is frozen.
+#
+# Placeholders substituted at generation time:
+#   liger_kernel_normalization_pr1225  7.7137  python
+set -euo pipefail
+export PYTHONDONTWRITEBYTECODE=1
+
+REWARD_FILE="/logs/verifier/reward.json"
+REWARD_TXT="/logs/verifier/reward.txt"
+mkdir -p /logs/verifier
+PY="python"          # python interpreter that holds the strong baseline library
+PREFLIGHT_TIMEOUT="${KERNEL_PREFLIGHT_TIMEOUT:-60}"
+
+write_zero() {
+    # Harbor parses reward.json as a flat dict of numbers only; keep it numeric.
+    printf '{"reward": 0.0, "correctness": 0}\n' > "$REWARD_FILE"
+    echo "0.0" > "$REWARD_TXT"
+    printf '{"reward": 0.0, "correctness": false, "reason": "%s"}\n' "$1" > /logs/verifier/reward_detail.json
+    echo "$1 -- scoring 0" >&2
+    exit 0
+}
+
+verify_protected() {
+    if ! sha256sum -c /orig/protected.sha256 --quiet 2>/dev/null; then
+        sha256sum -c /orig/protected.sha256 >&2 || true
+        write_zero "protected_file_modified"
+    fi
+}
+
+verify_app_tree() {
+    local expected actual unexpected missing path
+    expected=$(cat <<'EOF'
+/app
+/app/reference_model.py
+/app/solve.py
+/app/run_local.py
+/app/run_task.py
+/app/_score_core.py
+/app/kernel_static_checker.py
+EOF
+)
+    # -print includes every inode type (FIFO/socket/device included), unlike a type-filtered find.
+    actual=$(find /app -mindepth 0 -print 2>/dev/null | sort || true)
+    unexpected=$(comm -23 <(echo "$actual") <(echo "$expected" | sort) || true)
+    missing=$(comm -13 <(echo "$actual") <(echo "$expected" | sort) || true)
+    if [ -n "$unexpected" ] || [ -n "$missing" ]; then
+        [ -z "$unexpected" ] || { echo "Unexpected paths under /app:" >&2; echo "$unexpected" >&2; }
+        [ -z "$missing" ] || { echo "Missing paths under /app:" >&2; echo "$missing" >&2; }
+        write_zero "app_tree_modified"
+    fi
+    if [ ! -d /app ] || [ -L /app ]; then
+        write_zero "app_root_not_real_directory"
+    fi
+    for path in /app/reference_model.py /app/solve.py /app/run_local.py /app/run_task.py \
+                /app/_score_core.py /app/kernel_static_checker.py; do
+        if ! { [ -f "$path" ] && [ ! -L "$path" ]; }; then
+            write_zero "app_path_not_regular_file"
+        fi
+    done
+}
+
+# -- Step 0: protected-file integrity (naive oracle + harness must be untouched) --
+echo "=== Integrity ===" >&2
+verify_app_tree
+verify_protected
+
+# -- Step 0a: active private scorer-stack digest closure --
+# The adapter, shared core, and static checker are all executable trusted code. Freeze and verify
+# each active /tests file; validating only the core leaves the other two as unclosed attack paths.
+verify_private_digest() {
+    local path="$1" expected="$2" label="$3" got
+    got=$(sha256sum "$path" 2>/dev/null | cut -d' ' -f1) || write_zero "${label}_missing"
+    if [ -z "$expected" ] || [ "$got" != "$expected" ]; then
+        echo "$label digest drift: got $got expected $expected" >&2
+        write_zero "${label}_digest_drift"
+    fi
+}
+
+echo "=== Private scorer digest closure ===" >&2
+EXPECT_RUN_TASK_DIGEST="696aaede76d9c90f3e4721deff04b5295efc71551536c6439ea4ca69bfaac1fb"
+EXPECT_SCORE_CORE_DIGEST="13451d8f8bca7e351a38adb39fa5e2dc01a63d5543c4c56762a0f5553369b0ca"
+EXPECT_STATIC_CHECKER_DIGEST="bbce361d706a9984b241f590d7be06384f013ab49e6a6c018fa992b65f5045ec"
+verify_private_digest /tests/run_task.py "$EXPECT_RUN_TASK_DIGEST" run_task
+verify_private_digest /tests/_score_core.py "$EXPECT_SCORE_CORE_DIGEST" score_core
+verify_private_digest /tests/kernel_static_checker.py "$EXPECT_STATIC_CHECKER_DIGEST" static_checker
+
+# -- Step 1: constraint checks on solve.py --
+echo "=== Constraints ===" >&2
+SOLVE=/app/solve.py
+# The agent must not import the strong baseline library directly (that trivializes
+# the task) nor read the private reference / hidden anchor.
+if grep -qiE '^\s*(import|from)\s+(flashinfer|gsplat|cuvs|fbgemm_gpu|liger_kernel)' "$SOLVE" 2>/dev/null; then
+    write_zero "banned_baseline_library_import"
+fi
+if grep -qE '(private_baseline|solution/|/orig/|reward\.json|HEADROOM|os\.environ|subprocess|socket|/proc/|/tests|sys\.argv)' "$SOLVE" 2>/dev/null; then
+    write_zero "banned_io_or_probe"
+fi
+# No network egress: the scorer needs none, and a candidate that phones home could
+# fetch a precomputed answer or leak the hidden inputs. Ban the common egress modules.
+if grep -qiE '^\s*(import|from)\s+(urllib|requests|http|httpx|aiohttp|ftplib|telnetlib|smtplib)\b|torch\.hub|urllib\.request|http\.client|xmlrpc' "$SOLVE" 2>/dev/null; then
+    write_zero "banned_network_egress"
+fi
+if grep -qE 'torch\.nn\.attention\.flex_attention' "$SOLVE" 2>/dev/null; then
+    # FlexAttention IS the strong baseline for A4 tasks -> disallow calling it directly.
+    if [ "0" != "1" ]; then write_zero "banned_flex_attention_import"; fi
+fi
+if grep -qE '_grouped_mm' "$SOLVE" 2>/dev/null; then
+    # torch._grouped_mm IS the strong baseline for the MoE task -> disallow calling it
+    # directly (the agent must implement the grouped GEMM itself). No other task needs it.
+    write_zero "banned_grouped_mm_call"
+fi
+
+# -- Step 2: syntax --
+echo "=== Syntax ===" >&2
+if ! timeout --signal=TERM --kill-after=5 "$PREFLIGHT_TIMEOUT" "$PY" -B - "$SOLVE" <<'PYEOF' 2>&1
+import sys
+compile(open(sys.argv[1]).read(), sys.argv[1], 'exec')
+PYEOF
+then
+    write_zero "syntax_failed"
+fi
+
+# -- Step 2b: static anti-hack gate (frozen-time defense) --
+# The scorer (run_task.py) also runs this gate, but we re-run it here at verify
+# time so a tampered solve.py cannot slip a fused-op/no-kernel solution past a
+# stale scorer. Rejects: no real Triton/CUDA kernel, banned torch computation ops
+# (F.rms_norm, torch.softmax, torch.matmul, ...), timing/precision manipulation.
+echo "=== Static anti-hack ===" >&2
+if ! timeout --signal=TERM --kill-after=5 "$PREFLIGHT_TIMEOUT" "$PY" -B - "$SOLVE" <<'PYEOF' >&2
+import sys, ast
+sys.path.insert(0, "/tests")
+from kernel_static_checker import validate_kernel_static
+code = open(sys.argv[1]).read()
+if "@triton.jit" in code or "@triton.autotune" in code or "import triton" in code:
+    backend = "triton"
+elif "__global__" in code or "load_inline" in code or "cpp_extension" in code:
+    backend = "cuda"
+else:
+    backend = "triton"
+# read the task's ALLOW_TORCH_OPS glue-list from the public reference_model without
+# importing it (cheap AST scan; avoids importing torch/flashinfer just for a constant).
+allow_ops = []
+try:
+    tree = ast.parse(open("/app/reference_model.py").read())
+    for node in tree.body:
+        if isinstance(node, ast.Assign):
+            for t in node.targets:
+                if isinstance(t, ast.Name) and t.id == "ALLOW_TORCH_OPS":
+                    allow_ops = [e.value for e in node.value.elts if isinstance(e, ast.Constant)]
+except Exception:
+    pass
+forbidden = ["code_bypass","timing_event_patch","thread_injection","lazy_eval","torch_computation_ops","stream_injection"]
+valid, errors, _warns = validate_kernel_static(code, backend=backend, precision="bf16", forbidden=forbidden, allow_ops=allow_ops)
+if not valid:
+    print("static_check_failed: " + "; ".join(errors[:4]))
+    sys.exit(1)
+sys.exit(0)
+PYEOF
+then
+    write_zero "static_check_failed"
+fi
+
+# -- Step 3: scored benchmark (correctness gate + frozen reward anchor) --
+# reward == speedup_vs_seed / 7.7137 (frozen official frontier)
+# --headroom is the frozen calibrated frontier used by that declared anchor.
+# Hidden seeds are generated HERE, at verify time, so the candidate (frozen in /app,
+# forbidden from reading env/argv) cannot have cached or hard-coded these inputs.
+echo "=== Scored benchmark ===" >&2
+HSEEDS="$(( (RANDOM % 900) + 100 )),$(( (RANDOM % 900) + 1000 )),$(( (RANDOM % 900) + 2000 ))"
+HTIME="$(( (RANDOM % 900) + 5000 ))"
+# Wall-clock watchdog: a candidate with an infinite loop / runaway kernel must not
+# stall the verifier forever. `timeout` sends SIGTERM then SIGKILL; a killed scorer
+# yields exit!=0 -> scored 0. The generated default covers correctness + two timing workers.
+SCORE_TIMEOUT="${KERNEL_SCORE_TIMEOUT:-3900}"
+# Separate frontier components (P0 §3.1); pass only when calibrated (empty -> omit so argparse
+# float parsing does not choke on "").
+EXTRA_HR=()
+[ -n "" ] && EXTRA_HR+=(--library-headroom "")
+[ -n "" ] && EXTRA_HR+=(--compile-headroom "")
+# Re-check immediately before scoring. The active scorer stack comes only from the verifier's
+# private, harness-mounted /tests tree; candidate-writable /app copies are local-dev conveniences.
+verify_app_tree
+verify_protected
+if ! timeout --signal=TERM --kill-after=30 "$SCORE_TIMEOUT" "$PY" -B /tests/run_task.py \
+        --task-dir /app \
+        --candidate /app/solve.py \
+        --headroom 7.7137 \
+        "${EXTRA_HR[@]}" \
+        --reward-anchor official \
+        --seeds "$HSEEDS" \
+        --time-seed "$HTIME" \
+        --reward-file "$REWARD_FILE" \
+        --reward-txt "$REWARD_TXT" 2>&1; then
+    write_zero "scorer_crashed_or_timeout"
+fi
+
+echo "Results written to $REWARD_FILE" >&2
+cat "$REWARD_FILE" >&2 || true

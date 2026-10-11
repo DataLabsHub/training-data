@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0",
+  "taskId": "biomechanics_upper_limb_simulation/opensim_arm26_forward_phys_native",
+  "title": "OpenSim Arm26 Physiological Static Optimization and Forward Dynamics",
+  "humanHandlingTimeHours": 8.0,
+  "summary": "You are working on an ALE desktop benchmark task. ## Your Task Starting only from `input/`, generate the arm26 IK motion, run physiological static optimization, and use those controls in a forward dynamics simulation. ## Input Files The input directory contains the official arm26 starter model and elbow-flex marker trajectory from `Tutorials/Computed_Muscle_Control`. Generate the requested outputs locally from the bundled starter files. ## Software - Use OpenSim, Windows 10/11. - Complete the ta",
+  "value": "Musculoskeletal simulation workflows used in biomechanics research and motion-analysis engineering.",
+  "domain": "biomechanics_upper_limb_simulation",
+  "subdomain": "biomechanics_upper_limb_simulation",
+  "software": [
+    "OpenSim",
+    "Windows 10/11"
+  ],
+  "taskPrompt": "You are working on an ALE desktop benchmark task.\n\n## Your Task\nStarting only from `input/`, generate the arm26 IK motion, run physiological static optimization, and use those controls in a forward dynamics simulation.\n\n## Input Files\nThe input directory contains the official arm26 starter model and elbow-flex marker trajectory from `Tutorials/Computed_Muscle_Control`. Generate the requested outputs locally from the bundled starter files.\n\n## Software\n- Use OpenSim, Windows 10/11.\n- Complete the task through the application's GUI or native workflow unless the visible task inputs explicitly allow a helper command for packaging or export.\n\n## What You Must Do\n1. Verify `input/checksums.sha256`.\n2. Run IK on `arm26.osim` with `arm26_elbow_flex.trc` over 0.0-1.0 s.\n3. Run Static Optimization with `use_muscle_physiology=true`, using the generated IK motion as the coordinates file.\n4. Run Forward Dynamics using `static_phys/arm26_StaticOptimization_controls.xml` as the controls file.\n5. Save the final setup XMLs under `output/setup/`.\n6. Write `output/run_log.txt` with the OpenSim command/version and setup XMLs executed.\n7. Write `output/provenance.json` with `task_id`, `opensim_version`, `input_manifest_sha256`, a `setup_commands` list, and SHA-256 hashes for every required output file except `provenance.json`.\n\n## Output Requirements\nCreate these paths exactly:\n- `output/setup/arm26_Setup_InverseKinematics.xml`\n- `output/setup/arm26_Setup_StaticOptimization_Phys.xml`\n- `output/setup/arm26_Setup_Forward_Phys.xml`\n- `output/ik/arm26_InverseKinematics.mot`\n- `output/static_phys/arm26_StaticOptimization_controls.xml`\n- `output/forward_phys/arm26_states.sto`\n- `output/forward_phys/arm26_controls.sto`\n- `output/forward_phys/arm26_states_degrees.mot`\n- `output/run_log.txt`\n- `output/provenance.json`\n\n## Constraints\n- Do not modify files under `input/`.\n- Write final deliverables only under `output/`.\n- Use exact filenames and schemas requested above or in the visible input contract.\n- Ensure native project/session/model files, exported data, screenshots, logs, and JSON summaries all come from the same completed workflow.\n\n## Failure Exit\nIf the VM software environment makes the task genuinely infeasible after a reasonable expert attempt, write `output/infeasible.md` with the specific blocker, software state, and attempted workflow. Do not submit fabricated or placeholder deliverables. This exit is only for genuine blockers; otherwise produce every required artifact exactly as specified.\n",
+  "agentMustDo": [
+    "Read the task prompt and all files under input/.",
+    "Use the specified professional software/workflow to produce the required deliverables under output/.",
+    "Save native project/model/state artifacts requested by the output contract.",
+    "Export required structured tables, summaries, screenshots, or logs when specified.",
+    "Do not rely on external downloads unless the task prompt explicitly permits them.",
+    "Produce output/setup/arm26_Setup_InverseKinematics.xml.",
+    "Produce output/setup/arm26_Setup_StaticOptimization_Phys.xml.",
+    "Produce output/setup/arm26_Setup_Forward_Phys.xml.",
+    "Produce output/ik/arm26_InverseKinematics.mot.",
+    "Produce output/static_phys/arm26_StaticOptimization_controls.xml.",
+    "Produce output/forward_phys/arm26_states.sto.",
+    "Produce output/forward_phys/arm26_controls.sto.",
+    "Produce output/forward_phys/arm26_states_degrees.mot.",
+    "Produce output/run_log.txt.",
+    "Produce output/provenance.json.",
+    "Use output/infeasible.md only for genuine VM/software blockers."
+  ],
+  "inputFiles": [
+    {
+      "name": "arm26.osim",
+      "format": "OSIM",
+      "path": "input/arm26.osim",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 91342,
+      "sha256": "9e08dc03137b57d8bb446520d178c5826ecbb34bfa5c81641fca315c1ab32406",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_elbow_flex.trc",
+      "format": "TRC",
+      "path": "input/arm26_elbow_flex.trc",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 15612,
+      "sha256": "4c7d8d8f4fba5f63f20ca9778093a1776e71542f6a5dfddb118f5a75fb43a4b4",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "checksums.sha256",
+      "format": "SHA256",
+      "path": "input/checksums.sha256",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 251,
+      "sha256": "3f40d0606bb65db218ad4b5396e3e261df95c2671d77bd0c76607bfaf6ac72a5",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Solver-visible input artifact bundled under input/.",
+      "sizeBytes": 1158,
+      "sha256": "4632184d09340ef1f56d854c68b23fbe1087fb2a01e25e10551fc08ad1d54740",
+      "source": "External source details are kept in the separate audit evidence package; the solver-visible input copy is bundled locally under input/.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ],
+  "taxonomy": {
+    "domain_code": "biomechanics",
+    "subdomain_code": "OpenSim_upper_limb_dynamics",
+    "category_path": "biomechanics_upper_limb_simulation"
+  },
+  "vm": {
+    "os": "Windows 10/11 x64 workstation",
+    "timeoutSeconds": 7200,
+    "notes": "Use the benchmark VM image configured with the listed professional software."
+  },
+  "requiredSystemPackages": [
+    "OpenSim",
+    "Windows 10/11"
+  ],
+  "evaluation": "The evaluator is implemented in main.py. It checks required deliverables (output/forward_phys/arm26_controls.sto, output/forward_phys/arm26_states.sto, output/forward_phys/arm26_states_degrees.mot, output/ik/arm26_InverseKinematics.mot, output/provenance.json, output/run_log.txt, output/setup/, output/setup/arm26_Setup_Forward_Phys.xml, output/setup/arm26_Setup_InverseKinematics.xml, output/setup/arm26_Setup_StaticOptimization_Phys.xml, output/static_phys/arm26_StaticOptimization_controls.xml), validates parseable native/project artifacts where required, cross-checks structured outputs against reference artifacts under reference/, and applies GUI or native-workflow evidence checks for tasks whose solution requires professional desktop software.",
+  "referenceFiles": [
+    {
+      "name": "arm26_controls.sto",
+      "format": "STO",
+      "path": "reference/ForwardDynamics/arm26_controls.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 41878,
+      "sha256": "eb7dc76169af6631a82b563b6cc6edec84666935e815aa83ffe1d008a34b20ad",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_states.sto",
+      "format": "STO",
+      "path": "reference/ForwardDynamics/arm26_states.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 101292,
+      "sha256": "8a537d9dd90c07368790d71d4bda832a399a396b15497be06e3d765f2720b6f1",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_states_degrees.mot",
+      "format": "MOT",
+      "path": "reference/ForwardDynamics/arm26_states_degrees.mot",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 101410,
+      "sha256": "39c87f9dae5d25e1f677f17bd94b16b3b6f834be4c91a6061d98e6e104b8fd55",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

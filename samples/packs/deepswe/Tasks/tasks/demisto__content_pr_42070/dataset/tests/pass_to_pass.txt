@@ -1,0 +1,1 @@
+Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_p2p_test.py::test_adjacent_enrichment_command_metadata_remains_available

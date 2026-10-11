@@ -1,0 +1,19 @@
+Implemented full GetEndpoints support.
+
+Key changes:
+
+- Added `LocalizedText` and `StringArray`, including null/empty array distinctions.
+- Added application, user-token, endpoint description structures and arrays.
+- Added GetEndpoint request/response serialization, decoding, constructors, constants, and generic dispatch.
+- Preserved OpenSecureChannel behavior and legacy `StringTable` compatibility.
+- Ensured null `ByteString` values decode to nil.
+- Added focused datatype and service round-trip tests.
+
+Main files:
+
+- [localized-text.go](/testbed/datatypes/localized-text.go)
+- [endpoint-description.go](/testbed/services/endpoint-description.go)
+- [get-endpoint-request.go](/testbed/services/get-endpoint-request.go)
+- [get-endpoint-response.go](/testbed/services/get-endpoint-response.go)
+
+Validation: full `go test github.com/wmnsk/gopcua/...` passes across all packages.

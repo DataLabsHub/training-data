@@ -1,0 +1,4 @@
+label,executor_model,executor_harness,reasoning_effort,score,passed_claims,total_claims,executor_duration_seconds,executor_tool_calls,judge_model,judge_repeats,judge_tool_calls
+kimi_k3_high,k3-256k,harness-runtime:ClaudeCodeRuntime:4,high,0.21428571428571427,3,14,1813.7709071699064,35,gpt-5.6-luna,1,214
+gpt_5_6_sol_high,gpt-5.6-sol,harness-runtime:CodexRuntime:3,high,0.42857142857142855,6,14,769.6433549448848,28,gpt-5.6-luna,1,234
+claude_opus_5_high,claude-opus-5,harness-runtime:ClaudeCodeRuntime:4,high,0.5,7,14,2164.2598362958524,65,gpt-5.6-luna,1,249

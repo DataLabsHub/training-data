@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+  FlightGear PropertyList configuration that drives a 1 Hz CSV log of
+  flight properties needed by flightgear_010 grading. Loaded via
+  `--config=input/logging.xml` on the FG command line (see launch_args.txt).
+
+  This file is the official mechanism FG provides for property-tree CSV
+  logging; see $FG_ROOT/Docs/README.logging.
+
+  Output: output/live_property_log.csv
+  Rate:   1 Hz (interval-ms = 1000)
+  Format: comma-separated, one header row + N data rows.
+
+  KAP140 state is captured via the FG-standard /autopilot/locks/* paths.
+  Expected string values:
+      ap_lock_heading: "" | "wing-leveler" | "dg-heading-hold" | "nav1-hold"
+      ap_lock_altitude: "" | "altitude-hold" | "gs1-hold"
+  These are what the c172p KAP140 Nasal module sets when its buttons are
+  pressed; both go empty when the autopilot is disconnected.
+-->
+<PropertyList>
+  <logging>
+    <log>
+      <enabled type="bool">true</enabled>
+      <filename type="string">output/live_property_log.csv</filename>
+      <interval-ms type="int">1000</interval-ms>
+      <delimiter type="string">,</delimiter>
+
+      <entry><title>sim_time_sec</title><property>/sim/time/elapsed-sec</property></entry>
+      <entry><title>altitude_ft</title><property>/position/altitude-ft</property></entry>
+      <entry><title>altitude_agl_ft</title><property>/position/altitude-agl-ft</property></entry>
+      <entry><title>ias_kt</title><property>/instrumentation/airspeed-indicator/indicated-speed-kt</property></entry>
+      <entry><title>tas_kt</title><property>/velocities/airspeed-kt</property></entry>
+      <entry><title>groundspeed_kt</title><property>/velocities/groundspeed-kt</property></entry>
+      <entry><title>vertical_speed_fpm</title><property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property></entry>
+      <entry><title>heading_magnetic_deg</title><property>/orientation/heading-magnetic-deg</property></entry>
+      <entry><title>heading_true_deg</title><property>/orientation/heading-deg</property></entry>
+      <entry><title>heading_deg</title><property>/orientation/heading-deg</property></entry>
+      <entry><title>velocity_north_kt</title><property>/velocities/speed-north-fps</property><factor type="double">0.5924838</factor></entry>
+      <entry><title>velocity_east_kt</title><property>/velocities/speed-east-fps</property><factor type="double">0.5924838</factor></entry>
+      <entry><title>latitude_deg</title><property>/position/latitude-deg</property></entry>
+      <entry><title>longitude_deg</title><property>/position/longitude-deg</property></entry>
+      <entry><title>wow_main</title><property>/gear/gear[0]/wow</property></entry>
+      <entry><title>ap_lock_heading</title><property>/autopilot/locks/heading</property></entry>
+      <entry><title>ap_lock_altitude</title><property>/autopilot/locks/altitude</property></entry>
+      <entry><title>ils_dev_dots</title><property>/instrumentation/nav[0]/heading-needle-deflection-norm</property><factor type="double">2.5</factor></entry>
+    </log>
+  </logging>
+</PropertyList>

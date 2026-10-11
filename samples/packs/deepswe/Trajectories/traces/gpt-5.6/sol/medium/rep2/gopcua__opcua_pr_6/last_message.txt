@@ -1,0 +1,13 @@
+Implemented full GetEndpoints support.
+
+Key additions:
+
+- `LocalizedText` and signed `StringArray` datatypes, preserving null versus empty arrays.
+- Discovery models and arrays for applications, token policies, and endpoints.
+- GetEndpoint request/response construction, encoding, decoding, and generic dispatch.
+- Service IDs `428` and `431`, required constants, constructors, and exported decoders.
+- Null `ByteString` decoding now clears its value correctly.
+- Legacy `StringTable` API retained as a compatibility alias.
+- Focused datatype and service round-trip tests added.
+
+Validation: full `go test github.com/wmnsk/gopcua/...` passes across all packages.

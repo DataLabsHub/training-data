@@ -1,0 +1,16 @@
+Everything builds, is gofmt-clean, and the full suite passes (including with `-race`).
+
+## What I implemented
+
+**`datatypes` package**
+- `datatypes/localized-text.go` — `LocalizedText` with `EncodingMask uint8`, `Locale`/`Text *String`. Mask bit `0x01` = locale present, `0x02` = text present; absent strings stay nil after decode, and `NewLocalizedText` leaves the bit clear for an empty argument. Full set: `NewLocalizedText`, `DecodeLocalizedText`, `DecodeFromBytes`, `Serialize`, `SerializeTo`, `Len`, `HasLocale`, `HasText`, `SetLocaleMask`, `SetTextMask`.
+- `datatypes/string-array.go` — `StringArray` replacing the old `StringTable`. `ArraySize` is now signed `int32`: `NewStringArray(nil)` → `-1`, `NewStringArray([]string{})` → `0`, and decode stops early on a non-positive size. Removed `StringTable` from `string.go` and repointed `ResponseHeader.StringTable` at `*datatypes.StringArray` (wire format unchanged, so the existing OpenSecureChannel golden bytes still match).
+
+**`services` package**
+- `application-description.go` — `ApplicationDescription` + `AppType*` constants. Per spec item 3, `NewApplicationDescription` seeds `DiscoveryProfileURI` from `prodURI`, so the `profileURI` argument is not what lands on the wire; I kept that as required and noted it in the test.
+- `user-token-policy.go` — `UserTokenPolicy`, `UserTokenPolicyArray`, and the four `UserToken*` constants.
+- `endpoint-description.go` — `EndpointDescription` / `EndpointDescriptionArray` with the existing misspelled `NewEndpointDesctiption` / `NewEndpointDesctiptionArray` spellings.
+- `get-endpoints-request.go` / `get-endpoints-response.go` — the two services, embedding `*RequestHeader` / `*ResponseHeader` and satisfying `Service`.
+- `service.go` — added `ServiceTypeGetEndpointRequest=428` / `ServiceTypeGetEndpointResponse=431` and dispatch for both in `Decode`.
+
+**Tests.** I generated the GetEndpoints golden byte arrays with an independent Python encoder rather than from my own Go output, so the round-trip tests check the wire format, not just self-consistency. Also added table tests for `LocalizedText` (all four mask combinations), `StringArray` (normal/nil/empty), and round-trips for each discovery type. Existing `StringTable` tests in `datatypes/string_test.go` were removed along with the type; `README.md` now ticks the Get Endpoint box.

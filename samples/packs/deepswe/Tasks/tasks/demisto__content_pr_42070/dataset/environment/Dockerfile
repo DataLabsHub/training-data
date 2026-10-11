@@ -1,0 +1,1 @@
+FROM evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:3c8deb74a58db6b7a0aaea0b1774006cda889c0593c7dbfdd054775c85cfa6aa

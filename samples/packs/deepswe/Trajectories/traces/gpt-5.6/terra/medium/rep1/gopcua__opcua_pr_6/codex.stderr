@@ -1,0 +1,7 @@
+2026-08-30T08:19:35.959319Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/datatypes/bytestring.go:
+	s.Length = int32(binary.LittleEndian.Uint32(b[:4]))
+	if s.Length <= 0 {
+		return nil
+	}
+	s.Value = b[4 : 4+int(s.Length)]
+2026-08-30T08:21:56.061771Z ERROR codex_core::tools::router: error=exec_command failed for `/bin/sh -lc 'rm -f /tmp/gopcua-gopath/src/github.com/wmnsk/gopcua && cp -a /testbed /tmp/gopcua-gopath/src/github.com/wmnsk/gopcua && GOPATH=/tmp/gopcua-gopath GO111MODULE=off /usr/local/go/bin/go test github.com/wmnsk/gopcua/...'`: CreateProcess { message: "Rejected(\"`/bin/sh -lc 'rm -f /tmp/gopcua-gopath/src/github.com/wmnsk/gopcua && cp -a /testbed /tmp/gopcua-gopath/src/github.com/wmnsk/gopcua && GOPATH=/tmp/gopcua-gopath GO111MODULE=off /usr/local/go/bin/go test github.com/wmnsk/gopcua/...'` rejected: rm -f style commands are not permitted. Use a safer approach\")" }

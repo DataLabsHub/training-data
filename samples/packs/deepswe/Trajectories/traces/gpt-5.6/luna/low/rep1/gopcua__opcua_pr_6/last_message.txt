@@ -1,0 +1,9 @@
+Implemented the GetEndpoints model additions:
+
+- Added `LocalizedText` and signed `StringArray` datatypes.
+- Added application, token policy, and endpoint discovery structures and arrays.
+- Added GetEndpoint request/response types, constructors, encoders, decoders, and service dispatch registration.
+- Added required constants and public APIs.
+- Preserved existing OpenSecureChannel dispatch behavior.
+
+I could not run Go tests because the environment does not have the `go` executable installed.

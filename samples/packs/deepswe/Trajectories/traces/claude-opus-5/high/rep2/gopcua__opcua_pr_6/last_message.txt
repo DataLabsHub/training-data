@@ -1,0 +1,18 @@
+Done. All packages build and the full test suite passes.
+
+**What I added**
+
+*Package `datatypes`:*
+- `datatypes/localized-text.go` — `LocalizedText` with `EncodingMask uint8`, `Locale`/`Text *String`, mask bit `0x01` for locale and `0x02` for text. `NewLocalizedText` leaves the bit clear and the pointer nil for empty strings; decode leaves absent strings nil. Full `DecodeLocalizedText`/`DecodeFromBytes`/`Serialize`/`SerializeTo`/`Len`/`HasLocale`/`HasText`/`SetLocaleMask`/`SetTextMask`.
+- `datatypes/string.go` — replaced `StringTable` with `StringArray` (`ArraySize int32`, `Strings []*String`). `NewStringArray(nil)` → size `-1`; `NewStringArray([]string{})` → size `0`; decode short-circuits on non-positive sizes. `ResponseHeader.StringTable` now holds a `*datatypes.StringArray`.
+
+*Package `services`:*
+- `application-description.go` — `ApplicationDescription` + `AppType*` constants. Note `NewApplicationDescription` sets `DiscoveryProfileURI` from `prodURI`, not `profileURI`, per the spec'd constructor behavior; the last string parameter is unused as a result.
+- `user-token-policy.go` — `UserTokenPolicy`, `UserTokenPolicyArray`, `UserToken*` constants.
+- `endpoint-description.go` — `EndpointDescription` / `EndpointDescriptionArray` with the existing misspelled constructors `NewEndpointDesctiption` / `NewEndpointDesctiptionArray`.
+- `get-endpoints-request.go`, `get-endpoints-response.go` — the two services, embedding `*RequestHeader` / `*ResponseHeader`.
+- `service.go` — added `ServiceTypeGetEndpointRequest = 428` / `ServiceTypeGetEndpointResponse = 431` and wired both into `Decode`.
+
+**Verification** — I derived the expected wire bytes independently (a small Python encoder following the field orders in the task) rather than from the Go code, and asserted round-trips against them: `ApplicationDescription`, `UserTokenPolicy`(+array), `EndpointDescription`(+array), and both GetEndpoints services, plus `LocalizedText` across all four mask combinations and `StringArray` nil/empty/normal. The existing OpenSecureChannel and ResponseHeader tests still pass unchanged apart from the `StringTable`→`StringArray` rename.
+
+`go vet` reports unkeyed-field warnings on the new files, but those match the pre-existing style throughout the repo (every `errors.ErrTooShortToDecode` literal in the codebase is unkeyed), so I left them consistent rather than diverging.

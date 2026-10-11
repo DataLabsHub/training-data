@@ -1,0 +1,45 @@
+{
+  "agent_rc": 0,
+  "agent_step_rc": 0,
+  "apply_rc": 0,
+  "finished_unix": 1788012649.2275507,
+  "index": 3,
+  "model": "claude-opus-5",
+  "network": {
+    "checked_unix": 1788012626.209036,
+    "offline_fallback": false,
+    "probes": [
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      }
+    ],
+    "schema": "coding-synthesis.verifier-online-network/v1",
+    "valid": true,
+    "verifier_network_mode": "enabled-default"
+  },
+  "network_valid": true,
+  "patch_bytes": 65083,
+  "prior_status": "prior_packaged10",
+  "reasoning_effort": "high",
+  "reward": 0.0,
+  "reward_data": {
+    "reward": 0.0
+  },
+  "sample_language": "python",
+  "schema": "model-eval.opus5-online-result/v1",
+  "source_index": 3,
+  "status": "unsolved",
+  "task_id": "demisto__content_pr_42070",
+  "test_rc": 0,
+  "verifier_rc": 0,
+  "verifier_step_rc": 0
+}

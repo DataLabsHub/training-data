@@ -1,0 +1,12 @@
+Implemented GetEndpoints support and discovery datatypes.
+
+- Added `LocalizedText` and signed `StringArray` APIs.
+- Added application, user-token, endpoint descriptions and arrays.
+- Added GetEndpoint request/response constructors, codecs, service IDs, and dispatcher support.
+- Updated response string tables to use `StringArray`, while retaining legacy StringTable aliases.
+- Ensured null ByteString certificates decode to nil values.
+- Preserved OpenSecureChannel support.
+
+Verified with the full test suite using a temporary GOPATH staging setup:
+
+`go test github.com/wmnsk/gopcua/...` ✅

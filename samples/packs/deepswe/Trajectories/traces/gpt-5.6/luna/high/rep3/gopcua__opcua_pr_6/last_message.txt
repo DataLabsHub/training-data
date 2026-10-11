@@ -1,0 +1,16 @@
+Implemented GetEndpoints support.
+
+Key additions:
+
+- `LocalizedText` and `StringArray` datatypes with required encoding semantics.
+- Application, token policy, and endpoint discovery structures/arrays.
+- GetEndpoint request/response services and generic dispatcher support.
+- Preserved OpenSecureChannel behavior and legacy `StringTable` compatibility.
+- Correct null `ByteString` certificate handling and constructor quirks.
+
+Verification passed:
+
+```text
+GO111MODULE=off go test ./...
+git diff --check
+```

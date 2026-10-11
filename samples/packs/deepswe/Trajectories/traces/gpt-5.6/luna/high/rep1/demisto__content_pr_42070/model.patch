@@ -1,0 +1,573 @@
+diff --git a/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py b/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py
+new file mode 100644
+index 0000000..d4b7167
+--- /dev/null
++++ b/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py
+@@ -0,0 +1,496 @@
++"""Enrich several supported indicator types with one command.
++
++The type-specific enrichment scripts already contain the platform-specific
++enrichment logic.  This script is deliberately a small orchestration layer:
++it extracts and validates the input, executes the applicable child commands in
++one batch, and presents their contexts as one result.
++"""
++
++from copy import deepcopy
++from dataclasses import dataclass
++from enum import Enum
++from typing import Any
++
++import demistomock as demisto
++from CommonServerPython import *
++from CommonServerUserPython import *
++from AggregatedCommandApiModule import *
++
++
++class IndicatorType(Enum):
++    """Indicator types supported by ``indicator-enrichment``."""
++
++    IP = "IP"
++    URL = "URL"
++    DOMAIN = "Domain"
++    CVE = "CVE"
++    FILE = "File"
++
++    @classmethod
++    def resolve_from_string(cls, value):
++        if isinstance(value, cls):
++            return value
++        if value is None or not isinstance(value, str) or not value.strip():
++            return None
++
++        normalized = value.strip().lower()
++        return {
++            "ip": cls.IP,
++            "ipv4": cls.IP,
++            "url": cls.URL,
++            "domain": cls.DOMAIN,
++            "file": cls.FILE,
++            "cve": cls.CVE,
++        }.get(normalized)
++
++
++@dataclass
++class UnsupportedIndicator:
++    type: Any
++    value: Any
++
++
++class ValidationError(Exception):
++    pass
++
++
++class AllExecutionsFailedError(Exception):
++    pass
++
++
++class GracefulExit(Exception):
++    pass
++
++
++@dataclass
++class EnrichmentRequest:
++    valid_indicators_by_type: dict[IndicatorType, list[str]]
++    unsupported_items: list[UnsupportedIndicator]
++    unknown_items: list[Any]
++    duplicates_removed_count: int
++    sub_command_arguments: dict[str, Any]
++    include_raw_context: bool
++
++    @property
++    def total_valid_count(self) -> int:
++        return sum(len(values) for values in self.valid_indicators_by_type.values())
++
++
++class EnrichmentResult:
++    def __init__(self):
++        self.enriched_data: list[dict[str, Any]] = []
++        self.raw_context: dict[str, Any] = {}
++        self.markdown_sections: list[str] = []
++        self.execution_errors: list[str] = []
++
++
++def _as_bool(value: Any, default: bool = False) -> bool:
++    if value is None or value == "":
++        return default
++    if isinstance(value, bool):
++        return value
++    return argToBoolean(value)
++
++
++def _merge_context(destination: dict[str, Any], source: dict[str, Any]) -> None:
++    """Merge command contexts without dropping repeated list values."""
++    for key, value in source.items():
++        if key not in destination:
++            destination[key] = deepcopy(value)
++        elif isinstance(destination[key], dict) and isinstance(value, dict):
++            _merge_context(destination[key], value)
++        elif isinstance(destination[key], list) and isinstance(value, list):
++            destination[key].extend(deepcopy(value))
++        else:
++            destination[key] = deepcopy(value)
++
++
++def _result_context(entry: Any) -> dict[str, Any]:
++    if not isinstance(entry, dict):
++        return {}
++    context = entry.get("EntryContext")
++    if isinstance(context, dict):
++        return context
++    if isinstance(entry.get("ExtractedIndicators"), dict):
++        return entry
++    contents = entry.get("Contents")
++    if isinstance(contents, dict):
++        if isinstance(contents.get("EntryContext"), dict):
++            return contents["EntryContext"]
++        if isinstance(contents.get("ExtractedIndicators"), dict):
++            return contents
++    # This also makes the service useful with simple mocked BatchExecutor
++    # entries, which sometimes provide the context directly.
++    return entry.get("Context", {}) if isinstance(entry.get("Context", {}), dict) else {}
++
++
++class EnrichmentRequestBuilder:
++    """Build and validate an enrichment request from command arguments."""
++
++    INDICATOR_LIMIT = 100
++
++    def __init__(self, raw_arguments):
++        self.raw_arguments = raw_arguments or {}
++
++    def _add_item(
++        self,
++        value: Any,
++        detected_type: Any,
++        valid_by_type: dict[IndicatorType, list[str]],
++        unsupported_items: list[UnsupportedIndicator],
++        unknown_items: list[Any],
++        seen_values: set[Any],
++        state: dict[str, int],
++        detected: bool = False,
++    ) -> None:
++        if value is None:
++            return
++        if not isinstance(value, str):
++            value = str(value)
++        value = value.strip()
++        if not value:
++            return
++
++        # Deduplication is by value, regardless of whether it came from the
++        # explicit list or from extracted text.  This also prevents an
++        # extraction that reports the same value under two keys from creating
++        # two enrichment requests.
++        if value in seen_values:
++            state["duplicates"] += 1
++            return
++        seen_values.add(value)
++
++        resolved_type = IndicatorType.resolve_from_string(detected_type)
++        if resolved_type is not None:
++            valid_by_type.setdefault(resolved_type, []).append(value)
++        elif detected:
++            unsupported_items.append(UnsupportedIndicator(detected_type, value))
++        else:
++            unknown_items.append(value)
++
++    @staticmethod
++    def _extracted_indicators(result: Any) -> dict[str, Any]:
++        """Get ExtractedIndicators from either normal or test command output."""
++        if isinstance(result, dict):
++            result = [result]
++        if not isinstance(result, list):
++            return {}
++
++        extracted: dict[str, Any] = {}
++        for item in result:
++            context = _result_context(item)
++            values = context.get("ExtractedIndicators")
++            if isinstance(values, dict):
++                for key, indicators in values.items():
++                    if key not in extracted:
++                        extracted[key] = []
++                    if not isinstance(indicators, list):
++                        indicators = [indicators]
++                    extracted[key].extend(indicators)
++        return extracted
++
++    def build_and_validate(self) -> EnrichmentRequest:
++        raw_indicator_list = self.raw_arguments.get("indicator_list")
++        indicator_list = argToList(raw_indicator_list)
++        text = self.raw_arguments.get("text")
++        has_indicator_list = bool(indicator_list)
++        has_text = isinstance(text, str) and bool(text.strip())
++
++        if not has_indicator_list and not has_text:
++            raise ValidationError("No valid indicators provided")
++
++        valid_by_type: dict[IndicatorType, list[str]] = {}
++        unsupported_items: list[UnsupportedIndicator] = []
++        unknown_items: list[Any] = []
++        seen_values: set[Any] = set()
++        state = {"duplicates": 0}
++
++        # Explicit indicators are first, so their order is retained when both
++        # input forms are supplied.
++        for value in indicator_list:
++            detected_type = None
++            try:
++                detected_type = auto_detect_indicator_type(str(value).strip())
++            except Exception as ex:
++                demisto.debug(f"Could not detect indicator type for {value}: {ex}")
++            self._add_item(
++                value,
++                detected_type,
++                valid_by_type,
++                unsupported_items,
++                unknown_items,
++                seen_values,
++                state,
++                detected=detected_type is not None,
++            )
++
++        if has_text:
++            try:
++                extraction_result = execute_command("extractIndicators", {"text": text})
++                extracted = self._extracted_indicators(extraction_result)
++            except Exception as ex:
++                demisto.debug(f"Indicator extraction failed: {ex}")
++                extracted = {}
++
++            known_type_names = {
++                str(type_value).strip().lower()
++                for type_value in vars(FeedIndicatorType).values()
++                if isinstance(type_value, str)
++            }
++            for extracted_type, values in extracted.items():
++                resolved_or_detected_type = extracted_type
++                extracted_type_is_detected = str(extracted_type).strip().lower() in known_type_names
++                if not isinstance(values, list):
++                    values = [values]
++                for value in values:
++                    self._add_item(
++                        value,
++                        resolved_or_detected_type,
++                        valid_by_type,
++                        unsupported_items,
++                        unknown_items,
++                        seen_values,
++                        state,
++                        detected=extracted_type_is_detected,
++                    )
++
++        if not valid_by_type:
++            if has_text and not has_indicator_list:
++                raise GracefulExit("No valid indicators provided")
++            raise ValidationError("No valid indicators provided")
++
++        include_raw_context = _as_bool(self.raw_arguments.get("raw_context"), False)
++        ignore_limit = _as_bool(self.raw_arguments.get("ignore_indicator_limit"), False)
++        if not ignore_limit and sum(len(values) for values in valid_by_type.values()) > self.INDICATOR_LIMIT:
++            raise ValidationError("Indicator limit exceeded: limit is 100")
++
++        sub_command_arguments = {}
++        for argument_name in ("external_enrichment", "brands", "additional_fields"):
++            if argument_name in self.raw_arguments and self.raw_arguments[argument_name] is not None:
++                # These are deliberately passed through unchanged.  The
++                # child command entry points already normalize their command
++                # arguments, and callers may rely on the original platform
++                # representation (for example, a comma-separated brands
++                # string).
++                sub_command_arguments[argument_name] = self.raw_arguments[argument_name]
++
++        return EnrichmentRequest(
++            valid_indicators_by_type=valid_by_type,
++            unsupported_items=unsupported_items,
++            unknown_items=unknown_items,
++            duplicates_removed_count=state["duplicates"],
++            sub_command_arguments=sub_command_arguments,
++            include_raw_context=include_raw_context,
++        )
++
++
++class EnrichmentService:
++    CHILD_COMMANDS = {
++        IndicatorType.IP: ("ip-enrichment", "ip_list"),
++        IndicatorType.URL: ("url-enrichment", "url_list"),
++        IndicatorType.DOMAIN: ("domain-enrichment", "domain_list"),
++        IndicatorType.CVE: ("cve-enrichment", "cve_list"),
++        IndicatorType.FILE: ("file-enrichment", "file_hash"),
++    }
++
++    def __init__(self, request: EnrichmentRequest):
++        self.request = request
++
++    @staticmethod
++    def _is_child_key(key: Any, indicator_type: IndicatorType) -> bool:
++        if not isinstance(key, str):
++            return False
++        expected = f"{indicator_type.value}Enrichment".lower()
++        lowered = key.lower()
++        return lowered == expected or lowered.startswith(expected + "(") or lowered.startswith(expected + ".")
++
++    @staticmethod
++    def _context_records(context_value: Any) -> list[dict[str, Any]]:
++        if isinstance(context_value, list):
++            return [item for item in context_value if isinstance(item, dict)]
++        if isinstance(context_value, dict):
++            return [context_value]
++        return []
++
++    @staticmethod
++    def _record_values(record: dict[str, Any]) -> set[str]:
++        values = set()
++        for key in ("Value", "Address", "Data", "Name", "ID", "MD5", "SHA1", "SHA256", "SHA512"):
++            value = record.get(key)
++            if value is not None and not isinstance(value, (dict, list)):
++                values.add(str(value))
++        hashes = record.get("Hashes")
++        if isinstance(hashes, dict):
++            values.update(str(value) for value in hashes.values() if value is not None)
++        return values
++
++    def _parse_context(self, context: dict[str, Any], indicator_type: IndicatorType, result: EnrichmentResult) -> None:
++        _merge_context(result.raw_context, context)
++        requested = set(self.request.valid_indicators_by_type.get(indicator_type, []))
++        for key, value in context.items():
++            if not self._is_child_key(key, indicator_type):
++                continue
++            for record in self._context_records(value):
++                record_values = self._record_values(record)
++                if record_values and not record_values.intersection(requested):
++                    continue
++                result.enriched_data.append({**deepcopy(record), "Type": indicator_type.value})
++
++    @staticmethod
++    def _normalise_batch_results(batch_results: Any) -> list[tuple[Any, str, str]]:
++        """Accept BatchExecutor's command-aligned result and simple mocks."""
++        if batch_results is None:
++            return []
++        if isinstance(batch_results, tuple) and len(batch_results) == 3:
++            return [batch_results]
++        if not isinstance(batch_results, list):
++            return []
++        if len(batch_results) == 3 and not isinstance(batch_results[0], (list, tuple)):
++            return [tuple(batch_results)]
++        flattened = []
++        for item in batch_results:
++            if isinstance(item, tuple) and len(item) == 3:
++                flattened.append(item)
++            elif isinstance(item, list):
++                flattened.extend(EnrichmentService._normalise_batch_results(item))
++        return flattened
++
++    def execute(self) -> EnrichmentResult:
++        result = EnrichmentResult()
++        if not self.request.valid_indicators_by_type:
++            return result
++
++        commands = []
++        command_types = []
++        for indicator_type, values in self.request.valid_indicators_by_type.items():
++            command_name, list_argument_name = self.CHILD_COMMANDS[indicator_type]
++            command_arguments = dict(self.request.sub_command_arguments)
++            command_arguments[list_argument_name] = values
++            commands.append(Command(name=command_name, args=command_arguments, command_type=CommandType.BUILTIN))
++            command_types.append(indicator_type)
++
++        try:
++            batch_results = BatchExecutor().execute_batch(commands, verbose=True)
++        except Exception as ex:
++            result.execution_errors.append(str(ex))
++            return result
++
++        # execute_batch returns one result-list per Command.  Be tolerant of a
++        # flat list as well, which is useful for platform and unit-test mocks.
++        aligned_results = batch_results if isinstance(batch_results, list) else []
++        if command_types and all(isinstance(item, tuple) and len(item) == 3 for item in aligned_results):
++            aligned_results = [aligned_results] if len(command_types) == 1 else aligned_results
++        for index, indicator_type in enumerate(command_types):
++            command_results = aligned_results[index] if index < len(aligned_results) else []
++            for entry, human_readable, error in self._normalise_batch_results(command_results):
++                if error:
++                    result.execution_errors.append(str(error))
++                if human_readable:
++                    result.markdown_sections.append(human_readable)
++                context = _result_context(entry)
++                if context:
++                    # A failed child result may still contain diagnostic raw
++                    # context, but it must not be reported as a successful
++                    # enrichment entry.
++                    if error:
++                        _merge_context(result.raw_context, context)
++                    else:
++                        self._parse_context(context, indicator_type, result)
++
++        return result
++
++
++class ResponseFormatter:
++    CHILD_CONTEXT_BASES = {f"{indicator_type.value}Enrichment".lower() for indicator_type in IndicatorType}
++
++    @classmethod
++    def _remove_child_context(cls, outputs: dict[str, Any]) -> None:
++        for key in list(outputs):
++            if not isinstance(key, str):
++                continue
++            lowered = key.lower()
++            if any(
++                lowered == base or lowered.startswith(base + "(") or lowered.startswith(base + ".")
++                for base in cls.CHILD_CONTEXT_BASES
++            ):
++                outputs.pop(key, None)
++
++    @staticmethod
++    def _invalid_rows(request: EnrichmentRequest) -> list[dict[str, Any]]:
++        rows = []
++        for item in request.unsupported_items:
++            item_type = item.type.value if isinstance(item.type, Enum) else item.type
++            rows.append(
++                {
++                    "Type": item_type,
++                    "Value": item.value,
++                    "Status": "Unsupported",
++                    "Message": "Unsupported indicator type.",
++                }
++            )
++        rows.extend(
++            {
++                "Type": "Unknown",
++                "Value": value,
++                "Status": "Error",
++                "Message": "Not a valid indicator.",
++            }
++            for value in request.unknown_items
++        )
++        return rows
++
++    def format(self, result: EnrichmentResult, request: EnrichmentRequest):
++        if not result.enriched_data and result.execution_errors:
++            message = "Fatal error while executing enrichment. View the logs or try again."
++            raise AllExecutionsFailedError(message + "\n" + "\n".join(result.execution_errors))
++
++        invalid_rows = self._invalid_rows(request)
++        unified_entries = list(result.enriched_data) + invalid_rows
++        outputs = deepcopy(result.raw_context)
++        if not request.include_raw_context:
++            self._remove_child_context(outputs)
++        outputs["IndicatorEnrichment"] = unified_entries
++
++        sections = list(result.markdown_sections)
++        if request.duplicates_removed_count:
++            sections.insert(
++                0,
++                f"Note: Removed {request.duplicates_removed_count} duplicate indicator occurrences before enrichment.",
++            )
++        if invalid_rows:
++            sections.append(
++                tableToMarkdown(
++                    "Invalid or unsupported indicators",
++                    invalid_rows,
++                    headers=["Type", "Value", "Status", "Message"],
++                )
++            )
++        if result.execution_errors:
++            error_rows = [
++                {"Type": "Enrichment", "Value": "", "Status": "Error", "Message": error}
++                for error in result.execution_errors
++            ]
++            sections.append(tableToMarkdown("Enrichment errors", error_rows, headers=["Type", "Value", "Status", "Message"]))
++
++        readable_output = "\n\n".join(section for section in sections if section)
++        if not readable_output:
++            readable_output = "Successfully enriched indicators." if result.enriched_data else "No valid indicators provided"
++        return CommandResults(readable_output=readable_output, outputs=outputs)
++
++
++def main():  # pragma: no cover
++    try:
++        request = EnrichmentRequestBuilder(demisto.args()).build_and_validate()
++        result = EnrichmentService(request).execute()
++        return_results(ResponseFormatter().format(result, request))
++    except GracefulExit as ex:
++        return_results(CommandResults(readable_output=str(ex), outputs={}))
++    except (ValidationError, AllExecutionsFailedError) as ex:
++        return_error(str(ex))
++    except Exception as ex:
++        demisto.error(str(ex))
++        return_error(f"Failed to execute !indicator-enrichment. Error: {str(ex)}")
++
++
++if __name__ in ("__main__", "__builtin__", "builtins"):  # pragma: no cover
++    main()
+diff --git a/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.yml b/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.yml
+new file mode 100644
+index 0000000..3ab97f3
+--- /dev/null
++++ b/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.yml
+@@ -0,0 +1,65 @@
++args:
++- name: indicator_list
++  description: A comma-separated list (or array) of IP, URL, Domain, CVE, and File indicators.
++  required: false
++  isArray: true
++- name: text
++  description: Free-form text from which supported indicators are extracted.
++  required: false
++- name: external_enrichment
++  description: Whether to run external enrichment integrations in the child commands.
++  auto: PREDEFINED
++  predefined:
++  - 'true'
++  - 'false'
++  required: false
++- name: brands
++  description: Integration brands to use for enrichment.
++  required: false
++  isArray: true
++- name: additional_fields
++  description: Whether to include additional fields in child enrichment results.
++  auto: PREDEFINED
++  predefined:
++  - 'true'
++  - 'false'
++  required: false
++- name: raw_context
++  description: Whether to retain the raw child enrichment contexts in the output.
++  auto: PREDEFINED
++  predefined:
++  - 'true'
++  - 'false'
++  defaultValue: 'false'
++  required: false
++- name: ignore_indicator_limit
++  description: Whether to ignore the default limit of 100 unique valid indicators.
++  auto: PREDEFINED
++  predefined:
++  - 'true'
++  - 'false'
++  defaultValue: 'false'
++  required: false
++comment: Enriches multiple supported indicator types and returns one consolidated result.
++commonfields:
++  id: indicator-enrichment
++  version: -1
++enabled: false
++name: indicator-enrichment
++outputs:
++- contextPath: IndicatorEnrichment
++  description: Consolidated enrichment results and invalid or unsupported input items.
++  type: array
++script: '-'
++system: false
++tags:
++- basescript
++timeout: '0'
++type: python
++subtype: python3
++dockerimage: demisto/python3:3.12.12.6204436
++fromversion: 6.10.0
++marketplaces:
++- xsoar
++- marketplacev2
++- platform

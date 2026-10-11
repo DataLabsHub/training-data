@@ -1,0 +1,48 @@
+{
+  "profile_id": "a100_pcie_80gb_cu124_torch260",
+  "hardware": {
+    "gpu_model": "NVIDIA A100 80GB PCIe",
+    "compute_capability": "8.0",
+    "vendor": "nvidia",
+    "arch": "ampere",
+    "gpu_count": 1,
+    "exclusive": true,
+    "min_memory_mb": 80000.0
+  },
+  "software": {
+    "image_digest": "",
+    "driver": "580.142",
+    "python": "3.12.13",
+    "cuda": "12.4",
+    "torch": "2.6.0+cu124",
+    "triton": "3.2.0",
+    "cutlass_commit": "",
+    "extra": {}
+  },
+  "timing": {
+    "primary": "cuda_event",
+    "secondary": "host_e2e",
+    "cache_mode": "steady_state_warm",
+    "clock_policy": "recorded",
+    "warmup_iters": 5,
+    "iters": 20,
+    "cv_threshold": 0.10,
+    "max_retries": 1,
+    "retry_iters_multiplier": 2
+  },
+  "compilation": {
+    "compile_time_scored": "separately",
+    "autotune_allowed": true,
+    "autotune_budget_s": 60,
+    "cache_persistence": "per_submission",
+    "allow_prepack": false
+  },
+  "sandbox": {
+    "network": "disabled",
+    "grader_mount": "read_only",
+    "hidden_inputs_visible_to_candidate": false
+  },
+  "workspace_limit_mb": null,
+  "peak_memory_limit_mb": 80000.0,
+  "timeout_s": 1200
+}

@@ -1,0 +1,65 @@
+{
+  "agent_rc": 0,
+  "agent_step_rc": 0,
+  "apply_rc": 0,
+  "finished_unix": 1788082085.756979,
+  "index": 5,
+  "model": "claude-opus-5",
+  "network": {
+    "checked_unix": 1788082067.7624993,
+    "offline_fallback": false,
+    "probes": [
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      }
+    ],
+    "schema": "coding-synthesis.verifier-online-network/v1",
+    "valid": true,
+    "verifier_network_mode": "enabled-default"
+  },
+  "network_valid": true,
+  "patch_bytes": 66993,
+  "prior_status": "opus5_high_rep1_valid",
+  "reasoning_effort": "high",
+  "reward": 0.0,
+  "reward_data": {
+    "missing_or_bad": [
+      "github.com/wmnsk/gopcua/services::TestDecodeApplicationDescription",
+      "github.com/wmnsk/gopcua/services::TestSerializeApplicationDescription",
+      "github.com/wmnsk/gopcua/services::TestDecodeEndpointDescription/single",
+      "github.com/wmnsk/gopcua/services::TestDecodeEndpointDescription/multiple",
+      "github.com/wmnsk/gopcua/services::TestSerializeEndpointDescription/single",
+      "github.com/wmnsk/gopcua/services::TestSerializeEndpointDescription/multiple",
+      "github.com/wmnsk/gopcua/services::TestAdditionalGetEndpointRequestServiceDispatch",
+      "github.com/wmnsk/gopcua/services::TestAdditionalGetEndpointResponseRoundTripEndpoints",
+      "github.com/wmnsk/gopcua/services::TestDecode/get-endpoint-req",
+      "github.com/wmnsk/gopcua/services::TestDecode/get-endpoint-res",
+      "github.com/wmnsk/gopcua/services::TestSerializeServices/get-endpoint-res",
+      "github.com/wmnsk/gopcua/services::TestSerializeServices/get-endpoint-req",
+      "github.com/wmnsk/gopcua/services::TestDecodeUserTokenPolicy/single",
+      "github.com/wmnsk/gopcua/services::TestDecodeUserTokenPolicy/multiple",
+      "github.com/wmnsk/gopcua/services::TestSerializeUserTokenPolicy/single",
+      "github.com/wmnsk/gopcua/services::TestSerializeUserTokenPolicy/multiple"
+    ],
+    "passed": 44,
+    "reward": 0.0,
+    "total": 60
+  },
+  "sample_language": "go",
+  "schema": "model-eval.opus5-online-result/v1",
+  "source_index": 5,
+  "status": "unsolved",
+  "task_id": "gopcua__opcua_pr_6",
+  "test_rc": 0,
+  "verifier_rc": 0,
+  "verifier_step_rc": 0
+}

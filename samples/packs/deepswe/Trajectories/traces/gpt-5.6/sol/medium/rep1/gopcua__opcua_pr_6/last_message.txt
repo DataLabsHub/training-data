@@ -1,0 +1,15 @@
+Implemented full GetEndpoints support.
+
+Key additions:
+
+- `LocalizedText` and signed `StringArray` datatypes with null/empty distinction.
+- Application, user-token, and endpoint discovery structures and arrays.
+- GetEndpoint request/response constructors, codecs, service IDs, and generic dispatch.
+- Null certificate decoding and legacy `StringTable` compatibility alias.
+- Regression tests covering wire encoding, nested round trips, constants, and dispatch.
+
+Validation completed:
+
+- `go test -race github.com/wmnsk/gopcua/...` — all packages pass.
+- `go vet -composites=false github.com/wmnsk/gopcua/...` — passes.
+- `git diff --check` — clean.

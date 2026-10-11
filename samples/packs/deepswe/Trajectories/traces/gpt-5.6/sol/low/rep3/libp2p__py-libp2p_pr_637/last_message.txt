@@ -1,0 +1,19 @@
+Implemented NetStream lifecycle state support.
+
+Key changes:
+
+- Added `INIT` and `ERROR` states.
+- New streams begin in `INIT`; `SwarmConn` transitions established streams to `OPEN`.
+- Added awaitable `set_state()`, `close_read()`, `close_write()`, and `is_operational()`.
+- Synchronized state checks, transitions, and underlying I/O with a Trio lock.
+- Added independent read/write half-close transitions.
+- Unexpected read/write failures now become `StreamError` and set `ERROR`.
+- Operations in `ERROR` fail before touching the underlying stream.
+- Reset remains available from `ERROR`.
+- Updated constructor to accept `muxed_stream, swarm_conn=None`.
+
+Validation:
+
+- Python compilation passed.
+- `git diff --check` passed.
+- Runtime tests could not run because Trio and pytest are not installed in the environment.

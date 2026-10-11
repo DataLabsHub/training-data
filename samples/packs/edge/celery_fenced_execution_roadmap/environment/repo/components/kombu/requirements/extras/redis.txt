@@ -1,0 +1,2 @@
+redis>=5.3.1,<9.0.0
+packaging

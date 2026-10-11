@@ -1,0 +1,21 @@
+Implemented [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+Key behavior includes:
+
+- IP, URL, Domain, CVE, and File classification
+- Text extraction and explicit indicator lists
+- Cross-input deduplication and 100-indicator limit
+- Invalid and unsupported indicator reporting
+- Batched child enrichment with partial-failure handling
+- Unified `IndicatorEnrichment` context
+- Optional raw child context retention
+- Markdown formatting and clear error handling
+- Required public classes, exceptions, and `main()`
+
+Validation performed:
+
+- Python compilation passed
+- Targeted builder, service, formatter, and public API checks passed
+- `git diff --check` passed
+
+The environment does not have `pytest` installed, so the repository pytest suites could not be run.

@@ -1,0 +1,11 @@
+{
+  "deliverables": [
+    {
+      "deliverable_id": "settlement_workpaper",
+      "media_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "path": "deliverables/rec_settlement_workpaper.xlsx",
+      "purpose": "Auditable lot-level REC settlement workpaper with an embedded procurement and accounting decision summary.",
+      "required": true
+    }
+  ]
+}

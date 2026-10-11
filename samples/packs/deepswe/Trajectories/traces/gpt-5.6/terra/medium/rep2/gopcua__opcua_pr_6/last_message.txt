@@ -1,0 +1,9 @@
+Implemented GetEndpoints and endpoint discovery support.
+
+- Added `LocalizedText` and signed `StringArray` datatypes.
+- Added application, token-policy, endpoint-description structures and arrays.
+- Added GetEndpoints request/response encoding, decoding, constructors, service IDs, and generic dispatch.
+- Updated response headers to use `StringArray` while retaining legacy `StringTable` APIs.
+- Preserved required constructor spellings and null `ByteString` behavior.
+
+I could not run Go tests because this environment has no `go`/`gofmt` executable installed. Source diff checks completed cleanly.

@@ -1,0 +1,11 @@
+Implemented `IndicatorEnrichment.py` with:
+
+- Indicator type resolution for IP, URL, Domain, CVE, and File
+- List/text extraction, deduplication, grouping, validation, and limits
+- Unsupported/unknown indicator reporting
+- Batch enrichment execution with partial-failure handling
+- Unified `IndicatorEnrichment` outputs and Markdown formatting
+- Raw-context filtering
+- Required public classes, exceptions, and `main()`
+
+Validation completed with `py_compile` and `git diff --check`. Repository tests could not run because `pytest` and `demistomock` are unavailable in the environment.

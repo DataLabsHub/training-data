@@ -1,0 +1,2 @@
+2026-08-30T08:11:19.693965Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/services/get-endpoints.go:
+func(a *EndpointDescriptionArray)DecodeFromBytes(b []byte)error{a.ArraySize=int32(binary.LittleEndian.Uint32(b));o:=4;for i:=int32(0);i<a.ArraySize;i++{e,_:=DecodeEndpointDescription(b[o:]);a.EndpointDescriptions=append(a.EndpointDescriptions,e);o+=e.Len()};return nil}

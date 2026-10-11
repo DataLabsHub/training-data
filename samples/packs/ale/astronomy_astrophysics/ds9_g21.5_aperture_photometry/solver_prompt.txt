@@ -1,0 +1,68 @@
+You are working on an ALE desktop benchmark task.
+
+## Your Task
+Use SAOImage DS9 8.5+ to inspect the bundled Chandra ACIS image, place source/background regions on the central pulsar, save DS9-native session artifacts, and report aperture-photometry results.
+
+## Input Files
+- `input/chandra_acis_obs1843.fits`: bundled Chandra ACIS-S Level-2 image of SNR G21.5-0.9.
+
+Target and display settings:
+- XPA title: `ds9_g21`
+- Scale: `log`
+- Scale mode: `zscale`
+- Colormap: `heat`
+- Source center in FK5/J2000: RA `278.389875` deg, Dec `-10.568750` deg.
+- Source aperture: circle radius `30` arcsec.
+- Background region: annulus inner radius `100` arcsec, outer radius `150` arcsec.
+
+## Software
+- Use DS9.
+- Complete the task through the application's GUI or native workflow unless the visible task inputs explicitly allow a helper command for packaging or export.
+
+## What You Must Do
+1. Launch DS9 with title `ds9_g21` and open `input/chandra_acis_obs1843.fits`.
+2. Configure the display to log scale, zscale limits, and heat colormap.
+3. Add the FK5 circular source aperture and FK5 background annulus centered at the coordinates above.
+4. Save the DS9 region file in FK5 coordinates.
+5. Save the full DS9 session backup.
+6. Save a PNG snapshot of the configured DS9 view.
+7. Run DS9/Funtools-style counts-in-regions aperture photometry, or an equivalent WCS-aware aperture-photometry cross-check on the same FITS image.
+8. Write the photometry CSV and summary JSON from the measured counts.
+
+## Output Requirements
+- `output/sources.reg`
+- `output/session.bck`
+- `output/ds9_view.png`
+- `output/photometry.csv`
+- `output/results.json`
+
+Required `output/photometry.csv` columns:
+```csv
+source_id,ra_deg,dec_deg,aperture_radius_arcsec,gross_counts,bkg_counts_per_pix,net_counts
+```
+
+Required `output/results.json` fields:
+```json
+{
+  "obsid": 1843,
+  "target": "SNR G21.5-0.9",
+  "ds9_xpa_title": "ds9_g21",
+  "source_ra_deg": <float>,
+  "source_dec_deg": <float>,
+  "aperture_radius_arcsec": 30.0,
+  "background_annulus_arcsec": [100.0, 150.0],
+  "net_counts": <float>,
+  "scale_mode": "log",
+  "cmap": "heat"
+}
+```
+
+## Constraints
+- Keep the DS9 session named `ds9_g21` open and reachable until grading has completed; the live DS9 session is part of the required final state.
+- Do not modify files under `input/`.
+- Write final deliverables only under `output/`.
+- Use exact filenames and schemas requested above or in the visible input contract.
+- Ensure native project/session/model files, exported data, screenshots, logs, and JSON summaries all come from the same completed workflow.
+
+## Failure Exit
+If the VM software environment makes the task genuinely infeasible after a reasonable expert attempt, write `output/infeasible.md` with the specific blocker, software state, and attempted workflow. Do not submit fabricated or placeholder deliverables. This exit is only for genuine blockers; otherwise produce every required artifact exactly as specified.

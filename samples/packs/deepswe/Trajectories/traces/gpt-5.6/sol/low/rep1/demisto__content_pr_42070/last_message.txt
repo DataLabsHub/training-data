@@ -1,0 +1,20 @@
+Implemented `IndicatorEnrichment.py` with:
+
+- IP, URL, Domain, CVE, and File classification
+- Text extraction and indicator-list support
+- Stable deduplication and 100-indicator validation
+- Unsupported and invalid indicator reporting
+- Batched child enrichment execution
+- Partial-failure preservation
+- Unified `IndicatorEnrichment` context
+- Optional raw child-context retention
+- Markdown formatting and duplicate notices
+- Complete validation and main-command error handling
+
+Validation performed:
+
+- Python compilation passed
+- Focused builder, formatter, service, partial-failure, and empty-request smoke tests passed
+- `git diff --check` passed
+
+The repository environment does not include `pytest`, so the full pytest suite could not be run.

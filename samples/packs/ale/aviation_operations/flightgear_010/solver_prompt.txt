@@ -1,0 +1,132 @@
+You are working on an ALE desktop benchmark task.
+
+## Your Task
+Use FlightGear 2024.1.1+ with the Cessna 172P to complete a three-phase GUI flight task at KSFO: pre-flight setup, live ILS approach, and self-replay instrument reading.
+
+## Input Files
+- `input/launch_args.txt`: required FlightGear launch arguments, including the logging configuration.
+- `input/metar.txt`: METAR string to load for the session.
+- `input/logging.xml`: 1 Hz property logger configuration.
+- `input/procedure_brief.md`: local ILS Z RWY 28R briefing and chart facts used for Phase A values.
+
+Aircraft, airport, and procedure:
+- Aircraft: `c172p`
+- Airport: `KSFO`
+- Starting parking: `G_A4`
+- Departure runway: `10R`
+- Approach runway: `28R`
+- Approach: `ILS Z RWY 28R`
+- Alternate airport for map measurement: `KOAK`
+- NAV1: `111.70` MHz
+- NAV2: `115.80` MHz
+- NAV1 OBS: `284` degrees magnetic
+- Transponder squawk: `3662`
+- Transponder mode: `ALT`
+- Altimeter setting: `29.99` inHg
+
+## Software
+- Use FlightGear.
+- Complete the task through the application's GUI or native workflow unless the visible task inputs explicitly allow a helper command for packaging or export.
+
+## What You Must Do
+1. Launch FlightGear through the Launcher GUI using `input/launch_args.txt` and the METAR from `input/metar.txt`.
+2. Confirm the C172P starts at KSFO parking `G_A4`.
+3. In the Map dialog, enable airports, navaids, and fixes. Measure KSFO ARP to KOAK ARP great-circle distance.
+4. In Route Manager, build route `KSFO/10R -> SFO -> CEPIN -> KSFO/28R`; read total and per-leg distances and save `output/route.xml`.
+5. In the cockpit GUI, set NAV1, NAV2, OBS, transponder, transponder mode, and altimeter to the values above.
+6. In the property browser, inspect the requested aircraft, airport, navigation, and transponder properties and record them in `output/result.json`.
+7. Capture screenshots `output/screenshots/A_radio_panel.png`, `A_map.png`, `A_route_manager.png`, and `A_property_browser.png`.
+
+Phase B - live approach:
+1. Reset or restart with the same launch arguments and METAR.
+2. Take off from runway 10R at about 55 KIAS.
+3. Climb on runway heading until passing 1500 ft AGL.
+4. Turn right to heading 230 degrees magnetic and continue climbing downwind south of KSFO.
+5. Level at 3000 ft MSL on heading 230 degrees.
+6. Reconfirm NAV1 111.70 and engage KAP140 in order: AP ON, HDG, ALT, APR.
+7. At approximately 7 NM south-southwest of KSFO ARP, turn right to heading 320 degrees magnetic to intercept the RWY 28R localizer from the south.
+8. Allow localizer and glideslope capture, track the 3.00 degree glidepath, disconnect autopilot below 200 ft AGL before touchdown, and land on RWY 28R at about 60 KIAS with full flaps.
+9. Save `output/live_approach.fgtape`, keep `output/live_property_log.csv`, and record `output/live_session.mp4`.
+
+Phase C - self-replay analysis:
+1. Reset or restart FlightGear and load your own `output/live_approach.fgtape` with the Flight Recorder GUI.
+2. Scrub the replay to locate these six events: `T_takeoff`, `T_top_of_climb`, `T_loc_capture`, `T_gs_capture`, `T_ap_disconnect`, and `T_touchdown`.
+3. At each event, read from the cockpit panel: magnetic heading, indicated altitude, indicated airspeed, vertical speed, and NAV1 CDI horizontal deviation.
+4. Record the readings in `output/replay_readings.json` and capture `output/screenshots/C_T_<event>.png` for each event.
+5. Record `output/replay_session.mp4`.
+
+## Output Requirements
+```json
+{
+  "ksfo_field_elev_ft": <int>,
+  "ksfo_arp_lat_deg": <float>,
+  "ksfo_arp_lon_deg": <float>,
+  "rwy_28r_length_m": <int>,
+  "rwy_28r_length_ft": <int>,
+  "rwy_28r_width_ft": <int>,
+  "rwy_28r_true_bearing_deg": <int>,
+  "rwy_28r_thr_elev_ft": <int>,
+  "ils_28r_freq_mhz": <float>,
+  "ils_28r_fac_magnetic_deg": <int>,
+  "ils_28r_gs_angle_deg": <float>,
+  "ils_28r_tch_ft": <int>,
+  "cepin_to_thr_nm": <float>,
+  "sfo_vor_freq_mhz": <float>,
+  "sfo_vor_ident": "<str>",
+  "ksfo_to_koak_arp_great_circle_nm": <float>,
+  "qnh_kollsman_inhg": <float>,
+  "magvar_at_ksfo_deg": <float>,
+  "nav1_freq_mhz_set": <float>,
+  "nav2_freq_mhz_set": <float>,
+  "obs1_set": <int>,
+  "xpdr_squawk_set": "<str>",
+  "total_flight_time_min": <float>,
+  "max_altitude_ft_msl": <float>,
+  "avg_glideslope_descent_fpm": <float>,
+  "touchdown_distance_from_thr_m": <float>,
+  "final_approach_groundspeed_kt_at_200ft": <float>,
+  "ap_disconnect_agl_ft": <float>,
+  "landing_runway": "<str>",
+  "landing_speed_kias": <float>
+}
+```
+
+Required `output/replay_readings.json` structure:
+```json
+{
+  "T_takeoff": {"hdg_mag": <float>, "alt_indicated_ft": <float>, "ias_kt": <float>, "vs_fpm": <float>, "ils_dev_dots": <float>, "csv_row_t_sec": <float>},
+  "T_top_of_climb": {"hdg_mag": <float>, "alt_indicated_ft": <float>, "ias_kt": <float>, "vs_fpm": <float>, "ils_dev_dots": <float>, "csv_row_t_sec": <float>},
+  "T_loc_capture": {"hdg_mag": <float>, "alt_indicated_ft": <float>, "ias_kt": <float>, "vs_fpm": <float>, "ils_dev_dots": <float>, "csv_row_t_sec": <float>},
+  "T_gs_capture": {"hdg_mag": <float>, "alt_indicated_ft": <float>, "ias_kt": <float>, "vs_fpm": <float>, "ils_dev_dots": <float>, "csv_row_t_sec": <float>},
+  "T_ap_disconnect": {"hdg_mag": <float>, "alt_indicated_ft": <float>, "ias_kt": <float>, "vs_fpm": <float>, "ils_dev_dots": <float>, "csv_row_t_sec": <float>},
+  "T_touchdown": {"hdg_mag": <float>, "alt_indicated_ft": <float>, "ias_kt": <float>, "vs_fpm": <float>, "ils_dev_dots": <float>, "csv_row_t_sec": <float>}
+}
+```
+
+Other required outputs:
+- `output/route.xml`
+- `output/live_approach.fgtape`
+- `output/live_property_log.csv`
+- `output/live_session.mp4`
+- `output/replay_session.mp4`
+- `output/fgfs.log`
+- `output/system_meta.json`
+- `output/screenshots/A_radio_panel.png`
+- `output/screenshots/A_map.png`
+- `output/screenshots/A_route_manager.png`
+- `output/screenshots/A_property_browser.png`
+- `output/screenshots/C_T_takeoff.png`
+- `output/screenshots/C_T_top_of_climb.png`
+- `output/screenshots/C_T_loc_capture.png`
+- `output/screenshots/C_T_gs_capture.png`
+- `output/screenshots/C_T_ap_disconnect.png`
+- `output/screenshots/C_T_touchdown.png`
+
+## Constraints
+- Do not modify files under `input/`.
+- Write final deliverables only under `output/`.
+- Use exact filenames and schemas requested above or in the visible input contract.
+- Ensure native project/session/model files, exported data, screenshots, logs, and JSON summaries all come from the same completed workflow.
+
+## Failure Exit
+If the VM software environment makes the task genuinely infeasible after a reasonable expert attempt, write `output/infeasible.md` with the specific blocker, software state, and attempted workflow. Do not submit fabricated or placeholder deliverables. This exit is only for genuine blockers; otherwise produce every required artifact exactly as specified.

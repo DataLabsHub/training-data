@@ -1,0 +1,776 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>@font-face{font-display:block;font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(fonts/KaTeX_AMS-Regular.woff2) format("woff2"),url(fonts/KaTeX_AMS-Regular.woff) format("woff"),url(fonts/KaTeX_AMS-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Caligraphic-Bold.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Bold.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Caligraphic-Regular.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Regular.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Fraktur-Bold.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Bold.woff) format("woff"),url(fonts/KaTeX_Fraktur-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Fraktur-Regular.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Regular.woff) format("woff"),url(fonts/KaTeX_Fraktur-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Main-Bold.woff2) format("woff2"),url(fonts/KaTeX_Main-Bold.woff) format("woff"),url(fonts/KaTeX_Main-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Main-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Main-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Main-BoldItalic.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Main-Italic.woff2) format("woff2"),url(fonts/KaTeX_Main-Italic.woff) format("woff"),url(fonts/KaTeX_Main-Italic.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Main-Regular.woff2) format("woff2"),url(fonts/KaTeX_Main-Regular.woff) format("woff"),url(fonts/KaTeX_Main-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Math-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Math-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Math-BoldItalic.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Math-Italic.woff2) format("woff2"),url(fonts/KaTeX_Math-Italic.woff) format("woff"),url(fonts/KaTeX_Math-Italic.ttf) format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:normal;font-weight:700;src:url(fonts/KaTeX_SansSerif-Bold.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Bold.woff) format("woff"),url(fonts/KaTeX_SansSerif-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:italic;font-weight:400;src:url(fonts/KaTeX_SansSerif-Italic.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Italic.woff) format("woff"),url(fonts/KaTeX_SansSerif-Italic.ttf) format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:normal;font-weight:400;src:url(fonts/KaTeX_SansSerif-Regular.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Regular.woff) format("woff"),url(fonts/KaTeX_SansSerif-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Script-Regular.woff2) format("woff2"),url(fonts/KaTeX_Script-Regular.woff) format("woff"),url(fonts/KaTeX_Script-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size1-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size1-Regular.woff) format("woff"),url(fonts/KaTeX_Size1-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size2-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size2-Regular.woff) format("woff"),url(fonts/KaTeX_Size2-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size3-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size3-Regular.woff) format("woff"),url(fonts/KaTeX_Size3-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size4-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size4-Regular.woff) format("woff"),url(fonts/KaTeX_Size4-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Typewriter-Regular.woff2) format("woff2"),url(fonts/KaTeX_Typewriter-Regular.woff) format("woff"),url(fonts/KaTeX_Typewriter-Regular.ttf) format("truetype")}.katex{font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;position:relative;text-indent:0;text-rendering:auto}.katex *{-ms-high-contrast-adjust:none!important;border-color:currentColor}.katex .katex-version:after{content:"0.17.0"}.katex .katex-mathml{border:0;-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;overflow:hidden;padding:0;position:absolute;width:1px}.katex .katex-html>.newline{display:block}.katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .base,.katex .strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-style:italic;font-weight:700}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathboldfrak,.katex .textboldfrak{font-family:KaTeX_Fraktur;font-weight:700}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .mathsfit,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{border-collapse:collapse;display:inline-table;table-layout:fixed}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;position:relative;vertical-align:bottom}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;font-size:1px;min-width:2px;vertical-align:bottom;width:2px}.katex .vbox{align-items:baseline;display:inline-flex;flex-direction:column}.katex .hbox{width:100%}.katex .hbox,.katex .thinbox{display:inline-flex;flex-direction:row}.katex .thinbox{max-width:0;width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline,.katex .hline,.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .rule,.katex .underline .underline-line{min-height:1px}.katex .mspace{display:inline-block}.katex .smash{display:inline;line-height:0}.katex .clap,.katex .llap,.katex .rlap{position:relative;width:0}.katex .clap>.inner,.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .clap>.fix,.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .clap>.inner,.katex .rlap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{border:0 solid;display:inline-block;position:relative}.katex .hline,.katex .overline .overline-line,.katex .underline .underline-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline{border-bottom-style:dashed;display:inline-block;width:100%}.katex .sqrt>.root{margin-left:.2777777778em;margin-right:-.5555555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .sizing.reset-size2.size1{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .sizing.reset-size2.size3{font-size:1.1666666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .sizing.reset-size2.size4{font-size:1.3333333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .sizing.reset-size2.size6{font-size:1.6666666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .sizing.reset-size2.size10{font-size:3.4566666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .sizing.reset-size2.size11{font-size:4.1466666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .sizing.reset-size3.size1{font-size:.7142857143em}.katex .fontsize-ensurer.reset-size3.size2,.katex .sizing.reset-size3.size2{font-size:.8571428571em}.katex .fontsize-ensurer.reset-size3.size3,.katex .sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .sizing.reset-size3.size4{font-size:1.1428571429em}.katex .fontsize-ensurer.reset-size3.size5,.katex .sizing.reset-size3.size5{font-size:1.2857142857em}.katex .fontsize-ensurer.reset-size3.size6,.katex .sizing.reset-size3.size6{font-size:1.4285714286em}.katex .fontsize-ensurer.reset-size3.size7,.katex .sizing.reset-size3.size7{font-size:1.7142857143em}.katex .fontsize-ensurer.reset-size3.size8,.katex .sizing.reset-size3.size8{font-size:2.0571428571em}.katex .fontsize-ensurer.reset-size3.size9,.katex .sizing.reset-size3.size9{font-size:2.4685714286em}.katex .fontsize-ensurer.reset-size3.size10,.katex .sizing.reset-size3.size10{font-size:2.9628571429em}.katex .fontsize-ensurer.reset-size3.size11,.katex .sizing.reset-size3.size11{font-size:3.5542857143em}.katex .fontsize-ensurer.reset-size4.size1,.katex .sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .sizing.reset-size5.size1{font-size:.5555555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .sizing.reset-size5.size2{font-size:.6666666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .sizing.reset-size5.size3{font-size:.7777777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .sizing.reset-size5.size4{font-size:.8888888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .sizing.reset-size5.size6{font-size:1.1111111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .sizing.reset-size5.size7{font-size:1.3333333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .sizing.reset-size5.size10{font-size:2.3044444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .sizing.reset-size5.size11{font-size:2.7644444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .sizing.reset-size7.size1{font-size:.4166666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .sizing.reset-size7.size3{font-size:.5833333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .sizing.reset-size7.size4{font-size:.6666666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .sizing.reset-size7.size6{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .sizing.reset-size7.size10{font-size:1.7283333333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .sizing.reset-size7.size11{font-size:2.0733333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .sizing.reset-size8.size1{font-size:.3472222222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .sizing.reset-size8.size2{font-size:.4166666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .sizing.reset-size8.size3{font-size:.4861111111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .sizing.reset-size8.size4{font-size:.5555555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .sizing.reset-size8.size6{font-size:.6944444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .sizing.reset-size8.size7{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .sizing.reset-size8.size10{font-size:1.4402777778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .sizing.reset-size8.size11{font-size:1.7277777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .sizing.reset-size9.size1{font-size:.2893518519em}.katex .fontsize-ensurer.reset-size9.size2,.katex .sizing.reset-size9.size2{font-size:.3472222222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .sizing.reset-size9.size3{font-size:.4050925926em}.katex .fontsize-ensurer.reset-size9.size4,.katex .sizing.reset-size9.size4{font-size:.462962963em}.katex .fontsize-ensurer.reset-size9.size5,.katex .sizing.reset-size9.size5{font-size:.5208333333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .sizing.reset-size9.size6{font-size:.5787037037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .sizing.reset-size9.size7{font-size:.6944444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .sizing.reset-size9.size8{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .sizing.reset-size9.size10{font-size:1.2002314815em}.katex .fontsize-ensurer.reset-size9.size11,.katex .sizing.reset-size9.size11{font-size:1.4398148148em}.katex .fontsize-ensurer.reset-size10.size1,.katex .sizing.reset-size10.size1{font-size:.2410800386em}.katex .fontsize-ensurer.reset-size10.size2,.katex .sizing.reset-size10.size2{font-size:.2892960463em}.katex .fontsize-ensurer.reset-size10.size3,.katex .sizing.reset-size10.size3{font-size:.337512054em}.katex .fontsize-ensurer.reset-size10.size4,.katex .sizing.reset-size10.size4{font-size:.3857280617em}.katex .fontsize-ensurer.reset-size10.size5,.katex .sizing.reset-size10.size5{font-size:.4339440694em}.katex .fontsize-ensurer.reset-size10.size6,.katex .sizing.reset-size10.size6{font-size:.4821600771em}.katex .fontsize-ensurer.reset-size10.size7,.katex .sizing.reset-size10.size7{font-size:.5785920926em}.katex .fontsize-ensurer.reset-size10.size8,.katex .sizing.reset-size10.size8{font-size:.6943105111em}.katex .fontsize-ensurer.reset-size10.size9,.katex .sizing.reset-size10.size9{font-size:.8331726133em}.katex .fontsize-ensurer.reset-size10.size10,.katex .sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .sizing.reset-size10.size11{font-size:1.1996142719em}.katex .fontsize-ensurer.reset-size11.size1,.katex .sizing.reset-size11.size1{font-size:.2009646302em}.katex .fontsize-ensurer.reset-size11.size2,.katex .sizing.reset-size11.size2{font-size:.2411575563em}.katex .fontsize-ensurer.reset-size11.size3,.katex .sizing.reset-size11.size3{font-size:.2813504823em}.katex .fontsize-ensurer.reset-size11.size4,.katex .sizing.reset-size11.size4{font-size:.3215434084em}.katex .fontsize-ensurer.reset-size11.size5,.katex .sizing.reset-size11.size5{font-size:.3617363344em}.katex .fontsize-ensurer.reset-size11.size6,.katex .sizing.reset-size11.size6{font-size:.4019292605em}.katex .fontsize-ensurer.reset-size11.size7,.katex .sizing.reset-size11.size7{font-size:.4823151125em}.katex .fontsize-ensurer.reset-size11.size8,.katex .sizing.reset-size11.size8{font-size:.578778135em}.katex .fontsize-ensurer.reset-size11.size9,.katex .sizing.reset-size11.size9{font-size:.6945337621em}.katex .fontsize-ensurer.reset-size11.size10,.katex .sizing.reset-size11.size10{font-size:.8336012862em}.katex .fontsize-ensurer.reset-size11.size11,.katex .sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{fill:currentColor;stroke:currentColor;display:block;height:inherit;position:absolute;width:100%}.katex svg path{stroke:none}.katex svg{fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1}.katex img{border-style:none;max-height:none;max-width:none;min-height:0;min-width:0}.katex .stretchy{display:block;overflow:hidden;position:relative;width:100%}.katex .stretchy:after,.katex .stretchy:before{content:""}.katex .hide-tail{overflow:hidden;position:relative;width:100%}.katex .halfarrow-left{left:0;overflow:hidden;position:absolute;width:50.2%}.katex .halfarrow-right{overflow:hidden;position:absolute;right:0;width:50.2%}.katex .brace-left{left:0;overflow:hidden;position:absolute;width:25.1%}.katex .brace-center{left:25%;overflow:hidden;position:absolute;width:50%}.katex .brace-right{overflow:hidden;position:absolute;right:0;width:25.1%}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{border:.04em solid;box-sizing:border-box}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .eqn-num:before{content:"(" counter(katexEqnNo) ")";counter-increment:katexEqnNo}.katex .mml-eqn-num:before{content:"(" counter(mmlEqnNo) ")";counter-increment:mmlEqnNo}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;left:calc(50% + .3em);position:absolute;text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{padding-left:2em;text-align:left}body{counter-reset:katexEqnNo mmlEqnNo}
+</style><style>
+
+:root {
+  --bg: #ffffff;
+  --soft: #f5f4f1;
+  --ink: #1b1916;
+  --ink-soft: #57514a;
+  --ink-faint: #6e6759;
+  --gold: #9a6a32;
+  --line: rgba(27, 25, 22, 0.14);
+  --line-soft: rgba(27, 25, 22, 0.1);
+  --serif: Georgia, Cambria, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.6;
+}
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(18px, 3.5vw, 34px);
+}
+h2 { font-size: 20px; margin: 0 0 10px; letter-spacing: -0.01em; }
+.mono { font-family: var(--mono); }
+
+
+.caption {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+
+
+.fold { border-top: 1px solid var(--line); margin: 0; }
+.fold:last-of-type { border-bottom: 1px solid var(--line); }
+.fold > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2.5vw, 22px);
+  padding: clamp(15px, 2.4vw, 21px) 10px;
+  transition: background 0.15s ease;
+}
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary:hover,
+.fold[open] > summary { background: var(--soft); }
+.fold-idx {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  flex: none;
+}
+.fold-text { min-width: 0; flex: 1; }
+.fold-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.fold-title.t-mono {
+  font-family: var(--mono);
+  font-size: 13.5px;
+}
+.fold-kind {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+.fold-toggle {
+  flex: none;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  transition: color 0.15s ease;
+}
+.fold > summary:hover .fold-toggle { color: var(--gold); }
+.fold-toggle .is-open { display: none; }
+.fold[open] .fold-toggle .is-open { display: inline; }
+.fold[open] .fold-toggle .is-closed { display: none; }
+.fold-body { padding: 6px 10px clamp(22px, 3.5vw, 32px); }
+
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.source {
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+.fields { padding: 4px 20px; }
+.field { padding: 16px 0; border-bottom: 1px solid var(--line-soft); }
+.field:last-child { border-bottom: 0; }
+.field .caption { margin-bottom: 6px; }
+.prose { color: var(--ink-soft); white-space: pre-wrap; font-size: 15.5px; line-height: 1.6; margin: 0; }
+.math {
+  font-size: 15px;
+  margin-top: 8px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  word-break: break-word;
+}
+.math .katex-display {
+  margin: 0.65em 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 2px;
+}
+.surface {
+  background: var(--soft);
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  padding: 11px 13px;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+.pill {
+  background: var(--soft);
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  padding: 4px 11px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+
+.answer, .result { margin-top: 12px; }
+.answer > summary, .result > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 13px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.answer > summary::-webkit-details-marker,
+.result > summary::-webkit-details-marker { display: none; }
+.answer > summary:hover, .result > summary:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+.answer-body {
+  margin-top: 12px;
+  border-left: 2px solid var(--gold);
+  padding-left: 14px;
+}
+.result pre { margin-top: 8px; }
+
+
+.package-head, .trajectory-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  padding: 13px 18px;
+  background: var(--soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.package-grid {
+  display: grid;
+  grid-template-columns: minmax(210px, 34%) 1fr;
+  min-height: 320px;
+}
+.tree {
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  border-right: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.tree-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 5px 12px 5px calc(12px + var(--depth) * 16px);
+  cursor: pointer;
+  min-width: 0;
+}
+.tree-row:hover { background: var(--soft); }
+.tree-row.active {
+  background: var(--soft);
+  color: var(--gold);
+  box-shadow: inset 2px 0 var(--gold);
+}
+.tree-icon { color: var(--gold); font-size: 11px; }
+.tree-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tree-size { margin-left: auto; color: var(--ink-faint); font-size: 10px; }
+.previews { min-width: 0; }
+.preview-label {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+.preview-pane {
+  display: none;
+  margin: 0;
+  padding: 16px;
+  max-height: 440px;
+  overflow: auto;
+  background: var(--bg);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.preview-pane.active { display: block; }
+
+
+.task { padding: 18px 20px 8px; }
+.turns {
+  list-style: none;
+  margin: 8px 20px 22px;
+  padding: 10px 0 0 21px;
+  border-left: 1px solid var(--line);
+}
+.turn { position: relative; padding: 0 0 22px; }
+.turn .node {
+  position: absolute;
+  left: -28px;
+  top: 2px;
+  color: var(--gold);
+  font-size: 11px;
+}
+.turn .prose { margin: 6px 0; }
+.tool-name { color: var(--gold); font-weight: bold; margin-top: 8px; }
+.note { padding: 21px; }
+.note .prose { margin: 0; }
+
+@media (max-width: 700px) {
+  .package-grid { grid-template-columns: 1fr; }
+  .tree {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-soft);
+    max-height: 280px;
+    overflow: auto;
+  }
+  .package-head, .trajectory-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+</style><style>html,body{min-height:100%}body{background-attachment:fixed}</style></head><body><main><details class="fold"><summary><span class="fold-idx">01</span><span class="fold-text"><span class="fold-title t-mono">tape-custody-reconciliation</span><span class="fold-kind">Software · Storage metadata · pass@8 1/8</span></span><span class="fold-toggle"><span class="is-closed">Open</span><span class="is-open">Close</span></span></summary><div class="fold-body"><article class="card package"><div class="package-head"><span class="mono">tape-custody-reconciliation</span><span class="caption">Software · Storage metadata · pass@8 1/8</span></div><div class="package-grid"><ul class="tree"><li class="tree-row active" style="--depth:0" data-path="instruction.md"><span class="tree-icon">▱</span><span class="tree-name">instruction.md</span><span class="tree-size">2.7 KB</span></li><li class="tree-row" style="--depth:0" data-path="task.toml"><span class="tree-icon">▱</span><span class="tree-name">task.toml</span><span class="tree-size">1.4 KB</span></li><li class="tree-row" style="--depth:0" data-path="readme"><span class="tree-icon">▱</span><span class="tree-name">README.md</span><span class="tree-size">6.5 KB</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▰</span><span class="tree-name">environment/</span></li><li class="tree-row" style="--depth:1" data-path="env-dockerfile"><span class="tree-icon">▱</span><span class="tree-name">Dockerfile</span><span class="tree-size">778 B</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▰</span><span class="tree-name">generators/</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">gen_data.py</span><span class="tree-size">16 KB</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▰</span><span class="tree-name">tests/</span></li><li class="tree-row" style="--depth:1" data-path="tests"><span class="tree-icon">▱</span><span class="tree-name">test_outputs.py</span><span class="tree-size">10 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">oracle.py</span><span class="tree-size">6.6 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">expected_answer.json</span><span class="tree-size">2.4 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">Dockerfile</span><span class="tree-size">1.0 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">test.sh</span><span class="tree-size">1.1 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▰</span><span class="tree-name">data/</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">catalog.csv</span><span class="tree-size">699 B</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">lib-b-moves.log</span><span class="tree-size">2.4 KB</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">vault-manifest.json</span><span class="tree-size">771 B</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▰</span><span class="tree-name">scans/</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▰</span><span class="tree-name">solution/</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">solve.sh</span><span class="tree-size">7.2 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▰</span><span class="tree-name">gold/app/</span></li><li class="tree-row" style="--depth:2" data-path="gold"><span class="tree-icon">▱</span><span class="tree-name">custody.json</span><span class="tree-size">2.9 KB</span></li></ul><div class="previews"><div class="preview-label mono">instruction.md</div><pre class="preview-pane active" data-preview="instruction.md"><code>You are the backup and media-services administrator for a tape archive. A
+quarterly LTO media rotation has been closed out by two operators who worked
+from separate runbooks, and before the reclamation window opens you need one
+defensible custody picture for the whole media set. Everything on hand sits
+under `/app/data`: `catalog.csv` with `cart_id`, `barcode`,
+`last_known_location`, and `data_expired` for each cartridge; `scans/` holding
+four inventory JSON files, with scan_id 1 and 4 taken at lib-a and scan_id 2
+and 3 at lib-b, each lib-b scan tagged with the controller checkpoint it
+reconciles through; `vault-manifest.json` carrying signed receipts;
+`lib-b-moves.log`, a JSONL file that is lib-b&#x27;s rotated controller command
+journal; and `README.md` with notes on where each artifact came from. `/app`
+is otherwise empty, so read the artifacts and work out for yourself how they
+fit together.
+
+Write `/app/custody.json` as a single JSON document of the form `{&quot;custody&quot;:
+{&quot;&lt;cart_id&gt;&quot;: {&quot;where&quot;: &quot;library&quot;|&quot;vault&quot;|&quot;in_transit&quot;|&quot;unknown&quot;, &quot;library&quot;:
+&quot;lib-a&quot;|&quot;lib-b&quot;, &quot;slot&quot;: &lt;integer&gt;, &quot;source&quot;:
+&quot;vault&quot;|&quot;inventory&quot;|&quot;chain&quot;|&quot;unknown&quot;}}, &quot;reclaim&quot;: [&quot;&lt;cart_id&gt;&quot;, ...]}`; the
+`library` and `slot` fields appear only when `where` is `library`. Give
+exactly one custody entry for every cartridge in the catalog&#x27;s media set, with
+exactly one entry per `cart_id` in the catalog and no other keys. Give each
+cartridge its true current custody: `library` with the library name and the
+integer slot number where a cartridge physically sits in a library, `vault`
+where it is receipted offsite, `in_transit` where it has been mailed but not
+receipted, and `unknown` where no source supports a location. For each
+cartridge, name the source that settles it: `vault` when a signed manifest
+receipt is decisive; `inventory` when no receipt is decisive and a library
+scan places it with its VOLSER appearing at exactly one slot and corresponding
+to exactly one cartridge in the catalog; `chain` when neither a signed receipt
+nor such an unambiguous scan settles it, so that placing it requires the
+replayed lib-b command journal — this covers cartridges a scan leaves
+ambiguous, moves recorded after the last checkpoint of a library, cartridges
+the journal records as imported at its tail, and cartridges mailed without a
+receipt; and `unknown` when no source places it.
+
+Fill the `reclaim` array with exactly those cartridges whose data has expired
+and which are physically resident in a library, so the backup server can mount
+and overwrite them now.
+
+You have 14400 seconds to complete this task. Do not cheat by using online
+solutions or hints specific to this task.</code></pre><pre class="preview-pane" data-preview="task.toml"><code>schema_version = &quot;1.0&quot;
+
+artifacts = [
+  &quot;/app/custody.json&quot;,
+]
+
+[task]
+name = &quot;terminal-bench/tape-custody-reconciliation&quot;
+description = &quot;A quarterly LTO media rotation was executed by two operators working from different runbooks, and the backup server&#x27;s volume catalog, two libraries&#x27; inventory scans, a signed vault receipt manifest, and one surviving (rotated, clock-drifted) lib-b controller command journal now disagree about where each cartridge is - including two cartridges that a hand relabel left carrying the same VOLSER, and cartridges that moved after the last inventory was taken. The engineer must reconcile the four sources into one per-cartridge custody map (library and slot, vault, in transit, or unknown), state which source settled each cartridge, and emit the exact set of volumes the backup server may safely overwrite.&quot;
+authors = [{ name = &quot;Task Author&quot;, email = &quot;author@localhost&quot; }]
+
+[metadata]
+author_name = &quot;Task Author&quot;
+author_email = &quot;author@localhost&quot;
+category = &quot;Software&quot;
+subcategory = &quot;Storage metadata reconciliation&quot;
+tags = [&quot;tape-backup&quot;, &quot;lto-library&quot;, &quot;log-correlation&quot;, &quot;audit-reconciliation&quot;, &quot;media-custody&quot;, &quot;retention-reclaim&quot;]
+expert_time_estimate_hours = 8.0
+
+[verifier]
+timeout_sec = 1800.0
+environment_mode = &quot;separate&quot;
+
+[agent]
+timeout_sec = 14400.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 16384
+gpus = 0
+allow_internet = true</code></pre><pre class="preview-pane" data-preview="readme"><code>## Difficulty explanation
+
+The hinge is that a journaled command is only authoritative when the next
+inventory of the affected library after it agrees, and that rule is written
+nowhere - it must be derived by comparing the replayed chain against the
+inventories. Two further mechanics are load-bearing rather than decorative:
+the newest scan is itself stale for activity after its checkpoint (C017 moves
+from slot 14 to 15 after lib-b&#x27;s last scan, so &#x27;trust the newest inventory&#x27; is
+wrong), and post-checkpoint commands must be ordered by (boot, seq) because
+the timestamps drift across boots and seq restarts (C018&#x27;s swing is only
+resolved correctly by boot-then-seq). Every fixed precedence is wrong on a
+distinct, populated subset: newest-scan-only misplaces C017, cannot place the
+tail import C015 or the two in-transit cartridges C023/C024, and collapses the
+shared VOLSER; timestamp-order or global-seq replay misplaces the three
+never-executed commands and lands C018 in slot 13. A competent solver&#x27;s first
+approach — Three first approaches are all plausible. (a) Use
+catalog.last_known_location, filling gaps from the vault manifest. (b) Key
+everything by VOLSER and trust each library&#x27;s newest scan, then the manifest,
+then mark the rest unknown. (c) Replay lib-b-moves.log last-command-wins in
+file order (timestamp), or globally sorted by seq, and take whatever it says.
+— (a) is wrong for every hand-moved cartridge and, worse, marks expired
+vault-held volumes (C020) as resident so the reclaim set contains cartridges
+the vault still holds. (b) collapses the two cartridges that share a VOLSER,
+misreads C017 from a stale scan (slot 14 instead of 15), cannot place the tail
+import C015 or the unreceipted mailings C023/C024, and degrades those to
+unknown. (c) produces a custody map where the failed physical command leaves
+C016 in lib-b slot 11 instead of slot 5 and the never-sent vault dispatch
+leaves C014 in transit instead of lib-b slot 7, the never-run import of C009
+strands it in lib-b slot 9 instead of lib-a slot 10, and - because the file is
+sorted by the drifted clock and seq restarts at 1 on each boot - C018&#x27;s swing
+replays from the wrong end and lands in slot 13. Baseline evidence: the
+unaided solver attempt recorded `fail`.</code></pre><pre class="preview-pane" data-preview="gold"><code>{
+  &quot;custody&quot;: {
+    &quot;C001&quot;: {
+      &quot;where&quot;: &quot;library&quot;,
+      &quot;library&quot;: &quot;lib-a&quot;,
+      &quot;slot&quot;: 1,
+      &quot;source&quot;: &quot;inventory&quot;
+    },
+    &quot;C002&quot;: {
+      &quot;where&quot;: &quot;library&quot;,
+      &quot;library&quot;: &quot;lib-a&quot;,
+      &quot;slot&quot;: 2,
+      &quot;source&quot;: &quot;inventory&quot;
+    },
+    &quot;C003&quot;: {
+      &quot;where&quot;: &quot;library&quot;,
+      &quot;library&quot;: &quot;lib-a&quot;,
+      &quot;slot&quot;: 3,
+      &quot;source&quot;: &quot;inventory&quot;
+    },
+    &quot;C004&quot;: {
+      &quot;where&quot;: &quot;library&quot;,
+      &quot;library&quot;: &quot;lib-a&quot;,
+      &quot;slot&quot;: 4,
+      &quot;source&quot;: &quot;inventory&quot;
+    },
+    &quot;C005&quot;: {
+      &quot;where&quot;: &quot;library&quot;,
+      &quot;library&quot;: &quot;lib-a&quot;,
+      &quot;slot&quot;: 6,
+      &quot;source&quot;: &quot;inventory&quot;
+    },
+    &quot;C006&quot;: {
+      &quot;where&quot;: &quot;library&quot;,
+      &quot;library&quot;: &quot;lib-a&quot;,
+      &quot;slot&quot;: 12,
+      &quot;source&quot;: &quot;inventory&quot;
+    },
+    &quot;C007&quot;: {
+      &quot;where&quot;: &quot;library&quot;,
+      &quot;library&quot;: &quot;lib-a&quot;,
+      &quot;slot&quot;: 5,
+      &quot;source&quot;: &quot;inventory&quot;
+    },
+    &quot;C008&quot;: {
+      &quot;where&quot;: &quot;library&quot;,
+      &quot;library&quot;:
+    ...</code></pre><pre class="preview-pane" data-preview="env-dockerfile"><code># Stage 1: build the staged data set from one scripted physical history.
+# The generator encodes the frozen ground truth, so it must never reach the
+# image the solver runs in; this stage is discarded.
+FROM python:3.12-slim AS data
+
+COPY generators/gen_data.py /opt/gen/gen_data.py
+RUN python3 /opt/gen/gen_data.py /app/data
+
+# Stage 2: the solver&#x27;s environment. Only the staged artifacts and the harness
+# runtime land here, and /app is otherwise empty.
+FROM python:3.12-slim
+
+RUN apt-get update &amp;&amp; apt-get install -y --no-install-recommends \
+        curl bash gcc make git python3 python3-pip sqlite3 \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY --from=data /app/data /app/data
+
+CMD [&quot;sleep&quot;, &quot;infinity&quot;]</code></pre><pre class="preview-pane" data-preview="tests"><code></code></pre></div></div></article></div></details><details class="fold"><summary><span class="fold-idx">02</span><span class="fold-text"><span class="fold-title t-mono">capacity-meter-reconciliation</span><span class="fold-kind">Operations · Telemetry · pass@8 1/8</span></span><span class="fold-toggle"><span class="is-closed">Open</span><span class="is-open">Close</span></span></summary><div class="fold-body"><article class="card package"><div class="package-head"><span class="mono">capacity-meter-reconciliation</span><span class="caption">Operations · Telemetry · pass@8 1/8</span></div><div class="package-grid"><ul class="tree"><li class="tree-row active" style="--depth:0" data-path="instruction.md"><span class="tree-icon">▱</span><span class="tree-name">instruction.md</span><span class="tree-size">3.8 KB</span></li><li class="tree-row" style="--depth:0" data-path="task.toml"><span class="tree-icon">▱</span><span class="tree-name">task.toml</span><span class="tree-size">2.0 KB</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▱</span><span class="tree-name">README.md</span><span class="tree-size">9.6 KB</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▰</span><span class="tree-name">environment/</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">Dockerfile</span><span class="tree-size">1.0 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▰</span><span class="tree-name">generators/</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">make_data.py</span><span class="tree-size">29 KB</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▰</span><span class="tree-name">tests/</span></li><li class="tree-row" style="--depth:1" data-path="tests"><span class="tree-icon">▱</span><span class="tree-name">test_outputs.py</span><span class="tree-size">19 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">reference_fixtures.py</span><span class="tree-size">13 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">Dockerfile</span><span class="tree-size">1.0 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">test.sh</span><span class="tree-size">1.1 KB</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▰</span><span class="tree-name">solution/</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">solve.sh</span><span class="tree-size">10 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▰</span><span class="tree-name">gold/app/</span></li><li class="tree-row" style="--depth:2" data-path="gold"><span class="tree-icon">▱</span><span class="tree-name">report.json</span><span class="tree-size">210 KB</span></li></ul><div class="previews"><div class="preview-label mono">instruction.md</div><pre class="preview-pane active" data-preview="instruction.md"><code>The quarterly capacity headroom review is due, and the utilization the planner
+modelled for our 60-node autoscaled fleet disagrees with the cloud provider&#x27;s
+billing meters by 15-40% across the same 48-hour window, so the capacity
+report has to be republished. Everything staged for the review sits under
+`/app`: `data/` holds the planner&#x27;s per-node 5-minute metric export, the
+provider&#x27;s instance-hour meter export, the autoscaler&#x27;s append-only decision
+log, and the provider&#x27;s own layout spec for the meter export;
+`config/planner_scrape.yml` is the scrape configuration the planner export was
+cut against; and `policy/capacity_reconciliation_policy.md` is the
+reconciliation policy that fixes source precedence, each source&#x27;s offered
+value, the completeness principle, the unresolved rule, the report schema and
+the headroom target. There is no report yet and no code.
+
+Write the report to `/app/report.json` as one JSON object with exactly the
+keys `node_hours`, `unresolved`, `fleet_headroom_pct` and `headroom_verdict`.
+Between them, `node_hours` and `unresolved` account for every node-hour in the
+48-hour window that any of the three exports touches, each counted at the
+clock hour its export ties to: a planner window ties to the hour containing
+it, a decision to the clock hour of its timestamp, and a meter row ties to the
+hour it bills, except that a life&#x27;s terminal row ties to the row&#x27;s ledger
+label minus one hour — and that row stays in scope even when its label lands
+one hour past the window&#x27;s last hour; two instance rows billing the same
+node-hour are one node-hour whose meter candidate aggregates both rows.
+`node_hours` holds only the settled node-hours: each record carries `node_id`,
+`hour_start` as `YYYY-MM-DDTHH:00:00Z`, the accepted `util_pct`, the single
+winning `source` (`planner_export`, `billing_meter` or `autoscaler_log`) and a
+`rejected` ledger listing, in any order, every other coverage export that
+touched the hour, complete or not, with the value it offered, while
+`autoscaler_log` never appears in a `rejected` ledger; a node-hour that no
+export touches appears in neither array.
+
+Adjudicate each hour per node from that node&#x27;s own coverage. A coverage source
+— `planner_export` or `billing_meter` — is complete for a node-hour only when
+it observed the node for the whole hour: twelve of twelve 5-minute windows
+from the planner, or meter rows whose `observed_samples` sum to twelve across
+that hour&#x27;s instance rows; the autoscaler decision log is not a coverage
+series and is complete for any node-hour in which it recorded a decision on
+that node. Each source offers the mean utilization over the minutes it
+actually observed — the planner the mean `util_pct` of the windows it recorded
+in the hour, the meter `sum(avg_cpu_util_pct * 12) / sum(observed_samples)`
+over the rows billing that hour, the log the mean `signal_pct` over that
+node&#x27;s decisions in the hour. A decision on the node in that hour always wins;
+absent one, the planner wins where it recorded the hour in full; absent that,
+the meter wins where it observed the whole billed hour; otherwise the hour
+stays unresolved. `unresolved` lists, in any order, every node-hour no export
+settles, each entry giving `node_id`, `hour_start`, its `candidates` (only
+`planner_export` and/or `billing_meter`, each with the value it offered) and
+`bound_pct`, the largest candidate value minus the smallest, which is `0.0`
+for a single incomplete candidate — an hour with only one incomplete candidate
+is still unresolved. Finally, `fleet_headroom_pct` is 100 minus the mean
+accepted `util_pct` over the settled node-hours only, and `headroom_verdict`
+is `sufficient` when that headroom is at least 25.0 and `insufficient`
+otherwise.
+
+You have 14400 seconds to complete this task. Do not cheat by using online
+solutions or hints specific to this task.</code></pre><pre class="preview-pane" data-preview="task.toml"><code>schema_version = &quot;1.0&quot;
+
+artifacts = [
+  &quot;/app/report.json&quot;,
+]
+
+[task]
+name = &quot;terminal-bench/capacity-meter-reconciliation&quot;
+description = &quot;The quarterly capacity headroom review is due and the utilization the planner modelled for a 60-node autoscaled fleet disagrees with the cloud provider&#x27;s billing meters by 15-40% over the same 48-hour window, so the report has to be republished. Three bounded exports cover that window: the planner&#x27;s per-node 5-minute metric export (complete for most nodes but silently missing every node the scrape config drops), the provider&#x27;s instance-hour meter export (rows keyed by the clock hour the ledger closed under rather than the hour the instance served, carrying the number of five-minute samples actually observed in the billed hour and an average computed over the full billed hour with unobserved minutes counted as zero), and the autoscaler&#x27;s append-only decision log, which dates every scale_out and scale_in but is silent when the provider reclaims a node and records only the fleet-level signal it acted on. The deliverable is one enumerable capacity report: for every node-hour any export touches, the accepted utilization and the single source that won it plus a ledger of the exports that were present and lost, the node-hours no export covers completely with the bound between their candidates, and the fleet headroom those numbers imply.&quot;
+authors = [{ name = &quot;Task Author&quot;, email = &quot;author@localhost&quot; }]
+
+[metadata]
+author_name = &quot;Task Author&quot;
+author_email = &quot;author@localhost&quot;
+category = &quot;Operations&quot;
+subcategory = &quot;Telemetry reconciliation&quot;
+tags = [&quot;telemetry-reconciliation&quot;, &quot;capacity-planning&quot;, &quot;finops&quot;, &quot;billing-meter&quot;, &quot;autoscaling&quot;, &quot;instance-hours&quot;]
+expert_time_estimate_hours = 6.0
+
+[verifier]
+timeout_sec = 3600.0
+environment_mode = &quot;separate&quot;
+
+[agent]
+timeout_sec = 14400.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 16384
+gpus = 0
+allow_internet = true</code></pre><pre class="preview-pane" data-preview="gold"><code>// 861 settled node-hours + 13 unresolved; fleet_headroom_pct
+// 19.773822028648866 -&gt; &quot;insufficient&quot; against the 25.0 target.
+{
+  &quot;node_hours&quot;: [
+    {
+      &quot;node_id&quot;: &quot;node-001&quot;,
+      &quot;hour_start&quot;: &quot;2026-06-01T00:00:00Z&quot;,
+      &quot;util_pct&quot;: 84.73716666666667,
+      &quot;source&quot;: &quot;planner_export&quot;,
+      &quot;rejected&quot;: [
+        { &quot;source&quot;: &quot;billing_meter&quot;, &quot;util_pct&quot;: 68.1969 }
+      ]
+    },
+    ...
+  ],
+  &quot;unresolved&quot;: [
+    {
+      &quot;node_id&quot;: &quot;node-031&quot;,
+      &quot;hour_start&quot;: &quot;2026-06-01T02:00:00Z&quot;,
+      &quot;candidates&quot;: [
+        { &quot;source&quot;: &quot;planner_export&quot;, &quot;util_pct&quot;: 72.07000000000001 },
+        { &quot;source&quot;: &quot;billing_meter&quot;,  &quot;util_pct&quot;: 88.795 }
+      ],
+      &quot;bound_pct&quot;: 16.724999999999994
+    },
+    ...
+  ],
+  &quot;fleet_headroom_pct&quot;: 19.773822028648866,
+  &quot;headroom_verdict&quot;: &quot;insufficient&quot;
+}</code></pre><pre class="preview-pane" data-preview="tests"><code></code></pre></div></div></article></div></details><details class="fold"><summary><span class="fold-idx">03</span><span class="fold-text"><span class="fold-title t-mono">annexation-ledger-adjudication</span><span class="fold-kind">Science · Geospatial · pass@8 2/8</span></span><span class="fold-toggle"><span class="is-closed">Open</span><span class="is-open">Close</span></span></summary><div class="fold-body"><article class="card package"><div class="package-head"><span class="mono">annexation-ledger-adjudication</span><span class="caption">Science · Geospatial · pass@8 2/8</span></div><div class="package-grid"><ul class="tree"><li class="tree-row active" style="--depth:0" data-path="instruction.md"><span class="tree-icon">▱</span><span class="tree-name">instruction.md</span><span class="tree-size">4.3 KB</span></li><li class="tree-row" style="--depth:0" data-path="task.toml"><span class="tree-icon">▱</span><span class="tree-name">task.toml</span><span class="tree-size">1.7 KB</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▱</span><span class="tree-name">README.md</span><span class="tree-size">6.9 KB</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▰</span><span class="tree-name">environment/</span></li><li class="tree-row" style="--depth:1" data-path="env-dockerfile"><span class="tree-icon">▱</span><span class="tree-name">Dockerfile</span><span class="tree-size">2.2 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▰</span><span class="tree-name">data/</span></li><li class="tree-row" style="--depth:2" data-path="sop"><span class="tree-icon">▱</span><span class="tree-name">ADJUDICATION_SOP.md</span><span class="tree-size">6.7 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▰</span><span class="tree-name">generators/</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">make_env.py</span><span class="tree-size">30 KB</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▰</span><span class="tree-name">tests/</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">test_outputs.py</span><span class="tree-size">24 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▰</span><span class="tree-name">expected/</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">boundaries.geojson</span><span class="tree-size">3.8 KB</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">assignments.csv</span><span class="tree-size">2.4 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▰</span><span class="tree-name">raw/</span></li><li class="tree-row" style="--depth:2" data-path="ledger"><span class="tree-icon">▱</span><span class="tree-name">ordinance_ledger.json</span><span class="tree-size">5.3 KB</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">parcels.json</span><span class="tree-size">6.8 KB</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">monuments.csv</span><span class="tree-size">736 B</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">crs_metadata.json</span><span class="tree-size">654 B</span></li><li class="tree-row" style="--depth:0"><span class="tree-icon">▰</span><span class="tree-name">solution/</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▱</span><span class="tree-name">solve.sh</span><span class="tree-size">7.5 KB</span></li><li class="tree-row" style="--depth:1"><span class="tree-icon">▰</span><span class="tree-name">gold/app/out/</span></li><li class="tree-row" style="--depth:2" data-path="gold"><span class="tree-icon">▱</span><span class="tree-name">assignments.csv</span><span class="tree-size">2.4 KB</span></li><li class="tree-row" style="--depth:2"><span class="tree-icon">▱</span><span class="tree-name">boundaries.geojson</span><span class="tree-size">3.8 KB</span></li></ul><div class="previews"><div class="preview-label mono">instruction.md</div><pre class="preview-pane active" data-preview="instruction.md"><code>You are the cadastral GIS analyst on the county assessor&#x27;s
+boundary-adjudication desk. The 2023-06-30 assessment roll is being certified,
+and the county needs one authoritative jurisdiction boundary layer plus a
+parcel-to-jurisdiction assignment table produced from the working material in
+`/app/raw`: `parcels.geojson` (the parcel fabric, carrying `parcel_id` and
+`deed_acres`), `assessor_boundaries.geojson` (county grid polygons for the
+COUNTY outline, the City of Halloran and the Town of Pinyon),
+`state_places.geojson` (2015-vintage incorporated places in EPSG:6318
+geographic coordinates), `utility_franchise.geojson` (a franchise area in
+EPSG:6318 geographic coordinates), `ordinance_ledger.json` (the instruments of
+record, giving basis, datum, effective date, certified acres, monument id and
+either recorded course lists or a pointer to the franchise layer),
+`monuments.csv` (one row per monument with geographic longitude and latitude,
+ellipsoid height, combined factor, and mapping angle in degrees and DMS,
+including the recorded NAD27-to-NAD83(2011) east/north station shift for the
+1971 NAD27 monument), `crs_metadata.json` (the two pinned transverse-Mercator
+pipelines and their unit handling), and `ADJUDICATION_SOP.md` (rules of
+evidence). `/app/out` is empty and is where both deliverables are to be
+written.
+
+Write `/app/out/boundaries.geojson` as a FeatureCollection containing exactly
+four Polygon or MultiPolygon features, one per jurisdiction whose
+`jurisdiction` property is set to one of the exact strings `City of Halloran`,
+`Town of Pinyon`, `Upper Foothill Water District` and `Unincorporated`, each
+reproducing that jurisdiction&#x27;s legally correct boundary as of the 2023-06-30
+assessment roll, with boundaries described only by recorded courses
+reconstructed from their monument and reduced from ground bearings and
+distances to the county grid using that monument&#x27;s mapping angle and combined
+factor, and with any NAD27 tie projected through the pinned NAD27 pipeline and
+shifted before use. Deliver the geometry in the county grid in US survey feet
+and declare it with a top-level `crs` member naming the pinned county pipeline
+from `crs_metadata.json`; NAD83(2011) or WGS84 longitude-latitude geometry
+with an equivalent declaration is also acceptable, and every delivered
+geometry must be valid. Each feature must agree with the legally correct
+boundary at survey precision: no more than 100 square feet of the delivered
+feature may lie further than 2.5 US survey feet outside the correct boundary,
+and no more than 100 square feet of the correct boundary may lie that far
+outside the delivered feature. Agreement is measured by area, not by a literal
+point-to-point distance: the reference extents carry sub-square-foot slivers,
+and a distance that counted them would be decided by components no surveyor
+would map. The four features must partition the county outline carried in
+`assessor_boundaries.geojson`: no jurisdiction may overlap another by more
+than 5,000 square feet, no county ground may be left uncovered by more than
+20,000 square feet and no ground outside the county may be claimed by more
+than 20,000 square feet, and oblique internal edges shared between
+jurisdictions must coincide where the records say they coincide.
+
+Write `/app/out/assignments.csv` with the header exactly
+`parcel_id,jurisdiction,settling_record`, containing exactly one row for every
+`parcel_id` in `/app/raw/parcels.geojson` with no duplicates and in any row
+order, and assign each parcel as a whole to the single jurisdiction containing
+its ground using the same four exact jurisdiction strings. In
+`settling_record` give the id of the ledger record that the precedence ladder
+in `ADJUDICATION_SOP.md` selects for that parcel&#x27;s ground; a cited instrument
+must exist in the ledger, be effective on or before 2023-06-30, not be
+superseded by another record&#x27;s correction, not be inadmissible for failing
+traverse closure or certified-acreage reconciliation, and not be a franchise
+applied to incorporated ground. Where the admissible evidence does not support
+a municipality&#x27;s jurisdiction over a parcel&#x27;s ground, that parcel must not
+carry the municipality&#x27;s label.
+
+You have 14400 seconds to complete this task. Do not cheat by using online
+solutions or hints specific to this task.</code></pre><pre class="preview-pane" data-preview="task.toml"><code>schema_version = &quot;1.0&quot;
+
+artifacts = [
+  &quot;/app/out/boundaries.geojson&quot;,
+  &quot;/app/out/assignments.csv&quot;,
+]
+
+[task]
+name = &quot;terminal-bench/annexation-ledger-adjudication&quot;
+description = &quot;A county assessor is certifying the 2023-06-30 tax roll and must produce one authoritative jurisdiction boundary layer plus a parcel-to-jurisdiction assignment table from three sources that disagree: an assessor polygon layer in the county US-survey-foot grid, a stale state incorporated-places layer in geographic coordinates, and a utility franchise-area layer. No layer is authoritative. A state annexation ordinance ledger, recorded plats in metes-and-bounds, one correction plat, a de-annexation, and a franchise agreement decide which instrument governs each piece of ground as of the roll date, and a monument tie-in file fixes the ground coordinates. The platted annexations exist only as bearings and ground distances, one tract is tied out of NAD27, and the only correct boundary is the one reconstructed course-by-course and reduced to the county grid before any geometry is compared or joined.&quot;
+authors = [{ name = &quot;Task Author&quot;, email = &quot;author@localhost&quot; }]
+
+[metadata]
+author_name = &quot;Task Author&quot;
+author_email = &quot;author@localhost&quot;
+category = &quot;Science&quot;
+subcategory = &quot;Geospatial reconciliation&quot;
+tags = [&quot;cadastral&quot;, &quot;metes-and-bounds&quot;, &quot;coordinate-reduction&quot;, &quot;boundary-adjudication&quot;, &quot;gis-overlay&quot;, &quot;tax-roll&quot;]
+expert_time_estimate_hours = 8.0
+
+[verifier]
+timeout_sec = 3600.0
+environment_mode = &quot;separate&quot;
+
+[agent]
+timeout_sec = 14400.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 16384
+gpus = 0
+allow_internet = true</code></pre><pre class="preview-pane" data-preview="sop"><code># ADJUDICATION SOP — RULES OF EVIDENCE ONLY
+
+County Assessor, Boundary-Adjudication Desk.
+Assessment roll date for the certification at hand: **2023-06-30**.
+Units: **US survey feet** in the county grid, bearings clockwise from true north.
+
+This document states rules of evidence. It does not say which working layer or
+which party is right about any piece of ground. Which instrument governs is
+decided per instrument by the rules below, using the record itself and the
+`ordinance_ledger.json` entry that carries it.
+
+## 1. Common grid and the reduction of evidence
+
+1.1 Every comparison is made in the **county grid** named `county_grid` in
+    `crs_metadata.json`. Any source geometry or record kept in geographic
+    coordinates — a layer polygon as much as a recorded course — is brought
+    into that grid by forward projection through the pinned pipeline.
+
+1.2 A record whose `datum` is `NAD83(2011)` is projected with the pinned
+    `county_grid` pipeline. A record whose `datum` is `NAD27` is projected with
+    the pinned `nad27_grid` pipeline, and the recorded **east/north station
+    shift** for that record&#x27;s monument (see `monuments.csv`) is then added.
+    There are no datum-shift grids: the station shift completes the tie.
+
+1.3 A course record is anchored at its `monument_id`. The monument&#x27;s position
+    is established from its geographic coordinate under rule 1.2. Each recorded
+    course is then reduced from ground measurement to the grid:
+
+        grid_azimuth  = astronomic_azimuth - mapping_angle(monument)
+        grid_distance = ground_distance   x combined_factor(monument)
+
+    `mapping_angle` and `combined_factor` are read from `monuments.csv` for that
+    record&#x27;s `monument_id`. The mapping angle is recorded in decimal degrees in
+    `mapping_angle_deg` and in degrees-minutes-seconds in `mapping_angle_dms`;
+    the two columns are the same value and either may be used. The reduced
+    traverse is built by accumulating the reduced courses in order from the</code></pre><pre class="preview-pane" data-preview="env-dockerfile"><code># ---------------------------------------------------------------------------
+# Annexation-ledger boundary adjudication -- solver image.
+#
+# Stage 1 is a throwaway fixture stage.  The generator source holds the
+# authored county partition, the per-parcel answer key and the build-time
+# discrimination assertions, so it must never reach the solver.  Only the
+# generated /build/raw tree crosses into stage 2.
+# ---------------------------------------------------------------------------
+FROM python:3.12-slim-bookworm AS fixture
+
+WORKDIR /build
+COPY generators/make_env.py /build/make_env.py
+RUN mkdir -p /build/raw &amp;&amp; python3 /build/make_env.py /build/raw
+
+# ---------------------------------------------------------------------------
+# Stage 2 -- solver image: base toolchain plus the working material.
+# No GIS stack is installed: pyproj/shapely are the solver&#x27;s own work.
+# ---------------------------------------------------------------------------
+FROM python:3.12-slim-bookworm
+
+RUN apt-get update &amp;&amp; apt-get install -y --no-install-recommends \
+        curl \
+        ca-certificates \
+        git \
+        jq \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY --from=fixture /build/raw /app/raw
+COPY data/ADJUDICATION_SOP.md /app/raw/ADJUDICATION_SOP.md
+
+# Starting state: an empty output channel beside a flat, fully populated raw
+# tree.  Refuse to build an image that leaked a harness or oracle artifact.
+RUN set -eu; \
+    mkdir -p /app/out; \
+    test ! -e /tests; \
+    test -z &quot;$(ls -A /app/out)&quot;; \
+    test -z &quot;$(find /app/raw -mindepth 1 -type d -print)&quot;; \
+    test &quot;$(ls -A /app/raw | wc -l)&quot; = 8; \
+    test -z &quot;$(find /app -path /app/raw -prune -o -type f -print)&quot;; \
+    stray=&quot;$(find /app -path /app/raw -prune -o -type f -print0 \
+             | xargs -0 -r grep -l -m1 &#x27;^parcel_id,jurisdiction,settling_record$&#x27; \
+               2&gt;/dev/null || true)&quot;; \
+    test -z &quot;$stray&quot;; \
+    for d in /tmp /opt /srv /home /root /var/tmp; do \
+        test -z &quot;$(find &quot;$d&quot; -mindepth 1 -type d \
+                    \( -iname &#x27;expected&#x27; -o -iname &#x27;oracle&#x27; \) -print 2&gt;/dev/null)&quot;; \
+    done; \
+    ls -la /app /app/raw
+
+CMD [&quot;sleep&quot;, &quot;infinity&quot;]</code></pre><pre class="preview-pane" data-preview="ledger"><code>{
+  &quot;id&quot;: &quot;BASE-HALL-01&quot;,
+  &quot;type&quot;: &quot;incorporation&quot;,
+  &quot;municipality&quot;: &quot;City of Halloran&quot;,
+  &quot;basis&quot;: &quot;certified municipal incorporation&quot;,
+  &quot;datum&quot;: &quot;NAD83(2011)&quot;,
+  &quot;effective_date&quot;: &quot;1908-04-02&quot;,
+  &quot;certified_acres&quot;: 6317.5,
+  &quot;monument_id&quot;: null,
+  &quot;replaces&quot;: null,
+  &quot;courses&quot;: null,
+  &quot;geometry&quot;: {
+    &quot;source&quot;: &quot;state_places.geojson&quot;,
+    &quot;name&quot;: &quot;City of Halloran&quot;
+  }
+}</code></pre><pre class="preview-pane" data-preview="gold"><code>parcel_id,jurisdiction,settling_record
+R-1185,City of Halloran,BASE-HALL-01
+R-1176,City of Halloran,BASE-HALL-01
+R-1044,City of Halloran,BASE-HALL-01
+R-1209,City of Halloran,BASE-HALL-01
+R-1065,City of Halloran,BASE-HALL-01
+R-1240,City of Halloran,BASE-HALL-01
+R-1212,City of Halloran,BASE-HALL-01
+R-1254,City of Halloran,BASE-HALL-01
+...
+# 66 rows, one per parcel_id in parcels.geojson</code></pre></div></div></article></div></details></main><script>document.querySelectorAll('.card.package').forEach(function(card){var rows=Array.from(card.querySelectorAll('.tree-row[data-path]'));var panes=Array.from(card.querySelectorAll('.preview-pane'));var label=card.querySelector('.preview-label');rows.forEach(function(row){row.addEventListener('click',function(){var path=row.dataset.path;rows.forEach(function(item){item.classList.toggle('active',item===row)});panes.forEach(function(pane){pane.classList.toggle('active',pane.dataset.preview===path)});if(label)label.textContent=path||'';});});});</script></body></html>

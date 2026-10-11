@@ -1,0 +1,15 @@
+Implemented [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+Key behavior includes:
+
+- IP, URL, Domain, CVE, and File detection and grouping
+- Text extraction and indicator-list support
+- Stable deduplication and 100-indicator limit
+- Unsupported/invalid indicator reporting
+- Batched child enrichment with partial-failure handling
+- Unified `IndicatorEnrichment` context
+- Optional raw child-context retention
+- Consolidated Markdown and explicit error statuses
+- Complete `main()` exception handling
+
+Validation completed with `py_compile`, `git diff --check`, and focused behavioral probes covering all five types, validation limits, formatting, partial failures, raw context, and main-flow handling.

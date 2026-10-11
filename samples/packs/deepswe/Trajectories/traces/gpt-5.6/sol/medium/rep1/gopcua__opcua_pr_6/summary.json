@@ -1,0 +1,51 @@
+{
+  "agent_rc": 0,
+  "agent_step_rc": 0,
+  "apply_rc": 0,
+  "auth_transport": "chatgpt",
+  "finished_unix": 1788079053.6746526,
+  "index": 530,
+  "model": "gpt-5.6-sol",
+  "network": {
+    "checked_unix": 1788079045.2842004,
+    "offline_fallback": false,
+    "probes": [
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      }
+    ],
+    "schema": "coding-synthesis.verifier-online-network/v1",
+    "valid": true,
+    "verifier_network_mode": "enabled-default"
+  },
+  "network_valid": true,
+  "offline_fallback": false,
+  "patch_bytes": 39801,
+  "prior_status": "instruction_repaired_pygo25",
+  "reasoning_effort": "medium",
+  "repetition": 1,
+  "reward": 1.0,
+  "reward_data": {
+    "missing_or_bad": [],
+    "passed": 60,
+    "reward": 1.0,
+    "total": 60
+  },
+  "schema": "coding-synthesis.codex-eval-result/v2",
+  "source_index": 5,
+  "status": "solved",
+  "task_id": "gopcua__opcua_pr_6",
+  "test_rc": 0,
+  "verifier_network_mode": "enabled-default",
+  "verifier_rc": 0,
+  "verifier_step_rc": 0
+}

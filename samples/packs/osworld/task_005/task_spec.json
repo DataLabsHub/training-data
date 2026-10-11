@@ -1,0 +1,36 @@
+{
+  "schema_version": "1",
+  "task_id": "task_005",
+  "instruction": "Please prepare a compact review handout from /home/user/Desktop/AXE_Task.pptx without changing the presentation. In WPS Presentation, print both slides in their existing order to /home/user/Desktop/AXE_two_up_handout.pdf using the two-slides-per-page handout layout. The result must be exactly one landscape, unencrypted PDF page and include both slides exactly once. Do not edit, reorder, add, remove, or save over any slide in /home/user/Desktop/AXE_Task.pptx.",
+  "instruction_requirements": [
+    "both_slides_two_up_once",
+    "one_landscape_unencrypted_page",
+    "seed_presentation_preserved"
+  ],
+  "evaluator_checks": [
+    {
+      "covers": [
+        "both_slides_two_up_once",
+        "one_landscape_unencrypted_page"
+      ],
+      "description": "The handout is a substantive, complete, unencrypted one-page landscape PDF.",
+      "helper_name": "check_axe_two_up_handout",
+      "helper_source": "import re\n\ndef check_axe_two_up_handout(env):\n    payload = env.controller.get_file('/home/user/Desktop/AXE_two_up_handout.pdf')\n    basic = (\n        isinstance(payload, (bytes, bytearray))\n        and len(payload) >= 30000\n        and payload.startswith(b'%PDF-')\n        and payload.rstrip().endswith(b'%%EOF')\n        and b'/Encrypt' not in payload\n    )\n    pages = re.findall(rb'/Type\\s*/Page\\b', payload) if basic else []\n    boxes = [\n        (float(width), float(height))\n        for width, height in re.findall(\n            rb'/MediaBox\\s*\\[\\s*0(?:\\.0+)?\\s+0(?:\\.0+)?\\s+([0-9.]+)\\s+([0-9.]+)\\s*\\]',\n            payload,\n        )\n    ] if basic else []\n    landscape = bool(boxes) and all(width > height for width, height in boxes)\n    return float(basic and len(pages) == 1 and landscape)\n",
+      "kind": "python",
+      "name": "axe_two_up_handout",
+      "weight": 0.8
+    },
+    {
+      "covers": [
+        "seed_presentation_preserved"
+      ],
+      "description": "The original Desktop presentation remains byte-for-byte identical while the constrained handout is produced.",
+      "helper_name": "check_handout_preserves_axe_deck",
+      "helper_source": "import hashlib\n\ndef check_handout_preserves_axe_deck(env):\n    payload = env.controller.get_file('/home/user/Desktop/AXE_Task.pptx')\n    valid = isinstance(payload, (bytes, bytearray)) and hashlib.sha256(payload).hexdigest() == 'a1d8bb2a35980fe769d22993f17c2ad086b8562cf3ec239e05d921dedaa4082e'\n    return float(valid)\n",
+      "kind": "python",
+      "name": "handout_preserves_seed_deck",
+      "weight": 0.2
+    }
+  ],
+  "pass_threshold": 1.0
+}

@@ -1,0 +1,16 @@
+Implemented GetEndpoints support and endpoint discovery models.
+
+Highlights:
+- Added `LocalizedText` and signed `StringArray` datatypes.
+- Added application, user-token policy, and endpoint description structures/arrays.
+- Added GetEndpoints request/response constructors, codecs, service types, and dispatcher support.
+- Migrated response string tables to `StringArray` (with compatibility aliases retained).
+- Ensured null `ByteString` decoding leaves value bytes nil.
+
+Verified with:
+
+```sh
+GOPATH=<temporary GOPATH> GO111MODULE=off go test github.com/wmnsk/gopcua/...
+```
+
+All packages pass.

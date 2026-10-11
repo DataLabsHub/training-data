@@ -1,0 +1,9 @@
+Task ID: ds9_g21.5_aperture_photometry
+Domain: Astronomy / Astrophysics
+Title: DS9 aperture photometry for Chandra SNR G21.5-0.9
+
+This task asks the solver to open the bundled Chandra ACIS FITS image in SAOImage DS9, configure the display, place source and background regions at the published PSR J1833-1034 position, save DS9-native artifacts, and report aperture photometry.
+
+Solver-visible input is `input/chandra_acis_obs1843.fits`. The reference artifact is `reference/gold_values.json`, which stores the audited photometry and target-position values for the bundled real Chandra image.
+
+The task is GUI-heavy because the final state includes a live DS9 session reachable through XPA, a DS9 region file, a DS9 backup file that can be restored, a DS9-rendered PNG, and photometry tables. The evaluator checks the live XPA state, saved region geometry, backup round-trip behavior, output schema, and numeric photometry consistency. A hand-written region/JSON submission without a real DS9 session cannot satisfy the task.

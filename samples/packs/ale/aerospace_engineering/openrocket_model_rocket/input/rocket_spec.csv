@@ -1,0 +1,43 @@
+parameter,value,units
+rocket_name,A simple model rocket,text
+nose_cone_shape,Ogive,text
+nose_cone_length,100,mm
+nose_cone_base_diameter,25,mm
+nose_cone_wall_thickness,2,mm
+nose_cone_material,Polystyrene,text
+nose_cone_finish,Normal,text
+nose_cone_shoulder_diameter,23,mm
+nose_cone_shoulder_length,20,mm
+nose_cone_shoulder_thickness,2,mm
+nose_cone_shoulder_capped,true,bool
+body_tube_length,300,mm
+body_tube_outer_diameter,25,mm
+body_tube_inner_diameter,23,mm
+body_tube_wall_thickness,1,mm
+body_tube_material,Cardboard,text
+body_tube_finish,Normal,text
+parachute_diameter,300,mm
+parachute_material,Ripstop nylon,text
+shock_cord_length,400,mm
+wadding_mass,2,g
+launch_lug_radius,3.5,mm
+launch_lug_length,35,mm
+fin_count,3,count
+fin_shape,Trapezoidal,text
+fin_root_chord,50.8,mm
+fin_tip_chord,50.8,mm
+fin_sweep,25.4,mm
+fin_height,30,mm
+fin_thickness,2,mm
+fin_material,Cardboard,text
+inner_tube_length,75,mm
+inner_tube_outer_diameter,19,mm
+inner_tube_wall_thickness,0.5,mm
+motor_manufacturer,Estes,text
+motor_designation,C6-5,text
+launch_rod_length,1.0,m
+launch_into_wind,true,bool
+wind_average,2.0,m/s
+wind_turbulence,0.1,dimensionless
+atmosphere_model,ISA,text
+simulation_name,Simulation 4,text

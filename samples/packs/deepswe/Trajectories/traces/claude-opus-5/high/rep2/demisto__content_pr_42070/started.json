@@ -1,0 +1,11 @@
+{
+  "index": 3,
+  "model": "claude-opus-5",
+  "prior_status": "opus5_high_rep1_valid",
+  "reasoning_effort": "high",
+  "sample_language": "python",
+  "schema": "model-eval.opus5-online-started/v1",
+  "source_index": 3,
+  "started_unix": 1788081260.4340668,
+  "task_id": "demisto__content_pr_42070"
+}

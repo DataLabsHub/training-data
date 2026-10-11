@@ -1,0 +1,13 @@
+Implemented `indicator-enrichment` with:
+
+- Multi-type detection, extraction, deduplication, validation, and limits.
+- Batched child enrichment for IP, URL, Domain, CVE, and File indicators.
+- Consolidated `IndicatorEnrichment` context, invalid-item reporting, partial-failure handling, and optional raw child contexts.
+- Command definition with all requested arguments.
+
+Files added:
+
+- [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py)
+- [IndicatorEnrichment.yml](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.yml)
+
+Validated with syntax checks, diff checks, and a stubbed smoke test covering builder, service, formatter, deduplication, raw-context filtering, and graceful text-only exit.

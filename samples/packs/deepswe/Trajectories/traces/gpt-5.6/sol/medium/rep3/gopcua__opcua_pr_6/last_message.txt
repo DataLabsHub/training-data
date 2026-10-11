@@ -1,0 +1,13 @@
+Implemented full GetEndpoints support.
+
+Key additions:
+
+- `LocalizedText` and signed `StringArray` datatypes, preserving null versus empty arrays.
+- Application, user-token, and endpoint discovery structures and arrays.
+- GetEndpoint request/response constructors, serialization, decoding, and dispatch.
+- Service IDs `428` and `431`, with existing OpenSecureChannel behavior preserved.
+- Null `ByteString` decoding and bounds validation improvements.
+- Compatibility aliases for the former `StringTable` API.
+- Round-trip and dispatcher tests in [get-endpoints_test.go](/testbed/services/get-endpoints_test.go) and [discovery_datatypes_test.go](/testbed/datatypes/discovery_datatypes_test.go).
+
+Validation: `go test ./...` passes across all packages.

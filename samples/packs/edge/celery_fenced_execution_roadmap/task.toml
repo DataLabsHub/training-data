@@ -1,0 +1,24 @@
+version = "1"
+name = "celery_fenced_execution_roadmap"
+reward_type = "bounded_continuous"
+
+[metadata]
+name = "celery_fenced_execution_roadmap"
+description = 'Evolve the Celery product chain into a durable, generation-fenced multi-tenant execution runtime'
+category = "software_engineering"
+difficulty = "expert"
+
+[verifier]
+timeout_sec = 2700
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 64800
+network_mode = "public"
+
+[environment]
+build_timeout_sec = 1200
+network_mode = "public"
+cpus = 4
+memory_mb = 8192
+storage_mb = 20480

@@ -1,0 +1,78 @@
+{
+  "original_test_patch_empty": false,
+  "original_test_patch_cases": [
+    {
+      "case": "datatypes/localized-text_test.go::TestDecodeLocalizedText",
+      "f2p_tids": [
+        "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/nothing",
+        "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/has-both",
+        "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/has-text",
+        "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/has-locale"
+      ]
+    },
+    {
+      "case": "datatypes/localized-text_test.go::TestSerializeLocalizedText",
+      "f2p_tids": [
+        "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/nothing",
+        "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/has-both",
+        "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/has-text",
+        "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/has-locale"
+      ]
+    },
+    {
+      "case": "datatypes/string_test.go::TestDecodeStringArray/normal",
+      "f2p_tids": [
+        "github.com/wmnsk/gopcua/datatypes::TestDecodeStringArray/normal"
+      ]
+    },
+    {
+      "case": "datatypes/string_test.go::TestSerializeStringArray/normal",
+      "f2p_tids": [
+        "github.com/wmnsk/gopcua/datatypes::TestSerializeStringArray/normal"
+      ]
+    },
+    {
+      "case": "services/application-description_test.go",
+      "f2p_tids": [
+        "github.com/wmnsk/gopcua/services::TestDecodeApplicationDescription",
+        "github.com/wmnsk/gopcua/services::TestSerializeApplicationDescription"
+      ]
+    },
+    {
+      "case": "services/endpoint-description_test.go",
+      "f2p_tids": [
+        "github.com/wmnsk/gopcua/services::TestDecodeEndpointDescription/single",
+        "github.com/wmnsk/gopcua/services::TestDecodeEndpointDescription/multiple",
+        "github.com/wmnsk/gopcua/services::TestSerializeEndpointDescription/single",
+        "github.com/wmnsk/gopcua/services::TestSerializeEndpointDescription/multiple"
+      ]
+    },
+    {
+      "case": "services/service_test.go::GetEndpoint request/response subtests",
+      "f2p_tids": [
+        "github.com/wmnsk/gopcua/services::TestDecode/get-endpoint-req",
+        "github.com/wmnsk/gopcua/services::TestDecode/get-endpoint-res",
+        "github.com/wmnsk/gopcua/services::TestSerializeServices/get-endpoint-res",
+        "github.com/wmnsk/gopcua/services::TestSerializeServices/get-endpoint-req"
+      ]
+    },
+    {
+      "case": "services/user-token-policy_test.go",
+      "f2p_tids": [
+        "github.com/wmnsk/gopcua/services::TestDecodeUserTokenPolicy/single",
+        "github.com/wmnsk/gopcua/services::TestDecodeUserTokenPolicy/multiple",
+        "github.com/wmnsk/gopcua/services::TestSerializeUserTokenPolicy/single",
+        "github.com/wmnsk/gopcua/services::TestSerializeUserTokenPolicy/multiple"
+      ]
+    }
+  ],
+  "newly_authored_f2p_tids": [
+    "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/empty",
+    "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/locale-only",
+    "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/text-only",
+    "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/both",
+    "github.com/wmnsk/gopcua/datatypes::TestAdditionalStringArrayNilAndEmptyEncoding",
+    "github.com/wmnsk/gopcua/services::TestAdditionalGetEndpointRequestServiceDispatch",
+    "github.com/wmnsk/gopcua/services::TestAdditionalGetEndpointResponseRoundTripEndpoints"
+  ]
+}

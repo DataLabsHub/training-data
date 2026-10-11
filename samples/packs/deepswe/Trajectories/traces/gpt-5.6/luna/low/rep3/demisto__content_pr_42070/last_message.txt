@@ -1,0 +1,12 @@
+Implemented `IndicatorEnrichment.py` with:
+
+- Mixed IP, URL, Domain, CVE, and File enrichment
+- Text extraction and `indicator_list` support
+- Deduplication, validation, unsupported/unknown reporting
+- 100-indicator limit handling
+- Batch child enrichment with partial-failure preservation
+- Raw-context filtering
+- Unified Markdown and `IndicatorEnrichment` outputs
+- Required public API and exception handling
+
+Validation completed with `python3 -m py_compile` and `git diff --check`. `pytest` was unavailable in the environment.

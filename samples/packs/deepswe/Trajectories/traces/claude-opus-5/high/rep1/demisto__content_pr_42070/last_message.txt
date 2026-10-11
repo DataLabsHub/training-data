@@ -1,0 +1,18 @@
+Done. `indicator-enrichment` is implemented in `Packs/AggregatedScripts/Scripts/IndicatorEnrichment/`, with 41 new tests passing and the five existing enrichment suites still green.
+
+**What was built** (`IndicatorEnrichment.py`):
+
+- **`IndicatorType`** — enum of `IP`/`URL`/`DOMAIN`/`CVE`/`FILE` with `resolve_from_string`, resolving aliases (`ip`, `IPv4`, `Domain`, …) case-insensitively via a lookup table, and returning `None` for unsupported/blank/non-string input.
+- **`EnrichmentRequestBuilder`** — reads `indicator_list` via `argToList` + `auto_detect_indicator_type`, and `text` via `execute_command("extractIndicators", …)` → `EntryContext.ExtractedIndicators`. A single `_seen_values` set gives first-seen ordering and cross-source dedup, counting one removal per dropped occurrence. Supported values group by type; typed-but-unsupported become `UnsupportedIndicator`; untyped go to `unknown_items`. Validation raises `GracefulExit` for text-only no-op extraction, `ValidationError` otherwise, plus the 100-indicator limit gated by `ignore_indicator_limit`.
+- **`EnrichmentService`** — builds one `Command` per type (`ip_list`/`url_list`/`domain_list`/`cve_list`/`file_hash`) with the pass-through args, runs them through `BatchExecutor.execute_batch` (skipped entirely when there's nothing to enrich), and collects each `(entry, hr, error)`: matching child context entries get stamped with `Type`, HR goes to `markdown_sections`, errors accumulate without dropping successful data.
+- **`ResponseFormatter`** — preserves child Markdown verbatim, prepends the duplicates note, appends the `### Invalid or unsupported indicators` table, and emits `IndicatorEnrichment` in success-then-error order. Child keys like `IPEnrichment` are stripped by default (matching bare, `(`-merge-expression, and dotted forms) while `Core`/`EndpointData` survive; `raw_context=true` keeps them. Raises `AllExecutionsFailedError` when there's no data and errors exist.
+- **`main()`** — routes `GracefulExit` to `return_results` as a non-error entry with empty outputs, `ValidationError`/`AllExecutionsFailedError` to `return_error`, and anything unexpected to `demisto.error` + `return_error`.
+
+Two judgment calls worth flagging, since the spec left them open:
+
+1. **The unified context key is unversioned** — I used a plain `IndicatorEnrichment` key rather than a merge expression like `IndicatorEnrichment(val.Value && val.Value == obj.Value)`, which the child commands use. Plain assignment overwrites on re-run rather than merging by value; the spec asked for entries "emitted under `IndicatorEnrichment`", so I kept it literal. If you want repeated runs in one incident to accumulate, that key needs the merge expression.
+2. **Duplicate counting spans both sources.** Given `indicator_list="1.1.1.1,1.1.1.1,8.8.8.8"` plus `text` containing both IPs, the count is 3 (one intra-list repeat + two text re-sightings). The spec says "once per removed occurrence" without scoping it to a source, so text values that merely restate list values count as removals.
+
+Supporting files: `IndicatorEnrichment.yml` (args, outputs, `demisto/python3:3.12.12.6204436`, matching the sibling scripts), `README.md`, `ReleaseNotes/1_4_0.md`, and a `pack_metadata.json` bump to `1.4.0`.
+
+I did not add a `TestPlaybooks` entry — the YAML's `tests:` field is set to `No tests (auto formatted)`. The siblings each reference a real test playbook (e.g. `IPEnrichment-Test`), so if this command needs one for CI, that playbook still has to be authored and wired in.

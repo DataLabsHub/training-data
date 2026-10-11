@@ -1,0 +1,21 @@
+{
+  "checked_unix": 1788077702.5042942,
+  "offline_fallback": false,
+  "probes": [
+    {
+      "dns": true,
+      "tcp": true
+    },
+    {
+      "dns": true,
+      "tcp": true
+    },
+    {
+      "dns": true,
+      "tcp": true
+    }
+  ],
+  "schema": "coding-synthesis.verifier-online-network/v1",
+  "valid": true,
+  "verifier_network_mode": "enabled-default"
+}

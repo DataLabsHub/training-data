@@ -1,0 +1,628 @@
+{
+  "claim": {
+    "binary_failure_condition": "Any lot uses the wrong vintage concept, unit join, effective-date comparison, output limitation, authority source, eligibility status, or evidence locator.",
+    "binary_pass_condition": "Every lot's structured eligibility fields use generation period rather than issuance or transfer date, exact unit keys, the applicable qualification effective date and limitation, and the correct controlling authority; each resulting eligibility status and locator is correct.",
+    "candidate_evidence_requirements": [
+      "Lot-level fields for unit identity, generation period, qualification effective date, output limitation, custody test, eligibility result, and precise source locators."
+    ],
+    "causal_owner_id": "FACT013",
+    "claim_id": "R014",
+    "contract_basis_ids": [
+      "FACT004",
+      "FACT009",
+      "FACT012",
+      "FACT013",
+      "FACT016",
+      "RULE001",
+      "RULE002",
+      "RULE003",
+      "RULE004"
+    ],
+    "description": "The lot workpaper applies generation vintage, exact unit identity, qualification effective dates, custody, and authority boundaries correctly to each relevant original and replacement record.",
+    "importance_weight": 5,
+    "independent_failure_mode": "A structured program-eligibility decision is wrong even though visual lifecycle, cure, overlap, and cover facts may all be correct.",
+    "method": "llm_judge",
+    "program_check": null,
+    "required_media_node_ids": [],
+    "title": "Program eligibility and vintage tests are correct",
+    "visual_reasoning_requirement": null
+  },
+  "contract_basis": {
+    "artifact_edges": [],
+    "as_of": "2025-06-09T12:00:00-04:00",
+    "causal_owner_id": "FACT013",
+    "claim_basis_ids": [
+      "FACT004",
+      "FACT009",
+      "FACT012",
+      "FACT013",
+      "FACT016",
+      "RULE001",
+      "RULE002",
+      "RULE003",
+      "RULE004"
+    ],
+    "entities": [
+      {
+        "description": "Fictional Massachusetts competitive supplier buying Class I certificates.",
+        "entity_id": "ENT001",
+        "entity_type": "retail_electricity_supplier",
+        "natural_identity": [
+          "Bay State Competitive Supply LLC",
+          "buyer GIS account BSC-MA-4421"
+        ]
+      },
+      {
+        "description": "Fictional bilateral seller responsible for delivery and cure.",
+        "entity_id": "ENT002",
+        "entity_type": "certificate_seller",
+        "natural_identity": [
+          "GreenArc Certificate Markets LLC",
+          "seller code GAM-77"
+        ]
+      },
+      {
+        "description": "Executed confirmation and its cure-and-cover amendment.",
+        "entity_id": "ENT003",
+        "entity_type": "purchase_contract",
+        "natural_identity": [
+          "REC-2024-017",
+          "executed 2024-11-18"
+        ]
+      },
+      {
+        "description": "Original 400-certificate Weldon lot.",
+        "entity_id": "ENT005",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-A",
+          "MSS424-2024Q2-000001:000400"
+        ]
+      },
+      {
+        "description": "Original 250-certificate Coventry lot generated before qualification.",
+        "entity_id": "ENT006",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-B",
+          "NON208580-2024Q1-000001:000250"
+        ]
+      },
+      {
+        "description": "Original 200-certificate lot whose buyer transfer was reversed.",
+        "entity_id": "ENT007",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-C",
+          "MSS424-2024Q3-001001:001200"
+        ]
+      },
+      {
+        "description": "Original 150-certificate Deer Island lot.",
+        "entity_id": "ENT008",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-D",
+          "NON38983-2024Q4-002001:002150"
+        ]
+      },
+      {
+        "description": "Timely 250-certificate replacement for LOT-B.",
+        "entity_id": "ENT009",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-B",
+          "MSS424-2024Q1-003001:003250"
+        ]
+      },
+      {
+        "description": "Replacement for LOT-C with fifty serials already tendered in LOT-A.",
+        "entity_id": "ENT010",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-C",
+          "MSS424-2024Q2-000351:000550"
+        ]
+      },
+      {
+        "description": "Official DOER hydroelectric unit effective January 1, 2024.",
+        "entity_id": "ENT011",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "MSS424",
+          "MA RPS 7031-24",
+          "Weldon"
+        ]
+      },
+      {
+        "description": "Official DOER landfill-gas unit effective April 1, 2024.",
+        "entity_id": "ENT012",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "NON208580",
+          "MA RPS 7032-24",
+          "COVENTRY CLEAN ENERGY 1-3"
+        ]
+      },
+      {
+        "description": "Official DOER anaerobic-digester unit effective April 1, 2002.",
+        "entity_id": "ENT013",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "NON38983",
+          "MA RPS 1015-02",
+          "Deer Island Treatment Plant STG"
+        ]
+      },
+      {
+        "description": "Frozen public authority controlling eligibility and filing interfaces.",
+        "entity_id": "ENT016",
+        "entity_type": "authority_set",
+        "natural_identity": [
+          "225 CMR 14.00",
+          "DOER qualified units 12-2-24",
+          "2024 compliance workbook"
+        ]
+      }
+    ],
+    "file_nodes": [],
+    "media_nodes": [],
+    "predicates": [],
+    "required_media_node_ids": [],
+    "route_context": {
+      "business_goal": "Close the seller's 2024 Class I delivery without paying for unusable certificates and preserve a supportable compliance inventory.",
+      "contract_edge_ids": [
+        "CEDGE001",
+        "CEDGE002",
+        "CEDGE003",
+        "CEDGE004",
+        "CEDGE005",
+        "CEDGE006",
+        "CEDGE007",
+        "CEDGE008",
+        "CEDGE014",
+        "CEDGE015",
+        "CEDGE012",
+        "CEDGE013",
+        "CEDGE011"
+      ],
+      "contract_route_id": "CROUTE001",
+      "deliverable_class": "Auditable certificate-delivery settlement workbook with embedded procurement and accounting decision summary",
+      "difficulty_sources": [
+        "Temporal qualification and lifecycle precedence across different systems",
+        "Pixel-essential reversal and overlap evidence whose raw baselines and dimension-preserved annotations traverse two independently auditable PDF-to-DOCX chains",
+        "Ordered cure then cover logic",
+        "Cross-ledger quantity and money propagation",
+        "Visual trade-to-allocation-to-registry custody handoff that separates executed cover damages from buyer-held compliance inventory",
+        "As-of qualification-exception event precedence after exact unit authority matching and before downstream settlement propagation"
+      ],
+      "natural_request_context": "A settlement manager needs a single spreadsheet workpaper for the procurement director and controller after the final tender arrived on June 9.",
+      "required_graph_node_ids": [
+        "GN001",
+        "GN002",
+        "GN003",
+        "GN004",
+        "GN005",
+        "GN006",
+        "GN007",
+        "GN008",
+        "GN009",
+        "GN010",
+        "GN011",
+        "GN012"
+      ],
+      "required_rule_ids": [
+        "RULE001",
+        "RULE002",
+        "RULE003",
+        "RULE004",
+        "RULE005",
+        "RULE006",
+        "RULE007",
+        "RULE008",
+        "RULE009",
+        "RULE010",
+        "RULE011",
+        "RULE012",
+        "RULE013",
+        "RULE014",
+        "RULE015",
+        "RULE016",
+        "RULE017"
+      ],
+      "target_fact_ids": [
+        "FACT007",
+        "FACT022",
+        "FACT023",
+        "FACT027",
+        "FACT031",
+        "FACT032",
+        "FACT033",
+        "FACT042",
+        "FACT043"
+      ],
+      "terminal_decision": "After admitting the reversal and overlap only from the two raw-plus-marked cross-document evidence pairs, approve USD 16,920 net payable; post 950 seller RECs and 40 cover RECs separately; dispute 50 seller RECs, record a 10-REC residual shortfall, send dispute by June 16, and preserve July 1 filing readiness.",
+      "unique_resolution": "Exact source precedence, inclusive serial arithmetic, lifecycle event order, signed cure hierarchy, cover execution, paired raw/derived lineage admissibility, and conservation equations admit only the stated quantities, payable, and deadlines. The cover inventory component additionally requires an exact trade-to-allocation-to-final-registry-custody match by the cutoff; absent that final handoff, the cover posting is zero and the residual is fifty while the damage offset remains unchanged. The otherwise valid LOT-D unit must additionally have QX-38983-2025 in a final released state by noon; a pending, late, or mismatched release withholds its 150 certificates from the close and forces the stated downstream quantity, payable, inventory, and residual counterfactual."
+    },
+    "rules": [
+      {
+        "counterexample": "Using EPA's generic remedies to override the signed amendment fails.",
+        "input_fact_ids": [
+          "FACT004",
+          "FACT005",
+          "FACT013",
+          "FACT035",
+          "FACT036"
+        ],
+        "operator_family": "authority_precedence",
+        "output_fact_ids": [
+          "FACT017",
+          "FACT022"
+        ],
+        "resolution_order": "Regulation and DOER data; registry lifecycle; executed amendment; base confirmation; noncontrolling EPA guide.",
+        "rule_id": "RULE001",
+        "source_anchor_ids": [
+          "ANCH001",
+          "ANCH003",
+          "ANCH004",
+          "ANCH005",
+          "ANCH014"
+        ],
+        "statement": "Apply 225 CMR 14 and the DOER unit workbook for program eligibility, registry evidence for custody, the executed amendment over the confirmation for commercial remedy, and EPA only as noncontrolling guidance.",
+        "truth_conditions": [
+          "The amendment images prove full execution before the cutoff.",
+          "The source role and effective scope are preserved."
+        ]
+      },
+      {
+        "counterexample": "Joining REPL-C to LOT-A only because both say Weldon ignores the serial range.",
+        "input_fact_ids": [
+          "FACT008",
+          "FACT009",
+          "FACT011",
+          "FACT012",
+          "FACT014",
+          "FACT018",
+          "FACT035"
+        ],
+        "operator_family": "identity_period_join",
+        "output_fact_ids": [
+          "FACT017",
+          "FACT021"
+        ],
+        "resolution_order": "Normalize GIS ID, then compare serial endpoints, then generation period, then seller label.",
+        "rule_id": "RULE002",
+        "source_anchor_ids": [
+          "ANCH004",
+          "ANCH012",
+          "ANCH016"
+        ],
+        "statement": "Join a seller lot to registry and DOER only by exact NEPOOL GIS ID, inclusive serial endpoints, and generation period; labels and invoice lines alone never establish identity.",
+        "truth_conditions": [
+          "All three primary keys agree across the relevant records."
+        ]
+      },
+      {
+        "counterexample": "A Q1 2023 certificate issued in 2024 is not 2024 vintage.",
+        "input_fact_ids": [
+          "FACT004",
+          "FACT009",
+          "FACT012"
+        ],
+        "operator_family": "generation_vintage",
+        "output_fact_ids": [
+          "FACT017",
+          "FACT022"
+        ],
+        "resolution_order": "Generation period first; issuance and transfer dates are lifecycle metadata only.",
+        "rule_id": "RULE003",
+        "source_anchor_ids": [
+          "ANCH012",
+          "ANCH016"
+        ],
+        "statement": "A certificate is 2024 vintage exactly when its recorded generation period lies in calendar 2024; issuance and transfer dates are not substitutes.",
+        "truth_conditions": [
+          "Generation begins and ends within 2024."
+        ]
+      },
+      {
+        "counterexample": "Accepting LOT-B because NON208580 appears on the December list fails.",
+        "input_fact_ids": [
+          "FACT012",
+          "FACT013",
+          "FACT035"
+        ],
+        "operator_family": "effective_qualification",
+        "output_fact_ids": [
+          "FACT017",
+          "FACT023"
+        ],
+        "resolution_order": "Exact GIS unit match, effective date comparison, then output limitation.",
+        "rule_id": "RULE004",
+        "source_anchor_ids": [
+          "ANCH005",
+          "ANCH006"
+        ],
+        "statement": "A lot is Class I eligible only when every represented generation instant is on or after the matched unit's RPS Effective Date and any output limitation is satisfied.",
+        "truth_conditions": [
+          "LOT-B 2024Q1 precedes NON208580's 2024-04-01 effective date.",
+          "REPL-B is matched to MSS424 effective 2024-01-01."
+        ]
+      }
+    ],
+    "schema_version": "statechain-contract-basis/v1",
+    "state_facts": [
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT004",
+        "interpretation": "Issuance or transfer year cannot replace generation vintage.",
+        "materialization_obligation": "Contract and authority files must expose product, vintage, and custody requirements.",
+        "predicate": "product_definition",
+        "source_anchor_ids": [
+          "ANCH001",
+          "ANCH003",
+          "ANCH016"
+        ],
+        "status": "executed",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": "Massachusetts RPS Class I; generation vintage 2024; buyer-held in GIS"
+      },
+      {
+        "effective_from": "2025-05-20T15:42:00-04:00",
+        "effective_until": null,
+        "fact_id": "FACT005",
+        "interpretation": "The amendment controls only because the paired executed-image evidence agrees.",
+        "materialization_obligation": "Two embedded signature views must visibly establish matching document code, both signatures, and receipt time without a text transcript.",
+        "predicate": "amendment_fully_executed",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": true
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT008",
+        "interpretation": "Quantity is inclusive serial count and remains subject to deduplication.",
+        "materialization_obligation": "Delivery statement and registry evidence must identify LOT-A and its exact range.",
+        "predicate": "tendered_quantity_mwh",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT005",
+          "ENT011"
+        ],
+        "value": 400
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT009",
+        "interpretation": "LOT-A is 2024 vintage.",
+        "materialization_obligation": "Registry event data must distinguish 2024Q2 generation from issuance and transfer dates.",
+        "predicate": "generation_period",
+        "source_anchor_ids": [
+          "ANCH012",
+          "ANCH016"
+        ],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT005",
+          "ENT011"
+        ],
+        "value": "2024Q2"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT011",
+        "interpretation": "Inclusive range contains 250 certificates.",
+        "materialization_obligation": "Delivery statement must show LOT-B quantity and NON208580 identity.",
+        "predicate": "tendered_quantity_mwh",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT006",
+          "ENT012"
+        ],
+        "value": 250
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT012",
+        "interpretation": "Generation ended before the unit qualification effective date.",
+        "materialization_obligation": "Registry export must state 2024Q1 while preserving separate issue and transfer dates.",
+        "predicate": "generation_period",
+        "source_anchor_ids": [
+          "ANCH012",
+          "ANCH016"
+        ],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT006"
+        ],
+        "value": "2024Q1"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT013",
+        "interpretation": "This currently listed unit cannot qualify its 2024Q1 generation.",
+        "materialization_obligation": "Exact DOER workbook row for NON208580 must remain available.",
+        "predicate": "rps_effective_date",
+        "source_anchor_ids": [
+          "ANCH004",
+          "ANCH005",
+          "ANCH006"
+        ],
+        "status": "official",
+        "subject_entity_ids": [
+          "ENT012"
+        ],
+        "value": "2024-04-01"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT014",
+        "interpretation": "Original LOT-C is tested before its replacement.",
+        "materialization_obligation": "Seller and registry files must identify LOT-C and its 200 serials.",
+        "predicate": "tendered_quantity_mwh",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT007",
+          "ENT011"
+        ],
+        "value": 200
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT016",
+        "interpretation": "LOT-D is fully acceptable.",
+        "materialization_obligation": "Delivery and registry records must show 150 unique buyer-held 2024 certificates.",
+        "predicate": "valid_unique_buyer_held_quantity",
+        "source_anchor_ids": [],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT008",
+          "ENT013",
+          "ENT001"
+        ],
+        "value": 150
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT017",
+        "interpretation": "REPL-B cures LOT-B in full.",
+        "materialization_obligation": "Cure record, DOER row, serial records, and custody evidence must jointly support all 250.",
+        "predicate": "valid_timely_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT009",
+          "ENT011",
+          "ENT001"
+        ],
+        "value": 250
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT018",
+        "interpretation": "The label of 200 does not establish 200 unique certificates.",
+        "materialization_obligation": "Replacement statement must expose the exact 000351 through 000550 range.",
+        "predicate": "replacement_tendered_quantity",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT010",
+          "ENT011"
+        ],
+        "value": 200
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT021",
+        "interpretation": "Only serials 000401 through 000550 add new delivery.",
+        "materialization_obligation": "Inventory control must derive 200 minus the image-evidenced overlap of 50.",
+        "predicate": "valid_unique_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT010"
+        ],
+        "value": 150
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT022",
+        "interpretation": "Accepted seller delivery is unique and capped by contract quantity.",
+        "materialization_obligation": "No public source may state this as a prejoined answer; route evidence must derive 400+150+250+150.",
+        "predicate": "accepted_seller_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 950
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT023",
+        "interpretation": "This is the gap available for buyer cover.",
+        "materialization_obligation": "Settlement route must reconcile 1,000 minus 950 with no balancing item.",
+        "predicate": "post_cure_deficiency_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 50
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT035",
+        "interpretation": "Rows are authoritative for listed effective dates, not future lifecycle events.",
+        "materialization_obligation": "Frozen workbook title and source index must preserve its update scope.",
+        "predicate": "qualified_unit_source_vintage",
+        "source_anchor_ids": [
+          "ANCH004",
+          "ANCH005"
+        ],
+        "status": "official",
+        "subject_entity_ids": [
+          "ENT016"
+        ],
+        "value": "updated 2024-12-02 through Q2 2024"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT036",
+        "interpretation": "The guide cannot invent the negotiated remedy order.",
+        "materialization_obligation": "Authority index must call the EPA guide noncontrolling for commercial terms.",
+        "predicate": "epa_guide_authority_role",
+        "source_anchor_ids": [
+          "ANCH012",
+          "ANCH013",
+          "ANCH014",
+          "ANCH015",
+          "ANCH016"
+        ],
+        "status": "bounded_authority",
+        "subject_entity_ids": [
+          "ENT016"
+        ],
+        "value": "noncontrolling structure and REC identity guidance"
+      }
+    ],
+    "visual_disclosure_plans": [],
+    "visual_reasoning_requirement": null
+  },
+  "reference_claim_evidence": {
+    "citations": [
+      {
+        "locator": "Eligibility!A4:L10",
+        "observation": "Each original, substitute, and cover row records exact GIS/RPS/unit identity, 2024 generation period, effective date, output limitation, vintage result, qualification result, custody/uniqueness result, and public locators.",
+        "path": "deliverables/rec_settlement_workpaper.xlsx"
+      }
+    ],
+    "claim_id": "R014",
+    "why_full_pass": "Generation period, not issuance or transfer time, drives vintage; exact DOER rows and effective dates drive eligibility; registry evidence separately drives custody for every relevant lot."
+  }
+}

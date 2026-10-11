@@ -1,0 +1,19 @@
+Done. All packages build and every test passes.
+
+**What I added:**
+
+*datatypes*
+- `datatypes/localized-text.go` — `LocalizedText` with `EncodingMask`/`Locale`/`Text`, mask bit `0x01` for locale and `0x02` for text. `NewLocalizedText` leaves empty strings absent (nil pointer, mask bit clear), and absent fields stay nil after decode.
+- `datatypes/string.go:98` — replaced `StringTable` with `StringArray` (`ArraySize int32`). `NewStringArray(nil)` → size `-1`; `NewStringArray([]string{})` → size `0`. Decode treats any non-positive size as an empty array.
+
+*services*
+- `application-description.go` — `ApplicationDescription` + `AppType*` constants. Per the spec in the task, `NewApplicationDescription` initializes `DiscoveryProfileURI` from the *product* URI (2nd arg), not the profile arg; the `profileURI` parameter is therefore unused, which is the required observable behavior.
+- `user-token-policy.go` — `UserTokenPolicy`, `UserTokenPolicyArray`, `UserToken*` constants.
+- `endpoint-description.go` — `EndpointDescription` / `EndpointDescriptionArray` with the existing misspelled constructors.
+- `get-endpoints-request.go`, `get-endpoints-response.go` — the two services, embedding `*RequestHeader` / `*ResponseHeader`.
+- `service.go:13` — added `ServiceTypeGetEndpointRequest=428` / `Response=431` and wired both into `Decode`.
+- `response-header.go` — switched its `StringTable` field over to `*datatypes.StringArray` (field name unchanged).
+
+**Tests:** new fixture-based decode/serialize tests for `LocalizedText`, the three discovery types and their arrays, both GetEndpoints services, plus nil/empty `StringArray` cases and two new `Decode` dispatch subtests. I also ran an out-of-band round-trip harness over edge cases (nil discovery URIs, empty and non-empty certificates, empty token arrays, nil string tables) and confirmed byte-for-byte stability; `ServerCertificate.Get()` is nil with `Length == -1` for the null encoding.
+
+Note: the repo has no `go.mod` (it's a GOPATH-era project targeting Go 1.7–1.10), so I ran the suite from a GOPATH copy at `github.com/wmnsk/gopcua`. `go vet` reports unkeyed-field warnings on my new files, matching the existing style throughout the repo.

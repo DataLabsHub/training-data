@@ -1,0 +1,12 @@
+Implemented GetEndpoints support across datatypes and services:
+
+- Added `LocalizedText` with mask-aware encoding/decoding.
+- Added signed `StringArray`, including distinct nil and empty encodings.
+- Preserved `StringTable` compatibility aliases.
+- Added application, user-token, endpoint description types and arrays.
+- Added GetEndpoints request/response constructors, codecs, service constants, and dispatcher support.
+- Preserved OpenSecureChannel dispatch behavior.
+- Updated response headers to use `StringArray`.
+- Verified changes with `git diff --check`.
+
+I attempted to run `gofmt` and `go test ./...`, but this environment has no Go toolchain installed.

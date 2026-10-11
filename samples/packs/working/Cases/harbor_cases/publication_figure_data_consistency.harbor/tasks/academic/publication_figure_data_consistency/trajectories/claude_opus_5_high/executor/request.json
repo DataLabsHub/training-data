@@ -1,0 +1,15 @@
+{
+  "run_id": "publication_figure_data_consistency-opus-stream-executor-01",
+  "model": "claude-opus-5",
+  "reasoning_effort": "high",
+  "timeout_seconds": 10800,
+  "max_output_tokens": 32768,
+  "json_output": null,
+  "extra_mounts": [],
+  "metadata": {
+    "purpose": "agent_first_executor",
+    "sample_id": "singapore_education_figure_release_task_contract_001",
+    "attempt": 1,
+    "prompt_interface": "verbatim_user_query_only"
+  }
+}

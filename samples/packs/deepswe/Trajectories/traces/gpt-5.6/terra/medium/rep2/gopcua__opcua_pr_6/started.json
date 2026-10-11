@@ -1,0 +1,11 @@
+{
+  "auth_transport": "chatgpt",
+  "index": 330,
+  "model": "gpt-5.6-terra",
+  "prior_status": "instruction_repaired_pygo25",
+  "reasoning_effort": "medium",
+  "repetition": 2,
+  "source_index": 5,
+  "started_unix": 1788078020.6372168,
+  "task_id": "gopcua__opcua_pr_6"
+}

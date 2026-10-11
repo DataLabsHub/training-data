@@ -1,0 +1,34 @@
+Review complete. Exactly two editable files delivered:
+
+- `deliverables/figure3_reconciliation_register.xlsx` — 7 sheets, 19 register rows
+- `deliverables/publication_release_memo.docx` — ~1,370 words
+
+## Decision: RELEASE ONLY AFTER CORRECTIONS
+
+GATE-0147 moves from QA_REVIEW_OPEN to **RELEASE_AFTER_CORRECTIONS**. Neither the proof nor the staged deposit releases now, and neither releases without the other. Eight mandatory corrections are open, all with named owners and due times before the 2026-08-27T14:00 re-review and the 2026-08-28T18:00 lock — which is why this is a conditional release rather than a hold.
+
+**The eight failures**
+
+| Ref | Finding |
+|---|---|
+| R-01 | Panel A legend cohort labels transposed against their swatches (colour-to-value binding itself is correct) |
+| R-02 | Panel B upper endpoint renders 0.11 vs approved 0.07 — 0.040 axis units off a 0.005 tolerance, 103 px off a 1 px tolerance |
+| R-09, R-10 | Caption clause and results statement both echo the wrong 0.11 |
+| R-03 | Panel C annotation reads "n=24" where "n=42" is required — figure contradicts its own caption on the same page |
+| R-04 | Panel C content was changed, but RR-017 covers exactly FIG3-A and FIG3-B; both approval matrices record FIG3-C as not approved |
+| R-08 | Deposit README colour key reproduces the legend transposition independently |
+| R-11 | Printed supplementary label still names superseded run R16; the linked file is correctly R17 |
+
+**Hold risk:** R-04 is the one item that can force escalation. If the FIG3-C authorization gap isn't closed by restoration or a properly scoped approval before the re-review, §4 precedence escalates the gate to HOLD.
+
+**Clear:** Panel D conforms on all ten dimensions and is pixel-identical to the accepted baseline. Four caption/results endpoints are correct as written. The three mapped deposit rows and the staged file identity all conform — notably the deposit holds the correct 0.07 for panel B while the proof does not.
+
+Three points worth flagging:
+
+- All five asserted SHA-256 identity links recompute exactly. Nothing here is a broken-hash problem; the FIG3-LR2 hash verifies everywhere it's asserted, which is precisely why R-04 stands — identity never widens approval scope.
+- The proof's 0.11 matches neither the current 0.07 nor the superseded accepted 0.05, so it isn't a stale-version artefact.
+- FIG3-LR3 arrived at 16:40 — inside the cutoff, so time-eligible — but with all four approval and link fields null. Recorded as excluded rather than silently dropped, and noted as unsafe to substitute in as a shortcut fix.
+
+I verified cross-document agreement programmatically: the mandatory set, owner/due pairs across all 19 refs, the terminal state, and every owner and deadline match between the two files.
+
+One thing I could not do: `Figure3_final_v9.png` is absent from the workspace, so R-19 rests on the logged metadata and no bytes were available to hash. That doesn't affect the disposition — the null approval fields decide it regardless.

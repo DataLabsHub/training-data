@@ -1,0 +1,11 @@
+Implemented GetEndpoints support and endpoint discovery wire models.
+
+Added:
+
+- `datatypes.LocalizedText` and `datatypes.StringArray`
+- Discovery structures: application, user-token policy, endpoint description, and arrays
+- GetEndpoints request/response services and named decoders
+- Service dispatcher support for type IDs `428` and `431`
+- Required constants and constructor behavior, including the specified `DiscoveryProfileURI` behavior
+
+Validation: formatted code and ran `go test ./...` successfully using a temporary GOPATH layout (the repo has no `go.mod`).

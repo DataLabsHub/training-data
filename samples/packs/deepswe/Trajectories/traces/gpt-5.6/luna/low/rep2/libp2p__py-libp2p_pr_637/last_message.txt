@@ -1,0 +1,19 @@
+Implemented NetStream lifecycle state support.
+
+Changes include:
+
+- Added `StreamState.INIT` and `StreamState.ERROR`.
+- New streams begin in `INIT`; established swarm streams transition to `OPEN`.
+- Added awaitable `set_state()` and `is_operational()`.
+- Added independent `close_read()` and `close_write()` handling.
+- Added state validation and required error messages.
+- Unexpected read/write failures now transition to `ERROR` and raise `StreamError`.
+- Reset remains available from `ERROR`.
+- State access and transitions remain synchronized with Trio locks.
+- Constructor supports `swarm_conn=` and `None`.
+
+Validation completed:
+
+- Compilation passed.
+- `tests/core/network/test_net_stream.py`: 9 passed.
+- `git diff --check`: passed.

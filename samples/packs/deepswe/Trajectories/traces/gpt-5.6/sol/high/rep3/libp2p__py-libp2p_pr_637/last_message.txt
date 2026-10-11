@@ -1,0 +1,25 @@
+Implemented NetStream lifecycle state support.
+
+Key changes:
+
+- Added exact `StreamState` states, including `INIT` and `ERROR`.
+- Added synchronized awaitable `state`, `set_state()`, and `is_operational()`.
+- Added independent `close_read()` and `close_write()` transitions.
+- Added state-aware operation validation and required error messages.
+- Unexpected read/write failures now become `StreamError` and set `ERROR`.
+- Reset remains available from `ERROR` and atomically publishes `RESET`.
+- Swarm-established streams transition from `INIT` to `OPEN`.
+- Added concurrency and cancellation lifecycle tests.
+
+Changed files:
+
+- [net_stream.py](/testbed/libp2p/network/stream/net_stream.py)
+- [swarm_connection.py](/testbed/libp2p/network/connection/swarm_connection.py)
+- [test_net_stream_state.py](/testbed/tests/core/network/test_net_stream_state.py)
+
+Validation:
+
+- Full network suite: 49 passed.
+- New lifecycle suite: 10 passed.
+- Existing NetStream suite: 9 passed.
+- Compilation and `git diff --check` passed.

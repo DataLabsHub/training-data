@@ -1,0 +1,20 @@
+{
+  "analysis_run_id": "AR-2026-08-24-R17",
+  "export_id": "FIG3-EST-R17",
+  "completed_at": "2026-08-24T22:14:00+08:00",
+  "approved_at": "2026-08-25T16:00:00+08:00",
+  "approval_flag": "publication_export",
+  "code_commit": "8f2c7e1",
+  "packages": {
+    "R": "4.5.1",
+    "brms": "2.22.0",
+    "posterior": "1.6.1",
+    "ggplot2": "3.5.2"
+  },
+  "input_observations_id": "OBS-R17",
+  "input_observations_sha256": "7381f1740a23ca4af11b780e78c003869d0590a990e5b984caa7c613555c018c",
+  "output_workbook_sha256": "cd122e8b72c520eba3c8efa9f96799f3de579f9353cdb6712b337fe6f0c01113",
+  "attested_at": "2026-08-26T08:05:00+08:00",
+  "attested_by": "EMC-STAT",
+  "purpose": "Reproducible environment attestation for the finalized publication export; no release status is asserted."
+}

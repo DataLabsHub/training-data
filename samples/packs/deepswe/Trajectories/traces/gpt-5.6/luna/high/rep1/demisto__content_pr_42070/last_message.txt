@@ -1,0 +1,10 @@
+Implemented the multi-type `indicator-enrichment` command.
+
+Added:
+
+- [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py)
+- [IndicatorEnrichment.yml](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.yml)
+
+Supports extraction, deduplication, validation, limits, grouped child enrichment, partial failures, unified context output, raw-context filtering, and required public APIs.
+
+Validation completed with compilation, YAML checks, and isolated behavior tests. Existing aggregated-script tests could not collect because the local environment lacks `CommonServerUserPython`.

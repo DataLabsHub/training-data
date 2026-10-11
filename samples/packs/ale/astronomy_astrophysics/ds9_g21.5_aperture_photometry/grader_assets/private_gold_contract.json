@@ -1,0 +1,51 @@
+{
+  "task_id": "ds9_g21.5_aperture_photometry",
+  "data_provenance": {
+    "telescope": "Chandra X-ray Observatory",
+    "instrument": "ACIS-S",
+    "obsid": 1843,
+    "target": "SNR G21.5-0.9",
+    "central_object": "PSR J1833-1034 (pulsar wind nebula host)",
+    "archive_file": "acisf01843N004_full_img2.fits.gz",
+    "archive_url": "https://cxc.harvard.edu/cdaftp/byobsid/3/1843/primary/acisf01843N004_full_img2.fits.gz",
+    "live_time_s": 7854.466474854
+  },
+  "reference_position_published": {
+    "ra_deg": 278.389875,
+    "dec_deg": -10.56875,
+    "epoch": "J2000.0",
+    "source": "Camilo et al. 2006, ApJ 637, 456 (PSR J1833-1034 Parkes timing); confirmed by Bietenholz & Bartel 2008, MNRAS 386, 1411 (VLBA)."
+  },
+  "aperture": {
+    "source_radius_arcsec": 30.0,
+    "background_inner_arcsec": 100.0,
+    "background_outer_arcsec": 150.0,
+    "system": "fk5"
+  },
+  "gold_values": {
+    "source_ra_deg": {
+      "value": 278.389809,
+      "tolerance_arcsec": 2.0
+    },
+    "source_dec_deg": {
+      "value": -10.56866,
+      "tolerance_arcsec": 2.0
+    },
+    "gross_counts": {
+      "value": 10431.0,
+      "n_pixels": 181
+    },
+    "bkg_counts_per_pix": {
+      "value": 11.0,
+      "n_pixels": 2526,
+      "method": "sigma-clipped median, 3σ, 5 iter"
+    },
+    "net_counts": {
+      "value": 8440.0,
+      "tolerance_pct": 15.0,
+      "definition": "gross_counts - bkg_per_pix * n_src_pixels"
+    }
+  },
+  "measurement_method": "WCS-aware aperture photometry: source = sum within fk5 circle r=30\" of the published PSR J1833-1034 position; background = sigma-clipped median in fk5 annulus 100\"-150\". Equivalent to DS9 Analysis>Funtools>funcnts on the same regions.",
+  "scoring_policy": "RA/Dec accepted if great-circle separation from gold centroid <= 2.0 arcsec; net_counts accepted if within +/-15 percent of gold value."
+}

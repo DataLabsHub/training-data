@@ -1,0 +1,5 @@
+Implemented [`IndicatorEnrichment.py`](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+It now supports mixed indicator input from lists or text, classification/deduplication/limits, grouped child enrichment execution, partial failures, unified context output, raw-context control, and required public API/error handling.
+
+Validated with syntax compilation and focused smoke tests for request building and response formatting.

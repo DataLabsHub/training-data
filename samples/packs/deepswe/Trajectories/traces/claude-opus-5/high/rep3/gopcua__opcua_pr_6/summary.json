@@ -1,0 +1,64 @@
+{
+  "agent_rc": 0,
+  "agent_step_rc": 0,
+  "apply_rc": 0,
+  "finished_unix": 1788082361.6216428,
+  "index": 30,
+  "model": "claude-opus-5",
+  "network": {
+    "checked_unix": 1788082352.3757215,
+    "offline_fallback": false,
+    "probes": [
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      },
+      {
+        "dns": true,
+        "tcp": true
+      }
+    ],
+    "schema": "coding-synthesis.verifier-online-network/v1",
+    "valid": true,
+    "verifier_network_mode": "enabled-default"
+  },
+  "network_valid": true,
+  "patch_bytes": 67179,
+  "prior_status": "opus5_high_rep1_valid",
+  "reasoning_effort": "high",
+  "reward": 0.0,
+  "reward_data": {
+    "missing_or_bad": [
+      "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/nothing",
+      "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/has-both",
+      "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/has-text",
+      "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/has-locale",
+      "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/nothing",
+      "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/has-both",
+      "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/has-text",
+      "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/has-locale",
+      "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/empty",
+      "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/locale-only",
+      "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/text-only",
+      "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/both",
+      "github.com/wmnsk/gopcua/datatypes::TestAdditionalStringArrayNilAndEmptyEncoding",
+      "github.com/wmnsk/gopcua/datatypes::TestDecodeStringArray/normal",
+      "github.com/wmnsk/gopcua/datatypes::TestSerializeStringArray/normal"
+    ],
+    "passed": 45,
+    "reward": 0.0,
+    "total": 60
+  },
+  "sample_language": "go",
+  "schema": "model-eval.opus5-online-result/v1",
+  "source_index": 5,
+  "status": "unsolved",
+  "task_id": "gopcua__opcua_pr_6",
+  "test_rc": 0,
+  "verifier_rc": 0,
+  "verifier_step_rc": 0
+}

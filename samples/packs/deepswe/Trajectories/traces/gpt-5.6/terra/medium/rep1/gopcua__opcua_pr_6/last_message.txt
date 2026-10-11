@@ -1,0 +1,11 @@
+Implemented GetEndpoints support and discovery data models.
+
+Highlights:
+- Added `datatypes.LocalizedText` and signed `datatypes.StringArray` APIs, including null vs empty array encoding.
+- Updated response headers to use `StringArray` (with `StringTable` retained as a compatibility alias).
+- Added application, token policy, endpoint description structures and arrays.
+- Added GetEndpoints request/response services, constructors, serializers, decoders, service IDs, and dispatcher support.
+- Preserved OpenSecureChannel service behavior.
+- Ensured null `ByteString` decoding retains nil value bytes.
+
+Validation: formatted all changed Go files and ran the full test suite successfully with `go test github.com/wmnsk/gopcua/...`.

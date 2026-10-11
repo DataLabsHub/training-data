@@ -1,0 +1,60 @@
+{
+  "schema_version": "1",
+  "task_id": "task_002",
+  "instruction": "Please reproduce the complete fixture shown in /home/user/Videos/reference.mp4 in SolveSpace and save the editable model as /home/user/Documents/SolveSpace/part.slvs. Then create a provenance bundle in /tmp/provenance_bundle containing an unchanged copy of the model named part.slvs, a SolveSpace mesh export named part.stl, a SolveSpace surface export named part.step, and a byte-unchanged copy of the reference video named reference.mp4. Finally, create /tmp/provenance_bundle/bundle_manifest.txt as plain UTF-8 text containing exactly these five nonblank lines in this order:\nSOURCE_VIDEO=reference.mp4\nNATIVE_MODEL=part.slvs\nMESH_EXPORT=part.stl\nSURFACE_EXPORT=part.step\nMODEL_DIMENSIONS_MM=60,30,42,15,9\nDo not add semicolons, bullets, headings, or extra commentary.",
+  "instruction_requirements": [
+    "reference_fixture_native_model_created",
+    "matching_native_model_added_to_bundle",
+    "mesh_and_surface_exports_added",
+    "reference_video_reused_unchanged",
+    "bundle_manifest_created"
+  ],
+  "evaluator_checks": [
+    {
+      "covers": [
+        "reference_fixture_native_model_created",
+        "matching_native_model_added_to_bundle"
+      ],
+      "description": "The required native model and bundled native copy are byte-identical substantive SolveSpace files with a 3D feature and at least three reference dimension values.",
+      "helper_name": "check_bundle_matching_native_fixture",
+      "helper_source": "import math\nimport re\n\ndef check_bundle_matching_native_fixture(env):\n    primary = env.controller.get_file('/home/user/Documents/SolveSpace/part.slvs')\n    bundled = env.controller.get_file('/tmp/provenance_bundle/part.slvs')\n    if not isinstance(primary, (bytes, bytearray)) or not isinstance(bundled, (bytes, bytearray)) or len(primary) < 500 or primary != bundled:\n        return 0.0\n    text = primary.decode('utf-8', errors='ignore')\n    blocks = text.split('\\n\\n')\n    groups = [(int(handle.group(1), 16), int(kind.group(1))) for block in blocks for handle in [re.search(r'(?m)^Group\\.h\\.v=([0-9a-fA-F]+)\\s*$', block)] for kind in [re.search(r'(?m)^Group\\.type=(\\d+)\\s*$', block)] if handle and kind]\n    params = {int(handle.group(1), 16): float(value.group(1)) for block in blocks for handle in [re.search(r'(?m)^Param\\.h\\.v=([0-9a-fA-F]+)\\s*$', block)] for value in [re.search(r'(?m)^Param\\.val=([-+0-9.eE]+)\\s*$', block)] if handle and value}\n    values = [abs(float(value)) for value in re.findall(r'(?m)^Constraint\\.valA=([-+0-9.eE]+)\\s*$', text)]\n    request_types = [int(value) for value in re.findall(r'(?m)^Request\\.type=(\\d+)\\s*$', text)]\n    matched = [target for target in [60.0, 30.0, 42.0, 15.0, 9.0] if any(abs(value - target) <= 1.0 for value in values)]\n    extrude_handles = [handle for handle, kind in groups if kind == 5100]\n    extrude_lengths = [math.sqrt(sum(params.get(0x80000000 | (handle << 16) | index, 0.0) ** 2 for index in [0, 1, 2])) for handle in extrude_handles]\n    has_fixture_profile = request_types.count(400) >= 1 and request_types.count(500) >= 1 and request_types.count(200) >= 4\n    has_extrusion = any(abs(value - 30.0) <= 1.0 for value in extrude_lengths)\n    return float(has_fixture_profile and has_extrusion and len(matched) >= 3)\n",
+      "kind": "python",
+      "name": "bundle_matching_native_fixture",
+      "weight": 0.35
+    },
+    {
+      "covers": [
+        "mesh_and_surface_exports_added"
+      ],
+      "description": "The bundle includes a valid nonempty binary STL and a substantive ISO 10303 STEP surface export.",
+      "helper_name": "check_bundle_mesh_and_surface_exports",
+      "helper_source": "def check_bundle_mesh_and_surface_exports(env):\n    stl = env.controller.get_file('/tmp/provenance_bundle/part.stl')\n    step = env.controller.get_file('/tmp/provenance_bundle/part.step')\n    stl_header = isinstance(stl, (bytes, bytearray)) and len(stl) >= 284\n    triangles = int.from_bytes(stl[80:84], 'little') if stl_header else 0\n    stl_ok = stl_header and triangles >= 4 and len(stl) == 84 + 50 * triangles\n    step_ok = isinstance(step, (bytes, bytearray)) and len(step) >= 500 and b'ISO-10303-21' in step[:200] and b'END-ISO-10303-21' in step[-200:]\n    return float(stl_ok and step_ok)\n",
+      "kind": "python",
+      "name": "bundle_mesh_and_surface_exports",
+      "weight": 0.25
+    },
+    {
+      "covers": [
+        "reference_video_reused_unchanged"
+      ],
+      "description": "The bundled MP4 is byte-for-byte identical to the staged reference video asset.",
+      "helper_name": "check_bundle_unchanged_reference_video",
+      "helper_source": "import hashlib\n\ndef check_bundle_unchanged_reference_video(env):\n    source = env.controller.get_file('/home/user/Videos/reference.mp4')\n    bundled = env.controller.get_file('/tmp/provenance_bundle/reference.mp4')\n    expected = '327201c648188e5095ffd079b1f573f108f03d948abfd60e35acb91ac799c471'\n    valid = isinstance(source, (bytes, bytearray)) and isinstance(bundled, (bytes, bytearray)) and source == bundled and hashlib.sha256(bundled).hexdigest() == expected\n    return float(valid)\n",
+      "kind": "python",
+      "name": "bundle_unchanged_reference_video",
+      "weight": 0.25
+    },
+    {
+      "covers": [
+        "bundle_manifest_created"
+      ],
+      "description": "The provenance bundle contains the exact ordered five-line manifest naming its source and four artifact records.",
+      "helper_name": "check_bundle_canonical_manifest",
+      "helper_source": "def check_bundle_canonical_manifest(env):\n    payload = env.controller.get_file('/tmp/provenance_bundle/bundle_manifest.txt')\n    if not isinstance(payload, (bytes, bytearray)):\n        return 0.0\n    text = payload.decode('utf-8', errors='ignore')\n    lines = [line.strip() for line in text.splitlines() if line.strip()]\n    expected = ['SOURCE_VIDEO=reference.mp4', 'NATIVE_MODEL=part.slvs', 'MESH_EXPORT=part.stl', 'SURFACE_EXPORT=part.step', 'MODEL_DIMENSIONS_MM=60,30,42,15,9']\n    return float(lines == expected)\n",
+      "kind": "python",
+      "name": "bundle_canonical_manifest",
+      "weight": 0.15
+    }
+  ],
+  "pass_threshold": 1.0
+}

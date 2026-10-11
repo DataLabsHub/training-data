@@ -1,0 +1,682 @@
+{
+  "claim": {
+    "binary_failure_condition": "Any reversed LOT-C certificates are accepted, the stale export is treated as controlling custody, the lot receives multiple or missing dispositions, or cover is applied before the contractual cure step.",
+    "binary_pass_condition": "The workpaper gives LOT-C one final rejected or deficient disposition for the full affected tendered range because the later reversal supersedes transfer, and routes that deficiency through cure before cover.",
+    "candidate_evidence_requirements": [
+      "The LOT-C disposition row with quantity, lifecycle reason, remedy path, timing consequence, responsible party, and precise evidence locators."
+    ],
+    "causal_owner_id": "RULE005",
+    "claim_id": "R007",
+    "contract_basis_ids": [
+      "FACT014",
+      "FACT015",
+      "FACT022",
+      "RULE005",
+      "RULE007",
+      "PRED008",
+      "CROUTE001"
+    ],
+    "description": "The final LOT-C disposition gives the later reversal precedence over the stale earlier transfer and assigns the resulting deficiency to the contractual remedy chain.",
+    "importance_weight": 5,
+    "independent_failure_mode": "The reversal is observed correctly but its lifecycle and remedy consequence is not propagated to the lot disposition.",
+    "method": "llm_judge",
+    "program_check": null,
+    "required_media_node_ids": [
+      "MGN001",
+      "MGN002"
+    ],
+    "title": "Lifecycle precedence excludes the reversed LOT-C delivery",
+    "visual_reasoning_requirement": "Compare the same-transaction overview and detail to prove that the adverse event is later than transfer and covers the full LOT-C block before deriving rejection. Either image alone leaves either event precedence or exact scope uncorroborated."
+  },
+  "contract_basis": {
+    "artifact_edges": [
+      {
+        "artifact_edge_id": "AEDGE025",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed raw transaction overview.",
+        "source_locator": null,
+        "source_node_id": "MGN001",
+        "target_locator": "page[1].image[0]",
+        "target_node_id": "CF011"
+      },
+      {
+        "artifact_edge_id": "AEDGE026",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed raw reversal detail.",
+        "source_locator": null,
+        "source_node_id": "MGN002",
+        "target_locator": "page[2].image[0]",
+        "target_node_id": "CF011"
+      }
+    ],
+    "as_of": "2025-06-09T12:00:00-04:00",
+    "causal_owner_id": "RULE005",
+    "claim_basis_ids": [
+      "FACT014",
+      "FACT015",
+      "FACT022",
+      "RULE005",
+      "RULE007",
+      "PRED008",
+      "CROUTE001"
+    ],
+    "entities": [
+      {
+        "description": "Fictional Massachusetts competitive supplier buying Class I certificates.",
+        "entity_id": "ENT001",
+        "entity_type": "retail_electricity_supplier",
+        "natural_identity": [
+          "Bay State Competitive Supply LLC",
+          "buyer GIS account BSC-MA-4421"
+        ]
+      },
+      {
+        "description": "Fictional bilateral seller responsible for delivery and cure.",
+        "entity_id": "ENT002",
+        "entity_type": "certificate_seller",
+        "natural_identity": [
+          "GreenArc Certificate Markets LLC",
+          "seller code GAM-77"
+        ]
+      },
+      {
+        "description": "Executed confirmation and its cure-and-cover amendment.",
+        "entity_id": "ENT003",
+        "entity_type": "purchase_contract",
+        "natural_identity": [
+          "REC-2024-017",
+          "executed 2024-11-18"
+        ]
+      },
+      {
+        "description": "Original 400-certificate Weldon lot.",
+        "entity_id": "ENT005",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-A",
+          "MSS424-2024Q2-000001:000400"
+        ]
+      },
+      {
+        "description": "Original 200-certificate lot whose buyer transfer was reversed.",
+        "entity_id": "ENT007",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-C",
+          "MSS424-2024Q3-001001:001200"
+        ]
+      },
+      {
+        "description": "Original 150-certificate Deer Island lot.",
+        "entity_id": "ENT008",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-D",
+          "NON38983-2024Q4-002001:002150"
+        ]
+      },
+      {
+        "description": "Timely 250-certificate replacement for LOT-B.",
+        "entity_id": "ENT009",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-B",
+          "MSS424-2024Q1-003001:003250"
+        ]
+      },
+      {
+        "description": "Replacement for LOT-C with fifty serials already tendered in LOT-A.",
+        "entity_id": "ENT010",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-C",
+          "MSS424-2024Q2-000351:000550"
+        ]
+      },
+      {
+        "description": "Official DOER hydroelectric unit effective January 1, 2024.",
+        "entity_id": "ENT011",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "MSS424",
+          "MA RPS 7031-24",
+          "Weldon"
+        ]
+      },
+      {
+        "description": "Official DOER anaerobic-digester unit effective April 1, 2002.",
+        "entity_id": "ENT013",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "NON38983",
+          "MA RPS 1015-02",
+          "Deer Island Treatment Plant STG"
+        ]
+      },
+      {
+        "description": "Buyer inventory control receiving accepted and cover certificates.",
+        "entity_id": "ENT015",
+        "entity_type": "compliance_inventory",
+        "natural_identity": [
+          "CY2024 Class I close",
+          "BSC-MA-4421"
+        ]
+      }
+    ],
+    "file_nodes": [
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF011",
+        "description_text": "Live-review packet embedding uncaptained registry overview, reversal detail, and serial-matrix views; surrounding text records only operator, capture time, and case IDs.",
+        "embedded_media_node_ids": [
+          "MGN001",
+          "MGN002",
+          "MGN005"
+        ],
+        "expected_format": "pdf",
+        "graph_node_id": "GN005",
+        "stored_relative_path": "Registry Evidence/Final Lot Review Packet.pdf"
+      }
+    ],
+    "media_nodes": [
+      {
+        "artifact_purpose": "Raw live registry transaction overview for LOT-C.",
+        "comparison_group_ids": [
+          "registry_event_overview_detail",
+          "same_unit_different_periods"
+        ],
+        "distinct_information": "Shows the event sequence and TX-771903 row position through 10:03 without explaining its legal effect.",
+        "evidence_family": "registry_ui",
+        "media_node_id": "MGN001",
+        "operation": "text_to_image",
+        "output_format": "png",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "registry transaction history screen",
+          "avoid": [
+            "answer summary",
+            "terminal settlement amount",
+            "decorative illustration"
+          ],
+          "color_palette": "white slate blue and restrained red",
+          "composition_framing": "full-screen event table with status icons and timestamps",
+          "constraints": [
+            "Show transfer earlier than reversal",
+            "Keep decisive status in pixels",
+            "No explanatory caption or callout"
+          ],
+          "exact_text": [
+            "LOT-C",
+            "TX-771903",
+            "06/09/2025 10:03:11 EDT",
+            "REVERSED",
+            "BSC-MA-4421"
+          ],
+          "lighting_mood": "neutral",
+          "primary_request": "Create a crisp internal certificate-registry transaction history view for LOT-C showing transfer and later reversal events.",
+          "scene_backdrop": "desktop registry application",
+          "style_medium": "realistic enterprise UI screenshot",
+          "subject": "MSS424 2024Q3 serials 001001 through 001200",
+          "use_case": "ui-mockup"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Readable identifiers and time",
+          "Clearly distinct transfer and reversal icons",
+          "No OCR transcript outside the image"
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Certificate-detail view corroborating the reversed transaction.",
+        "comparison_group_ids": [
+          "registry_event_overview_detail"
+        ],
+        "distinct_information": "Shows the adverse status attached to the exact inclusive serial block and buyer account, complementing the overview's chronology.",
+        "evidence_family": "registry_ui",
+        "media_node_id": "MGN002",
+        "operation": "text_to_image",
+        "output_format": "png",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "registry certificate detail panel",
+          "avoid": [
+            "invoice data",
+            "cover trade",
+            "text outside UI"
+          ],
+          "color_palette": "white charcoal blue and red",
+          "composition_framing": "close detail panel with status badge and ownership field",
+          "constraints": [
+            "Status badge must be visually prominent but uncaptained",
+            "Use exact inclusive endpoints",
+            "No settlement interpretation"
+          ],
+          "exact_text": [
+            "TX-771903",
+            "MSS424",
+            "2024 Q3",
+            "001001 - 001200",
+            "BSC-MA-4421",
+            "REVERSED"
+          ],
+          "lighting_mood": "neutral",
+          "primary_request": "Create a certificate-detail panel for LOT-C that ties transaction TX-771903 to the exact serial block and buyer account.",
+          "scene_backdrop": "modal over enterprise registry",
+          "style_medium": "realistic enterprise UI screenshot",
+          "subject": "MSS424 2024Q3 001001-001200 certificate block",
+          "use_case": "ui-mockup"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Readable range and account",
+          "Same transaction identity as MGN001",
+          "Different viewpoint from overview"
+        ],
+        "visibility": "embedded_only"
+      }
+    ],
+    "predicates": [
+      {
+        "applies_to_ids": [
+          "MGN001",
+          "MGN002",
+          "AEDGE025",
+          "AEDGE026",
+          "FACT015",
+          "RULE005",
+          "ANOM001"
+        ],
+        "counterexample": "If the detail shows TX-771930 or the export text says LOT-C reversed, this predicate fails.",
+        "evaluation_mode": "grounded_agent",
+        "evidence_requirements": [
+          "Inspect MGN001 and MGN002 pixels in CF011",
+          "Check AEDGE025-AEDGE026 embeds",
+          "Search text for duplicated conclusion"
+        ],
+        "kind": "multimodal_fidelity",
+        "origin_refs": [
+          "workspace_policy",
+          "ANCH003",
+          "ANCH009"
+        ],
+        "pass_condition": "MGN001 and MGN002 share registry_event_overview_detail; both show TX-771903, LOT-C, and buyer account; overview orders transfer before 10:03:11 reversal and detail attaches REVERSED to 001001-001200; no text artifact states that conclusion.",
+        "predicate_id": "PRED008",
+        "severity": "blocking",
+        "statement": "The two registry views jointly prove LOT-C's later reversal and exact transaction identity."
+      }
+    ],
+    "required_media_node_ids": [
+      "MGN001",
+      "MGN002"
+    ],
+    "route_context": {
+      "business_goal": "Close the seller's 2024 Class I delivery without paying for unusable certificates and preserve a supportable compliance inventory.",
+      "contract_edge_ids": [
+        "CEDGE001",
+        "CEDGE002",
+        "CEDGE003",
+        "CEDGE004",
+        "CEDGE005",
+        "CEDGE006",
+        "CEDGE007",
+        "CEDGE008",
+        "CEDGE014",
+        "CEDGE015",
+        "CEDGE012",
+        "CEDGE013",
+        "CEDGE011"
+      ],
+      "contract_route_id": "CROUTE001",
+      "deliverable_class": "Auditable certificate-delivery settlement workbook with embedded procurement and accounting decision summary",
+      "difficulty_sources": [
+        "Temporal qualification and lifecycle precedence across different systems",
+        "Pixel-essential reversal and overlap evidence whose raw baselines and dimension-preserved annotations traverse two independently auditable PDF-to-DOCX chains",
+        "Ordered cure then cover logic",
+        "Cross-ledger quantity and money propagation",
+        "Visual trade-to-allocation-to-registry custody handoff that separates executed cover damages from buyer-held compliance inventory",
+        "As-of qualification-exception event precedence after exact unit authority matching and before downstream settlement propagation"
+      ],
+      "natural_request_context": "A settlement manager needs a single spreadsheet workpaper for the procurement director and controller after the final tender arrived on June 9.",
+      "required_graph_node_ids": [
+        "GN001",
+        "GN002",
+        "GN003",
+        "GN004",
+        "GN005",
+        "GN006",
+        "GN007",
+        "GN008",
+        "GN009",
+        "GN010",
+        "GN011",
+        "GN012"
+      ],
+      "required_rule_ids": [
+        "RULE001",
+        "RULE002",
+        "RULE003",
+        "RULE004",
+        "RULE005",
+        "RULE006",
+        "RULE007",
+        "RULE008",
+        "RULE009",
+        "RULE010",
+        "RULE011",
+        "RULE012",
+        "RULE013",
+        "RULE014",
+        "RULE015",
+        "RULE016",
+        "RULE017"
+      ],
+      "target_fact_ids": [
+        "FACT007",
+        "FACT022",
+        "FACT023",
+        "FACT027",
+        "FACT031",
+        "FACT032",
+        "FACT033",
+        "FACT042",
+        "FACT043"
+      ],
+      "terminal_decision": "After admitting the reversal and overlap only from the two raw-plus-marked cross-document evidence pairs, approve USD 16,920 net payable; post 950 seller RECs and 40 cover RECs separately; dispute 50 seller RECs, record a 10-REC residual shortfall, send dispute by June 16, and preserve July 1 filing readiness.",
+      "unique_resolution": "Exact source precedence, inclusive serial arithmetic, lifecycle event order, signed cure hierarchy, cover execution, paired raw/derived lineage admissibility, and conservation equations admit only the stated quantities, payable, and deadlines. The cover inventory component additionally requires an exact trade-to-allocation-to-final-registry-custody match by the cutoff; absent that final handoff, the cover posting is zero and the residual is fifty while the damage offset remains unchanged. The otherwise valid LOT-D unit must additionally have QX-38983-2025 in a final released state by noon; a pending, late, or mismatched release withholds its 150 certificates from the close and forces the stated downstream quantity, payable, inventory, and residual counterfactual."
+    },
+    "rules": [
+      {
+        "counterexample": "Counting LOT-C from the 09:30 export despite the later reversal fails.",
+        "input_fact_ids": [
+          "FACT010",
+          "FACT015",
+          "FACT016",
+          "FACT019",
+          "FACT040"
+        ],
+        "operator_family": "lifecycle_precedence",
+        "output_fact_ids": [
+          "FACT022",
+          "FACT023"
+        ],
+        "resolution_order": "Latest adverse terminal event; latest ownership event; stale export only for events at or before its own cutoff.",
+        "rule_id": "RULE005",
+        "source_anchor_ids": [
+          "ANCH003",
+          "ANCH009",
+          "ANCH013"
+        ],
+        "statement": "For each unique serial at the cutoff, cancellation, retirement elsewhere, or reversal supersedes any earlier transfer; otherwise the last posted owner must be the buyer.",
+        "truth_conditions": [
+          "Paired registry pixels identify TX-771903 and a 10:03:11 reversal for LOT-C.",
+          "No later restoration exists by noon."
+        ]
+      },
+      {
+        "counterexample": "Applying buyer cover before considering timely REPL-B violates the amendment.",
+        "input_fact_ids": [
+          "FACT005",
+          "FACT006",
+          "FACT015",
+          "FACT017",
+          "FACT021",
+          "FACT037"
+        ],
+        "operator_family": "contract_remedy_hierarchy",
+        "output_fact_ids": [
+          "FACT022",
+          "FACT023",
+          "FACT027"
+        ],
+        "resolution_order": "Original test; timely seller cure; unique substitute test; buyer cover; residual shortfall.",
+        "rule_id": "RULE007",
+        "source_anchor_ids": [
+          "ANCH014",
+          "ANCH015"
+        ],
+        "statement": "Determine original deficiency, apply timely valid seller substitutions by June 6, then allow buyer cover only for the remaining gap, and carry any uncovered balance as residual shortfall.",
+        "truth_conditions": [
+          "Cure election scans prove case EXC-24017 was elected at 16:41.",
+          "Cover quantity does not exceed post-cure deficiency."
+        ]
+      }
+    ],
+    "schema_version": "statechain-contract-basis/v1",
+    "state_facts": [
+      {
+        "effective_from": "2025-05-20T15:42:00-04:00",
+        "effective_until": null,
+        "fact_id": "FACT005",
+        "interpretation": "The amendment controls only because the paired executed-image evidence agrees.",
+        "materialization_obligation": "Two embedded signature views must visibly establish matching document code, both signatures, and receipt time without a text transcript.",
+        "predicate": "amendment_fully_executed",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": true
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT006",
+        "interpretation": "Seller substitution must be elected and completed by this time.",
+        "materialization_obligation": "Amendment clause and exception correspondence must expose the deadline.",
+        "predicate": "seller_cure_deadline",
+        "source_anchor_ids": [],
+        "status": "executed",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": "2025-06-06T17:00:00-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT010",
+        "interpretation": "LOT-A passes lifecycle testing except for downstream overlap claims against it.",
+        "materialization_obligation": "Registry views must show buyer custody with no later adverse event.",
+        "predicate": "buyer_held_at_cutoff",
+        "source_anchor_ids": [
+          "ANCH003",
+          "ANCH013"
+        ],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT005",
+          "ENT001"
+        ],
+        "value": true
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT014",
+        "interpretation": "Original LOT-C is tested before its replacement.",
+        "materialization_obligation": "Seller and registry files must identify LOT-C and its 200 serials.",
+        "predicate": "tendered_quantity_mwh",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT007",
+          "ENT011"
+        ],
+        "value": 200
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT015",
+        "interpretation": "The reversal supersedes the earlier transfer before the cutoff.",
+        "materialization_obligation": "Related registry overview/detail pixels must show reversal icon, transaction ID TX-771903, and event time; structured export must not repeat the conclusion.",
+        "predicate": "buyer_transfer_reversed_at",
+        "source_anchor_ids": [
+          "ANCH003",
+          "ANCH009"
+        ],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT007",
+          "ENT001"
+        ],
+        "value": "2025-06-09T10:03:11-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT016",
+        "interpretation": "LOT-D is fully acceptable.",
+        "materialization_obligation": "Delivery and registry records must show 150 unique buyer-held 2024 certificates.",
+        "predicate": "valid_unique_buyer_held_quantity",
+        "source_anchor_ids": [],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT008",
+          "ENT013",
+          "ENT001"
+        ],
+        "value": 150
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT017",
+        "interpretation": "REPL-B cures LOT-B in full.",
+        "materialization_obligation": "Cure record, DOER row, serial records, and custody evidence must jointly support all 250.",
+        "predicate": "valid_timely_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT009",
+          "ENT011",
+          "ENT001"
+        ],
+        "value": 250
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT019",
+        "interpretation": "Custody passes but uniqueness remains a separate test.",
+        "materialization_obligation": "Registry lifecycle record must show buyer custody for REPL-C.",
+        "predicate": "buyer_held_at_cutoff",
+        "source_anchor_ids": [],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT010",
+          "ENT001"
+        ],
+        "value": true
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT021",
+        "interpretation": "Only serials 000401 through 000550 add new delivery.",
+        "materialization_obligation": "Inventory control must derive 200 minus the image-evidenced overlap of 50.",
+        "predicate": "valid_unique_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT010"
+        ],
+        "value": 150
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT022",
+        "interpretation": "Accepted seller delivery is unique and capped by contract quantity.",
+        "materialization_obligation": "No public source may state this as a prejoined answer; route evidence must derive 400+150+250+150.",
+        "predicate": "accepted_seller_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 950
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT023",
+        "interpretation": "This is the gap available for buyer cover.",
+        "materialization_obligation": "Settlement route must reconcile 1,000 minus 950 with no balancing item.",
+        "predicate": "post_cure_deficiency_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 50
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT027",
+        "interpretation": "Ten certificates remain unresolved as of noon.",
+        "materialization_obligation": "Inventory control must compute 1,000 minus 950 minus 40.",
+        "predicate": "residual_shortfall_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT015"
+        ],
+        "value": 10
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT037",
+        "interpretation": "Timely cure permits replacement testing but does not guarantee acceptance.",
+        "materialization_obligation": "Notice receipt and seller election scans must visibly agree on case EXC-24017 and timely election.",
+        "predicate": "seller_cure_elected_at",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT009",
+          "ENT010",
+          "ENT002"
+        ],
+        "value": "2025-06-06T16:41:00-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT040",
+        "interpretation": "The extract predates the 10:03 reversal and is stale for LOT-C.",
+        "materialization_obligation": "CSV metadata row or companion header must expose the extract cutoff.",
+        "predicate": "scheduled_export_cutoff",
+        "source_anchor_ids": [],
+        "status": "system_metadata",
+        "subject_entity_ids": [
+          "ENT007"
+        ],
+        "value": "2025-06-09T09:30:00-04:00"
+      }
+    ],
+    "visual_disclosure_plans": [],
+    "visual_reasoning_requirement": "Compare the same-transaction overview and detail to prove that the adverse event is later than transfer and covers the full LOT-C block before deriving rejection. Either image alone leaves either event precedence or exact scope uncorroborated."
+  },
+  "reference_claim_evidence": {
+    "citations": [
+      {
+        "locator": "Lot Dispositions!A6:U6; Quantity Reconciliation!A11:G12",
+        "observation": "LOT-C receives one final rejected disposition for all 200 tendered certificates because the later reversal defeats custody; its remedy chain is REPL-C, then cover, then residual.",
+        "path": "deliverables/rec_settlement_workpaper.xlsx"
+      }
+    ],
+    "claim_id": "R007",
+    "why_full_pass": "No reversed LOT-C certificate is accepted, the stale export does not control, and the deficiency is routed through timely seller cure before buyer cover."
+  }
+}

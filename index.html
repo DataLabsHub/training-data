@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-static="1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>任务数据集</title>
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="theme-color" content="#f4f1ea">
+<style>
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="mark" href="#top">任务数据集</a>
+  <a href="#answer">推理题</a>
+  <a href="#machine">代码与终端</a>
+  <a href="#screen">电脑操作</a>
+  <a href="#trace">调用轨迹</a>
+  <a href="#space">仿真与具身</a>
+  <a href="#exam">公开基准</a>
+  <a href="#pick">选型</a>
+  <label class="lang"><select id="lang" aria-label="Language"></select></label>
+</nav>
+<header class="hero" id="top">
+  <p class="eyebrow">训练数据集 · 大模型后训练与评测</p>
+  <h1>可验证奖励任务数据集</h1>
+  <p class="deck">每条任务均附带自动化判定机制，重复评测结果稳定。不具备可验证奖励的任务不予收录。</p>
+</header>
+<section class="lineup">
+  <a href="#answer"><span>01</span><strong>推理题</strong><em>科学、竞赛、临床</em></a>
+  <a href="#machine"><span>02</span><strong>代码与终端</strong><em>仓库、内核、终端</em></a>
+  <a href="#screen"><span>03</span><strong>电脑操作</strong><em>界面、桌面、文件</em></a>
+  <a href="#trace"><span>04</span><strong>调用轨迹</strong><em>失败与恢复</em></a>
+  <a href="#space"><span>05</span><strong>仿真与具身</strong><em>相机与动作</em></a>
+  <a href="#exam"><span>06</span><strong>公开基准</strong><em>可运行包装</em></a>
+</section>
+
+<main>
+  <div class="note">
+    <h2>交付标准</h2>
+    <ul class="pillars">
+      <li><b>可验证奖励</b><span>每条任务附自动判定，结果可复现，可直接接入 RL 训练</span></li>
+      <li><b>难度标定</b><span>关键品类以强模型实测运行标定难度，优先保留模型仍会失败的样本</span></li>
+      <li><b>对标公开基准</b><span>能力方向对齐主流榜单；训练任务均为原创，不复刻公开考卷</span></li>
+      <li><b>开箱可运行</b><span>代码、终端与电脑操作类任务随附环境、参考解与测试</span></li>
+      <li><b>持续供给</b><span>现货之外按周生产新任务，模型未见过</span></li>
+    </ul>
+    <h2>供给方式</h2>
+    <ul class="stock">
+      <li><b>仓库改动 · 核函数</b><span>大批量现货，每周持续新增</span></li>
+      <li><b>边界改动 · 跨文件办公 · 专业软件</b><span>现货供应，每周持续新增</span></li>
+      <li><b>其余品类</b><span>按训练目标定制生产</span></li>
+    </ul>
+    <h2>延伸方向</h2>
+    <p>以下方向同样可按需求定制，对应的公开基准如下：</p>
+    <ul class="stock also">
+      <li><b>Terminal-Bench-Science</b><span>科学计算工作流，归入终端裁定<a href="https://www.terminal-bench-science.ai/">官网</a> · <a href="https://github.com/harbor-framework/terminal-bench-science/tree/main/tasks">数据集 · 官方仓库</a></span></li>
+      <li><b>ZeroBench</b><span>高难视觉推理，归入推导<a href="https://zerobench.github.io/">官网</a> · <a href="https://huggingface.co/datasets/jonathan-roberts1/zerobench">数据集 · Hugging Face</a></span></li>
+      <li><b>StepSTEM</b><span>研究生级图文理科推理，归入推导<a href="https://github.com/lll-hhh/STEPSTEM">官网</a> · <a href="https://github.com/lll-hhh/STEPSTEM/tree/main/benchmark">数据集 · 官方仓库</a></span></li>
+      <li><b>BrowseComp</b><span>面向难检索信息的持续搜索，归入长会话<a href="https://openai.com/index/browsecomp">官网</a> · <a href="https://openaipublic.blob.core.windows.net/simple-evals/browse_comp_test_set.csv">数据集 · OpenAI 官方下载</a></span></li>
+      <li><b>DeepResearch Bench</b><span>博士级深度研究报告，归入长会话与推导<a href="https://deepresearch-bench.github.io/">官网</a> · <a href="https://github.com/Ayanami0730/deep_research_bench/blob/main/data/prompt_data/query.jsonl">数据集 · 官方仓库</a></span></li>
+      <li><b>KernelBench</b><span>GPU 内核生成与优化，归入核函数<a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/">官网</a> · <a href="https://github.com/ScalingIntelligence/KernelBench/tree/main/KernelBench">数据集 · 官方仓库</a></span></li>
+    </ul>
+    <h2>定制服务</h2>
+    <p>可按需设计奖励函数与评测环境，提供过程级稠密奖励；争议样本由领域专家仲裁；也可作为外部产能，与贵方数据团队协同交付</p>
+  </div>
+
+  <section class="pick light" id="pick">
+    <h2>选型</h2>
+    <p class="chapter-line">按训练目标选择任务数据集</p>
+    <ol>
+      <li>
+        <span class="use">RL 训练</span>
+        <b>二元可验证奖励</b>
+        <p class="go"><a href="#terminal">终端裁定</a><a href="#repo">仓库改动</a><a href="#edge">边界改动</a><a href="#kernel">核函数</a></p>
+        <p class="aside">桌面成品配合文件级评分器同样适用</p>
+      </li>
+      <li>
+        <span class="use">SFT · 过程监督</span>
+        <b>完整操作轨迹</b>
+        <p class="go"><a href="#repo">仓库改动</a><a href="#office">跨文件办公</a><a href="#session">长会话</a><a href="#pro">专业软件</a></p>
+        <p class="aside">用于行为克隆或逐步监督</p>
+      </li>
+      <li>
+        <span class="use">推理能力</span>
+        <b>强模型仍会失败的专家原创题</b>
+        <p class="go"><a href="#derive">推导</a><a href="#contest">赛题</a><a href="#clinical">临床判断</a></p>
+        <p class="aside">三套均可查看样例</p>
+      </li>
+      <li>
+        <span class="use">Agent · 电脑操作</span>
+        <b>在软件中交付可验证的产物</b>
+        <p class="go"><a href="#desktop">桌面成品</a><a href="#pro">专业软件</a><a href="#office">跨文件办公</a><a href="#ground">屏幕落点</a></p>
+        <p class="aside">屏幕落点专注元素定位</p>
+      </li>
+      <li>
+        <span class="use">世界模型 · 具身</span>
+        <b>空间感知与感知—动作闭环</b>
+        <p class="go"><a href="#camera">相机世界</a><a href="#body">动作回路</a></p>
+        <p class="aside">按设备与场景规格定制</p>
+      </li>
+      <li>
+        <span class="use">评测基线</span>
+        <b>可复现的公开基准分数</b>
+        <p class="go"><a href="#shelf">现成考卷</a></p>
+        <p class="aside">一次交付即可复现主流榜单，省去自建环境</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="chapter light" id="answer">
+    <h2>01</h2>
+    <p class="chapter-line">以最终答案为奖励</p>
+
+    <article id="derive">
+      <h3>推导</h3>
+      <p class="lede">专家原创的 STEM 推理题，含闭式标准答案与完整推导链</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>GPQA</b><span><a href="https://github.com/idavidrein/gpqa">官网</a><a href="https://github.com/idavidrein/gpqa/blob/main/dataset.zip">数据集 · 官方仓库</a></span></p>
+        <p><b>SciCode</b><span><a href="https://scicode-bench.github.io/">官网</a><a href="https://huggingface.co/datasets/SciCode1/SciCode">数据集 · Hugging Face</a></span></p>
+        <p><b>Humanity's Last Exam</b><span><a href="https://lastexam.ai/">官网</a><a href="https://huggingface.co/datasets/cais/hle">数据集 · Hugging Face</a></span></p>
+        <p><b>MMLU-Pro</b><span><a href="https://github.com/TIGER-AI-Lab/MMLU-Pro">官网</a><a href="https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro">数据集 · Hugging Face</a></span></p>
+        <p><b>MMMU</b><span><a href="https://mmmu-benchmark.github.io/">官网</a><a href="https://huggingface.co/datasets/MMMU/MMMU">数据集 · Hugging Face</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>唯一闭式标准答案，附完整推导，二元判定，可复核</dd></div>
+        <div><dt>难度</dt><dd>原创新题，无法通过检索拼合解法；跨度从可解问题延伸到尚无公认解的前沿问题</dd></div>
+        <div><dt>定位</dt><dd>研究级科学推理，含图表与多模态题</dd></div>
+        <div><dt>交付内容</dt><dd>题目、标准答案、推导步骤、知识点与难度标注，经第二位专家独立盲审</dd></div>
+        <div><dt>覆盖范围</dt><dd>物理、化学、生物、数学；含计算与工具辅助推理、工程约束下的定量设计，延伸至前沿理论研究</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
+
+    <article id="contest">
+      <h3>赛题</h3>
+      <p class="lede">奥赛级数学与理科题，难度由强模型实测通过率逐题标定</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>OlympiadBench</b><span><a href="https://github.com/OpenBMB/OlympiadBench">官网</a><a href="https://drive.google.com/file/d/1DnTCrvIv5vbfDmi2yYaCWnzUhvD34oB0/view?usp=sharing">数据集 · 官方下载</a></span></p>
+        <p><b>MATH-500</b><span><a href="https://github.com/openai/prm800k">官网</a><a href="https://github.com/openai/prm800k/blob/main/prm800k/math_splits/test.jsonl">数据集 · 官方仓库</a></span></p>
+        <p><b>American Invitational Mathematics Examination</b><span><a href="https://www.maa.org/maa-invitational-competitions">官网</a></span></p>
+        <p><b>Humanity's Last Exam</b><span><a href="https://lastexam.ai/">官网</a><a href="https://huggingface.co/datasets/cais/hle">数据集 · Hugging Face</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>精确最终答案，二元判定</dd></div>
+        <div><dt>难度</dt><dd>每题附强模型多次运行的通过记录</dd></div>
+        <div><dt>定位</dt><dd>奥林匹克级数学与理科，题目无法检索到原题</dd></div>
+        <div><dt>交付内容</dt><dd>题目、完整解答、最终答案、模型运行记录、学段与解题技巧标签</dd></div>
+        <div><dt>覆盖范围</dt><dd>信息学、组合数学、代数、数论及同级理科竞赛</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
+
+    <article id="clinical">
+      <h3>临床判断</h3>
+      <p class="lede">临床医生原创题，第二位医生独立复核，保留模型仍易错的样本</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>HealthBench</b><span><a href="https://openai.com/index/healthbench/">官网</a><a href="https://github.com/openai/simple-evals/blob/main/healthbench_eval.py">数据集 · OpenAI 官方仓库</a></span></p>
+        <p><b>MedQA</b><span><a href="https://github.com/jind11/MedQA">官网</a><a href="https://drive.google.com/file/d/1ImYUSLk9JbgHXOemfvyiDiirluZHPeQw/view?usp=sharing">数据集 · 官方下载</a></span></p>
+        <p><b>MedXpertQA</b><span><a href="https://medxpertqa.github.io/">官网</a><a href="https://github.com/TsinghuaC3I/MedXpertQA/tree/main/eval/data/medxpertqa">数据集 · 官方仓库</a></span></p>
+        <p><b>MMMU</b><span><a href="https://mmmu-benchmark.github.io/">官网</a><a href="https://huggingface.co/datasets/MMMU/MMMU">数据集 · Hugging Face</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>医生认可的标准选项与理由</dd></div>
+        <div><dt>难度</dt><dd>已剔除强模型普遍答对的题目，保留模型仍易错的样本</dd></div>
+        <div><dt>定位</dt><dd>临床诊疗推理，含医学影像与图表题</dd></div>
+        <div><dt>交付内容</dt><dd>题目、选项、理由、多模型评分、难度分层；发布前完成去标识化核验</dd></div>
+        <div><dt>覆盖范围</dt><dd>诊断推理、流行病学、生物统计与临床决策</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter dark" id="machine">
+    <h2>02</h2>
+    <p class="chapter-line">以测试结果为奖励</p>
+
+    <article id="repo">
+      <h3>仓库改动</h3>
+      <p class="lede">仓库级代码工程任务，以测试预言机为奖励信号</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>SWE-bench</b><span><a href="https://www.swebench.com/">官网</a><a href="https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified">Verified · Hugging Face</a><a href="https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual">Multilingual · Hugging Face</a><a href="https://huggingface.co/datasets/princeton-nlp/SWE-bench_Multimodal">Multimodal · Hugging Face</a></span></p>
+        <p><b>SWE-Bench Pro</b><span><a href="https://labs.scale.com/leaderboard/swe_bench_pro">官网</a><a href="https://github.com/scaleapi/SWE-bench_Pro-os/tree/main/v2/tasks">数据集 · 官方仓库</a></span></p>
+        <p><b>SWE-bench-Live</b><span><a href="https://github.com/microsoft/SWE-bench-Live">官网</a><a href="https://huggingface.co/datasets/SWE-bench-Live/SWE-bench-Live">数据集 · Hugging Face</a></span></p>
+        <p><b>LiveCodeBench</b><span><a href="https://livecodebench.github.io/">官网</a><a href="https://huggingface.co/datasets/livecodebench/code_generation_lite">数据集 · Hugging Face</a></span></p>
+        <p><b>DeepSWE</b><span><a href="https://deepswe.datacurve.ai/">官网</a><a href="https://github.com/datacurve-ai/deep-swe/tree/main/tasks">数据集 · 官方仓库</a></span></p>
+        <p><b>SWE-Marathon</b><span><a href="https://www.swe-marathon.org/">官网</a><a href="https://github.com/abundant-ai/swe-marathon/tree/main/tasks">数据集 · 官方仓库</a></span></p>
+        <p><b>ProgramBench</b><span><a href="https://programbench.com/">官网</a><a href="https://huggingface.co/datasets/programbench/ProgramBench-Tests">数据集 · Hugging Face</a></span></p>
+        <p><b>FrontierSWE</b><span><a href="https://www.frontierswe.com/">官网</a><a href="https://github.com/proximal-labs/frontier-swe/tree/main/tasks">数据集 · 官方仓库</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>测试预言机：FAIL_TO_PASS 须通过，PASS_TO_PASS 须保持通过；二元判定，模型自述不计</dd></div>
+        <div><dt>定位</dt><dd>真实开源仓库中的缺陷修复与功能开发</dd></div>
+        <div><dt>交付内容</dt><dd>可运行环境、参考补丁、自动验证，可附完整 rollout</dd></div>
+        <div><dt>覆盖范围</dt><dd>Rust、Java、Go、PHP、Ruby、JavaScript/TypeScript、C；另可定制 SWE-Marathon、ProgramBench、FrontierSWE 方向的超长程任务</dd></div>
+        <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
+      </dl>
+    </article>
+
+    <article id="edge">
+      <h3>边界改动</h3>
+      <p class="lede">在多项约束同时成立的前提下完成仓库级改造</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>EdgeBench SWE</b><span><a href="https://pipelinelab.ai/blog/edgebenchswe/">官网</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>自动测试，对照参考补丁，二元判定</dd></div>
+        <div><dt>难度</dt><dd>多约束耦合改造，难度高于常规仓库修复</dd></div>
+        <div><dt>定位</dt><dd>版本级、跨模块的长程特性开发</dd></div>
+        <div><dt>交付内容</dt><dd>完整仓库、改造路线、参考补丁、自动测试、完整 rollout</dd></div>
+        <div><dt>覆盖范围</dt><dd>并发与一致性、存储与故障恢复、接口兼容、分布式场景下的边界情形</dd></div>
+        <div><dt>供给</dt><dd>现货供应，每周持续新增</dd></div>
+      </dl>
+    </article>
+
+    <article id="kernel">
+      <h3>核函数</h3>
+      <p class="lede">GPU Kernel 优化任务，在数值正确性约束下以实测性能为奖励</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>KernelBench</b><span><a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/">官网</a><a href="https://github.com/ScalingIntelligence/KernelBench/tree/main/KernelBench">数据集 · 官方仓库</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>数值正确性与真实显卡性能读数同时达标</dd></div>
+        <div><dt>难度</dt><dd>每条附独立性能基线，需多轮实验迭代</dd></div>
+        <div><dt>定位</dt><dd>自主实验与优化循环，覆盖 CUDA 与 Triton</dd></div>
+        <div><dt>交付内容</dt><dd>执行环境、参考实现、正确性测试、性能基准、优化轨迹；可选专家复核</dd></div>
+        <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
+      </dl>
+    </article>
+
+    <article id="terminal">
+      <h3>终端裁定</h3>
+      <p class="lede">在相互冲突的多份材料之间作出裁定的长程终端任务</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>Terminal-Bench</b><span><a href="https://www.tbench.ai/">官网</a><a href="https://github.com/harbor-framework/terminal-bench/tree/main/tasks">数据集 · 官方仓库</a></span></p>
+        <p><b>Terminal-Bench-Science</b><span><a href="https://www.terminal-bench-science.ai/">官网</a><a href="https://github.com/harbor-framework/terminal-bench-science/tree/main/tasks">数据集 · 官方仓库</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>独立容器内的语义测试，二元判定，模型自述不计</dd></div>
+        <div><dt>难度</dt><dd>经强模型多次运行标定：多数尝试失败，但每题均有成功记录，难而可学</dd></div>
+        <div><dt>定位</dt><dd>Harbor 原生格式，含科学计算子方向</dd></div>
+        <div><dt>交付内容</dt><dd>task.toml、环境镜像、隔离验证器镜像、参考解与标准产物、多次运行记录、防泄漏标记</dd></div>
+        <div><dt>覆盖范围</dt><dd>科学计算、软件与系统、运维与财务核对、媒体处理</dd></div>
+        <div><dt>供给</dt><dd>按需持续生产</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter light" id="screen">
+    <h2>03</h2>
+    <p class="chapter-line">以界面或文件为奖励</p>
+
+    <article id="ground">
+      <h3>屏幕落点</h3>
+      <p class="lede">自然语言指令到屏幕元素的定位，附动作后界面状态验证</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>WebArena</b><span><a href="https://webarena.dev/">官网</a><a href="https://github.com/web-arena-x/webarena/blob/main/config_files/test.raw.json">数据集 · 官方仓库</a></span></p>
+        <p><b>VisualWebArena</b><span><a href="https://jykoh.com/vwa">官网</a><a href="https://github.com/web-arena-x/visualwebarena/tree/main/config_files/vwa">数据集 · 官方仓库</a></span></p>
+        <p><b>AndroidWorld</b><span><a href="https://google-research.github.io/android_world/">官网</a><a href="https://github.com/google-research/android_world/tree/main/android_world/task_evals">数据集 · 官方仓库</a></span></p>
+        <p><b>ScreenSpot-Pro</b><span><a href="https://gui-agent.github.io/grounding-leaderboard/">官网</a><a href="https://huggingface.co/datasets/likaixin/ScreenSpot-Pro">数据集 · Hugging Face</a></span></p>
+        <p><b>OSWorld</b><span><a href="https://os-world.github.io/">官网</a><a href="https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples">数据集 · 官方仓库</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>元素位置与动作后界面状态双重校验</dd></div>
+        <div><dt>定位</dt><dd>Web、移动端与桌面的界面元素定位</dd></div>
+        <div><dt>交付内容</dt><dd>截图、边界框 / 角色 / 标签、操作序列、无障碍树与 DOM、状态检查</dd></div>
+        <div><dt>覆盖范围</dt><dd>Web、移动、桌面三端；分辨率、主题与布局多样</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
+
+    <article id="desktop">
+      <h3>桌面成品</h3>
+      <p class="lede">真实操作系统与专业软件中的多步工作流，交付可验证的原生工程文件</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>OSWorld 2.0</b><span><a href="https://osworld-v2.xlang.ai/">官网</a><a href="https://huggingface.co/datasets/xlangai/osworld_v2_tasks">数据集 · Hugging Face</a></span></p>
+        <p><b>OSWorld</b><span><a href="https://os-world.github.io/">官网</a><a href="https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples">数据集 · 官方仓库</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>程序校验可再次打开的原生文件与导出结果，以交付物而非操作录像判定完成</dd></div>
+        <div><dt>定位</dt><dd>长程电脑操作，以文件交付判定完成</dd></div>
+        <div><dt>交付内容</dt><dd>工作环境、参考文件、完整界面操作轨迹、可编辑原生文件、导出结果与自动评分</dd></div>
+        <div><dt>覆盖范围</dt><dd>CAD 制图、视频剪辑、办公、教学软件及跨软件交付</dd></div>
+        <div><dt>供给</dt><dd>按需持续供给</dd></div>
+      </dl>
+    </article>
+
+    <article id="pro">
+      <h3>专业软件</h3>
+      <p class="lede">专业软件环境中的长流程任务，交付可验证的工程产物</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>Agents' Last Exam</b><span><a href="https://agents-last-exam.org">官网</a><a href="https://github.com/rdi-berkeley/agents-last-exam/tree/main/tasks">数据集 · 官方仓库</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>工程产物与实际执行结果</dd></div>
+        <div><dt>定位</dt><dd>专业软件中的长流程真实工作</dd></div>
+        <div><dt>交付内容</dt><dd>任务、原生文件、执行结果与验证，完整交付含操作轨迹；样例展示任务部分</dd></div>
+        <div><dt>供给</dt><dd>现货供应，专家制作，每周持续新增</dd></div>
+      </dl>
+    </article>
+
+    <article id="office">
+      <h3>跨文件办公</h3>
+      <p class="lede">跨文件、跨工具的长程专业工作流，交付可验证产物</p>
+      <dl>
+        <div><dt>奖励信号</dt><dd>最终产物验证，自动校验或专家验收</dd></div>
+        <div><dt>定位</dt><dd>多文件、多工具串联的长程工作流，区别于单轮问答</dd></div>
+        <div><dt>交付内容</dt><dd>任务环境、agent 轨迹、工具调用、最终产物与验证结果</dd></div>
+        <div><dt>供给</dt><dd>现货供应，每周持续新增</dd></div>
+      </dl>
+    </article>
+
+    <article id="room">
+      <h3>行业文件房间</h3>
+      <p class="lede">基于真实文档世界的垂直行业任务，附逐条评分规则</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>GDPval</b><span><a href="https://openai.com/index/gdpval/">官网</a><a href="https://huggingface.co/datasets/openai/gdpval">数据集 · Hugging Face</a></span></p>
+        <p><b>LegalBench</b><span><a href="https://hazyresearch.stanford.edu/legalbench/">官网</a><a href="https://huggingface.co/datasets/nguha/legalbench">数据集 · Hugging Face</a></span></p>
+        <p><b>APEX-Agents</b><span><a href="https://www.mercor.com/apex/apex-agents-leaderboard/">官网</a><a href="https://huggingface.co/datasets/mercor/apex-agents">数据集 · Hugging Face</a></span></p>
+        <p><b>τ-Bench</b><span><a href="https://taubench.com">官网</a><a href="https://github.com/sierra-research/tau2-bench/tree/main/data/tau2/domains">数据集 · 官方仓库</a></span></p>
+        <p><b>WorkArena</b><span><a href="https://github.com/ServiceNow/WorkArena">官网 · 数据集</a></span></p>
+        <p><b>GAIA</b><span><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard">官网</a><a href="https://huggingface.co/datasets/gaia-benchmark/GAIA">数据集 · Hugging Face</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>逐条评分规则对照标准结果，不采用整体印象打分</dd></div>
+        <div><dt>定位</dt><dd>垂直行业的专业知识工作</dd></div>
+        <div><dt>交付内容</dt><dd>文档世界数据包、任务定义、标准答案、逐条评分规则、合规边界与审计记录</dd></div>
+        <div><dt>覆盖范围</dt><dd>法律、金融、医疗、制造</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter dark" id="trace">
+    <h2>04</h2>
+    <p class="chapter-line">含失败与恢复的轨迹</p>
+
+    <article id="session">
+      <h3>长会话</h3>
+      <p class="lede">长程工具调用轨迹，完整保留失败、回退与恢复过程</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>GAIA</b><span><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard">官网</a><a href="https://huggingface.co/datasets/gaia-benchmark/GAIA">数据集 · Hugging Face</a></span></p>
+        <p><b>ToolBench</b><span><a href="https://github.com/OpenBMB/ToolBench">官网 · 数据集</a></span></p>
+        <p><b>Berkeley Function-Calling Leaderboard</b><span><a href="https://gorilla.cs.berkeley.edu/leaderboard.html">官网</a><a href="https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard/bfcl_eval/data">数据集 · 官方仓库</a></span></p>
+        <p><b>τ-Bench</b><span><a href="https://taubench.com">官网</a><a href="https://github.com/sierra-research/tau2-bench/tree/main/data/tau2/domains">数据集 · 官方仓库</a></span></p>
+        <p><b>AssistantBench</b><span><a href="https://assistantbench.github.io/">官网</a><a href="https://huggingface.co/datasets/AssistantBench/AssistantBench">数据集 · Hugging Face</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>关键步骤确定性检查，整段轨迹可回放</dd></div>
+        <div><dt>难度</dt><dd>覆盖超长多轮会话，含真实的失误与纠错</dd></div>
+        <div><dt>定位</dt><dd>以完整轨迹为交付，用于过程监督</dd></div>
+        <div><dt>交付内容</dt><dd>工具调用、环境观察、失败与回退标注、轨迹摘要</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter light" id="space">
+    <h2>05</h2>
+    <p class="chapter-line">带空间参数的仿真数据</p>
+
+    <article id="camera">
+      <h3>相机世界</h3>
+      <p class="lede">仿真生成的帧同步多视角画面，每帧附精确相机参数与原生标注</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>WorldModelBench</b><span><a href="https://worldmodelbench-team.github.io/">官网</a><a href="https://github.com/WorldModelBench-Team/WorldModelBench/blob/main/worldmodelbench.json">数据集 · 官方仓库</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>跨相机几何一致性，运动幅度落在约定区间</dd></div>
+        <div><dt>定位</dt><dd>世界模型与空间理解训练</dd></div>
+        <div><dt>交付内容</dt><dd>多视角帧、相机内外参、位姿、深度、分割、实体坐标与朝向</dd></div>
+        <div><dt>覆盖范围</dt><dd>运动幅度分档均衡，第一与第三人称视角同步</dd></div>
+        <div><dt>供给</dt><dd>场景可预设，按需定制生产</dd></div>
+      </dl>
+    </article>
+
+    <article id="body">
+      <h3>动作回路</h3>
+      <p class="lede">感知—规划—动作闭环，附环境反馈与结构化的成功 / 失败定义</p>
+      <div class="bench"><span>对标</span><div>
+        <p><b>EmbodiedBench</b><span><a href="https://embodiedbench.github.io/">官网</a><a href="https://huggingface.co/datasets/EmbodiedBench/EB-ALFRED">EB-ALFRED · Hugging Face</a><a href="https://huggingface.co/datasets/EmbodiedBench/EB-Manipulation">EB-Manipulation · Hugging Face</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>预定义成功标准与结构化失败分类，校验动作后的状态迁移</dd></div>
+        <div><dt>定位</dt><dd>具身智能体的感知、规划与执行</dd></div>
+        <div><dt>交付内容</dt><dd>场景描述、动作标签、反馈状态、成功标准、错误类型、评估规格</dd></div>
+        <div><dt>供给</dt><dd>数据格式按目标平台定制生产</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter dark" id="exam">
+    <h2>06</h2>
+    <p class="chapter-line">公开基准的可运行交付</p>
+
+    <article id="shelf">
+      <h3>现成考卷</h3>
+      <p class="lede">主流公开基准的即插即用评测包，附可复现验证环境</p>
+      <div class="bench"><span>覆盖</span><div>
+        <p><b>Terminal-Bench</b><span><a href="#terminal">链接见终端裁定</a></span></p>
+        <p><b>SWE-bench</b><span><a href="#repo">链接见仓库改动</a></span></p>
+        <p><b>HealthBench</b><span><a href="#clinical">链接见临床判断</a></span></p>
+        <p><b>GPQA</b><span><a href="#derive">链接见推导</a></span></p>
+        <p><b>MMLU-Pro</b><span><a href="#derive">链接见推导</a></span></p>
+        <p><b>OSWorld</b><span><a href="#desktop">链接见桌面成品</a></span></p>
+        <p><b>GAIA</b><span><a href="#session">链接见长会话</a></span></p>
+        <p><b>Berkeley Function-Calling Leaderboard</b><span><a href="#session">链接见长会话</a></span></p>
+      </div></div>
+      <dl>
+        <div><dt>奖励信号</dt><dd>沿用官方评分，并在独立的第二套环境中复现分数</dd></div>
+        <div><dt>定位</dt><dd>建立可复现的公开基线，省去自建与调试评测环境的成本</dd></div>
+        <div><dt>交付内容</dt><dd>数据包、版本说明、评分脚本、可复现验证环境、验收报告</dd></div>
+        <div><dt>供给</dt><dd>按指定基准打包交付</dd></div>
+      </dl>
+    </article>
+  </section>
+
+</main>
+<footer>
+  样例用于展示数据形态，交付字段、规模与规格以双方确认为准</footer>
+<div class="viewer" id="viewer" hidden>
+  <div class="viewer-sheet" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
+    <div class="viewer-bar">
+      <div>
+        <p class="viewer-kicker">样例</p>
+        <h2 id="viewer-title">查看样例</h2>
+      </div>
+      <button type="button" class="viewer-close" id="viewer-close">关闭</button>
+    </div>
+    <div class="viewer-tabs" id="viewer-tabs" hidden></div>
+    <div class="viewer-stage" id="viewer-stage"></div>
+  </div>
+</div>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --ink: #1c1b19;
+    --muted: #5f5c56;
+    --faint: #8a867e;
+    --line: rgba(28, 27, 25, .1);
+    --card: #fffcf7;
+    --accent: #c4624a;
+    --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "Songti SC", Georgia, serif;
+    --sans: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  section, article, .pick, div.note { scroll-margin-top: 72px; }
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 4px 22px;
+    padding: 0 32px;
+    background: rgba(244, 241, 234, .88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+    overflow-x: auto;
+  }
+  .nav a {
+    color: var(--muted);
+    white-space: nowrap;
+    padding: 18px 0;
+  }
+  .nav a:hover { color: var(--ink); }
+  .nav .mark {
+    margin-right: 12px;
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .lang {
+    position: sticky;
+    right: 0;
+    flex: none;
+    margin-left: auto;
+    padding: 10px 0 10px 12px;
+    background: linear-gradient(to right, rgba(244, 241, 234, 0), rgb(244, 241, 234) 12px);
+  }
+  .lang select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 6px 30px 6px 12px;
+    border: 1px solid rgba(28, 27, 25, .22);
+    border-radius: 8px;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%236f6d66' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right 11px center;
+    color: var(--ink);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .lang select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  html:lang(zh-TW) {
+    --sans: "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "Songti TC", "PMingLiU", Georgia, serif;
+  }
+  html:lang(ja) {
+    --sans: "Segoe UI", "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+    --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+  }
+  html:lang(ko) {
+    --sans: "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "AppleMyungjo", "Batang", Georgia, serif;
+  }
+  .hero {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 72px 32px 8px;
+  }
+  .hero .eyebrow {
+    margin: 0 0 18px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--accent);
+  }
+  .hero h1 {
+    margin: 0;
+    max-width: 10em;
+    font-family: var(--serif);
+    font-size: clamp(46px, 5.6vw, 68px);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    color: var(--ink);
+  }
+  .hero .deck {
+    margin: 18px 0 0;
+    max-width: 34em;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  .lineup {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 36px 32px 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+  }
+  .lineup a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-height: 108px;
+    padding: 14px 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+    color: var(--ink);
+  }
+  .lineup a:hover { border-color: var(--accent); }
+  .lineup span {
+    font-size: 11px;
+    letter-spacing: .08em;
+    color: var(--accent);
+  }
+  .lineup strong {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.25;
+  }
+  .lineup em {
+    font-style: normal;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--faint);
+  }
+  main { max-width: 1120px; margin: 0 auto; padding: 28px 32px 72px; }
+  div.note, .pick {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 32px 24px;
+    margin: 28px 0 0;
+  }
+  .chapter {
+    background: transparent;
+    padding: 64px 0 0;
+  }
+  div.note h2, .chapter > h2, .pick h2 {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  div.note p {
+    max-width: 46em;
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .stock {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 18px 0 16px;
+    padding: 0;
+    border: 0;
+  }
+  .stock li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 14px 16px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--bg);
+    font-size: 14px;
+  }
+  .stock b { font-weight: 600; color: var(--ink); }
+  .stock span { color: var(--muted); }
+  .stock.also { grid-template-columns: 1fr 1fr; }
+  .stock.also a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(196, 98, 74, .35);
+  }
+  .stock.also a:first-of-type { margin-left: 10px; }
+  div.note h2:not(:first-of-type) { margin-top: 32px; }
+  .pillars {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 14px 0 18px;
+    padding: 0;
+  }
+  .pillars li {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 16px 18px;
+    border-radius: 12px;
+    background: var(--bg);
+  }
+  .pillars b { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .pillars span { font-size: 13px; line-height: 1.55; color: var(--muted); }
+  .stat {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin: 0;
+    padding: 18px 20px;
+    border-left: 3px solid var(--accent);
+    background: var(--bg);
+    border-radius: 0 12px 12px 0;
+  }
+  .stat b {
+    font-family: var(--serif);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .stat span { color: var(--ink); font-size: 15px; line-height: 1.5; }
+  .chapter-line, .pick .chapter-line {
+    margin: 0 0 18px;
+    max-width: none;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+    font-family: var(--serif);
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  article {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 24px;
+    align-items: start;
+    margin: 0 0 12px;
+    padding: 28px 32px 24px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+  }
+  article h3 {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  article .sample-btn { grid-column: 2; grid-row: 1; align-self: center; }
+  article .aka { grid-column: 1 / -1; grid-row: 2; }
+  article .lede { grid-column: 1 / -1; grid-row: 3; }
+  article .bench { grid-column: 1 / -1; grid-row: 4; }
+  article dl { grid-column: 1 / -1; grid-row: 5; }
+  .aka {
+    margin: 8px 0 0;
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: .02em;
+  }
+  .lede {
+    margin: 8px 0 0;
+    max-width: 42em;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  .bench, dl { margin: 22px 0 0; padding: 0; }
+  .bench > span,
+  dl::before {
+    display: block;
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    color: var(--accent);
+  }
+  dl::before { content: var(--spec-label, "规格"); grid-column: 1 / -1; margin: 0; }
+  .bench > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 8px;
+  }
+  .bench p {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 12px 14px 13px;
+    border-radius: 12px;
+    background: var(--bg);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .bench p span { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  .bench b { font-size: 15px; font-weight: 600; }
+  .bench a {
+    color: var(--accent);
+    font-size: 12px;
+    border-bottom: 1px solid rgba(196, 98, 74, .3);
+  }
+  .bench a:hover { border-bottom-color: var(--accent); }
+  .bench p.bench-note {
+    grid-column: 1 / -1;
+    padding: 2px 2px 0;
+    background: none;
+    color: var(--faint);
+    font-size: 13px;
+  }
+  dl {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  dl div:last-child:nth-child(3n + 1) { grid-column: 1 / -1; }
+  dl div:last-child:nth-child(3n + 2) { grid-column: span 2; }
+  dl div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 16px 15px;
+    border-radius: 12px;
+    background: var(--bg);
+  }
+  dt {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    color: var(--faint);
+  }
+  dd { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink); }
+  .pick ol {
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .pick li {
+    display: flex;
+    flex-direction: column;
+    padding: 18px 18px 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--bg);
+  }
+  .pick .use {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    color: var(--accent);
+  }
+  .pick b {
+    display: block;
+    margin: 6px 0 14px;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.35;
+  }
+  .pick .go { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+  .pick .go a {
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .pick .go a:hover { border-color: var(--accent); color: var(--accent); }
+  .pick .aside {
+    margin: auto 0 0;
+    padding-top: 12px;
+    color: var(--faint);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  footer {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 8px 32px 72px;
+    color: var(--faint);
+    font-size: 13px;
+  }
+  .sample-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 2px 0 0;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #fff;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(196, 98, 74, .25);
+    transition: background .15s, box-shadow .15s, transform .15s;
+  }
+  .sample-btn::after { content: "→"; font-weight: 400; transition: transform .15s; }
+  .sample-btn:hover {
+    background: #a94f3a;
+    border-color: #a94f3a;
+    box-shadow: 0 6px 16px rgba(196, 98, 74, .35);
+    transform: translateY(-1px);
+  }
+  .sample-btn:hover::after { transform: translateX(3px); }
+  .sample-none, .sample-none:hover {
+    border: 1px dashed var(--line);
+    background: transparent;
+    color: var(--faint);
+    font-size: 13px;
+    font-weight: 400;
+    box-shadow: none;
+    transform: none;
+    cursor: default;
+  }
+  .sample-none::after { content: none; }
+  @media (max-width: 980px) {
+    .lineup { grid-template-columns: repeat(3, 1fr); }
+    .stock, .pillars, .pick ol, dl { grid-template-columns: repeat(2, 1fr); }
+    dl div:last-child:nth-child(3n + 1), dl div:last-child:nth-child(3n + 2) { grid-column: auto; }
+    dl div:last-child:nth-child(2n + 1) { grid-column: 1 / -1; }
+  }
+  @media (max-width: 720px) {
+    .nav { gap: 14px; padding: 0 0 0 18px; }
+    .lang { padding-right: 18px; }
+    .lang select { max-width: 132px; }
+    .hero, .lineup { padding-left: 18px; padding-right: 18px; }
+    main, footer { padding-left: 18px; padding-right: 18px; }
+    .lineup, .stock, .stock.also, .pillars, .pick ol { grid-template-columns: 1fr; }
+    .stat { flex-direction: column; gap: 8px; }
+    dl, .bench > div, article { grid-template-columns: 1fr; }
+    article .sample-btn { grid-column: 1 / -1; grid-row: 6; justify-self: start; margin: 16px 0 0; }
+    article { padding: 22px 18px; }
+    div.note, .pick { padding: 22px 18px; }
+  }
+
+  .viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(0,0,0,.62);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 18px;
+  }
+  .viewer[hidden] { display: none; }
+  .viewer-sheet {
+    width: min(1180px, 100%);
+    height: min(900px, calc(100vh - 56px));
+    background: #f7f3ea;
+    color: #1d2925;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .viewer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 22px;
+    background: #fffdf8;
+    border-bottom: 1px solid rgba(29,41,37,.15);
+  }
+  .viewer-kicker {
+    margin: 0;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: #b47a1d;
+  }
+  .viewer-bar h2 {
+    margin: 2px 0 0;
+    font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .viewer-close {
+    border: 1px solid rgba(29,41,37,.15);
+    background: #f0ece2;
+    color: #1d2925;
+    border-radius: 999px;
+    padding: 7px 14px;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .viewer-tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 22px; background: #fffdf8; border-bottom: 1px solid rgba(29,41,37,.15); }
+  .viewer-tabs[hidden] { display: none; }
+  .viewer-tabs button {
+    border: 1px solid rgba(29,41,37,.15);
+    background: #f0ece2;
+    color: #61706a;
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .viewer-tabs button.on { border-color: #b47a1d; background: #fbf1d9; color: #b47a1d; }
+  .viewer-stage { flex: 1; min-height: 0; }
+  .viewer-stage iframe { width: 100%; height: 100%; border: 0; background: #fff; }
+  .dv {
+    --dv-bg: #f7f3ea;
+    --dv-surface: #fffdf8;
+    --dv-soft: #f0ece2;
+    --dv-ink: #1d2925;
+    --dv-muted: #61706a;
+    --dv-line: rgba(29,41,37,.15);
+    --dv-gold: #b47a1d;
+    --dv-mono: "SFMono-Regular", Consolas, monospace;
+    height: 100%;
+    overflow: auto;
+    background: radial-gradient(circle at 15% 0%, #fffdf7 0, #f7f3ea 45%, #eee8dc 100%);
+    color: var(--dv-ink);
+    font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
+    line-height: 1.6;
+  }
+  .dv-main { max-width: 1040px; margin: 0 auto; padding: clamp(18px, 4vw, 36px); }
+  .dv-caption { margin: 0; font-family: var(--dv-mono); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; color: var(--dv-muted); }
+  .dv-fold { margin: 0 0 14px; }
+  .dv-fold > summary {
+    padding: 14px 18px;
+    border: 1px solid var(--dv-line);
+    border-radius: 16px;
+    background: rgba(255,253,248,.86);
+    box-shadow: 0 12px 28px rgba(54,44,24,.06);
+    font-family: var(--dv-mono);
+    font-size: 13px;
+    color: var(--dv-ink);
+    cursor: pointer;
+    list-style: none;
+  }
+  .dv-fold > summary::-webkit-details-marker { display: none; }
+  .dv-fold[open] > summary { margin-bottom: 12px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  .dv-card {
+    overflow: hidden;
+    border: 1px solid var(--dv-line);
+    border-radius: 16px;
+    background: rgba(255,253,248,.86);
+    box-shadow: 0 12px 28px rgba(54,44,24,.06);
+  }
+  .dv-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--dv-line);
+    background: var(--dv-soft);
+  }
+  .dv-mono { font-family: var(--dv-mono); }
+  .dv-head .dv-mono { min-width: 0; font-size: 12px; word-break: break-all; }
+  .dv-find { padding: 4px 12px 8px; }
+  .dv-search {
+    width: 100%;
+    padding: 5px 11px;
+    border: 1px solid var(--dv-line);
+    border-radius: 999px;
+    background: var(--dv-surface);
+    color: var(--dv-ink);
+    font-family: var(--dv-mono);
+    font-size: 12px;
+  }
+  .dv-grid { display: grid; grid-template-columns: minmax(220px, 34%) 1fr; height: 580px; }
+  .dv-tree { overflow: auto; padding: 8px 0; border-right: 1px solid var(--dv-line); font-family: var(--dv-mono); font-size: 12px; }
+  .dv-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-width: 0;
+    padding: 5px 12px 5px calc(12px + var(--depth, 0) * 16px);
+    cursor: pointer;
+  }
+  .dv-row:hover, .dv-row.active { background: #fff8e9; }
+  .dv-row.active { color: var(--dv-gold); box-shadow: inset 2px 0 var(--dv-gold); }
+  .dv-icon { color: var(--dv-gold); font-size: 11px; }
+  .dv-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .dv-dir.open > .dv-name { color: var(--dv-gold); }
+  .dv-size { margin-left: auto; color: var(--dv-muted); font-size: 10px; white-space: nowrap; }
+  .dv-hits-note { padding: 6px 12px; color: var(--dv-muted); font-size: 11px; }
+  .dv-previews { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+  .dv-label {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    align-items: baseline;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--dv-line);
+    color: var(--dv-muted);
+    font-family: var(--dv-mono);
+    font-size: 12px;
+  }
+  .dv-label .path { flex: 1; min-width: 0; color: var(--dv-ink); word-break: break-all; }
+  .dv-label a, .dv-pane button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--dv-gold);
+    font-family: var(--dv-mono);
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .dv-pane { flex: 1; overflow: auto; padding: 16px; background: var(--dv-surface); font-size: 12px; line-height: 1.55; }
+  .dv-pane pre { margin: 0; white-space: pre-wrap; word-break: break-word; font-family: var(--dv-mono); font-size: 12px; }
+  .dv-pane img { max-width: 100%; border: 1px solid var(--dv-line); border-radius: 9px; }
+  .dv-frame { width: 100%; height: 100%; min-height: 520px; border: 0; }
+  .dv-note { margin: 0 0 12px; color: var(--dv-muted); font-family: var(--dv-mono); font-size: 12px; }
+  .dv-omit {
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    border: 1px dashed var(--dv-line);
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--dv-muted);
+  }
+  .dv-omit b { display: block; margin: 0 0 4px; font-size: 12px; letter-spacing: .08em; color: var(--dv-gold); }
+  .dv-omit p { margin: 0; }
+  .dv-office h4 { margin: 14px 0 8px; font-size: 13px; color: var(--dv-gold); }
+  .dv-office table { border-collapse: collapse; margin: 0 0 16px; font-family: var(--dv-mono); font-size: 11px; }
+  .dv-office td { max-width: 300px; padding: 3px 6px; border: 1px solid var(--dv-line); vertical-align: top; }
+  .dv-turns { list-style: none; margin: 4px 0 0; padding: 6px 0 0 21px; border-left: 1px solid var(--dv-line); }
+  .dv-turn { position: relative; padding: 0 0 12px; }
+  .dv-turn .node { position: absolute; left: -27px; top: 3px; color: var(--dv-gold); font-size: 10px; }
+  .dv-turn summary { display: flex; gap: 8px; align-items: baseline; min-width: 0; cursor: pointer; list-style: none; }
+  .dv-turn summary::-webkit-details-marker { display: none; }
+  .dv-turn .num { color: var(--dv-muted); font-family: var(--dv-mono); font-size: 11px; }
+  .dv-turn .tool { color: var(--dv-gold); font-family: var(--dv-mono); font-weight: bold; white-space: nowrap; }
+  .dv-turn .say { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--dv-muted); }
+  .dv-turn pre { margin-top: 7px; padding: 11px 13px; border: 1px solid rgba(29,41,37,.1); border-radius: 9px; background: var(--dv-soft); }
+  .dv-more {
+    margin: 10px 0 0;
+    padding: 5px 12px !important;
+    border: 1px solid var(--dv-line) !important;
+    border-radius: 999px;
+    background: var(--dv-soft) !important;
+  }
+  .empty-note { padding: 48px 28px; color: #6e6e73; max-width: 36em; }
+  @media (max-width: 800px) {
+    .dv-grid { grid-template-columns: 1fr; height: auto; }
+    .dv-tree { max-height: 280px; border-right: 0; border-bottom: 1px solid var(--dv-line); }
+    .dv-pane { min-height: 360px; }
+    .dv-search { width: 100%; }
+    .viewer { padding: 0; }
+    .viewer-sheet { height: 100%; border-radius: 0; }
+  }
+  @media print {
+    .nav, .lineup, .viewer, .sample-btn { display: none; }
+    .hero { min-height: auto; }
+    .chapter.dark, .hero, footer { background: #fff; color: #000; }
+  }
+</style>
+<script src="i18n.js"></script>
+<script>
+(function () {
+  var LANGS = [
+    ["zh-CN", "简体中文"], ["zh-TW", "繁體中文（台灣）"], ["en", "English (US)"], ["ja", "日本語"], ["ko", "한국어"],
+    ["es", "Español"], ["fr", "Français"], ["de", "Deutsch"], ["pt", "Português (Brasil)"], ["ru", "Русский"]
+  ];
+  var LOCALE = {
+    "zh-CN": { tag: "zh-CN" },
+    "zh-TW": { tag: "zh-TW", numberLocale: "en-US" },
+    "en": { tag: "en-US" },
+    "ja": { tag: "ja-JP" },
+    "ko": { tag: "ko-KR" },
+    "es": { tag: "es-ES" },
+    "fr": { tag: "fr-FR" },
+    "de": { tag: "de-DE" },
+    "pt": { tag: "pt-BR" },
+    "ru": { tag: "ru-RU" }
+  };
+  var UNITS = {
+    fr: ["o", "Ko", "Mo", "Go"],
+    ru: ["Б", "КБ", "МБ", "ГБ"]
+  };
+  var I18N = window.I18N || {};
+  var lang = "zh-CN";
+  function t(src, vars) {
+    var dict = I18N[lang];
+    var out = (dict && dict[src]) || src;
+    if (vars) {
+      out = out.replace(/\{(\w+)\}/g, function (m, k) { return vars[k] != null ? vars[k] : m; });
+    }
+    return out;
+  }
+  function numberTag() {
+    var loc = LOCALE[lang] || LOCALE["zh-CN"];
+    return loc.numberLocale || loc.tag;
+  }
+  var CATALOG = "精选浏览";
+  var LIST = "完整数据包";
+  var LINKS = {
+    derive: { title: "推导", sources: [{ label: CATALOG, html: "samples/raw/derive.html" }] },
+    contest: { title: "赛题", sources: [{ label: CATALOG, html: "samples/raw/contest.html" }] },
+    clinical: { title: "临床判断", sources: [{ label: CATALOG, html: "samples/raw/clinical.html" }] },
+    repo: { title: "仓库改动", sources: [
+      { label: LIST, pack: "deepswe" },
+      { label: CATALOG, html: "samples/raw/repo.html" }
+    ]},
+    edge: { title: "边界改动", sources: [{ label: LIST, pack: "edge" }] },
+    kernel: { title: "核函数", sources: [{ label: LIST, pack: "kernel" }] },
+    terminal: { title: "终端裁定", sources: [{ label: CATALOG, html: "samples/raw/terminal.html" }] },
+    desktop: { title: "桌面成品", sources: [{ label: LIST, pack: "osworld" }] },
+    pro: { title: "专业软件", sources: [
+      { label: LIST, pack: "ale" },
+      { label: CATALOG, html: "samples/raw/pro.html" }
+    ]},
+    office: { title: "跨文件办公", sources: [{ label: LIST, pack: "working" }] },
+    room: { title: "行业文件房间", sources: [{ label: CATALOG, html: "samples/raw/room.html" }] },
+    session: { title: "长会话", sources: [{ label: CATALOG, html: "samples/raw/session.html" }] }
+  };
+
+  var IMAGE = /^(png|jpe?g|gif|webp|svg|bmp)$/;
+  var OFFICE = /^(docx|pptx|xlsx)$/;
+  var BINARY = /^(pyc|pack|idx|rev|fits|ork|zip|gz|tgz|tar|whl|so|dll|exe|bin|xls|doc|ppt|mp4|mov|wav|mp3|ttf|woff2?|ttx)$/;
+
+  document.querySelectorAll("article[id]").forEach(function (article) {
+    if (!LINKS[article.id]) {
+      var none = document.createElement("span");
+      none.className = "sample-btn sample-none";
+      none.textContent = "样例按需提供";
+      article.appendChild(none);
+      return;
+    }
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "sample-btn";
+    btn.textContent = "查看样例";
+    var anchor = article.querySelector("dl");
+    if (anchor) anchor.insertAdjacentElement("afterend", btn);
+    else article.appendChild(btn);
+    btn.addEventListener("click", function () { openSample(article.id); });
+  });
+
+  var viewer = document.getElementById("viewer");
+  var stage = document.getElementById("viewer-stage");
+  var tabs = document.getElementById("viewer-tabs");
+  var title = document.getElementById("viewer-title");
+  var kicker = viewer.querySelector(".viewer-kicker");
+
+  function esc(value) {
+    return String(value == null ? "" : value).replace(/[&<>"]/g, function (ch) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch];
+    });
+  }
+  function el(tag, cls) {
+    var node = document.createElement(tag);
+    if (cls) node.className = cls;
+    return node;
+  }
+  function size(n) {
+    var units = UNITS[lang] || ["B", "KB", "MB", "GB"];
+    var step = n >= 1e9 ? 3 : n >= 1e6 ? 2 : n >= 1e3 ? 1 : 0;
+    var digits = step === 3 ? 2 : step ? 1 : 0;
+    var value = new Intl.NumberFormat(numberTag(), { minimumFractionDigits: digits, maximumFractionDigits: digits })
+      .format(n / Math.pow(1e3, step));
+    return value + "\u00a0" + units[step];
+  }
+  function count(n) { return new Intl.NumberFormat(numberTag()).format(n); }
+  function extOf(name) {
+    var i = name.lastIndexOf(".");
+    return i < 0 ? "" : name.slice(i + 1).toLowerCase();
+  }
+  function byName(a, b) { return a.localeCompare(b, undefined, { numeric: true }); }
+  var STATIC = document.documentElement.getAttribute("data-static") === "1";
+  function zipUrl(pack, path, mode, extra) {
+    if (STATIC) {
+      var url = "samples/packs/" + pack + "/" + path.split("/").map(function (seg) {
+        return encodeURIComponent(seg === ".git" ? "_git" : seg);
+      }).join("/");
+      return mode === "office" ? url + ".preview.html" : url;
+    }
+    return "/zip?pack=" + pack + "&mode=" + mode + "&path=" + encodeURIComponent(path) + (extra || "");
+  }
+
+  var manifests = {};
+  function loadManifest(key) {
+    if (!manifests[key]) {
+      manifests[key] = fetch("samples/manifest/" + key + ".json").then(function (res) {
+        if (!res.ok) throw new Error("manifest");
+        return res.json();
+      });
+    }
+    return manifests[key];
+  }
+
+  function treeNode(name, path) { return { name: name, path: path, dirs: {}, files: [], count: 0, bytes: 0 }; }
+  function makeTree(entries) {
+    var root = treeNode("", "");
+    entries.forEach(function (entry) {
+      var parts = entry[0].split("/");
+      var cur = root;
+      cur.count++; cur.bytes += entry[1];
+      for (var i = 0; i < parts.length - 1; i++) {
+        if (!cur.dirs[parts[i]]) cur.dirs[parts[i]] = treeNode(parts[i], parts.slice(0, i + 1).join("/"));
+        cur = cur.dirs[parts[i]];
+        cur.count++; cur.bytes += entry[1];
+      }
+      cur.files.push({ name: parts[parts.length - 1], path: entry[0], size: entry[1] });
+    });
+    return root;
+  }
+  function groupsOf(root) {
+    var cur = root;
+    var prefix = [];
+    while (!cur.files.length && Object.keys(cur.dirs).length === 1) {
+      var only = Object.keys(cur.dirs)[0];
+      prefix.push(only);
+      cur = cur.dirs[only];
+    }
+    var groups = Object.keys(cur.dirs).sort(byName).map(function (k) { return cur.dirs[k]; });
+    if (cur.files.length) {
+      var loose = treeNode(t("其他文件"), cur.path);
+      loose.files = cur.files;
+      loose.count = cur.files.length;
+      loose.bytes = cur.files.reduce(function (sum, f) { return sum + f.size; }, 0);
+      groups.push(loose);
+    }
+    return { prefix: prefix.join("/"), groups: groups };
+  }
+  function allFiles(node, out) {
+    out = out || [];
+    node.files.forEach(function (f) { out.push(f); });
+    Object.keys(node.dirs).forEach(function (k) { allFiles(node.dirs[k], out); });
+    return out;
+  }
+
+  function showHtml(src) {
+    stage.innerHTML = '<iframe title="' + esc(t("样例")) + '" src="' + src + '"></iframe>';
+  }
+
+  function showPack(key) {
+    stage.innerHTML = '<div class="dv"><div class="dv-main"><p class="dv-note">' + esc(t("正在读取数据包目录…")) + "</p></div></div>";
+    var main = stage.querySelector(".dv-main");
+    loadManifest(key).then(function (m) {
+      var grouped = groupsOf(makeTree(m.entries));
+      main.innerHTML = "";
+      if (m.omitted && m.omitted.length) {
+        var omit = el("div", "dv-omit");
+        omit.innerHTML = "<b>" + esc(t("完整数据包另含")) + "</b>" + m.omitted.map(function (item) {
+          return "<p>" + esc(omittedText(item)) + "</p>";
+        }).join("");
+        main.appendChild(omit);
+      }
+      grouped.groups.forEach(function (group) {
+        var fold = el("details", "dv-fold");
+        fold.innerHTML = "<summary>" + esc(group.name) + "</summary>";
+        fold.addEventListener("toggle", function () {
+          if (fold.open && !fold.built) {
+            fold.built = true;
+            buildCard(key, group, fold);
+          }
+        });
+        main.appendChild(fold);
+      });
+    }).catch(function () {
+      main.innerHTML = '<p class="dv-note">' + esc(t("无法读取数据包目录，请刷新后重试")) + "</p>";
+    });
+  }
+
+  function buildCard(key, group, fold) {
+    var card = el("div", "dv-card");
+    card.innerHTML = '<div class="dv-head"><span class="dv-mono">' + esc(group.name) +
+      '</span><span class="dv-caption">Delivery package</span></div>' +
+      '<div class="dv-grid"><div class="dv-tree"><div class="dv-find"><input class="dv-search" type="search" placeholder="' + esc(t("搜索文件")) + '"></div>' +
+      '<div class="dv-tree-body"></div><div class="dv-hits" hidden></div></div>' +
+      '<div class="dv-previews"><div class="dv-label"><span class="path">' + esc(t("选择左侧文件")) + '</span></div><div class="dv-pane"></div></div></div>';
+    fold.appendChild(card);
+    var treeBody = card.querySelector(".dv-tree-body");
+    var hits = card.querySelector(".dv-hits");
+    var label = card.querySelector(".dv-label");
+    var pane = card.querySelector(".dv-pane");
+    var search = card.querySelector(".dv-search");
+    var active = null;
+    var flat = null;
+
+    function renderChildren(node, container, depth) {
+      Object.keys(node.dirs).sort(byName).forEach(function (k) {
+        var dir = node.dirs[k];
+        var row = el("div", "dv-row dv-dir");
+        row.style.setProperty("--depth", depth);
+        row.innerHTML = '<span class="dv-icon">▰</span><span class="dv-name">' + esc(dir.name) + "/</span>";
+        var kids = el("div");
+        kids.hidden = true;
+        dir.row = row; dir.kids = kids; dir.depth = depth;
+        row.addEventListener("click", function () {
+          if (kids.hidden) openDir(dir);
+          else { kids.hidden = true; row.classList.remove("open"); }
+        });
+        container.appendChild(row);
+        container.appendChild(kids);
+      });
+      node.files.slice().sort(function (a, b) { return byName(a.name, b.name); }).forEach(function (file) {
+        var row = el("div", "dv-row");
+        row.style.setProperty("--depth", depth);
+        row.innerHTML = '<span class="dv-icon">▱</span><span class="dv-name">' + esc(file.name) +
+          '</span><span class="dv-size">' + size(file.size) + "</span>";
+        file.row = row;
+        row.addEventListener("click", function () { select(file); });
+        container.appendChild(row);
+      });
+    }
+    function openDir(dir) {
+      if (!dir.built) {
+        dir.built = true;
+        renderChildren(dir, dir.kids, dir.depth + 1);
+      }
+      dir.kids.hidden = false;
+      dir.row.classList.add("open");
+    }
+    function reveal(file) {
+      var rel = group.path ? file.path.slice(group.path.length + 1) : file.path;
+      var parts = rel.split("/");
+      var cur = group;
+      for (var i = 0; i < parts.length - 1; i++) {
+        cur = cur.dirs[parts[i]];
+        if (!cur) return;
+        openDir(cur);
+      }
+      select(file);
+      if (file.row) file.row.scrollIntoView({ block: "center" });
+    }
+    function select(file) {
+      if (active && active.row) active.row.classList.remove("active");
+      active = file;
+      if (file.row) file.row.classList.add("active");
+      preview(key, file, label, pane, group.path ? file.path.slice(group.path.length + 1) : file.path);
+    }
+
+    renderChildren(group, treeBody, 0);
+
+    var timer = null;
+    search.addEventListener("input", function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        var q = search.value.trim().toLowerCase();
+        if (!q) { hits.hidden = true; treeBody.hidden = false; return; }
+        flat = flat || allFiles(group);
+        var found = flat.filter(function (f) { return f.path.toLowerCase().indexOf(q) >= 0; });
+        hits.innerHTML = '<div class="dv-hits-note">' + esc(t("匹配 {n} 个文件", { n: count(found.length) }) +
+          (found.length > 500 ? t("，显示前 {n} 个", { n: count(500) }) : "")) + "</div>";
+        found.slice(0, 500).forEach(function (file) {
+          var row = el("div", "dv-row");
+          var rel = group.path ? file.path.slice(group.path.length + 1) : file.path;
+          row.innerHTML = '<span class="dv-icon">▱</span><span class="dv-name">' + esc(rel) +
+            '</span><span class="dv-size">' + size(file.size) + "</span>";
+          row.addEventListener("click", function () {
+            search.value = "";
+            hits.hidden = true;
+            treeBody.hidden = false;
+            reveal(file);
+          });
+          hits.appendChild(row);
+        });
+        treeBody.hidden = true;
+        hits.hidden = false;
+      }, 180);
+    });
+
+    var preferred = ["README.md", "MANIFEST.json", "instruction.md", "task_description.txt", "task_spec.json", "prompt.txt"];
+    var files = allFiles(group);
+    var first = null;
+    var bestRank = Infinity;
+    files.forEach(function (f) {
+      var p = preferred.indexOf(f.name);
+      if (p < 0) return;
+      var rank = p * 100 + f.path.split("/").length;
+      if (rank < bestRank) { bestRank = rank; first = f; }
+    });
+    first = first || files.slice().sort(function (a, b) { return a.path.split("/").length - b.path.split("/").length; })[0];
+    if (first) reveal(first);
+  }
+
+  function preview(key, file, label, pane, shown) {
+    var ext = extOf(file.name);
+    label.innerHTML = '<span class="path" data-path="' + esc(file.path) + '">' + esc(shown) + "</span><span>" + size(file.size) + "</span>";
+    pane.innerHTML = '<p class="dv-note">' + esc(t("加载中…")) + "</p>";
+    if (IMAGE.test(ext)) {
+      pane.innerHTML = '<img alt="" src="' + zipUrl(key, file.path, "raw") + '">';
+      return;
+    }
+    if (ext === "pdf") {
+      pane.innerHTML = '<iframe class="dv-frame" title="PDF" src="' + zipUrl(key, file.path, "raw") + '#toolbar=0&navpanes=0"></iframe>';
+      return;
+    }
+    if (OFFICE.test(ext)) {
+      fetch(zipUrl(key, file.path, "office")).then(function (res) { return res.text(); }).then(function (htmlText) {
+        if (active(file)) pane.innerHTML = '<div class="dv-office">' + htmlText + "</div>";
+      });
+      return;
+    }
+    if (BINARY.test(ext)) {
+      pane.innerHTML = '<p class="dv-note">' + esc(t("二进制文件（{size}），不提供在线预览", { size: size(file.size) })) + "</p>";
+      return;
+    }
+    loadText(key, file, pane, ext === "jsonl" ? 4000000 : 1000000);
+
+    function active(f) { return label.querySelector(".path").getAttribute("data-path") === f.path; }
+  }
+
+  function loadText(key, file, pane, limit) {
+    var ext = extOf(file.name);
+    fetch(zipUrl(key, file.path, "text", "&limit=" + limit)).then(function (res) {
+      if (!res.ok) throw new Error("read");
+      var truncated = res.headers.get("X-Truncated") === "1";
+      var binary = res.headers.get("X-Binary") === "1";
+      return res.text().then(function (text) {
+        if (STATIC) {
+          binary = text.slice(0, 8192).indexOf("\u0000") >= 0;
+          if (limit && text.length > limit) {
+            text = text.slice(0, limit);
+            truncated = true;
+          }
+        }
+        pane.innerHTML = "";
+        if (binary) {
+          pane.innerHTML = '<p class="dv-note">' + esc(t("二进制文件（{size}），不提供在线预览", { size: size(file.size) })) + "</p>";
+          return;
+        }
+        if (truncated) {
+          var note = el("p", "dv-note");
+          note.textContent = t("文件共 {size}，当前显示前 {limit}", { size: size(file.size), limit: size(limit) });
+          var all = el("button");
+          all.type = "button";
+          all.textContent = t("加载全部");
+          all.addEventListener("click", function () {
+            pane.innerHTML = '<p class="dv-note">' + esc(t("加载中…")) + "</p>";
+            loadText(key, file, pane, 0);
+          });
+          note.appendChild(all);
+          pane.appendChild(note);
+        }
+        if (ext === "jsonl" && renderJsonl(pane, text, truncated)) return;
+        var pre = el("pre");
+        if (ext === "json" && !truncated) {
+          try { text = JSON.stringify(JSON.parse(text), null, 2); } catch (e) { /* keep raw */ }
+        }
+        pre.textContent = text;
+        pane.appendChild(pre);
+      });
+    }).catch(function () {
+      pane.innerHTML = '<p class="dv-note">' + esc(t("读取失败，请刷新后重试")) + "</p>";
+    });
+  }
+
+  function textOf(v) {
+    if (v == null) return "";
+    if (typeof v === "string") return v;
+    if (Array.isArray(v)) return v.map(textOf).filter(Boolean).join(" ");
+    if (typeof v === "object") {
+      if (v.text != null) return textOf(v.text);
+      if (v.content != null) return textOf(v.content);
+    }
+    return JSON.stringify(v);
+  }
+
+  function summarize(obj) {
+    if (obj === null || typeof obj !== "object") return { tag: "", text: String(obj) };
+    var tags = [];
+    var text = "";
+    var step = obj.step_num != null ? obj.step_num : obj.step;
+    if (step != null && typeof step !== "object") tags.push("step " + step);
+    if (typeof obj.type === "string") tags.push(obj.type);
+    if (typeof obj.subtype === "string") tags.push(obj.subtype);
+    var item = obj.item && typeof obj.item === "object" ? obj.item : null;
+    if (item) {
+      if (item.type) tags.push(item.type);
+      text = item.text || item.command ||
+        (Array.isArray(item.changes) ? item.changes.map(function (c) { return (c.kind || "") + " " + (c.path || ""); }).join(", ") : "") ||
+        textOf(item.aggregated_output);
+    }
+    var msg = obj.message && typeof obj.message === "object" ? obj.message : null;
+    if (msg && Array.isArray(msg.content)) {
+      msg.content.forEach(function (block) {
+        if (!block || typeof block !== "object") return;
+        if (block.type === "tool_use") {
+          tags.push(block.name);
+          if (!text) text = JSON.stringify(block.input);
+        } else if (block.type === "tool_result") {
+          tags.push("tool_result");
+          if (!text) text = textOf(block.content);
+        } else if (block.type === "text") {
+          if (!text) text = block.text;
+        } else if (block.type === "thinking") {
+          tags.push("thinking");
+          if (!text) text = block.thinking;
+        }
+      });
+    } else if (msg && !text) {
+      text = textOf(msg.content);
+    }
+    var action = obj.action && typeof obj.action === "object" ? obj.action : null;
+    if (action && action.name) tags.push(action.name);
+    if (!text) {
+      text = textOf(obj.response) || (action && action.input ? JSON.stringify(action.input) : "") ||
+        textOf(obj.result) || textOf(obj.content) || textOf(obj.text) || textOf(obj.output);
+    }
+    if (!text) text = JSON.stringify(obj);
+    var unique = tags.filter(function (t, i) { return t && tags.indexOf(t) === i; });
+    return { tag: unique.slice(0, 4).join(" · "), text: String(text).replace(/\s+/g, " ").slice(0, 240) };
+  }
+
+  function renderJsonl(pane, text, truncated) {
+    var lines = text.split(/\r?\n/);
+    if (truncated) lines.pop();
+    var items = [];
+    for (var i = 0; i < lines.length; i++) {
+      if (!lines[i].trim()) continue;
+      try { items.push(JSON.parse(lines[i])); } catch (e) { return false; }
+    }
+    if (!items.length) return false;
+    var note = el("p", "dv-note");
+    note.textContent = t("共 {n} 条记录", { n: count(items.length) }) + (truncated ? t("（文件未加载完）") : "") + t("，点击单条展开完整内容");
+    pane.appendChild(note);
+    var list = el("ol", "dv-turns");
+    pane.appendChild(list);
+    var more = el("button", "dv-more");
+    more.type = "button";
+    pane.appendChild(more);
+    var shown = 0;
+    function next() {
+      var end = Math.min(items.length, shown + 200);
+      for (var j = shown; j < end; j++) list.appendChild(turn(items[j], j));
+      shown = end;
+      more.hidden = shown >= items.length;
+      more.textContent = t("继续显示（剩余 {n} 条）", { n: count(items.length - shown) });
+    }
+    more.addEventListener("click", next);
+    next();
+    return true;
+  }
+
+  function turn(obj, index) {
+    var li = el("li", "dv-turn");
+    var head = summarize(obj);
+    li.innerHTML = '<span class="node">◆</span><details><summary><span class="num">#' + (index + 1) + "</span>" +
+      (head.tag ? '<span class="tool">' + esc(head.tag) + "</span>" : "") +
+      '<span class="say">' + esc(head.text) + "</span></summary></details>";
+    var det = li.querySelector("details");
+    det.addEventListener("toggle", function () {
+      if (det.open && !det.filled) {
+        det.filled = true;
+        var pre = el("pre");
+        pre.textContent = JSON.stringify(obj, null, 2);
+        det.appendChild(pre);
+      }
+    });
+    return li;
+  }
+
+  function showSource(src) {
+    if (src.html) showHtml(src.html);
+    else showPack(src.pack);
+  }
+
+  function openSample(id) {
+    var spec = LINKS[id];
+    title.textContent = t(spec.title);
+    tabs.innerHTML = "";
+    var sources = spec.sources;
+    tabs.hidden = sources.length < 2;
+    kicker.textContent = t("样例");
+    var buttons = [];
+    sources.forEach(function (src, i) {
+      var btn = el("button", i === 0 ? "on" : "");
+      btn.type = "button";
+      btn.textContent = t("类型 {n}", { n: count(i + 1) });
+      btn.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.className = ""; });
+        btn.className = "on";
+        showSource(src);
+      });
+      tabs.appendChild(btn);
+      buttons.push(btn);
+    });
+    showSource(sources[0]);
+    viewer.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeViewer() {
+    viewer.hidden = true;
+    stage.innerHTML = "";
+    document.body.style.overflow = "";
+  }
+  document.getElementById("viewer-close").addEventListener("click", closeViewer);
+  viewer.addEventListener("click", function (event) {
+    if (event.target === viewer) closeViewer();
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !viewer.hidden) closeViewer();
+  });
+
+  var OMIT = {
+    tasks: "其余 {n} 道任务及其全部模型轨迹：{names}",
+    cases: "其余 {n} 个普通案例：{names}",
+    multimodal: "其余 {n} 个多模态案例：{names}",
+    roadmaps: "其余 {n} 个改造任务：{names}",
+    domains: "其余 {n} 个领域任务：{names}",
+    desktop: "其余 {n} 道桌面任务：{names}"
+  };
+  function omittedText(item) {
+    if (typeof item === "string") return item;
+    var names = item.names.map(function (entry) {
+      return typeof entry === "string" ? entry : t("{name}（{app}）", { name: entry.name, app: entry.app ? entry.app : t("桌面软件") });
+    }).join(t("、"));
+    if (item.more) names = t("{names} 等", { names: names });
+    return t(OMIT[item.kind] || "{names}", { n: count(item.n), names: names });
+  }
+
+  var CJK = /[\u3400-\u9fff]/;
+  var TITLE = document.title;
+  var texts = [];
+  var attrs = [];
+  function collect() {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        var parent = node.parentNode;
+        if (!parent || /^(SCRIPT|STYLE|OPTION)$/.test(parent.nodeName) || parent.closest("#viewer-stage")) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return CJK.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      }
+    });
+    while (walker.nextNode()) {
+      var raw = walker.currentNode.nodeValue;
+      texts.push({
+        node: walker.currentNode,
+        key: raw.replace(/\s+/g, " ").trim(),
+        lead: raw.match(/^\s*/)[0],
+        trail: raw.match(/\s*$/)[0]
+      });
+    }
+    document.querySelectorAll("[placeholder], [aria-label], [title]").forEach(function (node) {
+      ["placeholder", "aria-label", "title"].forEach(function (name) {
+        var value = node.getAttribute(name);
+        if (value && CJK.test(value) && !node.closest("#viewer-stage")) attrs.push({ node: node, name: name, key: value.trim() });
+      });
+    });
+  }
+
+  var select = document.getElementById("lang");
+  function applyLang(code) {
+    lang = I18N[code] || code === "zh-CN" ? code : "zh-CN";
+    texts.forEach(function (entry) { entry.node.nodeValue = entry.lead + t(entry.key) + entry.trail; });
+    attrs.forEach(function (entry) { entry.node.setAttribute(entry.name, t(entry.key)); });
+    document.title = t(TITLE);
+    document.documentElement.lang = (LOCALE[lang] || LOCALE["zh-CN"]).tag;
+    document.documentElement.style.setProperty("--spec-label", JSON.stringify(t("规格")));
+    select.value = lang;
+  }
+  function match(code) {
+    if (!code) return null;
+    var c = String(code).toLowerCase();
+    if (c.indexOf("zh") === 0) return /tw|hk|mo|hant/.test(c) ? "zh-TW" : "zh-CN";
+    var primary = c.split("-")[0];
+    return LANGS.some(function (entry) { return entry[0] === primary; }) ? primary : null;
+  }
+
+  LANGS.forEach(function (entry) {
+    var option = document.createElement("option");
+    option.value = entry[0];
+    option.textContent = entry[1];
+    select.appendChild(option);
+  });
+  collect();
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  var fromBrowser = (navigator.languages || [navigator.language]).map(match).filter(Boolean)[0];
+  applyLang(match(new URLSearchParams(location.search).get("lang")) || match(saved) || fromBrowser || "zh-CN");
+  select.addEventListener("change", function () {
+    applyLang(select.value);
+    try { localStorage.setItem("lang", select.value); } catch (e) {}
+    var url = new URL(location.href);
+    url.searchParams.set("lang", select.value);
+    history.replaceState(null, "", url);
+    if (!viewer.hidden) closeViewer();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+2026-08-30T08:11:01.156296Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/services/discovery.go:
+func DecodeUserTokenPolicy(b []byte)(*UserTokenPolicy,error){p:=&UserTokenPolicy{};return p,p.DecodeFromBytes(b)}

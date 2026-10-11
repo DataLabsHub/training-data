@@ -1,0 +1,7 @@
+2026-08-30T08:25:18.296340Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/datatypes/bytestring.go:
+	s.Length = int32(binary.LittleEndian.Uint32(b[:4]))
+	if s.Length <= 0 {
+		return nil
+	}
+	s.Value = b[4 : 4+int(s.Length)]
+2026-08-30T08:28:24.441307Z ERROR codex_core::tools::router: error=exec_command failed for `/bin/sh -lc 'testroot=$(mktemp -d) && mkdir -p "$testroot/src/github.com/wmnsk" && ln -s /testbed "$testroot/src/github.com/wmnsk/gopcua" && GO111MODULE=off GOPATH="$testroot" /usr/local/go/bin/go test github.com/wmnsk/gopcua/...; status=$?; rm -rf "$testroot"; exit $status'`: CreateProcess { message: "Rejected(\"`/bin/sh -lc 'testroot=$(mktemp -d) && mkdir -p \\\"$testroot/src/github.com/wmnsk\\\" && ln -s /testbed \\\"$testroot/src/github.com/wmnsk/gopcua\\\" && GO111MODULE=off GOPATH=\\\"$testroot\\\" /usr/local/go/bin/go test github.com/wmnsk/gopcua/...; status=$?; rm -rf \\\"$testroot\\\"; exit $status'` rejected: rm -f style commands are not permitted. Use a safer approach\")" }

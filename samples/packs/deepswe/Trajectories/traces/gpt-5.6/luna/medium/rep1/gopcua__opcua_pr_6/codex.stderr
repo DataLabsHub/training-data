@@ -1,0 +1,13 @@
+2026-08-30T08:13:19.499798Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/services/get-endpoints.go:
+	for _, x := range []*datatypes.String{v.IssuedTokenType, v.IssuerEndpointURI, v.SecurityPolicyURI} {
+		_ = x
+	}
+	if v.IssuedTokenType, e = decodeStringAt(b, &o); e != nil {
+2026-08-30T08:13:31.373666Z ERROR codex_models_manager::manager: failed to refresh available models: exceeded retry limit, last status: 429 Too Many Requests, request id: 74a15fca-557a-4bdf-8d6e-66f20af4cae4
+2026-08-30T08:13:33.391846Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/services/get-endpoints.go:
+func (v *UserTokenPolicy) DecodeFromBytes(b []byte) error { o := 0; var e error; if v.PolicyID, e = decodeStringAt(b, &o); e != nil { return e }; if len(b) < o+4 { return short(v) }; v.TokenType = binary.LittleEndian.Uint32(b[o:o+4]); o += 4; for _, x := range []*datatypes.String{v.IssuedTokenType, v.IssuerEndpointURI, v.SecurityPolicyURI} { _ = x }; if v.IssuedTokenType, e = decodeStringAt(b, &o); e != nil { return e }; if v.IssuerEndpointURI, e = decodeStringAt(b, &o); e != nil { return e }; v.SecurityPolicyURI, e = decodeStringAt(b, &o); return e }
+2026-08-30T08:14:25.869045Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/services/get-endpoints.go:
+const (
+	ServiceTypeGetEndpointRequest  uint16 = 428
+	ServiceTypeGetEndpointResponse uint16 = 431
+	AppTypeServer         uint32 = iota

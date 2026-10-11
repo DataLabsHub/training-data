@@ -1,0 +1,16 @@
+Implemented full GetEndpoints support.
+
+Key additions:
+
+- `LocalizedText` and signed `StringArray` datatype APIs.
+- Discovery structures and arrays for applications, token policies, and endpoints.
+- GetEndpoint request/response constructors, codecs, service IDs, and dispatch.
+- Null certificate and nil/empty array semantics.
+- Response headers now use `StringArray`, with legacy `StringTable` compatibility aliases.
+- Added round-trip and dispatcher tests.
+
+Verification passed:
+
+- `go test ./...`
+- `go test -race ./datatypes ./services`
+- `git diff --check`

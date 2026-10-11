@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "note": "Indexes only ground-truth reference artifacts stored under reference/.",
+  "files": [
+    {
+      "name": "gold_values.json",
+      "format": "JSON",
+      "path": "reference/gold_values.json",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 820,
+      "sha256": "b6e5998150a074631b84eb931cbe72731247485472c59367c4564f5d25849e6e",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "openrocket_open_example.png",
+      "format": "PNG",
+      "path": "reference/openrocket_open_example.png",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 363726,
+      "sha256": "0f372d15f844f9a2a3e5d00ef763724434c2c6caf0471c3c061ee0d0c78b5bad",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "rocket_design.ork",
+      "format": "native ORK archive/project",
+      "path": "reference/rocket_design.ork",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 198735,
+      "sha256": "53369c1707ca2f7959c0a2df2ef5af5d508806c7d0d3010026843905de18f4ae",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

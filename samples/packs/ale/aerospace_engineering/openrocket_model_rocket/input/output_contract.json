@@ -1,0 +1,56 @@
+{
+  "required_outputs": [
+    "output/rocket_design.ork",
+    "output/results.json",
+    "output/rocket_design_view.png",
+    "output/simulation_plot.png",
+    "output/simulation_data.csv"
+  ],
+  "results_required_fields": [
+    "simulation_name",
+    "motor_designation",
+    "apogee_m",
+    "max_velocity_m_s",
+    "max_acceleration_m_s2",
+    "time_to_apogee_s",
+    "flight_time_s",
+    "launchrod_velocity_m_s",
+    "deployment_velocity_m_s"
+  ],
+  "simulation_data_csv_requirements": {
+    "description": "Native OpenRocket time-series export of the required simulation 4 / C6-5 run, produced via the GUI Plot/Export dialog. Must include enough columns and rows that the curve is physically self-consistent (boost-coast-deploy-descent profile), not a synthetic stub.",
+    "must_be_parseable_as_csv": true,
+    "must_have_header_row": true,
+    "required_column_substrings_case_insensitive": [
+      "time",
+      "altitude",
+      "vertical velocity",
+      "vertical acceleration"
+    ],
+    "min_data_rows": 300,
+    "max_median_dt_seconds": 0.3,
+    "first_time_value_max_seconds": 0.1,
+    "last_time_value_min_fraction_of_flight_time": 0.95,
+    "physics_consistency_checks": [
+      "abs(vertical_velocity) at the row where altitude is maximum must be <= 2.0 m/s",
+      "argmax(abs(vertical_acceleration)) must occur at t < 2.5 s",
+      "max(abs(vertical_acceleration)) must agree with results.json.max_acceleration_m_s2 within +/- 15%",
+      "mean(abs(vertical_velocity)) over the descent window t in [time_to_apogee + 1.0, flight_time - 1.0] must be in [0.5, 2.0 * results.json.deployment_velocity_m_s] meters/second (rules out free-fall and rules out a constant-zero synthetic stub)",
+      "boost-phase concavity: mean second-difference of altitude in t in [0.05 * time_to_apogee, 0.20 * time_to_apogee] must be > 0",
+      "coast-phase concavity: mean second-difference of altitude in t in [0.40 * time_to_apogee, 0.85 * time_to_apogee] must be < 0",
+      "altitude at the final data row must be <= 5 m (rocket has returned to ground)"
+    ]
+  },
+  "ork_databranch_requirements": {
+    "description": "After running the required simulation 4 in OpenRocket, the saved .ork must contain the full simulation time-series under <flightdata>/<databranch>. OpenRocket writes this automatically; an .ork that only contains <flightdata> summary attributes without a <databranch> indicates the simulation was never run inside the design file.",
+    "min_datapoint_count": 300,
+    "required_databranch_types_substrings": [
+      "Time",
+      "Altitude",
+      "Vertical velocity"
+    ],
+    "altitude_max_must_match_results_json_apogee_within_pct": 1.0,
+    "time_at_max_altitude_must_match_results_json_time_to_apogee_within_pct": 5.0,
+    "ork_databranch_max_altitude_must_match_csv_max_altitude_within_pct": 0.5
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "auth_transport": "chatgpt",
+  "index": 393,
+  "model": "gpt-5.6-terra",
+  "prior_status": "instruction_repaired_pygo25",
+  "reasoning_effort": "high",
+  "repetition": 1,
+  "source_index": 23,
+  "started_unix": 1788078137.4366708,
+  "task_id": "libp2p__py-libp2p_pr_637"
+}

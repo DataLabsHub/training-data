@@ -1,0 +1,12 @@
+{
+  "package_root": "pension_funding_contribution_control.harbor.zip",
+  "valid": true,
+  "task_count": 1,
+  "issues": [],
+  "leak_scan": {
+    "root": ".",
+    "clean": true,
+    "scanned_files": 291,
+    "findings": []
+  }
+}

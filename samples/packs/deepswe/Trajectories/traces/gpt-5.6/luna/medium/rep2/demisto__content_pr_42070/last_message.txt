@@ -1,0 +1,12 @@
+Implemented mixed indicator enrichment in:
+
+- [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py)
+- [IndicatorEnrichment.yml](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.yml)
+
+Includes type detection, extraction, deduplication, validation/limits, grouped child enrichment, partial-failure handling, unified context/Markdown output, raw-context control, and required public API classes.
+
+Validation performed:
+
+- Python syntax compilation passed.
+- `git diff --check` passed.
+- Full pytest execution was unavailable because the environment lacks the repository’s test dependencies and injected Demisto modules.

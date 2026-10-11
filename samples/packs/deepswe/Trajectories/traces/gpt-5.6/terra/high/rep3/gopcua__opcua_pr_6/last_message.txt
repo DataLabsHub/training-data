@@ -1,0 +1,15 @@
+Implemented GetEndpoints support end-to-end.
+
+- Added `LocalizedText` and signed `StringArray` datatype APIs.
+- Added endpoint discovery models, constructors, decoders, serialization, constants, and null certificate behavior.
+- Added GetEndpoints request/response services and dispatcher support for IDs 428/431.
+- Updated response headers to use `StringArray`.
+- Added round-trip and dispatcher tests.
+
+Verified with:
+
+```sh
+GO111MODULE=off GOPATH=<temporary GOPATH> go test github.com/wmnsk/gopcua/...
+```
+
+All packages pass.

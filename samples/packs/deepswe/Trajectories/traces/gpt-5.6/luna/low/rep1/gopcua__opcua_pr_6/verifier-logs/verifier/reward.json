@@ -1,0 +1,17 @@
+{
+  "missing_or_bad": [
+    "github.com/wmnsk/gopcua/services::TestAdditionalGetEndpointRequestServiceDispatch",
+    "github.com/wmnsk/gopcua/services::TestAdditionalGetEndpointResponseRoundTripEndpoints",
+    "github.com/wmnsk/gopcua/services::TestDecode/get-endpoint-req",
+    "github.com/wmnsk/gopcua/services::TestDecode/get-endpoint-res",
+    "github.com/wmnsk/gopcua/services::TestSerializeServices/get-endpoint-res",
+    "github.com/wmnsk/gopcua/services::TestSerializeServices/get-endpoint-req",
+    "github.com/wmnsk/gopcua/services::TestDecodeUserTokenPolicy/single",
+    "github.com/wmnsk/gopcua/services::TestDecodeUserTokenPolicy/multiple",
+    "github.com/wmnsk/gopcua/services::TestSerializeUserTokenPolicy/single",
+    "github.com/wmnsk/gopcua/services::TestSerializeUserTokenPolicy/multiple"
+  ],
+  "passed": 50,
+  "reward": 0.0,
+  "total": 60
+}

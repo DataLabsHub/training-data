@@ -1,0 +1,18 @@
+Implemented full GetEndpoints support.
+
+Key additions:
+
+- `LocalizedText` datatype with mask handling and serialization.
+- Public signed-length `StringArray`, preserving null vs empty arrays.
+- Discovery types and arrays:
+  - `ApplicationDescription`
+  - `UserTokenPolicy`
+  - `EndpointDescription`
+- GetEndpoints request/response services with IDs `428` and `431`.
+- Generic service dispatcher support.
+- Required constants, constructors, decoders, and misspelled public constructor names.
+- Null `ByteString` decoding behavior.
+- Backward-compatible `StringTable` alias.
+- Round-trip and dispatch tests.
+
+All repository tests pass using the available Go toolchain.

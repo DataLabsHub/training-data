@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+source = "pr-synthesis-pipeline/libp2p__py-libp2p_pr_637"
+repo = "libp2p/py-libp2p"
+chain_length = 1
+chain_kind = "feature_with_tests"
+category = "chain"
+tags = ["chain", "pr-synthesis", "kind:feature_with_tests"]
+base_commit = "e9af965a687a236f7c8a56126868940a2748306d"
+final_commit = "9c5470f894c951c5f5a4cf0309ea76ab57de89f7"
+pr_number = 637
+
+[subtasks]
+order = ["00-chain"]
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 7200.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 8192
+storage_mb = 153600
+docker_image = "evolvnent-deepswe-registry.us-east-1.cr.aliyuncs.com/deepswe/toolchain-a@sha256:4c14d67f86e8d535ba17292dba205bb6458995cfe89d02ac2225ac88f9b3a4ce"

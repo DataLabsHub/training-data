@@ -1,0 +1,63 @@
+<pre>MEMORANDUM — Publication release decision, Figure 3 (CASE-EMC-2026-0147)
+To: Centre Director · Corresponding Author (CA-STUDY) · Production Editor (PD-EDITOR)
+Cc: Publication Quality Lead (PQL) · Centre Statistical Analyst (EMC-STAT) · Repository Steward (REPO-STEW) · Publication QA (EMC-QA)
+From: Figure 3 publication-consistency review (final)
+Date: 2026-08-26T17:00:00+08:00 (Asia/Singapore) — SOP-4.2 evidence cutoff
+Re: Gate GATE-0147 — production proof PRF-02 and staged deposit DEP-V3 (HVD-EDU-0147), manuscript AM-2026-0147-v5
+System of record: deliverables/figure3_reconciliation_register.xlsx (rows R-01–R-20). Status, actions, owners and deadlines in this memo are identical to the register.
+Decision
+RELEASE_AFTER_CORRECTIONS — decided for the coupled gate and applied identically to proof PRF-02 and staged deposit DEP-V3 (SOP-4.2 §4 allows no contradictory terminal states, and the staged deposit may not release independently of the proof). RELEASE is blocked today by unresolved mandatory corrections and one unapproved changed component; HOLD is not required now because every correction is schedulable ahead of the PQL re-review (2026-08-27T14:00) and the production lock (2026-08-28T18:00). If any condition below is unresolved at the 2026-08-27T14:30 escalation, the gate converts to HOLD before the lock.
+Why release is blocked (register rows in brackets)
+FIG3-A legend colour/label swap [R-01]: the displayed legend reads teal=Non-incentivized / amber=Incentivized (order also inverted); the approved R17 display map and caption CAP-3A require teal=Incentivized / amber=Non-incentivized. Panel geometry itself matches R17 within tolerance [R-02] but does not cure the label/colour failure (SOP §2).
+FIG3-B geometry [R-06]: displayed median 0.05 and upper endpoint 0.11 vs approved 0.02 and 0.07 — variances +0.03 and +0.04, far beyond the 0.005 / 1-px tolerance. Caption CAP-3B and results RS-3B repeat the wrong 0.11 [R-07, R-08]. Note: the accepted R16-era values (0.05 / −0.02 to 0.05) are superseded context for panel B and are not a fallback.
+FIG3-C display [R-11]: displayed median 0.075 vs approved 0.06 (Δ +0.015) and annotation “n=24” vs the mandatory “n=42”. Because RR-017 approved replacement for panels A and B only, the changed C display is also an unapproved changed component (SOP §1); correcting it needs a scoped approval naming FIG3-C (or an explicit rollback/invalidation).
+Stale supplement label [R-09]: SUP-F3 still prints run label AR-2026-08-18-R16 while the linked, hash-verified file is the approved R17 export. Label revision only; the linked file is correct.
+Deposit README colour key [R-05]: staged text repeats the swapped colour mapping; it must be restaged to “teal=Incentivized and amber=Non-incentivized” before the deposit can release.
+Verified consistent (no correction needed)
+FIG3-D panel and paired CAP-3D | RS-3D wording [R-14, R-15]: median 0.02, interval [−0.04, 0.08], category order Incentivized-then-Non-incentivized, no exploratory marker, unit and interval label exact.
+Deposit numeric rows DEP-3B, DEP-3C, DEP-3D equal the approved R17 export exactly [R-10, R-13, R-16]; they need verification sign-off, not changes (PREREQ-ROWS).
+Authorization and hash lineage [R-18]: recomputed SHA-256 values match across the manuscript, proof, extraction (identical to approved attachment FIG3-LR2), R17 export and observations. Late replacement RR-017 validly covers panels A/B only.
+Cross-panel unit “Standardized Δz”, “95% interval” label and axis −0.10:0.20:0.05 [R-17].
+Conditions to release (owners and deadlines, Asia/Singapore)
+#
+Condition
+Owner
+Due
+1
+Panel A legend colours/labels/order corrected to the R17 display map; geometry re-verified (R-01, R-02)
+PD-EDITOR
+2026-08-27T10:00
+2
+Panel B regenerated to 0.02 [−0.01, 0.07] after EMC-STAT export confirmation (T-B-EXPORT, 09:30) (R-06)
+PD-EDITOR
+2026-08-27T12:00
+3
+Panel C restored to 0.06, [0.01, 0.14], annotation n=42; scoped approval naming FIG3-C obtained (R-11)
+PD-EDITOR; CA-STUDY + PQL scope
+2026-08-27T10:00 (render); scope before 14:00
+4
+CAP-3B and RS-3B revised to endpoint 0.07 (R-07, R-08)
+CA-STUDY
+2026-08-27T10:30
+5
+SUP-F3 printed run label revised to AR-2026-08-24-R17 (R-09)
+CA-STUDY
+2026-08-27T10:30
+6
+Deposit README colour key restaged and verified (R-05); deposit rows verified (R-10, R-13, R-16)
+REPO-STEW
+2026-08-27T12:00
+7
+Corrected rendition re-approved (CA + PQL) with its new hash proof-linked to PRF-02 (R-18); coupled re-review closes the gate (R-20)
+PQL
+2026-08-27T14:00
+8
+EMC-QA visual registration of the corrected rendition
+EMC-QA
+2026-08-27T09:00
+Other matters
+Orphan attachment FIG3-LR3 (“Figure3_final_v9.png”, received 2026-08-26T16:40) is within the evidence cutoff but has no request, no CA or PQL approval and no proof link; it creates no authority and must not be used (SOP §1). It is retained in history only [R-18].
+Observation, non-blocking [R-19]: the staged deposit carries the FIG3-A Incentivized row but no Non-incentivized row; the current dependency map does not require one. REPO-STEW to confirm intended inventory by 2026-08-27T12:00.
+Escalation: unresolved conditions at 2026-08-27T14:30 go to the Centre Director and the gate converts to HOLD ahead of the 2026-08-28T18:00 production lock.
+Scope of this review
+This is a publication-consistency decision only: it adjudicates labels, colours, category order, estimates, interval endpoints, units, annotations, authorization, version lineage and the coupled release gate against SOP-4.2. It makes no scientific-merit or causal claims about the study.</pre>

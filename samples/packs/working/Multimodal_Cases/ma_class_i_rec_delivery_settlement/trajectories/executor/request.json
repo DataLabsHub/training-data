@@ -1,0 +1,16 @@
+{
+  "run_id": "opus5_b20_12_energy_renewable_certificate_settlement_20260828-executor-01",
+  "model": "claude-opus-5",
+  "reasoning_effort": "high",
+  "timeout_seconds": 10800,
+  "max_output_tokens": 32768,
+  "json_output": null,
+  "extra_mounts": [],
+  "metadata": {
+    "purpose": "statechain_executor",
+    "sample_id": "ma_class_i_rec_delivery_settlement_task_v1_evolution_2_retry_1",
+    "attempt": 1,
+    "prompt_interface": "verbatim_user_query_only",
+    "visual_claim_ids": []
+  }
+}

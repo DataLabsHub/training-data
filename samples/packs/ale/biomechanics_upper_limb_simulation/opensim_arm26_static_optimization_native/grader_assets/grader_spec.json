@@ -1,0 +1,76 @@
+{
+  "task_id": "opensim_arm26_static_optimization_native",
+  "setup_checks": [
+    {
+      "path": "setup/arm26_Setup_InverseKinematics.xml",
+      "tool": "InverseKinematicsTool",
+      "must_contain": [
+        "arm26.osim",
+        "arm26_elbow_flex.trc",
+        "arm26_InverseKinematics.mot"
+      ],
+      "tags": {
+        "model_file": "arm26.osim",
+        "marker_file": "arm26_elbow_flex.trc",
+        "output_motion_file": "arm26_InverseKinematics.mot",
+        "time_range": "0.00000000 1.00000000"
+      }
+    },
+    {
+      "path": "setup/arm26_Setup_StaticOptimization.xml",
+      "tool": "AnalyzeTool",
+      "must_contain": [
+        "arm26.osim",
+        "arm26_InverseKinematics.mot",
+        "StaticOptimization"
+      ],
+      "tags": {
+        "model_file": "arm26.osim",
+        "coordinates_file": "arm26_InverseKinematics.mot",
+        "use_muscle_physiology": "true"
+      }
+    }
+  ],
+  "storage_checks": [
+    {
+      "actual": "ik/arm26_InverseKinematics.mot",
+      "reference": "arm26_InverseKinematics.mot",
+      "abs_tol": 1e-05,
+      "rms_tol": 1e-06
+    },
+    {
+      "actual": "static/arm26_StaticOptimization_force.sto",
+      "reference": "arm26_StaticOptimization_force.sto",
+      "abs_tol": 0.0005,
+      "rms_tol": 5e-05
+    },
+    {
+      "actual": "static/arm26_StaticOptimization_activation.sto",
+      "reference": "arm26_StaticOptimization_activation.sto",
+      "abs_tol": 0.0005,
+      "rms_tol": 5e-05
+    }
+  ],
+  "text_checks": [
+    {
+      "actual": "static/arm26_StaticOptimization_controls.xml",
+      "reference": "arm26_StaticOptimization_controls.xml",
+      "must_contain": [
+        "OpenSimDocument",
+        "ControlSet",
+        "TRIlong"
+      ],
+      "min_size_ratio": 0.6
+    }
+  ],
+  "run_log": {
+    "min_size": 120,
+    "terms": [
+      "opensim",
+      "inverse",
+      "static",
+      "optimization",
+      "arm26"
+    ]
+  }
+}

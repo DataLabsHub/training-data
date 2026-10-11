@@ -1,0 +1,571 @@
+{
+  "claim": {
+    "binary_failure_condition": "The workpaper rejects timely substitution authority, treats the election as automatic acceptance, applies it to a different case, or skips independent validation of the replacement lots.",
+    "binary_pass_condition": "The workpaper correctly permits the timely elected substitutes to enter independent product, vintage, qualification, custody, and uniqueness testing, and does not treat the checked election as automatic acceptance.",
+    "candidate_evidence_requirements": [
+      "A remedy-path field for the questioned lots that distinguishes cure authorization from the final replacement disposition.",
+      "Precise locators for both cure records and the governing deadline clause."
+    ],
+    "causal_owner_id": "RULE014",
+    "claim_id": "R005",
+    "contract_basis_ids": [
+      "FACT006",
+      "FACT017",
+      "FACT037",
+      "RULE007",
+      "RULE014",
+      "PRED013",
+      "CROUTE001"
+    ],
+    "description": "The lot analysis uses the paired cure evidence to authorize independent substitute testing without treating the election itself as certificate acceptance.",
+    "importance_weight": 4,
+    "independent_failure_mode": "The notice and election facts are captured, but their contractual consequence for substitute testing is applied incorrectly.",
+    "method": "llm_judge",
+    "program_check": null,
+    "required_media_node_ids": [
+      "MGN010",
+      "MGN011"
+    ],
+    "title": "Timely cure is used as authorization, not acceptance",
+    "visual_reasoning_requirement": "Use both case-linked scans to infer that a valid substitute election followed a received notice before the deadline, then distinguish that authorization from acceptance. Either scan alone leaves the contractual cure chain incomplete."
+  },
+  "contract_basis": {
+    "artifact_edges": [
+      {
+        "artifact_edge_id": "AEDGE036",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed prior notice receipt scan.",
+        "source_locator": null,
+        "source_node_id": "MGN010",
+        "target_locator": "page[2].image[0]",
+        "target_node_id": "CF013"
+      },
+      {
+        "artifact_edge_id": "AEDGE037",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed seller cure election scan.",
+        "source_locator": null,
+        "source_node_id": "MGN011",
+        "target_locator": "word/media/image1.jpg",
+        "target_node_id": "CF014"
+      }
+    ],
+    "as_of": "2025-06-09T12:00:00-04:00",
+    "causal_owner_id": "RULE014",
+    "claim_basis_ids": [
+      "FACT006",
+      "FACT017",
+      "FACT037",
+      "RULE007",
+      "RULE014",
+      "PRED013",
+      "CROUTE001"
+    ],
+    "entities": [
+      {
+        "description": "Fictional Massachusetts competitive supplier buying Class I certificates.",
+        "entity_id": "ENT001",
+        "entity_type": "retail_electricity_supplier",
+        "natural_identity": [
+          "Bay State Competitive Supply LLC",
+          "buyer GIS account BSC-MA-4421"
+        ]
+      },
+      {
+        "description": "Fictional bilateral seller responsible for delivery and cure.",
+        "entity_id": "ENT002",
+        "entity_type": "certificate_seller",
+        "natural_identity": [
+          "GreenArc Certificate Markets LLC",
+          "seller code GAM-77"
+        ]
+      },
+      {
+        "description": "Executed confirmation and its cure-and-cover amendment.",
+        "entity_id": "ENT003",
+        "entity_type": "purchase_contract",
+        "natural_identity": [
+          "REC-2024-017",
+          "executed 2024-11-18"
+        ]
+      },
+      {
+        "description": "Original 200-certificate lot whose buyer transfer was reversed.",
+        "entity_id": "ENT007",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-C",
+          "MSS424-2024Q3-001001:001200"
+        ]
+      },
+      {
+        "description": "Timely 250-certificate replacement for LOT-B.",
+        "entity_id": "ENT009",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-B",
+          "MSS424-2024Q1-003001:003250"
+        ]
+      },
+      {
+        "description": "Replacement for LOT-C with fifty serials already tendered in LOT-A.",
+        "entity_id": "ENT010",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-C",
+          "MSS424-2024Q2-000351:000550"
+        ]
+      },
+      {
+        "description": "Official DOER hydroelectric unit effective January 1, 2024.",
+        "entity_id": "ENT011",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "MSS424",
+          "MA RPS 7031-24",
+          "Weldon"
+        ]
+      },
+      {
+        "description": "Buyer inventory control receiving accepted and cover certificates.",
+        "entity_id": "ENT015",
+        "entity_type": "compliance_inventory",
+        "natural_identity": [
+          "CY2024 Class I close",
+          "BSC-MA-4421"
+        ]
+      }
+    ],
+    "file_nodes": [
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF013",
+        "description_text": "Exception notice body identifies LOT-B and LOT-C and embeds a receipt-channel scan whose decisive case/time marks remain pixel-only.",
+        "embedded_media_node_ids": [
+          "MGN010"
+        ],
+        "expected_format": "pdf",
+        "graph_node_id": "GN006",
+        "stored_relative_path": "Correspondence/Prior Exception Notice EXC-24017.pdf"
+      },
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF014",
+        "description_text": "Transmittal shell and embedded signed cure election; no prose transcript of the selected option or received time.",
+        "embedded_media_node_ids": [
+          "MGN011"
+        ],
+        "expected_format": "docx",
+        "graph_node_id": "GN006",
+        "stored_relative_path": "Correspondence/Seller Cure Election EXC-24017.docx"
+      }
+    ],
+    "media_nodes": [
+      {
+        "artifact_purpose": "Received exception-notice channel evidence.",
+        "comparison_group_ids": [
+          "cure_timing_pair"
+        ],
+        "distinct_information": "Shows case EXC-24017, confirmed receipt, and notice routing before seller election, but not the election choice.",
+        "evidence_family": "correspondence_scan",
+        "media_node_id": "MGN010",
+        "operation": "text_to_image",
+        "output_format": "jpg",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "scanned exception notice receipt strip",
+          "avoid": [
+            "flat UI screenshot",
+            "answer values",
+            "perfect template"
+          ],
+          "color_palette": "warm paper gray and blue ink",
+          "composition_framing": "angled close-up of receipt strip and document corner",
+          "constraints": [
+            "No cure option visible",
+            "Case code sharp",
+            "Natural perspective"
+          ],
+          "exact_text": [
+            "EXC-24017",
+            "DELIVERED",
+            "JUN 3 2025 4:18 PM EDT"
+          ],
+          "lighting_mood": "late afternoon office light",
+          "primary_request": "Create a photographed office receipt strip attached to an exception notice showing case identity and confirmed delivery.",
+          "scene_backdrop": "paper on settlement desk",
+          "style_medium": "natural smartphone document photograph",
+          "subject": "EXC-24017 receipt strip",
+          "use_case": "productivity-visual"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Readable case and time",
+          "Visible physical attachment relationship"
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Signed seller cure-election evidence.",
+        "comparison_group_ids": [
+          "cure_timing_pair"
+        ],
+        "distinct_information": "Shows the substitute-delivery checkbox, seller signature, matching case, and 16:41 receipt time needed to prove timely election.",
+        "evidence_family": "correspondence_scan",
+        "media_node_id": "MGN011",
+        "operation": "text_to_image",
+        "output_format": "jpg",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "faxed cure election form",
+          "avoid": [
+            "cover price",
+            "settlement result",
+            "colored infographic"
+          ],
+          "color_palette": "black white and faint gray",
+          "composition_framing": "full page with option box and footer timestamp",
+          "constraints": [
+            "Only substitute option checked",
+            "Signature visible",
+            "No accepted quantity"
+          ],
+          "exact_text": [
+            "EXC-24017",
+            "SUBSTITUTE DELIVERY",
+            "RECEIVED JUN 6 2025 4:41 PM EDT",
+            "GreenArc Certificate Markets LLC"
+          ],
+          "lighting_mood": "neutral",
+          "primary_request": "Create a believable fax scan of a seller cure election form with substitute delivery selected and a received timestamp.",
+          "scene_backdrop": "faxed legal correspondence",
+          "style_medium": "monochrome fax scan with handwritten check",
+          "subject": "GreenArc election for EXC-24017",
+          "use_case": "productivity-visual"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Readable selected option and time",
+          "Same case as MGN010",
+          "Distinct source form"
+        ],
+        "visibility": "embedded_only"
+      }
+    ],
+    "predicates": [
+      {
+        "applies_to_ids": [
+          "MGN010",
+          "MGN011",
+          "AEDGE036",
+          "AEDGE037",
+          "FACT006",
+          "FACT037",
+          "RULE007",
+          "RULE014"
+        ],
+        "counterexample": "A checked cash-credit option or 5:41 PM receipt fails.",
+        "evaluation_mode": "grounded_agent",
+        "evidence_requirements": [
+          "Inspect AEDGE036-AEDGE037 embeds and pixels",
+          "Compare case IDs and timestamps to CF007 deadline"
+        ],
+        "kind": "multimodal_fidelity",
+        "origin_refs": [
+          "workspace_policy"
+        ],
+        "pass_condition": "MGN010 and MGN011 share cure_timing_pair and EXC-24017; receipt precedes election, substitute is the sole checked option, and the visible election receipt is June 6 at 4:41 PM EDT, before 5:00 PM; text does not disclose the selected option.",
+        "predicate_id": "PRED013",
+        "severity": "blocking",
+        "statement": "The notice receipt and election scan jointly establish a timely substitute election for one case."
+      }
+    ],
+    "required_media_node_ids": [
+      "MGN010",
+      "MGN011"
+    ],
+    "route_context": {
+      "business_goal": "Close the seller's 2024 Class I delivery without paying for unusable certificates and preserve a supportable compliance inventory.",
+      "contract_edge_ids": [
+        "CEDGE001",
+        "CEDGE002",
+        "CEDGE003",
+        "CEDGE004",
+        "CEDGE005",
+        "CEDGE006",
+        "CEDGE007",
+        "CEDGE008",
+        "CEDGE014",
+        "CEDGE015",
+        "CEDGE012",
+        "CEDGE013",
+        "CEDGE011"
+      ],
+      "contract_route_id": "CROUTE001",
+      "deliverable_class": "Auditable certificate-delivery settlement workbook with embedded procurement and accounting decision summary",
+      "difficulty_sources": [
+        "Temporal qualification and lifecycle precedence across different systems",
+        "Pixel-essential reversal and overlap evidence whose raw baselines and dimension-preserved annotations traverse two independently auditable PDF-to-DOCX chains",
+        "Ordered cure then cover logic",
+        "Cross-ledger quantity and money propagation",
+        "Visual trade-to-allocation-to-registry custody handoff that separates executed cover damages from buyer-held compliance inventory",
+        "As-of qualification-exception event precedence after exact unit authority matching and before downstream settlement propagation"
+      ],
+      "natural_request_context": "A settlement manager needs a single spreadsheet workpaper for the procurement director and controller after the final tender arrived on June 9.",
+      "required_graph_node_ids": [
+        "GN001",
+        "GN002",
+        "GN003",
+        "GN004",
+        "GN005",
+        "GN006",
+        "GN007",
+        "GN008",
+        "GN009",
+        "GN010",
+        "GN011",
+        "GN012"
+      ],
+      "required_rule_ids": [
+        "RULE001",
+        "RULE002",
+        "RULE003",
+        "RULE004",
+        "RULE005",
+        "RULE006",
+        "RULE007",
+        "RULE008",
+        "RULE009",
+        "RULE010",
+        "RULE011",
+        "RULE012",
+        "RULE013",
+        "RULE014",
+        "RULE015",
+        "RULE016",
+        "RULE017"
+      ],
+      "target_fact_ids": [
+        "FACT007",
+        "FACT022",
+        "FACT023",
+        "FACT027",
+        "FACT031",
+        "FACT032",
+        "FACT033",
+        "FACT042",
+        "FACT043"
+      ],
+      "terminal_decision": "After admitting the reversal and overlap only from the two raw-plus-marked cross-document evidence pairs, approve USD 16,920 net payable; post 950 seller RECs and 40 cover RECs separately; dispute 50 seller RECs, record a 10-REC residual shortfall, send dispute by June 16, and preserve July 1 filing readiness.",
+      "unique_resolution": "Exact source precedence, inclusive serial arithmetic, lifecycle event order, signed cure hierarchy, cover execution, paired raw/derived lineage admissibility, and conservation equations admit only the stated quantities, payable, and deadlines. The cover inventory component additionally requires an exact trade-to-allocation-to-final-registry-custody match by the cutoff; absent that final handoff, the cover posting is zero and the residual is fifty while the damage offset remains unchanged. The otherwise valid LOT-D unit must additionally have QX-38983-2025 in a final released state by noon; a pending, late, or mismatched release withholds its 150 certificates from the close and forces the stated downstream quantity, payable, inventory, and residual counterfactual."
+    },
+    "rules": [
+      {
+        "counterexample": "Applying buyer cover before considering timely REPL-B violates the amendment.",
+        "input_fact_ids": [
+          "FACT005",
+          "FACT006",
+          "FACT015",
+          "FACT017",
+          "FACT021",
+          "FACT037"
+        ],
+        "operator_family": "contract_remedy_hierarchy",
+        "output_fact_ids": [
+          "FACT022",
+          "FACT023",
+          "FACT027"
+        ],
+        "resolution_order": "Original test; timely seller cure; unique substitute test; buyer cover; residual shortfall.",
+        "rule_id": "RULE007",
+        "source_anchor_ids": [
+          "ANCH014",
+          "ANCH015"
+        ],
+        "statement": "Determine original deficiency, apply timely valid seller substitutions by June 6, then allow buyer cover only for the remaining gap, and carry any uncovered balance as residual shortfall.",
+        "truth_conditions": [
+          "Cure election scans prove case EXC-24017 was elected at 16:41.",
+          "Cover quantity does not exceed post-cure deficiency."
+        ]
+      },
+      {
+        "counterexample": "A June 7 election would not authorize seller cure.",
+        "input_fact_ids": [
+          "FACT006",
+          "FACT037"
+        ],
+        "operator_family": "cure_authentication",
+        "output_fact_ids": [
+          "FACT017",
+          "FACT021"
+        ],
+        "resolution_order": "Case identity, receipt, election option, timestamp, then replacement validation.",
+        "rule_id": "RULE014",
+        "source_anchor_ids": [],
+        "statement": "Seller cure is timely only when the received exception scan and seller election scan share case EXC-24017 and the election mark and received time are no later than June 6 at 17:00 EDT.",
+        "truth_conditions": [
+          "The seller selected substitute delivery.",
+          "The visible time is 16:41 EDT on June 6."
+        ]
+      }
+    ],
+    "schema_version": "statechain-contract-basis/v1",
+    "state_facts": [
+      {
+        "effective_from": "2025-05-20T15:42:00-04:00",
+        "effective_until": null,
+        "fact_id": "FACT005",
+        "interpretation": "The amendment controls only because the paired executed-image evidence agrees.",
+        "materialization_obligation": "Two embedded signature views must visibly establish matching document code, both signatures, and receipt time without a text transcript.",
+        "predicate": "amendment_fully_executed",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": true
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT006",
+        "interpretation": "Seller substitution must be elected and completed by this time.",
+        "materialization_obligation": "Amendment clause and exception correspondence must expose the deadline.",
+        "predicate": "seller_cure_deadline",
+        "source_anchor_ids": [],
+        "status": "executed",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": "2025-06-06T17:00:00-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT015",
+        "interpretation": "The reversal supersedes the earlier transfer before the cutoff.",
+        "materialization_obligation": "Related registry overview/detail pixels must show reversal icon, transaction ID TX-771903, and event time; structured export must not repeat the conclusion.",
+        "predicate": "buyer_transfer_reversed_at",
+        "source_anchor_ids": [
+          "ANCH003",
+          "ANCH009"
+        ],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT007",
+          "ENT001"
+        ],
+        "value": "2025-06-09T10:03:11-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT017",
+        "interpretation": "REPL-B cures LOT-B in full.",
+        "materialization_obligation": "Cure record, DOER row, serial records, and custody evidence must jointly support all 250.",
+        "predicate": "valid_timely_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT009",
+          "ENT011",
+          "ENT001"
+        ],
+        "value": 250
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT021",
+        "interpretation": "Only serials 000401 through 000550 add new delivery.",
+        "materialization_obligation": "Inventory control must derive 200 minus the image-evidenced overlap of 50.",
+        "predicate": "valid_unique_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT010"
+        ],
+        "value": 150
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT022",
+        "interpretation": "Accepted seller delivery is unique and capped by contract quantity.",
+        "materialization_obligation": "No public source may state this as a prejoined answer; route evidence must derive 400+150+250+150.",
+        "predicate": "accepted_seller_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 950
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT023",
+        "interpretation": "This is the gap available for buyer cover.",
+        "materialization_obligation": "Settlement route must reconcile 1,000 minus 950 with no balancing item.",
+        "predicate": "post_cure_deficiency_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 50
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT027",
+        "interpretation": "Ten certificates remain unresolved as of noon.",
+        "materialization_obligation": "Inventory control must compute 1,000 minus 950 minus 40.",
+        "predicate": "residual_shortfall_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT015"
+        ],
+        "value": 10
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT037",
+        "interpretation": "Timely cure permits replacement testing but does not guarantee acceptance.",
+        "materialization_obligation": "Notice receipt and seller election scans must visibly agree on case EXC-24017 and timely election.",
+        "predicate": "seller_cure_elected_at",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT009",
+          "ENT010",
+          "ENT002"
+        ],
+        "value": "2025-06-06T16:41:00-04:00"
+      }
+    ],
+    "visual_disclosure_plans": [],
+    "visual_reasoning_requirement": "Use both case-linked scans to infer that a valid substitute election followed a received notice before the deadline, then distinguish that authorization from acceptance. Either scan alone leaves the contractual cure chain incomplete."
+  },
+  "reference_claim_evidence": {
+    "citations": [
+      {
+        "locator": "Contract Cure Controls!A8:H9; Lot Dispositions!A8:U9",
+        "observation": "The workbook states that the election authorizes independent testing rather than acceptance, then separately tests REPL-B and REPL-C for program, custody, and uniqueness.",
+        "path": "deliverables/rec_settlement_workpaper.xlsx"
+      }
+    ],
+    "claim_id": "R005",
+    "why_full_pass": "Both substitutes enter the contractually authorized test path; REPL-B is accepted only after passing, while REPL-C is reduced to 150 because 50 serials fail uniqueness."
+  }
+}

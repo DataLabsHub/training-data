@@ -1,0 +1,2 @@
+2026-08-30T08:10:27.012526Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/libp2p/network/connection/swarm_connection.py:
+from libp2p.network.stream.net_stream import NetStream

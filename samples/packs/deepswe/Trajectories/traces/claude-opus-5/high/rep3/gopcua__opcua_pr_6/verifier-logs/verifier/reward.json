@@ -1,0 +1,22 @@
+{
+  "missing_or_bad": [
+    "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/nothing",
+    "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/has-both",
+    "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/has-text",
+    "github.com/wmnsk/gopcua/datatypes::TestDecodeLocalizedText/has-locale",
+    "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/nothing",
+    "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/has-both",
+    "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/has-text",
+    "github.com/wmnsk/gopcua/datatypes::TestSerializeLocalizedText/has-locale",
+    "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/empty",
+    "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/locale-only",
+    "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/text-only",
+    "github.com/wmnsk/gopcua/datatypes::TestAdditionalLocalizedTextMasksAndRoundTrip/both",
+    "github.com/wmnsk/gopcua/datatypes::TestAdditionalStringArrayNilAndEmptyEncoding",
+    "github.com/wmnsk/gopcua/datatypes::TestDecodeStringArray/normal",
+    "github.com/wmnsk/gopcua/datatypes::TestSerializeStringArray/normal"
+  ],
+  "passed": 45,
+  "reward": 0.0,
+  "total": 60
+}

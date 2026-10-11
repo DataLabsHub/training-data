@@ -1,0 +1,2 @@
+2026-08-30T08:12:31.020333Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/services/get-endpoints.go:
+func(x *ApplicationDescription)String()string{return fmt.Sprintf("%v",x.ApplicationURI)};func DecodeApplicationDescription(b []byte)(*ApplicationDescription,error){x:=&ApplicationDescription{};return x,x.DecodeFromBytes(b)}

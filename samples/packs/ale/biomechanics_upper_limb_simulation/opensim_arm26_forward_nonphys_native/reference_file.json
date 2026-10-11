@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0",
+  "note": "Indexes only ground-truth reference artifacts stored under reference/.",
+  "files": [
+    {
+      "name": "arm26_controls.sto",
+      "format": "STO",
+      "path": "reference/ForwardDynamics/arm26_controls.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 37198,
+      "sha256": "5a6730f293993f10a6ec0031078fbfc17019ace3a7a9a8298fb14e6771791670",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_states.sto",
+      "format": "STO",
+      "path": "reference/ForwardDynamics/arm26_states.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 89982,
+      "sha256": "3f6f0ab68c4d3bbc9bfbb21d717662de7e0483f8bc3ddce8b31ac524ef3191de",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_states_degrees.mot",
+      "format": "MOT",
+      "path": "reference/ForwardDynamics/arm26_states_degrees.mot",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 90100,
+      "sha256": "c78fdcae22f9142f86561fc6e183d9cc06a63720b683376a8b4404b8e0ea17a9",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_StaticOptimization_activation.sto",
+      "format": "STO",
+      "path": "reference/StaticOptimization/arm26_StaticOptimization_activation.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 14700,
+      "sha256": "6cebafdea1634d9def98d24606359e5ef3bd6b1adf5a0c7661d543c51e721074",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_StaticOptimization_controls.xml",
+      "format": "XML",
+      "path": "reference/StaticOptimization/arm26_StaticOptimization_controls.xml",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 100898,
+      "sha256": "f3b9a3bd6a94d76a03294c86ee877eba6fc58d20d9a577f3063ec774d40780c7",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_StaticOptimization_force.sto",
+      "format": "STO",
+      "path": "reference/StaticOptimization/arm26_StaticOptimization_force.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 14700,
+      "sha256": "9a7315ccdaaafc1014a0ee82bd44cc189a3d1f87cd746c4c6b519c4b463e9bf6",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

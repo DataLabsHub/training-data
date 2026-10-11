@@ -1,0 +1,566 @@
+{
+  "claim": {
+    "binary_failure_condition": "The price is wrong, comes from only one view, is attached to the wrong trade, is confused with total payment or seller unit price, or lacks precise paired support.",
+    "binary_pass_condition": "The workpaper records the matching executed cover unit price from both views and uses it as the cover price, not as the seller contract price, with precise evidence locators.",
+    "candidate_evidence_requirements": [
+      "A cover-price field linked to the same trade record and both visual evidence locators."
+    ],
+    "causal_owner_id": "FACT025",
+    "claim_id": "R012",
+    "contract_basis_ids": [
+      "FACT025",
+      "RULE009",
+      "RULE010",
+      "PRED014"
+    ],
+    "description": "The cover economics use the unit price that independently agrees across the executed terminal and broker records for the same trade.",
+    "importance_weight": 4,
+    "independent_failure_mode": "The cover quantity and execution can be correct while the unit price used for settlement is independently wrong.",
+    "method": "llm_judge",
+    "program_check": null,
+    "required_media_node_ids": [
+      "MGN012",
+      "MGN013"
+    ],
+    "title": "Cover price is corroborated",
+    "visual_reasoning_requirement": "Compare the price field on the executed terminal with the focused broker blotter row for the same trade. One image alone cannot establish independent price agreement and leaves a possible single-record transcription or identity error unresolved."
+  },
+  "contract_basis": {
+    "artifact_edges": [
+      {
+        "artifact_edge_id": "AEDGE038",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed executed trading terminal capture.",
+        "source_locator": null,
+        "source_node_id": "MGN012",
+        "target_locator": "page[1].image[0]",
+        "target_node_id": "CF015"
+      },
+      {
+        "artifact_edge_id": "AEDGE039",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed broker blotter photograph.",
+        "source_locator": null,
+        "source_node_id": "MGN013",
+        "target_locator": "word/media/image1.jpg",
+        "target_node_id": "CF016"
+      }
+    ],
+    "as_of": "2025-06-09T12:00:00-04:00",
+    "causal_owner_id": "FACT025",
+    "claim_basis_ids": [
+      "FACT025",
+      "RULE009",
+      "RULE010",
+      "PRED014"
+    ],
+    "entities": [
+      {
+        "description": "Fictional bilateral seller responsible for delivery and cure.",
+        "entity_id": "ENT002",
+        "entity_type": "certificate_seller",
+        "natural_identity": [
+          "GreenArc Certificate Markets LLC",
+          "seller code GAM-77"
+        ]
+      },
+      {
+        "description": "Executed confirmation and its cure-and-cover amendment.",
+        "entity_id": "ENT003",
+        "entity_type": "purchase_contract",
+        "natural_identity": [
+          "REC-2024-017",
+          "executed 2024-11-18"
+        ]
+      },
+      {
+        "description": "Seller invoice for the full 1,000 certificate tender.",
+        "entity_id": "ENT004",
+        "entity_type": "seller_invoice",
+        "natural_identity": [
+          "INV-2025-0617",
+          "issued 2025-06-09"
+        ]
+      },
+      {
+        "description": "Buyer cover purchase for forty 2024 Class I certificates.",
+        "entity_id": "ENT014",
+        "entity_type": "cover_trade",
+        "natural_identity": [
+          "COVER-2025-0609-40",
+          "broker fill BRK-88402"
+        ]
+      },
+      {
+        "description": "Buyer inventory control receiving accepted and cover certificates.",
+        "entity_id": "ENT015",
+        "entity_type": "compliance_inventory",
+        "natural_identity": [
+          "CY2024 Class I close",
+          "BSC-MA-4421"
+        ]
+      }
+    ],
+    "file_nodes": [
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF015",
+        "description_text": "Trading-desk capture container with neutral metadata and an embedded executed-terminal view; no text duplicates quantity, price, or execution state.",
+        "embedded_media_node_ids": [
+          "MGN012"
+        ],
+        "expected_format": "pdf",
+        "graph_node_id": "GN007",
+        "stored_relative_path": "Procurement/Cover Trade Capture BRK-88402.pdf"
+      },
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF016",
+        "description_text": "Broker-message container embedding a photographed blotter corroborating trade identity, product, fill, price, and time in pixels only.",
+        "embedded_media_node_ids": [
+          "MGN013"
+        ],
+        "expected_format": "docx",
+        "graph_node_id": "GN007",
+        "stored_relative_path": "Procurement/Broker Confirmation BRK-88402.docx"
+      }
+    ],
+    "media_nodes": [
+      {
+        "artifact_purpose": "Trading terminal executed-fill evidence.",
+        "comparison_group_ids": [
+          "cover_execution_pair"
+        ],
+        "distinct_information": "Shows trade BRK-88402 as executed for forty 2024 MA Class I RECs at USD 22.50 and precise time.",
+        "evidence_family": "trade_execution",
+        "media_node_id": "MGN012",
+        "operation": "text_to_image",
+        "output_format": "png",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "REC trading terminal fill screen",
+          "avoid": [
+            "stock chart",
+            "crypto interface",
+            "answer summary"
+          ],
+          "color_palette": "charcoal green cyan and white",
+          "composition_framing": "single order detail with execution banner",
+          "constraints": [
+            "One executed order only",
+            "No seller invoice amount",
+            "No damage calculation"
+          ],
+          "exact_text": [
+            "BRK-88402",
+            "EXECUTED",
+            "40 MWh",
+            "2024 MA CLASS I",
+            "USD 22.50",
+            "10:47:26 EDT"
+          ],
+          "lighting_mood": "focused",
+          "primary_request": "Create a crisp institutional trading-terminal screen showing one executed Massachusetts Class I REC fill.",
+          "scene_backdrop": "energy commodities trading application",
+          "style_medium": "realistic dark enterprise UI screenshot",
+          "subject": "cover trade BRK-88402",
+          "use_case": "ui-mockup"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "All trade fields readable",
+          "Executed state unmistakable",
+          "No computed offset"
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Independent broker blotter corroboration.",
+        "comparison_group_ids": [
+          "cover_execution_pair"
+        ],
+        "distinct_information": "Shows broker initials, matching trade ID, product shorthand, hand-checked fill quantity, price, and time on a distinct physical record.",
+        "evidence_family": "trade_execution",
+        "media_node_id": "MGN013",
+        "operation": "text_to_image",
+        "output_format": "jpg",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "photographed broker trade blotter",
+          "avoid": [
+            "same viewpoint as terminal",
+            "invoice",
+            "decorative scene"
+          ],
+          "color_palette": "white paper charcoal blue pen",
+          "composition_framing": "oblique close-up with single row in focus",
+          "constraints": [
+            "Broker initials visible",
+            "Physical paper texture",
+            "No accounting result"
+          ],
+          "exact_text": [
+            "BRK-88402",
+            "MAI24",
+            "40",
+            "22.50",
+            "10:47:26",
+            "FILLED"
+          ],
+          "lighting_mood": "cool morning office light",
+          "primary_request": "Create a natural desk photograph of a printed broker blotter row corroborating the executed REC cover trade.",
+          "scene_backdrop": "broker desk with keyboard edge and pen",
+          "style_medium": "photorealistic smartphone photograph",
+          "subject": "printed fill row for BRK-88402",
+          "use_case": "photorealistic-natural"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Fields agree with MGN012",
+          "Distinct physical evidence form",
+          "Readable focal row"
+        ],
+        "visibility": "embedded_only"
+      }
+    ],
+    "predicates": [
+      {
+        "applies_to_ids": [
+          "MGN012",
+          "MGN013",
+          "AEDGE038",
+          "AEDGE039",
+          "FACT024",
+          "FACT025",
+          "FACT026",
+          "RULE009"
+        ],
+        "counterexample": "A terminal order marked open or a blotter price of 22.05 fails.",
+        "evaluation_mode": "grounded_agent",
+        "evidence_requirements": [
+          "Inspect both image pixels and containers",
+          "Compare six trade fields",
+          "Search CF017 and CF020 for duplicated economics"
+        ],
+        "kind": "multimodal_fidelity",
+        "origin_refs": [
+          "workspace_policy"
+        ],
+        "pass_condition": "MGN012 and MGN013 share cover_execution_pair and BRK-88402; both show forty, 22.50, matching product shorthand, filled/executed state, and 10:47:26; AEDGE038-AEDGE039 embed them in distinct containers; no structured text repeats quantity and price.",
+        "predicate_id": "PRED014",
+        "severity": "blocking",
+        "statement": "Independent terminal and physical broker views jointly prove one executed cover fill."
+      }
+    ],
+    "required_media_node_ids": [
+      "MGN012",
+      "MGN013"
+    ],
+    "route_context": {
+      "business_goal": "Close the seller's 2024 Class I delivery without paying for unusable certificates and preserve a supportable compliance inventory.",
+      "contract_edge_ids": [
+        "CEDGE001",
+        "CEDGE002",
+        "CEDGE003",
+        "CEDGE004",
+        "CEDGE005",
+        "CEDGE006",
+        "CEDGE007",
+        "CEDGE008",
+        "CEDGE014",
+        "CEDGE015",
+        "CEDGE012",
+        "CEDGE013",
+        "CEDGE011"
+      ],
+      "contract_route_id": "CROUTE001",
+      "deliverable_class": "Auditable certificate-delivery settlement workbook with embedded procurement and accounting decision summary",
+      "difficulty_sources": [
+        "Temporal qualification and lifecycle precedence across different systems",
+        "Pixel-essential reversal and overlap evidence whose raw baselines and dimension-preserved annotations traverse two independently auditable PDF-to-DOCX chains",
+        "Ordered cure then cover logic",
+        "Cross-ledger quantity and money propagation",
+        "Visual trade-to-allocation-to-registry custody handoff that separates executed cover damages from buyer-held compliance inventory",
+        "As-of qualification-exception event precedence after exact unit authority matching and before downstream settlement propagation"
+      ],
+      "natural_request_context": "A settlement manager needs a single spreadsheet workpaper for the procurement director and controller after the final tender arrived on June 9.",
+      "required_graph_node_ids": [
+        "GN001",
+        "GN002",
+        "GN003",
+        "GN004",
+        "GN005",
+        "GN006",
+        "GN007",
+        "GN008",
+        "GN009",
+        "GN010",
+        "GN011",
+        "GN012"
+      ],
+      "required_rule_ids": [
+        "RULE001",
+        "RULE002",
+        "RULE003",
+        "RULE004",
+        "RULE005",
+        "RULE006",
+        "RULE007",
+        "RULE008",
+        "RULE009",
+        "RULE010",
+        "RULE011",
+        "RULE012",
+        "RULE013",
+        "RULE014",
+        "RULE015",
+        "RULE016",
+        "RULE017"
+      ],
+      "target_fact_ids": [
+        "FACT007",
+        "FACT022",
+        "FACT023",
+        "FACT027",
+        "FACT031",
+        "FACT032",
+        "FACT033",
+        "FACT042",
+        "FACT043"
+      ],
+      "terminal_decision": "After admitting the reversal and overlap only from the two raw-plus-marked cross-document evidence pairs, approve USD 16,920 net payable; post 950 seller RECs and 40 cover RECs separately; dispute 50 seller RECs, record a 10-REC residual shortfall, send dispute by June 16, and preserve July 1 filing readiness.",
+      "unique_resolution": "Exact source precedence, inclusive serial arithmetic, lifecycle event order, signed cure hierarchy, cover execution, paired raw/derived lineage admissibility, and conservation equations admit only the stated quantities, payable, and deadlines. The cover inventory component additionally requires an exact trade-to-allocation-to-final-registry-custody match by the cutoff; absent that final handoff, the cover posting is zero and the residual is fifty while the damage offset remains unchanged. The otherwise valid LOT-D unit must additionally have QX-38983-2025 in a final released state by noon; a pending, late, or mismatched release withholds its 150 certificates from the close and forces the stated downstream quantity, payable, inventory, and residual counterfactual."
+    },
+    "rules": [
+      {
+        "counterexample": "A quote screenshot without a matching executed broker blotter is not cover.",
+        "input_fact_ids": [
+          "FACT006",
+          "FACT024",
+          "FACT025",
+          "FACT026"
+        ],
+        "operator_family": "cover_execution",
+        "output_fact_ids": [
+          "FACT027",
+          "FACT030"
+        ],
+        "resolution_order": "Cross-image identity; execution state; time window; quantity cap; price.",
+        "rule_id": "RULE009",
+        "source_anchor_ids": [],
+        "statement": "A cover trade counts only when terminal and broker views agree on trade ID, executed status, product, quantity, price, and time after cure expiry but by the cutoff.",
+        "truth_conditions": [
+          "Both views identify BRK-88402, forty, USD 22.50, and executed.",
+          "Execution is 2025-06-09 10:47:26 EDT."
+        ]
+      },
+      {
+        "counterexample": "Deducting the entire USD 900 cover cost rather than its USD 180 differential fails.",
+        "input_fact_ids": [
+          "FACT003",
+          "FACT022",
+          "FACT024",
+          "FACT025",
+          "FACT038"
+        ],
+        "operator_family": "financial_settlement",
+        "output_fact_ids": [
+          "FACT029",
+          "FACT030",
+          "FACT031"
+        ],
+        "resolution_order": "Accepted gross; cover differential capped by deficiency; other supported credits; net payable.",
+        "rule_id": "RULE010",
+        "source_anchor_ids": [],
+        "statement": "Gross payable is accepted seller quantity times USD 18; recoverable cover offset is executed cover times positive USD 22.50 minus USD 18 differential; net payable is gross less offset and prior credits.",
+        "truth_conditions": [
+          "950 times 18 equals 17,100.",
+          "40 times 4.50 equals 180.",
+          "No prior payment or credit exists."
+        ]
+      }
+    ],
+    "schema_version": "statechain-contract-basis/v1",
+    "state_facts": [
+      {
+        "effective_from": "2024-11-18T00:00:00-05:00",
+        "effective_until": null,
+        "fact_id": "FACT003",
+        "interpretation": "The price applies only to accepted seller delivery.",
+        "materialization_obligation": "Confirmation price clause must state USD 18.00 per accepted REC.",
+        "predicate": "unit_price_usd",
+        "source_anchor_ids": [
+          "ANCH014",
+          "ANCH015"
+        ],
+        "status": "executed",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": 18.0
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT006",
+        "interpretation": "Seller substitution must be elected and completed by this time.",
+        "materialization_obligation": "Amendment clause and exception correspondence must expose the deadline.",
+        "predicate": "seller_cure_deadline",
+        "source_anchor_ids": [],
+        "status": "executed",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": "2025-06-06T17:00:00-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT022",
+        "interpretation": "Accepted seller delivery is unique and capped by contract quantity.",
+        "materialization_obligation": "No public source may state this as a prejoined answer; route evidence must derive 400+150+250+150.",
+        "predicate": "accepted_seller_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 950
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT024",
+        "interpretation": "Only an executed fill counts as cover.",
+        "materialization_obligation": "Terminal and broker images must agree on trade ID, quantity, product, and execution state while accounting text contains only payment linkage.",
+        "predicate": "executed_cover_quantity",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT014"
+        ],
+        "value": 40
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT025",
+        "interpretation": "The price sets the recoverable differential, not the seller certificate price.",
+        "materialization_obligation": "Paired cover-trade images must visibly agree on USD 22.50.",
+        "predicate": "cover_unit_price_usd",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT014"
+        ],
+        "value": 22.5
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT026",
+        "interpretation": "The trade is eligible under the amendment remedy order.",
+        "materialization_obligation": "Paired trade images must show execution after cure expiry and before the evidence cutoff.",
+        "predicate": "cover_executed_at",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT014"
+        ],
+        "value": "2025-06-09T10:47:26-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT027",
+        "interpretation": "Ten certificates remain unresolved as of noon.",
+        "materialization_obligation": "Inventory control must compute 1,000 minus 950 minus 40.",
+        "predicate": "residual_shortfall_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT015"
+        ],
+        "value": 10
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT029",
+        "interpretation": "Rejected or duplicate certificates are not payable.",
+        "materialization_obligation": "Accounting route must derive 950 times USD 18.00.",
+        "predicate": "gross_accepted_payable_usd",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT004",
+          "ENT002"
+        ],
+        "value": 17100.0
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT030",
+        "interpretation": "Only covered deficiency, not residual shortfall, creates this offset at cutoff.",
+        "materialization_obligation": "Contract and trade evidence must support 40 times the USD 4.50 positive differential.",
+        "predicate": "cover_damage_offset_usd",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT014",
+          "ENT002"
+        ],
+        "value": 180.0
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT031",
+        "interpretation": "USD 17,100 gross accepted value less USD 180 cover offset.",
+        "materialization_obligation": "Must remain derivable only through dispersed contract, lot, registry, cure, trade, and ledger evidence.",
+        "predicate": "net_invoice_payable_usd",
+        "source_anchor_ids": [],
+        "status": "terminal_derived",
+        "subject_entity_ids": [
+          "ENT004"
+        ],
+        "value": 16920.0
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT038",
+        "interpretation": "Only the cover damage offset reduces payable.",
+        "materialization_obligation": "AP ledger and payment advice must show no prior seller payment or other credit.",
+        "predicate": "prior_payments_or_credits_usd",
+        "source_anchor_ids": [],
+        "status": "ledger_evidenced",
+        "subject_entity_ids": [
+          "ENT004"
+        ],
+        "value": 0.0
+      }
+    ],
+    "visual_disclosure_plans": [],
+    "visual_reasoning_requirement": "Compare the price field on the executed terminal with the focused broker blotter row for the same trade. One image alone cannot establish independent price agreement and leaves a possible single-record transcription or identity error unresolved."
+  },
+  "reference_claim_evidence": {
+    "citations": [
+      {
+        "locator": "Contract Cure Controls!B10:H10; Financial Bridge!A7:F12",
+        "observation": "Both visual trade records state USD 22.50 for BRK-88402, and the bridge treats it as the cover price while retaining USD 18.00 as the seller contract benchmark.",
+        "path": "deliverables/rec_settlement_workpaper.xlsx"
+      }
+    ],
+    "claim_id": "R012",
+    "why_full_pass": "The price is corroborated across the exact executed trade pair and used only in the positive cover-differential calculation, never substituted for the contract unit price."
+  }
+}

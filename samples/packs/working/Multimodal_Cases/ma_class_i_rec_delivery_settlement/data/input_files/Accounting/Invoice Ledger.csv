@@ -1,0 +1,2 @@
+invoice_id,vendor,contract_reference,booked_amount_usd,approval_status,paid_amount_usd,prior_credits_usd,cover_adjustment_usd,approved_payable_usd,as_of
+INV-2025-0617,GreenArc Certificate Markets LLC,REC-2024-017,18000.00,UNAPPROVED,0.00,0.00,,,2025-06-09 12:00 EDT

@@ -1,0 +1,5 @@
+Implemented `indicator-enrichment` in [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+It supports mixed IP/URL/domain/CVE/file input from lists or extracted text, deduplication, validation and limits, child enrichment batching, partial failures, unified context, optional raw contexts, and required error handling.
+
+Verified with `py_compile`, import checks, and a builder smoke test.

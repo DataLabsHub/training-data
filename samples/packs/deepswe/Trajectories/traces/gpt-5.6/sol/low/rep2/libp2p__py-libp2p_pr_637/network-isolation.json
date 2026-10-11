@@ -1,0 +1,10 @@
+{
+  "direct_public_ip_blocked": true,
+  "github_dns_blocked": true,
+  "namespace": "unshare-user-net",
+  "provider_port": 443,
+  "provider_reachable": true,
+  "pypi_dns_blocked": true,
+  "schema": "coding-synthesis.chatgpt-only-network/v1",
+  "valid": true
+}

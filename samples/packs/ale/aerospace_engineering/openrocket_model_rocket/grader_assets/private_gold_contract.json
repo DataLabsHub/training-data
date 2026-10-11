@@ -1,0 +1,83 @@
+{
+  "task_id": "openrocket_model_rocket",
+  "domain": "Aerospace Engineering",
+  "software": "OpenRocket 24.12",
+  "source_class": "official_openrocket_example_project",
+  "source": "OpenRocket official example file 'A simple model rocket' (A_simple_model_rocket.ork) distributed with the OpenRocket source tree. Numeric values are the default output of Simulation 4 with the bundled C6-5 motor configuration at the standard ISA atmosphere + 2.0 m/s wind + launch-into-wind + 1.0 m rod + turbulence 0.1 as specified in OpenRocket's default example.",
+  "source_urls": [
+    "https://github.com/openrocket/openrocket",
+    "https://raw.githubusercontent.com/openrocket/openrocket/unstable/core/src/main/resources/datafiles/examples/A%20simple%20model%20rocket.ork",
+    "https://openrocket.info/documentation.html",
+    "https://openrocket.info/papers.html"
+  ],
+  "url_provenance_note": "The numeric flight metrics (apogee 316.583 m, max_velocity 95.282 m/s, etc.) are NOT quoted on any web page. They are the DETERMINISTIC output of running OpenRocket 24.12's 6-DOF integrator on the official example file `A simple model rocket.ork` (bundled verbatim at reference/rocket_design.ork, also available at the raw.githubusercontent URL above as 194 KB of zipped XML). The URLs establish: (1) OpenRocket source repository, (2) the exact example .ork file byte-for-byte, (3) OpenRocket documentation describing the simulator methodology, (4) the OpenRocket simulation algorithm paper list. The gold numbers are obtained by opening the .ork in OpenRocket 24.12 and running its built-in simulation.",
+  "anti_memorization_note": "The numeric flight metrics (apogee 316.6 m, max_velocity 95.3 m/s, etc.) come from running OpenRocket's own 6-DOF simulator on the official example file. An LLM can recall the existence of 'A simple model rocket' but cannot hallucinate the exact multi-digit flight metrics, which depend on mass distribution, fin area, wind profile, and the Estes C6-5 thrust curve in OpenRocket's built-in database. A wrong motor, missing component, or changed CP/CG will produce different apogee and time-to-apogee.",
+  "reference_design_file": "reference/rocket_design.ork",
+  "gold_values": {
+    "simulation_name": {
+      "value": "Simulation 4",
+      "type": "exact_string"
+    },
+    "motor_designation": {
+      "value": "C6-5",
+      "type": "exact_string"
+    },
+    "apogee_m": {
+      "value": 316.583,
+      "tolerance_pct": 3
+    },
+    "max_velocity_m_s": {
+      "value": 95.282,
+      "tolerance_pct": 3
+    },
+    "max_acceleration_m_s2": {
+      "value": 191.302,
+      "tolerance_pct": 5
+    },
+    "time_to_apogee_s": {
+      "value": 7.273,
+      "tolerance_pct": 3
+    },
+    "flight_time_s": {
+      "value": 83.514,
+      "tolerance_pct": 10
+    },
+    "launchrod_velocity_m_s": {
+      "value": 17.793,
+      "tolerance_pct": 5
+    },
+    "deployment_velocity_m_s": {
+      "value": 9.923,
+      "tolerance_pct": 10
+    }
+  },
+  "required_structural_checks": {
+    "components": [
+      "ogive_nose_cone",
+      "body_tube_length_mm_200_to_400",
+      "parachute_length_mm_300",
+      "trapezoidal_fin_set_count_3",
+      "inner_tube_length_mm_75",
+      "engine_block",
+      "shock_cord",
+      "wadding",
+      "launch_lug",
+      "centering_rings"
+    ],
+    "motor_database_source": "OpenRocket built-in Estes motor database",
+    "launch_conditions": {
+      "rod_length_m": 1.0,
+      "launch_into_wind": true,
+      "wind_speed_m_s": 2.0,
+      "turbulence": 0.1,
+      "atmosphere": "ISA"
+    }
+  },
+  "cross_check_rules": [
+    "apogee_m and max_velocity_m_s must be consistent with the C6-5 motor's total impulse (10 N*s) and the simulated rocket mass-to-drag ratio — any large deviation (>±10%) indicates wrong components or motor.",
+    "time_to_apogee_s * avg_velocity ≈ apogee_m within a factor of 2 (simple sanity check; real relationship is integral of v(t)).",
+    "launchrod_velocity_m_s must be > 15 m/s for a safe stability margin (FAR-style sanity rule)."
+  ],
+  "scoring_policy": "all_or_nothing: exact-match for simulation_name and motor_designation, numeric fields within their respective tolerances, AND structural checks pass",
+  "why_not_memorizable": "While the example is public, the exact multi-digit simulation outputs (apogee 316.583 m, time-to-apogee 7.273 s, etc.) are only obtainable by running OpenRocket's numerical integrator with the exact component geometry, mass, and wind profile. LLM memory can quote approximate values but not match tightened ±3% on apogee without running the simulator."
+}

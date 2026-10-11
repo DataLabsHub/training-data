@@ -1,0 +1,1056 @@
+{
+  "claim": {
+    "binary_failure_condition": "The overlap quantity or endpoints are wrong, duplicates are accepted twice, priority is reversed, the unique replacement remainder is wrong, or the conclusion lacks both preserved lineage members and precise locators.",
+    "binary_pass_condition": "The workpaper correctly identifies the inclusive overlap between the original and replacement ranges, preserves original-lot priority, retains only the nonoverlapping replacement portion, and cites both the exact raw baseline and unchanged marked derivative.",
+    "candidate_evidence_requirements": [
+      "The REPL-C uniqueness calculation with original and replacement endpoints, inclusive intersection, retained unique quantity, disposition, and raw/marked evidence locators."
+    ],
+    "causal_owner_id": "FACT020",
+    "claim_id": "R010",
+    "contract_basis_ids": [
+      "FACT018",
+      "FACT020",
+      "FACT021",
+      "FACT041",
+      "RULE006",
+      "RULE015",
+      "PRED011",
+      "PRED016",
+      "CROUTE001"
+    ],
+    "description": "The workpaper determines the original-versus-replacement serial intersection and its unique replacement consequence from the auditable raw and marked range pair.",
+    "importance_weight": 5,
+    "independent_failure_mode": "Serial uniqueness is resolved incorrectly or from inadmissible geometry even if both tendered row quantities were copied correctly.",
+    "method": "llm_judge",
+    "program_check": null,
+    "required_media_node_ids": [
+      "MGN006",
+      "MGN007"
+    ],
+    "title": "REPL-C overlap is admitted from preserved geometry",
+    "visual_reasoning_requirement": "Compare the extracted raw interval geometry with the dimension-preserved marked version to verify that the highlighted bracket corresponds exactly to the unchanged shared endpoints before deriving the business overlap. The raw view alone cannot establish that the analyst interpretation is the admitted marked observation, and the marked view alone cannot prove the geometry was preserved."
+  },
+  "contract_basis": {
+    "artifact_edges": [
+      {
+        "artifact_edge_id": "AEDGE025",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed raw transaction overview.",
+        "source_locator": null,
+        "source_node_id": "MGN001",
+        "target_locator": "page[1].image[0]",
+        "target_node_id": "CF011"
+      },
+      {
+        "artifact_edge_id": "AEDGE026",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed raw reversal detail.",
+        "source_locator": null,
+        "source_node_id": "MGN002",
+        "target_locator": "page[2].image[0]",
+        "target_node_id": "CF011"
+      },
+      {
+        "artifact_edge_id": "AEDGE027",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed raw serial interval matrix.",
+        "source_locator": null,
+        "source_node_id": "MGN005",
+        "target_locator": "page[4].image[0]",
+        "target_node_id": "CF011"
+      },
+      {
+        "artifact_edge_id": "AEDGE028",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "extract_source",
+        "semantic_purpose": "Extract reversal detail from one PDF source.",
+        "source_locator": "page[2].image[0]",
+        "source_node_id": "CF011",
+        "target_locator": null,
+        "target_node_id": "MGN003"
+      },
+      {
+        "artifact_edge_id": "AEDGE031",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "extract_source",
+        "semantic_purpose": "Extract interval matrix from one PDF source.",
+        "source_locator": "page[4].image[0]",
+        "source_node_id": "CF011",
+        "target_locator": null,
+        "target_node_id": "MGN006"
+      },
+      {
+        "artifact_edge_id": "AEDGE032",
+        "contract_edge_id": null,
+        "geometry_policy": "preserve_dimensions",
+        "preservation_invariants": [
+          "All endpoints and interval geometry unchanged",
+          "Only translucent overlap bracket added",
+          "Pixel width and height unchanged"
+        ],
+        "relationship": "edit_target",
+        "semantic_purpose": "Bracket the overlap without changing source geometry.",
+        "source_locator": null,
+        "source_node_id": "MGN006",
+        "target_locator": null,
+        "target_node_id": "MGN007"
+      },
+      {
+        "artifact_edge_id": "AEDGE033",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "embed",
+        "semantic_purpose": "Embed marked overlap evidence.",
+        "source_locator": null,
+        "source_node_id": "MGN007",
+        "target_locator": "word/media/image4.png",
+        "target_node_id": "CF012"
+      },
+      {
+        "artifact_edge_id": "AEDGE043",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [
+          "Embed the exact extracted pixels without resampling or annotation"
+        ],
+        "relationship": "embed",
+        "semantic_purpose": "Embed the raw reversal baseline beside its marked derivative so the first cross-document chain terminates in a public container.",
+        "source_locator": null,
+        "source_node_id": "MGN003",
+        "target_locator": "word/media/image1.png",
+        "target_node_id": "CF012"
+      },
+      {
+        "artifact_edge_id": "AEDGE044",
+        "contract_edge_id": null,
+        "geometry_policy": null,
+        "preservation_invariants": [
+          "Embed the exact extracted pixels without resampling or annotation"
+        ],
+        "relationship": "embed",
+        "semantic_purpose": "Embed the raw interval baseline beside its marked derivative so the second cross-document chain terminates in a public container.",
+        "source_locator": null,
+        "source_node_id": "MGN006",
+        "target_locator": "word/media/image3.png",
+        "target_node_id": "CF012"
+      }
+    ],
+    "as_of": "2025-06-09T12:00:00-04:00",
+    "causal_owner_id": "FACT020",
+    "claim_basis_ids": [
+      "FACT018",
+      "FACT020",
+      "FACT021",
+      "FACT041",
+      "RULE006",
+      "RULE015",
+      "PRED011",
+      "PRED016",
+      "CROUTE001"
+    ],
+    "entities": [
+      {
+        "description": "Fictional Massachusetts competitive supplier buying Class I certificates.",
+        "entity_id": "ENT001",
+        "entity_type": "retail_electricity_supplier",
+        "natural_identity": [
+          "Bay State Competitive Supply LLC",
+          "buyer GIS account BSC-MA-4421"
+        ]
+      },
+      {
+        "description": "Fictional bilateral seller responsible for delivery and cure.",
+        "entity_id": "ENT002",
+        "entity_type": "certificate_seller",
+        "natural_identity": [
+          "GreenArc Certificate Markets LLC",
+          "seller code GAM-77"
+        ]
+      },
+      {
+        "description": "Executed confirmation and its cure-and-cover amendment.",
+        "entity_id": "ENT003",
+        "entity_type": "purchase_contract",
+        "natural_identity": [
+          "REC-2024-017",
+          "executed 2024-11-18"
+        ]
+      },
+      {
+        "description": "Original 400-certificate Weldon lot.",
+        "entity_id": "ENT005",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-A",
+          "MSS424-2024Q2-000001:000400"
+        ]
+      },
+      {
+        "description": "Original 200-certificate lot whose buyer transfer was reversed.",
+        "entity_id": "ENT007",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-C",
+          "MSS424-2024Q3-001001:001200"
+        ]
+      },
+      {
+        "description": "Original 150-certificate Deer Island lot.",
+        "entity_id": "ENT008",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-D",
+          "NON38983-2024Q4-002001:002150"
+        ]
+      },
+      {
+        "description": "Timely 250-certificate replacement for LOT-B.",
+        "entity_id": "ENT009",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-B",
+          "MSS424-2024Q1-003001:003250"
+        ]
+      },
+      {
+        "description": "Replacement for LOT-C with fifty serials already tendered in LOT-A.",
+        "entity_id": "ENT010",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-C",
+          "MSS424-2024Q2-000351:000550"
+        ]
+      },
+      {
+        "description": "Official DOER hydroelectric unit effective January 1, 2024.",
+        "entity_id": "ENT011",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "MSS424",
+          "MA RPS 7031-24",
+          "Weldon"
+        ]
+      },
+      {
+        "description": "Official DOER anaerobic-digester unit effective April 1, 2002.",
+        "entity_id": "ENT013",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "NON38983",
+          "MA RPS 1015-02",
+          "Deer Island Treatment Plant STG"
+        ]
+      },
+      {
+        "description": "Buyer cover purchase for forty 2024 Class I certificates.",
+        "entity_id": "ENT014",
+        "entity_type": "cover_trade",
+        "natural_identity": [
+          "COVER-2025-0609-40",
+          "broker fill BRK-88402"
+        ]
+      },
+      {
+        "description": "Buyer inventory control receiving accepted and cover certificates.",
+        "entity_id": "ENT015",
+        "entity_type": "compliance_inventory",
+        "natural_identity": [
+          "CY2024 Class I close",
+          "BSC-MA-4421"
+        ]
+      }
+    ],
+    "file_nodes": [
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF011",
+        "description_text": "Live-review packet embedding uncaptained registry overview, reversal detail, and serial-matrix views; surrounding text records only operator, capture time, and case IDs.",
+        "embedded_media_node_ids": [
+          "MGN001",
+          "MGN002",
+          "MGN005"
+        ],
+        "expected_format": "pdf",
+        "graph_node_id": "GN005",
+        "stored_relative_path": "Registry Evidence/Final Lot Review Packet.pdf"
+      },
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF012",
+        "description_text": "Analyst review document embedding each exact extracted baseline immediately before its dimension-preserved marked derivative; prose does not transcribe decisive visual observations.",
+        "embedded_media_node_ids": [
+          "MGN003",
+          "MGN004",
+          "MGN006",
+          "MGN007"
+        ],
+        "expected_format": "docx",
+        "graph_node_id": "GN005",
+        "stored_relative_path": "Registry Evidence/Exception Markup.docx"
+      }
+    ],
+    "media_nodes": [
+      {
+        "artifact_purpose": "Raw live registry transaction overview for LOT-C.",
+        "comparison_group_ids": [
+          "registry_event_overview_detail",
+          "same_unit_different_periods"
+        ],
+        "distinct_information": "Shows the event sequence and TX-771903 row position through 10:03 without explaining its legal effect.",
+        "evidence_family": "registry_ui",
+        "media_node_id": "MGN001",
+        "operation": "text_to_image",
+        "output_format": "png",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "registry transaction history screen",
+          "avoid": [
+            "answer summary",
+            "terminal settlement amount",
+            "decorative illustration"
+          ],
+          "color_palette": "white slate blue and restrained red",
+          "composition_framing": "full-screen event table with status icons and timestamps",
+          "constraints": [
+            "Show transfer earlier than reversal",
+            "Keep decisive status in pixels",
+            "No explanatory caption or callout"
+          ],
+          "exact_text": [
+            "LOT-C",
+            "TX-771903",
+            "06/09/2025 10:03:11 EDT",
+            "REVERSED",
+            "BSC-MA-4421"
+          ],
+          "lighting_mood": "neutral",
+          "primary_request": "Create a crisp internal certificate-registry transaction history view for LOT-C showing transfer and later reversal events.",
+          "scene_backdrop": "desktop registry application",
+          "style_medium": "realistic enterprise UI screenshot",
+          "subject": "MSS424 2024Q3 serials 001001 through 001200",
+          "use_case": "ui-mockup"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Readable identifiers and time",
+          "Clearly distinct transfer and reversal icons",
+          "No OCR transcript outside the image"
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Certificate-detail view corroborating the reversed transaction.",
+        "comparison_group_ids": [
+          "registry_event_overview_detail"
+        ],
+        "distinct_information": "Shows the adverse status attached to the exact inclusive serial block and buyer account, complementing the overview's chronology.",
+        "evidence_family": "registry_ui",
+        "media_node_id": "MGN002",
+        "operation": "text_to_image",
+        "output_format": "png",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "registry certificate detail panel",
+          "avoid": [
+            "invoice data",
+            "cover trade",
+            "text outside UI"
+          ],
+          "color_palette": "white charcoal blue and red",
+          "composition_framing": "close detail panel with status badge and ownership field",
+          "constraints": [
+            "Status badge must be visually prominent but uncaptained",
+            "Use exact inclusive endpoints",
+            "No settlement interpretation"
+          ],
+          "exact_text": [
+            "TX-771903",
+            "MSS424",
+            "2024 Q3",
+            "001001 - 001200",
+            "BSC-MA-4421",
+            "REVERSED"
+          ],
+          "lighting_mood": "neutral",
+          "primary_request": "Create a certificate-detail panel for LOT-C that ties transaction TX-771903 to the exact serial block and buyer account.",
+          "scene_backdrop": "modal over enterprise registry",
+          "style_medium": "realistic enterprise UI screenshot",
+          "subject": "MSS424 2024Q3 001001-001200 certificate block",
+          "use_case": "ui-mockup"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Readable range and account",
+          "Same transaction identity as MGN001",
+          "Different viewpoint from overview"
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Structurally extracted raw LOT-C detail embedded as the public baseline for controlled annotation.",
+        "comparison_group_ids": [
+          "raw_to_reversal_markup"
+        ],
+        "distinct_information": "Preserves and publicly exposes the unobscured source pixels before analyst marks, allowing the derivative's fidelity to be judged in CF012.",
+        "evidence_family": "source_extract",
+        "media_node_id": "MGN003",
+        "operation": "extract_from_document",
+        "output_format": "png",
+        "preservation_invariants": [
+          "Pixel content must match page[2].image[0] exactly"
+        ],
+        "prompt": null,
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Extract exactly one embedded image",
+          "No resampling or OCR overlay",
+          "Embed unchanged at CF012 word/media/image1.png"
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Raw registry serial-range comparison for LOT-A and REPL-C.",
+        "comparison_group_ids": [
+          "same_unit_different_periods",
+          "serial_overlap_overview_detail"
+        ],
+        "distinct_information": "Shows two same-unit, same-period interval bars whose intersection is visually bounded at 000351 through 000400.",
+        "evidence_family": "registry_ui",
+        "media_node_id": "MGN005",
+        "operation": "text_to_image",
+        "output_format": "png",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "registry serial interval comparison",
+          "avoid": [
+            "answer labels",
+            "3D chart",
+            "decorative gradients"
+          ],
+          "color_palette": "navy teal white and overlap amber",
+          "composition_framing": "two horizontal interval bars with aligned tick marks",
+          "constraints": [
+            "Accurate relative endpoints",
+            "Intersection visible only through geometry",
+            "No numeric overlap total",
+            "No explanatory caption"
+          ],
+          "exact_text": [
+            "LOT-A 000001-000400",
+            "REPL-C 000351-000550",
+            "MSS424",
+            "2024 Q2"
+          ],
+          "lighting_mood": "neutral",
+          "primary_request": "Create a registry-native serial-range matrix comparing LOT-A and REPL-C on one aligned numeric axis.",
+          "scene_backdrop": "certificate audit tool",
+          "style_medium": "precise enterprise data visualization",
+          "subject": "MSS424 2024Q2 LOT-A 000001-000400 and REPL-C 000351-000550",
+          "use_case": "infographic-diagram"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Aligned interval geometry",
+          "Readable exact endpoints",
+          "No text states fifty"
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Structurally extracted raw range matrix embedded as the public baseline for controlled markup.",
+        "comparison_group_ids": [
+          "raw_to_overlap_markup"
+        ],
+        "distinct_information": "Publicly exposes the unobscured baseline interval geometry in CF012 so the later analyst bracket can be checked against it.",
+        "evidence_family": "source_extract",
+        "media_node_id": "MGN006",
+        "operation": "extract_from_document",
+        "output_format": "png",
+        "preservation_invariants": [
+          "Pixel content must match page[4].image[0] exactly"
+        ],
+        "prompt": null,
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Extract exactly one image",
+          "Keep original dimensions and color",
+          "Embed unchanged at CF012 word/media/image3.png"
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Marked serial overlap comparison.",
+        "comparison_group_ids": [
+          "raw_to_overlap_markup",
+          "serial_overlap_overview_detail"
+        ],
+        "distinct_information": "Adds a translucent bracket over only the geometric intersection so an auditor can count inclusive endpoints against the raw view.",
+        "evidence_family": "analyst_markup",
+        "media_node_id": "MGN007",
+        "operation": "image_to_image",
+        "output_format": "png",
+        "preservation_invariants": [
+          "All source text and interval geometry unchanged",
+          "Exact dimensions preserved",
+          "Only intersection bracket added"
+        ],
+        "prompt": {
+          "asset_type": "annotated serial interval evidence",
+          "avoid": [
+            "cropping",
+            "new serial values",
+            "answer caption",
+            "changed geometry"
+          ],
+          "color_palette": "source colors plus translucent amber",
+          "composition_framing": "exact source dimensions and aligned axis",
+          "constraints": [
+            "Preserve every endpoint and bar position",
+            "Do not add overlap quantity text",
+            "Preserve exact pixel width and height"
+          ],
+          "exact_text": [],
+          "lighting_mood": "neutral",
+          "primary_request": "Overlay a translucent amber bracket exactly across the intersection of the two existing interval bars, preserving all source geometry and text.",
+          "scene_backdrop": "preserved source serial matrix",
+          "style_medium": "forensic analyst markup",
+          "subject": "geometric intersection of LOT-A and REPL-C",
+          "use_case": "precise-object-edit"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Bracket aligns with 000351-000400",
+          "Raw values remain readable"
+        ],
+        "visibility": "embedded_only"
+      }
+    ],
+    "predicates": [
+      {
+        "applies_to_ids": [
+          "MGN006",
+          "MGN007",
+          "AEDGE031",
+          "AEDGE032",
+          "AEDGE033",
+          "AEDGE044",
+          "FACT020",
+          "FACT021",
+          "FACT041",
+          "RULE006",
+          "RULE015"
+        ],
+        "counterexample": "Moving a bar to make the intersection appear larger fails.",
+        "evaluation_mode": "grounded_agent",
+        "evidence_requirements": [
+          "Inspect AEDGE031-AEDGE033 and AEDGE044, including CF012 word/media/image3.png and image4.png",
+          "Compare dimensions, OCR tokens, and coordinate-level bar geometry"
+        ],
+        "kind": "multimodal_fidelity",
+        "origin_refs": [
+          "workspace_policy"
+        ],
+        "pass_condition": "MGN006 equals CF011 page[4].image[0] and embeds unchanged at CF012 word/media/image3.png through AEDGE044; MGN007 has identical dimensions, endpoints, and bar coordinates with only a translucent bracket and embeds at image4.png through AEDGE033; both share raw_to_overlap_markup and form a second terminating raw/derived cross-document chain.",
+        "predicate_id": "PRED011",
+        "severity": "blocking",
+        "statement": "The extracted raw interval image and its derivative preserve geometry exactly while adding only the overlap bracket."
+      },
+      {
+        "applies_to_ids": [
+          "MGN001",
+          "MGN002",
+          "MGN003",
+          "MGN005",
+          "MGN006",
+          "MGN007",
+          "AEDGE025",
+          "AEDGE026",
+          "AEDGE027",
+          "AEDGE033",
+          "AEDGE043",
+          "AEDGE044",
+          "FACT015",
+          "FACT020",
+          "FACT021",
+          "FACT022",
+          "FACT041",
+          "RULE005",
+          "RULE006",
+          "RULE008",
+          "RULE015",
+          "CROUTE001"
+        ],
+        "counterexample": "If a structured record explicitly states both LOT-C rejected 200 and REPL-C duplicate 50, the bounded image relationship is not essential.",
+        "evaluation_mode": "grounded_agent",
+        "evidence_requirements": [
+          "Inspect the six media nodes and AEDGE025, AEDGE026, AEDGE027, AEDGE033, AEDGE043, and AEDGE044",
+          "Search nonpixel content for reversal and overlap conclusions",
+          "Recompute seller acceptance with and without both observations"
+        ],
+        "kind": "multimodal_fidelity",
+        "origin_refs": [
+          "workspace_policy"
+        ],
+        "pass_condition": "MGN001-MGN002 share registry_event_overview_detail and prove all 200 LOT-C serials reversed; MGN005-MGN007 share serial_overlap_overview_detail and prove the inclusive fifty-serial REPL-C intersection; MGN003 and MGN006 are the exact extracted baselines embedded through AEDGE043-AEDGE044 beside the marked derivatives; without these pixels and terminating chains, nonpixel records cannot distinguish 750, 950, or 1,000 seller acceptance.",
+        "predicate_id": "PRED016",
+        "severity": "blocking",
+        "statement": "The two bounded registry comparison groups, each with an embedded raw baseline and marked derivative, jointly determine the seller quantity lost to reversal and duplication."
+      }
+    ],
+    "required_media_node_ids": [
+      "MGN006",
+      "MGN007"
+    ],
+    "route_context": {
+      "business_goal": "Close the seller's 2024 Class I delivery without paying for unusable certificates and preserve a supportable compliance inventory.",
+      "contract_edge_ids": [
+        "CEDGE001",
+        "CEDGE002",
+        "CEDGE003",
+        "CEDGE004",
+        "CEDGE005",
+        "CEDGE006",
+        "CEDGE007",
+        "CEDGE008",
+        "CEDGE014",
+        "CEDGE015",
+        "CEDGE012",
+        "CEDGE013",
+        "CEDGE011"
+      ],
+      "contract_route_id": "CROUTE001",
+      "deliverable_class": "Auditable certificate-delivery settlement workbook with embedded procurement and accounting decision summary",
+      "difficulty_sources": [
+        "Temporal qualification and lifecycle precedence across different systems",
+        "Pixel-essential reversal and overlap evidence whose raw baselines and dimension-preserved annotations traverse two independently auditable PDF-to-DOCX chains",
+        "Ordered cure then cover logic",
+        "Cross-ledger quantity and money propagation",
+        "Visual trade-to-allocation-to-registry custody handoff that separates executed cover damages from buyer-held compliance inventory",
+        "As-of qualification-exception event precedence after exact unit authority matching and before downstream settlement propagation"
+      ],
+      "natural_request_context": "A settlement manager needs a single spreadsheet workpaper for the procurement director and controller after the final tender arrived on June 9.",
+      "required_graph_node_ids": [
+        "GN001",
+        "GN002",
+        "GN003",
+        "GN004",
+        "GN005",
+        "GN006",
+        "GN007",
+        "GN008",
+        "GN009",
+        "GN010",
+        "GN011",
+        "GN012"
+      ],
+      "required_rule_ids": [
+        "RULE001",
+        "RULE002",
+        "RULE003",
+        "RULE004",
+        "RULE005",
+        "RULE006",
+        "RULE007",
+        "RULE008",
+        "RULE009",
+        "RULE010",
+        "RULE011",
+        "RULE012",
+        "RULE013",
+        "RULE014",
+        "RULE015",
+        "RULE016",
+        "RULE017"
+      ],
+      "target_fact_ids": [
+        "FACT007",
+        "FACT022",
+        "FACT023",
+        "FACT027",
+        "FACT031",
+        "FACT032",
+        "FACT033",
+        "FACT042",
+        "FACT043"
+      ],
+      "terminal_decision": "After admitting the reversal and overlap only from the two raw-plus-marked cross-document evidence pairs, approve USD 16,920 net payable; post 950 seller RECs and 40 cover RECs separately; dispute 50 seller RECs, record a 10-REC residual shortfall, send dispute by June 16, and preserve July 1 filing readiness.",
+      "unique_resolution": "Exact source precedence, inclusive serial arithmetic, lifecycle event order, signed cure hierarchy, cover execution, paired raw/derived lineage admissibility, and conservation equations admit only the stated quantities, payable, and deadlines. The cover inventory component additionally requires an exact trade-to-allocation-to-final-registry-custody match by the cutoff; absent that final handoff, the cover posting is zero and the residual is fifty while the damage offset remains unchanged. The otherwise valid LOT-D unit must additionally have QX-38983-2025 in a final released state by noon; a pending, late, or mismatched release withholds its 150 certificates from the close and forces the stated downstream quantity, payable, inventory, and residual counterfactual."
+    },
+    "rules": [
+      {
+        "counterexample": "Counting LOT-C from the 09:30 export despite the later reversal fails.",
+        "input_fact_ids": [
+          "FACT010",
+          "FACT015",
+          "FACT016",
+          "FACT019",
+          "FACT040"
+        ],
+        "operator_family": "lifecycle_precedence",
+        "output_fact_ids": [
+          "FACT022",
+          "FACT023"
+        ],
+        "resolution_order": "Latest adverse terminal event; latest ownership event; stale export only for events at or before its own cutoff.",
+        "rule_id": "RULE005",
+        "source_anchor_ids": [
+          "ANCH003",
+          "ANCH009",
+          "ANCH013"
+        ],
+        "statement": "For each unique serial at the cutoff, cancellation, retirement elsewhere, or reversal supersedes any earlier transfer; otherwise the last posted owner must be the buyer.",
+        "truth_conditions": [
+          "Paired registry pixels identify TX-771903 and a 10:03:11 reversal for LOT-C.",
+          "No later restoration exists by noon."
+        ]
+      },
+      {
+        "counterexample": "Adding all 200 REPL-C certificates produces an impermissible total of 1,000.",
+        "input_fact_ids": [
+          "FACT008",
+          "FACT018",
+          "FACT020"
+        ],
+        "operator_family": "serial_deduplication",
+        "output_fact_ids": [
+          "FACT021",
+          "FACT022"
+        ],
+        "resolution_order": "Validate original lot; expand or interval-compare; allocate overlap to original; retain replacement remainder.",
+        "rule_id": "RULE006",
+        "source_anchor_ids": [
+          "ANCH013"
+        ],
+        "statement": "Sort inclusive serial intervals by original accepted tender before replacement; count each serial once and retain only replacement serials not already accepted.",
+        "truth_conditions": [
+          "The visual range matrix shows the same GIS ID and 2024Q2 period.",
+          "000351 through 000400 is an inclusive fifty-serial intersection."
+        ]
+      },
+      {
+        "counterexample": "A residual of zero would require ten unsupported certificates.",
+        "input_fact_ids": [
+          "FACT002",
+          "FACT008",
+          "FACT016",
+          "FACT017",
+          "FACT021",
+          "FACT024"
+        ],
+        "operator_family": "quantity_conservation",
+        "output_fact_ids": [
+          "FACT022",
+          "FACT023",
+          "FACT027"
+        ],
+        "resolution_order": "Accepted seller components, contract cap, post-cure deficiency, cover cap, residual.",
+        "rule_id": "RULE008",
+        "source_anchor_ids": [],
+        "statement": "Accepted seller quantity equals 400 LOT-A plus 150 LOT-D plus 250 REPL-B plus 150 unique REPL-C; deficiency equals 1,000 less accepted, and residual equals deficiency less executed cover.",
+        "truth_conditions": [
+          "Accepted components sum to 950.",
+          "The 40 cover is executed and no other cure exists by noon."
+        ]
+      },
+      {
+        "counterexample": "Embedding only the marked image leaves the auditor unable to verify that the annotation preserved the source evidence.",
+        "input_fact_ids": [
+          "FACT015",
+          "FACT020",
+          "FACT041"
+        ],
+        "operator_family": "visual_lineage_admissibility",
+        "output_fact_ids": [
+          "FACT022"
+        ],
+        "resolution_order": "Extract the declared PDF image; embed that exact baseline in CF012; create the dimension-preserved edit from the baseline; embed the derivative beside it; only then admit the reversal and overlap observations into accepted-quantity arithmetic.",
+        "rule_id": "RULE015",
+        "source_anchor_ids": [],
+        "statement": "A registry pixel observation may affect seller acceptance only when its exact extracted baseline and its dimension-preserved marked derivative both terminate in the public DOCX review container through declared lineage edges.",
+        "truth_conditions": [
+          "CF011 page[2].image[0] yields MGN003, and both MGN003 and derived MGN004 are embedded in CF012.",
+          "CF011 page[4].image[0] yields MGN006, and both MGN006 and derived MGN007 are embedded in CF012.",
+          "The raw and derived members of each pair retain identical pixel dimensions and unchanged source text."
+        ]
+      }
+    ],
+    "schema_version": "statechain-contract-basis/v1",
+    "state_facts": [
+      {
+        "effective_from": "2024-11-18T00:00:00-05:00",
+        "effective_until": null,
+        "fact_id": "FACT002",
+        "interpretation": "One REC represents one MWh for quantity arithmetic.",
+        "materialization_obligation": "Confirmation must state exactly 1,000 2024 Class I RECs.",
+        "predicate": "contract_quantity_mwh",
+        "source_anchor_ids": [
+          "ANCH014",
+          "ANCH015"
+        ],
+        "status": "executed",
+        "subject_entity_ids": [
+          "ENT003"
+        ],
+        "value": 1000
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT008",
+        "interpretation": "Quantity is inclusive serial count and remains subject to deduplication.",
+        "materialization_obligation": "Delivery statement and registry evidence must identify LOT-A and its exact range.",
+        "predicate": "tendered_quantity_mwh",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT005",
+          "ENT011"
+        ],
+        "value": 400
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT010",
+        "interpretation": "LOT-A passes lifecycle testing except for downstream overlap claims against it.",
+        "materialization_obligation": "Registry views must show buyer custody with no later adverse event.",
+        "predicate": "buyer_held_at_cutoff",
+        "source_anchor_ids": [
+          "ANCH003",
+          "ANCH013"
+        ],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT005",
+          "ENT001"
+        ],
+        "value": true
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT015",
+        "interpretation": "The reversal supersedes the earlier transfer before the cutoff.",
+        "materialization_obligation": "Related registry overview/detail pixels must show reversal icon, transaction ID TX-771903, and event time; structured export must not repeat the conclusion.",
+        "predicate": "buyer_transfer_reversed_at",
+        "source_anchor_ids": [
+          "ANCH003",
+          "ANCH009"
+        ],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT007",
+          "ENT001"
+        ],
+        "value": "2025-06-09T10:03:11-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT016",
+        "interpretation": "LOT-D is fully acceptable.",
+        "materialization_obligation": "Delivery and registry records must show 150 unique buyer-held 2024 certificates.",
+        "predicate": "valid_unique_buyer_held_quantity",
+        "source_anchor_ids": [],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT008",
+          "ENT013",
+          "ENT001"
+        ],
+        "value": 150
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT017",
+        "interpretation": "REPL-B cures LOT-B in full.",
+        "materialization_obligation": "Cure record, DOER row, serial records, and custody evidence must jointly support all 250.",
+        "predicate": "valid_timely_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT009",
+          "ENT011",
+          "ENT001"
+        ],
+        "value": 250
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT018",
+        "interpretation": "The label of 200 does not establish 200 unique certificates.",
+        "materialization_obligation": "Replacement statement must expose the exact 000351 through 000550 range.",
+        "predicate": "replacement_tendered_quantity",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT010",
+          "ENT011"
+        ],
+        "value": 200
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT019",
+        "interpretation": "Custody passes but uniqueness remains a separate test.",
+        "materialization_obligation": "Registry lifecycle record must show buyer custody for REPL-C.",
+        "predicate": "buyer_held_at_cutoff",
+        "source_anchor_ids": [],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT010",
+          "ENT001"
+        ],
+        "value": true
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT020",
+        "interpretation": "Those fifty certificates belong to LOT-A once and cannot cure LOT-C again.",
+        "materialization_obligation": "Raw and marked serial-matrix images must visibly establish overlap 000351 through 000400 without a textual helper table.",
+        "predicate": "overlapping_serial_quantity",
+        "source_anchor_ids": [
+          "ANCH013"
+        ],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT005",
+          "ENT010"
+        ],
+        "value": 50
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT021",
+        "interpretation": "Only serials 000401 through 000550 add new delivery.",
+        "materialization_obligation": "Inventory control must derive 200 minus the image-evidenced overlap of 50.",
+        "predicate": "valid_unique_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT010"
+        ],
+        "value": 150
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT022",
+        "interpretation": "Accepted seller delivery is unique and capped by contract quantity.",
+        "materialization_obligation": "No public source may state this as a prejoined answer; route evidence must derive 400+150+250+150.",
+        "predicate": "accepted_seller_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 950
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT023",
+        "interpretation": "This is the gap available for buyer cover.",
+        "materialization_obligation": "Settlement route must reconcile 1,000 minus 950 with no balancing item.",
+        "predicate": "post_cure_deficiency_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 50
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT024",
+        "interpretation": "Only an executed fill counts as cover.",
+        "materialization_obligation": "Terminal and broker images must agree on trade ID, quantity, product, and execution state while accounting text contains only payment linkage.",
+        "predicate": "executed_cover_quantity",
+        "source_anchor_ids": [],
+        "status": "pixel_evidenced",
+        "subject_entity_ids": [
+          "ENT014"
+        ],
+        "value": 40
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT027",
+        "interpretation": "Ten certificates remain unresolved as of noon.",
+        "materialization_obligation": "Inventory control must compute 1,000 minus 950 minus 40.",
+        "predicate": "residual_shortfall_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT015"
+        ],
+        "value": 10
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT040",
+        "interpretation": "The extract predates the 10:03 reversal and is stale for LOT-C.",
+        "materialization_obligation": "CSV metadata row or companion header must expose the extract cutoff.",
+        "predicate": "scheduled_export_cutoff",
+        "source_anchor_ids": [],
+        "status": "system_metadata",
+        "subject_entity_ids": [
+          "ENT007"
+        ],
+        "value": "2025-06-09T09:30:00-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT041",
+        "interpretation": "The extracted raw views are independent provenance evidence, not disposable intermediate files; each must remain visible beside its marked derivative.",
+        "materialization_obligation": "CF012 must embed MGN003 at word/media/image1.png, MGN004 at image2.png, MGN006 at image3.png, and MGN007 at image4.png, establishing two distinct CF011-to-CF012 chains.",
+        "predicate": "raw_and_annotated_registry_pairs_publicly_embedded",
+        "source_anchor_ids": [],
+        "status": "materialization_control",
+        "subject_entity_ids": [
+          "ENT001",
+          "ENT015"
+        ],
+        "value": true
+      }
+    ],
+    "visual_disclosure_plans": [],
+    "visual_reasoning_requirement": "Compare the extracted raw interval geometry with the dimension-preserved marked version to verify that the highlighted bracket corresponds exactly to the unchanged shared endpoints before deriving the business overlap. The raw view alone cannot establish that the analyst interpretation is the admitted marked observation, and the marked view alone cannot prove the geometry was preserved."
+  },
+  "reference_claim_evidence": {
+    "citations": [
+      {
+        "locator": "Registry Lineage!A8:J9; Lot Dispositions!A9:U9",
+        "observation": "The 1693×929 raw and marked range pair preserves endpoints and shows inclusive overlap 000351-000400; original priority leaves REPL-C 000401-000550, or 150 accepted and 50 deficient.",
+        "path": "deliverables/rec_settlement_workpaper.xlsx"
+      }
+    ],
+    "claim_id": "R010",
+    "why_full_pass": "The inclusive arithmetic, original-lot priority, unique replacement remainder, one partial disposition, and exact raw/marked public locators are all recorded."
+  }
+}

@@ -1,0 +1,16 @@
+# Required FlightGear launch arguments for flightgear_010.
+# Use the FlightGear Launcher GUI's "Settings -> Additional Settings" box to paste these,
+# OR launch from a terminal with: fgfs $(cat input/launch_args.txt | grep -v '^#' | xargs)
+
+--aircraft=c172p
+--airport=KSFO
+--parking-id=G_A4
+--metar="KSFO 271156Z 30006KT 10SM FEW015 SCT023 SCT070 12/08 A2999 RMK AO2 SLP157 T01220078 10133 20122 55000 $"
+--httpd=8080
+--prop:/sim/replay/record-continuous=true
+--prop:/sim/replay/buffer/high-water-mark=600
+--config=input/logging.xml
+--log-level=info
+--log-dir=output/
+--enable-fullscreen
+--disable-splash-screen

@@ -1,0 +1,18 @@
+Implemented NetStream lifecycle state support.
+
+Changes include:
+
+- Added `StreamState`: `INIT`, `OPEN`, `CLOSE_READ`, `CLOSE_WRITE`, `CLOSE_BOTH`, `RESET`, `ERROR`
+- Added awaitable `state`, `set_state()`, and `is_operational()`
+- Added synchronized state-aware read/write/close/reset operations
+- Added `close_read()` and `close_write()`
+- Converted unexpected read/write failures to `StreamError` and `ERROR`
+- Preserved existing EOF/reset/closed exception behavior
+- Updated swarm-created streams from `INIT` to `OPEN`
+- Added `swarm_conn` constructor support
+
+Validation passed:
+
+- `41` network tests
+- Focused stream/swarm tests: `11 passed`
+- `git diff --check` clean

@@ -1,0 +1,14 @@
+{
+  "classification": "public_redacted_projection",
+  "file_count": 2,
+  "raw_session_included": false,
+  "redactions": [
+    "credentials",
+    "host_paths",
+    "runtime_forbidden_terms",
+    "account_identity_metadata",
+    "provider_session_identifiers",
+    "inline_binary_payloads"
+  ],
+  "schema_version": "statechain-sanitized-native-session/v1"
+}

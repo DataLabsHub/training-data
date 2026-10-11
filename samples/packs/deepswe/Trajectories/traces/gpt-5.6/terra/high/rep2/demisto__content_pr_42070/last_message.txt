@@ -1,0 +1,5 @@
+Implemented the new [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py) command module.
+
+It supports mixed list/text input, grouping/deduplication, validation and limit handling, child enrichment batching, partial failures, unified context/Markdown output, optional raw context, and required exception/main behavior.
+
+Validated with import/compile checks plus focused inline behavior tests for limits, duplicates, partial failures, context filtering, and all-fail handling.

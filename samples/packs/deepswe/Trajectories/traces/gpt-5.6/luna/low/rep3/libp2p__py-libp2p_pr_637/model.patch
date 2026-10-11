@@ -1,0 +1,177 @@
+diff --git a/libp2p/network/connection/swarm_connection.py b/libp2p/network/connection/swarm_connection.py
+index c1b42c5..03191af 100644
+--- a/libp2p/network/connection/swarm_connection.py
++++ b/libp2p/network/connection/swarm_connection.py
+@@ -13,6 +13,7 @@ from libp2p.abc import (
+ )
+ from libp2p.network.stream.net_stream import (
+     NetStream,
++    StreamState,
+ )
+ from libp2p.stream_muxer.exceptions import (
+     MuxedConnUnavailable,
+@@ -146,7 +147,8 @@ class SwarmConn(INetConn):
+             self.remove_stream(net_stream)
+ 
+     async def _add_stream(self, muxed_stream: IMuxedStream) -> NetStream:
+-        net_stream = NetStream(muxed_stream)
++        net_stream = NetStream(muxed_stream, swarm_conn=self)
++        await net_stream.set_state(StreamState.OPEN)
+         self.streams.add(net_stream)
+         await self.swarm.notify_opened_stream(net_stream)
+         return net_stream
+diff --git a/libp2p/network/stream/net_stream.py b/libp2p/network/stream/net_stream.py
+index 49daab9..92ac149 100644
+--- a/libp2p/network/stream/net_stream.py
++++ b/libp2p/network/stream/net_stream.py
+@@ -21,6 +21,7 @@ from libp2p.transport.quic.exceptions import QUICStreamClosedError, QUICStreamRe
+ 
+ from .exceptions import (
+     StreamClosed,
++    StreamError,
+     StreamEOF,
+     StreamReset,
+ )
+@@ -29,11 +30,13 @@ from .exceptions import (
+ class StreamState(Enum):
+     """NetStream States"""
+ 
++    INIT = "init"
+     OPEN = "open"
+     CLOSE_READ = "close_read"
+     CLOSE_WRITE = "close_write"
+     CLOSE_BOTH = "close_both"
+     RESET = "reset"
++    ERROR = "error"
+ 
+ 
+ class NetStream(INetStream):
+@@ -104,19 +107,20 @@ class NetStream(INetStream):
+     __stream_state: StreamState
+ 
+     def __init__(
+-        self, muxed_stream: IMuxedStream, nursery: trio.Nursery | None = None
++        self, muxed_stream: IMuxedStream, swarm_conn=None, nursery: trio.Nursery | None = None
+     ) -> None:
+         super().__init__()
+ 
+         self.muxed_stream = muxed_stream
+         self.muxed_conn = muxed_stream.muxed_conn
++        self.swarm_conn = swarm_conn
+         self.protocol_id = None
+ 
+         # For background tasks
+         self._nursery = nursery
+ 
+         # State management
+-        self.__stream_state = StreamState.OPEN
++        self.__stream_state = StreamState.INIT
+         self._state_lock = trio.Lock()
+ 
+         # For notification handling
+@@ -140,6 +144,17 @@ class NetStream(INetStream):
+         async with self._state_lock:
+             return self.__stream_state
+ 
++    async def set_state(self, state: StreamState) -> None:
++        async with self._state_lock:
++            self.__stream_state = state
++
++    async def is_operational(self) -> bool:
++        async with self._state_lock:
++            return self.__stream_state in {
++                StreamState.INIT, StreamState.OPEN,
++                StreamState.CLOSE_READ, StreamState.CLOSE_WRITE,
++            }
++
+     async def read(self, n: int | None = None) -> bytes:
+         """
+         Read from stream.
+@@ -157,6 +172,9 @@ class NetStream(INetStream):
+             ]:
+                 raise StreamClosed("Stream is closed for reading")
+ 
++            if self.__stream_state == StreamState.ERROR:
++                raise StreamError("Cannot read from stream; stream is in error state")
++
+             if self.__stream_state == StreamState.RESET:
+                 raise StreamReset("Stream is reset, cannot be used to read")
+ 
+@@ -181,6 +199,10 @@ class NetStream(INetStream):
+                     self.__stream_state = StreamState.RESET
+                     await self._remove()
+             raise StreamReset() from error
++        except Exception as error:
++            async with self._state_lock:
++                self.__stream_state = StreamState.ERROR
++            raise StreamError(f"Read operation failed: {error}") from error
+ 
+     async def write(self, data: bytes) -> None:
+         """
+@@ -197,6 +219,8 @@ class NetStream(INetStream):
+                 StreamState.RESET,
+             ]:
+                 raise StreamClosed("Stream is closed for writing")
++            if self.__stream_state == StreamState.ERROR:
++                raise StreamError("Cannot write to stream; stream is in error state")
+ 
+         try:
+             await self.muxed_stream.write(data)
+@@ -213,6 +237,27 @@ class NetStream(INetStream):
+                     self.__stream_state = StreamState.CLOSE_BOTH
+                     await self._remove()
+             raise StreamClosed() from error
++        except Exception as error:
++            async with self._state_lock:
++                self.__stream_state = StreamState.ERROR
++            raise StreamError(f"Write operation failed: {error}") from error
++
++    async def close_read(self) -> None:
++        async with self._state_lock:
++            if self.__stream_state == StreamState.ERROR:
++                raise StreamError("Cannot close read on stream; stream is in error state")
++            if self.__stream_state in (
++                StreamState.RESET,
++                StreamState.CLOSE_BOTH,
++                StreamState.CLOSE_READ,
++            ):
++                return
++            both_closed = self.__stream_state == StreamState.CLOSE_WRITE
++            self.__stream_state = (
++                StreamState.CLOSE_BOTH if both_closed else StreamState.CLOSE_READ
++            )
++        if both_closed:
++            await self._remove()
+ 
+     async def close(self) -> None:
+         """Close stream for writing."""
+@@ -223,6 +268,8 @@ class NetStream(INetStream):
+                 StreamState.CLOSE_WRITE,
+             ]:
+                 return
++            if self.__stream_state == StreamState.ERROR:
++                raise StreamError("Cannot close write on stream; stream is in error state")
+ 
+         await self.muxed_stream.close()
+ 
+@@ -233,6 +280,9 @@ class NetStream(INetStream):
+             elif self.__stream_state == StreamState.OPEN:
+                 self.__stream_state = StreamState.CLOSE_WRITE
+ 
++    async def close_write(self) -> None:
++        await self.close()
++
+     async def reset(self) -> None:
+         """Reset stream, closing both ends."""
+         async with self._state_lock:
+@@ -244,8 +294,10 @@ class NetStream(INetStream):
+         async with self._state_lock:
+             if self.__stream_state in [
+                 StreamState.OPEN,
++                StreamState.INIT,
+                 StreamState.CLOSE_READ,
+                 StreamState.CLOSE_WRITE,
++                StreamState.ERROR,
+             ]:
+                 self.__stream_state = StreamState.RESET
+                 await self._remove()

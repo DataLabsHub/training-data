@@ -1,0 +1,83 @@
+<pre>HARBOURVIEW PUBLIC UNIVERSITY · EDUCATIONAL MEASUREMENT CENTRE
+Figure 3 publication-consistency review — release memorandum
+Final review at the evidence cutoff, before the production lock
+To
+Centre director; corresponding author (CA-STUDY); production editor (PD-EDITOR)
+From
+Publication quality lead (PQL) — coupled review owner
+Case / gate
+CASE-EMC-2026-0147  ·  GATE-0147
+Components
+Production proof PRF-02 (Figure 3 = FIG3-LR2) and staged deposit DEP-V3
+Evidence cutoff
+2026-08-26T17:00:00+08:00  (Asia/Singapore)
+Controlling policy
+Publication Release Control SOP 4.2
+Companion register
+deliverables/figure3_reconciliation_register.xlsx (19 rows)
+Decision
+RELEASE ONLY AFTER CORRECTIONS
+Coupled gate GATE-0147 moves from QA_REVIEW_OPEN to RELEASE_AFTER_CORRECTIONS. Neither the proof nor the staged deposit may publish now, and neither may publish without the other.
+Figure 3 is not fit to lock as it stands. Eight mandatory corrections are open across the proof, the manuscript wording and the deposit. Every one is diagnosed, has a named owner and a due time that precedes the PQL coupled re-review at 2026-08-27T14:00, and has a remedy available inside the existing approval framework — so the correct state is RELEASE_AFTER_CORRECTIONS rather than a hold. Panel D is clear and needs no work.
+One item carries a hold risk. FIG3-C was altered by a replacement that never covered it. If that authorization gap (register R-04) is not closed by the re-review — either by restoring the authorized rendering or by obtaining a properly scoped approval naming FIG3-C — then SOP-4.2 §4 precedence applies and the gate must escalate to HOLD.
+What must be corrected
+Eight mandatory items. Register refs in brackets.
+Legend labels — the two cohort labels in the panel A legend are transposed against their colour swatches. The colours themselves carry the right values, so only the label text and its order need rebuilding. [R-01]
+Panel B upper endpoint — the panel B upper interval endpoint renders at 0.11 where the approved analysis gives 0.07. That is 0.040 axis units off against a 0.005 tolerance, and 103 rendered pixels off against a one-pixel tolerance. The median and lower endpoint are correct, which under SOP-4.2 §2 does not cure the failed endpoint. [R-02]
+Caption and results echoes — the same wrong 0.11 value is repeated in the panel B caption clause and in the panel B results statement. All three surfaces must move to 0.07 together. [R-09, R-10]
+Panel C annotation — the panel C sample annotation reads &quot;n=24&quot; where &quot;n=42&quot; is required. The figure currently contradicts its own caption on the same printed page, since the caption correctly says n=42. [R-03]
+Panel C authorization — panel C content was changed by the FIG3-LR2 replacement, but request RR-017 covers exactly FIG3-A and FIG3-B, and both approval records list FIG3-C as not requested and not approved. The attachment hash verifies correctly, which proves identity but never widens approval scope. [R-04]
+Deposit README key — the staged deposit README colour key transposes the two cohort names, reproducing the legend defect independently in the repository. Left uncorrected, a released deposit would contradict the published caption. [R-08]
+Supplementary run label — the printed supplementary run label still names the superseded run AR-2026-08-18-R16. The linked file itself is correct — its bytes hash to the approved R17 export — so only the printed label needs updating, not the file. [R-11]
+What is already clear
+Panel D — conforms on every dimension — estimate, both endpoints, category order, unit and the mandatory absence of an exploratory marker. Its region is pixel-identical to the accepted baseline, so it raises no authorization question either. [R-05]
+Four caption and results endpoints — the panel A and panel C caption clauses, the panel A results statement, and the paired panel D caption and results endpoints are all correct as written. They need no wording change; two of them are in fact the reference for fixing the figure. [R-06, R-07, R-13, R-15]
+Deposit panel rows and file identity — the deposit&#x27;s numeric rows for panels B, C and D all match the approved analysis exactly, as does the staged file&#x27;s identity. Notably the deposit holds the correct 0.07 for panel B while the proof does not — the deposit is the conforming side of that disagreement. [R-12, R-14, R-16, R-17]
+Hash lineage — all five asserted file-identity links recompute to their claimed SHA-256 values. Nothing in this review turns on a broken hash; the failures are display, wording and authorization failures. [register sheet 6]
+Context that does not control
+Three earlier states appear in the record and were deliberately set aside:
+Panel B, earlier values — the accepted baseline rendered the panel B upper endpoint at 0.05, and the accepted results text read &quot;-0.02 to 0.05&quot;. Both are superseded by the approved R17 export. The proof&#x27;s 0.11 matches neither the old 0.05 nor the current 0.07, so it is not a stale-version artefact.
+Superseded run and deposit — run AR-2026-08-18-R16 and deposit DEP-V2 are both superseded, with no rollback or invalidation event anywhere in the record. They remain visible history only. The R16 checklist that cleared all four panels was completed against the accepted baseline under the superseded run and confers nothing on the current proof.
+Unrequested late attachment — a further attachment, FIG3-LR3 (Figure3_final_v9.png), arrived at 16:40 — inside the cutoff, so time-eligible — but has no request, no corresponding-author approval, no PQL approval and no proof link. Time-eligibility is not authority, so it controls nothing and was excluded from the comparison. It must not be substituted in as a shortcut fix, which would simply create a fresh unapproved component. [R-19]
+Actions, owners and deadlines
+Owner
+Action
+Refs
+Due (Asia/Singapore)
+PD-EDITOR
+Rebuild the panel A legend labels; restore the panel C annotation to n=42
+R-01, R-03
+2026-08-27T10:00
+EMC-STAT
+Confirm the panel B export values that the regenerated panel must match
+R-02
+2026-08-27T09:30
+CA-STUDY
+Amend the panel B caption clause and results statement to 0.07; update the supplementary run label to AR-2026-08-24-R17; confirm the four clear endpoints
+R-09, R-10, R-11
+2026-08-27T10:30
+PD-EDITOR
+Regenerate panel B so the upper endpoint renders at 0.07, then re-extract and re-register
+R-02
+2026-08-27T12:00
+REPO-STEW
+Correct the deposit README colour key; verify the three mapped deposit rows; hold DEP-V3 unreleased
+R-08, R-12, R-14, R-16, R-17
+2026-08-27T12:00
+PQL
+Close the panel C authorization gap by restoration or by a scoped new approval; then re-review the coupled gate and set the single terminal state
+R-04, R-18, R-19
+2026-08-27T14:00
+Escalate any prerequisite still open to the centre director at 2026-08-27T14:30. Every due time above precedes the PQL coupled re-review at 2026-08-27T14:00 and the production lock at 2026-08-28T18:00, so the lock date remains achievable if these are met.
+Conditions for release
+The gate clears to RELEASE only when all of the following hold:
+all eight mandatory corrections are applied and verified — R-01, R-02, R-03, R-04, R-08, R-09, R-10 and R-11;
+the panel C authorization gap is closed on the record, by restoring the authorized rendering or by a scoped request with corresponding-author and PQL approval naming FIG3-C;
+the regenerated panel B is re-extracted and re-measured within one rendered pixel of 0.07;
+all four release prerequisites move from open to met — PREREQ-PROOF, PREREQ-README, PREREQ-ROWS and PREREQ-GATE;
+PQL records the final coupled reapproval, and the proof and deposit receive the same terminal state — they may not be given contradictory outcomes.
+If any of these is unmet at 2026-08-27T14:00, the gate escalates to HOLD under the SOP-4.2 §4 precedence order (HOLD over RELEASE_AFTER_CORRECTIONS over RELEASE).
+Scope of this review
+This review covers production consistency, component authorization and release-gate control. It makes no scientific-merit judgement and no causal claim about any estimate, interval or moderator, and it does not re-analyse or reinterpret the study. Where the proof departs from the approved analysis export, the finding is that the display does not match its controlling source — not that any scientific conclusion is wrong.
+Findings rest on the embedded rendition at PRF-02 page[6].image[0], confirmed pixel-identical to the extracted figure; on the approved export FIG3-EST-R17; and on the RR-017 approval record. Full locators, measurements and rule citations are in the companion register, which agrees with this memo on status, actions, owners and deadlines.
+— Prepared for the coupled re-review, 2026-08-26T17:00:00+08:00</pre>

@@ -1,0 +1,11 @@
+{
+  "auth_transport": "chatgpt",
+  "index": 80,
+  "model": "gpt-5.6-luna",
+  "prior_status": "instruction_repaired_pygo25",
+  "reasoning_effort": "medium",
+  "repetition": 1,
+  "source_index": 5,
+  "started_unix": 1788077420.1234465,
+  "task_id": "gopcua__opcua_pr_6"
+}

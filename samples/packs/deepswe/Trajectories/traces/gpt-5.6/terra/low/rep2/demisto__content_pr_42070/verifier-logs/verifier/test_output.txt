@@ -1,0 +1,503 @@
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.55s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestIndicatorType::test_resolve_valid_types[lower_case_ip]::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.29s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestIndicatorType::test_resolve_valid_types[camel_case_ipv4]::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.29s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestIndicatorType::test_resolve_valid_types[simple_url]::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.28s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestIndicatorType::test_resolve_valid_types[capitalized_domain]::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.28s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestIndicatorType::test_resolve_valid_types[file]::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.28s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestIndicatorType::test_resolve_valid_types[simple_cve]::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.29s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestIndicatorType::test_resolve_invalid_types[unknown_string]::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.29s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestIndicatorType::test_resolve_invalid_types[unsupported_type]::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.28s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestIndicatorType::test_resolve_invalid_types[whitespace_only]::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.28s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestIndicatorType::test_resolve_invalid_types[none_value]::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.29s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestResponseFormatter::test_format_markdown_happy_path::PASSED
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ TestResponseFormatter.test_format_markdown_with_duplicates_and_errors _____
+
+self = <IndicatorEnrichment_test.TestResponseFormatter object at 0x15555282da50>
+
+    def test_format_markdown_with_duplicates_and_errors(self):
+        """
+        Scenario: Enrichment with mixed issues.
+        Given: A Request with 2 duplicates removed and 1 unknown item.
+        When: format() is called.
+        Then: The output includes the Duplicate Note AND the Error Table.
+        """
+        # Arrange
+        result = EnrichmentResult()  # Empty result logic for this test
+    
+        request = EnrichmentRequest(
+            valid_indicators_by_type=defaultdict(list),
+            unsupported_items=[],
+            unknown_items=["bad_hash"],
+            duplicates_removed_count=2,
+            sub_command_arguments={},
+            include_raw_context=False,
+        )
+    
+        # Act
+        formatter = ResponseFormatter()
+        cmd_results = formatter.format(result, request)
+    
+        # Assert
+>       assert cmd_results.readable_output == (
+            "Note: Removed 2 duplicate indicator occurrences before enrichment.\n"
+            "\n"
+            "### Invalid or unsupported indicators\n"
+            "|Type|Value|Status|Message|\n"
+            "|---|---|---|---|\n"
+            "| Unknown | bad_hash | Error | Not a valid indicator. |\n"
+        )
+E       AssertionError: assert 'Note: Remove... indicator. |' == 'Note: Remove...ndicator. |\n'
+E         
+E         Skipping 97 identical leading characters in diff, use -v to show
+E           dicators
+E         - |Type|Value|Status|Message|
+E         + | Type | Value | Status | Message |
+E         ?  +    + +     + +      + +       +
+E         - |---|---|---|---|...
+E         
+E         ...Full output truncated (5 lines hidden), use '-vv' to show
+
+Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py:117: AssertionError
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestResponseFormatter::test_format_markdown_with_duplicates_and_errors
+1 failed, 1 warning in 0.32s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestResponseFormatter::test_format_markdown_with_duplicates_and_errors::FAILED
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________ TestResponseFormatter.test_context_filtering_default _____________
+
+self = <IndicatorEnrichment_test.TestResponseFormatter object at 0x155551cae750>
+
+    def test_context_filtering_default(self):
+        """
+        Scenario: Default context filtering (raw_context=False).
+        Given: Context containing 'IPEnrichment' (raw) and 'DBotScore' (side-effect).
+        When: format() is called with include_raw_context=False.
+        Then: 'IPEnrichment' is removed, 'DBotScore' is preserved.
+        """
+        # Arrange
+        result = EnrichmentResult()
+        result.raw_context = {
+            "IPEnrichment": {"data": "raw"},  # Should be removed
+            "IndicatorEnrichment": [{"Value": "1.1.1.1", "Type": "IP"}],
+            "Core": {"Score": 3},  # Should be kept
+            "EndpointData": {"Name": "X"},  # Should be kept
+        }
+    
+        request = EnrichmentRequest(
+            valid_indicators_by_type=defaultdict(list),
+            unsupported_items=[],
+            unknown_items=[],
+            duplicates_removed_count=0,
+            sub_command_arguments={},
+            include_raw_context=False,  # <--- Default behavior
+        )
+    
+        # Act
+        formatter = ResponseFormatter()
+        cmd_results = formatter.format(result, request)
+        ctx = cmd_results.outputs
+    
+        # Assert
+>       assert ctx == {
+            "Core": {"Score": 3},
+            "EndpointData": {"Name": "X"},
+            "IndicatorEnrichment": [{"Type": "IP", "Value": "1.1.1.1"}],
+        }
+E       AssertionError: assert {'IndicatorEn...{'Name': 'X'}} == {'Core': {'Sc...: '1.1.1.1'}]}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'IndicatorEnrichment': []} != {'IndicatorEnrichment': [{'Type': 'IP', 'Value': '1.1.1.1'}]}
+E         Use -v to get more diff
+
+Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py:157: AssertionError
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestResponseFormatter::test_context_filtering_default
+1 failed, 1 warning in 0.32s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestResponseFormatter::test_context_filtering_default::FAILED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.30s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestResponseFormatter::test_context_filtering_include_raw::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.30s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestResponseFormatter::test_unified_context_creation::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.30s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestResponseFormatter::test_format_happy_path::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.30s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestResponseFormatter::test_format_fatal_execution_error::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.34s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentService::test_execute_empty_request::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.30s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentService::test_execute_happy_path::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.29s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentService::test_execute_with_command_error::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.29s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentService::test_execute_mixed_results::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.30s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentRequestBuilder::test_build_and_validate_happy_path_list::PASSED
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ TestEnrichmentRequestBuilder.test_build_and_validate_deduplication_text_vs_list _
+
+self = <IndicatorEnrichment_test.TestEnrichmentRequestBuilder object at 0x155551cb3210>
+mock_execute_command = <MagicMock name='execute_command' id='23456199341776'>
+mock_arg_to_list = <MagicMock name='argToList' id='23456197314768'>
+mock_auto_detect = <MagicMock name='auto_detect_indicator_type' id='23456188025936'>
+
+    def test_build_and_validate_deduplication_text_vs_list(self, mock_execute_command, mock_arg_to_list, mock_auto_detect):
+        """
+        Scenario: The same IP appears in 'text' and 'indicator_list'.
+        """
+        raw_args = {"text": "check 8.8.8.8", "indicator_list": "8.8.8.8"}
+    
+        mock_execute_command.return_value = [{"EntryContext": {"ExtractedIndicators": {"IP": ["8.8.8.8"]}}}]
+        mock_arg_to_list.return_value = ["8.8.8.8"]
+        mock_auto_detect.return_value = "IP"
+    
+        builder = EnrichmentRequestBuilder(raw_args)
+        request = builder.build_and_validate()
+    
+        assert request.total_valid_count == 1
+        assert request.valid_indicators_by_type[IndicatorType.IP] == ["8.8.8.8"]
+>       assert request.duplicates_removed_count == 1
+E       AssertionError: assert 0 == 1
+E        +  where 0 = EnrichmentRequest(valid_indicators_by_type=OrderedDict([(<IndicatorType.IP: 'IP'>, ['8.8.8.8'])]), unsupported_items=[], unknown_items=[], duplicates_removed_count=0, sub_command_arguments={}, include_raw_context=False).duplicates_removed_count
+
+Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py:485: AssertionError
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentRequestBuilder::test_build_and_validate_deduplication_text_vs_list
+1 failed, 1 warning in 0.32s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentRequestBuilder::test_build_and_validate_deduplication_text_vs_list::FAILED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.30s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentRequestBuilder::test_build_and_validate_mixed_valid_and_invalid::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.29s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentRequestBuilder::test_validation_only_invalid_indicators::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.31s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentRequestBuilder::test_validation_no_inputs::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.29s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentRequestBuilder::test_graceful_exit_text_only_nothing_found::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.36s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentRequestBuilder::test_limit_enforcement::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.28s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestEnrichmentRequestBuilder::test_limit_bypass::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.29s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestMain::test_main_happy_path::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.30s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestMain::test_main_graceful_exit::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.31s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestMain::test_main_validation_error::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.30s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestMain::test_main_fatal_execution_error::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.33s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_test.py::TestMain::test_main_system_exception::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.31s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_authored_test.py::test_builder_groups_and_deduplicates_auto_detected_indicators::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.30s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_authored_test.py::test_builder_rejects_more_than_one_hundred_unique_indicators::PASSED
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.local/_pytest/config/__init__.py:1464
+  /testbed/.local/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.11s
+RESULT::Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment_p2p_test.py::test_adjacent_enrichment_command_metadata_remains_available::PASSED
+OMNIGRIL_EXIT_CODE=1

@@ -1,0 +1,1468 @@
+{
+  "claim": {
+    "binary_failure_condition": "Fail for any material error or omission in D's controlling authority, expected or observed dimensions, all-pass conclusion, CLEAR disposition, no-change direction, or required visual-and-structured evidence locators.",
+    "binary_pass_condition": "Pass only if the candidate records FIG3-ACC-v5 authority for D and verifies from the proof image and R17 fields that median 0.02, interval [-0.04, 0.08], standardized delta-z unit, Incentivized-then-Non-incentivized order, required labels, and absence of an exploratory marker all pass; assigns CLEAR and retain unchanged; and cites precise visual, structured, and authority locators. Clearance must rest on viewing the panel and checking every mandatory dimension, not on OCR, a filename, another panel's result, or visual polish.",
+    "candidate_evidence_requirements": [
+      "A dedicated FIG3-D register record listing every mandatory checked dimension, authority, disposition, no-change action, and visual plus structured locators.",
+      "The cited image evidence must visibly support the interval, order, labels, unit, and marker-state checks."
+    ],
+    "causal_owner_id": "FACT033",
+    "claim_id": "R008",
+    "contract_basis_ids": [
+      "FACT012",
+      "FACT019",
+      "FACT023",
+      "FACT024",
+      "FACT029",
+      "FACT033",
+      "RULE002",
+      "RULE004",
+      "RULE005",
+      "PRED002",
+      "PRED010"
+    ],
+    "description": "The Panel D register record independently tests the unaffected control panel across authority, visible geometry, labels, unit, order, and marker state.",
+    "importance_weight": 4,
+    "independent_failure_mode": "The unaffected Panel D control is not fully verified or is assigned a nonclear disposition.",
+    "method": "llm_judge",
+    "program_check": null,
+    "title": "Panel D record and disposition are correct"
+  },
+  "contract_basis": {
+    "artifact_edges": [
+      {
+        "artifact_edge_id": "AEDGE002",
+        "contract_edge_id": null,
+        "preservation_invariants": [
+          "No visual reference image is supplied to the text_to_image operation."
+        ],
+        "relationship": "content_informs",
+        "semantic_purpose": "Supplies the accepted baseline's business identity and lifecycle state to text-only image generation; the frozen prompt supplies its visual specification.",
+        "source_locator": "Accepted_Set!FIG3-ACC-v5 row and Version_History!FIG3-ACC-v5 row",
+        "source_node_id": "CF003",
+        "target_locator": null,
+        "target_node_id": "MGN001"
+      },
+      {
+        "artifact_edge_id": "AEDGE003",
+        "contract_edge_id": null,
+        "preservation_invariants": [
+          "Embedded PNG pixels and dimensions equal MGN001 exactly."
+        ],
+        "relationship": "embed",
+        "semantic_purpose": "Embeds the accepted visual baseline into the accepted manuscript at its business evidence locator.",
+        "source_locator": null,
+        "source_node_id": "MGN001",
+        "target_locator": "page[11].image[0]",
+        "target_node_id": "CF004"
+      },
+      {
+        "artifact_edge_id": "AEDGE004",
+        "contract_edge_id": null,
+        "preservation_invariants": [
+          "No visual reference image is supplied to the text_to_image operation."
+        ],
+        "relationship": "content_informs",
+        "semantic_purpose": "Supplies the late replacement's business scope and production identity to text-only figure generation.",
+        "source_locator": "page[1] through page[3]",
+        "source_node_id": "CF005",
+        "target_locator": null,
+        "target_node_id": "MGN002"
+      },
+      {
+        "artifact_edge_id": "AEDGE005",
+        "contract_edge_id": null,
+        "preservation_invariants": [
+          "Input is structured text/data, not a visual reference."
+        ],
+        "relationship": "content_informs",
+        "semantic_purpose": "Supplies axis calibration and the structured values around which the frozen production defects are rendered.",
+        "source_locator": "Panel_Estimates!A1:M6 and Display_Map!A1:H9",
+        "source_node_id": "CF006",
+        "target_locator": null,
+        "target_node_id": "MGN002"
+      },
+      {
+        "artifact_edge_id": "AEDGE006",
+        "contract_edge_id": null,
+        "preservation_invariants": [
+          "Embedded PNG stream, dimensions, and decoded pixels equal MGN002 exactly."
+        ],
+        "relationship": "embed",
+        "semantic_purpose": "Embeds the current replacement figure whose pixels drive the visual reconciliation branch.",
+        "source_locator": null,
+        "source_node_id": "MGN002",
+        "target_locator": "page[6].image[0]",
+        "target_node_id": "CF009"
+      },
+      {
+        "artifact_edge_id": "AEDGE007",
+        "contract_edge_id": null,
+        "preservation_invariants": [
+          "CF009 is the only extraction source.",
+          "No OCR, resampling, cropping, or colour conversion is permitted."
+        ],
+        "relationship": "extract_source",
+        "semantic_purpose": "Extracts exactly the current proof figure for independent pixel inspection and registered lineage.",
+        "source_locator": "page[6].image[0]",
+        "source_node_id": "CF009",
+        "target_locator": null,
+        "target_node_id": "MGN003"
+      },
+      {
+        "artifact_edge_id": "AEDGE008",
+        "contract_edge_id": null,
+        "preservation_invariants": [
+          "CF011 bytes are the canonical PNG serialization of MGN003 with identical decoded pixels."
+        ],
+        "relationship": "content_informs",
+        "semantic_purpose": "Materializes the extraction result as the exact public PNG asset declared by MGN003.",
+        "source_locator": null,
+        "source_node_id": "MGN003",
+        "target_locator": null,
+        "target_node_id": "CF011"
+      },
+      {
+        "artifact_edge_id": "AEDGE009",
+        "contract_edge_id": null,
+        "preservation_invariants": [
+          "All original source pixels remain byte-identical within the source rectangle.",
+          "Only border expansion and neutral grid additions are allowed."
+        ],
+        "relationship": "edit_target",
+        "semantic_purpose": "Uses the extracted proof figure as the sole object being registered for coordinate measurement.",
+        "source_locator": null,
+        "source_node_id": "MGN003",
+        "target_locator": null,
+        "target_node_id": "MGN004"
+      },
+      {
+        "artifact_edge_id": "AEDGE010",
+        "contract_edge_id": null,
+        "preservation_invariants": [
+          "The inventory does not transcribe proof values, labels, colours, or findings."
+        ],
+        "relationship": "content_informs",
+        "semantic_purpose": "Supplies nonvisual bounding-box coordinates used to align the neutral registration grid.",
+        "source_locator": "$.figure_components[?(@.figure_id=='FIG3')].panel_bounds",
+        "source_node_id": "CF010",
+        "target_locator": null,
+        "target_node_id": "MGN004"
+      },
+      {
+        "artifact_edge_id": "AEDGE011",
+        "contract_edge_id": null,
+        "preservation_invariants": [
+          "DOCX embedded image bytes equal MGN004 exactly.",
+          "No alternate or duplicate media member is embedded."
+        ],
+        "relationship": "embed",
+        "semantic_purpose": "Embeds the preserved registration overlay into the QA measurement document.",
+        "source_locator": null,
+        "source_node_id": "MGN004",
+        "target_locator": "word/media/image1.png",
+        "target_node_id": "CF012"
+      }
+    ],
+    "as_of": "2026-08-26T17:00:00+08:00",
+    "causal_owner_id": "FACT033",
+    "claim_basis_ids": [
+      "FACT012",
+      "FACT019",
+      "FACT023",
+      "FACT024",
+      "FACT029",
+      "FACT033",
+      "RULE002",
+      "RULE004",
+      "RULE005",
+      "PRED002",
+      "PRED010"
+    ],
+    "entities": [
+      {
+        "description": "The frozen publication-consistency case for an accepted multisite education manuscript and its coupled repository deposit.",
+        "entity_id": "ENT001",
+        "entity_type": "publication_release_case",
+        "natural_identity": [
+          "CASE-EMC-2026-0147",
+          "Singapore",
+          "Asia/Singapore"
+        ]
+      },
+      {
+        "description": "A fictional Singapore public-university centre responsible for pre-release figure, analysis, and deposit consistency.",
+        "entity_id": "ENT002",
+        "entity_type": "educational_measurement_centre",
+        "natural_identity": [
+          "Harbourview Public University Educational Measurement Centre",
+          "EMC"
+        ]
+      },
+      {
+        "description": "The centre role that approves replacement scope and certifies the coupled proof-and-deposit release gate.",
+        "entity_id": "ENT003",
+        "entity_type": "publication_quality_lead_role",
+        "natural_identity": [
+          "PQL",
+          "Publication quality lead"
+        ]
+      },
+      {
+        "description": "The author role accountable for replacement requests, proof approval, and linked manuscript corrections.",
+        "entity_id": "ENT004",
+        "entity_type": "corresponding_author_role",
+        "natural_identity": [
+          "CA-STUDY",
+          "Corresponding author, Study Team"
+        ]
+      },
+      {
+        "description": "The production role that inserted the late figure, owns proof changes, and controls the publisher lock.",
+        "entity_id": "ENT005",
+        "entity_type": "journal_production_editor_role",
+        "natural_identity": [
+          "PD-EDITOR",
+          "Journal production editor, Production Desk"
+        ]
+      },
+      {
+        "description": "The manifest-listed accepted manuscript that supplies the baseline content and unchanged panel authority.",
+        "entity_id": "ENT006",
+        "entity_type": "accepted_manuscript_version",
+        "natural_identity": [
+          "AM-2026-0147-v5",
+          "accepted 2026-08-19T15:10:00+08:00"
+        ]
+      },
+      {
+        "description": "The current journal production proof containing the inserted late Figure 3 replacement.",
+        "entity_id": "ENT007",
+        "entity_type": "production_proof_version",
+        "natural_identity": [
+          "PRF-02",
+          "proof built 2026-08-26T09:18:00+08:00"
+        ]
+      },
+      {
+        "description": "The accepted four-panel Figure 3 retained as authority for any panel outside the approved replacement scope.",
+        "entity_id": "ENT008",
+        "entity_type": "accepted_figure_version",
+        "natural_identity": [
+          "FIG3-ACC-v5",
+          "Figure 3 accepted baseline"
+        ]
+      },
+      {
+        "description": "The late composite Figure 3 replacement requested and approved only for panels A and B.",
+        "entity_id": "ENT009",
+        "entity_type": "late_figure_replacement",
+        "natural_identity": [
+          "FIG3-LR2",
+          "attachment hash fig3_lr2_sha"
+        ]
+      },
+      {
+        "description": "Panel A, whose visible cohort-to-colour mapping must reconcile with the approved analysis and caption semantics.",
+        "entity_id": "ENT010",
+        "entity_type": "figure_panel",
+        "natural_identity": [
+          "FIG3-A",
+          "Immediate versus delayed feedback by incentive condition"
+        ]
+      },
+      {
+        "description": "Panel B, whose point and 95 percent interval geometry must reconcile with the R17 estimate row.",
+        "entity_id": "ENT011",
+        "entity_type": "figure_panel",
+        "natural_identity": [
+          "FIG3-B",
+          "Overall feedback-timing estimate"
+        ]
+      },
+      {
+        "description": "Panel C, an unchanged-scope panel whose visible sample annotation remains governed by the accepted baseline.",
+        "entity_id": "ENT012",
+        "entity_type": "figure_panel",
+        "natural_identity": [
+          "FIG3-C",
+          "Across-class heterogeneity"
+        ]
+      },
+      {
+        "description": "Panel D, an unchanged-scope panel expected to clear when every visible element matches the accepted baseline and R17.",
+        "entity_id": "ENT013",
+        "entity_type": "figure_panel",
+        "natural_identity": [
+          "FIG3-D",
+          "Pre-registered moderator estimate"
+        ]
+      },
+      {
+        "description": "The centre-approved analysis run linked by manifest and hashes to the figure estimate export and staged deposit.",
+        "entity_id": "ENT014",
+        "entity_type": "analysis_run",
+        "natural_identity": [
+          "AR-2026-08-24-R17",
+          "approved run R17"
+        ]
+      },
+      {
+        "description": "The structured panel-estimate workbook generated by R17 and used for numeric reconciliation.",
+        "entity_id": "ENT015",
+        "entity_type": "analysis_export",
+        "natural_identity": [
+          "FIG3-EST-R17",
+          "fig3_analysis_export_R17.xlsx"
+        ]
+      },
+      {
+        "description": "The section-keyed de-identified observation export that audits the R17 summaries without itself deciding release.",
+        "entity_id": "ENT016",
+        "entity_type": "analysis_observation_set",
+        "natural_identity": [
+          "OBS-R17",
+          "5280 observation rows"
+        ]
+      },
+      {
+        "description": "The signed late-replacement request limiting requested changes to Figure 3 panels A and B.",
+        "entity_id": "ENT017",
+        "entity_type": "replacement_request",
+        "natural_identity": [
+          "RR-017",
+          "submitted 2026-08-26T08:55:00+08:00"
+        ]
+      },
+      {
+        "description": "The effective approval events that determine which components of the composite replacement can supersede the accepted figure.",
+        "entity_id": "ENT018",
+        "entity_type": "approval_chain",
+        "natural_identity": [
+          "APPR-RR017",
+          "author plus PQL panel-scoped approvals"
+        ]
+      },
+      {
+        "description": "The versioned public-data deposit coupled to the manuscript release and linked to analysis-run and file identifiers.",
+        "entity_id": "ENT020",
+        "entity_type": "repository_deposit",
+        "natural_identity": [
+          "HVD-EDU-0147",
+          "DEP-V2 public",
+          "DEP-V3 staged"
+        ]
+      },
+      {
+        "description": "The role that preserves and measures the proof-image extraction and registration evidence.",
+        "entity_id": "ENT026",
+        "entity_type": "publication_qa_analyst_role",
+        "natural_identity": [
+          "EMC-QA",
+          "Centre publication QA analyst"
+        ]
+      },
+      {
+        "description": "The centre role that maintains accepted-set, version-history, proof-event, and historical-checklist records.",
+        "entity_id": "ENT028",
+        "entity_type": "records_coordinator_role",
+        "natural_identity": [
+          "EMC-RECORDS",
+          "Centre records coordinator"
+        ]
+      }
+    ],
+    "file_nodes": [
+      {
+        "artifact_kind": "spreadsheet",
+        "contract_file_id": "CF003",
+        "description_text": "Sheets Accepted_Set, Version_History, Proof_Events, Checklist_History, and Owner_Roles with complete IDs, times, hashes, and states.",
+        "embedded_media_node_ids": [],
+        "expected_format": "xlsx",
+        "graph_node_id": "GN002",
+        "stored_relative_path": "Workspace/01_Governance/accepted_submission_manifest.xlsx"
+      },
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF004",
+        "description_text": "Twelve-page accepted manuscript with stable caption and results locators and accepted Figure 3 embedded at page 11.",
+        "embedded_media_node_ids": [
+          "MGN001"
+        ],
+        "expected_format": "pdf",
+        "graph_node_id": "GN003",
+        "stored_relative_path": "Workspace/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf"
+      },
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF005",
+        "description_text": "Four-page request and approval record with panel-scope matrices, timestamps, exact attachment hashes, and orphan LR3 entry.",
+        "embedded_media_node_ids": [],
+        "expected_format": "pdf",
+        "graph_node_id": "GN004",
+        "stored_relative_path": "Workspace/01_Governance/late_replacement_approval_log.pdf"
+      },
+      {
+        "artifact_kind": "spreadsheet",
+        "contract_file_id": "CF006",
+        "description_text": "Sheets Run_Manifest, Panel_Estimates, Display_Map, Cohort_Map, and QC_Summary with exact R17 values and joins.",
+        "embedded_media_node_ids": [],
+        "expected_format": "xlsx",
+        "graph_node_id": "GN005",
+        "stored_relative_path": "Workspace/03_Analysis/fig3_analysis_export_R17.xlsx"
+      },
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF009",
+        "description_text": "Fourteen-page current proof with replacement Figure 3 embedded at page[6].image[0] and current caption/results wording.",
+        "embedded_media_node_ids": [
+          "MGN002"
+        ],
+        "expected_format": "pdf",
+        "graph_node_id": "GN006",
+        "stored_relative_path": "Workspace/04_Proof/current_production_proof_PRF-02.pdf"
+      },
+      {
+        "artifact_kind": "structured_data",
+        "contract_file_id": "CF010",
+        "description_text": "Proof build metadata, component and attachment hashes, panel bounding boxes, page/image locators, and render calibration without transcribed visual values.",
+        "embedded_media_node_ids": [],
+        "expected_format": "json",
+        "graph_node_id": "GN006",
+        "stored_relative_path": "Workspace/04_Proof/proof_component_inventory.json"
+      },
+      {
+        "artifact_kind": "image",
+        "contract_file_id": "CF011",
+        "description_text": "Byte-faithful extraction of the current proof's page[6].image[0] for direct pixel inspection and hash verification.",
+        "embedded_media_node_ids": [],
+        "expected_format": "png",
+        "graph_node_id": "GN007",
+        "stored_relative_path": "Workspace/04_Proof/figure3_current_proof_extracted.png"
+      },
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF012",
+        "description_text": "Neutral measurement-grid registration sheet embedding the preserved proof raster with extraction provenance and no findings.",
+        "embedded_media_node_ids": [
+          "MGN004"
+        ],
+        "expected_format": "docx",
+        "graph_node_id": "GN007",
+        "stored_relative_path": "Workspace/04_Proof/figure3_registration_overlay.docx"
+      }
+    ],
+    "media_nodes": [
+      {
+        "artifact_purpose": "Accepted four-panel Figure 3 baseline carrying cohort colour, interval, annotation, and category-order evidence.",
+        "media_node_id": "MGN001",
+        "operation": "text_to_image",
+        "output_format": "png",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "publication-quality four-panel statistical figure raster",
+          "avoid": [
+            "3D effects",
+            "photographic elements",
+            "decorative icons",
+            "watermarks",
+            "mismatch callouts",
+            "clearance labels",
+            "illegible text"
+          ],
+          "color_palette": "teal #148C8C for Incentivized, amber #D98B1E for Non-incentivized, charcoal axes",
+          "composition_framing": "2 by 2 panel grid, 2400 by 1800 pixels, consistent margins and readable axes",
+          "constraints": [
+            "Panel A is the accepted R16 baseline: legend pairs teal with Incentivized and amber with Non-incentivized, with medians 0.03 and -0.02 and intervals [-0.03,0.09] and [-0.08,0.04].",
+            "Panel B is the accepted R16 baseline: median 0.01 with endpoints -0.02 and 0.05 on a -0.10 to 0.20 axis with 0.05 ticks.",
+            "Panel C median is 0.06 with endpoints 0.01 and 0.14 and visible annotation n=42.",
+            "Panel D median is 0.02 with endpoints -0.04 and 0.08, ordered Incentivized then Non-incentivized, with no exploratory marker.",
+            "All labels, tick marks, whiskers, points, swatches, and panel letters must be sharp at 100 percent zoom."
+          ],
+          "exact_text": [
+            "Figure 3",
+            "A",
+            "B",
+            "C",
+            "D",
+            "Immediate",
+            "Delayed",
+            "Standardized Δz",
+            "95% interval",
+            "n=42",
+            "Incentivized",
+            "Non-incentivized"
+          ],
+          "lighting_mood": "flat neutral publication rendering",
+          "primary_request": "Create the accepted baseline Figure 3 for a multisite feedback study, with four precisely aligned forest-plot panels and exact visual encodings suitable for a scholarly PDF.",
+          "scene_backdrop": "Clean white journal figure canvas with no decorative elements",
+          "style_medium": "crisp vector-like scientific plotting rendered to PNG",
+          "subject": "Four panels A-D showing standardized delta-z point estimates and 95% intervals",
+          "use_case": "scientific-educational"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Exact 2400 by 1800 pixel output with four nonoverlapping panel regions.",
+          "All exact text is legible and each plotted coordinate is within one pixel of its specified axis position.",
+          "No metadata or caption states a panel disposition or comparison outcome."
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Current proof Figure 3 replacement whose visible swatches, whisker endpoint, and sample annotation are decisive evidence.",
+        "media_node_id": "MGN002",
+        "operation": "text_to_image",
+        "output_format": "png",
+        "preservation_invariants": [],
+        "prompt": {
+          "asset_type": "production-proof four-panel statistical figure raster",
+          "avoid": [
+            "error arrows",
+            "red circles",
+            "mismatch labels",
+            "review notes",
+            "clearance status",
+            "decorative graphics",
+            "watermarks",
+            "illegible text"
+          ],
+          "color_palette": "teal #148C8C, amber #D98B1E, charcoal axes",
+          "composition_framing": "2 by 2 panel grid, 2400 by 1800 pixels, identical axes and panel bounds to the accepted production specification",
+          "constraints": [
+            "Panel A plots the R17 cohort estimates and intervals but its legend visibly places the teal swatch beside Non-incentivized and the amber swatch beside Incentivized; do not label this as an error.",
+            "Panel B median is positioned at 0.02, lower endpoint at -0.01, and upper endpoint at 0.11 on a -0.10 to 0.20 axis with 0.05 ticks; do not print endpoint numbers next to the whisker.",
+            "Panel C retains median 0.06 and interval 0.01 to 0.14 but prints n=24 above the mark.",
+            "Panel D exactly renders median 0.02, interval -0.04 to 0.08, order Incentivized then Non-incentivized, and no exploratory marker.",
+            "Every axis, tick, label, swatch, point, and whisker must remain measurable and legible at 100 percent zoom."
+          ],
+          "exact_text": [
+            "Figure 3",
+            "A",
+            "B",
+            "C",
+            "D",
+            "Relative benefit of Immediate feedback",
+            "Standardized Δz",
+            "95% interval",
+            "n=24",
+            "Incentivized",
+            "Non-incentivized"
+          ],
+          "lighting_mood": "flat neutral publication rendering",
+          "primary_request": "Create the late replacement Figure 3 exactly as inserted into the current proof, using the specified four-panel layout without any annotations that reveal which elements are discrepant.",
+          "scene_backdrop": "Clean white journal proof figure canvas",
+          "style_medium": "crisp vector-like scientific plotting rendered to PNG",
+          "subject": "Four panels A-D showing standardized delta-z estimates, interval whiskers, legend swatches, and sample annotation",
+          "use_case": "scientific-educational"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "Exact 2400 by 1800 pixel output and exact panel bounds documented in the proof inventory.",
+          "The visible facts specified for A-D are present only in pixels and are not duplicated in image metadata or alt text.",
+          "The embedded stream hash is recorded exactly in the approval log and proof inventory."
+        ],
+        "visibility": "embedded_only"
+      },
+      {
+        "artifact_purpose": "Exact extraction of the current proof Figure 3 for pixel-level inspection and downstream registered editing.",
+        "media_node_id": "MGN003",
+        "operation": "extract_from_document",
+        "output_format": "png",
+        "preservation_invariants": [
+          "Use exactly one source document, Workspace/04_Proof/current_production_proof_PRF-02.pdf.",
+          "Extract only page[6].image[0] without OCR, resampling, colour conversion, cropping, rotation, or metadata text injection.",
+          "Output pixel dimensions and decoded pixel hash must match the embedded PNG stream."
+        ],
+        "prompt": null,
+        "public_contract_file_id": "CF011",
+        "quality_requirements": [
+          "The public PNG is visually and pixel-wise identical to the embedded Figure 3 stream.",
+          "All four panel letters, swatches, ticks, whiskers, and annotations remain legible."
+        ],
+        "visibility": "public_asset"
+      },
+      {
+        "artifact_purpose": "Neutral coordinate-registration overlay enabling reproducible visual measurement without revealing any finding.",
+        "media_node_id": "MGN004",
+        "operation": "image_to_image",
+        "output_format": "png",
+        "preservation_invariants": [
+          "MGN003 is the sole edit target and every source pixel within its original rectangle is byte-identical in RGBA values.",
+          "Panel letters, legend swatches, points, whiskers, axes, ticks, and annotations remain at identical coordinates relative to the source rectangle.",
+          "Only the expanded border and documented low-opacity grid may be added; no finding or semantic interpretation may be inserted."
+        ],
+        "prompt": {
+          "asset_type": "scientific figure registration overlay",
+          "avoid": [
+            "arrows",
+            "circles",
+            "highlights",
+            "mismatch annotations",
+            "numeric findings",
+            "cropping",
+            "rescaling",
+            "colour changes",
+            "decorative styling"
+          ],
+          "color_palette": "original colours preserved; added grid in 20 percent grey",
+          "composition_framing": "Expand canvas by 80 pixels on each edge; keep original image centered at native scale",
+          "constraints": [
+            "Do not alter, repaint, move, sharpen, blur, recolour, OCR, or regenerate any source-image pixel.",
+            "Add one-pixel grey rulers outside the original bounds and faint grid lines aligned to documented panel bounding boxes.",
+            "Place the exact provenance label outside the figure and do not name any panel value, discrepancy, or disposition.",
+            "Keep original image dimensions and offset mechanically recoverable from the DOCX provenance table."
+          ],
+          "exact_text": [
+            "Registration overlay — no findings",
+            "x",
+            "y"
+          ],
+          "lighting_mood": "flat neutral technical rendering",
+          "primary_request": "Add a subtle measurement grid and panel-coordinate rulers around the supplied extracted proof figure while preserving every original pixel inside the four panel data regions.",
+          "scene_backdrop": "Original extracted proof figure on an expanded white canvas",
+          "style_medium": "lossless technical image edit",
+          "subject": "The supplied four-panel Figure 3, unchanged, surrounded by neutral registration marks",
+          "use_case": "precise-object-edit"
+        },
+        "public_contract_file_id": null,
+        "quality_requirements": [
+          "A pixel-diff of the original rectangle against MGN003 has zero changed pixels.",
+          "Registration grid aligns with all four bounding boxes and remains visible in the embedded DOCX at 100 percent zoom.",
+          "The overlay contains no answer, discrepancy label, or release status."
+        ],
+        "visibility": "embedded_only"
+      }
+    ],
+    "predicates": [
+      {
+        "applies_to_ids": [
+          "FACT016",
+          "FACT017",
+          "FACT018",
+          "FACT019",
+          "FACT020",
+          "FACT021",
+          "FACT022",
+          "FACT023",
+          "FACT024",
+          "FACT026",
+          "FACT027",
+          "FACT028",
+          "FACT029",
+          "FACT030",
+          "FACT031",
+          "FACT032",
+          "FACT033",
+          "RULE004",
+          "RULE005"
+        ],
+        "counterexample": "The predicate fails if A is marked clear because its numbers match while the teal swatch is visibly paired with Non-incentivized.",
+        "evaluation_mode": "grounded_agent",
+        "evidence_requirements": [
+          "Inspect CF009 page[6].image[0], CF011 at native pixels, and CF012 embedded overlay at word/media/image1.png.",
+          "Inspect CF006 Panel_Estimates and Display_Map and CF001 SOP tolerance examples and boundary definition.",
+          "Compare CF004 page[11].image[0] for C/D accepted baseline authority."
+        ],
+        "kind": "world_consistency",
+        "origin_refs": [
+          "workspace_policy.construction_principles[2]",
+          "ANCH002",
+          "ANCH003",
+          "ANCH004",
+          "ANCH012",
+          "ANCH019",
+          "ANCH020"
+        ],
+        "pass_condition": "The auditor observes A's reversed cohort-swatch pairing, B's upper whisker at 0.11 within one-pixel measurement, C's n=24, and all specified D features; joins them to CF006 values; computes A colour fail, B 0.04 endpoint fail, C exact-annotation fail, D all-pass; and derives dispositions FACT030-FACT033 with no missing dimension.",
+        "predicate_id": "PRED002",
+        "severity": "blocking",
+        "statement": "Every panel comparison and disposition must follow the exact all-dimensions tolerance rule from pixels and separate structured evidence."
+      },
+      {
+        "applies_to_ids": [
+          "MGN001",
+          "MGN002",
+          "MGN003",
+          "MGN004",
+          "AEDGE002",
+          "AEDGE003",
+          "AEDGE004",
+          "AEDGE005",
+          "AEDGE006",
+          "AEDGE007",
+          "AEDGE008",
+          "AEDGE009",
+          "AEDGE010",
+          "AEDGE011",
+          "FACT006",
+          "FACT016",
+          "FACT017",
+          "FACT018",
+          "FACT019",
+          "FACT020",
+          "FACT021",
+          "FACT022",
+          "FACT023",
+          "FACT026",
+          "FACT027",
+          "FACT028",
+          "FACT029",
+          "RULE004"
+        ],
+        "counterexample": "The predicate fails if the extracted PNG is rescaled, if the overlay recolours a swatch, or if alt text says 'Panel B upper CI is wrong'.",
+        "evaluation_mode": "grounded_agent",
+        "evidence_requirements": [
+          "Inspect generated images at native resolution and measure plotted coordinates against declared axes.",
+          "Compute decoded-pixel hashes/diffs across MGN002, the CF009 embedded image, MGN003/CF011, and the MGN004 source rectangle.",
+          "Inspect all container embedding locators and surrounding text/alt text for leakage."
+        ],
+        "kind": "multimodal_fidelity",
+        "origin_refs": [
+          "workspace_policy.mechanical_limits.multimodal_mode",
+          "workspace_policy.construction_principles[2]",
+          "user image operation and locator requirements"
+        ],
+        "pass_condition": "MGN001 and MGN002 match their frozen ImagePromptSpecs and exact plot coordinates; MGN002 appears unchanged at CF009 page[6].image[0]; MGN003/CF011 decoded pixels equal that embedded stream; MGN004 changes zero source-rectangle pixels and adds only the declared border/grid; CF012 embeds MGN004 at word/media/image1.png; A swatches, B endpoint, C annotation, and D control are readable, yet captions, alt text, inventory fields, overlay prose, and filenames do not transcribe or label those observations.",
+        "predicate_id": "PRED010",
+        "severity": "blocking",
+        "statement": "Generated, extracted, edited, and embedded images must preserve the frozen business visual facts and lineage while keeping the decisive observations out of helper text."
+      }
+    ],
+    "route_context": {
+      "business_goal": "Determine panel-level proof consistency, propagate every mapped impact, and issue one coupled proof-and-deposit release state as of the cutoff.",
+      "contract_edge_ids": [
+        "CEDGE001",
+        "CEDGE002",
+        "CEDGE003",
+        "CEDGE004",
+        "CEDGE005",
+        "CEDGE006",
+        "CEDGE007",
+        "CEDGE008",
+        "CEDGE009",
+        "CEDGE010",
+        "CEDGE011",
+        "CEDGE012",
+        "CEDGE013",
+        "CEDGE014"
+      ],
+      "contract_route_id": "CROUTE001",
+      "deliverable_class": "Publication release package comprising an editable XLSX reconciliation register and concise editable DOCX release memo.",
+      "difficulty_sources": [
+        "Panel-scoped version authority must be resolved from request, approval, time, hash, and proof linkage rather than filename recency.",
+        "The structured truth set must be reconstructed through the ordered observation-input -> finalized-export -> environment-attestation lineage, with byte hashes and QC totals conserved across three separate files.",
+        "Decisive legend, whisker, and annotation facts exist only in pixels and must be joined to separate R17 display and estimate fields.",
+        "Four panel branches propagate through an exact dependency map into manuscript, supplement, deposit, owner, and deadline states before merging.",
+        "Stale R16, public V2, and orphan LR3 records are plausible but conditionally noncontrolling.",
+        "Coupled status precedence prevents proof and repository decisions from diverging."
+      ],
+      "natural_request_context": "A publication quality lead can naturally ask a colleague to reconcile every Figure 3 panel and linked content before the 28 August production lock and to return the standard register and memo.",
+      "required_graph_node_ids": [
+        "GN001",
+        "GN002",
+        "GN003",
+        "GN004",
+        "GN005",
+        "GN006",
+        "GN007",
+        "GN008",
+        "GN009",
+        "GN010",
+        "GN011"
+      ],
+      "required_rule_ids": [
+        "RULE001",
+        "RULE002",
+        "RULE003",
+        "RULE004",
+        "RULE005",
+        "RULE006",
+        "RULE007",
+        "RULE008",
+        "RULE009",
+        "RULE010",
+        "RULE011"
+      ],
+      "target_fact_ids": [
+        "FACT030",
+        "FACT031",
+        "FACT032",
+        "FACT033",
+        "FACT044",
+        "FACT045",
+        "FACT046",
+        "FACT047",
+        "FACT052",
+        "FACT053"
+      ],
+      "terminal_decision": "ISSUE HOLD_CURRENT_PROOF_AND_LINKED_DEPOSIT for PRF-02 and DEP-V3 under the verified OBS-R17 -> FIG3-EST-R17 -> R17 environment-attestation lineage; correct A legend, B interval and linked text, and C annotation; D is clear; complete named actions and PQL re-review before release.",
+      "unique_resolution": "Time filtering admits LR2 approvals and orphan LR3; hash and scope rules select LR2 only for A/B and the accepted baseline for C/D; the required CF007 -> CF006 -> CF008 lineage admits exactly one observation input, finalized structured export, and non-earlier attestation; mandatory visual comparisons yield exactly three nonclear panels; dependency conservation fixes the downstream action set; and HOLD precedence forces the same terminal status for PRF-02 and DEP-V3. Removing either AEDGE035 or AEDGE036 leaves RULE003 unsatisfied, while no alternative terminal state satisfies all predicates."
+    },
+    "rules": [
+      {
+        "counterexample": "Selecting LR2 for panel C merely because C is present in the same composite PNG violates component-scoped approval.",
+        "input_fact_ids": [
+          "FACT004",
+          "FACT005",
+          "FACT006",
+          "FACT007",
+          "FACT008",
+          "FACT009",
+          "FACT010",
+          "FACT011",
+          "FACT025",
+          "FACT053",
+          "FACT054"
+        ],
+        "operator_family": "component_version_authority",
+        "output_fact_ids": [
+          "FACT012"
+        ],
+        "resolution_order": "After temporal filtering and hash-lineage verification; before any panel comparison or downstream propagation.",
+        "rule_id": "RULE002",
+        "source_anchor_ids": [
+          "ANCH009",
+          "ANCH010",
+          "ANCH011",
+          "ANCH021"
+        ],
+        "statement": "For each panel, an accepted baseline is superseded only by an eligible replacement whose exact hash is linked to the proof and whose request, corresponding-author approval, and PQL approval all name that panel; otherwise the accepted panel remains controlling.",
+        "truth_conditions": [
+          "A/B select FIG3-LR2 because request, both approvals, proof insertion, and exact hash all agree by the cutoff.",
+          "C/D select FIG3-ACC-v5 because at least the request-scope and both approval-scope predicates are false.",
+          "LR3 cannot control any panel because request, approvals, and proof link are all absent despite a later-looking filename."
+        ]
+      },
+      {
+        "counterexample": "Calling panel A numerically correct and therefore clear while ignoring its reversed legend swatches violates the all-dimensions conjunction.",
+        "input_fact_ids": [
+          "FACT016",
+          "FACT017",
+          "FACT018",
+          "FACT019",
+          "FACT020",
+          "FACT021",
+          "FACT022",
+          "FACT023",
+          "FACT024",
+          "FACT050"
+        ],
+        "operator_family": "visual_structured_reconciliation",
+        "output_fact_ids": [
+          "FACT026",
+          "FACT027",
+          "FACT028",
+          "FACT029"
+        ],
+        "resolution_order": "After version and analysis authority; evaluate all mandatory dimensions before assigning a panel disposition.",
+        "rule_id": "RULE004",
+        "source_anchor_ids": [
+          "ANCH002",
+          "ANCH003",
+          "ANCH004",
+          "ANCH012",
+          "ANCH018",
+          "ANCH019",
+          "ANCH020"
+        ],
+        "statement": "Compare each controlling proof panel with R17 across every required visual and structured dimension: identity, cohort label, colour, order, median, both uncertainty endpoints, unit, annotation, and authorization; labels and categories require exact equality and numeric display uses the frozen tolerance.",
+        "truth_conditions": [
+          "For a two-decimal numeric mark, abs(observed - round_half_up(source,2)) <= 0.005 and geometric displacement <= one rendered pixel and <=0.005 axis units.",
+          "Every mandatory label, colour mapping, category order, unit, and annotation equals its expected value exactly.",
+          "A single failed dimension makes the panel comparison nonclear; missing evidence also makes it nonclear."
+        ]
+      },
+      {
+        "counterexample": "Marking C CORRECT_AS_REPLACEMENT instead of REVERT ignores that no approval names C.",
+        "input_fact_ids": [
+          "FACT012",
+          "FACT024",
+          "FACT026",
+          "FACT027",
+          "FACT028",
+          "FACT029"
+        ],
+        "operator_family": "panel_disposition",
+        "output_fact_ids": [
+          "FACT030",
+          "FACT031",
+          "FACT032",
+          "FACT033"
+        ],
+        "resolution_order": "After all panel comparisons and before dependency propagation or overall status resolution.",
+        "rule_id": "RULE005",
+        "source_anchor_ids": [
+          "ANCH009",
+          "ANCH012"
+        ],
+        "statement": "Assign CLEAR only when every mandatory comparison and authority condition passes; assign CORRECT to an authorized replacement with a correctable display defect; assign REVERT when a changed component lacks replacement authority.",
+        "truth_conditions": [
+          "A and B are authorized LR2 components, so their failed display dimensions yield correction dispositions.",
+          "C contains an unapproved changed annotation, so it yields REVERT_TO_ACCEPTED_ANNOTATION.",
+          "D retains accepted authority and all dimensions pass, so it alone yields CLEAR."
+        ]
+      }
+    ],
+    "schema_version": "agent-first-contract-basis/v1",
+    "state_facts": [
+      {
+        "effective_from": "2026-08-19T15:10:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT004",
+        "interpretation": "The public sources ground distinct lifecycle states; the synthetic timestamp and ID belong only to this case.",
+        "materialization_obligation": "Materialize the accepted state and timestamp in the accepted manifest and print the accepted-version label on Workspace/02_Manuscript/accepted_manuscript_AM-2026-0147-v5.pdf.",
+        "predicate": "accepted_state",
+        "source_anchor_ids": [
+          "ANCH001",
+          "ANCH017"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT006",
+          "ENT008"
+        ],
+        "value": "AM-2026-0147-v5 was accepted at 2026-08-19T15:10:00+08:00 and includes FIG3-ACC-v5."
+      },
+      {
+        "effective_from": "2026-08-25T16:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT005",
+        "interpretation": "Documented state and hashes, not filename recency, join the controlling accepted and analysis objects.",
+        "materialization_obligation": "Put one row per object, its version, SHA-256, authority state, and effective time in Accepted_Set of Workspace/01_Governance/accepted_submission_manifest.xlsx.",
+        "predicate": "accepted_manifest_links",
+        "source_anchor_ids": [
+          "ANCH010",
+          "ANCH011",
+          "ANCH013"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT006",
+          "ENT008",
+          "ENT014",
+          "ENT015",
+          "ENT028"
+        ],
+        "value": "Manifest M-0147-v5 links AM-2026-0147-v5, FIG3-ACC-v5, AR-2026-08-24-R17, and FIG3-EST-R17 by exact SHA-256 values and marks them accepted/approved."
+      },
+      {
+        "effective_from": "2026-08-19T15:10:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT006",
+        "interpretation": "The anchors supply visual grammar only; all panel identities and values here are synthetic case facts.",
+        "materialization_obligation": "Encode these baseline semantics in the raster embedded at page[11].image[0] of the accepted manuscript; do not add a helper table transcribing its geometry.",
+        "predicate": "accepted_figure_baseline",
+        "source_anchor_ids": [
+          "ANCH002",
+          "ANCH003",
+          "ANCH004",
+          "ANCH019",
+          "ANCH020"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT008",
+          "ENT010",
+          "ENT011",
+          "ENT012",
+          "ENT013"
+        ],
+        "value": "FIG3-ACC-v5 contains panels A-D; panel A's R16 baseline is Incentivized 0.03 [-0.03,0.09] in teal and Non-incentivized -0.02 [-0.08,0.04] in amber; panel B's R16 baseline is 0.01 [-0.02,0.05]; interval marks are 95% intervals; panel C shows n=42; panel D category order is Incentivized then Non-incentivized."
+      },
+      {
+        "effective_from": "2026-08-26T08:55:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT007",
+        "interpretation": "Submitting a composite image does not authorize unrequested changes to panels C or D.",
+        "materialization_obligation": "Show the signed request time, attachment hash, reason, and exact A/B scope on pages 1-2 of Workspace/01_Governance/late_replacement_approval_log.pdf.",
+        "predicate": "replacement_request_scope",
+        "source_anchor_ids": [
+          "ANCH009"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT009",
+          "ENT017",
+          "ENT010",
+          "ENT011"
+        ],
+        "value": "RR-017 submitted FIG3-LR2 at 2026-08-26T08:55:00+08:00 and requested replacement scope exactly {FIG3-A, FIG3-B}."
+      },
+      {
+        "effective_from": "2026-08-26T10:40:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT008",
+        "interpretation": "Author approval is necessary but remains bounded to the stated components and exact attachment.",
+        "materialization_obligation": "Render the approval event, approver role, scope, attachment hash, and timestamp on page 2 of the late-replacement approval log.",
+        "predicate": "corresponding_author_approval",
+        "source_anchor_ids": [
+          "ANCH009",
+          "ANCH021"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT004",
+          "ENT018",
+          "ENT010",
+          "ENT011"
+        ],
+        "value": "CA-STUDY approved FIG3-LR2 panels A and B at 2026-08-26T10:40:00+08:00 and did not approve C or D."
+      },
+      {
+        "effective_from": "2026-08-26T12:20:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT009",
+        "interpretation": "This completes component authority for A/B but does not itself establish visual or numeric consistency.",
+        "materialization_obligation": "Render the PQL event, conditional verification clause, exact scope, hash, and timestamp on page 3 of the approval log.",
+        "predicate": "quality_lead_approval",
+        "source_anchor_ids": [
+          "ANCH009"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT003",
+          "ENT018",
+          "ENT010",
+          "ENT011"
+        ],
+        "value": "PQL approved FIG3-LR2 panels A and B at 2026-08-26T12:20:00+08:00, conditional on proof-to-R17 verification, and did not approve C or D."
+      },
+      {
+        "effective_from": "2026-08-26T09:18:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT010",
+        "interpretation": "The current proof actually contains LR2; later approval can authorize its scoped components despite insertion occurring first.",
+        "materialization_obligation": "Record proof build time, page/figure locator, embedded-image hash, and attachment linkage in Workspace/04_Proof/proof_component_inventory.json.",
+        "predicate": "proof_insertion",
+        "source_anchor_ids": [],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT005",
+          "ENT007",
+          "ENT009"
+        ],
+        "value": "PRF-02 was built at 2026-08-26T09:18:00+08:00 and page[6].image[0] has the exact FIG3-LR2 attachment hash."
+      },
+      {
+        "effective_from": "2026-08-26T12:20:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT011",
+        "interpretation": "Absence is tested against complete scope matrices, not inferred from silence in prose.",
+        "materialization_obligation": "Make the scope matrices on pages 2-3 of the approval log explicitly mark C and D as not requested and not approved.",
+        "predicate": "replacement_scope_absence",
+        "source_anchor_ids": [
+          "ANCH009"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT012",
+          "ENT013",
+          "ENT017",
+          "ENT018"
+        ],
+        "value": "No request, author approval, or PQL approval effective by the cutoff names FIG3-C or FIG3-D."
+      },
+      {
+        "effective_from": "2026-08-26T12:20:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT012",
+        "interpretation": "Replacement authority is component-scoped, while unapproved components retain the accepted predecessor.",
+        "materialization_obligation": "Provide all premise events in manifest and approval files so this panel-scoped result is derivable; do not print this resolved four-panel mapping as a standalone answer table.",
+        "predicate": "controlling_panel_versions",
+        "source_anchor_ids": [
+          "ANCH009",
+          "ANCH010",
+          "ANCH011"
+        ],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT008",
+          "ENT009",
+          "ENT010",
+          "ENT011",
+          "ENT012",
+          "ENT013"
+        ],
+        "value": "At the cutoff, FIG3-A and FIG3-B are controlled by FIG3-LR2; FIG3-C and FIG3-D are controlled by FIG3-ACC-v5."
+      },
+      {
+        "effective_from": "2026-08-25T16:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT016",
+        "interpretation": "This is structured presentation evidence, not a scientific judgment about the effect.",
+        "materialization_obligation": "Place these exact fields in Panel_Estimates rows FIG3-A-IMM and FIG3-A-DEL and the colour/order fields in Display_Map of the R17 workbook.",
+        "predicate": "panel_A_expected",
+        "source_anchor_ids": [
+          "ANCH003",
+          "ANCH018",
+          "ANCH019",
+          "ANCH020"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT010",
+          "ENT014",
+          "ENT015"
+        ],
+        "value": "R17 panel A expects the relative benefit of Immediate feedback by cohort: Incentivized median 0.04, 95% interval [-0.02,0.10], teal; Non-incentivized median -0.01, 95% interval [-0.07,0.05], amber; legend order Incentivized then Non-incentivized."
+      },
+      {
+        "effective_from": "2026-08-25T16:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT017",
+        "interpretation": "The interval and axis calibration jointly make the proof whisker position falsifiable.",
+        "materialization_obligation": "Place the estimate, both interval bounds, unit, axis bounds, tick step, and display precision in the FIG3-B row of Panel_Estimates.",
+        "predicate": "panel_B_expected",
+        "source_anchor_ids": [
+          "ANCH002",
+          "ANCH018",
+          "ANCH019"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT011",
+          "ENT014",
+          "ENT015"
+        ],
+        "value": "R17 expects overall Immediate-minus-Delayed median 0.02 with 95% interval [-0.01,0.07] standardized delta-z, displayed on a -0.10 to 0.20 axis with 0.05 major ticks."
+      },
+      {
+        "effective_from": "2026-08-25T16:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT018",
+        "interpretation": "The annotation is a required visible element even though panel C was not within replacement scope.",
+        "materialization_obligation": "Place the estimate, bounds, and expected_annotation=n=42 in the FIG3-C row and visibly render n=42 in the accepted figure only.",
+        "predicate": "panel_C_expected",
+        "source_anchor_ids": [
+          "ANCH004",
+          "ANCH019"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT012",
+          "ENT014",
+          "ENT015"
+        ],
+        "value": "R17 and FIG3-ACC-v5 expect heterogeneity median 0.06 with 95% interval [0.01,0.14] and visible annotation n=42."
+      },
+      {
+        "effective_from": "2026-08-25T16:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT019",
+        "interpretation": "Every visible dimension must agree for this unaffected panel to clear.",
+        "materialization_obligation": "Place these exact values, labels, category order, unit, and exploratory_marker=false in the FIG3-D row and Display_Map.",
+        "predicate": "panel_D_expected",
+        "source_anchor_ids": [
+          "ANCH020"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT013",
+          "ENT014",
+          "ENT015"
+        ],
+        "value": "R17 expects moderator median 0.02 with 95% interval [-0.04,0.08], standardized delta-z, category order Incentivized then Non-incentivized, and no exploratory marker."
+      },
+      {
+        "effective_from": "2026-08-26T09:18:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT020",
+        "interpretation": "This decisive fact requires visual inspection joined to the R17 Display_Map.",
+        "materialization_obligation": "Encode the swapped swatch-to-label pairing only in the pixels of page[6].image[0] and its exact extraction; no text, alt text, table, filename, or caption may state that it is swapped.",
+        "predicate": "panel_A_proof_pixels",
+        "source_anchor_ids": [
+          "ANCH003"
+        ],
+        "status": "frozen_visual_fact",
+        "subject_entity_ids": [
+          "ENT007",
+          "ENT010"
+        ],
+        "value": "PRF-02 panel A has numerically correct cohort estimates and intervals, but its legend visibly pairs teal with Non-incentivized and amber with Incentivized."
+      },
+      {
+        "effective_from": "2026-08-26T09:18:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT021",
+        "interpretation": "The visible geometry is outside the internal display tolerance when joined to the structured 0.07 bound.",
+        "materialization_obligation": "Render the endpoint at the 0.11 coordinate without a numeric endpoint label; preserve axis ticks sufficient to measure it, and do not transcribe the observation outside the image.",
+        "predicate": "panel_B_proof_pixels",
+        "source_anchor_ids": [
+          "ANCH002",
+          "ANCH019"
+        ],
+        "status": "frozen_visual_fact",
+        "subject_entity_ids": [
+          "ENT007",
+          "ENT011"
+        ],
+        "value": "PRF-02 panel B shows median 0.02 and lower endpoint -0.01, but the upper whisker aligns with 0.11 on the calibrated axis rather than 0.07."
+      },
+      {
+        "effective_from": "2026-08-26T09:18:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT022",
+        "interpretation": "Because C is outside replacement scope, the altered annotation must be restored to the accepted baseline.",
+        "materialization_obligation": "Render n=24 only as visible image text in page[6].image[0]; the proof inventory may identify the annotation bounding box but must not transcribe its value.",
+        "predicate": "panel_C_proof_pixels",
+        "source_anchor_ids": [
+          "ANCH004"
+        ],
+        "status": "frozen_visual_fact",
+        "subject_entity_ids": [
+          "ENT007",
+          "ENT012"
+        ],
+        "value": "PRF-02 panel C keeps the accepted estimate and interval but visibly prints n=24 above the mark instead of n=42."
+      },
+      {
+        "effective_from": "2026-08-26T09:18:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT023",
+        "interpretation": "An unaffected panel on a discrepant composite figure can independently clear.",
+        "materialization_obligation": "Render all required D elements in the proof image and preserve them in extraction and registration overlay without adding a clearance label.",
+        "predicate": "panel_D_proof_pixels",
+        "source_anchor_ids": [
+          "ANCH020"
+        ],
+        "status": "frozen_visual_fact",
+        "subject_entity_ids": [
+          "ENT007",
+          "ENT013"
+        ],
+        "value": "PRF-02 panel D visibly matches the expected median 0.02, interval [-0.04,0.08], unit, labels, category order, and absence of an exploratory marker."
+      },
+      {
+        "effective_from": "2026-07-01T00:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT024",
+        "interpretation": "ICMJE grounds reporting uncertainty, but this numeric tolerance and release test are explicitly the centre's own policy.",
+        "materialization_obligation": "Publish the complete internally authored SOP rule, boundary inclusivity, pixel condition, required dimensions, precedence, and worked examples in Workspace/01_Governance/publication_release_policy.pdf.",
+        "predicate": "internal_display_and_clearance_policy",
+        "source_anchor_ids": [
+          "ANCH012"
+        ],
+        "status": "frozen_input",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": "Centre SOP 4.2 requires exact panel/label/unit/order/colour/annotation agreement; two-decimal displayed numbers pass only when absolute difference from round-half-up(source,2) is <=0.005; geometry must be within one rendered pixel and <=0.005 units; every interval endpoint and authorization link is mandatory."
+      },
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT025",
+        "interpretation": "The cutoff filters time first; approval scope and hash linkage resolve authority afterward.",
+        "materialization_obligation": "Ensure every event row has an ISO-8601 timestamp and cutoff comparison field so the eligible set is mechanically reproducible from governance files.",
+        "predicate": "eligible_evidence_set",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT001"
+        ],
+        "value": "All recorded events through 2026-08-26T17:00:00+08:00 are eligible to be considered, including the 16:40 orphan draft; eligibility does not confer authority."
+      },
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT026",
+        "interpretation": "One failed mandatory dimension prevents panel clearance even when numeric geometry is correct.",
+        "materialization_obligation": "Provide the visual and structured premises in separate artifacts; do not materialize this comparison conclusion as a public precomputed finding.",
+        "predicate": "panel_A_comparison",
+        "source_anchor_ids": [
+          "ANCH003"
+        ],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT010",
+          "ENT015",
+          "ENT007",
+          "ENT026"
+        ],
+        "value": "Numeric values and intervals pass, while legend colour-to-cohort mapping fails exact agreement."
+      },
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT027",
+        "interpretation": "The upper confidence endpoint is materially outside the frozen display tolerance.",
+        "materialization_obligation": "Keep the 0.07 source bound in the workbook and the 0.11 location only in pixels so the auditor must execute the visual-to-structured comparison.",
+        "predicate": "panel_B_comparison",
+        "source_anchor_ids": [
+          "ANCH019"
+        ],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT011",
+          "ENT015",
+          "ENT007"
+        ],
+        "value": "Median and lower endpoint pass; upper endpoint differs by 0.04 and fails the <=0.005 numeric and one-pixel geometry limits."
+      },
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT028",
+        "interpretation": "Annotation agreement is mandatory and has no numeric tolerance.",
+        "materialization_obligation": "Separate the accepted n=42 evidence from the current proof n=24 pixels and provide stable panel locators without precomputing the mismatch.",
+        "predicate": "panel_C_comparison",
+        "source_anchor_ids": [
+          "ANCH004"
+        ],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT012",
+          "ENT008",
+          "ENT007"
+        ],
+        "value": "Estimate and interval pass; visible sample annotation fails exact agreement because 24 is not 42."
+      },
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT029",
+        "interpretation": "Panel D is the required unaffected control branch.",
+        "materialization_obligation": "Provide all D premises across accepted figure, proof pixels, and R17 row; do not publish a prefilled CLEAR result.",
+        "predicate": "panel_D_comparison",
+        "source_anchor_ids": [
+          "ANCH020"
+        ],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT013",
+          "ENT008",
+          "ENT007",
+          "ENT015"
+        ],
+        "value": "All required visible, numeric, labeling, unit, order, and authorization dimensions pass."
+      },
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT030",
+        "interpretation": "The issue is a correctable production encoding defect, not invalid analysis.",
+        "materialization_obligation": "Leave sufficient premises and allowed-state definitions for later derivation; no public artifact may prefill this terminal panel disposition.",
+        "predicate": "panel_disposition",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT010"
+        ],
+        "value": "FIG3-A=CORRECT_PROOF_LEGEND; authorized replacement retained after correction."
+      },
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT031",
+        "interpretation": "The out-of-tolerance interval and its textual echoes require synchronized correction.",
+        "materialization_obligation": "Materialize the premises and allowed disposition vocabulary only; keep this resolved status private until the later task is answered.",
+        "predicate": "panel_disposition",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT011"
+        ],
+        "value": "FIG3-B=CORRECT_PROOF_AND_LINKED_TEXT; regenerate the upper interval from R17."
+      },
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT032",
+        "interpretation": "An unauthorized composite-image change is restored even though its quantitative marks are correct.",
+        "materialization_obligation": "Expose scope and image evidence separately without writing this resolved panel status into the public workspace.",
+        "predicate": "panel_disposition",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT012"
+        ],
+        "value": "FIG3-C=REVERT_TO_ACCEPTED_ANNOTATION; replacement authority never covered C."
+      },
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT033",
+        "interpretation": "Clearance is panel-specific and does not override blockers on A-C.",
+        "materialization_obligation": "Do not prefill CLEAR publicly; make every required D check possible from distributed evidence.",
+        "predicate": "panel_disposition",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT013"
+        ],
+        "value": "FIG3-D=CLEAR; retain the accepted-baseline component unchanged."
+      },
+      {
+        "effective_from": "2026-08-25T16:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT050",
+        "interpretation": "Structured authority follows approval and lineage rather than a newer filename or repository state alone.",
+        "materialization_obligation": "Provide approval, hashes, join keys, inclusion flags, and deposit links across manifest, workbook, CSV, environment JSON, and deposit files without a precomputed authority summary.",
+        "predicate": "controlling_analysis_evidence",
+        "source_anchor_ids": [
+          "ANCH005",
+          "ANCH007",
+          "ANCH013"
+        ],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT014",
+          "ENT015",
+          "ENT016",
+          "ENT020"
+        ],
+        "value": "AR-2026-08-24-R17, FIG3-EST-R17, and the 5112 included OBS-R17 rows are the controlling structured evidence; DEP-V3 is their staged repository projection."
+      },
+      {
+        "effective_from": "2026-08-26T17:00:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT053",
+        "interpretation": "Valid lineage makes the panel-scope and comparison rules applicable to PRF-02 and DEP-V3.",
+        "materialization_obligation": "Ensure an auditor can recompute every file hash and traverse every declared link, but do not provide a one-row lineage verdict.",
+        "predicate": "verified_hash_lineage",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT006",
+          "ENT007",
+          "ENT009",
+          "ENT014",
+          "ENT015",
+          "ENT020"
+        ],
+        "value": "The accepted manifest, LR2 approval attachment, PRF-02 embedded image, R17 export, and DEP-V3 inventory form a complete, nonconflicting hash-linked lineage at the cutoff."
+      },
+      {
+        "effective_from": "2026-08-26T16:40:00+08:00",
+        "effective_until": null,
+        "fact_id": "FACT054",
+        "interpretation": "The newest-looking filename is eligible evidence but cannot supersede an approved and inserted object.",
+        "materialization_obligation": "List LR3 as an orphan attachment on page 4 of the approval log and in proof inventory history with all authority fields explicitly null and its nonmatching hash visible.",
+        "predicate": "orphan_newer_draft",
+        "source_anchor_ids": [
+          "ANCH009",
+          "ANCH011"
+        ],
+        "status": "frozen_input_anomaly",
+        "subject_entity_ids": [
+          "ENT009",
+          "ENT017",
+          "ENT007"
+        ],
+        "value": "An attachment named Figure3_final_v9.png (FIG3-LR3) arrived at 2026-08-26T16:40:00+08:00 but has no request ID, no approval, a different hash, and no proof-component link."
+      }
+    ]
+  },
+  "reference_claim_evidence": {
+    "citations": [
+      {
+        "locator": "Panel_Reconciliation!A6:O6; Dimension_Checks!A16:J24",
+        "observation": "The FIG3-D rows retain FIG3-ACC-v5 authority and individually pass identity, median 0.02, endpoints -0.04 and 0.08, Standardized Δz, 95% interval label, Incentivized-then-Non-incentivized order, required labels, no exploratory marker, and authorization.",
+        "path": "deliverables/figure3_reconciliation_register.xlsx"
+      }
+    ],
+    "claim_id": "R008",
+    "why_full_pass": "Every mandatory D dimension is independently listed with visual and structured/authority evidence, yielding CLEAR and retain unchanged without allowing D to override blockers elsewhere."
+  }
+}

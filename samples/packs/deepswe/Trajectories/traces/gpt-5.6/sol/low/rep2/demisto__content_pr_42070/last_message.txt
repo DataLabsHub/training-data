@@ -1,0 +1,21 @@
+Implemented [IndicatorEnrichment.py](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+Includes:
+
+- IP, URL, Domain, CVE, and File classification
+- Text extraction and indicator-list handling
+- Ordered deduplication and 100-indicator validation
+- Unsupported and invalid indicator reporting
+- Batched child enrichment with partial-failure preservation
+- Unified `IndicatorEnrichment` context
+- Optional raw child contexts
+- Markdown formatting and duplicate notices
+- Complete error handling in `main()`
+
+Validation performed:
+
+- Python compilation passed
+- Targeted mocked behavioral checks passed
+- `git diff --check` passed
+
+The repository environment does not have `pytest` installed, so the full pytest suite could not be run.

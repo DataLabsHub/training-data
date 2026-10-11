@@ -1,0 +1,10 @@
+Implemented GetEndpoints support across `datatypes` and `services`, including:
+
+- `LocalizedText`
+- `StringArray`
+- Discovery structures and arrays
+- GetEndpoint request/response services
+- Service dispatcher support
+- Required constants, constructors, decoders, serializers, and length methods
+
+I could not run Go tests because the environment does not contain a `go` executable.

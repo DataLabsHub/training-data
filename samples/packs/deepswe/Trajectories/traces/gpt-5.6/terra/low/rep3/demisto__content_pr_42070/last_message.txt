@@ -1,0 +1,5 @@
+Implemented the new [`IndicatorEnrichment.py`](/testbed/Packs/AggregatedScripts/Scripts/IndicatorEnrichment/IndicatorEnrichment.py).
+
+It includes mixed indicator detection, deduplication, validation/limits, per-type batch enrichment, partial failure handling, unified context output, Markdown formatting, invalid/unsupported reporting, and `main()` error handling.
+
+Verified with `py_compile` and `git diff --check`.

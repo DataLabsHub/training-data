@@ -1,0 +1,6 @@
+2026-08-30T08:10:16.552108Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/libp2p/network/stream/net_stream.py:
+                StreamState.CLOSE_WRITE,
+            ]:
+                return
+2026-08-30T08:10:26.510009Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /testbed/libp2p/network/connection/swarm_connection.py:
+from libp2p.network.stream.net_stream import NetStream

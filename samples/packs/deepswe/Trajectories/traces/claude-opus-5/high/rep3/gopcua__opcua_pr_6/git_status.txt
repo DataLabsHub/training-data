@@ -1,0 +1,16 @@
+ M README.md
+ M datatypes/string.go
+ M datatypes/string_test.go
+ M services/response-header.go
+ M services/service.go
+?? datatypes/localized-text.go
+?? datatypes/localized-text_test.go
+?? datatypes/string-array.go
+?? datatypes/string-array_test.go
+?? services/application-description.go
+?? services/endpoint-description.go
+?? services/endpoint-description_test.go
+?? services/get-endpoints-request.go
+?? services/get-endpoints-response.go
+?? services/get-endpoints_test.go
+?? services/user-token-policy.go

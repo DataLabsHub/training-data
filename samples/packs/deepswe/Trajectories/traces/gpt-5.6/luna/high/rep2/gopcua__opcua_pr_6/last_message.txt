@@ -1,0 +1,14 @@
+Implemented GetEndpoints support across datatypes and services:
+
+- Added `LocalizedText` and signed `StringArray` APIs.
+- Added application, token policy, and endpoint discovery structures/arrays.
+- Added GetEndpoint request/response services and generic dispatch.
+- Updated response headers to use `StringArray`.
+- Fixed null/truncated string and bytestring decoding.
+- Added focused round-trip and dispatch tests.
+
+Validation passed:
+
+- `go test ./...`
+- `go test -race ./datatypes ./services`
+- `git diff --check`

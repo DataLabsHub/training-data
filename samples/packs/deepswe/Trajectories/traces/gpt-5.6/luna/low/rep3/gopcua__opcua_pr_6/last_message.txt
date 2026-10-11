@@ -1,0 +1,9 @@
+Implemented initial datatype support:
+
+- Added `LocalizedText`
+- Added signed-size `StringArray`
+- Added `ApplicationDescription`
+- Added `UserTokenPolicy` and `UserTokenPolicyArray`
+- Added related constants and constructors
+
+I could not run tests because Go is unavailable in the environment (`go: not found`). The full GetEndpoints service implementation and endpoint array/service dispatch support remain incomplete.

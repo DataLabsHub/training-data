@@ -1,0 +1,10 @@
+Implemented GetEndpoints support, including:
+
+- `LocalizedText` and signed `StringArray` datatypes.
+- Application, token-policy, and endpoint discovery structures/arrays.
+- GetEndpoint request/response services and constructors.
+- Generic service dispatch for IDs 428 and 431.
+- Null `ByteString` handling and legacy `StringTable` compatibility.
+- Existing OpenSecureChannel behavior preserved.
+
+`git diff --check` passes. `go test ./...` was attempted but could not run because Go is not installed in the environment.

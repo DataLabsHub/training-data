@@ -1,0 +1,21 @@
+Pre-existing failure on the clean tree, unrelated to this work (a WebSocket SNI multiaddr-resolution assertion). Everything else in the 805-test core suite passes.
+
+## Summary
+
+Added a structured `StreamState` lifecycle to `NetStream` in `libp2p/network/stream/net_stream.py:38`.
+
+**States** — `StreamState` now has exactly `INIT`, `OPEN`, `CLOSE_READ`, `CLOSE_WRITE`, `CLOSE_BOTH`, `RESET`, `ERROR`. New streams start in `INIT`; `SwarmConn._add_stream` moves established streams to `OPEN` (`libp2p/network/connection/swarm_connection.py:150`).
+
+**Constructor** — `NetStream(muxed_stream, swarm_conn=None)` replaces the old `nursery` parameter, accepting the connection positionally or by keyword. `_remove()`/`_notify_closed()` now prefer the `swarm_conn` back-reference and fall back to the `muxed_conn` hooks, so existing wiring keeps working.
+
+**API** — awaitable `state` property returning `StreamState`, awaitable `set_state(state)`, awaitable `is_operational()` (true for `INIT`/`OPEN`/`CLOSE_READ`/`CLOSE_WRITE`, false for `CLOSE_BOTH`/`RESET`/`ERROR`), plus `close_read()` / `close_write()` for independent half-closes.
+
+**Validation** — reads reject `ERROR`/`RESET`/read-closed states, writes reject `ERROR`/`RESET`/write-closed states, and `close_read`/`close_write` reject `ERROR`, all with the required message substrings and all before touching the muxed stream. `reset()` is allowed from every state including `ERROR`, ending in `RESET`.
+
+**Error conversion** — unexpected exceptions from the muxed stream become `StreamError("Read operation failed: …")` / `"Write operation failed: …"` and move the stream to `ERROR`. `MuxedStreamEOF`, `MuxedStreamReset`, `MuxedStreamClosed`, `MuxedStreamError` and the QUIC exceptions keep their existing `StreamEOF`/`StreamReset`/`StreamClosed` behavior and transitions.
+
+**Atomicity** — all state reads, writes, and state-dependent I/O checks go through the state lock inside `trio.CancelScope(shield=True)`, and transitions are applied via a single `_transition()` helper, so a cancelled operation can't leave the lock held or a transition half-applied.
+
+One deliberate deviation to flag: `close()` stays a tolerant no-op in `ERROR` rather than raising, because the codebase has many `finally: await stream.close()` cleanup paths that would otherwise break. `close_write()` is the strict variant that raises, and this is covered by a test and documented in the class docstring's operation-validity table.
+
+**Tests** — `tests/core/network/test_net_stream_state.py` (24 tests) covers the state members, `INIT`/`OPEN` transitions, per-state `is_operational()`, every `ERROR`-state message, reset-from-error, both error-conversion paths, preserved lifecycle-exception behavior, independent half-closes, double-close idempotency, and cancellation/concurrency atomicity. Also added `newsfragments/1027.feature.rst` and updated the example to use `is_operational()`.

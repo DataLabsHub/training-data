@@ -1,0 +1,26 @@
+{
+  "schema_version": "1",
+  "task_id": "task_006",
+  "instruction": "Please use Shotcut to make a minimal gameplay practice cut from A_roll.mp4. Create a project named HoK_Practice in /home/user/Desktop/HoK_Practice/ with Video Mode set to HD 1080p 60 fps. Import A_roll.mp4 from /home/user/Desktop/raw_materials/ and place it only on V1; do not import or use BGM.mp3 or Logo.png. Build exactly three contiguous V1 clips: source 00:00-00:15 at normal speed, source 00:15-00:25 at exactly 3.0x speed, and source 00:25-00:40 at normal speed. Do not add filters, an audio track, a second video track, a replay, or a fade. Save the editable project as /home/user/Desktop/HoK_Practice/HoK_Practice.mlt, and do not export media.",
+  "instruction_requirements": [
+    "practice_project_saved",
+    "three_clip_scope",
+    "gameplay_only_single_track"
+  ],
+  "evaluator_checks": [
+    {
+      "covers": [
+        "practice_project_saved",
+        "three_clip_scope",
+        "gameplay_only_single_track"
+      ],
+      "description": "The practice MLT exists with only A_roll gameplay, a 3x timewarp, and no soundtrack or logo resources or extra tracks.",
+      "helper_name": "check_practice_cut_scope",
+      "helper_source": "import re\n\ndef check_practice_cut_scope(env):\n    payload = env.controller.get_file('/home/user/Desktop/HoK_Practice/HoK_Practice.mlt')\n    if payload is None:\n        return 0.0\n    text = payload.decode('utf-8', errors='replace') if isinstance(payload, (bytes, bytearray)) else str(payload)\n    profile = bool(re.search(r'width=\"1920\"[^>]*height=\"1080\"', text) and re.search(r'frame_rate_num=\"60\"', text))\n    gameplay = 'A_roll.mp4' in text\n    excluded = 'BGM.mp3' not in text and 'Logo.png' not in text\n    speed = bool('3:' in text or re.search(r'<property name=\"warp_speed\">3(?:\\.0)?</property>', text))\n    one_video = 'shotcut:name\">V1<' in text and 'shotcut:name\">V2<' not in text and 'shotcut:name\">A1<' not in text\n    no_effects = all(token not in text for token in ('brightness', 'gradientMap', 'fadeOutBrightness', 'fadeInVolume', 'fadeOutVolume'))\n    return float(profile and gameplay and excluded and speed and one_video and no_effects)\n",
+      "kind": "python",
+      "name": "practice_cut_scope",
+      "weight": 1.0
+    }
+  ],
+  "pass_threshold": 1.0
+}

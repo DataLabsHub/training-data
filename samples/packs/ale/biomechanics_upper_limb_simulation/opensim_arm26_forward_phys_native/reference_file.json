@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "note": "Indexes only ground-truth reference artifacts stored under reference/.",
+  "files": [
+    {
+      "name": "arm26_controls.sto",
+      "format": "STO",
+      "path": "reference/ForwardDynamics/arm26_controls.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 41878,
+      "sha256": "eb7dc76169af6631a82b563b6cc6edec84666935e815aa83ffe1d008a34b20ad",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_states.sto",
+      "format": "STO",
+      "path": "reference/ForwardDynamics/arm26_states.sto",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 101292,
+      "sha256": "8a537d9dd90c07368790d71d4bda832a399a396b15497be06e3d765f2720b6f1",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    },
+    {
+      "name": "arm26_states_degrees.mot",
+      "format": "MOT",
+      "path": "reference/ForwardDynamics/arm26_states_degrees.mot",
+      "description": "Ground-truth reference artifact bundled under reference/.",
+      "sizeBytes": 101410,
+      "sha256": "39c87f9dae5d25e1f677f17bd94b16b3b6f834be4c91a6061d98e6e104b8fd55",
+      "source": "Bundled ground-truth reference artifact; upstream source details are retained in the separate audit evidence package.",
+      "license": "See the separate audit evidence package for upstream license/source notes."
+    }
+  ]
+}

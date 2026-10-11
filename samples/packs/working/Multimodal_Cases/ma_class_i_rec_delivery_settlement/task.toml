@@ -1,0 +1,62 @@
+schema_version = "1.2"
+artifacts = ["/app/deliverables/rec_settlement_workpaper.xlsx"]
+
+[task]
+name = "energy/ma_class_i_rec_delivery_settlement"
+description = "Resolve renewable-energy certificate delivery, qualification, custody, cure, and cover evidence into a controlled settlement recommendation."
+keywords = ["office", "multimodal", "xlsx", "energy", "settlement", "office-document"]
+
+[metadata]
+name = "ma_class_i_rec_delivery_settlement"
+topic = "renewable energy certificate settlement"
+tags = ["office", "multimodal", "xlsx", "energy", "settlement"]
+sector = "Utilities"
+occupation = "Compliance Officers"
+difficulty_tier = "Advanced Plus"
+multimodal = true
+web_search_required = false
+est_minutes = 300
+
+[agent]
+timeout_sec = 7200.0
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 4
+memory_mb = 8192
+storage_mb = 30720
+gpus = 0
+allow_internet = false
+mcp_servers = []
+workdir = "/app"
+
+[verifier]
+timeout_sec = 7200.0
+environment_mode = "separate"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 8192
+storage_mb = 30720
+allow_internet = true
+
+[verifier.env]
+JUDGE_MODEL = "${JUDGE_MODEL:-gpt-5.6-sol}"
+JUDGE_PROVIDER = "${JUDGE_PROVIDER:-openai}"
+JUDGE_API_PROTOCOL = "${JUDGE_API_PROTOCOL:-responses}"
+JUDGE_API_KEY = "${JUDGE_API_KEY}"
+JUDGE_BASE_URL = "${JUDGE_BASE_URL}"
+JUDGE_BACKEND = "${JUDGE_BACKEND:-codex}"
+JUDGE_REASONING_EFFORT = "${JUDGE_REASONING_EFFORT:-xhigh}"
+JUDGE_CODEX_BIN = "${JUDGE_CODEX_BIN:-codex}"
+JUDGE_PER_TIMEOUT = "${JUDGE_PER_TIMEOUT:-1200}"
+JUDGE_CONCURRENCY = "${JUDGE_CONCURRENCY:-4}"
+JUDGE_MAX_TRIES = "${JUDGE_MAX_TRIES:-3}"
+JUDGE_REPEATS = "${JUDGE_REPEATS:-1}"
+
+[solution]
+timeout_sec = 1200.0
+
+[solution.env]
+OPENAI_API_KEY = "${JUDGE_API_KEY:-}"
+OPENAI_BASE_URL = "${JUDGE_BASE_URL:-}"

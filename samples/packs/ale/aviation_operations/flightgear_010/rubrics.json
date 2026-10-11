@@ -1,0 +1,92 @@
+[
+  {
+    "id": "checkpoint_01_required_files",
+    "label": "deterministic",
+    "description": "All required deliverable files are present at the exact paths specified in the prompt and output contract."
+  },
+  {
+    "id": "checkpoint_02_native_artifact",
+    "label": "deterministic",
+    "description": "The submission includes the required native project/model/workspace artifact rather than only scalar answers or screenshots."
+  },
+  {
+    "id": "checkpoint_03_format_parseability",
+    "label": "deterministic",
+    "description": "Structured outputs are parseable and native artifacts can be opened or inspected by the expected professional software/tooling."
+  },
+  {
+    "id": "checkpoint_04_input_binding",
+    "label": "deterministic",
+    "description": "The output is derived from the bundled input files and task parameters, with no evidence of unrelated or stale artifacts."
+  },
+  {
+    "id": "checkpoint_05_gold_agreement",
+    "label": "deterministic",
+    "description": "Key numerical, structural, or semantic results agree with official/external reference values within the grader tolerances."
+  },
+  {
+    "id": "checkpoint_06_cross_artifact_consistency",
+    "label": "deterministic",
+    "description": "Native project files, exported tables, screenshots, logs, and summaries describe the same completed workflow."
+  },
+  {
+    "id": "checkpoint_07_gui_workflow",
+    "label": "non-deterministic",
+    "description": "The deliverables show completion of the professional GUI workflow, not a fabricated text-only or script-only answer."
+  },
+  {
+    "id": "checkpoint_08_software_specific_validity",
+    "label": "non-deterministic",
+    "description": "The artifacts use plausible domain-specific settings, object names, studies, analyses, or simulation components for the named software."
+  },
+  {
+    "id": "checkpoint_09_no_starter_only_submission",
+    "label": "deterministic",
+    "description": "The native project artifact is not merely an unmodified starter/input file."
+  },
+  {
+    "id": "checkpoint_10_no_simple_hack",
+    "label": "deterministic",
+    "description": "The submission cannot pass by filling only memorized scalar values; required native artifacts and consistency checks must also pass."
+  },
+  {
+    "id": "checkpoint_11_failure_exit",
+    "label": "deterministic",
+    "description": "If the task is genuinely infeasible in the VM, output/infeasible.md explains the blocker instead of fabricated deliverables."
+  },
+  {
+    "id": "checkpoint_12_provenance_or_log",
+    "label": "deterministic",
+    "description": "Where requested, logs and provenance identify the software version, workflow, and files used for the final run/export."
+  },
+  {
+    "id": "checkpoint_13_fgfs_log",
+    "label": "deterministic",
+    "description": "Required deliverable `fgfs.log` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_14_live_property_log_csv",
+    "label": "deterministic",
+    "description": "Required deliverable `live_property_log.csv` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_15_replay_readings_json",
+    "label": "deterministic",
+    "description": "Required deliverable `replay_readings.json` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_16_result_json",
+    "label": "deterministic",
+    "description": "Required deliverable `result.json` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_17_route_xml",
+    "label": "deterministic",
+    "description": "Required deliverable `route.xml` exists and satisfies its task-specific content requirements."
+  },
+  {
+    "id": "checkpoint_18_system_meta_json",
+    "label": "deterministic",
+    "description": "Required deliverable `system_meta.json` exists and satisfies its task-specific content requirements."
+  }
+]

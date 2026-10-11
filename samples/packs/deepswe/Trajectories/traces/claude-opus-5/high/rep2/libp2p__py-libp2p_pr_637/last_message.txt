@@ -1,0 +1,21 @@
+All tests pass (162 network/host/muxer + 179 pubsub/identity/relay, plus the full `tests/core` run which exited 0).
+
+## What changed
+
+**`libp2p/network/stream/net_stream.py`** — the core of the work:
+
+- **`StreamState`** now has exactly `INIT`, `OPEN`, `CLOSE_READ`, `CLOSE_WRITE`, `CLOSE_BOTH`, `RESET`, `ERROR`, with `OPERATIONAL_STATES` / `TERMINAL_STATES` groupings.
+- **`__init__(muxed_stream, swarm_conn=None, nursery=None)`** — the `swarm_conn` back-reference is now second positional (works as keyword too); streams start in `INIT`. `_remove()` prefers `swarm_conn.remove_stream` and falls back to the `muxed_conn` hook, tolerating both sync and async variants.
+- **`set_state()`** and **`is_operational()`** added, both awaitable and both taking `_state_lock`, like `state`.
+- **State validation before touching the muxed stream**: `read`, `write`, `close_read`, `close_write` all raise `StreamError` with the specified messages when in `ERROR`; `reset()` is still permitted from `ERROR` and lands in `RESET`.
+- **Error conversion**: unexpected exceptions from the underlying stream become `StreamError("Read operation failed: …")` / `("Write operation failed: …")` and move the stream to `ERROR`. `MuxedStreamEOF`/`MuxedStreamReset`/`MuxedStream*Closed`/QUIC errors keep their existing `StreamEOF`/`StreamReset`/`StreamClosed` behavior, and pre-existing `StreamError` subclasses pass through untouched.
+- **Independent half-closes**: `close_read()` and `close_write()` each track their side and converge on `CLOSE_BOTH`; `close()` delegates to `close_write()` (unchanged semantics). `close_read()` calls the muxer's `close_read` when it exists (QUIC) and is state-only otherwise (mplex/yamux).
+- **Locking fix**: `_remove()` is now called *outside* `_state_lock` rather than while holding it — the previous code called `_remove()` (which awaits notifiees) with the lock held, so any notifiee touching `stream.state` would deadlock.
+
+**`swarm_connection.py`** — `_add_stream` passes `self` as `swarm_conn` and moves the stream to `OPEN`.
+
+**New `tests/core/network/test_net_stream_state.py`** — 18 tests covering the member set, `INIT`→`OPEN`, every `is_operational()` value, all four `ERROR` rejections (asserting the muxed stream is never touched), reset-from-error, both unexpected-failure paths, expected-exception preservation, half-close ordering both ways, and two concurrency tests including lock release on cancellation.
+
+Also updated `examples/doc-examples/example_net_stream.py` for the new API and added `newsfragments/985.feature.rst`.
+
+One judgment call worth flagging: I did **not** add `state`/`set_state`/`is_operational` to the `INetStream` ABC. They're only specified for `NetStream`, and making them abstract would break the several existing `INetStream` implementations in the test suite and relay code.

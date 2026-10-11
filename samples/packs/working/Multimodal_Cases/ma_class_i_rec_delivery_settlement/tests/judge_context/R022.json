@@ -1,0 +1,784 @@
+{
+  "claim": {
+    "binary_failure_condition": "The case, lot, GIS unit, RPS number, or unit name is mismatched; the event order, terminal status, effective time, cutoff comparison, or accountable owner is wrong or unsupported; the release is treated as creating program eligibility; the internal gate is bypassed; or precise locators are missing.",
+    "binary_pass_condition": "The workpaper exactly links qualification-exception case QX-38983-2025 to LOT-D, NON38983, MA RPS 1015-02, and Deer Island Treatment Plant STG; records REVIEW_HOLD followed by EVIDENCE_MATCHED and final RELEASED at 11:36:20 EDT by the Compliance Qualification Manager before the noon cutoff; treats that release as the required internal close clearance for an otherwise valid lot without allowing it to create or override program eligibility; and provides precise locators for every material element.",
+    "candidate_evidence_requirements": [
+      "A qualification-exception control record in the workbook showing exact case, lot, GIS unit, RPS number, unit name, ordered event history, final effective status and time, accountable owner, cutoff test, close-clearance conclusion, and precise source locators.",
+      "The LOT-D disposition and decision summary must be consistent with the clearance gate while keeping official program eligibility analytically separate."
+    ],
+    "causal_owner_id": "FACT043",
+    "claim_id": "R022",
+    "contract_basis_ids": [
+      "FACT001",
+      "FACT016",
+      "FACT035",
+      "FACT043",
+      "RULE002",
+      "RULE004",
+      "RULE017",
+      "PRED018",
+      "CROUTE001"
+    ],
+    "description": "The workpaper derives the affected lot's internal qualification-exception clearance from the exact unit-linked event sequence effective by the cutoff and uses it as a settlement gate without treating it as program eligibility.",
+    "importance_weight": 5,
+    "independent_failure_mode": "An otherwise eligible, unique, buyer-held lot can be independently admitted or withheld on the wrong internal qualification-exception state.",
+    "method": "llm_judge",
+    "program_check": null,
+    "required_media_node_ids": [],
+    "title": "Qualification exception is released before close",
+    "visual_reasoning_requirement": null
+  },
+  "contract_basis": {
+    "artifact_edges": [
+      {
+        "artifact_edge_id": "AEDGE052",
+        "contract_edge_id": "CEDGE014",
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "business_dependency",
+        "semantic_purpose": "Official unit identity and qualification fields constrain the exception case join.",
+        "source_locator": null,
+        "source_node_id": "CF002",
+        "target_locator": null,
+        "target_node_id": "CF023"
+      },
+      {
+        "artifact_edge_id": "AEDGE053",
+        "contract_edge_id": "CEDGE014",
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "business_dependency",
+        "semantic_purpose": "Seller unit and generation-period keys seed the exact exception case review.",
+        "source_locator": null,
+        "source_node_id": "CF008",
+        "target_locator": null,
+        "target_node_id": "CF023"
+      },
+      {
+        "artifact_edge_id": "AEDGE054",
+        "contract_edge_id": "CEDGE015",
+        "geometry_policy": null,
+        "preservation_invariants": [],
+        "relationship": "business_dependency",
+        "semantic_purpose": "The released as-of qualification exception state authorizes the exact unit to proceed into lifecycle review.",
+        "source_locator": null,
+        "source_node_id": "CF023",
+        "target_locator": null,
+        "target_node_id": "CF011"
+      }
+    ],
+    "as_of": "2025-06-09T12:00:00-04:00",
+    "causal_owner_id": "FACT043",
+    "claim_basis_ids": [
+      "FACT001",
+      "FACT016",
+      "FACT035",
+      "FACT043",
+      "RULE002",
+      "RULE004",
+      "RULE017",
+      "PRED018",
+      "CROUTE001"
+    ],
+    "entities": [
+      {
+        "description": "Fictional Massachusetts competitive supplier buying Class I certificates.",
+        "entity_id": "ENT001",
+        "entity_type": "retail_electricity_supplier",
+        "natural_identity": [
+          "Bay State Competitive Supply LLC",
+          "buyer GIS account BSC-MA-4421"
+        ]
+      },
+      {
+        "description": "Fictional bilateral seller responsible for delivery and cure.",
+        "entity_id": "ENT002",
+        "entity_type": "certificate_seller",
+        "natural_identity": [
+          "GreenArc Certificate Markets LLC",
+          "seller code GAM-77"
+        ]
+      },
+      {
+        "description": "Executed confirmation and its cure-and-cover amendment.",
+        "entity_id": "ENT003",
+        "entity_type": "purchase_contract",
+        "natural_identity": [
+          "REC-2024-017",
+          "executed 2024-11-18"
+        ]
+      },
+      {
+        "description": "Seller invoice for the full 1,000 certificate tender.",
+        "entity_id": "ENT004",
+        "entity_type": "seller_invoice",
+        "natural_identity": [
+          "INV-2025-0617",
+          "issued 2025-06-09"
+        ]
+      },
+      {
+        "description": "Original 400-certificate Weldon lot.",
+        "entity_id": "ENT005",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-A",
+          "MSS424-2024Q2-000001:000400"
+        ]
+      },
+      {
+        "description": "Original 250-certificate Coventry lot generated before qualification.",
+        "entity_id": "ENT006",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-B",
+          "NON208580-2024Q1-000001:000250"
+        ]
+      },
+      {
+        "description": "Original 200-certificate lot whose buyer transfer was reversed.",
+        "entity_id": "ENT007",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-C",
+          "MSS424-2024Q3-001001:001200"
+        ]
+      },
+      {
+        "description": "Original 150-certificate Deer Island lot.",
+        "entity_id": "ENT008",
+        "entity_type": "certificate_lot",
+        "natural_identity": [
+          "LOT-D",
+          "NON38983-2024Q4-002001:002150"
+        ]
+      },
+      {
+        "description": "Timely 250-certificate replacement for LOT-B.",
+        "entity_id": "ENT009",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-B",
+          "MSS424-2024Q1-003001:003250"
+        ]
+      },
+      {
+        "description": "Replacement for LOT-C with fifty serials already tendered in LOT-A.",
+        "entity_id": "ENT010",
+        "entity_type": "replacement_lot",
+        "natural_identity": [
+          "REPL-C",
+          "MSS424-2024Q2-000351:000550"
+        ]
+      },
+      {
+        "description": "Official DOER hydroelectric unit effective January 1, 2024.",
+        "entity_id": "ENT011",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "MSS424",
+          "MA RPS 7031-24",
+          "Weldon"
+        ]
+      },
+      {
+        "description": "Official DOER landfill-gas unit effective April 1, 2024.",
+        "entity_id": "ENT012",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "NON208580",
+          "MA RPS 7032-24",
+          "COVENTRY CLEAN ENERGY 1-3"
+        ]
+      },
+      {
+        "description": "Official DOER anaerobic-digester unit effective April 1, 2002.",
+        "entity_id": "ENT013",
+        "entity_type": "generation_unit",
+        "natural_identity": [
+          "NON38983",
+          "MA RPS 1015-02",
+          "Deer Island Treatment Plant STG"
+        ]
+      },
+      {
+        "description": "Buyer inventory control receiving accepted and cover certificates.",
+        "entity_id": "ENT015",
+        "entity_type": "compliance_inventory",
+        "natural_identity": [
+          "CY2024 Class I close",
+          "BSC-MA-4421"
+        ]
+      },
+      {
+        "description": "Frozen public authority controlling eligibility and filing interfaces.",
+        "entity_id": "ENT016",
+        "entity_type": "authority_set",
+        "natural_identity": [
+          "225 CMR 14.00",
+          "DOER qualified units 12-2-24",
+          "2024 compliance workbook"
+        ]
+      }
+    ],
+    "file_nodes": [
+      {
+        "artifact_kind": "spreadsheet",
+        "contract_file_id": "CF002",
+        "description_text": "Byte-identical SRC002 retaining 36,305 Generation Units rows and Notes sheet.",
+        "embedded_media_node_ids": [],
+        "expected_format": "xlsx",
+        "graph_node_id": "GN002",
+        "stored_relative_path": "References/RPS Class I Qualified Units.xlsx"
+      },
+      {
+        "artifact_kind": "spreadsheet",
+        "contract_file_id": "CF008",
+        "description_text": "Final seller statement with original and replacement labels, exact serial endpoints, GIS IDs, generation periods, quantities, and receipt metadata; no final dispositions.",
+        "embedded_media_node_ids": [],
+        "expected_format": "xlsx",
+        "graph_node_id": "GN004",
+        "stored_relative_path": "Delivery/Final Delivery Statement 2025-06-09.xlsx"
+      },
+      {
+        "artifact_kind": "document",
+        "contract_file_id": "CF011",
+        "description_text": "Live-review packet embedding uncaptained registry overview, reversal detail, and serial-matrix views; surrounding text records only operator, capture time, and case IDs.",
+        "embedded_media_node_ids": [
+          "MGN001",
+          "MGN002",
+          "MGN005"
+        ],
+        "expected_format": "pdf",
+        "graph_node_id": "GN005",
+        "stored_relative_path": "Registry Evidence/Final Lot Review Packet.pdf"
+      },
+      {
+        "artifact_kind": "structured_data",
+        "contract_file_id": "CF023",
+        "description_text": "Ordinary Compliance event log containing exact case, GIS ID, RPS number, unit name, event status, effective time, and owner fields for QX-38983-2025 plus unrelated review cases; it records hold and release states without stating any settlement quantity, payable, inventory result, or final recommendation.",
+        "embedded_media_node_ids": [],
+        "expected_format": "csv",
+        "graph_node_id": "GN012",
+        "stored_relative_path": "Compliance/Unit Qualification Exception Log QX-38983-2025.csv"
+      }
+    ],
+    "media_nodes": [],
+    "predicates": [
+      {
+        "applies_to_ids": [
+          "CROUTE001",
+          "GN012",
+          "CF023",
+          "CEDGE014",
+          "CEDGE015",
+          "AEDGE052",
+          "AEDGE053",
+          "AEDGE054",
+          "FACT016",
+          "FACT022",
+          "FACT023",
+          "FACT027",
+          "FACT029",
+          "FACT031",
+          "FACT032",
+          "FACT043",
+          "RULE002",
+          "RULE004",
+          "RULE017"
+        ],
+        "counterexample": "A workpaper that posts LOT-D from the qualified-unit list and registry custody while the exact exception case remains pending, late, or linked to another unit fails.",
+        "evaluation_mode": "grounded_agent",
+        "evidence_requirements": [
+          "Inspect CF023 case, unit, event-status, effective-time, and owner fields and compare them with CF002 and CF008 exact identities.",
+          "Trace CEDGE014-CEDGE015 and AEDGE052-AEDGE054 and verify complete file-level coverage without a bypass around GN012.",
+          "Recompute accepted quantity, deficiency, residual, gross and net payable, and seller inventory with the release changed to pending, late, or another unit.",
+          "Search CF023 for terminal settlement values, answer text, and private synthesis identifiers."
+        ],
+        "kind": "graph_evidence",
+        "origin_refs": [
+          "workspace_policy",
+          "scenario_scout"
+        ],
+        "pass_condition": "CF023 uniquely links QX-38983-2025 to NON38983, MA RPS 1015-02, Deer Island Treatment Plant STG, and the relevant tender identity; its ordered events end in RELEASED at 11:36:20 EDT before noon. CEDGE014 and AEDGE052-AEDGE053 preserve the prior authority-and-tender join into GN012, while CEDGE015 and AEDGE054 alone carry the new release gate into GN005. RULE017 consumes preserved FACT001, FACT016, and FACT035 and derives new route target FACT043 as true from the exact final event before propagating the preserved 150-unit LOT-D contribution. Removing, delaying, or mismatching the release instead derives FACT043 as false and yields only the declared 800 seller, 200 deficiency, 160 residual, USD 14,220 net, and 800 seller-inventory counterfactual. CF023 contains no terminal result or private metadata.",
+        "predicate_id": "PRED018",
+        "severity": "blocking",
+        "statement": "The exact qualification-exception event state is resolved after authority matching and before the affected unit may propagate into settlement outcomes."
+      }
+    ],
+    "required_media_node_ids": [],
+    "route_context": {
+      "business_goal": "Close the seller's 2024 Class I delivery without paying for unusable certificates and preserve a supportable compliance inventory.",
+      "contract_edge_ids": [
+        "CEDGE001",
+        "CEDGE002",
+        "CEDGE003",
+        "CEDGE004",
+        "CEDGE005",
+        "CEDGE006",
+        "CEDGE007",
+        "CEDGE008",
+        "CEDGE014",
+        "CEDGE015",
+        "CEDGE012",
+        "CEDGE013",
+        "CEDGE011"
+      ],
+      "contract_route_id": "CROUTE001",
+      "deliverable_class": "Auditable certificate-delivery settlement workbook with embedded procurement and accounting decision summary",
+      "difficulty_sources": [
+        "Temporal qualification and lifecycle precedence across different systems",
+        "Pixel-essential reversal and overlap evidence whose raw baselines and dimension-preserved annotations traverse two independently auditable PDF-to-DOCX chains",
+        "Ordered cure then cover logic",
+        "Cross-ledger quantity and money propagation",
+        "Visual trade-to-allocation-to-registry custody handoff that separates executed cover damages from buyer-held compliance inventory",
+        "As-of qualification-exception event precedence after exact unit authority matching and before downstream settlement propagation"
+      ],
+      "natural_request_context": "A settlement manager needs a single spreadsheet workpaper for the procurement director and controller after the final tender arrived on June 9.",
+      "required_graph_node_ids": [
+        "GN001",
+        "GN002",
+        "GN003",
+        "GN004",
+        "GN005",
+        "GN006",
+        "GN007",
+        "GN008",
+        "GN009",
+        "GN010",
+        "GN011",
+        "GN012"
+      ],
+      "required_rule_ids": [
+        "RULE001",
+        "RULE002",
+        "RULE003",
+        "RULE004",
+        "RULE005",
+        "RULE006",
+        "RULE007",
+        "RULE008",
+        "RULE009",
+        "RULE010",
+        "RULE011",
+        "RULE012",
+        "RULE013",
+        "RULE014",
+        "RULE015",
+        "RULE016",
+        "RULE017"
+      ],
+      "target_fact_ids": [
+        "FACT007",
+        "FACT022",
+        "FACT023",
+        "FACT027",
+        "FACT031",
+        "FACT032",
+        "FACT033",
+        "FACT042",
+        "FACT043"
+      ],
+      "terminal_decision": "After admitting the reversal and overlap only from the two raw-plus-marked cross-document evidence pairs, approve USD 16,920 net payable; post 950 seller RECs and 40 cover RECs separately; dispute 50 seller RECs, record a 10-REC residual shortfall, send dispute by June 16, and preserve July 1 filing readiness.",
+      "unique_resolution": "Exact source precedence, inclusive serial arithmetic, lifecycle event order, signed cure hierarchy, cover execution, paired raw/derived lineage admissibility, and conservation equations admit only the stated quantities, payable, and deadlines. The cover inventory component additionally requires an exact trade-to-allocation-to-final-registry-custody match by the cutoff; absent that final handoff, the cover posting is zero and the residual is fifty while the damage offset remains unchanged. The otherwise valid LOT-D unit must additionally have QX-38983-2025 in a final released state by noon; a pending, late, or mismatched release withholds its 150 certificates from the close and forces the stated downstream quantity, payable, inventory, and residual counterfactual."
+    },
+    "rules": [
+      {
+        "counterexample": "Joining REPL-C to LOT-A only because both say Weldon ignores the serial range.",
+        "input_fact_ids": [
+          "FACT008",
+          "FACT009",
+          "FACT011",
+          "FACT012",
+          "FACT014",
+          "FACT018",
+          "FACT035"
+        ],
+        "operator_family": "identity_period_join",
+        "output_fact_ids": [
+          "FACT017",
+          "FACT021"
+        ],
+        "resolution_order": "Normalize GIS ID, then compare serial endpoints, then generation period, then seller label.",
+        "rule_id": "RULE002",
+        "source_anchor_ids": [
+          "ANCH004",
+          "ANCH012",
+          "ANCH016"
+        ],
+        "statement": "Join a seller lot to registry and DOER only by exact NEPOOL GIS ID, inclusive serial endpoints, and generation period; labels and invoice lines alone never establish identity.",
+        "truth_conditions": [
+          "All three primary keys agree across the relevant records."
+        ]
+      },
+      {
+        "counterexample": "Accepting LOT-B because NON208580 appears on the December list fails.",
+        "input_fact_ids": [
+          "FACT012",
+          "FACT013",
+          "FACT035"
+        ],
+        "operator_family": "effective_qualification",
+        "output_fact_ids": [
+          "FACT017",
+          "FACT023"
+        ],
+        "resolution_order": "Exact GIS unit match, effective date comparison, then output limitation.",
+        "rule_id": "RULE004",
+        "source_anchor_ids": [
+          "ANCH005",
+          "ANCH006"
+        ],
+        "statement": "A lot is Class I eligible only when every represented generation instant is on or after the matched unit's RPS Effective Date and any output limitation is satisfied.",
+        "truth_conditions": [
+          "LOT-B 2024Q1 precedes NON208580's 2024-04-01 effective date.",
+          "REPL-B is matched to MSS424 effective 2024-01-01."
+        ]
+      },
+      {
+        "counterexample": "Deriving clearance from the current qualified-unit workbook row or valid registry custody while QX-38983-2025 is still on hold bypasses the required CF023 event state and fails the old-to-new control dependency.",
+        "input_fact_ids": [
+          "FACT001",
+          "FACT016",
+          "FACT035"
+        ],
+        "operator_family": "qualification_exception_state_gate",
+        "output_fact_ids": [
+          "FACT043",
+          "FACT022",
+          "FACT023",
+          "FACT027",
+          "FACT029",
+          "FACT031",
+          "FACT032"
+        ],
+        "resolution_order": "Preserved trigger and valid-unit state; exact GIS and RPS identity; controlling DOER qualification; ordered CF023 exception-case events; derive FACT043 from the last event effective by noon; then quantity, payable, inventory, and residual propagation.",
+        "rule_id": "RULE017",
+        "source_anchor_ids": [
+          "ANCH004",
+          "ANCH005"
+        ],
+        "statement": "After exact DOER unit matching, generation-period testing, custody, and uniqueness establish an otherwise valid lot, derive its settlement clearance only when the exact qualification-exception case has a final RELEASED event effective by the evidence cutoff; that new clearance then gates downstream quantity, payable, inventory, and residual propagation, and cannot qualify a unit that fails controlling DOER rules.",
+        "truth_conditions": [
+          "Preserved FACT016 establishes 150 valid, unique, buyer-held LOT-D certificates and preserved FACT035 establishes the frozen qualified-unit source boundary before the new control is evaluated.",
+          "CF023 links QX-38983-2025 to NON38983, MA RPS 1015-02, Deer Island Treatment Plant STG, and the same LOT-D unit identity used by the seller and authority records.",
+          "The case event sequence ends in RELEASED at 2025-06-09 11:36:20 EDT, after its earlier hold and before the noon cutoff, so RULE017 derives FACT043 as true.",
+          "With derived FACT043 true, FACT016 contributes 150 to FACT022 and the preserved terminal quantities and payable remain unchanged.",
+          "If RELEASED is absent, later than noon, or attached to another unit or case, RULE017 derives FACT043 as false and LOT-D remains outside the close pending review: accepted seller quantity becomes 800, post-cure deficiency 200, residual 160 after the same forty-unit cover, gross accepted payable USD 14,400, net payable USD 14,220, and seller inventory posting 800."
+        ]
+      }
+    ],
+    "schema_version": "statechain-contract-basis/v1",
+    "state_facts": [
+      {
+        "effective_from": "2025-06-09T09:15:00-04:00",
+        "effective_until": null,
+        "fact_id": "FACT001",
+        "interpretation": "This is the scenario trigger, not the regulatory filing deadline.",
+        "materialization_obligation": "Delivery statement and intake record must show this timestamp.",
+        "predicate": "final_tender_received_at",
+        "source_anchor_ids": [],
+        "status": "frozen",
+        "subject_entity_ids": [
+          "ENT001",
+          "ENT002"
+        ],
+        "value": "2025-06-09T09:15:00-04:00"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT008",
+        "interpretation": "Quantity is inclusive serial count and remains subject to deduplication.",
+        "materialization_obligation": "Delivery statement and registry evidence must identify LOT-A and its exact range.",
+        "predicate": "tendered_quantity_mwh",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT005",
+          "ENT011"
+        ],
+        "value": 400
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT009",
+        "interpretation": "LOT-A is 2024 vintage.",
+        "materialization_obligation": "Registry event data must distinguish 2024Q2 generation from issuance and transfer dates.",
+        "predicate": "generation_period",
+        "source_anchor_ids": [
+          "ANCH012",
+          "ANCH016"
+        ],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT005",
+          "ENT011"
+        ],
+        "value": "2024Q2"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT011",
+        "interpretation": "Inclusive range contains 250 certificates.",
+        "materialization_obligation": "Delivery statement must show LOT-B quantity and NON208580 identity.",
+        "predicate": "tendered_quantity_mwh",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT006",
+          "ENT012"
+        ],
+        "value": 250
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT012",
+        "interpretation": "Generation ended before the unit qualification effective date.",
+        "materialization_obligation": "Registry export must state 2024Q1 while preserving separate issue and transfer dates.",
+        "predicate": "generation_period",
+        "source_anchor_ids": [
+          "ANCH012",
+          "ANCH016"
+        ],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT006"
+        ],
+        "value": "2024Q1"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT013",
+        "interpretation": "This currently listed unit cannot qualify its 2024Q1 generation.",
+        "materialization_obligation": "Exact DOER workbook row for NON208580 must remain available.",
+        "predicate": "rps_effective_date",
+        "source_anchor_ids": [
+          "ANCH004",
+          "ANCH005",
+          "ANCH006"
+        ],
+        "status": "official",
+        "subject_entity_ids": [
+          "ENT012"
+        ],
+        "value": "2024-04-01"
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT014",
+        "interpretation": "Original LOT-C is tested before its replacement.",
+        "materialization_obligation": "Seller and registry files must identify LOT-C and its 200 serials.",
+        "predicate": "tendered_quantity_mwh",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT007",
+          "ENT011"
+        ],
+        "value": 200
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT016",
+        "interpretation": "LOT-D is fully acceptable.",
+        "materialization_obligation": "Delivery and registry records must show 150 unique buyer-held 2024 certificates.",
+        "predicate": "valid_unique_buyer_held_quantity",
+        "source_anchor_ids": [],
+        "status": "registry_evidenced",
+        "subject_entity_ids": [
+          "ENT008",
+          "ENT013",
+          "ENT001"
+        ],
+        "value": 150
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT017",
+        "interpretation": "REPL-B cures LOT-B in full.",
+        "materialization_obligation": "Cure record, DOER row, serial records, and custody evidence must jointly support all 250.",
+        "predicate": "valid_timely_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT009",
+          "ENT011",
+          "ENT001"
+        ],
+        "value": 250
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT018",
+        "interpretation": "The label of 200 does not establish 200 unique certificates.",
+        "materialization_obligation": "Replacement statement must expose the exact 000351 through 000550 range.",
+        "predicate": "replacement_tendered_quantity",
+        "source_anchor_ids": [],
+        "status": "seller_asserted",
+        "subject_entity_ids": [
+          "ENT010",
+          "ENT011"
+        ],
+        "value": 200
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT021",
+        "interpretation": "Only serials 000401 through 000550 add new delivery.",
+        "materialization_obligation": "Inventory control must derive 200 minus the image-evidenced overlap of 50.",
+        "predicate": "valid_unique_replacement_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT010"
+        ],
+        "value": 150
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT022",
+        "interpretation": "Accepted seller delivery is unique and capped by contract quantity.",
+        "materialization_obligation": "No public source may state this as a prejoined answer; route evidence must derive 400+150+250+150.",
+        "predicate": "accepted_seller_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 950
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT023",
+        "interpretation": "This is the gap available for buyer cover.",
+        "materialization_obligation": "Settlement route must reconcile 1,000 minus 950 with no balancing item.",
+        "predicate": "post_cure_deficiency_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT002",
+          "ENT003"
+        ],
+        "value": 50
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT027",
+        "interpretation": "Ten certificates remain unresolved as of noon.",
+        "materialization_obligation": "Inventory control must compute 1,000 minus 950 minus 40.",
+        "predicate": "residual_shortfall_quantity",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT015"
+        ],
+        "value": 10
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT029",
+        "interpretation": "Rejected or duplicate certificates are not payable.",
+        "materialization_obligation": "Accounting route must derive 950 times USD 18.00.",
+        "predicate": "gross_accepted_payable_usd",
+        "source_anchor_ids": [],
+        "status": "derived",
+        "subject_entity_ids": [
+          "ENT004",
+          "ENT002"
+        ],
+        "value": 17100.0
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT031",
+        "interpretation": "USD 17,100 gross accepted value less USD 180 cover offset.",
+        "materialization_obligation": "Must remain derivable only through dispersed contract, lot, registry, cure, trade, and ledger evidence.",
+        "predicate": "net_invoice_payable_usd",
+        "source_anchor_ids": [],
+        "status": "terminal_derived",
+        "subject_entity_ids": [
+          "ENT004"
+        ],
+        "value": 16920.0
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT032",
+        "interpretation": "Seller delivery is distinct from buyer cover.",
+        "materialization_obligation": "Official template interface and internal control must support a 950 seller posting.",
+        "predicate": "seller_inventory_posting_mwh",
+        "source_anchor_ids": [
+          "ANCH010"
+        ],
+        "status": "terminal_derived",
+        "subject_entity_ids": [
+          "ENT015"
+        ],
+        "value": 950
+      },
+      {
+        "effective_from": null,
+        "effective_until": null,
+        "fact_id": "FACT035",
+        "interpretation": "Rows are authoritative for listed effective dates, not future lifecycle events.",
+        "materialization_obligation": "Frozen workbook title and source index must preserve its update scope.",
+        "predicate": "qualified_unit_source_vintage",
+        "source_anchor_ids": [
+          "ANCH004",
+          "ANCH005"
+        ],
+        "status": "official",
+        "subject_entity_ids": [
+          "ENT016"
+        ],
+        "value": "updated 2024-12-02 through Q2 2024"
+      },
+      {
+        "effective_from": "2025-06-09T11:36:20-04:00",
+        "effective_until": null,
+        "fact_id": "FACT043",
+        "interpretation": "This derived clearance does not create or override program eligibility; it is the final internal settlement gate that permits the otherwise valid LOT-D certificates to enter this close. If the exact case is not finally released by noon, the clearance is false and those certificates remain outside accepted seller quantity pending resolution.",
+        "materialization_obligation": "CF023 must contain an ordinary event log for case QX-38983-2025 that identifies NON38983, MA RPS 1015-02, Deer Island Treatment Plant STG, the earlier review hold, and the later RELEASED event at 11:36:20 EDT with an accountable Compliance owner; those exact events must support derivation of this boolean clearance state, while unrelated cases may appear and no terminal settlement quantity or payable may be stated.",
+        "predicate": "qualification_exception_cleared_for_close",
+        "source_anchor_ids": [],
+        "status": "derived_control_state",
+        "subject_entity_ids": [
+          "ENT008",
+          "ENT013",
+          "ENT015"
+        ],
+        "value": true
+      }
+    ],
+    "visual_disclosure_plans": [],
+    "visual_reasoning_requirement": null
+  },
+  "reference_claim_evidence": {
+    "citations": [
+      {
+        "locator": "Qualification Exception!A4:J13; Lot Dispositions!A7:U7; Decision Summary!A24:H24",
+        "observation": "Exact case QX-38983-2025 links LOT-D/NON38983/1015-02/Deer Island and orders REVIEW_HOLD, EVIDENCE_MATCHED, then RELEASED at 11:36:20 EDT by the Compliance Qualification Manager before noon.",
+        "path": "deliverables/rec_settlement_workpaper.xlsx"
+      }
+    ],
+    "claim_id": "R022",
+    "why_full_pass": "The last exact-case event provides the required internal close clearance before LOT-D propagates, while the workbook separately anchors official DOER eligibility and states that internal release cannot create or override it."
+  }
+}

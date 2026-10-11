@@ -1,0 +1,1208 @@
+{
+  "runs": [
+    {
+      "attempts": 0,
+      "claim_id": "R001",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "container",
+            "observation": "The xlsx_openable check passed.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "claim_id": "R001",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The deterministic registered container check passed completely.",
+        "reference_evidence": [],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 0,
+      "claim_id": "R002",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "container",
+            "observation": "The docx_openable check passed.",
+            "path": "candidate_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R002",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The deterministic registered container check passed completely.",
+        "reference_evidence": [],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R003",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 200.85674858512357,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 23,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 848384,
+          "input_tokens": 929719,
+          "output_tokens": 6847,
+          "reasoning_output_tokens": 2401
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Reconciliation Register!A6:Q6",
+            "observation": "The candidate records FIG3-EST-R17, its output hash, publication_export state, R17 approval and an 08:05 attestation, but this row contains no OBS-R17 input object, included-row count, QC totals, or input hash.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Version & Authority Lineage!A5:H10",
+            "observation": "The candidate lists R17, LR2, PRF-02, the orphan attachment, DEP-V2 and DEP-V3, but it does not establish the required ordered OBS-R17 to finalized export to attestation lineage or reconcile the observation/QC side of that chain.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "claim_id": "R003",
+        "material_contradiction": false,
+        "raw_reward": 0,
+        "reason": "Fail: although the candidate names R17, FIG3-EST-R17, proof/attachment and DEP-V3, it omits the required 5,112 included OBS-R17 evidence, input digest and QC reconciliation, so the complete byte-verifiable ordered lineage is not established.",
+        "reference_evidence": [
+          {
+            "locator": "Evidence_Lineage!A3:I10",
+            "observation": "Rows 3-10 identify the 5,112 included OBS-R17 rows, AR-2026-08-24-R17, both full hashes, finalized FIG3-EST-R17, publication_export approval and serialization, the 08:05 non-earlier environment attestation, LR2/PRF-02 identity, and the matching staged DEP-V3 inventory, with the ordered lineage conclusion in row 10.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R004",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 213.92179935402237,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 19,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 459264,
+          "input_tokens": 530397,
+          "output_tokens": 8750,
+          "reasoning_output_tokens": 4897
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Version & Authority Lineage!A4:H10",
+            "observation": "The candidate records the cutoff and correctly labels R16, DEP-V2, R17, LR2, and V3 states, and its LR3 row says eligible by cutoff, orphan, unapproved, and not proof-linked; it does not state the required null request, author-approval, PQL-approval, and proof-link fields.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Reconciliation Register!A13:R13",
+            "observation": "The candidate treats SUP-F3 as a stale printed R16 label, requires changing it to R17 while retaining the current linked hash, and notes R16 is historical context only.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "claim_id": "R004",
+        "material_contradiction": false,
+        "raw_reward": 0,
+        "reason": "Fail: although the candidate gets the cutoff, successor relationships, historical R16/DEP-V2/SUP-F3 treatment, and LR3 noncontrol outcome broadly right, its LR3 answer-level treatment omits the required null-link logic for request, both approvals, and proof link. The frozen binary condition requires that field-level basis to justify the orphan classification; the omission is material and cannot receive partial credit.",
+        "reference_evidence": [
+          {
+            "locator": "Authority_History!A3:G9",
+            "observation": "The reference register applies the 2026-08-26T17:00:00+08:00 cutoff, marks CHK-0147-R16, DEP-V2, and the printed SUP-F3 R16 label as superseded or stale context, records LR3 as time-eligible but orphaned with null request, approvals, and proof link, and identifies the current LR2/R17/V3 chain with no eligible rollback or invalidation.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R005",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 329.33261929103173,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 19,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 1045248,
+          "input_tokens": 1136813,
+          "output_tokens": 12540,
+          "reasoning_output_tokens": 5875
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Reconciliation Register!A2:R2",
+            "observation": "The dedicated T-A-PANEL FIG3-A row records the reversed visible pairing, expected R17 colour mapping and numeric values, categorical failures, correction action, and visual plus structured/authority locators.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Reconciliation Register!I2:J2",
+            "observation": "The authority field identifies FIG3-LR2 as approved for A under RR-017 with conditional proof verification, and the disposition keeps the current proof unreleasable pending correction.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "page[6].image[0], Figure 3A legend",
+            "observation": "Directly rendered proof pixels show the teal swatch beside Non-incentivized and the amber swatch beside Incentivized.",
+            "path": "public_input/Workspace/04_Proof/current_production_proof_PRF-02.pdf"
+          }
+        ],
+        "claim_id": "R005",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate's FIG3-A record materially matches the frozen requirement: it identifies FIG3-LR2 approval for A, records the same reversed visual pairing and expected R17 mapping, records numeric conformity and categorical failure, requires relabeling/reordering while retaining the authorized replacement, and cites the proof image plus structured and approval sources. Its plain-language correction wording is semantically equivalent to CORRECT_PROOF_LEGEND under the supplied token rule.",
+        "reference_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A3:O3",
+            "observation": "The FIG3-A row records FIG3-LR2, the reversed teal-to-Non-incentivized and amber-to-Incentivized observation, the expected reverse mapping, numeric pass, failed legend mapping, correction disposition, and dual locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A3:J7",
+            "observation": "The FIG3-A dimension rows separately mark both numeric checks PASS, both colour-to-cohort checks FAIL, and authorization PASS with visual and structured/approval locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "page[6].image[0], Figure 3A legend",
+            "observation": "Directly rendered proof pixels show the teal swatch beside Non-incentivized and the amber swatch beside Incentivized.",
+            "path": "public_input/Workspace/04_Proof/current_production_proof_PRF-02.pdf"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R006",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 308.11184611194767,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 29,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 1068800,
+          "input_tokens": 1168264,
+          "output_tokens": 12098,
+          "reasoning_output_tokens": 6909
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Reconciliation Register!A3:R3",
+            "observation": "The dedicated T-B-PANEL record reports median 0.02, lower endpoint -0.01, upper endpoint 0.11, expected R17 interval [-0.01, 0.07], +0.04 and +104 pixels, failure of both limits, FIG3-LR2 approval, and regeneration from R17.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Effective Rules!A4:D5",
+            "observation": "The answer cites the public SOP page 3 rule requiring exact display equality and limits of <=0.005 axis units and <=1 rendered pixel.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "page 1, Why immediate release is blocked, Figure 3B bullet",
+            "observation": "The memo repeats the calibrated B observation, R17 0.07 comparison, +0.04 and +104-pixel failure, linked text impact, and proof regeneration action.",
+            "path": "candidate_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R006",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies R006. Its equivalent wording 'Correct and regenerate' is semantically the required correction disposition, and the paired workbook and memo provide the required visual, structured, policy, approval, and regeneration evidence without changing the material B observation.",
+        "reference_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A4:O4",
+            "observation": "The FIG3-B record reports calibrated proof values 0.02 [-0.01, 0.11] against R17 0.02 [-0.01, 0.07], computes +0.04, fails both tolerances, and assigns correction with regeneration from R17.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A8:J12",
+            "observation": "The B dimension checks separate passing median and lower endpoint from the failing upper endpoint and cite the calibrated visual, structured, policy, and authority evidence.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "page 1, Panel conclusions, Figure 3B",
+            "observation": "The memo records FIG3-LR2 authority for B, the 0.11 versus 0.07 comparison, +0.04 failure of the inclusive 0.005 and one-pixel limits, and linked-text correction.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R007",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 202.66768897487782,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 20,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 479488,
+          "input_tokens": 554223,
+          "output_tokens": 7809,
+          "reasoning_output_tokens": 3467
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Reconciliation Register!A4:R4",
+            "observation": "The candidate's dedicated FIG3-C record states that FIG3-ACC-v5 controls C, directly records proof annotation n=24 against expected n=42, records matching median and interval geometry with exact annotation failure and absent C authority, and directs restoration of the accepted baseline.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Release Summary!A17:H17",
+            "observation": "The candidate summary records the C mismatch as outside RR-017 scope and gives RESTORE BASELINE as the disposition, with the responsible roles and correction window.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "paragraphs 8 and 10; table 2 row 4",
+            "observation": "The candidate memo identifies the directly inspected proof image and native extraction, states that C shows n=24 instead of n=42 because C was excluded from RR-017, and repeats the restoration action and owner deadline.",
+            "path": "candidate_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R007",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The candidate completely satisfies the frozen condition. Its RESTORE BASELINE wording is a demonstrably equivalent public expression of reverting C to the accepted annotation; the record preserves FIG3-ACC-v5 authority, establishes the mismatch from visible image evidence, separates passing geometry from failing annotation and authority, and cites proof, accepted, structured, and approval locators.",
+        "reference_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A5:O5",
+            "observation": "The reference register states that FIG3-ACC-v5 controls C, the proof visibly shows n=24, accepted/R17 require n=42, the estimate and interval pass, the annotation and authority fail, and the disposition is REVERT_TO_ACCEPTED_ANNOTATION; it cites the current proof image, accepted image, R17 cells, and approval scope.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A13:J15",
+            "observation": "The reference dimension checks separately record matching 0.06 [0.01, 0.14] geometry, visible n=24 versus expected n=42 with exact-match failure, and absent replacement authority, with visual and structured locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R008",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 303.80940543091856,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 22,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 1386752,
+          "input_tokens": 1509108,
+          "output_tokens": 11912,
+          "reasoning_output_tokens": 6734
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Reconciliation Register!A5:R5",
+            "observation": "The candidate D row records the same 0.02 [-0.04, 0.08] geometry, category order, absent marker, and unit/interval-label conformity, and identifies FIG3-ACC-v5 as controlling with a retain/close action, but it does not explicitly list the D identity/title check or a separate authorization result.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Release Summary!A14:H18",
+            "observation": "The candidate summary describes FIG3-D as PASS: all display fields and RETAIN + CLOSE, but does not state the frozen CLEAR disposition or enumerate the omitted identity and authorization checks.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "native pixels; FIG3-D panel bounds [1210,930,2320,1710]",
+            "observation": "Direct inspection of the raster shows Panel D with the 0.02 point, whisker endpoints at -0.04 and 0.08, Standardized Δz, 95% interval, Incentivized then Non-incentivized labels, and no exploratory marker.",
+            "path": "public_input/Workspace/04_Proof/figure3_current_proof_extracted.png"
+          }
+        ],
+        "claim_id": "R008",
+        "material_contradiction": false,
+        "raw_reward": 0,
+        "reason": "The candidate captures the same material D values and a semantically equivalent retain/close outcome, but its dedicated D record does not list every mandatory dimension required by the frozen claim: identity/title and authorization are only implicit or handled generically. That is a material omission in the required all-dimensions verification, so the binary condition is not fully satisfied. The wording difference alone is not the basis for failure.",
+        "reference_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A6:O6",
+            "observation": "The dedicated FIG3-D record states the visible and expected median 0.02, interval [-0.04, 0.08], Standardized Δz, 95% interval, Incentivized-then-Non-incentivized order, required labels, absent exploratory marker, FIG3-ACC-v5 authority, CLEAR disposition, retain-unchanged action, and precise visual and structured locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A16:J24",
+            "observation": "The reference separately records D-ID, D-MED, D-LOW, D-UP, D-UNIT, D-ORDER, D-LABEL, D-MARKER, and D-AUTH, with every result marked PASS and with visual plus R17 or authority locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "native pixels; FIG3-D panel bounds [1210,930,2320,1710]",
+            "observation": "Direct inspection of the raster shows Panel D with the 0.02 point, whisker endpoints at -0.04 and 0.08, Standardized Δz, 95% interval, Incentivized then Non-incentivized labels, and no exploratory marker.",
+            "path": "public_input/Workspace/04_Proof/figure3_current_proof_extracted.png"
+          },
+          {
+            "locator": "Panel_Estimates!A6:M6; Display_Map!A6:H9",
+            "observation": "The controlling R17 fields specify FIG3-D Pre-registered moderator, median 0.02, endpoints -0.04 and 0.08, standardized delta-z, the category order, false exploratory marker, Standardized Δz unit, and 95% interval label.",
+            "path": "public_input/Workspace/03_Analysis/fig3_analysis_export_R17.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R009",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 153.42977672698908,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 13,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 433664,
+          "input_tokens": 496048,
+          "output_tokens": 5685,
+          "reasoning_output_tokens": 2340
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Reconciliation Register!A10:R10",
+            "observation": "The candidate explicitly adds DEP-3A-IMM and labels it an UNLISTED ROW, although it is not one of the frozen dependency endpoints.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Reconciliation Register!A17:R18",
+            "observation": "The candidate places CAP-3D and RS-3D in two separate rows rather than preserving both IDs in the required paired D dependency row.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "claim_id": "R009",
+        "material_contradiction": true,
+        "raw_reward": 0,
+        "reason": "The candidate fails the binary condition because its downstream register is not the exact eleven-row dependency allocation: it adds the unmapped DEP-3A-IMM endpoint and does not preserve CAP-3D and RS-3D in the required paired D row. Extra panel and analysis rows further prevent an exact conserved dependency-row set.",
+        "reference_evidence": [
+          {
+            "locator": "Downstream_Impact!A3:L13",
+            "observation": "The deliverable contains exactly 11 dependency rows, with the required four edits, eight explicit no-change verifications, mapped current-content locators, and the paired CAP-3D | RS-3D row preserving both endpoint IDs.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R010",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 180.47741122497246,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 12,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 485376,
+          "input_tokens": 560357,
+          "output_tokens": 7020,
+          "reasoning_output_tokens": 3314
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Release Summary!A3:H10",
+            "observation": "The candidate identifies the cutoff, PRF-02/DEP-V3 gate, open prerequisites, and a do-not-release instruction, but its current ‘Coupled disposition’ is RELEASE_AFTER_CORRECTIONS rather than the required current HOLD_STAGED/hold disposition.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "document body, section headed ‘DECISION’",
+            "observation": "The memo likewise labels the decision RELEASE_AFTER_CORRECTIONS while saying not to release the current files, so it does not assign the required present operational disposition to DEP-V3.",
+            "path": "candidate_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R010",
+        "material_contradiction": true,
+        "raw_reward": 0,
+        "reason": "The candidate records DEP-V3, R17 identity, matching numeric values, reversed README, open row verification, missing proof reapproval, and an open shared gate, and it says current files must not be released. However, it assigns RELEASE_AFTER_CORRECTIONS as the current coupled disposition in both deliverables. That is the later conditional state, not the required current HOLD_STAGED disposition, triggering the frozen failure condition for the wrong operational disposition.",
+        "reference_evidence": [
+          {
+            "locator": "Deposit_Gate!A3:G9",
+            "observation": "The register identifies DEP-V3 as the staged HVD-EDU-0147 projection of FIG3-EST-R17 under AR-2026-08-24-R17, records matching numeric rows, and separately records the reversed README, open mapped verification, open proof reapproval, and open coupled gate; row 9 assigns HOLD_STAGED and says not to publish until those prerequisites are closed.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "document body, section headed ‘Decision’",
+            "observation": "The memo states HOLD_CURRENT_PROOF_AND_LINKED_DEPOSIT and says current PRF-02 and DEP-V3 must not be released as they stand; its later release language is conditional on completing the listed corrections and re-review.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R011",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 182.0216250200756,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 18,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 370432,
+          "input_tokens": 432668,
+          "output_tokens": 7043,
+          "reasoning_output_tokens": 3337
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Action Plan!A10:F10",
+            "observation": "Candidate action A9 lists its primary owner as 'PQL → Centre director', which names a shared ownership chain rather than exactly one primary owner.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Section 'Required closeout'; table row A9",
+            "observation": "The memo repeats the fallback escalation as owned by 'PQL → Centre director', so the shared-owner defect is present in both answer artifacts.",
+            "path": "candidate_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R011",
+        "material_contradiction": true,
+        "raw_reward": 0,
+        "reason": "Although the candidate includes the required core deadlines before lock, action A9 uses shared primary ownership, directly violating the frozen exactly-one-primary-owner condition and requiring a binary fail.",
+        "reference_evidence": [
+          {
+            "locator": "Actions!A3:H19",
+            "observation": "The executable rows assign each action one primary owner, including EMC-STAT at 09:30, PD-EDITOR at 10:00 and 12:00, CA-STUDY at 10:30, REPO-STEW at 12:00, and PQL coupled re-review at 14:00 Asia/Singapore.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Section 'Executable sequence before any later release'; owner/due table",
+            "observation": "The memo repeats the same named owner and deadline assignments and states that all deadlines precede the production lock.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R012",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 187.0954467379488,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 22,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 579968,
+          "input_tokens": 650570,
+          "output_tokens": 6742,
+          "reasoning_output_tokens": 2992
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Release Summary!A3:A10; Release Summary!A21:A22",
+            "observation": "The register's cutoff summary sets Coupled disposition to RELEASE_AFTER_CORRECTIONS, while separately instructing not to release the current files.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Page 1, 'DECISION' field and first paragraph",
+            "observation": "The memo's explicit decision is RELEASE_AFTER_CORRECTIONS, despite its accompanying instruction not to release current PRF-02 or DEP-V3.",
+            "path": "candidate_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R012",
+        "material_contradiction": true,
+        "raw_reward": 0,
+        "reason": "The candidate's register and memo agree on RELEASE_AFTER_CORRECTIONS as the cutoff disposition. The frozen claim requires the exact HOLD_CURRENT_PROOF_AND_LINKED_DEPOSIT terminal result and explicitly fails an answer that recommends release-after-corrections at the cutoff, so this is a binary failure even though the candidate lists many of the correct blockers and prerequisites.",
+        "reference_evidence": [
+          {
+            "locator": "Decision!A6:D9; Decision!A13:D18",
+            "observation": "The register states HOLD_CURRENT_PROOF_AND_LINKED_DEPOSIT, holds PRF-02, holds staged DEP-V3, identifies A/B corrections, C restoration, D clearance, and requires the shared PQL re-review.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Section 'Decision' and section 'Panel conclusions'; second table",
+            "observation": "The memo says not to release PRF-02 or publish DEP-V3 as they stand and repeats the A, B, C, D, downstream, and final coupled re-review conditions.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R013",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 219.36549677490257,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 10,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 309760,
+          "input_tokens": 355601,
+          "output_tokens": 8933,
+          "reasoning_output_tokens": 4614
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Rendered page 1, 'REVIEW CUTOFF', recipient lines, 'DECISION', 'CURRENT INSTRUCTION', and 'Decision' sections",
+            "observation": "The memo states the exact cutoff, names the three consumers, identifies PRF-02 and DEP-V3, and says not to release them now, but it does not state that the review was triggered by the production alert and labels the decision RELEASE_AFTER_CORRECTIONS while the current gate remains unresolved.",
+            "path": "candidate_answer/deliverables/publication_release_memo.docx"
+          },
+          {
+            "locator": "Rendered page 2, 'Release condition and fallback' and 'Controlling evidence anchors' sections",
+            "observation": "The memo supplies closeout actions and the production lock, but its evidence-anchor list names public workspace sources only and never directs detailed evidence to the figure3 reconciliation register.",
+            "path": "candidate_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R013",
+        "material_contradiction": true,
+        "raw_reward": 0,
+        "reason": "Fail: although the candidate includes the cutoff, recipients, components, lock, no-release instruction, and actions, it omits the required production-alert trigger and register handoff and materially misframes the current unresolved-gate decision as RELEASE_AFTER_CORRECTIONS.",
+        "reference_evidence": [
+          {
+            "locator": "Rendered page 1, 'FINAL CONTROL DECISION', context table, 'Decision', and 'Trigger and scope' sections",
+            "observation": "The memo states the exact as-of cutoff, names the Centre Director, Corresponding Author, and Production Editor, identifies PRF-02 and DEP-V3 under GATE-0147, states the production lock, and explicitly records the production alert as the trigger for a publication-consistency review.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          },
+          {
+            "locator": "Rendered page 2, 'Executable sequence before any later release' and 'Evidence and scope boundary' sections",
+            "observation": "The memo gives an owner-and-due-time action sequence and expressly directs detailed evidence, hashes, locators, and action rows to figure3_reconciliation_register.xlsx.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R014",
+      "repeat": 1,
+      "runtime": {
+        "duration_seconds": 267.84695943212137,
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "high",
+        "runtime": "harness-runtime:CodexRuntime:3",
+        "tool_calls": 27,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 1019264,
+          "input_tokens": 1130257,
+          "output_tokens": 10109,
+          "reasoning_output_tokens": 5384
+        }
+      },
+      "subject": "candidate",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Release Summary!A8:B10; Effective Rules!A5:D8",
+            "observation": "The candidate states a publication-consistency/release-control-only scope, gives the conditional fallback, and applies the documented centre tolerance and coupled HOLD precedence through the SOP locator.",
+            "path": "candidate_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Page 1, paragraph beginning 'Decision.'; page 2, section 'Release condition and fallback'",
+            "observation": "The memo says current PRF-02 and DEP-V3 must not be released, makes later release conditional on operational closeout, and frames the decision as publication-consistency rather than scientific, interpretive, or causal assessment.",
+            "path": "candidate_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R014",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "Pass. The candidate stays within operational publication-consistency and release-control conclusions, treats tolerance and coupled precedence as centre controls, and contains no attribution of the synthetic case or its terminal decision to an authentic public source and no unsupported scientific, causal, misconduct, or educational-effect judgment.",
+        "reference_evidence": [
+          {
+            "locator": "Decision!A9:D10; Source_Index!A3:D3",
+            "observation": "The register limits the decision to component authority, proof-to-R17 consistency, downstream synchronization, and release control, and identifies the authentic-source boundary without treating case facts as public-source content.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Section 'Evidence and scope boundary', paragraph beginning 'Scope limitation.'",
+            "observation": "The memo expressly limits conclusions to operational publication consistency and disclaims scientific merit, causal validity, misconduct, substantive educational effect, and case attribution to authentic public sources.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 0,
+      "claim_id": "R001",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "container",
+            "observation": "The xlsx_openable check passed.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "claim_id": "R001",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The deterministic registered container check passed completely.",
+        "reference_evidence": [
+          {
+            "locator": "container",
+            "observation": "The xlsx_openable check passed.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 0,
+      "claim_id": "R002",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "container",
+            "observation": "The docx_openable check passed.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R002",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The deterministic registered container check passed completely.",
+        "reference_evidence": [
+          {
+            "locator": "container",
+            "observation": "The docx_openable check passed.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R003",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Evidence_Lineage!A3:I10",
+            "observation": "Rows 3-10 identify the 5,112 included OBS-R17 rows, AR-2026-08-24-R17, both full hashes, finalized FIG3-EST-R17, publication_export approval and serialization, the 08:05 non-earlier environment attestation, LR2/PRF-02 identity, and the matching staged DEP-V3 inventory, with the ordered lineage conclusion in row 10.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "claim_id": "R003",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "Pass: the register provides the required reproducible OBS-R17 to finalized FIG3-EST-R17 to later environment-attestation chain, reconciles hashes, run identity, approval, times and QC totals, and connects the proof attachment and DEP-V3 projection with precise locators.",
+        "reference_evidence": [
+          {
+            "locator": "Evidence_Lineage!A3:I10",
+            "observation": "Rows 3-10 identify the 5,112 included OBS-R17 rows, AR-2026-08-24-R17, both full hashes, finalized FIG3-EST-R17, publication_export approval and serialization, the 08:05 non-earlier environment attestation, LR2/PRF-02 identity, and the matching staged DEP-V3 inventory, with the ordered lineage conclusion in row 10.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R004",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Authority_History!A3:G9",
+            "observation": "The reference register applies the 2026-08-26T17:00:00+08:00 cutoff, marks CHK-0147-R16, DEP-V2, and the printed SUP-F3 R16 label as superseded or stale context, records LR3 as time-eligible but orphaned with null request, approvals, and proof link, and identifies the current LR2/R17/V3 chain with no eligible rollback or invalidation.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "claim_id": "R004",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "Pass: the reference register satisfies every bounded historical-treatment requirement with precise answer-level rows. It separates time eligibility from authority, preserves historical and public-predecessor context, corrects the stale label without restoring R16, excludes LR3 for its null authority links, recognizes the current scoped chain, and records the absence of rollback or invalidation.",
+        "reference_evidence": [
+          {
+            "locator": "Authority_History!A3:G9",
+            "observation": "The reference register applies the 2026-08-26T17:00:00+08:00 cutoff, marks CHK-0147-R16, DEP-V2, and the printed SUP-F3 R16 label as superseded or stale context, records LR3 as time-eligible but orphaned with null request, approvals, and proof link, and identifies the current LR2/R17/V3 chain with no eligible rollback or invalidation.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R005",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A3:O3",
+            "observation": "The FIG3-A row records FIG3-LR2, the reversed teal-to-Non-incentivized and amber-to-Incentivized observation, the expected reverse mapping, numeric pass, failed legend mapping, correction disposition, and dual locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A3:J7",
+            "observation": "The FIG3-A dimension rows separately mark both numeric checks PASS, both colour-to-cohort checks FAIL, and authorization PASS with visual and structured/approval locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "page[6].image[0], Figure 3A legend",
+            "observation": "Directly rendered proof pixels show the teal swatch beside Non-incentivized and the amber swatch beside Incentivized.",
+            "path": "public_input/Workspace/04_Proof/current_production_proof_PRF-02.pdf"
+          }
+        ],
+        "claim_id": "R005",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen Panel A condition: it identifies authorized FIG3-LR2 as the controlling replacement, records the reversed visible pairing against the R17 mapping, passes the two numeric estimates and intervals, fails the mandatory colour mapping, retains the replacement after a CORRECT_PROOF_LEGEND action, and provides visual plus structured/approval evidence.",
+        "reference_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A3:O3",
+            "observation": "The FIG3-A row records FIG3-LR2, the reversed teal-to-Non-incentivized and amber-to-Incentivized observation, the expected reverse mapping, numeric pass, failed legend mapping, correction disposition, and dual locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A3:J7",
+            "observation": "The FIG3-A dimension rows separately mark both numeric checks PASS, both colour-to-cohort checks FAIL, and authorization PASS with visual and structured/approval locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "page[6].image[0], Figure 3A legend",
+            "observation": "Directly rendered proof pixels show the teal swatch beside Non-incentivized and the amber swatch beside Incentivized.",
+            "path": "public_input/Workspace/04_Proof/current_production_proof_PRF-02.pdf"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R006",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A4:O4",
+            "observation": "The FIG3-B record reports calibrated proof values 0.02 [-0.01, 0.11] against R17 0.02 [-0.01, 0.07], computes +0.04, fails both tolerances, and assigns correction with regeneration from R17.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A8:J12",
+            "observation": "The B dimension checks separate passing median and lower endpoint from the failing upper endpoint and cite the calibrated visual, structured, policy, and authority evidence.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "page 1, Panel conclusions, Figure 3B",
+            "observation": "The memo records FIG3-LR2 authority for B, the 0.11 versus 0.07 comparison, +0.04 failure of the inclusive 0.005 and one-pixel limits, and linked-text correction.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R006",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies R006: it records FIG3-LR2 as controlling and authorized for B, grounds the observed upper whisker in calibrated visual evidence, compares it to the R17 row, applies both tolerance limits, and requires linked correction and regeneration.",
+        "reference_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A4:O4",
+            "observation": "The FIG3-B record reports calibrated proof values 0.02 [-0.01, 0.11] against R17 0.02 [-0.01, 0.07], computes +0.04, fails both tolerances, and assigns correction with regeneration from R17.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A8:J12",
+            "observation": "The B dimension checks separate passing median and lower endpoint from the failing upper endpoint and cite the calibrated visual, structured, policy, and authority evidence.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "page 1, Panel conclusions, Figure 3B",
+            "observation": "The memo records FIG3-LR2 authority for B, the 0.11 versus 0.07 comparison, +0.04 failure of the inclusive 0.005 and one-pixel limits, and linked-text correction.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R007",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A5:O5",
+            "observation": "The reference register states that FIG3-ACC-v5 controls C, the proof visibly shows n=24, accepted/R17 require n=42, the estimate and interval pass, the annotation and authority fail, and the disposition is REVERT_TO_ACCEPTED_ANNOTATION; it cites the current proof image, accepted image, R17 cells, and approval scope.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A13:J15",
+            "observation": "The reference dimension checks separately record matching 0.06 [0.01, 0.14] geometry, visible n=24 versus expected n=42 with exact-match failure, and absent replacement authority, with visual and structured locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "claim_id": "R007",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen Panel C condition: it preserves accepted authority, uses the visible proof annotation for the mismatch, distinguishes passing geometry from failing annotation and authority, assigns the required restoration disposition, and supplies the required locator classes.",
+        "reference_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A5:O5",
+            "observation": "The reference register states that FIG3-ACC-v5 controls C, the proof visibly shows n=24, accepted/R17 require n=42, the estimate and interval pass, the annotation and authority fail, and the disposition is REVERT_TO_ACCEPTED_ANNOTATION; it cites the current proof image, accepted image, R17 cells, and approval scope.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A13:J15",
+            "observation": "The reference dimension checks separately record matching 0.06 [0.01, 0.14] geometry, visible n=24 versus expected n=42 with exact-match failure, and absent replacement authority, with visual and structured locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R008",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A6:O6",
+            "observation": "The dedicated FIG3-D record states the visible and expected median 0.02, interval [-0.04, 0.08], Standardized Δz, 95% interval, Incentivized-then-Non-incentivized order, required labels, absent exploratory marker, FIG3-ACC-v5 authority, CLEAR disposition, retain-unchanged action, and precise visual and structured locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A16:J24",
+            "observation": "The reference separately records D-ID, D-MED, D-LOW, D-UP, D-UNIT, D-ORDER, D-LABEL, D-MARKER, and D-AUTH, with every result marked PASS and with visual plus R17 or authority locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "native pixels; FIG3-D panel bounds [1210,930,2320,1710]",
+            "observation": "Direct inspection of the raster shows Panel D with the 0.02 point, whisker endpoints at -0.04 and 0.08, Standardized Δz, 95% interval, Incentivized then Non-incentivized labels, and no exploratory marker.",
+            "path": "public_input/Workspace/04_Proof/figure3_current_proof_extracted.png"
+          },
+          {
+            "locator": "Panel_Estimates!A6:M6; Display_Map!A6:H9",
+            "observation": "The controlling R17 fields specify FIG3-D Pre-registered moderator, median 0.02, endpoints -0.04 and 0.08, standardized delta-z, the category order, false exploratory marker, Standardized Δz unit, and 95% interval label.",
+            "path": "public_input/Workspace/03_Analysis/fig3_analysis_export_R17.xlsx"
+          }
+        ],
+        "claim_id": "R008",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference completely satisfies the frozen binary condition. Its D record names FIG3-ACC-v5, explicitly records every mandatory visual, numeric, label, order, marker, and authorization check as passing, assigns CLEAR, directs retain unchanged, and cites the proof pixels together with R17 and authority evidence.",
+        "reference_evidence": [
+          {
+            "locator": "Panel_Reconciliation!A6:O6",
+            "observation": "The dedicated FIG3-D record states the visible and expected median 0.02, interval [-0.04, 0.08], Standardized Δz, 95% interval, Incentivized-then-Non-incentivized order, required labels, absent exploratory marker, FIG3-ACC-v5 authority, CLEAR disposition, retain-unchanged action, and precise visual and structured locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Dimension_Checks!A16:J24",
+            "observation": "The reference separately records D-ID, D-MED, D-LOW, D-UP, D-UNIT, D-ORDER, D-LABEL, D-MARKER, and D-AUTH, with every result marked PASS and with visual plus R17 or authority locators.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "native pixels; FIG3-D panel bounds [1210,930,2320,1710]",
+            "observation": "Direct inspection of the raster shows Panel D with the 0.02 point, whisker endpoints at -0.04 and 0.08, Standardized Δz, 95% interval, Incentivized then Non-incentivized labels, and no exploratory marker.",
+            "path": "public_input/Workspace/04_Proof/figure3_current_proof_extracted.png"
+          },
+          {
+            "locator": "Panel_Estimates!A6:M6; Display_Map!A6:H9",
+            "observation": "The controlling R17 fields specify FIG3-D Pre-registered moderator, median 0.02, endpoints -0.04 and 0.08, standardized delta-z, the category order, false exploratory marker, Standardized Δz unit, and 95% interval label.",
+            "path": "public_input/Workspace/03_Analysis/fig3_analysis_export_R17.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R009",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Downstream_Impact!A3:L13",
+            "observation": "The deliverable contains exactly 11 dependency rows, with the required four edits, eight explicit no-change verifications, mapped current-content locators, and the paired CAP-3D | RS-3D row preserving both endpoint IDs.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "claim_id": "R009",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference register completely satisfies the frozen endpoint allocation: all eleven mapped dependency rows are present once, the four required edits are assigned exactly, and every remaining endpoint has an explicit no-change verification, including both D text IDs in their paired row.",
+        "reference_evidence": [
+          {
+            "locator": "Downstream_Impact!A3:L13",
+            "observation": "The deliverable contains exactly 11 dependency rows, with the required four edits, eight explicit no-change verifications, mapped current-content locators, and the paired CAP-3D | RS-3D row preserving both endpoint IDs.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R010",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Deposit_Gate!A3:G9",
+            "observation": "The register identifies DEP-V3 as the staged HVD-EDU-0147 projection of FIG3-EST-R17 under AR-2026-08-24-R17, records matching numeric rows, and separately records the reversed README, open mapped verification, open proof reapproval, and open coupled gate; row 9 assigns HOLD_STAGED and says not to publish until those prerequisites are closed.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "document body, section headed ‘Decision’",
+            "observation": "The memo states HOLD_CURRENT_PROOF_AND_LINKED_DEPOSIT and says current PRF-02 and DEP-V3 must not be released as they stand; its later release language is conditional on completing the listed corrections and re-review.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R010",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference deliverables satisfy the frozen business meaning: DEP-V3, not DEP-V2, is the current staged R17 projection; numeric identity matches R17; README, mapped verification, proof reapproval, and the coupled gate remain open; and the present disposition is HOLD_STAGED with explicit conditions for later release.",
+        "reference_evidence": [
+          {
+            "locator": "Deposit_Gate!A3:G9",
+            "observation": "The register identifies DEP-V3 as the staged HVD-EDU-0147 projection of FIG3-EST-R17 under AR-2026-08-24-R17, records matching numeric rows, and separately records the reversed README, open mapped verification, open proof reapproval, and open coupled gate; row 9 assigns HOLD_STAGED and says not to publish until those prerequisites are closed.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "document body, section headed ‘Decision’",
+            "observation": "The memo states HOLD_CURRENT_PROOF_AND_LINKED_DEPOSIT and says current PRF-02 and DEP-V3 must not be released as they stand; its later release language is conditional on completing the listed corrections and re-review.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R011",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Actions!A3:H19",
+            "observation": "The executable rows assign each action one primary owner, including EMC-STAT at 09:30, PD-EDITOR at 10:00 and 12:00, CA-STUDY at 10:30, REPO-STEW at 12:00, and PQL coupled re-review at 14:00 Asia/Singapore.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Section 'Executable sequence before any later release'; owner/due table",
+            "observation": "The memo repeats the same named owner and deadline assignments and states that all deadlines precede the production lock.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R011",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "The reference register and memo agree on the complete owner/deadline allocation, with one primary owner per action and all required deadlines before review and lock.",
+        "reference_evidence": [
+          {
+            "locator": "Actions!A3:H19",
+            "observation": "The executable rows assign each action one primary owner, including EMC-STAT at 09:30, PD-EDITOR at 10:00 and 12:00, CA-STUDY at 10:30, REPO-STEW at 12:00, and PQL coupled re-review at 14:00 Asia/Singapore.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Section 'Executable sequence before any later release'; owner/due table",
+            "observation": "The memo repeats the same named owner and deadline assignments and states that all deadlines precede the production lock.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R012",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Decision!A6:D9; Decision!A13:D18",
+            "observation": "The register states HOLD_CURRENT_PROOF_AND_LINKED_DEPOSIT, holds PRF-02, holds staged DEP-V3, identifies A/B corrections, C restoration, D clearance, and requires the shared PQL re-review.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Section 'Decision' and section 'Panel conclusions'; second table",
+            "observation": "The memo says not to release PRF-02 or publish DEP-V3 as they stand and repeats the A, B, C, D, downstream, and final coupled re-review conditions.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R012",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "Both reference deliverables give the exact coupled HOLD business meaning at the cutoff: current PRF-02 and DEP-V3 are blocked, A and B require correction, C must be restored, D clears, and later release requires completed actions and PQL re-review.",
+        "reference_evidence": [
+          {
+            "locator": "Decision!A6:D9; Decision!A13:D18",
+            "observation": "The register states HOLD_CURRENT_PROOF_AND_LINKED_DEPOSIT, holds PRF-02, holds staged DEP-V3, identifies A/B corrections, C restoration, D clearance, and requires the shared PQL re-review.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Section 'Decision' and section 'Panel conclusions'; second table",
+            "observation": "The memo says not to release PRF-02 or publish DEP-V3 as they stand and repeats the A, B, C, D, downstream, and final coupled re-review conditions.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R013",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Rendered page 1, 'FINAL CONTROL DECISION', context table, 'Decision', and 'Trigger and scope' sections",
+            "observation": "The memo states the exact as-of cutoff, names the Centre Director, Corresponding Author, and Production Editor, identifies PRF-02 and DEP-V3 under GATE-0147, states the production lock, and explicitly records the production alert as the trigger for a publication-consistency review.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          },
+          {
+            "locator": "Rendered page 2, 'Executable sequence before any later release' and 'Evidence and scope boundary' sections",
+            "observation": "The memo gives an owner-and-due-time action sequence and expressly directs detailed evidence, hashes, locators, and action rows to figure3_reconciliation_register.xlsx.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R013",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "Pass: the memo completely frames the frozen as-of operational decision, its open-gate context and linked components, the production-alert purpose, lock urgency, named consumers, executable next steps, and register evidence handoff.",
+        "reference_evidence": [
+          {
+            "locator": "Rendered page 1, 'FINAL CONTROL DECISION', context table, 'Decision', and 'Trigger and scope' sections",
+            "observation": "The memo states the exact as-of cutoff, names the Centre Director, Corresponding Author, and Production Editor, identifies PRF-02 and DEP-V3 under GATE-0147, states the production lock, and explicitly records the production alert as the trigger for a publication-consistency review.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          },
+          {
+            "locator": "Rendered page 2, 'Executable sequence before any later release' and 'Evidence and scope boundary' sections",
+            "observation": "The memo gives an owner-and-due-time action sequence and expressly directs detailed evidence, hashes, locators, and action rows to figure3_reconciliation_register.xlsx.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    },
+    {
+      "attempts": 1,
+      "claim_id": "R014",
+      "repeat": 1,
+      "runtime": null,
+      "subject": "reference",
+      "verdict": {
+        "candidate_evidence": [
+          {
+            "locator": "Decision!A9:D10; Source_Index!A3:D3",
+            "observation": "The register limits the decision to component authority, proof-to-R17 consistency, downstream synchronization, and release control, and identifies the authentic-source boundary without treating case facts as public-source content.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Section 'Evidence and scope boundary', paragraph beginning 'Scope limitation.'",
+            "observation": "The memo expressly limits conclusions to operational publication consistency and disclaims scientific merit, causal validity, misconduct, substantive educational effect, and case attribution to authentic public sources.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "claim_id": "R014",
+        "material_contradiction": false,
+        "raw_reward": 1,
+        "reason": "Pass. The reference deliverables keep the conclusions inside version authority, proof-to-data consistency, downstream synchronization, and coupled release control; they identify tolerance and HOLD precedence as centre rules and make no unsupported scientific, causal, misconduct, effect, or authentic-public-source claim.",
+        "reference_evidence": [
+          {
+            "locator": "Decision!A9:D10; Source_Index!A3:D3",
+            "observation": "The register limits the decision to component authority, proof-to-R17 consistency, downstream synchronization, and release control, and identifies the authentic-source boundary without treating case facts as public-source content.",
+            "path": "reference_answer/deliverables/figure3_reconciliation_register.xlsx"
+          },
+          {
+            "locator": "Section 'Evidence and scope boundary', paragraph beginning 'Scope limitation.'",
+            "observation": "The memo expressly limits conclusions to operational publication consistency and disclaims scientific merit, causal validity, misconduct, substantive educational effect, and case attribution to authentic public sources.",
+            "path": "reference_answer/deliverables/publication_release_memo.docx"
+          }
+        ],
+        "schema_version": "agent-first-claim-verdict/v1"
+      }
+    }
+  ],
+  "schema_version": "agent-first-release-verdicts/v1"
+}

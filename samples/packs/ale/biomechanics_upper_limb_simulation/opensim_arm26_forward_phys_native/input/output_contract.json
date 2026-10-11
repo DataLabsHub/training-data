@@ -1,0 +1,24 @@
+{
+  "task_id": "opensim_arm26_forward_phys_native",
+  "required_outputs": [
+    "setup/arm26_Setup_InverseKinematics.xml",
+    "setup/arm26_Setup_StaticOptimization_Phys.xml",
+    "setup/arm26_Setup_Forward_Phys.xml",
+    "ik/arm26_InverseKinematics.mot",
+    "static_phys/arm26_StaticOptimization_controls.xml",
+    "forward_phys/arm26_states.sto",
+    "forward_phys/arm26_controls.sto",
+    "forward_phys/arm26_states_degrees.mot",
+    "run_log.txt",
+    "provenance.json"
+  ],
+  "native_software": "OpenSim 4.5 GUI or opensim-cmd on Windows 10/11 x64",
+  "provenance_schema": {
+    "task_id": "opensim_arm26_forward_phys_native",
+    "opensim_version": "string containing OpenSim 4.5",
+    "input_manifest_sha256": "sha256 of input/checksums.sha256",
+    "setup_commands": "array naming the IK, static optimization, and forward setup XML executions",
+    "output_file_sha256": "object mapping each required output path except provenance.json to its sha256"
+  },
+  "notes": "A complete submission must include the requested native artifacts, structured outputs, GUI evidence where requested, and mutually consistent files matching this output contract."
+}

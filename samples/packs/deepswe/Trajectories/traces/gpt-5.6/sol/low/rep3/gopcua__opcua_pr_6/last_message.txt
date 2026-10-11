@@ -1,0 +1,17 @@
+Implemented full GetEndpoints service support.
+
+Key additions:
+
+- `datatypes.LocalizedText` with mask handling and complete serialization API.
+- Public signed `datatypes.StringArray`, preserving `StringTable` compatibility.
+- Discovery structures and arrays:
+  - `ApplicationDescription`
+  - `UserTokenPolicy`
+  - `EndpointDescription`
+- Required constants and misspelled public constructors.
+- `GetEndpointRequest` and `GetEndpointResponse`.
+- Generic service dispatch for IDs `428` and `431`.
+- Correct null `ByteString` decode behavior.
+- Focused round-trip and dispatch tests.
+
+Validation: all packages pass `go test ./...`, and `git diff --check` reports no formatting issues.
