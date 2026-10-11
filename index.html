@@ -421,7 +421,9 @@
 
 </main>
 <footer>
-  样例用于展示数据形态，交付字段、规模与规格以双方确认为准</footer>
+  <p class="foot-note">样例用于展示数据形态，交付字段、规模与规格以双方确认为准</p>
+  <p class="disclaimer"><b>免责声明</b>本站所展示的全部数据集、样例及相关服务均来源于第三方，本站仅用于展示与宣传，不对其内容的准确性、完整性、合法性或可用性作任何明示或默示的担保，亦不承担由其使用所引起的任何责任。如涉及任何权利问题，请与我们联系以便及时处理。</p>
+</footer>
 <div class="viewer" id="viewer" hidden>
   <div class="viewer-sheet" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
     <div class="viewer-bar">
@@ -849,6 +851,21 @@
     padding: 8px 32px 72px;
     color: var(--faint);
     font-size: 13px;
+  }
+  footer .foot-note { margin: 0 0 14px; }
+  .disclaimer {
+    margin: 0;
+    padding: 14px 0 0;
+    border-top: 1px solid var(--line);
+    max-width: 52em;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--faint);
+  }
+  .disclaimer b {
+    margin-right: 8px;
+    font-weight: 600;
+    color: var(--muted);
   }
   .sample-btn {
     display: inline-flex;
