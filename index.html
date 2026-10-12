@@ -1379,6 +1379,14 @@
 
   function showHtml(src) {
     stage.innerHTML = '<iframe title="' + esc(t("样例")) + '" src="' + src + '"></iframe>';
+    var frame = stage.querySelector("iframe");
+    frame.addEventListener("load", function () {
+      try {
+        frame.contentDocument.querySelectorAll("[data-t]").forEach(function (node) {
+          node.textContent = t(node.getAttribute("data-t"));
+        });
+      } catch (e) {}
+    });
   }
 
   function showPack(key) {
