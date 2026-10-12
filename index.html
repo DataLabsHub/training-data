@@ -1220,10 +1220,7 @@
     kernel: { title: "核函数", sources: [{ label: LIST, pack: "kernel" }] },
     terminal: { title: "终端裁定", sources: [{ label: CATALOG, html: "samples/raw/terminal.html" }] },
     desktop: { title: "桌面成品", sources: [{ label: LIST, pack: "osworld" }] },
-    pro: { title: "专业软件", sources: [
-      { label: LIST, pack: "ale" },
-      { label: CATALOG, html: "samples/raw/pro.html" }
-    ]},
+    pro: { title: "专业软件", sources: [{ label: LIST, pack: "ale" }] },
     office: { title: "跨文件办公", sources: [{ label: LIST, pack: "working" }] },
     room: { title: "行业文件房间", sources: [{ label: CATALOG, html: "samples/raw/room.html" }] },
     session: { title: "长会话", sources: [{ label: CATALOG, html: "samples/raw/session.html" }] }
@@ -1231,34 +1228,34 @@
   // Heading shown inside each expanded folder, keyed by pack and folder path ("" = loose files).
   var GROUP_TITLE = {
     deepswe: {
-      "Tasks": "样例任务（3 道）",
-      "Trajectories": "模型作答轨迹",
-      "": "评测成绩汇总"
+      "Tasks": "样例任务（3 道）· OPC UA、py-libp2p、Demisto",
+      "Trajectories": "模型作答轨迹 · Claude Opus 5 与 GPT-5.6",
+      "": "评测成绩汇总 · 25 道任务通过率"
     },
     working: {
-      "Cases": "普通案例 · 论文图表数据核查",
-      "Multimodal_Cases": "多模态案例 · 可再生能源证书结算"
+      "Cases": "普通案例 · 学术论文图表与数据一致性核查",
+      "Multimodal_Cases": "多模态案例 · 可再生能源证书交割结算"
     },
     edge: {
-      "celery_fenced_execution_roadmap": "Celery 任务队列改造",
-      "nats_jetstream_resilience_roadmap": "NATS 消息服务器改造"
+      "celery_fenced_execution_roadmap": "Celery 任务队列改造 · 重试与断线下不重复执行",
+      "nats_jetstream_resilience_roadmap": "NATS 消息服务器改造 · 消息持久化容错与生命周期"
     },
     ale: {
-      "aerospace_engineering": "航空航天 · OpenRocket 火箭仿真",
-      "astronomy_astrophysics": "天文 · DS9 超新星测光",
-      "aviation_operations": "航空运营 · FlightGear 仪表进近",
-      "biomechanics_upper_limb_simulation": "生物力学 · OpenSim 上肢仿真"
+      "aerospace_engineering": "航空航天 · OpenRocket 复刻模型火箭并仿真飞行",
+      "astronomy_astrophysics": "天文 · DS9 测量超新星遗迹亮度",
+      "aviation_operations": "航空运营 · FlightGear 旧金山机场仪表进近",
+      "biomechanics_upper_limb_simulation": "生物力学 · OpenSim 手臂肌肉与动力学仿真（5 道）"
     },
     osworld: {
-      "task_001": "FreeCAD 支架建模",
-      "task_002": "SolveSpace 夹具建模",
-      "task_005": "WPS 讲义打印",
-      "task_006": "Shotcut 游戏视频剪辑",
-      "task_010": "Impress 与 OpenBoard 物理微课"
+      "task_001": "FreeCAD · 按图纸重建支架并输出审图 PDF",
+      "task_002": "SolveSpace · 照视频复刻夹具三维模型并打包",
+      "task_005": "WPS 演示 · 两页幻灯片打印为横向讲义",
+      "task_006": "Shotcut · 游戏练习视频三段剪辑",
+      "task_010": "Impress 与 OpenBoard · 物理概念微课与白板批注"
     },
     kernel: {
-      "AutoResearch-Kernel": "GPU 核函数优化 · 基础批次",
-      "AutoResearch-Kernel-Harder": "GPU 核函数优化 · 进阶批次"
+      "AutoResearch-Kernel": "GPU 核函数优化 · 基础批次（A100、H200、B200，13 道）",
+      "AutoResearch-Kernel-Harder": "GPU 核函数优化 · 进阶批次（A100、H200，9 道）"
     }
   };
 
