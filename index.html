@@ -1068,6 +1068,7 @@
   }
   .dv-mono { font-family: var(--dv-mono); }
   .dv-head .dv-mono { min-width: 0; font-size: 12px; word-break: break-all; }
+  .dv-head .dv-title { flex: 1; min-width: 0; font-size: 13px; line-height: 1.6; color: var(--dv-ink); }
   .dv-find { padding: 4px 12px 8px; }
   .dv-search {
     width: 100%;
@@ -1227,6 +1228,39 @@
     room: { title: "行业文件房间", sources: [{ label: CATALOG, html: "samples/raw/room.html" }] },
     session: { title: "长会话", sources: [{ label: CATALOG, html: "samples/raw/session.html" }] }
   };
+  // Heading shown inside each expanded folder, keyed by pack and folder path ("" = loose files).
+  var GROUP_TITLE = {
+    deepswe: {
+      "Tasks": "3 道样例任务：工业通信库 OPC UA 新增端点查询、点对点网络库 py-libp2p 新增数据流状态跟踪、安全自动化平台 Demisto 新增威胁情报批量补全",
+      "Trajectories": "模型作答轨迹：Claude Opus 5 与 GPT-5.6 三个版本在上述 3 道任务上的完整操作记录",
+      "": "评测成绩汇总表：各模型在全部 25 道任务上的通过率"
+    },
+    working: {
+      "Cases": "普通案例：学术论文图表与数据一致性核查（另附 5 个案例的校验结果与模型得分）",
+      "Multimodal_Cases": "多模态案例：美国马萨诸塞州可再生能源证书的交割结算底稿"
+    },
+    edge: {
+      "celery_fenced_execution_roadmap": "Celery 任务队列整体改造：任务在重试、断线和重连时不重复执行、状态始终一致",
+      "nats_jetstream_resilience_roadmap": "NATS 消息服务器整体改造：消息持久化的容错能力与全生命周期管理"
+    },
+    ale: {
+      "aerospace_engineering": "航空航天工程：用 OpenRocket 复刻官方模型火箭并完成飞行仿真",
+      "astronomy_astrophysics": "天文学：用 DS9 对钱德拉 X 射线望远镜拍摄的超新星遗迹做亮度测量",
+      "aviation_operations": "航空运营：在 FlightGear 中驾驶塞斯纳 172 完成旧金山机场仪表进近，并回放读取仪表",
+      "biomechanics_upper_limb_simulation": "生物力学（上肢）：用 OpenSim 完成 5 道手臂肌肉与动力学仿真"
+    },
+    osworld: {
+      "task_001": "FreeCAD：按图纸和照片重建支架零件，输出单页审图 PDF",
+      "task_002": "SolveSpace：照参考视频复刻夹具三维模型，并打包模型、导出文件与来源清单",
+      "task_005": "WPS 演示：把两页幻灯片打印成一页横向讲义 PDF，且不改动原文件",
+      "task_006": "Shotcut：剪辑一段游戏练习视频（三段拼接，中段 3 倍速）",
+      "task_010": "LibreOffice Impress 与 OpenBoard：制作五页物理概念微课，并在白板中添加讲解批注"
+    },
+    kernel: {
+      "AutoResearch-Kernel": "GPU 核函数优化（基础批次）：13 道任务，覆盖 NVIDIA A100、H200、B200，含优化轨迹与加速报告",
+      "AutoResearch-Kernel-Harder": "GPU 核函数优化（进阶批次）：9 道更难的任务，覆盖 NVIDIA A100、H200，含一小时自动优化轨迹与加速报告"
+    }
+  };
 
   var IMAGE = /^(png|jpe?g|gif|webp|svg|bmp)$/;
   var OFFICE = /^(docx|pptx|xlsx)$/;
@@ -1356,7 +1390,7 @@
       if (m.omitted && m.omitted.length) {
         var omit = el("div", "dv-omit");
         omit.innerHTML = "<b>" + esc(t("完整数据包另含")) + "</b>" + m.omitted.map(function (item) {
-          return "<p>" + esc(omittedText(item)) + "</p>";
+          return (item.lines || []).map(function (line) { return "<p>" + esc(t(line)) + "</p>"; }).join("");
         }).join("");
         main.appendChild(omit);
       }
@@ -1378,7 +1412,8 @@
 
   function buildCard(key, group, fold) {
     var card = el("div", "dv-card");
-    card.innerHTML = '<div class="dv-head"><span class="dv-mono">' + esc(group.name) +
+    var heading = (GROUP_TITLE[key] || {})[group.path];
+    card.innerHTML = '<div class="dv-head"><span class="dv-title">' + esc(heading ? t(heading) : group.name) +
       '</span><span class="dv-caption">Delivery package</span></div>' +
       '<div class="dv-grid"><div class="dv-tree"><div class="dv-find"><input class="dv-search" type="search" placeholder="' + esc(t("搜索文件")) + '"></div>' +
       '<div class="dv-tree-body"></div><div class="dv-hits" hidden></div></div>' +
@@ -1708,23 +1743,6 @@
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && !viewer.hidden) closeViewer();
   });
-
-  var OMIT = {
-    tasks: "其余 {n} 道任务及其全部模型轨迹：{names}",
-    cases: "其余 {n} 个普通案例：{names}",
-    multimodal: "其余 {n} 个多模态案例：{names}",
-    roadmaps: "其余 {n} 个改造任务：{names}",
-    domains: "其余 {n} 个领域任务：{names}",
-    desktop: "其余 {n} 道桌面任务：{names}"
-  };
-  function omittedText(item) {
-    if (typeof item === "string") return item;
-    var names = item.names.map(function (entry) {
-      return typeof entry === "string" ? entry : t("{name}（{app}）", { name: entry.name, app: entry.app ? entry.app : t("桌面软件") });
-    }).join(t("、"));
-    if (item.more) names = t("{names} 等", { names: names });
-    return t(OMIT[item.kind] || "{names}", { n: count(item.n), names: names });
-  }
 
   var CJK = /[\u3400-\u9fff]/;
   var TITLE = document.title;
