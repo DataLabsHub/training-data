@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>任务数据集</title>
+<title>任务数据与可交互环境</title>
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="icons/icon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -15,7 +15,7 @@
 </head>
 <body>
 <nav class="nav" id="nav">
-  <a class="mark" href="#top">任务数据集</a>
+  <a class="mark" href="#top">任务数据与可交互环境</a>
   <div class="nav-links" id="nav-links">
     <a href="#answer">推理题</a>
     <a href="#machine">代码与终端</a>
@@ -29,9 +29,9 @@
   <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="菜单"><span></span></button>
 </nav>
 <header class="hero" id="top">
-  <p class="eyebrow">训练数据集 · 大模型后训练与评测</p>
-  <h1>可验证奖励任务数据集</h1>
-  <p class="deck">每条任务均附带自动化判定机制，重复评测结果稳定。不具备可验证奖励的任务不予收录。</p>
+  <p class="eyebrow">训练数据与 RL 环境 · 大模型后训练与评测</p>
+  <h1>可验证奖励任务数据与可交互环境</h1>
+  <p class="deck">每条任务均附带自动化判定机制，重复评测结果稳定；代码、终端、桌面与办公类任务随附可交互环境，可直接接入强化学习训练。不具备可验证奖励的任务不予收录。</p>
 </header>
 <section class="lineup">
   <a href="#answer"><span>01</span><strong>推理题</strong><em>科学、竞赛、临床</em></a>
@@ -49,7 +49,7 @@
       <li><b>可验证奖励</b><span>每条任务附自动判定，结果可复现，可直接接入 RL 训练</span></li>
       <li><b>难度标定</b><span>关键品类以强模型实测运行标定难度，优先保留模型仍会失败的样本</span></li>
       <li><b>对标公开基准</b><span>能力方向对齐主流榜单；训练任务均为原创，不复刻公开考卷</span></li>
-      <li><b>开箱可运行</b><span>代码、终端与电脑操作类任务随附环境、参考解与测试</span></li>
+      <li><b>可交互环境</b><span>仓库、核函数、终端、桌面与办公类任务随附可运行环境、参考解与测试，可直接接入 RL 训练</span></li>
       <li><b>持续供给</b><span>现货之外按周生产新任务，模型未见过</span></li>
     </ul>
     <h2>供给方式</h2>
@@ -69,18 +69,18 @@
       <li><b>KernelBench</b><span>GPU 内核生成与优化，归入核函数<a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/">官网</a> · <a href="https://github.com/ScalingIntelligence/KernelBench/tree/main/KernelBench">数据集 · 官方仓库</a></span></li>
     </ul>
     <h2>定制服务</h2>
-    <p>可按需设计奖励函数与评测环境，提供过程级稠密奖励；争议样本由领域专家仲裁；也可作为外部产能，与贵方数据团队协同交付</p>
+    <p>可按需搭建可交互环境并设计奖励函数，提供过程级稠密奖励；争议样本由领域专家仲裁；也可作为外部产能，与贵方数据团队协同交付</p>
   </div>
 
   <section class="pick light" id="pick">
     <h2>选型</h2>
-    <p class="chapter-line">按训练目标选择任务数据集</p>
+    <p class="chapter-line">按训练目标选择任务数据与环境</p>
     <ol>
       <li>
         <span class="use">RL 训练</span>
-        <b>二元可验证奖励</b>
-        <p class="go"><a href="#terminal">终端裁定</a><a href="#repo">仓库改动</a><a href="#edge">边界改动</a><a href="#kernel">核函数</a></p>
-        <p class="aside">桌面成品配合文件级评分器同样适用</p>
+        <b>可交互环境与可验证奖励</b>
+        <p class="go"><a href="#terminal">终端裁定</a><a href="#repo">仓库改动</a><a href="#edge">边界改动</a><a href="#kernel">核函数</a><a href="#office">跨文件办公</a><a href="#desktop">桌面成品</a></p>
+        <p class="aside">均随附可运行环境与自动判分</p>
       </li>
       <li>
         <span class="use">SFT · 过程监督</span>
@@ -183,7 +183,7 @@
     <p class="chapter-line">以测试结果为奖励</p>
 
     <article id="repo">
-      <h3>仓库改动</h3>
+      <h3>仓库改动<span class="env-tag">含可交互环境</span></h3>
       <p class="lede">仓库级代码工程任务，以测试预言机为奖励信号</p>
       <div class="bench"><span>对标</span><div>
         <p><b>SWE-bench</b><span><a href="https://www.swebench.com/">官网</a><a href="https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified">Verified · Hugging Face</a><a href="https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual">Multilingual · Hugging Face</a><a href="https://huggingface.co/datasets/princeton-nlp/SWE-bench_Multimodal">Multimodal · Hugging Face</a></span></p>
@@ -205,7 +205,7 @@
     </article>
 
     <article id="edge">
-      <h3>边界改动</h3>
+      <h3>边界改动<span class="env-tag">含可交互环境</span></h3>
       <p class="lede">在多项约束同时成立的前提下完成仓库级改造</p>
       <div class="bench"><span>对标</span><div>
         <p><b>EdgeBench SWE</b><span><a href="https://pipelinelab.ai/blog/edgebenchswe/">官网</a></span></p>
@@ -214,14 +214,14 @@
         <div><dt>奖励信号</dt><dd>自动测试，对照参考补丁，二元判定</dd></div>
         <div><dt>难度</dt><dd>多约束耦合改造，难度高于常规仓库修复</dd></div>
         <div><dt>定位</dt><dd>版本级、跨模块的长程特性开发</dd></div>
-        <div><dt>交付内容</dt><dd>完整仓库、改造路线、参考补丁、自动测试、完整 rollout</dd></div>
+        <div><dt>交付内容</dt><dd>可运行环境、完整仓库、改造路线、参考补丁、自动测试、完整 rollout</dd></div>
         <div><dt>覆盖范围</dt><dd>并发与一致性、存储与故障恢复、接口兼容、分布式场景下的边界情形</dd></div>
         <div><dt>供给</dt><dd>现货供应，每周持续新增</dd></div>
       </dl>
     </article>
 
     <article id="kernel">
-      <h3>核函数</h3>
+      <h3>核函数<span class="env-tag">含可交互环境</span></h3>
       <p class="lede">GPU Kernel 优化任务，在数值正确性约束下以实测性能为奖励</p>
       <div class="bench"><span>对标</span><div>
         <p><b>KernelBench</b><span><a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/">官网</a><a href="https://github.com/ScalingIntelligence/KernelBench/tree/main/KernelBench">数据集 · 官方仓库</a></span></p>
@@ -236,7 +236,7 @@
     </article>
 
     <article id="terminal">
-      <h3>终端裁定</h3>
+      <h3>终端裁定<span class="env-tag">含可交互环境</span></h3>
       <p class="lede">在相互冲突的多份材料之间作出裁定的长程终端任务</p>
       <div class="bench"><span>对标</span><div>
         <p><b>Terminal-Bench</b><span><a href="https://www.tbench.ai/">官网</a><a href="https://github.com/harbor-framework/terminal-bench/tree/main/tasks">数据集 · 官方仓库</a></span></p>
@@ -277,7 +277,7 @@
     </article>
 
     <article id="desktop">
-      <h3>桌面成品</h3>
+      <h3>桌面成品<span class="env-tag">含可交互环境</span></h3>
       <p class="lede">真实操作系统与专业软件中的多步工作流，交付可验证的原生工程文件</p>
       <div class="bench"><span>对标</span><div>
         <p><b>OSWorld 2.0</b><span><a href="https://osworld-v2.xlang.ai/">官网</a><a href="https://huggingface.co/datasets/xlangai/osworld_v2_tasks">数据集 · Hugging Face</a></span></p>
@@ -307,7 +307,7 @@
     </article>
 
     <article id="office">
-      <h3>跨文件办公</h3>
+      <h3>跨文件办公<span class="env-tag">含可交互环境</span></h3>
       <p class="lede">跨文件、跨工具的长程专业工作流，交付可验证产物</p>
       <dl>
         <div><dt>奖励信号</dt><dd>最终产物验证，自动校验或专家验收</dd></div>
@@ -796,6 +796,22 @@
     letter-spacing: -0.02em;
     line-height: 1.2;
   }
+  .env-tag {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 3px 10px;
+    border: 1px solid rgba(196, 98, 74, .35);
+    border-radius: 999px;
+    background: rgba(196, 98, 74, .08);
+    color: var(--accent);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    line-height: 1.5;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
   article .sample-btn { grid-column: 2; grid-row: 1; align-self: center; }
   article .aka { grid-column: 1 / -1; grid-row: 2; }
   article .lede { grid-column: 1 / -1; grid-row: 3; }
@@ -1017,6 +1033,18 @@
   @media (max-width: 720px) {
     :root { --pad: 18px; }
     .nav { gap: 14px; }
+    .nav .mark { font-size: 16px; }
+    .nav.compact .mark {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      margin: 10px 0;
+      padding: 0;
+      white-space: normal;
+      text-wrap: balance;
+      line-height: 1.25;
+    }
+    .env-tag { margin: 6px 0 0; display: table; }
     .lang select { max-width: 132px; }
     .hero { padding-top: 48px; }
     .hero h1 { font-size: clamp(34px, 10.5vw, 46px); }
@@ -1266,6 +1294,12 @@
   }
   @media (pointer: coarse) {
     .lang select, .dv-search { font-size: 16px; }
+  }
+  @media (max-width: 420px) {
+    .lang select { max-width: 112px; text-overflow: ellipsis; }
+  }
+  @media (max-width: 380px) {
+    .nav .mark { font-size: 15px; }
   }
   @media print {
     .nav, .lineup, .viewer, .sample-btn { display: none; }
