@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-static="1">
+<html lang="en" data-static="1">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>任务数据与可交互环境</title>
+<title>Model Training Data &amp; Interactive RL Environments</title>
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="icons/icon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -15,7 +15,7 @@
 </head>
 <body>
 <nav class="nav" id="nav">
-  <a class="mark" href="#top">任务数据与可交互环境</a>
+  <a class="mark" href="#top">模型训练数据与可交互 RL 环境</a>
   <div class="nav-links" id="nav-links">
     <a href="#answer">推理题</a>
     <a href="#machine">代码与终端</a>
@@ -29,8 +29,8 @@
   <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="菜单"><span></span></button>
 </nav>
 <header class="hero" id="top">
-  <p class="eyebrow">训练数据与 RL 环境 · 大模型后训练与评测</p>
-  <h1>可验证奖励任务数据与可交互环境</h1>
+  <p class="eyebrow">模型训练数据 · 可交互 RL 环境 · 大模型后训练与评测</p>
+  <h1>模型训练数据与可交互 RL 环境</h1>
   <p class="deck">每条任务均附带自动化判定机制，重复评测结果稳定；代码、终端、桌面与办公类任务随附可交互环境，可直接接入强化学习训练。不具备可验证奖励的任务不予收录。</p>
 </header>
 <section class="lineup">
@@ -1331,7 +1331,7 @@
     ru: ["Б", "КБ", "МБ", "ГБ"]
   };
   var I18N = window.I18N || {};
-  var lang = "zh-CN";
+  var lang = "en";
   function t(src, vars) {
     var dict = I18N[lang];
     var out = (dict && dict[src]) || src;
@@ -1941,7 +1941,7 @@
   });
 
   var CJK = /[\u3400-\u9fff]/;
-  var TITLE = document.title;
+  var TITLE = "模型训练数据与可交互 RL 环境";
   var texts = [];
   var attrs = [];
   function collect() {
@@ -1973,7 +1973,7 @@
 
   var select = document.getElementById("lang");
   function applyLang(code) {
-    lang = I18N[code] || code === "zh-CN" ? code : "zh-CN";
+    lang = I18N[code] || code === "zh-CN" ? code : "en";
     texts.forEach(function (entry) { entry.node.nodeValue = entry.lead + t(entry.key) + entry.trail; });
     attrs.forEach(function (entry) { entry.node.setAttribute(entry.name, t(entry.key)); });
     document.title = t(TITLE);
@@ -1999,8 +1999,7 @@
   collect();
   var saved = null;
   try { saved = localStorage.getItem("lang"); } catch (e) {}
-  var fromBrowser = (navigator.languages || [navigator.language]).map(match).filter(Boolean)[0];
-  applyLang(match(new URLSearchParams(location.search).get("lang")) || match(saved) || fromBrowser || "zh-CN");
+  applyLang(match(new URLSearchParams(location.search).get("lang")) || match(saved) || "en");
   select.addEventListener("change", function () {
     applyLang(select.value);
     try { localStorage.setItem("lang", select.value); } catch (e) {}
