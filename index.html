@@ -30,7 +30,7 @@
 <header class="hero" id="top">
   <p class="eyebrow">训练数据 · RL 环境 · 大模型后训练与评测</p>
   <h1>训练数据与 RL 环境</h1>
-  <p class="deck">每条任务均附带自动化判定机制，重复评测结果稳定；代码、终端、桌面与办公类任务随附可交互环境，可直接接入强化学习训练。不具备可验证奖励的任务不予收录。</p>
+  <p class="deck">只收录可自动判定、可复现、可直接接入强化学习的任务。</p>
 </header>
 
 <main>
@@ -41,13 +41,13 @@
       <li>
         <span class="use">RL 训练</span>
         <b>可交互环境与可验证奖励</b>
-        <p class="go"><a href="#terminal">终端裁定</a><a href="#repo">仓库改动</a><a href="#edge">边界改动</a><a href="#kernel">核函数</a><a href="#office">跨文件办公</a><a href="#desktop">桌面成品</a></p>
+        <p class="go bold"><a href="#terminal">终端裁定</a><a href="#repo">仓库改动</a><a href="#edge">边界改动</a><a href="#kernel">核函数</a><a href="#office">跨文件办公</a><a href="#desktop">桌面成品</a></p>
         <p class="aside">均随附可运行环境与自动判分</p>
       </li>
       <li>
         <span class="use">SFT · 过程监督</span>
         <b>完整操作轨迹</b>
-        <p class="go"><a href="#repo">仓库改动</a><a href="#office">跨文件办公</a><a href="#session">长会话</a><a href="#pro">专业软件</a></p>
+        <p class="go bold"><a href="#repo">仓库改动</a><a href="#office">跨文件办公</a><a href="#session">长会话</a><a href="#pro">专业软件</a></p>
         <p class="aside">用于行为克隆或逐步监督</p>
       </li>
       <li>
@@ -403,14 +403,6 @@
 </main>
 <footer>
   <p class="foot-note">样例用于展示数据形态，交付字段、规模与规格以双方确认为准</p>
-  <div class="disclaimer">
-    <p class="disc-title">免责声明</p>
-    <ol>
-      <li>本站展示的数据资源、技术服务及相关信息均由第三方提供，本站仅作展示与宣传之用，并非其提供方或运营方。</li>
-      <li>本站所载规模、价格、服务承诺等内容仅供参考，不构成要约或保证。具体条款以用户与实际提供方签订的协议为准，由此产生的损失或纠纷由用户与该第三方自行解决。</li>
-      <li>本站提及的第三方名称及商标归各自权利人所有，提及不代表存在任何关联或授权关系。</li>
-    </ol>
-  </div>
 </footer>
 <div class="viewer" id="viewer" hidden>
   <div class="viewer-sheet" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
@@ -914,6 +906,7 @@
     font-size: 13px;
     line-height: 1.5;
   }
+  .pick .go.bold a { font-weight: 700; }
   .pick .aside {
     margin: auto 0 0;
     padding-top: 12px;
@@ -928,36 +921,7 @@
     color: var(--faint);
     font-size: 13px;
   }
-  footer .foot-note { margin: 0 0 14px; }
-  .disclaimer {
-    padding: 14px 0 0;
-    border-top: 1px solid var(--line);
-    max-width: 58em;
-    font-size: 12px;
-    line-height: 1.7;
-    color: var(--faint);
-  }
-  .disc-title { margin: 0 0 7px; font-weight: 600; color: var(--muted); }
-  .disclaimer ol {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    counter-reset: disc;
-  }
-  .disclaimer li {
-    counter-increment: disc;
-    padding-left: 1.6em;
-    margin: 0 0 6px;
-  }
-  .disclaimer li:last-child { margin-bottom: 0; }
-  .disclaimer li::before {
-    content: counter(disc);
-    display: inline-block;
-    width: 1.6em;
-    margin-left: -1.6em;
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
+  footer .foot-note { margin: 0; }
   .sample-btn {
     display: inline-flex;
     align-items: center;
