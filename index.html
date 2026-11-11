@@ -36,7 +36,7 @@
 <main>
   <section class="pick light" id="pick">
     <h2>选型</h2>
-    <p class="chapter-line">按训练目标选择任务数据与环境</p>
+    <p class="chapter-line">先看你要训练什么</p>
     <ol>
       <li>
         <span class="use">RL 训练</span>
@@ -45,7 +45,7 @@
         <p class="aside">环境、评分和参考解都在包里</p>
       </li>
       <li>
-        <span class="use">SFT · 过程监督</span>
+        <span class="use">模仿做法</span>
         <b>每一步操作的完整记录</b>
         <p class="go bold"><a href="#repo">仓库改动</a><a href="#office">跨文件办公</a><a href="#session">长会话</a><a href="#pro">专业软件</a></p>
         <p class="aside">用来模仿做法，或逐步纠正</p>
@@ -63,7 +63,7 @@
         <p class="aside">只练在屏幕上找对位置</p>
       </li>
       <li>
-        <span class="use">世界模型 · 具身</span>
+        <span class="use">画面与动作</span>
         <b>带相机参数的画面和动作</b>
         <p class="go bold"><a href="#camera">多视角画面</a><a href="#body">动作结果</a></p>
         <p class="aside">按你的设备和场景来做</p>
@@ -108,10 +108,10 @@
         <p><a href="https://mmmu-benchmark.github.io/" target="_blank" rel="noopener">MMMU</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>唯一闭式标准答案，附完整推导，二元判定，可复核</dd></div>
+        <div><dt>怎么算对</dt><dd>只有一个标准答案，附解题过程，对错分明</dd></div>
         <div><dt>难度</dt><dd>原创新题，无法通过检索拼合解法；跨度从可解问题延伸到尚无公认解的前沿问题</dd></div>
-        <div><dt>定位</dt><dd>研究级科学推理，含图表与多模态题</dd></div>
-        <div><dt>交付内容</dt><dd>题目、标准答案、推导步骤、知识点与难度标注，经第二位专家独立盲审</dd></div>
+        <div><dt>用途</dt><dd>研究级科学推理，含图表与多模态题</dd></div>
+        <div><dt>你拿到</dt><dd>题目、标准答案、推导步骤、知识点与难度标注，经第二位专家独立盲审</dd></div>
         <div><dt>覆盖范围</dt><dd>物理、化学、生物、数学；含计算与工具辅助推理、工程约束下的定量设计，延伸至前沿理论研究</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
@@ -127,10 +127,10 @@
         <p><a href="https://lastexam.ai/" target="_blank" rel="noopener">Humanity's Last Exam</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>精确最终答案，二元判定</dd></div>
+        <div><dt>怎么算对</dt><dd>答案必须精确，对就是对</dd></div>
         <div><dt>难度</dt><dd>每题附强模型多次运行的通过记录</dd></div>
-        <div><dt>定位</dt><dd>奥林匹克级数学与理科，题目无法检索到原题</dd></div>
-        <div><dt>交付内容</dt><dd>题目、完整解答、最终答案、模型运行记录、学段与解题技巧标签</dd></div>
+        <div><dt>用途</dt><dd>奥林匹克级数学与理科，题目无法检索到原题</dd></div>
+        <div><dt>你拿到</dt><dd>题目、完整解答、最终答案、模型运行记录、学段与解题技巧标签</dd></div>
         <div><dt>覆盖范围</dt><dd>信息学、组合数学、代数、数论及同级理科竞赛</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
@@ -146,10 +146,10 @@
         <p><a href="https://mmmu-benchmark.github.io/" target="_blank" rel="noopener">MMMU</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>医生认可的标准选项与理由</dd></div>
+        <div><dt>怎么算对</dt><dd>医生认可的标准选项与理由</dd></div>
         <div><dt>难度</dt><dd>已剔除强模型普遍答对的题目，保留模型仍易错的样本</dd></div>
-        <div><dt>定位</dt><dd>临床诊疗推理，含医学影像与图表题</dd></div>
-        <div><dt>交付内容</dt><dd>题目、选项、理由、多模型评分、难度分层；发布前完成去标识化核验</dd></div>
+        <div><dt>用途</dt><dd>临床诊疗推理，含医学影像与图表题</dd></div>
+        <div><dt>你拿到</dt><dd>题目、选项、理由、多模型评分、难度分层；发布前完成去标识化核验</dd></div>
         <div><dt>覆盖范围</dt><dd>诊断推理、流行病学、生物统计与临床决策</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
@@ -174,9 +174,9 @@
         <p><a href="https://www.frontierswe.com/" target="_blank" rel="noopener">FrontierSWE</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>测试预言机：FAIL_TO_PASS 须通过，PASS_TO_PASS 须保持通过；二元判定，模型自述不计</dd></div>
-        <div><dt>定位</dt><dd>真实开源仓库中的缺陷修复与功能开发</dd></div>
-        <div><dt>交付内容</dt><dd>可运行环境、参考补丁、自动验证，可附完整 rollout</dd></div>
+        <div><dt>怎么算对</dt><dd>该过的测试必须过，原来能过的不能坏；自己说做完了不算</dd></div>
+        <div><dt>用途</dt><dd>真实开源仓库中的缺陷修复与功能开发</dd></div>
+        <div><dt>你拿到</dt><dd>可运行环境、参考改动、自动评分，需要的话附上完整操作过程</dd></div>
         <div><dt>覆盖范围</dt><dd>Rust、Java、Go、PHP、Ruby、JavaScript/TypeScript、C；另可定制 SWE-Marathon、ProgramBench、FrontierSWE 方向的超长程任务</dd></div>
         <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
       </dl>
@@ -189,10 +189,10 @@
         <p><a href="https://pipelinelab.ai/blog/edgebenchswe/" target="_blank" rel="noopener">EdgeBench SWE</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>自动测试，对照参考补丁，二元判定</dd></div>
+        <div><dt>怎么算对</dt><dd>自动测试对照参考改动，对错分明</dd></div>
         <div><dt>难度</dt><dd>多约束耦合改造，难度高于常规仓库修复</dd></div>
-        <div><dt>定位</dt><dd>版本级、跨模块的长程特性开发</dd></div>
-        <div><dt>交付内容</dt><dd>可运行环境、完整仓库、改造路线、参考补丁、自动测试、完整 rollout</dd></div>
+        <div><dt>用途</dt><dd>版本级、跨模块的长程特性开发</dd></div>
+        <div><dt>你拿到</dt><dd>可运行环境、完整仓库、改造路线、参考改动、自动测试、完整操作过程</dd></div>
         <div><dt>覆盖范围</dt><dd>并发与一致性、存储与故障恢复、接口兼容、分布式场景下的边界情形</dd></div>
         <div><dt>供给</dt><dd>现货供应，每周持续新增</dd></div>
       </dl>
@@ -205,10 +205,10 @@
         <p><a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/" target="_blank" rel="noopener">KernelBench</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>数值正确性与真实显卡性能读数同时达标</dd></div>
+        <div><dt>怎么算对</dt><dd>数值正确性与真实显卡性能读数同时达标</dd></div>
         <div><dt>难度</dt><dd>每条附独立性能基线，需多轮实验迭代</dd></div>
-        <div><dt>定位</dt><dd>自主实验与优化循环，覆盖 CUDA 与 Triton</dd></div>
-        <div><dt>交付内容</dt><dd>执行环境、参考实现、正确性测试、性能基准、优化轨迹；可选专家复核</dd></div>
+        <div><dt>用途</dt><dd>自己反复试到更快，用 CUDA 或 Triton</dd></div>
+        <div><dt>你拿到</dt><dd>执行环境、参考实现、正确性测试、性能基准、优化轨迹；可选专家复核</dd></div>
         <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
       </dl>
     </article>
@@ -221,10 +221,10 @@
         <p><a href="https://www.terminal-bench-science.ai/" target="_blank" rel="noopener">Terminal-Bench-Science</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>独立容器内的语义测试，二元判定，模型自述不计</dd></div>
+        <div><dt>怎么算对</dt><dd>在单独环境里检查结论对不对；自己说做完了不算</dd></div>
         <div><dt>难度</dt><dd>经强模型多次运行标定：多数尝试失败，但每题均有成功记录，难而可学</dd></div>
-        <div><dt>定位</dt><dd>Harbor 原生格式，含科学计算子方向</dd></div>
-        <div><dt>交付内容</dt><dd>task.toml、环境镜像、隔离验证器镜像、参考解与标准产物、多次运行记录、防泄漏标记</dd></div>
+        <div><dt>用途</dt><dd>Harbor 格式，含科学计算</dd></div>
+        <div><dt>你拿到</dt><dd>任务配置、运行环境、单独的评分环境、参考解、运行记录、防泄漏标记</dd></div>
         <div><dt>覆盖范围</dt><dd>科学计算、软件与系统、运维与财务核对、媒体处理</dd></div>
         <div><dt>供给</dt><dd>按需持续生产</dd></div>
       </dl>
@@ -246,9 +246,9 @@
         <p><a href="https://os-world.github.io/" target="_blank" rel="noopener">OSWorld</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>元素位置与动作后界面状态双重校验</dd></div>
-        <div><dt>定位</dt><dd>Web、移动端与桌面的界面元素定位</dd></div>
-        <div><dt>交付内容</dt><dd>截图、边界框 / 角色 / 标签、操作序列、无障碍树与 DOM、状态检查</dd></div>
+        <div><dt>怎么算对</dt><dd>点对位置，并且点完后的界面也对</dd></div>
+        <div><dt>用途</dt><dd>Web、移动端与桌面的界面元素定位</dd></div>
+        <div><dt>你拿到</dt><dd>截图、位置框、操作步骤、界面结构、做完后的状态</dd></div>
         <div><dt>覆盖范围</dt><dd>Web、移动、桌面三端；分辨率、主题与布局多样</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
@@ -256,15 +256,15 @@
 
     <article id="desktop">
       <h3>桌面成品<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">真实操作系统与专业软件中的多步工作流，交付可验证的原生工程文件</p>
+      <p class="lede">在真实电脑和专业软件里做完，交出可打开的文件</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://osworld-v2.xlang.ai/" target="_blank" rel="noopener">OSWorld 2.0</a></p>
         <p><a href="https://os-world.github.io/" target="_blank" rel="noopener">OSWorld</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>程序校验可再次打开的原生文件与导出结果，以交付物而非操作录像判定完成</dd></div>
-        <div><dt>定位</dt><dd>长程电脑操作，以文件交付判定完成</dd></div>
-        <div><dt>交付内容</dt><dd>工作环境、参考文件、完整界面操作轨迹、可编辑原生文件、导出结果与自动评分</dd></div>
+        <div><dt>怎么算对</dt><dd>打开文件来验收，不看操作录像</dd></div>
+        <div><dt>用途</dt><dd>长程电脑操作，以文件交付判定完成</dd></div>
+        <div><dt>你拿到</dt><dd>工作环境、参考文件、完整界面操作轨迹、可编辑原生文件、导出结果与自动评分</dd></div>
         <div><dt>覆盖范围</dt><dd>CAD 制图、视频剪辑、办公、教学软件及跨软件交付</dd></div>
         <div><dt>供给</dt><dd>按需持续供给</dd></div>
       </dl>
@@ -277,9 +277,9 @@
         <p><a href="https://agents-last-exam.org" target="_blank" rel="noopener">Agents' Last Exam</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>工程产物与实际执行结果</dd></div>
-        <div><dt>定位</dt><dd>专业软件中的长流程真实工作</dd></div>
-        <div><dt>交付内容</dt><dd>任务、原生文件、执行结果与验证，完整交付含操作轨迹；样例展示任务部分</dd></div>
+        <div><dt>怎么算对</dt><dd>工程产物与实际执行结果</dd></div>
+        <div><dt>用途</dt><dd>专业软件中的长流程真实工作</dd></div>
+        <div><dt>你拿到</dt><dd>任务、原生文件、执行结果与验证，完整交付含操作轨迹；样例展示任务部分</dd></div>
         <div><dt>供给</dt><dd>现货供应，专家制作，每周持续新增</dd></div>
       </dl>
     </article>
@@ -288,9 +288,9 @@
       <h3>跨文件办公<span class="env-tag">可直接运行</span></h3>
       <p class="lede">跨多个文件和工具把一件事做完，结果可以核对</p>
       <dl>
-        <div><dt>奖励信号</dt><dd>最终产物验证，自动校验或专家验收</dd></div>
-        <div><dt>定位</dt><dd>多文件、多工具串联的长程工作流，区别于单轮问答</dd></div>
-        <div><dt>交付内容</dt><dd>任务环境、agent 轨迹、工具调用、最终产物与验证结果</dd></div>
+        <div><dt>怎么算对</dt><dd>最终产物验证，自动校验或专家验收</dd></div>
+        <div><dt>用途</dt><dd>多文件、多工具串联的长程工作流，区别于单轮问答</dd></div>
+        <div><dt>你拿到</dt><dd>任务环境、agent 轨迹、工具调用、最终产物与验证结果</dd></div>
         <div><dt>供给</dt><dd>现货供应，每周持续新增</dd></div>
       </dl>
     </article>
@@ -307,9 +307,9 @@
         <p><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard" target="_blank" rel="noopener">GAIA</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>逐条评分规则对照标准结果，不采用整体印象打分</dd></div>
-        <div><dt>定位</dt><dd>垂直行业的专业知识工作</dd></div>
-        <div><dt>交付内容</dt><dd>文档世界数据包、任务定义、标准答案、逐条评分规则、合规边界与审计记录</dd></div>
+        <div><dt>怎么算对</dt><dd>逐条评分规则对照标准结果，不采用整体印象打分</dd></div>
+        <div><dt>用途</dt><dd>垂直行业的专业知识工作</dd></div>
+        <div><dt>你拿到</dt><dd>整套文档、任务、标准答案、逐条评分、合规边界和审计记录</dd></div>
         <div><dt>覆盖范围</dt><dd>法律、金融、医疗、制造</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
@@ -322,7 +322,7 @@
 
     <article id="session">
       <h3>长会话</h3>
-      <p class="lede">长程工具调用轨迹，完整保留失败、回退与恢复过程</p>
+      <p class="lede">很长的一段工具调用，做错、退回、改对都留着</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard" target="_blank" rel="noopener">GAIA</a></p>
         <p><a href="https://github.com/OpenBMB/ToolBench" target="_blank" rel="noopener">ToolBench</a></p>
@@ -331,10 +331,10 @@
         <p><a href="https://assistantbench.github.io/" target="_blank" rel="noopener">AssistantBench</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>关键步骤确定性检查，整段轨迹可回放</dd></div>
+        <div><dt>怎么算对</dt><dd>关键步骤确定性检查，整段轨迹可回放</dd></div>
         <div><dt>难度</dt><dd>覆盖超长多轮会话，含真实的失误与纠错</dd></div>
-        <div><dt>定位</dt><dd>以完整轨迹为交付，用于过程监督</dd></div>
-        <div><dt>交付内容</dt><dd>工具调用、环境观察、失败与回退标注、轨迹摘要</dd></div>
+        <div><dt>用途</dt><dd>交付全过程记录，用来逐步纠正</dd></div>
+        <div><dt>你拿到</dt><dd>工具调用、环境观察、失败与回退标注、轨迹摘要</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
@@ -351,9 +351,9 @@
         <p><a href="https://worldmodelbench-team.github.io/" target="_blank" rel="noopener">WorldModelBench</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>跨相机几何一致性，运动幅度落在约定区间</dd></div>
-        <div><dt>定位</dt><dd>世界模型与空间理解训练</dd></div>
-        <div><dt>交付内容</dt><dd>多视角帧、相机内外参、位姿、深度、分割、实体坐标与朝向</dd></div>
+        <div><dt>怎么算对</dt><dd>多个相机看到的空间要对得上，动作幅度在约定范围内</dd></div>
+        <div><dt>用途</dt><dd>世界模型与空间理解训练</dd></div>
+        <div><dt>你拿到</dt><dd>多视角画面、相机参数、位置与朝向、深度和分割</dd></div>
         <div><dt>覆盖范围</dt><dd>运动幅度分档均衡，第一与第三人称视角同步</dd></div>
         <div><dt>供给</dt><dd>场景可预设，按需定制生产</dd></div>
       </dl>
@@ -366,9 +366,9 @@
         <p><a href="https://embodiedbench.github.io/" target="_blank" rel="noopener">EmbodiedBench</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>预定义成功标准与结构化失败分类，校验动作后的状态迁移</dd></div>
-        <div><dt>定位</dt><dd>具身智能体的感知、规划与执行</dd></div>
-        <div><dt>交付内容</dt><dd>场景描述、动作标签、反馈状态、成功标准、错误类型、评估规格</dd></div>
+        <div><dt>怎么算对</dt><dd>事先写好怎样算成功、怎样算失败，并核对做完后的状态</dd></div>
+        <div><dt>用途</dt><dd>看环境、决定、再动手</dd></div>
+        <div><dt>你拿到</dt><dd>场景描述、动作标签、反馈状态、成功标准、错误类型、评估规格</dd></div>
         <div><dt>供给</dt><dd>数据格式按目标平台定制生产</dd></div>
       </dl>
     </article>
@@ -380,7 +380,7 @@
 
     <article id="shelf">
       <h3>现成考卷</h3>
-      <p class="lede">主流公开基准的即插即用评测包，附可复现验证环境</p>
+      <p class="lede">公开考卷打包好，装上就能出分</p>
       <div class="bench"><span>覆盖</span><div>
         <p><a href="https://www.tbench.ai/" target="_blank" rel="noopener">Terminal-Bench</a></p>
         <p><a href="https://www.swebench.com/" target="_blank" rel="noopener">SWE-bench</a></p>
@@ -392,9 +392,9 @@
         <p><a href="https://gorilla.cs.berkeley.edu/leaderboard.html" target="_blank" rel="noopener">Berkeley Function-Calling Leaderboard</a></p>
       </div></div>
       <dl>
-        <div><dt>奖励信号</dt><dd>沿用官方评分，并在独立的第二套环境中复现分数</dd></div>
-        <div><dt>定位</dt><dd>建立可复现的公开基线，省去自建与调试评测环境的成本</dd></div>
-        <div><dt>交付内容</dt><dd>数据包、版本说明、评分脚本、可复现验证环境、验收报告</dd></div>
+        <div><dt>怎么算对</dt><dd>用官方评分，再在另一套环境里跑出同样的分数</dd></div>
+        <div><dt>用途</dt><dd>不用自己搭评测环境</dd></div>
+        <div><dt>你拿到</dt><dd>数据包、版本说明、评分脚本、可复现验证环境、验收报告</dd></div>
         <div><dt>供给</dt><dd>按指定基准打包交付</dd></div>
       </dl>
     </article>
@@ -855,10 +855,10 @@
   }
   dt {
     margin: 0;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
-    letter-spacing: .06em;
-    color: var(--faint);
+    letter-spacing: 0;
+    color: #3e3c38;
   }
   dd { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink); }
   .pick ol {
