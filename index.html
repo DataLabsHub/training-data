@@ -40,39 +40,39 @@
     <ol>
       <li>
         <span class="use">RL 训练</span>
-        <b>可交互环境与可验证奖励</b>
-        <p class="go bold"><a href="#terminal">终端裁定</a><a href="#repo">仓库改动</a><a href="#edge">边界改动</a><a href="#kernel">核函数</a><a href="#office">跨文件办公</a><a href="#desktop">桌面成品</a></p>
-        <p class="aside">均随附可运行环境与自动判分</p>
+        <b>带运行环境和自动评分</b>
+        <p class="go bold"><a href="#terminal">终端判断</a><a href="#repo">仓库改动</a><a href="#edge">多限制改造</a><a href="#kernel">GPU 内核</a><a href="#office">跨文件办公</a><a href="#desktop">桌面成品</a></p>
+        <p class="aside">环境、评分和参考解都在包里</p>
       </li>
       <li>
         <span class="use">SFT · 过程监督</span>
-        <b>完整操作轨迹</b>
+        <b>每一步操作的完整记录</b>
         <p class="go bold"><a href="#repo">仓库改动</a><a href="#office">跨文件办公</a><a href="#session">长会话</a><a href="#pro">专业软件</a></p>
-        <p class="aside">用于行为克隆或逐步监督</p>
+        <p class="aside">用来模仿做法，或逐步纠正</p>
       </li>
       <li>
         <span class="use">推理能力</span>
-        <b>强模型仍会失败的专家原创题</b>
-        <p class="go"><a href="#derive">推导</a><a href="#contest">赛题</a><a href="#clinical">临床判断</a></p>
+        <b>专家新题，带标准答案</b>
+        <p class="go"><a href="#derive">理科题</a><a href="#contest">赛题</a><a href="#clinical">临床判断</a></p>
         <p class="aside">三套均可查看样例</p>
       </li>
       <li>
         <span class="use">Agent · 电脑操作</span>
-        <b>在软件中交付可验证的产物</b>
-        <p class="go"><a href="#desktop">桌面成品</a><a href="#pro">专业软件</a><a href="#office">跨文件办公</a><a href="#ground">屏幕落点</a></p>
-        <p class="aside">屏幕落点专注元素定位</p>
+        <b>在真实软件里做出的文件</b>
+        <p class="go"><a href="#desktop">桌面成品</a><a href="#pro">专业软件</a><a href="#office">跨文件办公</a><a href="#ground">屏幕定位</a></p>
+        <p class="aside">只练在屏幕上找对位置</p>
       </li>
       <li>
         <span class="use">世界模型 · 具身</span>
-        <b>空间感知与感知—动作闭环</b>
-        <p class="go"><a href="#camera">相机世界</a><a href="#body">动作回路</a></p>
-        <p class="aside">按设备与场景规格定制</p>
+        <b>带相机参数的画面和动作</b>
+        <p class="go"><a href="#camera">多视角画面</a><a href="#body">动作结果</a></p>
+        <p class="aside">按你的设备和场景来做</p>
       </li>
       <li>
         <span class="use">评测基线</span>
-        <b>可复现的公开基准分数</b>
+        <b>可直接运行的公开考卷</b>
         <p class="go"><a href="#shelf">现成考卷</a></p>
-        <p class="aside">一次交付即可复现主流榜单，省去自建环境</p>
+        <p class="aside">不用自己搭评测环境</p>
       </li>
     </ol>
   </section>
@@ -80,11 +80,11 @@
   <div class="note">
     <h2>交付标准</h2>
     <ul class="pillars">
-      <li><b>可验证奖励</b><span>每条任务附自动判定，结果可复现，可直接接入 RL 训练</span></li>
-      <li><b>难度标定</b><span>关键品类以强模型实测运行标定难度，优先保留模型仍会失败的样本</span></li>
-      <li><b>对标公开基准</b><span>能力方向对齐主流榜单；训练任务均为原创，不复刻公开考卷</span></li>
-      <li><b>可交互环境</b><span>仓库、核函数、终端、桌面与办公类任务随附可运行环境、参考解与测试，可直接接入 RL 训练</span></li>
-      <li><b>持续供给</b><span>现货之外按周生产新任务，模型未见过</span></li>
+      <li><b>可验证奖励</b><span>自动判定，结果可复现</span></li>
+      <li><b>难度标定</b><span>强模型实测，留下仍会失败的题</span></li>
+      <li><b>对标公开基准</b><span>对齐主流榜单，题目均为原创</span></li>
+      <li><b>可交互环境</b><span>附可运行环境与测试</span></li>
+      <li><b>持续供给</b><span>每周新增，模型未见过</span></li>
     </ul>
     <h2>供给方式</h2>
     <ul class="stock">
@@ -95,11 +95,11 @@
 
   <section class="chapter light" id="answer">
     <h2>01</h2>
-    <p class="chapter-line">以最终答案为奖励</p>
+    <p class="chapter-line">理科题、竞赛题、临床题</p>
 
     <article id="derive">
-      <h3>推导</h3>
-      <p class="lede">专家原创的 STEM 推理题，含闭式标准答案与完整推导链</p>
+      <h3>理科题</h3>
+      <p class="lede">专家新出的理科题，附唯一标准答案和完整解题过程</p>
       <div class="bench"><span>对标</span><div>
         <p><b>GPQA</b><span><a href="https://github.com/idavidrein/gpqa">官网</a></span></p>
         <p><b>SciCode</b><span><a href="https://scicode-bench.github.io/">官网</a></span></p>
@@ -158,11 +158,11 @@
 
   <section class="chapter dark" id="machine">
     <h2>02</h2>
-    <p class="chapter-line">以测试结果为奖励</p>
+    <p class="chapter-line">改仓库、写 GPU 内核、做终端任务</p>
 
     <article id="repo">
-      <h3>仓库改动<span class="env-tag">含可交互环境</span></h3>
-      <p class="lede">仓库级代码工程任务，以测试预言机为奖励信号</p>
+      <h3>仓库改动<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">在真实代码仓库里修缺陷或加功能，测试通过才算对</p>
       <div class="bench"><span>对标</span><div>
         <p><b>SWE-bench</b><span><a href="https://www.swebench.com/">官网</a></span></p>
         <p><b>SWE-Bench Pro</b><span><a href="https://labs.scale.com/leaderboard/swe_bench_pro">官网</a></span></p>
@@ -183,8 +183,8 @@
     </article>
 
     <article id="edge">
-      <h3>边界改动<span class="env-tag">含可交互环境</span></h3>
-      <p class="lede">在多项约束同时成立的前提下完成仓库级改造</p>
+      <h3>多限制改造<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">改一个代码仓库，而且要同时满足多条限制</p>
       <div class="bench"><span>对标</span><div>
         <p><b>EdgeBench SWE</b><span><a href="https://pipelinelab.ai/blog/edgebenchswe/">官网</a></span></p>
       </div></div>
@@ -199,8 +199,8 @@
     </article>
 
     <article id="kernel">
-      <h3>核函数<span class="env-tag">含可交互环境</span></h3>
-      <p class="lede">GPU Kernel 优化任务，在数值正确性约束下以实测性能为奖励</p>
+      <h3>GPU 内核<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">写 GPU 内核：先算对，再在真实显卡上更快</p>
       <div class="bench"><span>对标</span><div>
         <p><b>KernelBench</b><span><a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/">官网</a></span></p>
       </div></div>
@@ -214,8 +214,8 @@
     </article>
 
     <article id="terminal">
-      <h3>终端裁定<span class="env-tag">含可交互环境</span></h3>
-      <p class="lede">在相互冲突的多份材料之间作出裁定的长程终端任务</p>
+      <h3>终端判断<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">在终端里核对互相矛盾的材料，并给出结论</p>
       <div class="bench"><span>对标</span><div>
         <p><b>Terminal-Bench</b><span><a href="https://www.tbench.ai/">官网</a></span></p>
         <p><b>Terminal-Bench-Science</b><span><a href="https://www.terminal-bench-science.ai/">官网</a></span></p>
@@ -233,11 +233,11 @@
 
   <section class="chapter light" id="screen">
     <h2>03</h2>
-    <p class="chapter-line">以界面或文件为奖励</p>
+    <p class="chapter-line">操作电脑和软件，以交出的文件为准</p>
 
     <article id="ground">
-      <h3>屏幕落点</h3>
-      <p class="lede">自然语言指令到屏幕元素的定位，附动作后界面状态验证</p>
+      <h3>屏幕定位</h3>
+      <p class="lede">按一句话点中按钮或输入框，并核对点完后的界面</p>
       <div class="bench"><span>对标</span><div>
         <p><b>WebArena</b><span><a href="https://webarena.dev/">官网</a></span></p>
         <p><b>VisualWebArena</b><span><a href="https://jykoh.com/vwa">官网</a></span></p>
@@ -255,7 +255,7 @@
     </article>
 
     <article id="desktop">
-      <h3>桌面成品<span class="env-tag">含可交互环境</span></h3>
+      <h3>桌面成品<span class="env-tag">可直接运行</span></h3>
       <p class="lede">真实操作系统与专业软件中的多步工作流，交付可验证的原生工程文件</p>
       <div class="bench"><span>对标</span><div>
         <p><b>OSWorld 2.0</b><span><a href="https://osworld-v2.xlang.ai/">官网</a></span></p>
@@ -272,7 +272,7 @@
 
     <article id="pro">
       <h3>专业软件</h3>
-      <p class="lede">专业软件环境中的长流程任务，交付可验证的工程产物</p>
+      <p class="lede">在专业软件里做完一整套流程，交出可打开的工程文件</p>
       <div class="bench"><span>对标</span><div>
         <p><b>Agents' Last Exam</b><span><a href="https://agents-last-exam.org">官网</a></span></p>
       </div></div>
@@ -285,8 +285,8 @@
     </article>
 
     <article id="office">
-      <h3>跨文件办公<span class="env-tag">含可交互环境</span></h3>
-      <p class="lede">跨文件、跨工具的长程专业工作流，交付可验证产物</p>
+      <h3>跨文件办公<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">跨多个文件和工具把一件事做完，结果可以核对</p>
       <dl>
         <div><dt>奖励信号</dt><dd>最终产物验证，自动校验或专家验收</dd></div>
         <div><dt>定位</dt><dd>多文件、多工具串联的长程工作流，区别于单轮问答</dd></div>
@@ -296,8 +296,8 @@
     </article>
 
     <article id="room">
-      <h3>行业文件房间</h3>
-      <p class="lede">基于真实文档世界的垂直行业任务，附逐条评分规则</p>
+      <h3>行业文档任务</h3>
+      <p class="lede">用一套真实文档做行业任务，按条目打分</p>
       <div class="bench"><span>对标</span><div>
         <p><b>GDPval</b><span><a href="https://openai.com/index/gdpval/">官网</a></span></p>
         <p><b>LegalBench</b><span><a href="https://hazyresearch.stanford.edu/legalbench/">官网</a></span></p>
@@ -318,7 +318,7 @@
 
   <section class="chapter dark" id="trace">
     <h2>04</h2>
-    <p class="chapter-line">含失败与恢复的轨迹</p>
+    <p class="chapter-line">调用工具的全过程，含做错和改回来</p>
 
     <article id="session">
       <h3>长会话</h3>
@@ -342,11 +342,11 @@
 
   <section class="chapter light" id="space">
     <h2>05</h2>
-    <p class="chapter-line">带空间参数的仿真数据</p>
+    <p class="chapter-line">仿真画面、相机参数和动作结果</p>
 
     <article id="camera">
-      <h3>相机世界</h3>
-      <p class="lede">仿真生成的帧同步多视角画面，每帧附精确相机参数与原生标注</p>
+      <h3>多视角画面</h3>
+      <p class="lede">仿真的多视角画面，每一帧带相机参数和标注</p>
       <div class="bench"><span>对标</span><div>
         <p><b>WorldModelBench</b><span><a href="https://worldmodelbench-team.github.io/">官网</a></span></p>
       </div></div>
@@ -360,8 +360,8 @@
     </article>
 
     <article id="body">
-      <h3>动作回路</h3>
-      <p class="lede">感知—规划—动作闭环，附环境反馈与结构化的成功 / 失败定义</p>
+      <h3>动作结果</h3>
+      <p class="lede">看环境、做动作，并写明成功还是失败</p>
       <div class="bench"><span>对标</span><div>
         <p><b>EmbodiedBench</b><span><a href="https://embodiedbench.github.io/">官网</a></span></p>
       </div></div>
@@ -376,17 +376,17 @@
 
   <section class="chapter dark" id="exam">
     <h2>06</h2>
-    <p class="chapter-line">公开基准的可运行交付</p>
+    <p class="chapter-line">打包好的公开考卷</p>
 
     <article id="shelf">
       <h3>现成考卷</h3>
       <p class="lede">主流公开基准的即插即用评测包，附可复现验证环境</p>
       <div class="bench"><span>覆盖</span><div>
-        <p><b>Terminal-Bench</b><span><a href="#terminal">链接见终端裁定</a></span></p>
+        <p><b>Terminal-Bench</b><span><a href="#terminal">链接见终端判断</a></span></p>
         <p><b>SWE-bench</b><span><a href="#repo">链接见仓库改动</a></span></p>
         <p><b>HealthBench</b><span><a href="#clinical">链接见临床判断</a></span></p>
-        <p><b>GPQA</b><span><a href="#derive">链接见推导</a></span></p>
-        <p><b>MMLU-Pro</b><span><a href="#derive">链接见推导</a></span></p>
+        <p><b>GPQA</b><span><a href="#derive">链接见理科题</a></span></p>
+        <p><b>MMLU-Pro</b><span><a href="#derive">链接见理科题</a></span></p>
         <p><b>OSWorld</b><span><a href="#desktop">链接见桌面成品</a></span></p>
         <p><b>GAIA</b><span><a href="#session">链接见长会话</a></span></p>
         <p><b>Berkeley Function-Calling Leaderboard</b><span><a href="#session">链接见长会话</a></span></p>
@@ -714,7 +714,7 @@
     background: var(--bg);
   }
   .pillars b { font-size: 15px; font-weight: 600; color: var(--ink); }
-  .pillars span { font-size: 13px; line-height: 1.55; color: var(--muted); }
+  .pillars span { font-size: 14px; line-height: 1.6; color: #3e3c38; text-wrap: pretty; }
   .stat {
     display: flex;
     align-items: baseline;
@@ -1289,20 +1289,20 @@
   var CATALOG = "精选浏览";
   var LIST = "完整数据包";
   var LINKS = {
-    derive: { title: "推导", sources: [{ label: CATALOG, html: "samples/raw/derive.html" }] },
+    derive: { title: "理科题", sources: [{ label: CATALOG, html: "samples/raw/derive.html" }] },
     contest: { title: "赛题", sources: [{ label: CATALOG, html: "samples/raw/contest.html" }] },
     clinical: { title: "临床判断", sources: [{ label: CATALOG, html: "samples/raw/clinical.html" }] },
     repo: { title: "仓库改动", sources: [
       { label: LIST, pack: "deepswe" },
       { label: CATALOG, html: "samples/raw/repo.html" }
     ]},
-    edge: { title: "边界改动", sources: [{ label: LIST, pack: "edge" }] },
-    kernel: { title: "核函数", sources: [{ label: LIST, pack: "kernel" }] },
-    terminal: { title: "终端裁定", sources: [{ label: CATALOG, html: "samples/raw/terminal.html" }] },
+    edge: { title: "多限制改造", sources: [{ label: LIST, pack: "edge" }] },
+    kernel: { title: "GPU 内核", sources: [{ label: LIST, pack: "kernel" }] },
+    terminal: { title: "终端判断", sources: [{ label: CATALOG, html: "samples/raw/terminal.html" }] },
     desktop: { title: "桌面成品", sources: [{ label: LIST, pack: "osworld" }] },
     pro: { title: "专业软件", sources: [{ label: LIST, pack: "ale" }] },
     office: { title: "跨文件办公", sources: [{ label: LIST, pack: "working" }] },
-    room: { title: "行业文件房间", sources: [{ label: CATALOG, html: "samples/raw/room.html" }] },
+    room: { title: "行业文档任务", sources: [{ label: CATALOG, html: "samples/raw/room.html" }] },
     session: { title: "长会话", sources: [{ label: CATALOG, html: "samples/raw/session.html" }] }
   };
   // Heading shown inside each expanded folder, keyed by pack and folder path ("" = loose files).
@@ -1334,8 +1334,8 @@
       "task_010": "Impress 与 OpenBoard · 物理概念微课与白板批注"
     },
     kernel: {
-      "AutoResearch-Kernel": "GPU 核函数优化 · 基础批次（A100、H200、B200，13 道）",
-      "AutoResearch-Kernel-Harder": "GPU 核函数优化 · 进阶批次（A100、H200，9 道）"
+      "AutoResearch-Kernel": "GPU 内核优化 · 基础批次（A100、H200、B200，13 道）",
+      "AutoResearch-Kernel-Harder": "GPU 内核优化 · 进阶批次（A100、H200，9 道）"
     }
   };
 
