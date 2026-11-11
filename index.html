@@ -23,7 +23,6 @@
     <a href="#trace">调用轨迹</a>
     <a href="#space">仿真与具身</a>
     <a href="#exam">公开基准</a>
-    <a href="#pick">选型</a>
   </div>
   <label class="lang"><select id="lang" aria-label="Language"></select></label>
   <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="菜单"><span></span></button>
@@ -33,45 +32,8 @@
   <h1>训练数据与 RL 环境</h1>
   <p class="deck">每条任务均附带自动化判定机制，重复评测结果稳定；代码、终端、桌面与办公类任务随附可交互环境，可直接接入强化学习训练。不具备可验证奖励的任务不予收录。</p>
 </header>
-<section class="lineup">
-  <a href="#answer"><span>01</span><strong>推理题</strong><em>科学、竞赛、临床</em></a>
-  <a href="#machine"><span>02</span><strong>代码与终端</strong><em>仓库、内核、终端</em></a>
-  <a href="#screen"><span>03</span><strong>电脑操作</strong><em>界面、桌面、文件</em></a>
-  <a href="#trace"><span>04</span><strong>调用轨迹</strong><em>失败与恢复</em></a>
-  <a href="#space"><span>05</span><strong>仿真与具身</strong><em>相机与动作</em></a>
-  <a href="#exam"><span>06</span><strong>公开基准</strong><em>可运行包装</em></a>
-</section>
 
 <main>
-  <div class="note">
-    <h2>交付标准</h2>
-    <ul class="pillars">
-      <li><b>可验证奖励</b><span>每条任务附自动判定，结果可复现，可直接接入 RL 训练</span></li>
-      <li><b>难度标定</b><span>关键品类以强模型实测运行标定难度，优先保留模型仍会失败的样本</span></li>
-      <li><b>对标公开基准</b><span>能力方向对齐主流榜单；训练任务均为原创，不复刻公开考卷</span></li>
-      <li><b>可交互环境</b><span>仓库、核函数、终端、桌面与办公类任务随附可运行环境、参考解与测试，可直接接入 RL 训练</span></li>
-      <li><b>持续供给</b><span>现货之外按周生产新任务，模型未见过</span></li>
-    </ul>
-    <h2>供给方式</h2>
-    <ul class="stock">
-      <li><b>仓库改动 · 核函数</b><span>大批量现货，每周持续新增</span></li>
-      <li><b>边界改动 · 跨文件办公 · 专业软件</b><span>现货供应，每周持续新增</span></li>
-      <li><b>其余品类</b><span>按训练目标定制生产</span></li>
-    </ul>
-    <h2>延伸方向</h2>
-    <p>以下方向同样可按需求定制，对应的公开基准如下：</p>
-    <ul class="stock also">
-      <li><b>Terminal-Bench-Science</b><span>科学计算工作流，归入终端裁定<a href="https://www.terminal-bench-science.ai/">官网</a> · <a href="https://github.com/harbor-framework/terminal-bench-science/tree/main/tasks">数据集 · 官方仓库</a></span></li>
-      <li><b>ZeroBench</b><span>高难视觉推理，归入推导<a href="https://zerobench.github.io/">官网</a> · <a href="https://huggingface.co/datasets/jonathan-roberts1/zerobench">数据集 · Hugging Face</a></span></li>
-      <li><b>StepSTEM</b><span>研究生级图文理科推理，归入推导<a href="https://github.com/lll-hhh/STEPSTEM">官网</a> · <a href="https://github.com/lll-hhh/STEPSTEM/tree/main/benchmark">数据集 · 官方仓库</a></span></li>
-      <li><b>BrowseComp</b><span>面向难检索信息的持续搜索，归入长会话<a href="https://openai.com/index/browsecomp">官网</a> · <a href="https://openaipublic.blob.core.windows.net/simple-evals/browse_comp_test_set.csv">数据集 · OpenAI 官方下载</a></span></li>
-      <li><b>DeepResearch Bench</b><span>博士级深度研究报告，归入长会话与推导<a href="https://deepresearch-bench.github.io/">官网</a> · <a href="https://github.com/Ayanami0730/deep_research_bench/blob/main/data/prompt_data/query.jsonl">数据集 · 官方仓库</a></span></li>
-      <li><b>KernelBench</b><span>GPU 内核生成与优化，归入核函数<a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/">官网</a> · <a href="https://github.com/ScalingIntelligence/KernelBench/tree/main/KernelBench">数据集 · 官方仓库</a></span></li>
-    </ul>
-    <h2>定制服务</h2>
-    <p>可按需搭建可交互环境并设计奖励函数，提供过程级稠密奖励；争议样本由领域专家仲裁；也可作为外部产能，与贵方数据团队协同交付</p>
-  </div>
-
   <section class="pick light" id="pick">
     <h2>选型</h2>
     <p class="chapter-line">按训练目标选择任务数据与环境</p>
@@ -115,6 +77,22 @@
     </ol>
   </section>
 
+  <div class="note">
+    <h2>交付标准</h2>
+    <ul class="pillars">
+      <li><b>可验证奖励</b><span>每条任务附自动判定，结果可复现，可直接接入 RL 训练</span></li>
+      <li><b>难度标定</b><span>关键品类以强模型实测运行标定难度，优先保留模型仍会失败的样本</span></li>
+      <li><b>对标公开基准</b><span>能力方向对齐主流榜单；训练任务均为原创，不复刻公开考卷</span></li>
+      <li><b>可交互环境</b><span>仓库、核函数、终端、桌面与办公类任务随附可运行环境、参考解与测试，可直接接入 RL 训练</span></li>
+      <li><b>持续供给</b><span>现货之外按周生产新任务，模型未见过</span></li>
+    </ul>
+    <h2>供给方式</h2>
+    <ul class="stock">
+      <li><b>大量现货，每周持续新增</b></li>
+      <li><b>按训练目标定制生产</b></li>
+    </ul>
+  </div>
+
   <section class="chapter light" id="answer">
     <h2>01</h2>
     <p class="chapter-line">以最终答案为奖励</p>
@@ -123,11 +101,11 @@
       <h3>推导</h3>
       <p class="lede">专家原创的 STEM 推理题，含闭式标准答案与完整推导链</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>GPQA</b><span><a href="https://github.com/idavidrein/gpqa">官网</a><a href="https://github.com/idavidrein/gpqa/blob/main/dataset.zip">数据集 · 官方仓库</a></span></p>
-        <p><b>SciCode</b><span><a href="https://scicode-bench.github.io/">官网</a><a href="https://huggingface.co/datasets/SciCode1/SciCode">数据集 · Hugging Face</a></span></p>
-        <p><b>Humanity's Last Exam</b><span><a href="https://lastexam.ai/">官网</a><a href="https://huggingface.co/datasets/cais/hle">数据集 · Hugging Face</a></span></p>
-        <p><b>MMLU-Pro</b><span><a href="https://github.com/TIGER-AI-Lab/MMLU-Pro">官网</a><a href="https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro">数据集 · Hugging Face</a></span></p>
-        <p><b>MMMU</b><span><a href="https://mmmu-benchmark.github.io/">官网</a><a href="https://huggingface.co/datasets/MMMU/MMMU">数据集 · Hugging Face</a></span></p>
+        <p><b>GPQA</b><span><a href="https://github.com/idavidrein/gpqa">官网</a></span></p>
+        <p><b>SciCode</b><span><a href="https://scicode-bench.github.io/">官网</a></span></p>
+        <p><b>Humanity's Last Exam</b><span><a href="https://lastexam.ai/">官网</a></span></p>
+        <p><b>MMLU-Pro</b><span><a href="https://github.com/TIGER-AI-Lab/MMLU-Pro">官网</a></span></p>
+        <p><b>MMMU</b><span><a href="https://mmmu-benchmark.github.io/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>唯一闭式标准答案，附完整推导，二元判定，可复核</dd></div>
@@ -143,10 +121,10 @@
       <h3>赛题</h3>
       <p class="lede">奥赛级数学与理科题，难度由强模型实测通过率逐题标定</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>OlympiadBench</b><span><a href="https://github.com/OpenBMB/OlympiadBench">官网</a><a href="https://drive.google.com/file/d/1DnTCrvIv5vbfDmi2yYaCWnzUhvD34oB0/view?usp=sharing">数据集 · 官方下载</a></span></p>
-        <p><b>MATH-500</b><span><a href="https://github.com/openai/prm800k">官网</a><a href="https://github.com/openai/prm800k/blob/main/prm800k/math_splits/test.jsonl">数据集 · 官方仓库</a></span></p>
+        <p><b>OlympiadBench</b><span><a href="https://github.com/OpenBMB/OlympiadBench">官网</a></span></p>
+        <p><b>MATH-500</b><span><a href="https://github.com/openai/prm800k">官网</a></span></p>
         <p><b>American Invitational Mathematics Examination</b><span><a href="https://www.maa.org/maa-invitational-competitions">官网</a></span></p>
-        <p><b>Humanity's Last Exam</b><span><a href="https://lastexam.ai/">官网</a><a href="https://huggingface.co/datasets/cais/hle">数据集 · Hugging Face</a></span></p>
+        <p><b>Humanity's Last Exam</b><span><a href="https://lastexam.ai/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>精确最终答案，二元判定</dd></div>
@@ -162,10 +140,10 @@
       <h3>临床判断</h3>
       <p class="lede">临床医生原创题，第二位医生独立复核，保留模型仍易错的样本</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>HealthBench</b><span><a href="https://openai.com/index/healthbench/">官网</a><a href="https://github.com/openai/simple-evals/blob/main/healthbench_eval.py">数据集 · OpenAI 官方仓库</a></span></p>
-        <p><b>MedQA</b><span><a href="https://github.com/jind11/MedQA">官网</a><a href="https://drive.google.com/file/d/1ImYUSLk9JbgHXOemfvyiDiirluZHPeQw/view?usp=sharing">数据集 · 官方下载</a></span></p>
-        <p><b>MedXpertQA</b><span><a href="https://medxpertqa.github.io/">官网</a><a href="https://github.com/TsinghuaC3I/MedXpertQA/tree/main/eval/data/medxpertqa">数据集 · 官方仓库</a></span></p>
-        <p><b>MMMU</b><span><a href="https://mmmu-benchmark.github.io/">官网</a><a href="https://huggingface.co/datasets/MMMU/MMMU">数据集 · Hugging Face</a></span></p>
+        <p><b>HealthBench</b><span><a href="https://openai.com/index/healthbench/">官网</a></span></p>
+        <p><b>MedQA</b><span><a href="https://github.com/jind11/MedQA">官网</a></span></p>
+        <p><b>MedXpertQA</b><span><a href="https://medxpertqa.github.io/">官网</a></span></p>
+        <p><b>MMMU</b><span><a href="https://mmmu-benchmark.github.io/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>医生认可的标准选项与理由</dd></div>
@@ -186,14 +164,14 @@
       <h3>仓库改动<span class="env-tag">含可交互环境</span></h3>
       <p class="lede">仓库级代码工程任务，以测试预言机为奖励信号</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>SWE-bench</b><span><a href="https://www.swebench.com/">官网</a><a href="https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified">Verified · Hugging Face</a><a href="https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual">Multilingual · Hugging Face</a><a href="https://huggingface.co/datasets/princeton-nlp/SWE-bench_Multimodal">Multimodal · Hugging Face</a></span></p>
-        <p><b>SWE-Bench Pro</b><span><a href="https://labs.scale.com/leaderboard/swe_bench_pro">官网</a><a href="https://github.com/scaleapi/SWE-bench_Pro-os/tree/main/v2/tasks">数据集 · 官方仓库</a></span></p>
-        <p><b>SWE-bench-Live</b><span><a href="https://github.com/microsoft/SWE-bench-Live">官网</a><a href="https://huggingface.co/datasets/SWE-bench-Live/SWE-bench-Live">数据集 · Hugging Face</a></span></p>
-        <p><b>LiveCodeBench</b><span><a href="https://livecodebench.github.io/">官网</a><a href="https://huggingface.co/datasets/livecodebench/code_generation_lite">数据集 · Hugging Face</a></span></p>
-        <p><b>DeepSWE</b><span><a href="https://deepswe.datacurve.ai/">官网</a><a href="https://github.com/datacurve-ai/deep-swe/tree/main/tasks">数据集 · 官方仓库</a></span></p>
-        <p><b>SWE-Marathon</b><span><a href="https://www.swe-marathon.org/">官网</a><a href="https://github.com/abundant-ai/swe-marathon/tree/main/tasks">数据集 · 官方仓库</a></span></p>
-        <p><b>ProgramBench</b><span><a href="https://programbench.com/">官网</a><a href="https://huggingface.co/datasets/programbench/ProgramBench-Tests">数据集 · Hugging Face</a></span></p>
-        <p><b>FrontierSWE</b><span><a href="https://www.frontierswe.com/">官网</a><a href="https://github.com/proximal-labs/frontier-swe/tree/main/tasks">数据集 · 官方仓库</a></span></p>
+        <p><b>SWE-bench</b><span><a href="https://www.swebench.com/">官网</a></span></p>
+        <p><b>SWE-Bench Pro</b><span><a href="https://labs.scale.com/leaderboard/swe_bench_pro">官网</a></span></p>
+        <p><b>SWE-bench-Live</b><span><a href="https://github.com/microsoft/SWE-bench-Live">官网</a></span></p>
+        <p><b>LiveCodeBench</b><span><a href="https://livecodebench.github.io/">官网</a></span></p>
+        <p><b>DeepSWE</b><span><a href="https://deepswe.datacurve.ai/">官网</a></span></p>
+        <p><b>SWE-Marathon</b><span><a href="https://www.swe-marathon.org/">官网</a></span></p>
+        <p><b>ProgramBench</b><span><a href="https://programbench.com/">官网</a></span></p>
+        <p><b>FrontierSWE</b><span><a href="https://www.frontierswe.com/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>测试预言机：FAIL_TO_PASS 须通过，PASS_TO_PASS 须保持通过；二元判定，模型自述不计</dd></div>
@@ -224,7 +202,7 @@
       <h3>核函数<span class="env-tag">含可交互环境</span></h3>
       <p class="lede">GPU Kernel 优化任务，在数值正确性约束下以实测性能为奖励</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>KernelBench</b><span><a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/">官网</a><a href="https://github.com/ScalingIntelligence/KernelBench/tree/main/KernelBench">数据集 · 官方仓库</a></span></p>
+        <p><b>KernelBench</b><span><a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>数值正确性与真实显卡性能读数同时达标</dd></div>
@@ -239,8 +217,8 @@
       <h3>终端裁定<span class="env-tag">含可交互环境</span></h3>
       <p class="lede">在相互冲突的多份材料之间作出裁定的长程终端任务</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>Terminal-Bench</b><span><a href="https://www.tbench.ai/">官网</a><a href="https://github.com/harbor-framework/terminal-bench/tree/main/tasks">数据集 · 官方仓库</a></span></p>
-        <p><b>Terminal-Bench-Science</b><span><a href="https://www.terminal-bench-science.ai/">官网</a><a href="https://github.com/harbor-framework/terminal-bench-science/tree/main/tasks">数据集 · 官方仓库</a></span></p>
+        <p><b>Terminal-Bench</b><span><a href="https://www.tbench.ai/">官网</a></span></p>
+        <p><b>Terminal-Bench-Science</b><span><a href="https://www.terminal-bench-science.ai/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>独立容器内的语义测试，二元判定，模型自述不计</dd></div>
@@ -261,11 +239,11 @@
       <h3>屏幕落点</h3>
       <p class="lede">自然语言指令到屏幕元素的定位，附动作后界面状态验证</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>WebArena</b><span><a href="https://webarena.dev/">官网</a><a href="https://github.com/web-arena-x/webarena/blob/main/config_files/test.raw.json">数据集 · 官方仓库</a></span></p>
-        <p><b>VisualWebArena</b><span><a href="https://jykoh.com/vwa">官网</a><a href="https://github.com/web-arena-x/visualwebarena/tree/main/config_files/vwa">数据集 · 官方仓库</a></span></p>
-        <p><b>AndroidWorld</b><span><a href="https://google-research.github.io/android_world/">官网</a><a href="https://github.com/google-research/android_world/tree/main/android_world/task_evals">数据集 · 官方仓库</a></span></p>
-        <p><b>ScreenSpot-Pro</b><span><a href="https://gui-agent.github.io/grounding-leaderboard/">官网</a><a href="https://huggingface.co/datasets/likaixin/ScreenSpot-Pro">数据集 · Hugging Face</a></span></p>
-        <p><b>OSWorld</b><span><a href="https://os-world.github.io/">官网</a><a href="https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples">数据集 · 官方仓库</a></span></p>
+        <p><b>WebArena</b><span><a href="https://webarena.dev/">官网</a></span></p>
+        <p><b>VisualWebArena</b><span><a href="https://jykoh.com/vwa">官网</a></span></p>
+        <p><b>AndroidWorld</b><span><a href="https://google-research.github.io/android_world/">官网</a></span></p>
+        <p><b>ScreenSpot-Pro</b><span><a href="https://gui-agent.github.io/grounding-leaderboard/">官网</a></span></p>
+        <p><b>OSWorld</b><span><a href="https://os-world.github.io/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>元素位置与动作后界面状态双重校验</dd></div>
@@ -280,8 +258,8 @@
       <h3>桌面成品<span class="env-tag">含可交互环境</span></h3>
       <p class="lede">真实操作系统与专业软件中的多步工作流，交付可验证的原生工程文件</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>OSWorld 2.0</b><span><a href="https://osworld-v2.xlang.ai/">官网</a><a href="https://huggingface.co/datasets/xlangai/osworld_v2_tasks">数据集 · Hugging Face</a></span></p>
-        <p><b>OSWorld</b><span><a href="https://os-world.github.io/">官网</a><a href="https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples">数据集 · 官方仓库</a></span></p>
+        <p><b>OSWorld 2.0</b><span><a href="https://osworld-v2.xlang.ai/">官网</a></span></p>
+        <p><b>OSWorld</b><span><a href="https://os-world.github.io/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>程序校验可再次打开的原生文件与导出结果，以交付物而非操作录像判定完成</dd></div>
@@ -296,7 +274,7 @@
       <h3>专业软件</h3>
       <p class="lede">专业软件环境中的长流程任务，交付可验证的工程产物</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>Agents' Last Exam</b><span><a href="https://agents-last-exam.org">官网</a><a href="https://github.com/rdi-berkeley/agents-last-exam/tree/main/tasks">数据集 · 官方仓库</a></span></p>
+        <p><b>Agents' Last Exam</b><span><a href="https://agents-last-exam.org">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>工程产物与实际执行结果</dd></div>
@@ -321,12 +299,12 @@
       <h3>行业文件房间</h3>
       <p class="lede">基于真实文档世界的垂直行业任务，附逐条评分规则</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>GDPval</b><span><a href="https://openai.com/index/gdpval/">官网</a><a href="https://huggingface.co/datasets/openai/gdpval">数据集 · Hugging Face</a></span></p>
-        <p><b>LegalBench</b><span><a href="https://hazyresearch.stanford.edu/legalbench/">官网</a><a href="https://huggingface.co/datasets/nguha/legalbench">数据集 · Hugging Face</a></span></p>
-        <p><b>APEX-Agents</b><span><a href="https://www.mercor.com/apex/apex-agents-leaderboard/">官网</a><a href="https://huggingface.co/datasets/mercor/apex-agents">数据集 · Hugging Face</a></span></p>
-        <p><b>τ-Bench</b><span><a href="https://taubench.com">官网</a><a href="https://github.com/sierra-research/tau2-bench/tree/main/data/tau2/domains">数据集 · 官方仓库</a></span></p>
-        <p><b>WorkArena</b><span><a href="https://github.com/ServiceNow/WorkArena">官网 · 数据集</a></span></p>
-        <p><b>GAIA</b><span><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard">官网</a><a href="https://huggingface.co/datasets/gaia-benchmark/GAIA">数据集 · Hugging Face</a></span></p>
+        <p><b>GDPval</b><span><a href="https://openai.com/index/gdpval/">官网</a></span></p>
+        <p><b>LegalBench</b><span><a href="https://hazyresearch.stanford.edu/legalbench/">官网</a></span></p>
+        <p><b>APEX-Agents</b><span><a href="https://www.mercor.com/apex/apex-agents-leaderboard/">官网</a></span></p>
+        <p><b>τ-Bench</b><span><a href="https://taubench.com">官网</a></span></p>
+        <p><b>WorkArena</b><span><a href="https://github.com/ServiceNow/WorkArena">官网</a></span></p>
+        <p><b>GAIA</b><span><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>逐条评分规则对照标准结果，不采用整体印象打分</dd></div>
@@ -346,11 +324,11 @@
       <h3>长会话</h3>
       <p class="lede">长程工具调用轨迹，完整保留失败、回退与恢复过程</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>GAIA</b><span><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard">官网</a><a href="https://huggingface.co/datasets/gaia-benchmark/GAIA">数据集 · Hugging Face</a></span></p>
-        <p><b>ToolBench</b><span><a href="https://github.com/OpenBMB/ToolBench">官网 · 数据集</a></span></p>
-        <p><b>Berkeley Function-Calling Leaderboard</b><span><a href="https://gorilla.cs.berkeley.edu/leaderboard.html">官网</a><a href="https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard/bfcl_eval/data">数据集 · 官方仓库</a></span></p>
-        <p><b>τ-Bench</b><span><a href="https://taubench.com">官网</a><a href="https://github.com/sierra-research/tau2-bench/tree/main/data/tau2/domains">数据集 · 官方仓库</a></span></p>
-        <p><b>AssistantBench</b><span><a href="https://assistantbench.github.io/">官网</a><a href="https://huggingface.co/datasets/AssistantBench/AssistantBench">数据集 · Hugging Face</a></span></p>
+        <p><b>GAIA</b><span><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard">官网</a></span></p>
+        <p><b>ToolBench</b><span><a href="https://github.com/OpenBMB/ToolBench">官网</a></span></p>
+        <p><b>Berkeley Function-Calling Leaderboard</b><span><a href="https://gorilla.cs.berkeley.edu/leaderboard.html">官网</a></span></p>
+        <p><b>τ-Bench</b><span><a href="https://taubench.com">官网</a></span></p>
+        <p><b>AssistantBench</b><span><a href="https://assistantbench.github.io/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>关键步骤确定性检查，整段轨迹可回放</dd></div>
@@ -370,7 +348,7 @@
       <h3>相机世界</h3>
       <p class="lede">仿真生成的帧同步多视角画面，每帧附精确相机参数与原生标注</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>WorldModelBench</b><span><a href="https://worldmodelbench-team.github.io/">官网</a><a href="https://github.com/WorldModelBench-Team/WorldModelBench/blob/main/worldmodelbench.json">数据集 · 官方仓库</a></span></p>
+        <p><b>WorldModelBench</b><span><a href="https://worldmodelbench-team.github.io/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>跨相机几何一致性，运动幅度落在约定区间</dd></div>
@@ -385,7 +363,7 @@
       <h3>动作回路</h3>
       <p class="lede">感知—规划—动作闭环，附环境反馈与结构化的成功 / 失败定义</p>
       <div class="bench"><span>对标</span><div>
-        <p><b>EmbodiedBench</b><span><a href="https://embodiedbench.github.io/">官网</a><a href="https://huggingface.co/datasets/EmbodiedBench/EB-ALFRED">EB-ALFRED · Hugging Face</a><a href="https://huggingface.co/datasets/EmbodiedBench/EB-Manipulation">EB-Manipulation · Hugging Face</a></span></p>
+        <p><b>EmbodiedBench</b><span><a href="https://embodiedbench.github.io/">官网</a></span></p>
       </div></div>
       <dl>
         <div><dt>奖励信号</dt><dd>预定义成功标准与结构化失败分类，校验动作后的状态迁移</dd></div>
@@ -701,7 +679,7 @@
   .stock {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin: 18px 0 16px;
     padding: 0;
