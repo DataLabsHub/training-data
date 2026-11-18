@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d;--soft:#f0ece2}
+*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:920px;margin:0 auto;padding:28px 22px 48px}
+h1{font-size:28px;font-weight:500;margin:0 0 8px}
+.lead,p{color:var(--muted)}
+article{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}
+h2{font-size:18px;margin:0 0 8px}
+pre{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow:auto;white-space:pre-wrap;font-family:Consolas,Menlo,monospace;font-size:13px;line-height:1.5}
+table{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
+td{border-top:1px solid var(--line);padding:6px 4px}
+</style>
+</head>
+<body>
+<main>
+<h1 data-t="投行与资产证券化">投行与资产证券化</h1>
+<p class="lead">One task from the bond-filing set. The model only sees the attached documents. The reply, the underwriter opinion and the prospectus are scored point by point.</p>
+<article>
+<h2>Task</h2>
+<pre>科技创新公司债券已向交易所申报。请作为主承销商项目组成员，根据所附审核反馈意见和申报材料，落实反馈意见第一项：编制发行人回复及主承销商核查意见，并修订本问涉及的申报文件。模拟作答日为 2026 年 9 月 28 日。
+
+资料只读。回复和修订稿要有可编辑版本，以及内容一致的 PDF。修订保留全文结构，修改处可追溯。只使用所给材料，不得访问公网，不得编造未提供的事实。</pre>
+</article>
+<article>
+<h2>Attached filing set</h2>
+<table>
+<tr><td>2022–2024 年度审计报告</td><td>179 页，扫描件</td></tr>
+<tr><td>2025 年度审计报告</td><td>137 页，有文字层</td></tr>
+<tr><td>股东会决议 / 董事会决议</td><td>9 页 / 8 页</td></tr>
+<tr><td>法律意见（申报稿）</td><td>59 页</td></tr>
+<tr><td>主承销商核查意见（申报稿）</td><td>110 页</td></tr>
+<tr><td>募集说明书（申报稿，2026-08-31）</td><td>195 页</td></tr>
+<tr><td>债券受托管理协议 / 持有人会议规则</td><td>28 页 / 20 页</td></tr>
+<tr><td>最近一期财务报表</td><td>6 页，扫描件</td></tr>
+</table>
+</article>
+<article>
+<h2>What the exchange asked</h2>
+<pre>最近一年及一期末，货币资金和交易性金融资产占比超过总资产 40%，最近一期末有息债务余额 1.50 亿元。本次申报规模 20 亿元，其中 7 亿元用于偿还有息负债，13 亿元用于补充流动资金。请说明发债必要性、申报规模的合理性，以及偿债安排的可行性。请主承销商核查并发表明确意见。</pre>
+</article>
+<article>
+<h2>Reference reply, opening</h2>
+<pre>截至 2025 年末及 2026 年 6 月末，货币资金和交易性金融资产分别为 50.68 亿元及 37.15 亿元，占总资产 45.51% 及 26.14%。2026 年 6 月 30 日尚未使用的募集资金约 15.52 亿元，受用途约束。扣除受限资金后，可自由支配资金对营运、研发和备货的覆盖有限。回复据此认为此次申报发行公司债具有必要性。
+
+拟偿还的有息负债合计 7 亿元，对应三笔已列明的银行借款；其中一笔可能早于发行日到期，按募集说明书用募集资金置换发行前 12 个月内已偿还的相关支出。</pre>
+</article>
+<article>
+<h2>One scoring point, 7.5 / 60 on the reply</h2>
+<pre>发债必要性：须同时写清事实、推导和结论。须指出 6 月末现金类资产约 37.15 亿元中，约 15.52 亿元受募集资金用途约束，并说明可自由支配资金不足以覆盖营运、研发或备货。用材料里不存在的期后债务或新贷款作为论据，这一条不通过。</pre>
+<p>总分 100。答复、交付、修订稿分开计，再扣额外错误。五个模型各作答两次，得分分别约为 0.73 与 0.70、0.39 与 0.30、0.29 与 0.33、0.58 与 0.46、0.30 与 0.42。高分不等于整套文件可以直接报送。</p>
+</article>
+</main>
+</body>
+</html>

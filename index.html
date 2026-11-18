@@ -60,13 +60,13 @@
         <span class="use">Agent · 电脑操作</span>
         <b>真实软件中生成的文件</b>
         <p class="go bold"><a href="#desktop">桌面成品</a><a href="#pro">专业软件</a><a href="#office">跨文件办公</a><a href="#ground">屏幕定位</a></p>
-        <p class="aside">仅用于屏幕元素定位</p>
+        <p class="aside">屏幕定位只核验控件位置</p>
       </li>
       <li>
         <span class="use">画面与动作</span>
         <b>附相机参数的画面与动作</b>
         <p class="go bold"><a href="#camera">多视角画面</a><a href="#body">动作结果</a></p>
-        <p class="aside">按设备与场景定制</p>
+        <p class="aside">实拍含现成时段，也可按设备与场景定制</p>
       </li>
       <li>
         <span class="use">评测基线</span>
@@ -312,7 +312,7 @@
         <div><dt>判定标准</dt><dd>按条目对照标准结果，不按整体印象</dd></div>
         <div><dt>用途</dt><dd>垂直行业的专业知识工作</dd></div>
         <div><dt>交付内容</dt><dd>整套文档、任务、标准答案、逐条评分、合规边界和审计记录</dd></div>
-        <div><dt>覆盖范围</dt><dd>法律、金融、医疗、制造</dd></div>
+        <div><dt>覆盖范围</dt><dd>法律、金融、医疗、制造；含债券申报反馈修订与资产证券化入池核定</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
@@ -344,20 +344,20 @@
 
   <section class="chapter light" id="space">
     <h2>05</h2>
-    <p class="chapter-line">仿真画面、相机参数和动作结果</p>
+    <p class="chapter-line">仿真与实拍、相机参数和动作结果</p>
 
     <article id="camera">
       <h3>多视角画面</h3>
-      <p class="lede">多视角仿真画面，每帧附相机参数与标注</p>
+      <p class="lede">仿真画面附每帧相机参数；实拍附时间轴与传感器记录</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://worldmodelbench-team.github.io/" target="_blank" rel="noopener">WorldModelBench</a></p>
       </div></div>
       <dl>
-        <div><dt>判定标准</dt><dd>多相机空间一致，动作幅度在约定区间</dd></div>
+        <div><dt>判定标准</dt><dd>仿真画面要求多相机空间一致，动作幅度在约定区间；实拍按时间轴与传感器记录核验</dd></div>
         <div><dt>用途</dt><dd>世界模型与空间理解训练</dd></div>
         <div><dt>交付内容</dt><dd>多视角画面、相机参数、位置与朝向、深度和分割</dd></div>
-        <div><dt>覆盖范围</dt><dd>运动幅度分档均衡，第一与第三人称视角同步</dd></div>
-        <div><dt>供给</dt><dd>场景可预设，按需定制生产</dd></div>
+        <div><dt>覆盖范围</dt><dd>运动幅度分档均衡，第一与第三人称视角同步；另有第一人称实拍，含运动相机、手机、深度相机与双目</dd></div>
+        <div><dt>供给</dt><dd>仿真场景可预设；实拍可交付现成时段，也可按场景定制</dd></div>
       </dl>
     </article>
 
@@ -371,6 +371,7 @@
         <div><dt>判定标准</dt><dd>预先定义成败标准，核验动作后状态</dd></div>
         <div><dt>用途</dt><dd>观察、决策与执行</dd></div>
         <div><dt>交付内容</dt><dd>场景描述、动作标签、反馈状态、成功标准、错误类型、评估规格</dd></div>
+        <div><dt>覆盖范围</dt><dd>多指灵巧手的家居、商超、工业与医疗操作，以及轮式双臂机器人</dd></div>
         <div><dt>供给</dt><dd>数据格式按目标平台定制生产</dd></div>
       </dl>
     </article>
@@ -1302,7 +1303,12 @@
     desktop: { title: "桌面成品", sources: [{ label: LIST, pack: "osworld" }] },
     pro: { title: "专业软件", sources: [{ label: LIST, pack: "ale" }] },
     office: { title: "跨文件办公", sources: [{ label: LIST, pack: "working" }] },
-    room: { title: "行业文档任务", sources: [{ label: CATALOG, html: "samples/raw/room.html" }] },
+    camera: { title: "多视角画面", sources: [{ label: CATALOG, html: "samples/raw/ego.html" }] },
+    body: { title: "动作结果", sources: [{ label: CATALOG, html: "samples/raw/robot.html" }] },
+    room: { title: "行业文档任务", sources: [
+      { label: "测绘坐标核查", html: "samples/raw/room.html" },
+      { label: "投行与资产证券化", html: "samples/raw/banking.html" }
+    ]},
     session: { title: "长会话", sources: [{ label: CATALOG, html: "samples/raw/session.html" }] }
   };
   // Heading shown inside each expanded folder, keyed by pack and folder path ("" = loose files).
@@ -1802,7 +1808,7 @@
     sources.forEach(function (src, i) {
       var btn = el("button", i === 0 ? "on" : "");
       btn.type = "button";
-      btn.textContent = t("类型 {n}", { n: count(i + 1) });
+      btn.textContent = t(src.label);
       btn.addEventListener("click", function () {
         buttons.forEach(function (b) { b.className = ""; });
         btn.className = "on";

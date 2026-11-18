@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--soft:#f0ece2}
+*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:920px;margin:0 auto;padding:28px 22px 48px}
+h1{font-size:28px;font-weight:500;margin:0 0 8px}
+.lead,p{color:var(--muted)}
+article{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}
+h2{font-size:18px;margin:0 0 8px}
+pre{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow:auto;white-space:pre-wrap;font-family:Consolas,Menlo,monospace;font-size:13px;line-height:1.5}
+</style>
+</head>
+<body>
+<main>
+<h1 data-t="真机操作">真机操作</h1>
+<p class="lead">One home-scene recording from the multi-finger hand set. The two episode files are mcap and are not embedded; the channels below are taken from the control layout shipped with them.</p>
+<article>
+<h2>Episodes</h2>
+<pre>scene: home
+hand: six-joint
+files:
+  camera_sim_color_depth_家居_1_L6_控制.mcap
+  camera_sim_color_depth_家居_2_L6_控制.mcap</pre>
+</article>
+<article>
+<h2>Camera</h2>
+<pre>topic: camera_sim_color_depth
+view: perspective, 45° vertical field
+follow mode: follow pose</pre>
+</article>
+<article>
+<h2>Body state in the same recording</h2>
+<pre>left and right hand, 6 joint positions each
+left and right arm, 6 joint positions each
+left and right wrist camera IMU:
+  angular velocity x/y/z
+  linear acceleration x/y/z
+left and right thumb contact mass</pre>
+</article>
+<article>
+<h2>Other scene folders in this set</h2>
+<pre>retail
+industrial
+medical
+Each is a separate folder. This preview uses the home folder only.</pre>
+</article>
+</main>
+</body>
+</html>
