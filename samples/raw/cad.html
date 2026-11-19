@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--soft:#f0ece2}
+*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:880px;margin:0 auto;padding:28px 22px 48px}
+h1{font-size:28px;font-weight:500;margin:0 0 8px}
+p{color:var(--muted)}
+article{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}
+h2{font-size:18px;margin:0 0 8px}
+pre{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;white-space:pre-wrap;font-family:Consolas,Menlo,monospace;font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<h1 data-t="零件与电路板">零件与电路板</h1>
+<p>与数据包里的 FreeCAD、SolveSpace 支架不是同一件零件。</p>
+<article>
+<h2>参数化零件</h2>
+<pre>一个衬套座。基准件座深 18.4 mm，变体 18.2 mm。
+交付两份原生零件、两份 STEP、155 个特征节点和 267 条关系，以及尺寸和重新打开后的几何比对。
+从空白零件按座深重放，可再导出 STEP。复现需要桌面端三维 CAD。</pre>
+</article>
+<article>
+<h2>六层电路板</h2>
+<pre>计算模块底板。布局已完成，走线已清空。为 PCIe、HDMI、MIPI、USB、以太网、供电和电源布线。
+保留 516 个封装、板框、层叠和禁布区。交付可再打开的电路板文件。
+按连通、间距和孔距、线长与过孔、以及重新打开后覆铜重算来验收。
+这是方向说明，工程文件不在本页。</pre>
+</article>
+</main>
+</body>
+</html>

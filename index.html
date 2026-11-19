@@ -112,7 +112,7 @@
         <div><dt>难度</dt><dd>原创新题，无法通过检索拼合解法；跨度从可解问题延伸到尚无公认解的前沿问题</dd></div>
         <div><dt>用途</dt><dd>研究级科学推理，含图表与多模态题</dd></div>
         <div><dt>交付内容</dt><dd>题目、标准答案、推导步骤、知识点与难度标注，经第二位专家独立盲审</dd></div>
-        <div><dt>覆盖范围</dt><dd>物理、化学、生物、数学；含计算与工具辅助推理、工程约束下的定量设计，延伸至前沿理论研究</dd></div>
+        <div><dt>覆盖范围</dt><dd>物理、化学、生物、数学；含计算与工具辅助推理、工程约束下的定量设计，延伸至前沿理论研究。另有开放科研题：电极与原子势、固定预算下的硬件求解、DNA 修复结构重建</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
@@ -158,7 +158,7 @@
 
   <section class="chapter dark" id="machine">
     <h2>02</h2>
-    <p class="chapter-line">仓库改动、GPU 内核与终端任务</p>
+    <p class="chapter-line">仓库改动、仓库快照、GPU 内核与终端任务</p>
 
     <article id="repo">
       <h3>仓库改动<span class="env-tag">可直接运行</span></h3>
@@ -178,8 +178,18 @@
         <div><dt>判定标准</dt><dd>新增测试须通过，既有测试须保持通过；自述完成不计</dd></div>
         <div><dt>用途</dt><dd>真实开源仓库中的缺陷修复与功能开发</dd></div>
         <div><dt>交付内容</dt><dd>可运行环境、参考改动与自动评分，可附操作过程</dd></div>
-        <div><dt>覆盖范围</dt><dd>Rust、Java、Go、PHP、Ruby、JavaScript/TypeScript、C；含须对照截图、设计稿或报错画面来修的题；另可定制 SWE-Marathon、ProgramBench、FrontierSWE 方向的超长程任务</dd></div>
+        <div><dt>覆盖范围</dt><dd>Rust、Java、Go、PHP、Ruby、JavaScript/TypeScript、C、C++；含须对照截图、设计稿或报错画面来修的题；另可定制 SWE-Marathon、ProgramBench、FrontierSWE 方向的超长程任务。另有命令补全与安装输出两类长程改动</dd></div>
         <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
+      </dl>
+    </article>
+
+    <article id="corpus">
+      <h3>仓库快照</h3>
+      <p class="lede">公开仓库的源码、提交历史、PR 与 Issue，不是改完即评分的题目</p>
+      <dl>
+        <div><dt>交付内容</dt><dd>仓库文件或打包源码、提交、PR、Issue、许可证与来源地址。重复的 Fork 与镜像单独标明</dd></div>
+        <div><dt>覆盖范围</dt><dd>8 个公开仓库：样式、校验、文本相似度、文件名、地图渲染、基础设施接口与配置库。语言包括 JavaScript、Go、Rust、Python</dd></div>
+        <div><dt>供给</dt><dd>按样例所示的仓库交付，规模另计</dd></div>
       </dl>
     </article>
 
@@ -227,7 +237,7 @@
         <div><dt>难度</dt><dd>强模型多次运行：多数失败，但均有成功记录</dd></div>
         <div><dt>用途</dt><dd>Harbor 格式，含科学计算</dd></div>
         <div><dt>交付内容</dt><dd>任务配置、运行环境、单独的评分环境、参考解、运行记录、防泄漏标记</dd></div>
-        <div><dt>覆盖范围</dt><dd>科学计算、软件与系统、运维与财务核对、媒体处理；另含编译器加速、WASM 渲染与推理代码高尔夫</dd></div>
+        <div><dt>覆盖范围</dt><dd>科学计算、软件与系统、运维与财务核对、媒体处理；另含编译器加速、WASM 渲染与推理代码高尔夫。另有按类别组织的攻防题：漏洞定位、补丁验证与分阶段目标</dd></div>
         <div><dt>供给</dt><dd>按需持续生产</dd></div>
       </dl>
     </article>
@@ -267,7 +277,7 @@
         <div><dt>判定标准</dt><dd>以可打开文件验收，不以录像判定</dd></div>
         <div><dt>用途</dt><dd>长程电脑操作，以文件交付判定完成</dd></div>
         <div><dt>交付内容</dt><dd>工作环境、参考文件、完整界面操作轨迹、可编辑原生文件、导出结果与自动评分</dd></div>
-        <div><dt>覆盖范围</dt><dd>CAD 制图、视频剪辑、办公、教学软件及跨软件交付</dd></div>
+        <div><dt>覆盖范围</dt><dd>CAD 制图、视频剪辑、办公、教学软件及跨软件交付。另有参数化零件改尺寸，以及六层电路板布线</dd></div>
         <div><dt>供给</dt><dd>按需持续供给</dd></div>
       </dl>
     </article>
@@ -282,6 +292,7 @@
         <div><dt>判定标准</dt><dd>工程产物与实际执行结果</dd></div>
         <div><dt>用途</dt><dd>专业软件中的长流程真实工作</dd></div>
         <div><dt>交付内容</dt><dd>任务、原生文件、执行结果与验证，完整交付含操作轨迹；样例展示任务部分</dd></div>
+        <div><dt>覆盖范围</dt><dd>三维场景搭建与器物建模、场景设计评分、工业门改造。火箭、天文、飞行与生物力学见数据包</dd></div>
         <div><dt>供给</dt><dd>现货供应，专家制作，每周持续新增</dd></div>
       </dl>
     </article>
@@ -312,7 +323,7 @@
         <div><dt>判定标准</dt><dd>按条目对照标准结果，不按整体印象</dd></div>
         <div><dt>用途</dt><dd>垂直行业的专业知识工作</dd></div>
         <div><dt>交付内容</dt><dd>整套文档、任务、标准答案、逐条评分、合规边界和审计记录</dd></div>
-        <div><dt>覆盖范围</dt><dd>法律、金融、医疗、制造；含债券申报反馈修订与资产证券化入池核定</dd></div>
+        <div><dt>覆盖范围</dt><dd>法律、金融、医疗、制造；含债券申报反馈修订与资产证券化入池核定。另有开放因子研究，以及估值、并购与财务建模备忘录</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
@@ -356,7 +367,7 @@
         <div><dt>判定标准</dt><dd>仿真画面要求多相机空间一致，动作幅度在约定区间；实拍按时间轴与传感器记录核验</dd></div>
         <div><dt>用途</dt><dd>世界模型与空间理解训练</dd></div>
         <div><dt>交付内容</dt><dd>仿真含多视角画面、相机参数、位置与朝向、深度和分割；实拍含视频、时间轴与惯性测量</dd></div>
-        <div><dt>覆盖范围</dt><dd>运动幅度分档均衡，第一与第三人称视角同步；另有第一人称实拍，含运动相机、手机、深度相机与双目</dd></div>
+        <div><dt>覆盖范围</dt><dd>运动幅度分档均衡，第一与第三人称视角同步；另有第一人称实拍，含运动相机、手机、深度相机与双目。场景库按室内、工业、自然等分档，复杂度分规整、半规整与复杂。多目仍在整理</dd></div>
         <div><dt>供给</dt><dd>仿真场景可预设；实拍可交付现成时段，也可按场景定制</dd></div>
       </dl>
     </article>
@@ -371,7 +382,7 @@
         <div><dt>判定标准</dt><dd>预先定义成败标准，核验动作后状态</dd></div>
         <div><dt>用途</dt><dd>观察、决策与执行</dd></div>
         <div><dt>交付内容</dt><dd>场景描述、动作标签、反馈状态、成功标准、错误类型、评估规格</dd></div>
-        <div><dt>覆盖范围</dt><dd>多指灵巧手的家居、商超、工业与医疗操作，以及轮式双臂机器人</dd></div>
+        <div><dt>覆盖范围</dt><dd>多指灵巧手的家居、商超、工业与医疗操作，以及轮式双臂机器人。双足双臂与手持操作臂仍在整理</dd></div>
         <div><dt>供给</dt><dd>数据格式按目标平台定制生产</dd></div>
       </dl>
     </article>
@@ -1290,24 +1301,36 @@
   var CATALOG = "精选浏览";
   var LIST = "完整数据包";
   var LINKS = {
-    derive: { title: "理科题", sources: [{ label: CATALOG, html: "samples/raw/derive.html" }] },
+    derive: { title: "理科题", sources: [
+      { label: CATALOG, html: "samples/raw/derive.html" },
+      { label: "开放科研", html: "samples/raw/science.html" }
+    ]},
     contest: { title: "赛题", sources: [{ label: CATALOG, html: "samples/raw/contest.html" }] },
     clinical: { title: "临床判断", sources: [{ label: CATALOG, html: "samples/raw/clinical.html" }] },
     repo: { title: "仓库改动", sources: [
       { label: LIST, pack: "deepswe" },
-      { label: CATALOG, html: "samples/raw/repo.html" }
+      { label: CATALOG, html: "samples/raw/repo.html" },
+      { label: "长程改动", html: "samples/raw/frontier.html" }
     ]},
+    corpus: { title: "仓库快照", sources: [{ label: CATALOG, html: "samples/raw/corpus.html" }] },
     edge: { title: "多限制改造", sources: [{ label: LIST, pack: "edge" }] },
     kernel: { title: "GPU 内核", sources: [{ label: LIST, pack: "kernel" }] },
     terminal: { title: "终端判断", sources: [{ label: CATALOG, html: "samples/raw/terminal.html" }] },
-    desktop: { title: "桌面成品", sources: [{ label: LIST, pack: "osworld" }] },
-    pro: { title: "专业软件", sources: [{ label: LIST, pack: "ale" }] },
+    desktop: { title: "桌面成品", sources: [
+      { label: LIST, pack: "osworld" },
+      { label: "零件与电路板", html: "samples/raw/cad.html" }
+    ]},
+    pro: { title: "专业软件", sources: [
+      { label: LIST, pack: "ale" },
+      { label: "三维与专业工程", html: "samples/raw/studio.html" }
+    ]},
     office: { title: "跨文件办公", sources: [{ label: LIST, pack: "working" }] },
     camera: { title: "多视角画面", sources: [{ label: CATALOG, html: "samples/raw/ego.html" }] },
     body: { title: "动作结果", sources: [{ label: CATALOG, html: "samples/raw/robot.html" }] },
     room: { title: "行业文档任务", sources: [
       { label: "测绘坐标核查", html: "samples/raw/room.html" },
-      { label: "投行与资产证券化", html: "samples/raw/banking.html" }
+      { label: "投行与资产证券化", html: "samples/raw/banking.html" },
+      { label: "研究与投研", html: "samples/raw/finance.html" }
     ]},
     session: { title: "长会话", sources: [{ label: CATALOG, html: "samples/raw/session.html" }] }
   };

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15)}
+*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:880px;margin:0 auto;padding:28px 22px 48px}
+h1{font-size:28px;font-weight:500;margin:0 0 8px}
+p{color:var(--muted)}
+table{width:100%;border-collapse:collapse;background:#fffdf8;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+th,td{text-align:left;padding:8px 12px;border-top:1px solid var(--line);font-size:14px}
+th{border-top:0;color:var(--muted);font-weight:500}
+</style>
+</head>
+<body>
+<main>
+<h1 data-t="公开仓库快照">公开仓库快照</h1>
+<p>8 个公开仓库的源码、提交、PR 和 Issue。没有题目，也不按测试评分。与「仓库改动」里的修复题不是同一批数据。</p>
+<table>
+<tr><th>仓库</th><th>语言</th><th>Star</th><th>提交</th><th>PR</th><th>Issue</th></tr>
+<tr><td>slugify</td><td>JavaScript</td><td>2709</td><td>224</td><td>42</td><td>38</td></tr>
+<tr><td>ansi-styles</td><td>JavaScript</td><td>468</td><td>289</td><td>51</td><td>42</td></tr>
+<tr><td>ozzo-validation</td><td>Go</td><td>4155</td><td>355</td><td>91</td><td>145</td></tr>
+<tr><td>similar</td><td>Rust</td><td>1340</td><td>406</td><td>55</td><td>51</td></tr>
+<tr><td>parchment</td><td></td><td>101</td><td>264</td><td>61</td><td>40</td></tr>
+<tr><td>floem</td><td>Rust</td><td>4307</td><td></td><td></td><td></td></tr>
+<tr><td>pydantic-settings</td><td>Python</td><td>1496</td><td></td><td></td><td></td></tr>
+<tr><td>terraform-provider-meshstack</td><td>Go</td><td>6</td><td></td><td></td><td></td></tr>
+</table>
+<p>前 5 个在 2026-11-04 采集，硬性条件标记为通过。后 3 个截止日期为 2026-11-06。pydantic-settings 的本地分支头与来源记录不一致，另外两个一致。</p>
+</main>
+</body>
+</html>
