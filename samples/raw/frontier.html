@@ -1,35 +1,21 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--soft:#f0ece2}
-*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
-main{max-width:880px;margin:0 auto;padding:28px 22px 48px}
-h1{font-size:28px;font-weight:500;margin:0 0 8px}
-p{color:var(--muted)}
-article{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}
-h2{font-size:18px;margin:0 0 8px}
-pre{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow:auto;white-space:pre-wrap;font-family:Consolas,Menlo,monospace;font-size:13px}
-</style>
-</head>
-<body>
-<main>
-<h1>SWE-bench</h1>
-<p>SWE-bench。两道仓库改动题，各有题面、测试、参考补丁和评分条目。</p>
-<article>
-<h2>SWE-bench</h2>
-<pre>补全结果要和解析器使用同一套大小写规则。
-设置了归一化函数时，子命令和选项名的补全应返回声明的写法。
-16 条评分，其中 13 条不通过则整题不通过。</pre>
-</article>
-<article>
-<h2>SWE-bench</h2>
-<pre>install 的状态行要和其他命令一样，经统一的着色函数输出。
-指定始终着色时，获取、打包、写入、校验为青色加粗，已安装为绿色加粗。
-关闭着色时，纯文本须与原来逐字节相同。</pre>
-</article>
-</main>
-</body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{--bg:#f7f3ea;--surface:#fffdf8;--soft:#f0ece2;--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#fffdf7 0,#f7f3ea 45%,#eee8dc 100%);color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:1040px;margin:0 auto;padding:clamp(18px,4vw,36px)}
+.caption{font-family:"SFMono-Regular",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--muted)}
+.prose{color:var(--muted);white-space:pre-wrap;margin:8px 0 0}
+.card{background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 28px rgba(54,44,24,.06)}
+.source{padding:15px 19px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.fields{padding:4px 20px}
+.field{padding:17px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0}
+.fold{margin:0 0 14px}
+.fold>summary{list-style:none;cursor:pointer;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,253,248,.86);box-shadow:0 12px 28px rgba(54,44,24,.06);font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:13px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:12px}
+.fold[open]{border-radius:16px}
+.sheet{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
+.sheet th,.sheet td{text-align:left;padding:8px 0;border-top:1px solid var(--line)}
+.sheet th{border-top:0;font-weight:500;color:var(--muted);font-size:12px}
+</style></head><body><main><details class="fold" open><summary>SWE-bench</summary><div class="fold-body"><article class="card problem"><div class="source head-title">SWE-bench</div><div class="fields"><div class="field"><div class="caption">Domain</div><p class="prose">SWE-bench。</p></div><div class="field"><div class="caption">Task</div><p class="prose">补全结果要和解析器使用同一套大小写规则。设置了归一化函数时，子命令和选项名的补全应返回声明的写法。</p></div><div class="field"><div class="caption">Scoring</div><p class="prose">16 条评分，其中 13 条不通过则整题不通过。题面、测试和参考补丁齐备。</p></div></div></article></div></details><details class="fold" open><summary>SWE-bench</summary><div class="fold-body"><article class="card problem"><div class="source head-title">SWE-bench</div><div class="fields"><div class="field"><div class="caption">Domain</div><p class="prose">SWE-bench。</p></div><div class="field"><div class="caption">Task</div><p class="prose">install 的状态行要和其他命令一样，经统一的着色函数输出。指定始终着色时，获取、打包、写入、校验为青色加粗，已安装为绿色加粗。</p></div><div class="field"><div class="caption">Scoring</div><p class="prose">关闭着色时，纯文本须与原来逐字节相同。</p></div></div></article></div></details></main></body></html>

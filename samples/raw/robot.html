@@ -1,58 +1,21 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--soft:#f0ece2}
-*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
-main{max-width:920px;margin:0 auto;padding:28px 22px 48px}
-h1{font-size:28px;font-weight:500;margin:0 0 8px}
-.lead,p{color:var(--muted)}
-article{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}
-h2{font-size:18px;margin:0 0 8px}
-pre{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow:auto;white-space:pre-wrap;font-family:Consolas,Menlo,monospace;font-size:13px;line-height:1.5}
-</style>
-</head>
-<body>
-<main>
-<h1>EmbodiedBench</h1>
-<p class="lead">One home-scene recording from the multi-finger hand set. The two episode files are mcap and are not embedded; the channels below are taken from the control layout shipped with them.</p>
-<article>
-<h2>Episodes</h2>
-<pre>scene: home
-hand: six-joint
-files:
-  camera_sim_color_depth_家居_1_L6_控制.mcap
-  camera_sim_color_depth_家居_2_L6_控制.mcap</pre>
-</article>
-<article>
-<h2>Camera</h2>
-<pre>topic: camera_sim_color_depth
-view: perspective, 45° vertical field
-follow mode: follow pose</pre>
-</article>
-<article>
-<h2>Body state in the same recording</h2>
-<pre>left and right hand, 6 joint positions each
-left and right arm, 6 joint positions each
-left and right wrist camera IMU:
-  angular velocity x/y/z
-  linear acceleration x/y/z
-left and right thumb contact mass</pre>
-</article>
-<article>
-<h2>商超、工业、医疗</h2>
-<pre>商超、工业、医疗各有独立目录，结构与上面的家居记录同类。本页没有再拆其中的单条。</pre>
-</article>
-<article>
-<h2>轮式双臂</h2>
-<pre>原始记录和标注记录分开放。标注按三台机器分组，原始按两条记录编号分组。单条轨迹没有嵌进本页。</pre>
-</article>
-<article>
-<h2>仍在整理</h2>
-<pre>手持操作臂、双足双臂。目录里还没有可打开的样例，不与上面的记录混计。</pre>
-</article>
-</main>
-</body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{--bg:#f7f3ea;--surface:#fffdf8;--soft:#f0ece2;--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#fffdf7 0,#f7f3ea 45%,#eee8dc 100%);color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:1040px;margin:0 auto;padding:clamp(18px,4vw,36px)}
+.caption{font-family:"SFMono-Regular",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--muted)}
+.prose{color:var(--muted);white-space:pre-wrap;margin:8px 0 0}
+.card{background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 28px rgba(54,44,24,.06)}
+.source{padding:15px 19px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.fields{padding:4px 20px}
+.field{padding:17px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0}
+.fold{margin:0 0 14px}
+.fold>summary{list-style:none;cursor:pointer;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,253,248,.86);box-shadow:0 12px 28px rgba(54,44,24,.06);font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:13px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:12px}
+.fold[open]{border-radius:16px}
+.sheet{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
+.sheet th,.sheet td{text-align:left;padding:8px 0;border-top:1px solid var(--line)}
+.sheet th{border-top:0;font-weight:500;color:var(--muted);font-size:12px}
+</style></head><body><main><details class="fold" open><summary>家居</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="家居">家居</div><div class="fields"><div class="field"><div class="caption">Record</div><p class="prose">家居场景，六关节手。两条 mcap 记录，不嵌在本页。通道取自随附的控制布局。</p></div><div class="field"><div class="caption">Camera</div><p class="prose">彩色与深度。透视，垂直视场 45°。跟随位姿。</p></div><div class="field"><div class="caption">Body</div><p class="prose">左右手各 6 个关节位置。左右臂各 6 个关节位置。左右腕部相机的角速度和线加速度。左右拇指接触质量。</p></div></div></article></div></details><details class="fold" open><summary>商超、工业、医疗</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="家居、商超、工业、医疗">商超、工业、医疗</div><div class="fields"><div class="field"><div class="caption">Scenes</div><p class="prose">商超、工业、医疗各有独立目录，结构与家居记录同类。本页没有再拆其中的单条。</p></div><div class="field"><div class="caption">Mobile</div><p class="prose">轮式双臂的原始记录和标注记录分开放。标注按三台机器分组，原始按两条记录编号分组。单条轨迹没有嵌进本页。</p></div><div class="field"><div class="caption">Pending</div><p class="prose">手持操作臂、双足双臂仍在整理，不与上面的记录混计。</p></div></div></article></div></details></main></body></html>

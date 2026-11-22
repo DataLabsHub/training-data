@@ -1,25 +1,24 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15)}
-*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
-main{max-width:880px;margin:0 auto;padding:28px 22px 48px}
-h1{font-size:28px;font-weight:500;margin:0 0 8px}
-p{color:var(--muted)}
-table{width:100%;border-collapse:collapse;background:#fffdf8;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-th,td{text-align:left;padding:8px 12px;border-top:1px solid var(--line);font-size:14px}
-th{border-top:0;color:var(--muted);font-weight:500}
-</style>
-</head>
-<body>
-<main>
-<h1>GitHub</h1>
-<p>GitHub 仓库的源码、提交、PR 和 Issue。没有题目，也不按测试评分。不是 SWE-bench 题目。</p>
-<table>
-<tr><th>仓库</th><th>语言</th><th>Star</th><th>提交</th><th>PR</th><th>Issue</th></tr>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{--bg:#f7f3ea;--surface:#fffdf8;--soft:#f0ece2;--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#fffdf7 0,#f7f3ea 45%,#eee8dc 100%);color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:1040px;margin:0 auto;padding:clamp(18px,4vw,36px)}
+.caption{font-family:"SFMono-Regular",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--muted)}
+.prose{color:var(--muted);white-space:pre-wrap;margin:8px 0 0}
+.card{background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 28px rgba(54,44,24,.06)}
+.source{padding:15px 19px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.fields{padding:4px 20px}
+.field{padding:17px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0}
+.fold{margin:0 0 14px}
+.fold>summary{list-style:none;cursor:pointer;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,253,248,.86);box-shadow:0 12px 28px rgba(54,44,24,.06);font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:13px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:12px}
+.fold[open]{border-radius:16px}
+.sheet{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
+.sheet th,.sheet td{text-align:left;padding:8px 0;border-top:1px solid var(--line)}
+.sheet th{border-top:0;font-weight:500;color:var(--muted);font-size:12px}
+</style></head><body><main><details class="fold" open><summary>GitHub</summary><div class="fold-body"><article class="card problem"><div class="source head-title">GitHub</div><div class="fields"><div class="field"><div class="caption">Domain</div><p class="prose">GitHub 仓库的源码、提交、PR 和 Issue。没有题目，也不按测试评分。不是 SWE-bench 题目。</p></div><div class="field"><div class="caption">Repositories</div><table class="sheet"><tr><th>仓库</th><th>语言</th><th>Star</th><th>提交</th><th>PR</th><th>Issue</th></tr>
 <tr><td>slugify</td><td>JavaScript</td><td>2709</td><td>224</td><td>42</td><td>38</td></tr>
 <tr><td>ansi-styles</td><td>JavaScript</td><td>468</td><td>289</td><td>51</td><td>42</td></tr>
 <tr><td>ozzo-validation</td><td>Go</td><td>4155</td><td>355</td><td>91</td><td>145</td></tr>
@@ -27,9 +26,4 @@ th{border-top:0;color:var(--muted);font-weight:500}
 <tr><td>parchment</td><td></td><td>101</td><td>264</td><td>61</td><td>40</td></tr>
 <tr><td>floem</td><td>Rust</td><td>4307</td><td></td><td></td><td></td></tr>
 <tr><td>pydantic-settings</td><td>Python</td><td>1496</td><td></td><td></td><td></td></tr>
-<tr><td>terraform-provider-meshstack</td><td>Go</td><td>6</td><td></td><td></td><td></td></tr>
-</table>
-<p>前 5 个在 2026-11-04 采集，硬性条件标记为通过。后 3 个截止日期为 2026-11-06。pydantic-settings 的本地分支头与来源记录不一致，另外两个一致。</p>
-</main>
-</body>
-</html>
+<tr><td>terraform-provider-meshstack</td><td>Go</td><td>6</td><td></td><td></td><td></td></tr></table></div><div class="field"><div class="caption">Record</div><p class="prose">前 5 个在 2026-11-04 采集。后 3 个截止日期为 2026-11-06。pydantic-settings 的本地分支头与来源记录不一致。</p></div></div></article></div></details></main></body></html>

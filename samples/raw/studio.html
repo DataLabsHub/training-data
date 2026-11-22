@@ -1,43 +1,21 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--soft:#f0ece2}
-*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
-main{max-width:880px;margin:0 auto;padding:28px 22px 48px}
-h1{font-size:28px;font-weight:500;margin:0 0 8px}
-p{color:var(--muted)}
-article{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}
-h2{font-size:18px;margin:0 0 8px}
-pre{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;white-space:pre-wrap;font-family:Consolas,Menlo,monospace;font-size:13px}
-</style>
-</head>
-<body>
-<main>
-<h1 data-t="3D 建模">3D 建模</h1>
-<p>3D 建模、游戏开发。与 ALE 里已有的工程题不是同一批。</p>
-<article>
-<h2>3D 建模</h2>
-<pre>场景搭建。四根柱子只沿竖直方向落到地面，误差不超过 0.002 米。其他对象、材质和相机保持不变。重新打开工程测量，对错题。
-
-农场：按一张参考图搭建可编辑场景，含建筑、地形、道路、水域、围栏和植被。不能把参考图贴在平面上充当场影。按 31 项评分。</pre>
-</article>
-<article>
-<h2>3D 建模</h2>
-<pre>执壶：青白开片瓷，金钮。2 个部件，117,568 三角面，约 0.217×0.176×0.311 米。六个尺寸参数，单位米。附环绕视频和八个视角。
-
-油灯：锈金属与玻璃灯罩。12 个部件，287,208 三角面，约 0.165×0.181×0.320 米。六个尺寸参数，范围为默认值上下 10%。玻璃在一种导出格式里用透射，另一种用透明近似。</pre>
-</article>
-<article>
-<h2>3D 建模</h2>
-<pre>场景设计。每题有制作说明、图片或视频、制作代码和分项评分。样例包不含可再打开的工程。</pre>
-</article>
-<article>
-<h2 data-t="游戏开发">游戏开发</h2>
-<pre>在已有门的工程上改门槛、行程、导轨和控制台，使角色和货物能通过，关闭后仍有碰撞。按开度、碰撞和通行逐项量测。这是方向说明，样例包不在本页。</pre>
-</article>
-</main>
-</body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{--bg:#f7f3ea;--surface:#fffdf8;--soft:#f0ece2;--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#fffdf7 0,#f7f3ea 45%,#eee8dc 100%);color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:1040px;margin:0 auto;padding:clamp(18px,4vw,36px)}
+.caption{font-family:"SFMono-Regular",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--muted)}
+.prose{color:var(--muted);white-space:pre-wrap;margin:8px 0 0}
+.card{background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 28px rgba(54,44,24,.06)}
+.source{padding:15px 19px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.fields{padding:4px 20px}
+.field{padding:17px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0}
+.fold{margin:0 0 14px}
+.fold>summary{list-style:none;cursor:pointer;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,253,248,.86);box-shadow:0 12px 28px rgba(54,44,24,.06);font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:13px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:12px}
+.fold[open]{border-radius:16px}
+.sheet{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
+.sheet th,.sheet td{text-align:left;padding:8px 0;border-top:1px solid var(--line)}
+.sheet th{border-top:0;font-weight:500;color:var(--muted);font-size:12px}
+</style></head><body><main><details class="fold" open><summary>3D 建模</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="3D 建模">3D 建模</div><div class="fields"><div class="field"><div class="caption">Domain</div><p class="prose">3D 建模。与 ALE 里已有的工程题不是同一批。</p></div><div class="field"><div class="caption">Scene</div><p class="prose">场景搭建。柱子只沿竖直方向落到地面，误差不超过 0.002 米。其他对象、材质和相机保持不变。重新打开工程测量。另有按参考图搭建的可编辑场景，按 31 项评分，不能把参考图贴在平面上充当场影。</p></div><div class="field"><div class="caption">Object</div><p class="prose">器物。执壶为青白开片瓷，2 个部件，117,568 三角面。油灯为锈金属与玻璃灯罩，12 个部件，287,208 三角面。各有六个尺寸参数。</p></div><div class="field"><div class="caption">Design</div><p class="prose">场景设计。每题有制作说明、图片或视频、制作代码和分项评分。样例包不含可再打开的工程。</p></div></div></article></div></details><details class="fold" open><summary>游戏开发</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="游戏开发">游戏开发</div><div class="fields"><div class="field"><div class="caption">Domain</div><p class="prose">游戏开发。</p></div><div class="field"><div class="caption">Task</div><p class="prose">在已有门的工程上改门槛、行程、导轨和控制台，使角色和货物能通过，关闭后仍有碰撞。</p></div><div class="field"><div class="caption">Scoring</div><p class="prose">按开度、碰撞和通行逐项量测。这是方向说明，样例包不在本页。</p></div></div></article></div></details></main></body></html>

@@ -1,34 +1,24 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d;--soft:#f0ece2}
-*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
-main{max-width:920px;margin:0 auto;padding:28px 22px 48px}
-h1{font-size:28px;font-weight:500;margin:0 0 8px}
-.lead,p{color:var(--muted)}
-article{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}
-h2{font-size:18px;margin:0 0 8px}
-pre{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow:auto;white-space:pre-wrap;font-family:Consolas,Menlo,monospace;font-size:13px;line-height:1.5}
-table{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
-td{border-top:1px solid var(--line);padding:6px 4px}
-</style>
-</head>
-<body>
-<main>
-<h1 data-t="投行数据">投行数据</h1>
-<p class="lead">One task from the bond-filing set. The model only sees the attached documents. The reply, the underwriter opinion and the prospectus are scored point by point.</p>
-<article>
-<h2>投行数据</h2>
-<pre>科技创新公司债券已向交易所申报。请作为主承销商项目组成员，根据所附审核反馈意见和申报材料，落实反馈意见第一项：编制发行人回复及主承销商核查意见，并修订本问涉及的申报文件。模拟作答日为 2026 年 9 月 28 日。
-
-资料只读。回复和修订稿要有可编辑版本，以及内容一致的 PDF。修订保留全文结构，修改处可追溯。只使用所给材料，不得访问公网，不得编造未提供的事实。</pre>
-</article>
-<article>
-<h2>Attached filing set</h2>
-<table>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{--bg:#f7f3ea;--surface:#fffdf8;--soft:#f0ece2;--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#fffdf7 0,#f7f3ea 45%,#eee8dc 100%);color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:1040px;margin:0 auto;padding:clamp(18px,4vw,36px)}
+.caption{font-family:"SFMono-Regular",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--muted)}
+.prose{color:var(--muted);white-space:pre-wrap;margin:8px 0 0}
+.card{background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 28px rgba(54,44,24,.06)}
+.source{padding:15px 19px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.fields{padding:4px 20px}
+.field{padding:17px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0}
+.fold{margin:0 0 14px}
+.fold>summary{list-style:none;cursor:pointer;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,253,248,.86);box-shadow:0 12px 28px rgba(54,44,24,.06);font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:13px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:12px}
+.fold[open]{border-radius:16px}
+.sheet{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
+.sheet th,.sheet td{text-align:left;padding:8px 0;border-top:1px solid var(--line)}
+.sheet th{border-top:0;font-weight:500;color:var(--muted);font-size:12px}
+</style></head><body><main><details class="fold" open><summary>投行数据</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="投行数据">投行数据</div><div class="fields"><div class="field"><div class="caption">Task</div><p class="prose">科技创新公司债券已向交易所申报。落实反馈意见第一项：编制发行人回复及主承销商核查意见，并修订本问涉及的申报文件。模拟作答日为 2026 年 9 月 28 日。资料只读。回复和修订稿要有可编辑版本，以及内容一致的 PDF。只使用所给材料。</p></div><div class="field"><div class="caption">Materials</div><table class="sheet"><tr><th>材料</th><th>页数</th></tr>
 <tr><td>2022–2024 年度审计报告</td><td>179 页，扫描件</td></tr>
 <tr><td>2025 年度审计报告</td><td>137 页，有文字层</td></tr>
 <tr><td>股东会决议 / 董事会决议</td><td>9 页 / 8 页</td></tr>
@@ -36,36 +26,4 @@ td{border-top:1px solid var(--line);padding:6px 4px}
 <tr><td>主承销商核查意见（申报稿）</td><td>110 页</td></tr>
 <tr><td>募集说明书（申报稿，2026-08-31）</td><td>195 页</td></tr>
 <tr><td>债券受托管理协议 / 持有人会议规则</td><td>28 页 / 20 页</td></tr>
-<tr><td>最近一期财务报表</td><td>6 页，扫描件</td></tr>
-</table>
-</article>
-<article>
-<h2>What the exchange asked</h2>
-<pre>最近一年及一期末，货币资金和交易性金融资产占比超过总资产 40%，最近一期末有息债务余额 1.50 亿元。本次申报规模 20 亿元，其中 7 亿元用于偿还有息负债，13 亿元用于补充流动资金。请说明发债必要性、申报规模的合理性，以及偿债安排的可行性。请主承销商核查并发表明确意见。</pre>
-</article>
-<article>
-<h2>Reference reply, opening</h2>
-<pre>截至 2025 年末及 2026 年 6 月末，货币资金和交易性金融资产分别为 50.68 亿元及 37.15 亿元，占总资产 45.51% 及 26.14%。2026 年 6 月 30 日尚未使用的募集资金约 15.52 亿元，受用途约束。扣除受限资金后，可自由支配资金对营运、研发和备货的覆盖有限。回复据此认为此次申报发行公司债具有必要性。
-
-拟偿还的有息负债合计 7 亿元，对应三笔已列明的银行借款；其中一笔可能早于发行日到期，按募集说明书用募集资金置换发行前 12 个月内已偿还的相关支出。</pre>
-</article>
-<article>
-<h2>One scoring point, 7.5 / 60 on the reply</h2>
-<pre>发债必要性：须同时写清事实、推导和结论。须指出 6 月末现金类资产约 37.15 亿元中，约 15.52 亿元受募集资金用途约束，并说明可自由支配资金不足以覆盖营运、研发或备货。用材料里不存在的期后债务或新贷款作为论据，这一条不通过。</pre>
-<p>总分 100。答复、交付、修订稿分开计，再扣额外错误。五个模型各作答两次，得分分别约为 0.73 与 0.70、0.39 与 0.30、0.29 与 0.33、0.58 与 0.46、0.30 与 0.42。高分不等于整套文件可以直接报送。</p>
-</article>
-<article>
-<h2>资产证券化</h2>
-<pre>应收账款入池：对第一批候选项目，分别判断应收账款和质保金能否入池，并核定截至基准日的最大金额。表格保留原字段，另加资格结论、依据、底稿余额、核定金额和调整说明。
-
-应收账款 ABS 首轮反馈：逐项答复交易所意见，并修订全套申报文件。正文用 Word，表格用 Excel，修改处可追溯。
-
-科创债反馈第二项：只处理第二项。更新募集说明书、主承销商意见、法律意见、中期财务报表和回复。可编辑稿与 PDF 内容一致。
-
-持有型不动产 ABS：按反馈意见逐项答复，并修改申报材料。答复和勘误表与修订稿分开放。
-
-以上四题与第一题使用同一套目录：题面、只读材料、参考解、按条评分。申报原件不在本页。</pre>
-</article>
-</main>
-</body>
-</html>
+<tr><td>最近一期财务报表</td><td>6 页，扫描件</td></tr></table></div><div class="field"><div class="caption">Question</div><p class="prose">最近一年及一期末，货币资金和交易性金融资产占比超过总资产 40%，最近一期末有息债务余额 1.50 亿元。本次申报规模 20 亿元，其中 7 亿元用于偿还有息负债，13 亿元用于补充流动资金。请说明发债必要性、申报规模的合理性，以及偿债安排的可行性。</p></div><div class="field"><div class="caption">Reply</div><p class="prose">截至 2025 年末及 2026 年 6 月末，货币资金和交易性金融资产分别为 50.68 亿元及 37.15 亿元，占总资产 45.51% 及 26.14%。尚未使用的募集资金约 15.52 亿元，受用途约束。拟偿还的有息负债合计 7 亿元，对应三笔已列明的银行借款。</p></div><div class="field"><div class="caption">Scoring</div><p class="prose">发债必要性占答复 7.5 / 60。须同时写清事实、推导和结论，并指出约 15.52 亿元受募集资金用途约束。总分 100。五个模型各作答两次，得分分别约为 0.73 与 0.70、0.39 与 0.30、0.29 与 0.33、0.58 与 0.46、0.30 与 0.42。</p></div></div></article></div></details><details class="fold" open><summary>资产证券化</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="资产证券化">资产证券化</div><div class="fields"><div class="field"><div class="caption">Pool</div><p class="prose">应收账款入池：判断应收账款和质保金能否入池，并核定截至基准日的最大金额。</p></div><div class="field"><div class="caption">Filing</div><p class="prose">应收账款 ABS 首轮反馈、科创债反馈第二项、持有型不动产 ABS：逐项答复并修订申报文件。可编辑稿与 PDF 内容一致。</p></div><div class="field"><div class="caption">Package</div><p class="prose">以上各题与债券题使用同一套目录：题面、只读材料、参考解、按条评分。申报原件不在本页。</p></div></div></article></div></details></main></body></html>

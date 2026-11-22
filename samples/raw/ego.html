@@ -1,81 +1,21 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--soft:#f0ece2}
-*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
-main{max-width:920px;margin:0 auto;padding:28px 22px 48px}
-h1{font-size:28px;font-weight:500;margin:0 0 8px}
-.lead,p{color:var(--muted)}
-article{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}
-h2{font-size:18px;margin:0 0 8px}
-pre{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow:auto;white-space:pre-wrap;font-family:Consolas,Menlo,monospace;font-size:13px;line-height:1.5}
-</style>
-</head>
-<body>
-<main>
-<h1>WorldModelBench</h1>
-<p class="lead">One episode. The original video is about 1.3 GB and is not embedded; the record below is taken from that episode’s manifest and metadata.</p>
-<article>
-<h2>Task</h2>
-<pre>education / sports equipment
-wipe dust from a ball
-recorded 2026-07-19
-camera: one 1920×1080 stream</pre>
-</article>
-<article>
-<h2>Video</h2>
-<pre>stream: one camera, stored as Left.mp4
-1920×1080, HEVC, 59.94 fps
-73,878 frames, 1232.5 seconds
-all frames kept
-not side-by-side; no second camera stream</pre>
-</article>
-<article>
-<h2>IMU, decoded from the video</h2>
-<pre>accelerometer and gyroscope, 247,203 samples each
-about 200.6 Hz
-accelerometer in m/s², gyroscope in rad/s
-axes follow the camera body</pre>
-</article>
-<article>
-<h2>What this episode does not include</h2>
-<pre>The lens mapping stored in the video is a native polynomial, not an OpenCV distortion list.
-A pinhole camera matrix, stereo baseline, and camera-to-IMU extrinsics are not in the source.
-This episode is therefore monocular. Stereo is a separate delivery.</pre>
-</article>
-<article>
-<h2>Files in the episode</h2>
-<pre>dataset/videos/observation.images.cam0/.../file-000.mp4
-dataset/data/chunk-000/file-000.parquet
-dataset/meta/info.json
-dataset/meta/tasks.parquet
-dataset/meta/episodes/.../file-000.parquet
-supplement/imu/imu.csv
-supplement/frame_timing.csv
-supplement/calibration/gopro_gpmf_lens_mapping.json</pre>
-</article>
-<article>
-<h2>实拍</h2>
-<pre>另一条实拍。与上面这条不是同一条。标注按时间轴组织，原始视频不在本页。</pre>
-</article>
-<article>
-<h2>实拍</h2>
-<pre>另有手机、深度和双目记录，文件不在本页展开。</pre>
-</article>
-<article>
-<h2>仿真</h2>
-<pre>一条场景，576 帧，24 fps。交付工程、分割与巡游视频，以及逐帧相机轨迹。与上面的实拍不是同一条数据。</pre>
-</article>
-<article>
-<h2>仿真</h2>
-<pre>仿真场景分两类：按参考图或文字搭建，以及可供导航、抓取和搬运的日常环境。
-日常环境包括家居、办公、仓库、工厂、医疗和日常服务。
-按几何规律粗分：规整约 44.5%，半规整约 29.4%，复杂约 26.1%。
-图册中的大量场景没有逐条放进本页。多目仍在整理，这里不作为已有样例。</pre>
-</article>
-</main>
-</body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{--bg:#f7f3ea;--surface:#fffdf8;--soft:#f0ece2;--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#fffdf7 0,#f7f3ea 45%,#eee8dc 100%);color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:1040px;margin:0 auto;padding:clamp(18px,4vw,36px)}
+.caption{font-family:"SFMono-Regular",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--muted)}
+.prose{color:var(--muted);white-space:pre-wrap;margin:8px 0 0}
+.card{background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 28px rgba(54,44,24,.06)}
+.source{padding:15px 19px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.fields{padding:4px 20px}
+.field{padding:17px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0}
+.fold{margin:0 0 14px}
+.fold>summary{list-style:none;cursor:pointer;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,253,248,.86);box-shadow:0 12px 28px rgba(54,44,24,.06);font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:13px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:12px}
+.fold[open]{border-radius:16px}
+.sheet{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
+.sheet th,.sheet td{text-align:left;padding:8px 0;border-top:1px solid var(--line)}
+.sheet th{border-top:0;font-weight:500;color:var(--muted);font-size:12px}
+</style></head><body><main><details class="fold" open><summary>WorldModelBench</summary><div class="fold-body"><article class="card problem"><div class="source head-title">WorldModelBench</div><div class="fields"><div class="field"><div class="caption">Task</div><p class="prose">教育与体育器材。擦拭球体上的灰尘。记录日期 2026-07-19。单路 1920×1080。</p></div><div class="field"><div class="caption">Video</div><p class="prose">单路画面，存为 Left.mp4。1920×1080，HEVC，59.94 fps。73,878 帧，1232.5 秒。全部帧保留。不是并排双目，没有第二路画面。</p></div><div class="field"><div class="caption">Sensor</div><p class="prose">加速度和角速度各 247,203 个样本，约 200.6 Hz。加速度单位 m/s²，角速度单位 rad/s。轴向跟随机身。镜头映射是机身多项式，不是 OpenCV 畸变表。没有针孔内参、双目基线和相机到惯性测量的外参。这一条因此是单目。</p></div><div class="field"><div class="caption">Files</div><p class="prose">视频、分块数据、info.json、tasks.parquet、回合索引、imu.csv、frame_timing.csv、镜头映射。原片约 1.3 GB，不嵌在本页。</p></div></div></article></div></details><details class="fold" open><summary>实拍</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="实拍">实拍</div><div class="fields"><div class="field"><div class="caption">Other</div><p class="prose">另有一条实拍，与上面这条不是同一条。标注按时间轴组织，原始视频不在本页。</p></div><div class="field"><div class="caption">Other devices</div><p class="prose">另有手机、深度和双目记录，文件不在本页展开。</p></div></div></article></div></details><details class="fold" open><summary>仿真</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="仿真">仿真</div><div class="fields"><div class="field"><div class="caption">Cruise</div><p class="prose">一条场景，576 帧，24 fps。交付工程、分割与巡游视频，以及逐帧相机轨迹。与上面的实拍不是同一条数据。</p></div><div class="field"><div class="caption">Library</div><p class="prose">场景分两类：按参考图或文字搭建，以及可供导航、抓取和搬运的日常环境。日常环境包括家居、办公、仓库、工厂、医疗和日常服务。规整约 44.5%，半规整约 29.4%，复杂约 26.1%。多目仍在整理，这里不作为已有样例。</p></div></div></article></div></details></main></body></html>

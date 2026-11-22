@@ -1,36 +1,21 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-:root{--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--soft:#f0ece2}
-*{box-sizing:border-box}body{margin:0;background:#f7f3ea;color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
-main{max-width:880px;margin:0 auto;padding:28px 22px 48px}
-h1{font-size:28px;font-weight:500;margin:0 0 8px}
-p{color:var(--muted)}
-article{background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}
-h2{font-size:18px;margin:0 0 8px}
-pre{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;white-space:pre-wrap;font-family:Consolas,Menlo,monospace;font-size:13px}
-</style>
-</head>
-<body>
-<main>
-<h1 data-t="PCB 绘制">PCB 绘制</h1>
-<p>PCB 绘制。与 OSWorld 里已有的桌面任务不是同一件。</p>
-<article>
-<h2>PCB 绘制</h2>
-<pre>参数化零件。基准件座深 18.4 mm，变体 18.2 mm。
-交付两份原生零件、两份 STEP、155 个特征节点和 267 条关系，以及尺寸和重新打开后的几何比对。
-从空白零件按座深重放，可再导出 STEP。</pre>
-</article>
-<article>
-<h2>PCB 绘制</h2>
-<pre>六层底板。布局已完成，走线已清空。为高速接口、以太网和电源布线。
-保留 516 个封装、板框、层叠和禁布区。交付可再打开的电路板文件。
-按连通、间距和孔距、线长与过孔、以及重新打开后覆铜重算来验收。
-这是方向说明，工程文件不在本页。</pre>
-</article>
-</main>
-</body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{--bg:#f7f3ea;--surface:#fffdf8;--soft:#f0ece2;--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#fffdf7 0,#f7f3ea 45%,#eee8dc 100%);color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:1040px;margin:0 auto;padding:clamp(18px,4vw,36px)}
+.caption{font-family:"SFMono-Regular",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--muted)}
+.prose{color:var(--muted);white-space:pre-wrap;margin:8px 0 0}
+.card{background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 28px rgba(54,44,24,.06)}
+.source{padding:15px 19px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.fields{padding:4px 20px}
+.field{padding:17px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0}
+.fold{margin:0 0 14px}
+.fold>summary{list-style:none;cursor:pointer;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,253,248,.86);box-shadow:0 12px 28px rgba(54,44,24,.06);font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:13px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:12px}
+.fold[open]{border-radius:16px}
+.sheet{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
+.sheet th,.sheet td{text-align:left;padding:8px 0;border-top:1px solid var(--line)}
+.sheet th{border-top:0;font-weight:500;color:var(--muted);font-size:12px}
+</style></head><body><main><details class="fold" open><summary>PCB 绘制</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="PCB 绘制">PCB 绘制</div><div class="fields"><div class="field"><div class="caption">Domain</div><p class="prose">PCB 绘制。与 OSWorld 里已有的桌面任务不是同一件。</p></div><div class="field"><div class="caption">Part</div><p class="prose">参数化零件。基准件座深 18.4 mm，变体 18.2 mm。交付两份原生零件、两份 STEP、155 个特征节点和 267 条关系。从空白零件按座深重放，可再导出 STEP。</p></div><div class="field"><div class="caption">Board</div><p class="prose">六层底板。布局已完成，走线已清空。为高速接口、以太网和电源布线。保留封装、板框、层叠和禁布区。</p></div><div class="field"><div class="caption">Scoring</div><p class="prose">按连通、间距和孔距、线长与过孔，以及重新打开后覆铜重算来验收。电路板文件不在本页。</p></div></div></article></div></details></main></body></html>
