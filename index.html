@@ -17,12 +17,17 @@
 <nav class="nav" id="nav">
   <a class="mark" href="#top">数据与环境</a>
   <div class="nav-links" id="nav-links">
+    <a href="#fin">金融法律医疗生物</a>
+    <a href="#control">电脑控制</a>
+    <a href="#eng">工程软件</a>
+    <a href="#gpu">显卡内核</a>
+    <a href="#long">长程任务</a>
+    <a href="#code">代码智能体</a>
+    <a href="#wear">穿戴视频</a>
     <a href="#answer">学科问答</a>
-    <a href="#machine">代码作业</a>
-    <a href="#screen">软件作业</a>
-    <a href="#trace">工具调用</a>
-    <a href="#space">空间动作</a>
-    <a href="#exam">公开试卷</a>
+    <a href="#exam">公开基准</a>
+    <a href="#scene">场景仿真</a>
+    <a href="#other">其他</a>
   </div>
   <label class="lang"><select id="lang" aria-label="Language"></select></label>
   <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="菜单"><span></span></button>
@@ -34,49 +39,6 @@
 </header>
 
 <main>
-  <section class="pick light" id="pick">
-    <h2>选型</h2>
-    <p class="chapter-line">与上方栏目一致</p>
-    <ol>
-      <li>
-        <span class="use">学科问答</span>
-        <b>专家原创问答题，附标准答案</b>
-        <p class="go bold"><a href="#derive">科学问答</a><a href="#contest">竞赛问答</a><a href="#clinical">临床问答</a></p>
-        <p class="aside">三套均可查看样例</p>
-      </li>
-      <li>
-        <span class="use">代码作业</span>
-        <b>在仓库、显卡和终端里完成</b>
-        <p class="go bold"><a href="#repo">仓库修复</a><a href="#corpus">仓库存档</a><a href="#edge">多约束改造</a><a href="#kernel">显卡内核</a><a href="#terminal">终端作业</a></p>
-        <p class="aside">仓库存档不按测试评分</p>
-      </li>
-      <li>
-        <span class="use">软件作业</span>
-        <b>在真实软件里做完，交出文件或文书</b>
-        <p class="go bold"><a href="#ground">界面定位</a><a href="#desktop">桌面交付</a><a href="#pro">工程制作</a><a href="#office">跨文件作业</a><a href="#room">行业文书</a></p>
-        <p class="aside">界面定位只核验控件位置</p>
-      </li>
-      <li>
-        <span class="use">工具调用</span>
-        <b>记录长程工具调用，保留失败和纠正</b>
-        <p class="go bold"><a href="#session">长程调用</a></p>
-        <p class="aside">供逐步监督</p>
-      </li>
-      <li>
-        <span class="use">空间动作</span>
-        <b>仿真附相机参数，另有实拍与肢体动作</b>
-        <p class="go bold"><a href="#camera">多相机画面</a><a href="#body">肢体操作</a></p>
-        <p class="aside">实拍含现成时段，也可按设备与场景定制</p>
-      </li>
-      <li>
-        <span class="use">公开试卷</span>
-        <b>公开基准已经打包，部署之后即可评分</b>
-        <p class="go bold"><a href="#shelf">公开试卷</a></p>
-        <p class="aside">无需自建评测环境</p>
-      </li>
-    </ol>
-  </section>
-
   <div class="note">
     <h2>交付标准</h2>
     <ul class="pillars">
@@ -93,9 +55,265 @@
     </ul>
   </div>
 
-  <section class="chapter light" id="answer">
+  <section class="chapter light" id="fin">
     <h2>01</h2>
-    <p class="chapter-line">科学问答、竞赛问答、临床问答</p>
+    <p class="chapter-line">临床问答、法律、金融、医疗与生物</p>
+
+    <article id="clinical">
+      <h3>临床问答</h3>
+      <p class="lede">医生原创的诊疗问答题，经复核，保留模型易错样本</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://openai.com/index/healthbench/" target="_blank" rel="noopener">HealthBench</a></p>
+        <p><a href="https://github.com/jind11/MedQA" target="_blank" rel="noopener">MedQA</a></p>
+        <p><a href="https://medxpertqa.github.io/" target="_blank" rel="noopener">MedXpertQA</a></p>
+        <p><a href="https://mmmu-benchmark.github.io/" target="_blank" rel="noopener">MMMU</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>医生认可的标准选项与理由</dd></div>
+        <div><dt>难度</dt><dd>剔除强模型普遍答对的题，保留易错样本</dd></div>
+        <div><dt>用途</dt><dd>临床诊疗推理，含医学影像与图表题</dd></div>
+        <div><dt>交付内容</dt><dd>题目、选项、理由、多模型评分、难度分层；发布前完成去标识化核验</dd></div>
+        <div><dt>覆盖范围</dt><dd>诊断推理、流行病学、生物统计与临床决策</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
+
+    <article id="room">
+      <h3>行业文书</h3>
+      <p class="lede">依据真实文档完成行业工作，按条目评分</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://openai.com/index/gdpval/" target="_blank" rel="noopener">GDPval</a></p>
+        <p><a href="https://hazyresearch.stanford.edu/legalbench/" target="_blank" rel="noopener">LegalBench</a></p>
+        <p><a href="https://www.mercor.com/apex/apex-agents-leaderboard/" target="_blank" rel="noopener">APEX-Agents</a></p>
+        <p><a href="https://taubench.com" target="_blank" rel="noopener">τ-Bench</a></p>
+        <p><a href="https://github.com/ServiceNow/WorkArena" target="_blank" rel="noopener">WorkArena</a></p>
+        <p><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard" target="_blank" rel="noopener">GAIA</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>按条目对照标准结果，不按整体印象</dd></div>
+        <div><dt>用途</dt><dd>各行业的专业文书工作</dd></div>
+        <div><dt>交付内容</dt><dd>整套文档、任务、标准答案、逐条评分、合规边界和审计记录</dd></div>
+        <div><dt>覆盖范围</dt><dd>法律、金融、医疗，以及量化投资、金融投研和投行数据</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter dark" id="control">
+    <h2>02</h2>
+    <p class="chapter-line">界面定位、桌面交付与跨文件作业</p>
+
+    <article id="ground">
+      <h3>界面定位</h3>
+      <p class="lede">按指令找到控件，并核对操作之后的界面</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://webarena.dev/" target="_blank" rel="noopener">WebArena</a></p>
+        <p><a href="https://jykoh.com/vwa" target="_blank" rel="noopener">VisualWebArena</a></p>
+        <p><a href="https://google-research.github.io/android_world/" target="_blank" rel="noopener">AndroidWorld</a></p>
+        <p><a href="https://gui-agent.github.io/grounding-leaderboard/" target="_blank" rel="noopener">ScreenSpot-Pro</a></p>
+        <p><a href="https://os-world.github.io/" target="_blank" rel="noopener">OSWorld</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>定位正确，操作后界面正确</dd></div>
+        <div><dt>用途</dt><dd>在网页、手机和桌面上定位界面元素</dd></div>
+        <div><dt>交付内容</dt><dd>截图、位置框、操作步骤、界面结构、操作后状态</dd></div>
+        <div><dt>覆盖范围</dt><dd>网页、手机和桌面；分辨率、主题与布局多样</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
+
+    <article id="desktop">
+      <h3>桌面交付<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">在真实系统和专业软件里做完，交出可以打开的文件</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://osworld-v2.xlang.ai/" target="_blank" rel="noopener">OSWorld 2.0</a></p>
+        <p><a href="https://os-world.github.io/" target="_blank" rel="noopener">OSWorld</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>以可打开文件验收，不以录像判定</dd></div>
+        <div><dt>用途</dt><dd>长程操作电脑，以交出的文件判定是否完成</dd></div>
+        <div><dt>交付内容</dt><dd>工作环境、参考文件、可编辑原生文件、导出结果与自动评分</dd></div>
+        <div><dt>覆盖范围</dt><dd>制图、剪辑、办公和教学软件，以及跨软件交付</dd></div>
+        <div><dt>供给</dt><dd>按需持续供给</dd></div>
+      </dl>
+    </article>
+
+    <article id="office">
+      <h3>跨文件作业<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">跨文件、跨工具完成任务，结果可核验</p>
+      <dl>
+        <div><dt>判定标准</dt><dd>核验最终结果，自动或专家验收</dd></div>
+        <div><dt>用途</dt><dd>跨文件、跨工具的长程任务，非单轮问答</dd></div>
+        <div><dt>交付内容</dt><dd>任务环境、agent 轨迹、工具调用、最终产物与验证结果</dd></div>
+        <div><dt>供给</dt><dd>现货供应，每周持续新增</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter light" id="eng">
+    <h2>03</h2>
+    <p class="chapter-line">工程制作，含 3D 建模、游戏开发与 PCB 绘制</p>
+
+    <article id="pro">
+      <h3>工程制作</h3>
+      <p class="lede">在工程软件里做完全流程，交出可以打开的工程文件</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://agents-last-exam.org" target="_blank" rel="noopener">Agents' Last Exam (ALE)</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>工程产物与实际执行结果</dd></div>
+        <div><dt>用途</dt><dd>在工程软件里完成长流程工作</dd></div>
+        <div><dt>交付内容</dt><dd>任务、原生文件、执行结果与验证；完整交付含操作轨迹，样例展示任务部分</dd></div>
+        <div><dt>覆盖范围</dt><dd>三维场景、器物和场景设计，另有 3D 建模、游戏开发与 PCB 绘制。火箭、天文、飞行和生物力学见数据包</dd></div>
+        <div><dt>供给</dt><dd>现货供应，专家制作，每周持续新增</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter dark" id="gpu">
+    <h2>04</h2>
+    <p class="chapter-line">显卡内核</p>
+
+    <article id="kernel">
+      <h3>显卡内核<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">编写显卡内核，数值要正确，并且要比基线更快</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/" target="_blank" rel="noopener">KernelBench</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>数值正确，且显卡性能达标</dd></div>
+        <div><dt>难度</dt><dd>每条附独立性能基线，需多轮实验迭代</dd></div>
+        <div><dt>用途</dt><dd>多轮实验提升性能，覆盖 CUDA 与 Triton</dd></div>
+        <div><dt>交付内容</dt><dd>执行环境、参考实现、正确性测试、性能基准、优化轨迹；可选专家复核</dd></div>
+        <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter light" id="long">
+    <h2>05</h2>
+    <p class="chapter-line">长程调用</p>
+
+    <article id="session">
+      <h3>长程调用</h3>
+      <p class="lede">记录长程工具调用，保留失败、回退和纠正</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard" target="_blank" rel="noopener">GAIA</a></p>
+        <p><a href="https://github.com/OpenBMB/ToolBench" target="_blank" rel="noopener">ToolBench</a></p>
+        <p><a href="https://gorilla.cs.berkeley.edu/leaderboard.html" target="_blank" rel="noopener">Berkeley Function-Calling Leaderboard (BFCL)</a></p>
+        <p><a href="https://taubench.com" target="_blank" rel="noopener">τ-Bench</a></p>
+        <p><a href="https://assistantbench.github.io/" target="_blank" rel="noopener">AssistantBench</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>关键步骤可核验，全程可回放</dd></div>
+        <div><dt>难度</dt><dd>超长多轮会话，含真实失误与纠正</dd></div>
+        <div><dt>用途</dt><dd>交出全过程记录，供逐步监督</dd></div>
+        <div><dt>交付内容</dt><dd>工具调用、环境观察、失败与回退标注、轨迹摘要</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter dark" id="code">
+    <h2>06</h2>
+    <p class="chapter-line">仓库修复、多约束改造与终端作业</p>
+
+    <article id="repo">
+      <h3>仓库修复<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">在真实仓库里修缺陷或加功能，测试通过才算完成</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://www.swebench.com/" target="_blank" rel="noopener">SWE-bench</a></p>
+        <p><a href="https://labs.scale.com/leaderboard/swe_bench_pro" target="_blank" rel="noopener">SWE-Bench Pro</a></p>
+        <p><a href="https://github.com/microsoft/SWE-bench-Live" target="_blank" rel="noopener">SWE-bench-Live</a></p>
+        <p><a href="https://www.swebench.com/multimodal" target="_blank" rel="noopener">SWE-bench Multimodal</a></p>
+        <p><a href="https://livecodebench.github.io/" target="_blank" rel="noopener">LiveCodeBench</a></p>
+        <p><a href="https://deepswe.datacurve.ai/" target="_blank" rel="noopener">DeepSWE</a></p>
+        <p><a href="https://www.swe-marathon.org/" target="_blank" rel="noopener">SWE-Marathon</a></p>
+        <p><a href="https://programbench.com/" target="_blank" rel="noopener">ProgramBench</a></p>
+        <p><a href="https://www.frontierswe.com/" target="_blank" rel="noopener">FrontierSWE</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>新增测试须通过，既有测试须保持通过；自述完成不计</dd></div>
+        <div><dt>用途</dt><dd>在真实开源仓库里修缺陷、加功能</dd></div>
+        <div><dt>交付内容</dt><dd>可运行环境、参考改动与自动评分，可附操作过程</dd></div>
+        <div><dt>覆盖范围</dt><dd>Rust、Java、Go、PHP、Ruby、JavaScript/TypeScript、C、C++；含须对照截图、设计稿或报错画面来修的题；另可定制 SWE-Marathon、ProgramBench、FrontierSWE 方向的超长程任务</dd></div>
+        <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
+      </dl>
+    </article>
+
+    <article id="edge">
+      <h3>多约束改造<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">改仓库时要同时满足多项约束</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://pipelinelab.ai/blog/edgebenchswe/" target="_blank" rel="noopener">EdgeBench SWE</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>自动测试对照参考改动</dd></div>
+        <div><dt>难度</dt><dd>多约束耦合，难于常规修复</dd></div>
+        <div><dt>用途</dt><dd>跨模块的长程功能开发</dd></div>
+        <div><dt>交付内容</dt><dd>可运行环境、完整仓库、改造路线、参考改动、自动测试、完整操作过程</dd></div>
+        <div><dt>覆盖范围</dt><dd>并发与一致性、存储与故障恢复、接口兼容、分布式场景下的边界情形</dd></div>
+        <div><dt>供给</dt><dd>现货供应，每周持续新增</dd></div>
+      </dl>
+    </article>
+
+    <article id="terminal">
+      <h3>终端作业<span class="env-tag">可直接运行</span></h3>
+      <p class="lede">在终端里核对互相矛盾的材料，并给出结论</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://www.tbench.ai/" target="_blank" rel="noopener">Terminal-Bench</a></p>
+        <p><a href="https://www.terminal-bench-science.ai/" target="_blank" rel="noopener">Terminal-Bench-Science</a></p>
+        <p><a href="https://github.com/harbor-framework/terminal-bench-challenges" target="_blank" rel="noopener">Terminal-Bench Challenges</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>独立环境核验结论，自述完成不计</dd></div>
+        <div><dt>难度</dt><dd>强模型多次运行：多数失败，但均有成功记录</dd></div>
+        <div><dt>用途</dt><dd>以 Harbor 格式交付，覆盖科学计算，也覆盖网络安全攻防</dd></div>
+        <div><dt>交付内容</dt><dd>任务配置、运行环境、单独的评分环境、参考解、运行记录、防泄漏标记</dd></div>
+        <div><dt>覆盖范围</dt><dd>科学计算、软件与系统、运维与财务核对、媒体处理；另含编译器加速、WASM 渲染与推理代码高尔夫，以及网络安全攻防</dd></div>
+        <div><dt>供给</dt><dd>按需持续生产</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter light" id="wear">
+    <h2>07</h2>
+    <p class="chapter-line">实拍与肢体操作</p>
+
+    <article id="camera">
+      <h3>多相机画面</h3>
+      <p class="lede">头戴和手持设备拍下的画面，附时间轴和传感器记录</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://worldmodelbench-team.github.io/" target="_blank" rel="noopener">WorldModelBench</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>仿真画面要求多相机空间一致，动作幅度在约定区间；实拍按时间轴与传感器记录核验</dd></div>
+        <div><dt>用途</dt><dd>用于世界模型和空间理解</dd></div>
+        <div><dt>交付内容</dt><dd>仿真含多视角画面、相机参数、位置与朝向、深度和分割；实拍含视频、时间轴与惯性测量</dd></div>
+        <div><dt>覆盖范围</dt><dd>头戴和手持设备上的实拍。多目仍在整理</dd></div>
+        <div><dt>供给</dt><dd>仿真场景可预设；实拍可交付现成时段，也可按场景定制</dd></div>
+      </dl>
+    </article>
+
+    <article id="body">
+      <h3>肢体操作</h3>
+      <p class="lede">观察环境、执行动作，并标明成败</p>
+      <div class="bench"><span>对标</span><div>
+        <p><a href="https://embodiedbench.github.io/" target="_blank" rel="noopener">EmbodiedBench</a></p>
+      </div></div>
+      <dl>
+        <div><dt>判定标准</dt><dd>预先定义成败标准，核验动作后状态</dd></div>
+        <div><dt>用途</dt><dd>观察、决策和执行</dd></div>
+        <div><dt>交付内容</dt><dd>场景描述、动作标签、反馈状态、成功标准、错误类型、评估规格</dd></div>
+        <div><dt>覆盖范围</dt><dd>家居、商超、工业和医疗中的操作。双足双臂和手持操作臂仍在整理</dd></div>
+        <div><dt>供给</dt><dd>数据格式按目标平台定制生产</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter dark" id="answer">
+    <h2>08</h2>
+    <p class="chapter-line">科学问答与竞赛问答</p>
 
     <article id="derive">
       <h3>科学问答</h3>
@@ -135,261 +353,10 @@
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
-
-    <article id="clinical">
-      <h3>临床问答</h3>
-      <p class="lede">医生原创的诊疗问答题，经复核，保留模型易错样本</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://openai.com/index/healthbench/" target="_blank" rel="noopener">HealthBench</a></p>
-        <p><a href="https://github.com/jind11/MedQA" target="_blank" rel="noopener">MedQA</a></p>
-        <p><a href="https://medxpertqa.github.io/" target="_blank" rel="noopener">MedXpertQA</a></p>
-        <p><a href="https://mmmu-benchmark.github.io/" target="_blank" rel="noopener">MMMU</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>医生认可的标准选项与理由</dd></div>
-        <div><dt>难度</dt><dd>剔除强模型普遍答对的题，保留易错样本</dd></div>
-        <div><dt>用途</dt><dd>临床诊疗推理，含医学影像与图表题</dd></div>
-        <div><dt>交付内容</dt><dd>题目、选项、理由、多模型评分、难度分层；发布前完成去标识化核验</dd></div>
-        <div><dt>覆盖范围</dt><dd>诊断推理、流行病学、生物统计与临床决策</dd></div>
-        <div><dt>供给</dt><dd>按需定制生产</dd></div>
-      </dl>
-    </article>
   </section>
 
-  <section class="chapter dark" id="machine">
-    <h2>02</h2>
-    <p class="chapter-line">仓库修复、仓库存档、显卡内核与终端作业</p>
-
-    <article id="repo">
-      <h3>仓库修复<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">在真实仓库里修缺陷或加功能，测试通过才算完成</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://www.swebench.com/" target="_blank" rel="noopener">SWE-bench</a></p>
-        <p><a href="https://labs.scale.com/leaderboard/swe_bench_pro" target="_blank" rel="noopener">SWE-Bench Pro</a></p>
-        <p><a href="https://github.com/microsoft/SWE-bench-Live" target="_blank" rel="noopener">SWE-bench-Live</a></p>
-        <p><a href="https://www.swebench.com/multimodal" target="_blank" rel="noopener">SWE-bench Multimodal</a></p>
-        <p><a href="https://livecodebench.github.io/" target="_blank" rel="noopener">LiveCodeBench</a></p>
-        <p><a href="https://deepswe.datacurve.ai/" target="_blank" rel="noopener">DeepSWE</a></p>
-        <p><a href="https://www.swe-marathon.org/" target="_blank" rel="noopener">SWE-Marathon</a></p>
-        <p><a href="https://programbench.com/" target="_blank" rel="noopener">ProgramBench</a></p>
-        <p><a href="https://www.frontierswe.com/" target="_blank" rel="noopener">FrontierSWE</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>新增测试须通过，既有测试须保持通过；自述完成不计</dd></div>
-        <div><dt>用途</dt><dd>在真实开源仓库里修缺陷、加功能</dd></div>
-        <div><dt>交付内容</dt><dd>可运行环境、参考改动与自动评分，可附操作过程</dd></div>
-        <div><dt>覆盖范围</dt><dd>Rust、Java、Go、PHP、Ruby、JavaScript/TypeScript、C、C++；含须对照截图、设计稿或报错画面来修的题；另可定制 SWE-Marathon、ProgramBench、FrontierSWE 方向的超长程任务</dd></div>
-        <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
-      </dl>
-    </article>
-
-    <article id="corpus">
-      <h3>仓库存档</h3>
-      <p class="lede">保存公开仓库的源码、提交、讨论和议题，不按测试评分</p>
-      <dl>
-        <div><dt>交付内容</dt><dd>仓库文件或打包源码、提交、PR、Issue、许可证与来源地址。重复的 Fork 与镜像单独标明</dd></div>
-        <div><dt>覆盖范围</dt><dd>若干公开仓库的源码、提交、PR 与 Issue，语言包括 JavaScript、Go、Rust、Python</dd></div>
-        <div><dt>供给</dt><dd>按样例所示的仓库交付，规模另计</dd></div>
-      </dl>
-    </article>
-
-    <article id="edge">
-      <h3>多约束改造<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">改仓库时要同时满足多项约束</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://pipelinelab.ai/blog/edgebenchswe/" target="_blank" rel="noopener">EdgeBench SWE</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>自动测试对照参考改动</dd></div>
-        <div><dt>难度</dt><dd>多约束耦合，难于常规修复</dd></div>
-        <div><dt>用途</dt><dd>跨模块的长程功能开发</dd></div>
-        <div><dt>交付内容</dt><dd>可运行环境、完整仓库、改造路线、参考改动、自动测试、完整操作过程</dd></div>
-        <div><dt>覆盖范围</dt><dd>并发与一致性、存储与故障恢复、接口兼容、分布式场景下的边界情形</dd></div>
-        <div><dt>供给</dt><dd>现货供应，每周持续新增</dd></div>
-      </dl>
-    </article>
-
-    <article id="kernel">
-      <h3>显卡内核<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">编写显卡内核，数值要正确，并且要比基线更快</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/" target="_blank" rel="noopener">KernelBench</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>数值正确，且显卡性能达标</dd></div>
-        <div><dt>难度</dt><dd>每条附独立性能基线，需多轮实验迭代</dd></div>
-        <div><dt>用途</dt><dd>多轮实验提升性能，覆盖 CUDA 与 Triton</dd></div>
-        <div><dt>交付内容</dt><dd>执行环境、参考实现、正确性测试、性能基准、优化轨迹；可选专家复核</dd></div>
-        <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
-      </dl>
-    </article>
-
-    <article id="terminal">
-      <h3>终端作业<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">在终端里核对互相矛盾的材料，并给出结论</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://www.tbench.ai/" target="_blank" rel="noopener">Terminal-Bench</a></p>
-        <p><a href="https://www.terminal-bench-science.ai/" target="_blank" rel="noopener">Terminal-Bench-Science</a></p>
-        <p><a href="https://github.com/harbor-framework/terminal-bench-challenges" target="_blank" rel="noopener">Terminal-Bench Challenges</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>独立环境核验结论，自述完成不计</dd></div>
-        <div><dt>难度</dt><dd>强模型多次运行：多数失败，但均有成功记录</dd></div>
-        <div><dt>用途</dt><dd>以 Harbor 格式交付，覆盖科学计算，也覆盖网络安全攻防</dd></div>
-        <div><dt>交付内容</dt><dd>任务配置、运行环境、单独的评分环境、参考解、运行记录、防泄漏标记</dd></div>
-        <div><dt>覆盖范围</dt><dd>科学计算、软件与系统、运维与财务核对、媒体处理；另含编译器加速、WASM 渲染与推理代码高尔夫，以及网络安全攻防</dd></div>
-        <div><dt>供给</dt><dd>按需持续生产</dd></div>
-      </dl>
-    </article>
-  </section>
-
-  <section class="chapter light" id="screen">
-    <h2>03</h2>
-    <p class="chapter-line">界面定位、桌面交付、工程制作与行业文书</p>
-
-    <article id="ground">
-      <h3>界面定位</h3>
-      <p class="lede">按指令找到控件，并核对操作之后的界面</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://webarena.dev/" target="_blank" rel="noopener">WebArena</a></p>
-        <p><a href="https://jykoh.com/vwa" target="_blank" rel="noopener">VisualWebArena</a></p>
-        <p><a href="https://google-research.github.io/android_world/" target="_blank" rel="noopener">AndroidWorld</a></p>
-        <p><a href="https://gui-agent.github.io/grounding-leaderboard/" target="_blank" rel="noopener">ScreenSpot-Pro</a></p>
-        <p><a href="https://os-world.github.io/" target="_blank" rel="noopener">OSWorld</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>定位正确，操作后界面正确</dd></div>
-        <div><dt>用途</dt><dd>在网页、手机和桌面上定位界面元素</dd></div>
-        <div><dt>交付内容</dt><dd>截图、位置框、操作步骤、界面结构、操作后状态</dd></div>
-        <div><dt>覆盖范围</dt><dd>网页、手机和桌面；分辨率、主题与布局多样</dd></div>
-        <div><dt>供给</dt><dd>按需定制生产</dd></div>
-      </dl>
-    </article>
-
-    <article id="desktop">
-      <h3>桌面交付<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">在真实系统和专业软件里做完，交出可以打开的文件</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://osworld-v2.xlang.ai/" target="_blank" rel="noopener">OSWorld 2.0</a></p>
-        <p><a href="https://os-world.github.io/" target="_blank" rel="noopener">OSWorld</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>以可打开文件验收，不以录像判定</dd></div>
-        <div><dt>用途</dt><dd>长程操作电脑，以交出的文件判定是否完成</dd></div>
-        <div><dt>交付内容</dt><dd>工作环境、参考文件、可编辑原生文件、导出结果与自动评分</dd></div>
-        <div><dt>覆盖范围</dt><dd>制图、剪辑、办公和教学软件，以及跨软件交付，另有 PCB 绘制</dd></div>
-        <div><dt>供给</dt><dd>按需持续供给</dd></div>
-      </dl>
-    </article>
-
-    <article id="pro">
-      <h3>工程制作</h3>
-      <p class="lede">在工程软件里做完全流程，交出可以打开的工程文件</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://agents-last-exam.org" target="_blank" rel="noopener">Agents' Last Exam (ALE)</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>工程产物与实际执行结果</dd></div>
-        <div><dt>用途</dt><dd>在工程软件里完成长流程工作</dd></div>
-        <div><dt>交付内容</dt><dd>任务、原生文件、执行结果与验证；完整交付含操作轨迹，样例展示任务部分</dd></div>
-        <div><dt>覆盖范围</dt><dd>三维场景、器物和场景设计，另有 3D 建模与游戏开发。火箭、天文、飞行和生物力学见数据包</dd></div>
-        <div><dt>供给</dt><dd>现货供应，专家制作，每周持续新增</dd></div>
-      </dl>
-    </article>
-
-    <article id="office">
-      <h3>跨文件作业<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">跨文件、跨工具完成任务，结果可核验</p>
-      <dl>
-        <div><dt>判定标准</dt><dd>核验最终结果，自动或专家验收</dd></div>
-        <div><dt>用途</dt><dd>跨文件、跨工具的长程任务，非单轮问答</dd></div>
-        <div><dt>交付内容</dt><dd>任务环境、agent 轨迹、工具调用、最终产物与验证结果</dd></div>
-        <div><dt>供给</dt><dd>现货供应，每周持续新增</dd></div>
-      </dl>
-    </article>
-
-    <article id="room">
-      <h3>行业文书</h3>
-      <p class="lede">依据真实文档完成行业工作，按条目评分</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://openai.com/index/gdpval/" target="_blank" rel="noopener">GDPval</a></p>
-        <p><a href="https://hazyresearch.stanford.edu/legalbench/" target="_blank" rel="noopener">LegalBench</a></p>
-        <p><a href="https://www.mercor.com/apex/apex-agents-leaderboard/" target="_blank" rel="noopener">APEX-Agents</a></p>
-        <p><a href="https://taubench.com" target="_blank" rel="noopener">τ-Bench</a></p>
-        <p><a href="https://github.com/ServiceNow/WorkArena" target="_blank" rel="noopener">WorkArena</a></p>
-        <p><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard" target="_blank" rel="noopener">GAIA</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>按条目对照标准结果，不按整体印象</dd></div>
-        <div><dt>用途</dt><dd>各行业的专业文书工作</dd></div>
-        <div><dt>交付内容</dt><dd>整套文档、任务、标准答案、逐条评分、合规边界和审计记录</dd></div>
-        <div><dt>覆盖范围</dt><dd>法律、金融、医疗、制造，以及量化投资、金融投研和投行数据</dd></div>
-        <div><dt>供给</dt><dd>按需定制生产</dd></div>
-      </dl>
-    </article>
-  </section>
-
-  <section class="chapter dark" id="trace">
-    <h2>04</h2>
-    <p class="chapter-line">长程调用，保留失败与纠正</p>
-
-    <article id="session">
-      <h3>长程调用</h3>
-      <p class="lede">记录长程工具调用，保留失败、回退和纠正</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard" target="_blank" rel="noopener">GAIA</a></p>
-        <p><a href="https://github.com/OpenBMB/ToolBench" target="_blank" rel="noopener">ToolBench</a></p>
-        <p><a href="https://gorilla.cs.berkeley.edu/leaderboard.html" target="_blank" rel="noopener">Berkeley Function-Calling Leaderboard (BFCL)</a></p>
-        <p><a href="https://taubench.com" target="_blank" rel="noopener">τ-Bench</a></p>
-        <p><a href="https://assistantbench.github.io/" target="_blank" rel="noopener">AssistantBench</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>关键步骤可核验，全程可回放</dd></div>
-        <div><dt>难度</dt><dd>超长多轮会话，含真实失误与纠正</dd></div>
-        <div><dt>用途</dt><dd>交出全过程记录，供逐步监督</dd></div>
-        <div><dt>交付内容</dt><dd>工具调用、环境观察、失败与回退标注、轨迹摘要</dd></div>
-        <div><dt>供给</dt><dd>按需定制生产</dd></div>
-      </dl>
-    </article>
-  </section>
-
-  <section class="chapter light" id="space">
-    <h2>05</h2>
-    <p class="chapter-line">多相机画面与肢体操作</p>
-
-    <article id="camera">
-      <h3>多相机画面</h3>
-      <p class="lede">仿真画面附每帧相机参数，实拍附时间轴和传感器记录</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://worldmodelbench-team.github.io/" target="_blank" rel="noopener">WorldModelBench</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>仿真画面要求多相机空间一致，动作幅度在约定区间；实拍按时间轴与传感器记录核验</dd></div>
-        <div><dt>用途</dt><dd>用于世界模型和空间理解</dd></div>
-        <div><dt>交付内容</dt><dd>仿真含多视角画面、相机参数、位置与朝向、深度和分割；实拍含视频、时间轴与惯性测量</dd></div>
-        <div><dt>覆盖范围</dt><dd>仿真画面和实拍。多目仍在整理</dd></div>
-        <div><dt>供给</dt><dd>仿真场景可预设；实拍可交付现成时段，也可按场景定制</dd></div>
-      </dl>
-    </article>
-
-    <article id="body">
-      <h3>肢体操作</h3>
-      <p class="lede">观察环境、执行动作，并标明成败</p>
-      <div class="bench"><span>对标</span><div>
-        <p><a href="https://embodiedbench.github.io/" target="_blank" rel="noopener">EmbodiedBench</a></p>
-      </div></div>
-      <dl>
-        <div><dt>判定标准</dt><dd>预先定义成败标准，核验动作后状态</dd></div>
-        <div><dt>用途</dt><dd>观察、决策和执行</dd></div>
-        <div><dt>交付内容</dt><dd>场景描述、动作标签、反馈状态、成功标准、错误类型、评估规格</dd></div>
-        <div><dt>覆盖范围</dt><dd>家居、商超、工业和医疗中的操作。双足双臂和手持操作臂仍在整理</dd></div>
-        <div><dt>供给</dt><dd>数据格式按目标平台定制生产</dd></div>
-      </dl>
-    </article>
-  </section>
-
-  <section class="chapter dark" id="exam">
-    <h2>06</h2>
+  <section class="chapter light" id="exam">
+    <h2>09</h2>
     <p class="chapter-line">已打包的公开试卷</p>
 
     <article id="shelf">
@@ -410,6 +377,50 @@
         <div><dt>用途</dt><dd>无需自建评测环境</dd></div>
         <div><dt>交付内容</dt><dd>数据包、版本说明、评分脚本、可复现验证环境、验收报告</dd></div>
         <div><dt>供给</dt><dd>按指定基准打包交付</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter dark" id="scene">
+    <h2>10</h2>
+    <p class="chapter-line">相机轨迹与场景库</p>
+
+    <article id="sim">
+      <h3>场景仿真</h3>
+      <p class="lede">按相机轨迹巡游场景，并附一套可搭建、可导航的场景库</p>
+      <dl>
+        <div><dt>判定标准</dt><dd>相机轨迹与画面一致，场景可再打开</dd></div>
+        <div><dt>用途</dt><dd>空间理解和导航训练</dd></div>
+        <div><dt>交付内容</dt><dd>工程、分割、巡游视频和逐帧相机轨迹；场景库按参考图或文字搭建，也可供抓取和搬运</dd></div>
+        <div><dt>覆盖范围</dt><dd>相机轨迹和场景库。日常环境包括家居、办公、仓库、工厂、医疗和日常服务</dd></div>
+        <div><dt>供给</dt><dd>按场景提供，也可按需搭建</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter light" id="other">
+    <h2>11</h2>
+    <p class="chapter-line">仓库存档、测绘与制造</p>
+
+    <article id="corpus">
+      <h3>仓库存档</h3>
+      <p class="lede">保存公开仓库的源码、提交、讨论和议题，不按测试评分</p>
+      <dl>
+        <div><dt>交付内容</dt><dd>仓库文件或打包源码、提交、PR、Issue、许可证与来源地址。重复的 Fork 与镜像单独标明</dd></div>
+        <div><dt>覆盖范围</dt><dd>若干公开仓库的源码、提交、PR 与 Issue，语言包括 JavaScript、Go、Rust、Python</dd></div>
+        <div><dt>供给</dt><dd>按样例所示的仓库交付，规模另计</dd></div>
+      </dl>
+    </article>
+
+    <article id="rest">
+      <h3>测绘与制造</h3>
+      <p class="lede">测绘坐标核查，以及生产记录的批次追溯</p>
+      <dl>
+        <div><dt>判定标准</dt><dd>按条目对照标准结果</dd></div>
+        <div><dt>用途</dt><dd>测绘和生产记录的核查</dd></div>
+        <div><dt>交付内容</dt><dd>原始记录、任务和逐条结论</dd></div>
+        <div><dt>覆盖范围</dt><dd>测绘、制造</dd></div>
+        <div><dt>供给</dt><dd>按需提供</dd></div>
       </dl>
     </article>
   </section>
@@ -459,7 +470,7 @@
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
   }
-  section, article, .pick, div.note { scroll-margin-top: 72px; }
+  section, article, .pick, div.note { scroll-margin-top: 132px; }
   .nav {
     position: sticky;
     top: 0;
@@ -467,29 +478,37 @@
     min-height: 56px;
     display: flex;
     align-items: center;
-    gap: 4px 22px;
-    padding: 0 max(var(--pad), env(safe-area-inset-right)) 0 max(var(--pad), env(safe-area-inset-left));
-    background: rgba(244, 241, 234, .88);
+    gap: 10px 18px;
+    padding: 10px max(var(--pad), env(safe-area-inset-right)) 10px max(var(--pad), env(safe-area-inset-left));
+    background: rgba(244, 241, 234, .94);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--line);
-    font-size: 13px;
-    overflow-x: auto;
-    scrollbar-width: none;
+    font-size: 14px;
   }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav-links { display: flex; align-items: center; gap: 4px 22px; }
-  .nav a {
-    color: var(--muted);
-    white-space: nowrap;
-    padding: 18px 0;
+  .nav-links { display: flex; flex: 1; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; }
+  .nav a { color: var(--ink); white-space: nowrap; }
+  .nav-links a {
+    font-weight: 600;
+    padding: 7px 12px;
+    border: 1px solid rgba(28, 27, 25, .18);
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 1px 0 rgba(28, 27, 25, .04);
+  }
+  .nav-links a.is-current {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
   }
   .nav .mark {
     flex: none;
-    margin-right: 12px;
+    align-self: center;
     font-family: var(--serif);
     font-size: 18px;
+    font-weight: 600;
     color: var(--ink);
+    padding: 6px 0;
   }
   .lang {
     flex: none;
@@ -562,7 +581,8 @@
   }
   .nav.compact .nav-links a:last-child { border-bottom: 0; }
   @media (hover: hover) {
-    .nav a:hover { color: var(--ink); }
+    .nav-links a:hover { border-color: var(--ink); }
+    .nav-links a.is-current:hover { color: #fff; }
   }
   .lang select {
     appearance: none;
@@ -1317,22 +1337,24 @@
     kernel: { title: "显卡内核", sources: [{ label: LIST, pack: "kernel" }] },
     terminal: { title: "终端作业", sources: [{ label: CATALOG, html: "samples/raw/terminal.html" }] },
     desktop: { title: "桌面交付", sources: [
-      { label: LIST, pack: "osworld" },
-      { label: "PCB 绘制", html: "samples/raw/cad.html" }
+      { label: LIST, pack: "osworld" }
     ]},
     pro: { title: "工程制作", sources: [
       { label: LIST, pack: "ale" },
-      { label: "3D 建模 · 游戏开发", html: "samples/raw/studio.html" }
+      { label: "3D 建模 · 游戏开发", html: "samples/raw/studio.html" },
+      { label: "PCB 绘制", html: "samples/raw/cad.html" }
     ]},
     office: { title: "跨文件作业", sources: [{ label: LIST, pack: "working" }] },
     camera: { title: "多相机画面", sources: [{ label: CATALOG, html: "samples/raw/ego.html" }] },
     body: { title: "肢体操作", sources: [{ label: CATALOG, html: "samples/raw/robot.html" }] },
     room: { title: "行业文书", sources: [
-      { label: "GNSS", html: "samples/raw/room.html" },
+      { label: "法律", html: "samples/raw/room.html" },
       { label: "投行数据", html: "samples/raw/banking.html" },
       { label: "量化投资 · 金融投研", html: "samples/raw/finance.html" }
     ]},
-    session: { title: "长程调用", sources: [{ label: CATALOG, html: "samples/raw/session.html" }] }
+    session: { title: "长程调用", sources: [{ label: CATALOG, html: "samples/raw/session.html" }] },
+    sim: { title: "场景仿真", sources: [{ label: CATALOG, html: "samples/raw/ego.html" }] },
+    rest: { title: "测绘与制造", sources: [{ label: "测绘与制造", html: "samples/raw/room.html" }] }
   };
   // Heading shown inside each expanded folder, keyed by pack and folder path ("" = loose files).
   var GROUP_TITLE = {
@@ -1877,9 +1899,21 @@
   }
   function fitNav() {
     nav.classList.remove("compact");
-    var tight = nav.scrollWidth > nav.clientWidth + 1;
-    nav.classList.toggle("compact", tight);
-    if (!tight) setMenu(false);
+    setMenu(false);
+  }
+  var navLinks = [].slice.call(document.querySelectorAll("#nav-links a"));
+  var navSections = navLinks.map(function (link) {
+    return document.querySelector(link.getAttribute("href"));
+  });
+  function markNav() {
+    var line = nav.offsetHeight + 12;
+    var current = navSections[0];
+    navSections.forEach(function (section) {
+      if (section && section.getBoundingClientRect().top <= line) current = section;
+    });
+    navLinks.forEach(function (link, i) {
+      link.classList.toggle("is-current", navSections[i] === current);
+    });
   }
   navToggle.addEventListener("click", function () {
     setMenu(!nav.classList.contains("open"));
@@ -1903,6 +1937,8 @@
     requestAnimationFrame(function () { fitQueued = false; fitNav(); });
   });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNav);
+  window.addEventListener("scroll", markNav, { passive: true });
+  markNav();
   document.getElementById("viewer-close").addEventListener("click", closeViewer);
   viewer.addEventListener("click", function (event) {
     if (event.target === viewer) closeViewer();
