@@ -1900,26 +1900,56 @@
   function fitNav() {
     nav.classList.remove("compact");
     setMenu(false);
+    var gap = (nav.offsetHeight + 16) + "px";
+    document.querySelectorAll("section, article, div.note").forEach(function (el) {
+      el.style.scrollMarginTop = gap;
+    });
   }
   var navLinks = [].slice.call(document.querySelectorAll("#nav-links a"));
   var navSections = navLinks.map(function (link) {
     return document.querySelector(link.getAttribute("href"));
   });
+  var navLock = false;
+  var navLockTimer = 0;
+  function showCurrent(link) {
+    navLinks.forEach(function (item) {
+      item.classList.toggle("is-current", item === link);
+    });
+  }
   function markNav() {
-    var line = nav.offsetHeight + 12;
-    var current = navSections[0];
+    if (navLock) return;
+    var line = nav.getBoundingClientRect().bottom + 20;
+    var current = null;
+    var best = Infinity;
     navSections.forEach(function (section) {
-      if (section && section.getBoundingClientRect().top <= line) current = section;
+      if (!section) return;
+      var top = section.getBoundingClientRect().top;
+      var dist = Math.abs(top - line);
+      if (top < line + 48 && dist < best) {
+        best = dist;
+        current = section;
+      }
     });
-    navLinks.forEach(function (link, i) {
-      link.classList.toggle("is-current", navSections[i] === current);
+    var link = null;
+    navSections.forEach(function (section, i) {
+      if (section === current) link = navLinks[i];
     });
+    showCurrent(link);
   }
   navToggle.addEventListener("click", function () {
     setMenu(!nav.classList.contains("open"));
   });
   document.getElementById("nav-links").addEventListener("click", function (event) {
-    if (event.target.closest("a")) setMenu(false);
+    var link = event.target.closest("a");
+    if (!link) return;
+    setMenu(false);
+    navLock = true;
+    clearTimeout(navLockTimer);
+    showCurrent(link);
+    navLockTimer = setTimeout(function () {
+      navLock = false;
+      markNav();
+    }, 800);
   });
   document.addEventListener("click", function (event) {
     if (nav.classList.contains("open") && !nav.contains(event.target)) setMenu(false);
