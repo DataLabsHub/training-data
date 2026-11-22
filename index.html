@@ -40,9 +40,9 @@
     <ol>
       <li>
         <span class="use">RL 训练</span>
-        <b>Terminal-Bench、SWE-bench、KernelBench、OSWorld，含环境与自动评分</b>
+        <b>Terminal-Bench、SWE-bench、OSWorld，含环境与自动评分</b>
         <p class="go bold"><a href="#terminal">Terminal-Bench</a><a href="#repo">SWE-bench</a><a href="#edge">EdgeBench</a><a href="#kernel">KernelBench</a><a href="#office">跨文件办公</a><a href="#desktop">OSWorld</a></p>
-        <p class="aside">Terminal-Bench、SWE-bench、KernelBench、OSWorld，含环境、评分与参考解</p>
+        <p class="aside">含环境、评分与参考解</p>
       </li>
       <li>
         <span class="use">行为模仿</span>
@@ -64,9 +64,9 @@
       </li>
       <li>
         <span class="use">画面与动作</span>
-        <b>WorldModelBench 附相机参数，GoPro 实拍，EmbodiedBench 真机动作</b>
+        <b>WorldModelBench、EmbodiedBench</b>
         <p class="go bold"><a href="#camera">WorldModelBench</a><a href="#body">EmbodiedBench</a></p>
-        <p class="aside">GoPro、iPhone、RealSense 含现成时段，也可按场景定制</p>
+        <p class="aside">含现成时段，也可按场景定制</p>
       </li>
       <li>
         <span class="use">评测基线</span>
@@ -99,7 +99,7 @@
 
     <article id="derive">
       <h3>GPQA</h3>
-      <p class="lede">GPQA、SciCode、HLE、MMLU-Pro、MMMU。附标准答案与解题过程</p>
+      <p class="lede">GPQA、SciCode、HLE。附标准答案与解题过程</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://github.com/idavidrein/gpqa" target="_blank" rel="noopener">GPQA</a></p>
         <p><a href="https://scicode-bench.github.io/" target="_blank" rel="noopener">SciCode</a></p>
@@ -110,9 +110,9 @@
       <dl>
         <div><dt>判定标准</dt><dd>唯一标准答案，附解题过程</dd></div>
         <div><dt>难度</dt><dd>原创新题，无法通过检索拼合解法；跨度从可解问题延伸到尚无公认解的前沿问题</dd></div>
-        <div><dt>用途</dt><dd>GPQA、SciCode、MMMU 方向的科学推理，含图表与多模态题</dd></div>
+        <div><dt>用途</dt><dd>GPQA 方向的科学推理，含图表与多模态题</dd></div>
         <div><dt>交付内容</dt><dd>题目、标准答案、推导步骤、知识点与难度标注，经第二位专家独立盲审</dd></div>
-        <div><dt>覆盖范围</dt><dd>物理、化学、生物、数学。另有科学与生命科学：表面电极离子阱、石墨烯与 Li 原子势、ECP5-85F、p-bit、DNA 修复主分子核型</dd></div>
+        <div><dt>覆盖范围</dt><dd>物理、化学、生物、数学、科学、生命科学</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
@@ -131,14 +131,14 @@
         <div><dt>难度</dt><dd>每题附强模型多次运行的通过记录</dd></div>
         <div><dt>用途</dt><dd>AIME、OlympiadBench、MATH-500，题目无法检索到原题</dd></div>
         <div><dt>交付内容</dt><dd>题目、完整解答、最终答案、模型运行记录、学段与解题技巧标签</dd></div>
-        <div><dt>覆盖范围</dt><dd>OlympiadBench、MATH-500、AIME、HLE。信息学、组合数学、代数、数论</dd></div>
+        <div><dt>覆盖范围</dt><dd>信息学、组合数学、代数、数论</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
 
     <article id="clinical">
       <h3>HealthBench</h3>
-      <p class="lede">HealthBench、MedQA、MedXpertQA、MMMU。经复核，保留模型易错样本</p>
+      <p class="lede">HealthBench、MedQA。经复核，保留模型易错样本</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://openai.com/index/healthbench/" target="_blank" rel="noopener">HealthBench</a></p>
         <p><a href="https://github.com/jind11/MedQA" target="_blank" rel="noopener">MedQA</a></p>
@@ -148,9 +148,9 @@
       <dl>
         <div><dt>判定标准</dt><dd>医生认可的标准选项与理由</dd></div>
         <div><dt>难度</dt><dd>剔除强模型普遍答对的题，保留易错样本</dd></div>
-        <div><dt>用途</dt><dd>HealthBench、MedQA、MedXpertQA 方向的临床诊疗推理，含医学影像</dd></div>
+        <div><dt>用途</dt><dd>HealthBench 方向的临床诊疗推理，含医学影像</dd></div>
         <div><dt>交付内容</dt><dd>题目、选项、理由、多模型评分、难度分层；发布前完成去标识化核验</dd></div>
-        <div><dt>覆盖范围</dt><dd>HealthBench、MedQA、MedXpertQA。诊断推理、流行病学、生物统计</dd></div>
+        <div><dt>覆盖范围</dt><dd>诊断推理、流行病学、生物统计</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
@@ -162,7 +162,7 @@
 
     <article id="repo">
       <h3>SWE-bench<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">SWE-bench、SWE-bench-Live、DeepSWE。cattrs、actix-web、Gitea、click、jsonschema 上测试通过即完成</p>
+      <p class="lede">SWE-bench、SWE-bench-Live、DeepSWE。测试通过即完成</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://www.swebench.com/" target="_blank" rel="noopener">SWE-bench</a></p>
         <p><a href="https://labs.scale.com/leaderboard/swe_bench_pro" target="_blank" rel="noopener">SWE-Bench Pro</a></p>
@@ -176,49 +176,49 @@
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>新增测试须通过，既有测试须保持通过；自述完成不计</dd></div>
-        <div><dt>用途</dt><dd>SWE-bench：cattrs、actix-web、Gitea、click、jsonschema 上的缺陷修复与功能开发</dd></div>
+        <div><dt>用途</dt><dd>SWE-bench 上的缺陷修复与功能开发</dd></div>
         <div><dt>交付内容</dt><dd>可运行环境、参考改动与自动评分，可附操作过程</dd></div>
-        <div><dt>覆盖范围</dt><dd>Rust、Java、Go、PHP、Ruby、JavaScript、TypeScript、C、C++、cattrs、actix-web、Gitea、click、jsonschema。含须对照截图、设计稿或报错画面来修的题。另可定制 SWE-Marathon、ProgramBench、FrontierSWE</dd></div>
+        <div><dt>覆盖范围</dt><dd>Rust、Java、Go、PHP、Ruby、JavaScript、TypeScript、C、C++。另可定制 SWE-Marathon、ProgramBench、FrontierSWE</dd></div>
         <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
       </dl>
     </article>
 
     <article id="corpus">
       <h3>GitHub</h3>
-      <p class="lede">slugify、ansi-styles、ozzo-validation、similar、parchment、floem、pydantic-settings、terraform-provider-meshstack 的源码、提交、PR 与 Issue，不是 SWE-bench 题目</p>
+      <p class="lede">GitHub 仓库的源码、提交、PR 与 Issue，不是 SWE-bench 题目</p>
       <dl>
         <div><dt>交付内容</dt><dd>仓库文件或打包源码、提交、PR、Issue、许可证与来源地址。重复的 Fork 与镜像单独标明</dd></div>
-        <div><dt>覆盖范围</dt><dd>slugify、ansi-styles、ozzo-validation、similar、parchment、floem、pydantic-settings、terraform-provider-meshstack</dd></div>
+        <div><dt>覆盖范围</dt><dd>GitHub</dd></div>
         <div><dt>供给</dt><dd>按样例所示的仓库交付，规模另计</dd></div>
       </dl>
     </article>
 
     <article id="edge">
       <h3>EdgeBench<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">EdgeBench：Celery、NATS。改造须同时满足多项约束</p>
+      <p class="lede">EdgeBench。改造须同时满足多项约束</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://pipelinelab.ai/blog/edgebenchswe/" target="_blank" rel="noopener">EdgeBench SWE</a></p>
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>自动测试对照参考改动</dd></div>
         <div><dt>难度</dt><dd>多约束耦合，难于常规修复</dd></div>
-        <div><dt>用途</dt><dd>EdgeBench 上 Celery、NATS 的长程功能开发</dd></div>
+        <div><dt>用途</dt><dd>EdgeBench 上的长程功能开发</dd></div>
         <div><dt>交付内容</dt><dd>可运行环境、完整仓库、改造路线、参考改动、自动测试、完整操作过程</dd></div>
-        <div><dt>覆盖范围</dt><dd>Celery、NATS。并发与一致性、存储与故障恢复、接口兼容、分布式场景下的边界情形</dd></div>
+        <div><dt>覆盖范围</dt><dd>并发与一致性、存储与故障恢复、接口兼容、分布式系统</dd></div>
         <div><dt>供给</dt><dd>现货供应，每周持续新增</dd></div>
       </dl>
     </article>
 
     <article id="kernel">
       <h3>KernelBench<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">KernelBench：CUDA、Triton，在 A100、H200、B200 上数值正确且更快</p>
+      <p class="lede">KernelBench：CUDA、Triton。数值正确且更快</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://scalingintelligence.stanford.edu/blogs/kernelbench/" target="_blank" rel="noopener">KernelBench</a></p>
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>数值正确，且显卡性能达标</dd></div>
         <div><dt>难度</dt><dd>每条附独立性能基线，需多轮实验迭代</dd></div>
-        <div><dt>用途</dt><dd>KernelBench，CUDA 与 Triton，在 A100、H200、B200 上多轮实验</dd></div>
+        <div><dt>用途</dt><dd>KernelBench，CUDA 与 Triton</dd></div>
         <div><dt>交付内容</dt><dd>执行环境、参考实现、正确性测试、性能基准、优化轨迹；可选专家复核</dd></div>
         <div><dt>供给</dt><dd>大批量现货，每周持续新增</dd></div>
       </dl>
@@ -237,7 +237,7 @@
         <div><dt>难度</dt><dd>强模型多次运行：多数失败，但均有成功记录</dd></div>
         <div><dt>用途</dt><dd>Terminal-Bench、Harbor，含科学计算与网络安全攻防</dd></div>
         <div><dt>交付内容</dt><dd>任务配置、运行环境、单独的评分环境、参考解、运行记录、防泄漏标记</dd></div>
-        <div><dt>覆盖范围</dt><dd>科学计算、软件与系统、运维与财务核对、媒体处理。另含编译器加速、WASM、代码高尔夫。另有网络安全攻防：CTF、Web、Pwn、Reverse、Crypto、Forensics、Misc</dd></div>
+        <div><dt>覆盖范围</dt><dd>科学计算、软件与系统、运维与财务核对、媒体处理、网络安全攻防</dd></div>
         <div><dt>供给</dt><dd>按需持续生产</dd></div>
       </dl>
     </article>
@@ -249,7 +249,7 @@
 
     <article id="ground">
       <h3>ScreenSpot-Pro</h3>
-      <p class="lede">ScreenSpot-Pro、WebArena、VisualWebArena、AndroidWorld、OSWorld。按指令定位控件，并核验操作后界面</p>
+      <p class="lede">ScreenSpot-Pro、WebArena、OSWorld。按指令定位控件，并核验操作后界面</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://webarena.dev/" target="_blank" rel="noopener">WebArena</a></p>
         <p><a href="https://jykoh.com/vwa" target="_blank" rel="noopener">VisualWebArena</a></p>
@@ -259,40 +259,40 @@
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>定位正确，操作后界面正确</dd></div>
-        <div><dt>用途</dt><dd>ScreenSpot-Pro、WebArena、AndroidWorld、OSWorld 上的界面元素定位</dd></div>
+        <div><dt>用途</dt><dd>ScreenSpot-Pro 上的界面元素定位</dd></div>
         <div><dt>交付内容</dt><dd>截图、位置框、操作步骤、界面结构、操作后状态</dd></div>
-        <div><dt>覆盖范围</dt><dd>WebArena、VisualWebArena、AndroidWorld、OSWorld。Web、移动、桌面三端</dd></div>
+        <div><dt>覆盖范围</dt><dd>Web、移动、桌面</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
 
     <article id="desktop">
       <h3>OSWorld<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">OSWorld：FreeCAD、SolveSpace、WPS、Shotcut、Impress、OpenBoard、SolidWorks、KiCad、CM4。交付可打开文件</p>
+      <p class="lede">OSWorld、PCB 绘制。交付可打开文件</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://osworld-v2.xlang.ai/" target="_blank" rel="noopener">OSWorld 2.0</a></p>
         <p><a href="https://os-world.github.io/" target="_blank" rel="noopener">OSWorld</a></p>
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>以可打开文件验收，不以录像判定</dd></div>
-        <div><dt>用途</dt><dd>OSWorld，在 FreeCAD、KiCad、SolidWorks 中以文件交付判定完成</dd></div>
-        <div><dt>交付内容</dt><dd>FreeCAD、KiCad、SolidWorks 的工作环境、参考文件、可编辑原生文件、导出结果与自动评分</dd></div>
-        <div><dt>覆盖范围</dt><dd>FreeCAD、SolveSpace、WPS、Shotcut、Impress、OpenBoard、SolidWorks、PCB 绘制、KiCad、CM4</dd></div>
+        <div><dt>用途</dt><dd>OSWorld，以文件交付判定完成</dd></div>
+        <div><dt>交付内容</dt><dd>工作环境、参考文件、可编辑原生文件、导出结果与自动评分</dd></div>
+        <div><dt>覆盖范围</dt><dd>PCB 绘制</dd></div>
         <div><dt>供给</dt><dd>按需持续供给</dd></div>
       </dl>
     </article>
 
     <article id="pro">
       <h3>ALE</h3>
-      <p class="lede">ALE：OpenRocket、DS9、FlightGear、OpenSim、Blender、Godot。交付可打开的工程文件</p>
+      <p class="lede">ALE、3D 建模、游戏开发。交付可打开的工程文件</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://agents-last-exam.org" target="_blank" rel="noopener">Agents' Last Exam (ALE)</a></p>
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>工程产物与实际执行结果</dd></div>
-        <div><dt>用途</dt><dd>ALE、Blender、Godot、OpenRocket 中的长流程工作</dd></div>
-        <div><dt>交付内容</dt><dd>OpenRocket、DS9、FlightGear、OpenSim、Blender 的任务、原生文件、执行结果与验证；样例展示任务部分</dd></div>
-        <div><dt>覆盖范围</dt><dd>OpenRocket、DS9、FlightGear、OpenSim、3D 建模、Blender、游戏开发、Godot</dd></div>
+        <div><dt>用途</dt><dd>ALE、3D 建模、游戏开发中的长流程工作</dd></div>
+        <div><dt>交付内容</dt><dd>任务、原生文件、执行结果与验证；样例展示任务部分</dd></div>
+        <div><dt>覆盖范围</dt><dd>3D 建模、游戏开发</dd></div>
         <div><dt>供给</dt><dd>现货供应，专家制作，每周持续新增</dd></div>
       </dl>
     </article>
@@ -310,7 +310,7 @@
 
     <article id="room">
       <h3>GDPval</h3>
-      <p class="lede">GDPval、LegalBench：GNSS、量化投资、金融投研、投行数据。按条目评分</p>
+      <p class="lede">GDPval：量化投资、金融投研、投行数据。按条目评分</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://openai.com/index/gdpval/" target="_blank" rel="noopener">GDPval</a></p>
         <p><a href="https://hazyresearch.stanford.edu/legalbench/" target="_blank" rel="noopener">LegalBench</a></p>
@@ -321,9 +321,9 @@
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>按条目对照标准结果，不按整体印象</dd></div>
-        <div><dt>用途</dt><dd>GDPval、LegalBench、APEX-Agents、WorkArena 上的专业知识工作</dd></div>
+        <div><dt>用途</dt><dd>GDPval 上的专业知识工作</dd></div>
         <div><dt>交付内容</dt><dd>整套文档、任务、标准答案、逐条评分、合规边界和审计记录</dd></div>
-        <div><dt>覆盖范围</dt><dd>GNSS、LegalBench、量化投资、金融投研、投行数据。法律、金融、医疗、制造</dd></div>
+        <div><dt>覆盖范围</dt><dd>法律、金融、医疗、制造、量化投资、金融投研、投行数据</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
@@ -335,7 +335,7 @@
 
     <article id="session">
       <h3>GAIA</h3>
-      <p class="lede">GAIA、BFCL、ToolBench、τ-Bench、AssistantBench。长程工具调用，保留失败、回退与纠正</p>
+      <p class="lede">GAIA、BFCL、ToolBench。长程工具调用，保留失败、回退与纠正</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://huggingface.co/spaces/gaia-benchmark/leaderboard" target="_blank" rel="noopener">GAIA</a></p>
         <p><a href="https://github.com/OpenBMB/ToolBench" target="_blank" rel="noopener">ToolBench</a></p>
@@ -346,7 +346,7 @@
       <dl>
         <div><dt>判定标准</dt><dd>关键步骤可核验，全程可回放</dd></div>
         <div><dt>难度</dt><dd>超长多轮会话，含真实失误与纠正</dd></div>
-        <div><dt>用途</dt><dd>GAIA、BFCL、ToolBench 的全过程记录，供逐步监督</dd></div>
+        <div><dt>用途</dt><dd>GAIA、BFCL 的全过程记录，供逐步监督</dd></div>
         <div><dt>交付内容</dt><dd>工具调用、环境观察、失败与回退标注、轨迹摘要</dd></div>
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
@@ -359,30 +359,30 @@
 
     <article id="camera">
       <h3>WorldModelBench</h3>
-      <p class="lede">WorldModelBench：GoPro、iPhone、RealSense、Blender。仿真附每帧相机参数，实拍附时间轴与传感器记录</p>
+      <p class="lede">WorldModelBench。仿真附每帧相机参数，实拍附时间轴与传感器记录</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://worldmodelbench-team.github.io/" target="_blank" rel="noopener">WorldModelBench</a></p>
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>仿真画面要求多相机空间一致，动作幅度在约定区间；实拍按时间轴与传感器记录核验</dd></div>
-        <div><dt>用途</dt><dd>WorldModelBench，GoPro 与 Blender 的空间理解训练</dd></div>
+        <div><dt>用途</dt><dd>WorldModelBench 的空间理解训练</dd></div>
         <div><dt>交付内容</dt><dd>仿真含多视角画面、相机参数、位置与朝向、深度和分割；实拍含视频、时间轴与惯性测量</dd></div>
-        <div><dt>覆盖范围</dt><dd>GoPro、iPhone、RealSense、Blender。运动幅度分档均衡，第一与第三人称视角同步。多目仍在整理</dd></div>
+        <div><dt>覆盖范围</dt><dd>仿真、实拍。多目仍在整理</dd></div>
         <div><dt>供给</dt><dd>仿真场景可预设；实拍可交付现成时段，也可按场景定制</dd></div>
       </dl>
     </article>
 
     <article id="body">
       <h3>EmbodiedBench</h3>
-      <p class="lede">EmbodiedBench：家居、商超、工业、医疗、轮式双臂。标明成败</p>
+      <p class="lede">EmbodiedBench：家居、商超、工业、医疗。标明成败</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://embodiedbench.github.io/" target="_blank" rel="noopener">EmbodiedBench</a></p>
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>预先定义成败标准，核验动作后状态</dd></div>
-        <div><dt>用途</dt><dd>EmbodiedBench：家居、商超、工业、医疗、轮式双臂上的观察、决策与执行</dd></div>
+        <div><dt>用途</dt><dd>EmbodiedBench 上的观察、决策与执行</dd></div>
         <div><dt>交付内容</dt><dd>场景描述、动作标签、反馈状态、成功标准、错误类型、评估规格</dd></div>
-        <div><dt>覆盖范围</dt><dd>家居、商超、工业、医疗、轮式双臂。双足双臂与手持操作臂仍在整理</dd></div>
+        <div><dt>覆盖范围</dt><dd>家居、商超、工业、医疗</dd></div>
         <div><dt>供给</dt><dd>数据格式按目标平台定制生产</dd></div>
       </dl>
     </article>
@@ -394,7 +394,7 @@
 
     <article id="shelf">
       <h3>现成考卷</h3>
-      <p class="lede">Terminal-Bench、SWE-bench、HealthBench、GPQA、MMLU-Pro、OSWorld、GAIA、BFCL 已打包，部署即可评分</p>
+      <p class="lede">Terminal-Bench、SWE-bench、GPQA、OSWorld、GAIA 已打包，部署即可评分</p>
       <div class="bench"><span>覆盖</span><div>
         <p><a href="https://www.tbench.ai/" target="_blank" rel="noopener">Terminal-Bench</a></p>
         <p><a href="https://www.swebench.com/" target="_blank" rel="noopener">SWE-bench</a></p>
@@ -407,9 +407,9 @@
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>采用官方评分，并于另一环境复现</dd></div>
-        <div><dt>用途</dt><dd>Terminal-Bench、SWE-bench、GPQA、OSWorld，无需自建评测环境</dd></div>
+        <div><dt>用途</dt><dd>无需自建评测环境</dd></div>
         <div><dt>交付内容</dt><dd>数据包、版本说明、评分脚本、可复现验证环境、验收报告</dd></div>
-        <div><dt>供给</dt><dd>按 Terminal-Bench、SWE-bench、GPQA、OSWorld 指定基准打包交付</dd></div>
+        <div><dt>供给</dt><dd>按指定基准打包交付</dd></div>
       </dl>
     </article>
   </section>
@@ -1310,7 +1310,7 @@
     repo: { title: "SWE-bench", sources: [
       { label: LIST, pack: "deepswe" },
       { label: CATALOG, html: "samples/raw/repo.html" },
-      { label: "click · jsonschema", html: "samples/raw/frontier.html" }
+      { label: "SWE-bench", html: "samples/raw/frontier.html" }
     ]},
     corpus: { title: "GitHub", sources: [{ label: CATALOG, html: "samples/raw/corpus.html" }] },
     edge: { title: "EdgeBench", sources: [{ label: LIST, pack: "edge" }] },
@@ -1337,8 +1337,8 @@
   // Heading shown inside each expanded folder, keyed by pack and folder path ("" = loose files).
   var GROUP_TITLE = {
     deepswe: {
-      "Tasks": "OPC UA、py-libp2p、Demisto",
-      "Trajectories": "Claude Opus 5、GPT-5.6",
+      "Tasks": "SWE-bench",
+      "Trajectories": "作答轨迹",
       "": "评测成绩汇总 · 25 道任务通过率"
     },
     working: {
@@ -1346,25 +1346,25 @@
       "Multimodal_Cases": "多模态案例 · 可再生能源证书交割结算"
     },
     edge: {
-      "celery_fenced_execution_roadmap": "Celery",
-      "nats_jetstream_resilience_roadmap": "NATS"
+      "celery_fenced_execution_roadmap": "任务队列",
+      "nats_jetstream_resilience_roadmap": "消息系统"
     },
     ale: {
-      "aerospace_engineering": "OpenRocket",
-      "astronomy_astrophysics": "DS9",
-      "aviation_operations": "FlightGear",
-      "biomechanics_upper_limb_simulation": "OpenSim"
+      "aerospace_engineering": "航空航天",
+      "astronomy_astrophysics": "天文",
+      "aviation_operations": "航空",
+      "biomechanics_upper_limb_simulation": "生物力学"
     },
     osworld: {
-      "task_001": "FreeCAD",
-      "task_002": "SolveSpace",
-      "task_005": "WPS",
-      "task_006": "Shotcut",
-      "task_010": "Impress、OpenBoard"
+      "task_001": "CAD",
+      "task_002": "CAD",
+      "task_005": "办公",
+      "task_006": "视频",
+      "task_010": "教学"
     },
     kernel: {
-      "AutoResearch-Kernel": "A100、H200、B200",
-      "AutoResearch-Kernel-Harder": "A100、H200"
+      "AutoResearch-Kernel": "CUDA",
+      "AutoResearch-Kernel-Harder": "Triton"
     }
   };
 
