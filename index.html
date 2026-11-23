@@ -1913,7 +1913,7 @@
   }
   function fitNav() {
     nav.classList.remove("compact");
-    var tight = nav.scrollWidth > nav.clientWidth + 1;
+    var tight = nav.scrollWidth > nav.clientWidth + 1 || nav.offsetHeight > 120;
     nav.classList.toggle("compact", tight);
     if (!tight) setMenu(false);
     var navH = nav.offsetHeight;
