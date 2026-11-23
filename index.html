@@ -16,19 +16,25 @@
 <body>
 <nav class="nav" id="nav">
   <a class="mark" href="#top">数据与环境</a>
-  <div class="nav-links" id="nav-links">
-    <a href="#pretrain">预训练数据采集</a>
-    <a href="#fin">金融法律医疗生物</a>
-    <a href="#control">电脑控制</a>
-    <a href="#eng">工程软件</a>
-    <a href="#gpu">显卡内核</a>
-    <a href="#long">长程任务</a>
-    <a href="#code">代码智能体</a>
-    <a href="#wear">具身智能</a>
-    <a href="#answer">学科问答</a>
-    <a href="#exam">公开基准</a>
-    <a href="#scene">场景仿真</a>
-    <a href="#other">其他</a>
+  <div class="nav-cluster">
+    <div class="nav-links" id="nav-links">
+      <a href="#pretrain">预训练数据采集</a>
+      <a href="#fin">金融法律医疗生物</a>
+      <a href="#control">电脑控制</a>
+      <a href="#eng">工程软件</a>
+      <a href="#gpu">显卡内核</a>
+      <a href="#long">长程任务</a>
+      <a href="#code">代码智能体</a>
+      <a href="#wear">具身智能</a>
+      <a href="#answer">学科问答</a>
+      <a href="#exam">公开基准</a>
+      <a href="#scene">场景仿真</a>
+      <a href="#other">其他</a>
+    </div>
+    <div class="nav-more" id="nav-more" hidden>
+      <button type="button" class="nav-more-btn" id="nav-more-btn" aria-expanded="false" aria-controls="nav-more-menu" aria-haspopup="true">更多<svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2.2 4.3 6 8l3.8-3.7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="nav-more-menu" id="nav-more-menu" hidden></div>
+    </div>
   </div>
   <div class="lang" id="lang" role="radiogroup" aria-label="Language">
     <span class="lang-thumb" aria-hidden="true"></span>
@@ -538,9 +544,11 @@
     border-bottom: 1px solid var(--line);
     font-size: 14px;
   }
-  .nav-links { display: flex; flex: 1; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; }
+  .nav-cluster { display: flex; flex: 0 1 auto; align-items: center; gap: 8px; min-width: 0; }
+  .nav-links { display: flex; flex: 0 1 auto; flex-wrap: nowrap; align-items: center; gap: 8px; min-width: 0; overflow: hidden; }
   .nav a { color: var(--ink); white-space: nowrap; }
   .nav-links a {
+    flex: none;
     font-weight: 600;
     padding: 7px 12px;
     border: 1px solid rgba(28, 27, 25, .18);
@@ -552,6 +560,65 @@
     background: var(--ink);
     border-color: var(--ink);
     color: #fff;
+  }
+  .nav-more { position: relative; flex: none; }
+  .nav-more[hidden], .nav-more-menu[hidden] { display: none; }
+  .nav-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 7px 12px;
+    border: 1px solid rgba(28, 27, 25, .18);
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 1px 0 rgba(28, 27, 25, .04);
+    color: var(--ink);
+    font: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    touch-action: manipulation;
+  }
+  .nav-more-btn svg { display: block; transition: transform .2s; }
+  .nav-more.open .nav-more-btn svg { transform: rotate(180deg); }
+  .nav-more-btn.is-current,
+  .nav-more.open .nav-more-btn {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+  .nav-more-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .nav-more-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 5;
+    width: max-content;
+    min-width: 220px;
+    max-width: min(360px, calc(100vw - 32px));
+    max-height: min(70vh, 420px);
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: 6px;
+    background: rgb(244, 241, 234);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 18px 32px rgba(28, 27, 25, .12);
+  }
+  .nav-more-menu a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    white-space: normal;
+  }
+  .nav-more-menu a.is-current { background: var(--ink); color: #fff; }
+  @media (prefers-reduced-motion: reduce) {
+    .nav-more-btn svg { transition: none; }
   }
   .nav .mark {
     flex: none;
@@ -671,13 +738,14 @@
     gap: 0;
     max-height: calc(100vh - 56px);
     max-height: calc(100dvh - 56px);
-    overflow-y: auto;
+    overflow: auto;
     overscroll-behavior: contain;
     padding: 6px max(var(--pad), env(safe-area-inset-right)) 12px max(var(--pad), env(safe-area-inset-left));
     background: rgb(244, 241, 234);
     border-bottom: 1px solid var(--line);
     box-shadow: 0 18px 32px rgba(28, 27, 25, .12);
   }
+  .nav.compact .nav-more { display: none; }
   .nav.compact.open .nav-links { display: flex; }
   .nav.compact .nav-links a {
     padding: 14px 2px;
@@ -689,6 +757,11 @@
   @media (hover: hover) {
     .nav-links a:hover { border-color: var(--ink); }
     .nav-links a.is-current:hover { color: #fff; }
+    .nav-more-btn:hover { border-color: var(--ink); }
+    .nav-more-btn.is-current:hover,
+    .nav-more.open .nav-more-btn:hover { color: #fff; }
+    .nav-more-menu a:hover { background: rgba(28, 27, 25, .06); }
+    .nav-more-menu a.is-current:hover { background: var(--ink); color: #fff; }
   }
   .hero {
     max-width: 1120px;
@@ -1959,15 +2032,87 @@
 
   var nav = document.getElementById("nav");
   var navToggle = document.getElementById("nav-toggle");
+  var navMore = document.getElementById("nav-more");
+  var navMoreBtn = document.getElementById("nav-more-btn");
+  var navMoreMenu = document.getElementById("nav-more-menu");
+  var navLinkRow = document.getElementById("nav-links");
   function setMenu(open) {
     nav.classList.toggle("open", open);
     navToggle.setAttribute("aria-expanded", open ? "true" : "false");
   }
+  function setMore(open) {
+    navMore.classList.toggle("open", open);
+    navMoreBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    navMoreMenu.hidden = !open;
+  }
+  var navLinks = [].slice.call(navLinkRow.querySelectorAll("a"));
+  var navSections = navLinks.map(function (link) {
+    return document.querySelector(link.getAttribute("href"));
+  });
+  function syncMoreCurrent() {
+    var currentHref = "";
+    navLinks.forEach(function (item) {
+      if (item.classList.contains("is-current")) currentHref = item.getAttribute("href");
+    });
+    var inMore = false;
+    [].forEach.call(navMoreMenu.children, function (item) {
+      var on = !!currentHref && item.getAttribute("href") === currentHref;
+      item.classList.toggle("is-current", on);
+      if (on) inMore = true;
+    });
+    navMoreBtn.classList.toggle("is-current", inMore);
+  }
+  function layoutPriority() {
+    navLinkRow.style.flex = "";
+    navLinkRow.style.width = "";
+    navLinks.forEach(function (link) { link.hidden = false; });
+    navMore.hidden = true;
+    setMore(false);
+    var gap = parseFloat(getComputedStyle(navLinkRow).columnGap) || 0;
+    var widths = navLinks.map(function (link) { return link.offsetWidth; });
+    function usedWidth(count) {
+      var used = 0;
+      for (var i = 0; i < count; i++) used += widths[i] + (i ? gap : 0);
+      return used;
+    }
+    var fit = navLinks.length;
+    if (usedWidth(fit) > navLinkRow.clientWidth + 1) {
+      navMore.hidden = false;
+      var limit = navLinkRow.clientWidth;
+      while (fit > 0 && usedWidth(fit) > limit + 1) fit--;
+    }
+    navLinks.forEach(function (link, i) { link.hidden = i >= fit; });
+    while (fit > 0 && navLinkRow.scrollWidth > navLinkRow.clientWidth + 1) {
+      fit--;
+      navLinks[fit].hidden = true;
+    }
+    navMoreMenu.innerHTML = "";
+    navLinks.forEach(function (link) {
+      if (!link.hidden) return;
+      var item = document.createElement("a");
+      item.href = link.getAttribute("href");
+      item.textContent = link.textContent;
+      navMoreMenu.appendChild(item);
+    });
+    if (!navMoreMenu.children.length) navMore.hidden = true;
+    else navLinkRow.style.width = usedWidth(fit) + "px";
+    syncMoreCurrent();
+  }
   function fitNav() {
+    var wasOpen = nav.classList.contains("open");
     nav.classList.remove("compact");
-    var tight = nav.scrollWidth > nav.clientWidth + 1 || nav.offsetHeight > 120;
+    layoutPriority();
+    var visible = navLinks.filter(function (link) { return !link.hidden; }).length;
+    var tight = visible === 0 || nav.scrollWidth > nav.clientWidth + 1;
     nav.classList.toggle("compact", tight);
-    if (!tight) setMenu(false);
+    if (tight) {
+      navLinkRow.style.width = "";
+      navLinks.forEach(function (link) { link.hidden = false; });
+      navMore.hidden = true;
+      setMore(false);
+      navMoreBtn.classList.remove("is-current");
+    }
+    if (!tight || !wasOpen) setMenu(false);
     var navH = nav.offsetHeight;
     document.querySelectorAll("section.chapter").forEach(function (el) {
       el.style.scrollMarginTop = Math.max(0, navH - 52) + "px";
@@ -1976,14 +2121,11 @@
       el.style.scrollMarginTop = (navH + 8) + "px";
     });
   }
-  var navLinks = [].slice.call(document.querySelectorAll("#nav-links a"));
-  var navSections = navLinks.map(function (link) {
-    return document.querySelector(link.getAttribute("href"));
-  });
   function showCurrent(link) {
     navLinks.forEach(function (item) {
       item.classList.toggle("is-current", item === link);
     });
+    syncMoreCurrent();
   }
   function markNav() {
     var line = nav.getBoundingClientRect().bottom + 8;
@@ -2003,19 +2145,42 @@
     showCurrent(link);
   }
   navToggle.addEventListener("click", function () {
+    setMore(false);
     setMenu(!nav.classList.contains("open"));
   });
-  document.getElementById("nav-links").addEventListener("click", function (event) {
+  navMoreBtn.addEventListener("click", function () {
+    setMore(!navMore.classList.contains("open"));
+  });
+  navMoreMenu.addEventListener("click", function (event) {
+    var link = event.target.closest("a");
+    if (!link) return;
+    var href = link.getAttribute("href");
+    var match = null;
+    navLinks.forEach(function (item) {
+      if (item.getAttribute("href") === href) match = item;
+    });
+    setMore(false);
+    if (match) showCurrent(match);
+  });
+  navLinkRow.addEventListener("click", function (event) {
     var link = event.target.closest("a");
     if (!link) return;
     setMenu(false);
+    setMore(false);
     showCurrent(link);
   });
   document.addEventListener("click", function (event) {
     if (nav.classList.contains("open") && !nav.contains(event.target)) setMenu(false);
+    if (navMore.classList.contains("open") && !navMore.contains(event.target)) setMore(false);
   });
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && nav.classList.contains("open")) {
+    if (event.key !== "Escape") return;
+    if (navMore.classList.contains("open")) {
+      setMore(false);
+      navMoreBtn.focus();
+      return;
+    }
+    if (nav.classList.contains("open")) {
       setMenu(false);
       navToggle.focus();
     }
