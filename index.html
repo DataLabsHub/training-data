@@ -1913,7 +1913,9 @@
   }
   function fitNav() {
     nav.classList.remove("compact");
-    setMenu(false);
+    var tight = nav.scrollWidth > nav.clientWidth + 1;
+    nav.classList.toggle("compact", tight);
+    if (!tight) setMenu(false);
     var navH = nav.offsetHeight;
     document.querySelectorAll("section.chapter").forEach(function (el) {
       el.style.scrollMarginTop = Math.max(0, navH - 52) + "px";
