@@ -474,7 +474,8 @@
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
   }
-  section, article, .pick, div.note { scroll-margin-top: 132px; }
+  section.chapter { scroll-margin-top: 12px; }
+  article, .pick, div.note { scroll-margin-top: 72px; }
   .nav {
     position: sticky;
     top: 0;
@@ -1913,9 +1914,12 @@
   function fitNav() {
     nav.classList.remove("compact");
     setMenu(false);
-    var gap = (nav.offsetHeight + 16) + "px";
-    document.querySelectorAll("section, article, div.note").forEach(function (el) {
-      el.style.scrollMarginTop = gap;
+    var navH = nav.offsetHeight;
+    document.querySelectorAll("section.chapter").forEach(function (el) {
+      el.style.scrollMarginTop = Math.max(0, navH - 52) + "px";
+    });
+    document.querySelectorAll("article, div.note").forEach(function (el) {
+      el.style.scrollMarginTop = (navH + 8) + "px";
     });
   }
   var navLinks = [].slice.call(document.querySelectorAll("#nav-links a"));
