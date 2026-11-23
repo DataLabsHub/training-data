@@ -1,0 +1,16 @@
+[
+  {
+    "source": "/logs/artifacts",
+    "destination": "artifacts/logs/artifacts",
+    "type": "directory",
+    "status": "empty",
+    "service": null
+  },
+  {
+    "source": "/app/adjudicate.py",
+    "destination": "artifacts/app/adjudicate.py",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  }
+]

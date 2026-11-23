@@ -1,0 +1,83 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T08:30:24.421694+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 2,
+            "failed": 3,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793003423467,
+            "stop": 1793003424421
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_artifact",
+                "status": "passed",
+                "duration": 4,
+                "start": 1793003423567,
+                "stop": 1793003423571,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_stdlib_only",
+                "status": "passed",
+                "duration": 8,
+                "start": 1793003423572,
+                "stop": 1793003423580,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_decode",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 439,
+                "start": 1793003423581,
+                "stop": 1793003424020,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_decode():\n        need()\n        for cid,v,t,cs,off,pr,rs in CS:\n            R,sa=gen(v,t,cs,off,pr,rs);ref=orc(R,v);d=sc()\n            try:\n                o=d+\"/o.jsonl\"\n                r=run(d,[\"decode\",\"--capture\",put(d,\"b.csv\",bcsv(R)),\"--strain\",put(d,\"s.csv\",scsv(sa)),\"--out\",o])\n>               assert r.returncode==0,\"%s rc=%d %s\"%(cid,r.returncode,r.stderr[-1000:])\nE               AssertionError: mixed rc=2 driver.py: decode is unavailable: the supplied documentation and captures do not establish a unique revision-D map or a conclusive per-card revision discriminator. No output was written. See driver.py's module documentation for two incompatible maps consistent with the gain evidence\nE                 \nE               assert 2 == 0\nE                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_k6r44d3e/b....utput was written. See driver.py's module documentation for two incompatible maps consistent with the gain evidence\\n\").returncode\n\n/tests/test_outputs.py:113: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_excite",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 159,
+                "start": 1793003424021,
+                "stop": 1793003424180,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_excite():\n        need()\n        for rev,cs,fq,gn,ph,en in SP:\n            d=sc()\n            try:\n                o=d+\"/w.json\";spec={\"revision\":rev,\"cs\":cs,\"freq_hz\":fq,\"gain\":gn,\"phase_deg\":ph,\"enable\":en}\n                r=run(d,[\"excite\",\"--spec\",put(d,\"p.json\",json.dumps(spec)),\"--out\",o])\n>               assert r.returncode==0,\"excite rc=%d %s\"%(r.returncode,r.stderr[-1000:])\nE               AssertionError: excite rc=2 driver.py: revision-D excitation is not identifiable from the supplied evidence: D_GAIN at 0x09[7:0] and at 0x0D[11:4] both fit the enabled gain observations but require different writes; a confirmed D map is required\nE                 \nE               assert 2 == 0\nE                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'excite', '--spec', '/tmp/pd440_v_xm5anr8s/p.jso...nd at 0x0D[11:4] both fit the enabled gain observations but require different writes; a confirmed D map is required\\n').returncode\n\n/tests/test_outputs.py:136: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_deterministic",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 239,
+                "start": 1793003424181,
+                "stop": 1793003424420,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_deterministic():\n        need();_,v,t,cs,off,pr,rs=CS[0];R,sa=gen(v,t,cs,off,pr,rs);d=sc()\n        try:\n            b=put(d,\"b.csv\",bcsv(R));s=put(d,\"s.csv\",scsv(sa))\n            rev,c2,fq,gn,ph,en=SP[0]\n            p=put(d,\"p.json\",json.dumps({\"revision\":rev,\"cs\":c2,\"freq_hz\":fq,\"gain\":gn,\"phase_deg\":ph,\"enable\":en}))\n            bl=[]\n            for n in \"ab\":\n                o1=d+\"/d\"+n+\".jl\";o2=d+\"/w\"+n+\".json\"\n>               assert run(d,[\"decode\",\"--capture\",b,\"--strain\",s,\"--out\",o1]).returncode==0\nE               assert 2 == 0\nE                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_7yafpr38/b....utput was written. See driver.py's module documentation for two incompatible maps consistent with the gain evidence\\n\").returncode\nE                +    where CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_7yafpr38/b....utput was written. See driver.py's module documentation for two incompatible maps consistent with the gain evidence\\n\") = run('/tmp/pd440_v_7yafpr38', ['decode', '--capture', '/tmp/pd440_v_7yafpr38/b.csv', '--strain', '/tmp/pd440_v_7yafpr38/s.csv', '--out', ...])\n\n/tests/test_outputs.py:158: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

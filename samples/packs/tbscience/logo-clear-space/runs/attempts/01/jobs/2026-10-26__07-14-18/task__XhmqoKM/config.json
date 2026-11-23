@@ -1,0 +1,29 @@
+{
+    "task": {
+        "path": "/data/passrate/tb/runs/logo-clear-space/attempts/01/task"
+    },
+    "trial_name": "task__XhmqoKM",
+    "trials_dir": "jobs/2026-10-26__07-14-18",
+    "agent_setup_timeout_multiplier": 5.0,
+    "agent": {
+        "name": "codex",
+        "model_name": "openai/gpt-6-astra",
+        "kwargs": {
+            "reasoning_effort": "high"
+        },
+        "env": {
+            "PATH": "/opt/codex/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        }
+    },
+    "environment": {
+        "type": "docker",
+        "mounts": [
+            {
+                "type": "bind",
+                "source": "/data/deeploop-bin/codex",
+                "target": "/opt/codex/bin"
+            }
+        ]
+    },
+    "job_id": "45bacb23-8799-495a-bc19-f1abb53a0022"
+}

@@ -1,0 +1,12 @@
+{
+  "task": "logo-clear-space",
+  "model": "openai/gpt-6-astra",
+  "agent": "codex",
+  "status": "done_8",
+  "passes": 4,
+  "valid": 8,
+  "attempts": 8,
+  "pass_rate": 0.5,
+  "wall_sec": 1533,
+  "error": ""
+}

@@ -1,0 +1,92 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T07:39:35.686649+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 7,
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793000375594,
+            "stop": 1793000375686
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_artifacts_present_and_parse",
+                "status": "passed",
+                "duration": 5,
+                "start": 1793000375671,
+                "stop": 1793000375676,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_reference_values_reconcile",
+                "status": "passed",
+                "duration": 3,
+                "start": 1793000375676,
+                "stop": 1793000375679,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_margins_match_standard_references",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000375680,
+                "stop": 1793000375681,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_reference_labels_normalize",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000375681,
+                "stop": 1793000375682,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_svg_ink_placement_matches_standard",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000375682,
+                "stop": 1793000375683,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_reported_margins_agree_with_svgs",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000375684,
+                "stop": 1793000375685,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_artwork_preserved_and_uniformly_translated",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000375685,
+                "stop": 1793000375686,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

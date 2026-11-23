@@ -1,0 +1,119 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T10:10:23.383162+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 10,
+            "passed": 10,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793009423281,
+            "stop": 1793009423383
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_artifact_is_json_object",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793009423368,
+                "stop": 1793009423370,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_band_coverage_and_centres",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009423370,
+                "stop": 1793009423371,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unresolvable_and_marker_consistency",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793009423371,
+                "stop": 1793009423373,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_state_fractions",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009423373,
+                "stop": 1793009423374,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_band_states_match_latent_truth",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009423374,
+                "stop": 1793009423375,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_implied_fractions_track_susceptibility",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009423376,
+                "stop": 1793009423377,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_implied_fractions_cross_excitation",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009423377,
+                "stop": 1793009423378,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ls_phase_activity_and_mutual_exclusion",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009423379,
+                "stop": 1793009423380,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_breathing_mode_carrier",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009423380,
+                "stop": 1793009423381,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_numeric_fields_are_finite_numbers",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009423381,
+                "stop": 1793009423382,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

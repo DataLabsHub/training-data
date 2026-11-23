@@ -1,0 +1,291 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.17, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 13 items
+
+../tests/test_outputs.py FFF.FFFFFFFFF                                   [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_losses_complete _____________________________
+
+    def test_losses_complete():
+        ref = reference()
+>       table = parse_losses(ref)
+                ^^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:508: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:372: in parse_losses
+    lines = _load_lines(LOSSES_PATH)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/losses.jsonl')
+
+    def _load_lines(path):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s" % (path,))
+E           Failed: declared artifact is missing: /app/out/losses.jsonl
+
+/tests/test_outputs.py:117: Failed
+----------------------------- Captured stderr call -----------------------------
+make_vectors: pinned=480 eval=72 policies=3 classes=8
+_____________________________ test_grads_complete ______________________________
+
+    def test_grads_complete():
+        ref = reference()
+>       table = parse_grads(ref)
+                ^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:515: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:398: in parse_grads
+    lines = _load_lines(GRADS_PATH)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/grads.jsonl')
+
+    def _load_lines(path):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s" % (path,))
+E           Failed: declared artifact is missing: /app/out/grads.jsonl
+
+/tests/test_outputs.py:117: Failed
+_____________________________ test_report_complete _____________________________
+
+    def test_report_complete():
+        ref = reference()
+>       table = parse_report(ref)
+                ^^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:521: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:440: in parse_report
+    report = _load_object(REPORT_PATH, "report.json")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/report.json'), label = 'report.json'
+
+    def _load_object(path, label):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s (%s)" % (path, label))
+E           Failed: declared artifact is missing: /app/out/report.json (report.json)
+
+/tests/test_outputs.py:127: Failed
+__________________________ test_losses_match_contract __________________________
+
+    def test_losses_match_contract():
+        ref = reference()
+>       delivered = parse_losses(ref)
+                    ^^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:548: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:372: in parse_losses
+    lines = _load_lines(LOSSES_PATH)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/losses.jsonl')
+
+    def _load_lines(path):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s" % (path,))
+E           Failed: declared artifact is missing: /app/out/losses.jsonl
+
+/tests/test_outputs.py:117: Failed
+____________________________ test_losses_match_gold ____________________________
+
+    def test_losses_match_gold():
+        ref = reference()
+>       delivered = parse_losses(ref)
+                    ^^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:562: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:372: in parse_losses
+    lines = _load_lines(LOSSES_PATH)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/losses.jsonl')
+
+    def _load_lines(path):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s" % (path,))
+E           Failed: declared artifact is missing: /app/out/losses.jsonl
+
+/tests/test_outputs.py:117: Failed
+__________________________ test_grads_match_contract ___________________________
+
+    def test_grads_match_contract():
+        ref = reference()
+>       delivered = parse_grads(ref)
+                    ^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:578: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:398: in parse_grads
+    lines = _load_lines(GRADS_PATH)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/grads.jsonl')
+
+    def _load_lines(path):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s" % (path,))
+E           Failed: declared artifact is missing: /app/out/grads.jsonl
+
+/tests/test_outputs.py:117: Failed
+__________________________ test_grads_support_pattern __________________________
+
+    def test_grads_support_pattern():
+        ref = reference()
+>       delivered = parse_grads(ref)
+                    ^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:597: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:398: in parse_grads
+    lines = _load_lines(GRADS_PATH)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/grads.jsonl')
+
+    def _load_lines(path):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s" % (path,))
+E           Failed: declared artifact is missing: /app/out/grads.jsonl
+
+/tests/test_outputs.py:117: Failed
+____________________________ test_grads_match_gold _____________________________
+
+    def test_grads_match_gold():
+        ref = reference()
+>       delivered = parse_grads(ref)
+                    ^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:623: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:398: in parse_grads
+    lines = _load_lines(GRADS_PATH)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/grads.jsonl')
+
+    def _load_lines(path):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s" % (path,))
+E           Failed: declared artifact is missing: /app/out/grads.jsonl
+
+/tests/test_outputs.py:117: Failed
+__________________________ test_grad_rows_sum_to_zero __________________________
+
+    def test_grad_rows_sum_to_zero():
+        ref = reference()
+>       delivered = parse_grads(ref)
+                    ^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:642: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:398: in parse_grads
+    lines = _load_lines(GRADS_PATH)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/grads.jsonl')
+
+    def _load_lines(path):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s" % (path,))
+E           Failed: declared artifact is missing: /app/out/grads.jsonl
+
+/tests/test_outputs.py:117: Failed
+___________________________ test_report_denominator ____________________________
+
+    def test_report_denominator():
+        ref = reference()
+>       report = parse_report(ref)
+                 ^^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:664: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:440: in parse_report
+    report = _load_object(REPORT_PATH, "report.json")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/report.json'), label = 'report.json'
+
+    def _load_object(path, label):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s (%s)" % (path, label))
+E           Failed: declared artifact is missing: /app/out/report.json (report.json)
+
+/tests/test_outputs.py:127: Failed
+____________________________ test_report_offending _____________________________
+
+    def test_report_offending():
+        ref = reference()
+>       report = parse_report(ref)
+                 ^^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:677: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:440: in parse_report
+    report = _load_object(REPORT_PATH, "report.json")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/report.json'), label = 'report.json'
+
+    def _load_object(path, label):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s (%s)" % (path, label))
+E           Failed: declared artifact is missing: /app/out/report.json (report.json)
+
+/tests/test_outputs.py:127: Failed
+_______________________ test_report_sample_matches_gold ________________________
+
+    def test_report_sample_matches_gold():
+        ref = reference()
+>       report = parse_report(ref)
+                 ^^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:691: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tests/test_outputs.py:440: in parse_report
+    report = _load_object(REPORT_PATH, "report.json")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/out/report.json'), label = 'report.json'
+
+    def _load_object(path, label):
+        if not path.is_file():
+>           pytest.fail("declared artifact is missing: %s (%s)" % (path, label))
+E           Failed: declared artifact is missing: /app/out/report.json (report.json)
+
+/tests/test_outputs.py:127: Failed
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_reference_corpus_matches_gold
+FAILED ../tests/test_outputs.py::test_losses_complete - Failed: declared arti...
+FAILED ../tests/test_outputs.py::test_grads_complete - Failed: declared artif...
+FAILED ../tests/test_outputs.py::test_report_complete - Failed: declared arti...
+FAILED ../tests/test_outputs.py::test_losses_match_contract - Failed: declare...
+FAILED ../tests/test_outputs.py::test_losses_match_gold - Failed: declared ar...
+FAILED ../tests/test_outputs.py::test_grads_match_contract - Failed: declared...
+FAILED ../tests/test_outputs.py::test_grads_support_pattern - Failed: declare...
+FAILED ../tests/test_outputs.py::test_grads_match_gold - Failed: declared art...
+FAILED ../tests/test_outputs.py::test_grad_rows_sum_to_zero - Failed: declare...
+FAILED ../tests/test_outputs.py::test_report_denominator - Failed: declared a...
+FAILED ../tests/test_outputs.py::test_report_offending - Failed: declared art...
+FAILED ../tests/test_outputs.py::test_report_sample_matches_gold - Failed: de...
+========================= 12 failed, 1 passed in 1.51s =========================

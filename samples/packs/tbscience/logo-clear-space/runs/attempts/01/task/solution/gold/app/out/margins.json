@@ -1,0 +1,14 @@
+{
+  "primary": {
+    "margin": 62.4,
+    "reference": "the wordmark's x-height"
+  },
+  "stacked": {
+    "margin": 73.5,
+    "reference": "the wordmark's cap height"
+  },
+  "icon": {
+    "margin": 68.4,
+    "reference": "the height of the mark's optical bounding box"
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "task": {
+        "path": "/data/passrate/tb/runs/sbom-vs-linkage/attempts/03/task"
+    },
+    "trial_name": "task__8UsWbj9",
+    "trials_dir": "jobs/2026-10-26__09-00-42",
+    "agent_setup_timeout_multiplier": 5.0,
+    "agent": {
+        "name": "codex",
+        "model_name": "openai/gpt-6-astra",
+        "kwargs": {
+            "reasoning_effort": "high"
+        },
+        "env": {
+            "PATH": "/opt/codex/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        }
+    },
+    "environment": {
+        "type": "docker",
+        "mounts": [
+            {
+                "type": "bind",
+                "source": "/data/deeploop-bin/codex",
+                "target": "/opt/codex/bin"
+            }
+        ]
+    },
+    "job_id": "d9654382-5a9d-4c81-8151-beead585e3c4"
+}

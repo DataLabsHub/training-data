@@ -1,0 +1,125 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T10:19:29.569040+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 10,
+            "passed": 8,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793009969429,
+            "stop": 1793009969568
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_artifact_is_json_object",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009969516,
+                "stop": 1793009969517,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_band_coverage_and_centres",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793009969517,
+                "stop": 1793009969519,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unresolvable_and_marker_consistency",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 27,
+                "start": 1793009969519,
+                "stop": 1793009969546,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_unresolvable_and_marker_consistency():\n        report = load_report()\n        ref_ids = [b for b, _ in load_reference_bands()]\n        by_id = bands_by_id(report)\n    \n        unres = report[\"unresolvable_bands\"]\n        assert all(isinstance(x, str) for x in unres), \"unresolvable_bands must hold strings\"\n        assert len(unres) == len(set(unres)), \"unresolvable_bands must not repeat an id\"\n        assert set(unres) <= set(ref_ids), \"unresolvable_bands contains an unknown id\"\n        state_unres = {b for b, e in by_id.items() if e[\"state\"] == \"UNRESOLVABLE\"}\n        assert set(unres) == state_unres, (\n            \"unresolvable_bands %s must equal the UNRESOLVABLE states %s\" % (\n                sorted(set(unres)), sorted(state_unres))\n        )\n    \n        markers = report[\"marker_sets\"]\n        assert isinstance(markers, dict), \"marker_sets must be an object\"\n        for key in (\"LS\", \"HS\"):\n            assert key in markers, \"marker_sets missing %r\" % key\n            arr = markers[key]\n            assert isinstance(arr, list) and arr, \"marker_sets.%s must be a non-empty list\" % key\n            assert all(isinstance(x, str) for x in arr), \"marker_sets.%s must hold strings\" % key\n            assert len(arr) == len(set(arr)), \"marker_sets.%s repeats an id\" % key\n        assert not (set(markers[\"LS\"]) & set(markers[\"HS\"])), \"a band cannot be in both marker sets\"\n        assert set(markers[\"LS\"]) <= set(ref_ids) and set(markers[\"HS\"]) <= set(ref_ids), (\n            \"marker_sets contains an unknown band id\"\n        )\n        ls_states = {b for b, e in by_id.items() if e[\"state\"] == \"LS\"}\n        hs_states = {b for b, e in by_id.items() if e[\"state\"] == \"HS\"}\n        assert set(markers[\"LS\"]) == ls_states, (\n            \"marker_sets.LS must equal the LS-labelled bands\"\n        )\n        assert set(markers[\"HS\"]) == hs_states, (\n            \"marker_sets.HS must equal the HS-labelled bands\"\n        )\n    \n        for bid, entry in by_id.items():\n            implied = entry[\"implied_hs_fraction\"]\n            if entry[\"state\"] in (\"LS\", \"HS\"):\n                assert isinstance(implied, dict), \"%s needs an implied_hs_fraction object\" % bid\n                assert set(implied) == set(TEMPS), (\n                    \"%s implied_hs_fraction must be keyed by exactly %s\" % (bid, TEMPS)\n                )\n                for t in TEMPS:\n                    as_number(implied[t], \"implied_hs_fraction[%s][%s]\" % (bid, t))\n            else:\n>               assert implied is None, (\n                    \"%s is %s so implied_hs_fraction must be null\" % (bid, entry[\"state\"])\n                )\nE               AssertionError: B07 is BOTH so implied_hs_fraction must be null\nE               assert {'100': None, '150': None, '200': None, '300': None} is None\n\n/tests/test_outputs.py:230: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_state_fractions",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009969547,
+                "stop": 1793009969548,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_band_states_match_latent_truth",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009969548,
+                "stop": 1793009969549,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_implied_fractions_track_susceptibility",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009969550,
+                "stop": 1793009969551,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_implied_fractions_cross_excitation",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793009969551,
+                "stop": 1793009969553,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ls_phase_activity_and_mutual_exclusion",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009969553,
+                "stop": 1793009969554,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_breathing_mode_carrier",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 13,
+                "start": 1793009969554,
+                "stop": 1793009969567,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_breathing_mode_carrier():\n        report = load_report()\n        truth = load_truth()\n        by_id = bands_by_id(report)\n        gamma = load_reference_gamma()\n    \n        carrier = report.get(\"ls_breathing_mode_band_id\")\n        assert isinstance(carrier, str), \"ls_breathing_mode_band_id must be a string\"\n        assert carrier in by_id, \"ls_breathing_mode_band_id %r is not a covered band\" % (carrier,)\n>       assert carrier == \"B01\", (\n            \"the totally symmetric Fe-N breathing mode is carried by B01, got %r\" % carrier\n        )\nE       AssertionError: the totally symmetric Fe-N breathing mode is carried by B01, got 'B05'\nE       assert 'B05' == 'B01'\nE         \nE         - B01\nE         + B05\n\n/tests/test_outputs.py:396: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_numeric_fields_are_finite_numbers",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009969567,
+                "stop": 1793009969568,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

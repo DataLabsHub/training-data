@@ -1,0 +1,40 @@
+{
+  "advisories": [
+    {
+      "advisory_id": "ADV-2025-0441",
+      "verdict": "APPLIES",
+      "witness": "libhpack.a(hpack.o)",
+      "rejected_claim": null
+    },
+    {
+      "advisory_id": "ADV-2025-0442",
+      "verdict": "GC_DISCARDED",
+      "witness": ".text._ZN5rotor11rotor_decodeEPKcm",
+      "rejected_claim": "APPLICABLE"
+    },
+    {
+      "advisory_id": "ADV-2025-0443",
+      "verdict": "NOT_LINKED",
+      "witness": "libmurmurx.a",
+      "rejected_claim": "APPLICABLE"
+    },
+    {
+      "advisory_id": "ADV-2025-0444",
+      "verdict": "PATCHED_IN_PLACE",
+      "witness": "fdddc2c246b3d56fbccfb57ae6c07a4eef463fae",
+      "rejected_claim": "APPLICABLE"
+    },
+    {
+      "advisory_id": "ADV-2025-0445",
+      "verdict": "APPLIES",
+      "witness": "84079a935869f15a3dbf7bef5a6a1ba330073378",
+      "rejected_claim": null
+    },
+    {
+      "advisory_id": "ADV-2025-0446",
+      "verdict": "RUNTIME_BOUND",
+      "witness": "libcodecext.so",
+      "rejected_claim": null
+    }
+  ]
+}

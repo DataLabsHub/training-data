@@ -1,0 +1,146 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T07:09:58.466944+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 13,
+            "passed": 13,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1792998596516,
+            "stop": 1792998598466
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_losses_complete",
+                "status": "passed",
+                "duration": 811,
+                "start": 1792998596880,
+                "stop": 1792998597691,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_grads_complete",
+                "status": "passed",
+                "duration": 128,
+                "start": 1792998597692,
+                "stop": 1792998597820,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_report_complete",
+                "status": "passed",
+                "duration": 9,
+                "start": 1792998597820,
+                "stop": 1792998597829,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_reference_corpus_matches_gold",
+                "status": "passed",
+                "duration": 2,
+                "start": 1792998597829,
+                "stop": 1792998597831,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_losses_match_contract",
+                "status": "passed",
+                "duration": 4,
+                "start": 1792998597831,
+                "stop": 1792998597835,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_losses_match_gold",
+                "status": "passed",
+                "duration": 3,
+                "start": 1792998597835,
+                "stop": 1792998597838,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_grads_match_contract",
+                "status": "passed",
+                "duration": 150,
+                "start": 1792998597838,
+                "stop": 1792998597988,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_grads_support_pattern",
+                "status": "passed",
+                "duration": 204,
+                "start": 1792998597989,
+                "stop": 1792998598193,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_grads_match_gold",
+                "status": "passed",
+                "duration": 129,
+                "start": 1792998598194,
+                "stop": 1792998598323,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_grad_rows_sum_to_zero",
+                "status": "passed",
+                "duration": 121,
+                "start": 1792998598323,
+                "stop": 1792998598444,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_report_denominator",
+                "status": "passed",
+                "duration": 7,
+                "start": 1792998598444,
+                "stop": 1792998598451,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_report_offending",
+                "status": "passed",
+                "duration": 8,
+                "start": 1792998598451,
+                "stop": 1792998598459,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_report_sample_matches_gold",
+                "status": "passed",
+                "duration": 7,
+                "start": 1792998598459,
+                "stop": 1792998598466,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

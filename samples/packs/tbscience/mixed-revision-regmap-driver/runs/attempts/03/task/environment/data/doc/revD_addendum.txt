@@ -1,0 +1,27 @@
+                         VENDOR PRODUCT NOTICE
+                          PDN-440-D-01  (rev 1)
+                     PD-440 quad piezo driver: rev D die
+
+SCOPE
+  Revision D is a metal-only mask optimisation of the PD-440 rev C die. It
+  raises the drive-stage voltage headroom and trims quiescent current. No
+  errata from rev C are carried forward and no rev C errata workaround is
+  required on rev D.
+
+SOFTWARE COMPATIBILITY
+  Revision D is register compatible with revision C. The register map, the
+  field placement inside every register, the address decode and the power-on
+  defaults are UNCHANGED. Firmware and bench tooling written for a rev C part
+  run on a rev D part without modification. No register is added, removed or
+  relocated.
+
+IDENTIFICATION
+  The identification register continues to report the PD-440 part family and
+  the revision-C code, so existing inventory and self-test tooling keeps
+  working without change. Identification tooling does not need to, and should
+  not, distinguish the two dies.
+
+IMPLEMENTATION NOTE
+  The rev D edit is confined to the drive-stage metal. Any difference observed
+  between a rev C and a rev D part on a correctly configured signal chain is
+  within the datasheet post-shrink tolerance.

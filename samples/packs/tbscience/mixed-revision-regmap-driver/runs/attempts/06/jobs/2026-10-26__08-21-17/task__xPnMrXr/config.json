@@ -1,0 +1,29 @@
+{
+    "task": {
+        "path": "/data/passrate/tb/runs/mixed-revision-regmap-driver/attempts/06/task"
+    },
+    "trial_name": "task__xPnMrXr",
+    "trials_dir": "jobs/2026-10-26__08-21-17",
+    "agent_setup_timeout_multiplier": 5.0,
+    "agent": {
+        "name": "codex",
+        "model_name": "openai/gpt-6-astra",
+        "kwargs": {
+            "reasoning_effort": "high"
+        },
+        "env": {
+            "PATH": "/opt/codex/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        }
+    },
+    "environment": {
+        "type": "docker",
+        "mounts": [
+            {
+                "type": "bind",
+                "source": "/data/deeploop-bin/codex",
+                "target": "/opt/codex/bin"
+            }
+        ]
+    },
+    "job_id": "51a237b8-4336-4b07-85ef-33a3f7551907"
+}

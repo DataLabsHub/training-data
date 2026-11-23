@@ -1,0 +1,122 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T10:41:23.974079+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 10,
+            "passed": 9,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793011283835,
+            "stop": 1793011283973
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_artifact_is_json_object",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793011283929,
+                "stop": 1793011283930,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_band_coverage_and_centres",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793011283931,
+                "stop": 1793011283932,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unresolvable_and_marker_consistency",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793011283933,
+                "stop": 1793011283934,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_state_fractions",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793011283934,
+                "stop": 1793011283936,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_band_states_match_latent_truth",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793011283936,
+                "stop": 1793011283938,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_implied_fractions_track_susceptibility",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793011283938,
+                "stop": 1793011283939,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_implied_fractions_cross_excitation",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793011283939,
+                "stop": 1793011283941,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ls_phase_activity_and_mutual_exclusion",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793011283941,
+                "stop": 1793011283942,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_breathing_mode_carrier",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 28,
+                "start": 1793011283943,
+                "stop": 1793011283971,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_breathing_mode_carrier():\n        report = load_report()\n        truth = load_truth()\n        by_id = bands_by_id(report)\n        gamma = load_reference_gamma()\n    \n        carrier = report.get(\"ls_breathing_mode_band_id\")\n        assert isinstance(carrier, str), \"ls_breathing_mode_band_id must be a string\"\n        assert carrier in by_id, \"ls_breathing_mode_band_id %r is not a covered band\" % (carrier,)\n>       assert carrier == \"B01\", (\n            \"the totally symmetric Fe-N breathing mode is carried by B01, got %r\" % carrier\n        )\nE       AssertionError: the totally symmetric Fe-N breathing mode is carried by B01, got 'B05'\nE       assert 'B05' == 'B01'\nE         \nE         - B01\nE         + B05\n\n/tests/test_outputs.py:396: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_numeric_fields_are_finite_numbers",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793011283972,
+                "stop": 1793011283973,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "font": {
+    "units_per_em": 1000,
+    "x_height": 520,
+    "cap_height": 700
+  },
+  "type_sizes": {
+    "primary": 100,
+    "stacked": 140
+  },
+  "multipliers": {
+    "primary": 1.2,
+    "stacked": 0.75,
+    "icon": 0.6
+  },
+  "expected_margins": {
+    "primary": 62.4,
+    "stacked": 73.5,
+    "icon": 68.4
+  },
+  "expected_references": {
+    "primary": "x-height",
+    "stacked": "cap-height",
+    "icon": "optical-bbox"
+  },
+  "tolerance": 0.5
+}

@@ -1,0 +1,83 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T08:21:03.009053+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 2,
+            "failed": 3,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793002862249,
+            "stop": 1793002863008
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_artifact",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793002862297,
+                "stop": 1793002862299,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_stdlib_only",
+                "status": "passed",
+                "duration": 5,
+                "start": 1793002862299,
+                "stop": 1793002862304,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_decode",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 294,
+                "start": 1793002862305,
+                "stop": 1793002862599,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_decode():\n        need()\n        for cid,v,t,cs,off,pr,rs in CS:\n            R,sa=gen(v,t,cs,off,pr,rs);ref=orc(R,v);d=sc()\n            try:\n                o=d+\"/o.jsonl\"\n                r=run(d,[\"decode\",\"--capture\",put(d,\"b.csv\",bcsv(R)),\"--strain\",put(d,\"s.csv\",scsv(sa)),\"--out\",o])\n>               assert r.returncode==0,\"%s rc=%d %s\"%(cid,r.returncode,r.stderr[-1000:])\nE               AssertionError: mixed rc=2 driver.py: decode is unresolved: the rev-D map and an evidence-based card revision discriminator are missing. Observed read addresses: 0x00, 0x01, 0x30. Strain ADC counts have no documented transfer model that identifies register fields. No JSONL emitted; see driver.py's module documentation for the ambiguity.\nE                 \nE               assert 2 == 0\nE                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_d31r89z5/b....er model that identifies register fields. No JSONL emitted; see driver.py's module documentation for the ambiguity.\\n\").returncode\n\n/tests/test_outputs.py:113: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_excite",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 148,
+                "start": 1793002862600,
+                "stop": 1793002862748,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_excite():\n        need()\n        for rev,cs,fq,gn,ph,en in SP:\n            d=sc()\n            try:\n                o=d+\"/w.json\";spec={\"revision\":rev,\"cs\":cs,\"freq_hz\":fq,\"gain\":gn,\"phase_deg\":ph,\"enable\":en}\n                r=run(d,[\"excite\",\"--spec\",put(d,\"p.json\",json.dumps(spec)),\"--out\",o])\n>               assert r.returncode==0,\"excite rc=%d %s\"%(r.returncode,r.stderr[-1000:])\nE               AssertionError: excite rc=2 driver.py: rev-D excitation is unresolved: no verified rev-D field map was supplied, and the captures cannot uniquely establish its frequency, phase, gain and enable placement. No writes emitted.\nE                 \nE               assert 2 == 0\nE                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'excite', '--spec', '/tmp/pd440_v_itnfz7r1/p.jso...ied, and the captures cannot uniquely establish its frequency, phase, gain and enable placement. No writes emitted.\\n').returncode\n\n/tests/test_outputs.py:136: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_deterministic",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 259,
+                "start": 1793002862749,
+                "stop": 1793002863008,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_deterministic():\n        need();_,v,t,cs,off,pr,rs=CS[0];R,sa=gen(v,t,cs,off,pr,rs);d=sc()\n        try:\n            b=put(d,\"b.csv\",bcsv(R));s=put(d,\"s.csv\",scsv(sa))\n            rev,c2,fq,gn,ph,en=SP[0]\n            p=put(d,\"p.json\",json.dumps({\"revision\":rev,\"cs\":c2,\"freq_hz\":fq,\"gain\":gn,\"phase_deg\":ph,\"enable\":en}))\n            bl=[]\n            for n in \"ab\":\n                o1=d+\"/d\"+n+\".jl\";o2=d+\"/w\"+n+\".json\"\n>               assert run(d,[\"decode\",\"--capture\",b,\"--strain\",s,\"--out\",o1]).returncode==0\nE               assert 2 == 0\nE                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_zr6isz_n/b....er model that identifies register fields. No JSONL emitted; see driver.py's module documentation for the ambiguity.\\n\").returncode\nE                +    where CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_zr6isz_n/b....er model that identifies register fields. No JSONL emitted; see driver.py's module documentation for the ambiguity.\\n\") = run('/tmp/pd440_v_zr6isz_n', ['decode', '--capture', '/tmp/pd440_v_zr6isz_n/b.csv', '--strain', '/tmp/pd440_v_zr6isz_n/s.csv', '--out', ...])\n\n/tests/test_outputs.py:158: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

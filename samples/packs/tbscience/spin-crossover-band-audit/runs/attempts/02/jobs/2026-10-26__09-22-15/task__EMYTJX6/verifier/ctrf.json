@@ -1,0 +1,134 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T10:04:31.617696+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 10,
+            "passed": 5,
+            "failed": 5,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793009071427,
+            "stop": 1793009071617
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_artifact_is_json_object",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009071525,
+                "stop": 1793009071526,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_band_coverage_and_centres",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009071527,
+                "stop": 1793009071528,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unresolvable_and_marker_consistency",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793009071528,
+                "stop": 1793009071530,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_state_fractions",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009071530,
+                "stop": 1793009071531,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_band_states_match_latent_truth",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 25,
+                "start": 1793009071531,
+                "stop": 1793009071556,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_band_states_match_latent_truth():\n        report = load_report()\n        truth = load_truth()\n        by_id = bands_by_id(report)\n        assert set(by_id) == set(truth), \"band id coverage already failed\"\n        for bid, expected in truth.items():\n            got = by_id[bid][\"state\"]\n            wanted = expected[\"state\"]\n            if bid == \"B18\":\n                assert got in (\"UNRESOLVABLE\", \"BOTH\"), (\n                    \"B18 is below the noise floor: state must be UNRESOLVABLE or BOTH, got %r\" % got\n                )\n            else:\n>               assert got == wanted, \"band %s: state %r, latent truth is %r\" % (bid, got, wanted)\nE               AssertionError: band B06: state 'UNRESOLVABLE', latent truth is 'HS'\nE               assert 'UNRESOLVABLE' == 'HS'\nE                 \nE                 - HS\nE                 + UNRESOLVABLE\n\n/tests/test_outputs.py:262: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_implied_fractions_track_susceptibility",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 16,
+                "start": 1793009071557,
+                "stop": 1793009071573,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_implied_fractions_track_susceptibility():\n        report = load_report()\n        gamma = load_reference_gamma()\n        by_id = bands_by_id(report)\n        gold = {e[\"band_id\"]: e for e in load_gold()[\"bands\"]}\n    \n        checked = 0\n        for bid, entry in by_id.items():\n            if entry[\"state\"] not in (\"LS\", \"HS\"):\n                continue\n            checked += 1\n            implied = entry[\"implied_hs_fraction\"]\n            assert isinstance(implied, dict), \"%s needs implied_hs_fraction\" % bid\n            vals = [as_number(implied[t], \"implied[%s][%s]\" % (bid, t)) for t in TEMPS]\n            for i in range(len(TEMPS) - 1):\n                assert vals[i + 1] >= vals[i] - 0.03, (\n                    \"%s implied fraction is not non-decreasing: %s -> %s\"\n                    % (bid, vals[i], vals[i + 1])\n                )\n            for t, got in zip(TEMPS, vals):\n                assert abs(got - gamma[t]) <= 0.10, (\n                    \"%s implied fraction at %s K is %r, more than 0.10 from %r\"\n                    % (bid, t, got, gamma[t])\n                )\n                if bid in gold and isinstance(gold[bid][\"implied_hs_fraction\"], dict):\n                    ref = as_number(gold[bid][\"implied_hs_fraction\"][t],\n                                    \"gold implied[%s][%s]\" % (bid, t))\n                    assert abs(got - ref) <= 0.10, (\n                        \"%s implied fraction at %s K is %r, more than 0.10 from the Gold %r\"\n                        % (bid, t, got, ref)\n                    )\n>       assert checked == 14, \"expected 14 LS/HS bands, checked %d\" % checked\nE       AssertionError: expected 14 LS/HS bands, checked 13\nE       assert 13 == 14\n\n/tests/test_outputs.py:296: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_implied_fractions_cross_excitation",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 14,
+                "start": 1793009071573,
+                "stop": 1793009071587,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_implied_fractions_cross_excitation():\n        \"\"\"R2: the LS/HS label must be supported by 532 and 785 nm alike, and the\n        fraction re-derived from each excitation's pure-component model must match.\"\"\"\n        report = load_report()\n        truth = load_truth()\n        by_id = bands_by_id(report)\n        gamma = load_reference_gamma()\n    \n        checked = 0\n        for bid, entry in by_id.items():\n            state = entry[\"state\"]\n            if state not in (\"LS\", \"HS\"):\n                continue\n            checked += 1\n            supported = {}\n            for exc in (\"532\", \"785\"):\n                ls = truth[bid][\"ls_cross_sections\"][exc]\n                hs = truth[bid][\"hs_cross_sections\"][exc]\n                if state == \"LS\":\n                    supported[exc] = ls > 0.0 and hs == 0.0\n                else:\n                    supported[exc] = hs > 0.0 and ls == 0.0\n            assert supported[\"532\"] and supported[\"785\"], (\n                \"band %s labelled %s is not supported by both excitations (%s)\"\n                % (bid, state, supported)\n            )\n            # fraction re-derived from each excitation's own latent model\n            implied = entry[\"implied_hs_fraction\"]\n            assert isinstance(implied, dict), \"%s needs implied_hs_fraction\" % bid\n            for exc in (\"532\", \"785\"):\n                for t in TEMPS:\n                    got = as_number(implied[t], \"implied[%s][%s]\" % (bid, t))\n                    assert abs(got - gamma[t]) <= 0.10, (\n                        \"%s/%s nm model implies %r at %s K, report says %r\"\n                        % (bid, exc, gamma[t], t, got)\n                    )\n>       assert checked == 14, \"expected 14 marker bands, checked %d\" % checked\nE       AssertionError: expected 14 marker bands, checked 13\nE       assert 13 == 14\n\n/tests/test_outputs.py:335: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_ls_phase_activity_and_mutual_exclusion",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 12,
+                "start": 1793009071588,
+                "stop": 1793009071600,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_ls_phase_activity_and_mutual_exclusion():\n        report = load_report()\n        truth = load_truth()\n        by_id = bands_by_id(report)\n    \n        for bid, entry in by_id.items():\n            assert entry[\"ls_phase_activity\"] != \"both\", (\n                \"%s reports activity 'both', violating mutual exclusion in the LS phase\" % bid\n            )\n        for bid, entry in by_id.items():\n            expected = truth[bid][\"ls_phase_activity\"]\n            got = entry[\"ls_phase_activity\"]\n>           assert got == expected, (\n                \"band %s ls_phase_activity %r, true pure-component activity is %r\"\n                % (bid, got, expected)\n            )\nE           AssertionError: band B06 ls_phase_activity 'not_applicable', true pure-component activity is 'neither'\nE           assert 'not_applicable' == 'neither'\nE             \nE             - neither\nE             + not_applicable\n\n/tests/test_outputs.py:370: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_breathing_mode_carrier",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 14,
+                "start": 1793009071601,
+                "stop": 1793009071615,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_breathing_mode_carrier():\n        report = load_report()\n        truth = load_truth()\n        by_id = bands_by_id(report)\n        gamma = load_reference_gamma()\n    \n        carrier = report.get(\"ls_breathing_mode_band_id\")\n        assert isinstance(carrier, str), \"ls_breathing_mode_band_id must be a string\"\n        assert carrier in by_id, \"ls_breathing_mode_band_id %r is not a covered band\" % (carrier,)\n>       assert carrier == \"B01\", (\n            \"the totally symmetric Fe-N breathing mode is carried by B01, got %r\" % carrier\n        )\nE       AssertionError: the totally symmetric Fe-N breathing mode is carried by B01, got 'B05'\nE       assert 'B05' == 'B01'\nE         \nE         - B01\nE         + B05\n\n/tests/test_outputs.py:396: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_numeric_fields_are_finite_numbers",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793009071616,
+                "stop": 1793009071617,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

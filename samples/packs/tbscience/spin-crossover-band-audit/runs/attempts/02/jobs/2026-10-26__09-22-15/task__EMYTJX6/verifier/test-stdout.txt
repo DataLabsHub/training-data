@@ -1,0 +1,172 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 10 items
+
+../tests/test_outputs.py ....FFFFF.                                      [100%]
+
+=================================== FAILURES ===================================
+_____________________ test_band_states_match_latent_truth ______________________
+
+    def test_band_states_match_latent_truth():
+        report = load_report()
+        truth = load_truth()
+        by_id = bands_by_id(report)
+        assert set(by_id) == set(truth), "band id coverage already failed"
+        for bid, expected in truth.items():
+            got = by_id[bid]["state"]
+            wanted = expected["state"]
+            if bid == "B18":
+                assert got in ("UNRESOLVABLE", "BOTH"), (
+                    "B18 is below the noise floor: state must be UNRESOLVABLE or BOTH, got %r" % got
+                )
+            else:
+>               assert got == wanted, "band %s: state %r, latent truth is %r" % (bid, got, wanted)
+E               AssertionError: band B06: state 'UNRESOLVABLE', latent truth is 'HS'
+E               assert 'UNRESOLVABLE' == 'HS'
+E                 
+E                 - HS
+E                 + UNRESOLVABLE
+
+/tests/test_outputs.py:262: AssertionError
+_________________ test_implied_fractions_track_susceptibility __________________
+
+    def test_implied_fractions_track_susceptibility():
+        report = load_report()
+        gamma = load_reference_gamma()
+        by_id = bands_by_id(report)
+        gold = {e["band_id"]: e for e in load_gold()["bands"]}
+    
+        checked = 0
+        for bid, entry in by_id.items():
+            if entry["state"] not in ("LS", "HS"):
+                continue
+            checked += 1
+            implied = entry["implied_hs_fraction"]
+            assert isinstance(implied, dict), "%s needs implied_hs_fraction" % bid
+            vals = [as_number(implied[t], "implied[%s][%s]" % (bid, t)) for t in TEMPS]
+            for i in range(len(TEMPS) - 1):
+                assert vals[i + 1] >= vals[i] - 0.03, (
+                    "%s implied fraction is not non-decreasing: %s -> %s"
+                    % (bid, vals[i], vals[i + 1])
+                )
+            for t, got in zip(TEMPS, vals):
+                assert abs(got - gamma[t]) <= 0.10, (
+                    "%s implied fraction at %s K is %r, more than 0.10 from %r"
+                    % (bid, t, got, gamma[t])
+                )
+                if bid in gold and isinstance(gold[bid]["implied_hs_fraction"], dict):
+                    ref = as_number(gold[bid]["implied_hs_fraction"][t],
+                                    "gold implied[%s][%s]" % (bid, t))
+                    assert abs(got - ref) <= 0.10, (
+                        "%s implied fraction at %s K is %r, more than 0.10 from the Gold %r"
+                        % (bid, t, got, ref)
+                    )
+>       assert checked == 14, "expected 14 LS/HS bands, checked %d" % checked
+E       AssertionError: expected 14 LS/HS bands, checked 13
+E       assert 13 == 14
+
+/tests/test_outputs.py:296: AssertionError
+___________________ test_implied_fractions_cross_excitation ____________________
+
+    def test_implied_fractions_cross_excitation():
+        """R2: the LS/HS label must be supported by 532 and 785 nm alike, and the
+        fraction re-derived from each excitation's pure-component model must match."""
+        report = load_report()
+        truth = load_truth()
+        by_id = bands_by_id(report)
+        gamma = load_reference_gamma()
+    
+        checked = 0
+        for bid, entry in by_id.items():
+            state = entry["state"]
+            if state not in ("LS", "HS"):
+                continue
+            checked += 1
+            supported = {}
+            for exc in ("532", "785"):
+                ls = truth[bid]["ls_cross_sections"][exc]
+                hs = truth[bid]["hs_cross_sections"][exc]
+                if state == "LS":
+                    supported[exc] = ls > 0.0 and hs == 0.0
+                else:
+                    supported[exc] = hs > 0.0 and ls == 0.0
+            assert supported["532"] and supported["785"], (
+                "band %s labelled %s is not supported by both excitations (%s)"
+                % (bid, state, supported)
+            )
+            # fraction re-derived from each excitation's own latent model
+            implied = entry["implied_hs_fraction"]
+            assert isinstance(implied, dict), "%s needs implied_hs_fraction" % bid
+            for exc in ("532", "785"):
+                for t in TEMPS:
+                    got = as_number(implied[t], "implied[%s][%s]" % (bid, t))
+                    assert abs(got - gamma[t]) <= 0.10, (
+                        "%s/%s nm model implies %r at %s K, report says %r"
+                        % (bid, exc, gamma[t], t, got)
+                    )
+>       assert checked == 14, "expected 14 marker bands, checked %d" % checked
+E       AssertionError: expected 14 marker bands, checked 13
+E       assert 13 == 14
+
+/tests/test_outputs.py:335: AssertionError
+_________________ test_ls_phase_activity_and_mutual_exclusion __________________
+
+    def test_ls_phase_activity_and_mutual_exclusion():
+        report = load_report()
+        truth = load_truth()
+        by_id = bands_by_id(report)
+    
+        for bid, entry in by_id.items():
+            assert entry["ls_phase_activity"] != "both", (
+                "%s reports activity 'both', violating mutual exclusion in the LS phase" % bid
+            )
+        for bid, entry in by_id.items():
+            expected = truth[bid]["ls_phase_activity"]
+            got = entry["ls_phase_activity"]
+>           assert got == expected, (
+                "band %s ls_phase_activity %r, true pure-component activity is %r"
+                % (bid, got, expected)
+            )
+E           AssertionError: band B06 ls_phase_activity 'not_applicable', true pure-component activity is 'neither'
+E           assert 'not_applicable' == 'neither'
+E             
+E             - neither
+E             + not_applicable
+
+/tests/test_outputs.py:370: AssertionError
+_________________________ test_breathing_mode_carrier __________________________
+
+    def test_breathing_mode_carrier():
+        report = load_report()
+        truth = load_truth()
+        by_id = bands_by_id(report)
+        gamma = load_reference_gamma()
+    
+        carrier = report.get("ls_breathing_mode_band_id")
+        assert isinstance(carrier, str), "ls_breathing_mode_band_id must be a string"
+        assert carrier in by_id, "ls_breathing_mode_band_id %r is not a covered band" % (carrier,)
+>       assert carrier == "B01", (
+            "the totally symmetric Fe-N breathing mode is carried by B01, got %r" % carrier
+        )
+E       AssertionError: the totally symmetric Fe-N breathing mode is carried by B01, got 'B05'
+E       assert 'B05' == 'B01'
+E         
+E         - B01
+E         + B05
+
+/tests/test_outputs.py:396: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_artifact_is_json_object
+PASSED ../tests/test_outputs.py::test_band_coverage_and_centres
+PASSED ../tests/test_outputs.py::test_unresolvable_and_marker_consistency
+PASSED ../tests/test_outputs.py::test_state_fractions
+PASSED ../tests/test_outputs.py::test_numeric_fields_are_finite_numbers
+FAILED ../tests/test_outputs.py::test_band_states_match_latent_truth - Assert...
+FAILED ../tests/test_outputs.py::test_implied_fractions_track_susceptibility
+FAILED ../tests/test_outputs.py::test_implied_fractions_cross_excitation - As...
+FAILED ../tests/test_outputs.py::test_ls_phase_activity_and_mutual_exclusion
+FAILED ../tests/test_outputs.py::test_breathing_mode_carrier - AssertionError...
+========================= 5 failed, 5 passed in 0.19s ==========================

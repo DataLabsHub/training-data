@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 7 items
+
+../tests/test_outputs.py .......                                         [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_artifacts_present_and_parse
+PASSED ../tests/test_outputs.py::test_reference_values_reconcile
+PASSED ../tests/test_outputs.py::test_margins_match_standard_references
+PASSED ../tests/test_outputs.py::test_reference_labels_normalize
+PASSED ../tests/test_outputs.py::test_svg_ink_placement_matches_standard
+PASSED ../tests/test_outputs.py::test_reported_margins_agree_with_svgs
+PASSED ../tests/test_outputs.py::test_artwork_preserved_and_uniformly_translated
+============================== 7 passed in 0.16s ===============================

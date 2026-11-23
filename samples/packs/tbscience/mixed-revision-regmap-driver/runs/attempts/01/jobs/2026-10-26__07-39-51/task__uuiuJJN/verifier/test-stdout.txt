@@ -1,0 +1,66 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.17, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 5 items
+
+../tests/test_outputs.py ..FFF                                           [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_decode __________________________________
+
+    def test_decode():
+        need()
+        for cid,v,t,cs,off,pr,rs in CS:
+            R,sa=gen(v,t,cs,off,pr,rs);ref=orc(R,v);d=sc()
+            try:
+                o=d+"/o.jsonl"
+                r=run(d,["decode","--capture",put(d,"b.csv",bcsv(R)),"--strain",put(d,"s.csv",scsv(sa)),"--out",o])
+>               assert r.returncode==0,"%s rc=%d %s"%(cid,r.returncode,r.stderr[-1000:])
+E               AssertionError: mixed rc=2 driver.py: decode is unresolved: no verified revision-D map or strain measurement model is available. ID cannot establish revision, and response levels alone do not identify all canonical fields. No output was written
+E                 
+E               assert 2 == 0
+E                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_cbr6qh1e/b....ID cannot establish revision, and response levels alone do not identify all canonical fields. No output was written\n').returncode
+
+/tests/test_outputs.py:113: AssertionError
+_________________________________ test_excite __________________________________
+
+    def test_excite():
+        need()
+        for rev,cs,fq,gn,ph,en in SP:
+            d=sc()
+            try:
+                o=d+"/w.json";spec={"revision":rev,"cs":cs,"freq_hz":fq,"gain":gn,"phase_deg":ph,"enable":en}
+                r=run(d,["excite","--spec",put(d,"p.json",json.dumps(spec)),"--out",o])
+>               assert r.returncode==0,"excite rc=%d %s"%(r.returncode,r.stderr[-1000:])
+E               AssertionError: excite rc=2 driver.py: revision-D excitation is unresolved: the supplied captures do not establish its frequency/phase register placement or complete map; a verified D map or distinguishing measurements are required
+E                 
+E               assert 2 == 0
+E                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'excite', '--spec', '/tmp/pd440_v_7xyhao47/p.jso...ts frequency/phase register placement or complete map; a verified D map or distinguishing measurements are required\n').returncode
+
+/tests/test_outputs.py:136: AssertionError
+______________________________ test_deterministic ______________________________
+
+    def test_deterministic():
+        need();_,v,t,cs,off,pr,rs=CS[0];R,sa=gen(v,t,cs,off,pr,rs);d=sc()
+        try:
+            b=put(d,"b.csv",bcsv(R));s=put(d,"s.csv",scsv(sa))
+            rev,c2,fq,gn,ph,en=SP[0]
+            p=put(d,"p.json",json.dumps({"revision":rev,"cs":c2,"freq_hz":fq,"gain":gn,"phase_deg":ph,"enable":en}))
+            bl=[]
+            for n in "ab":
+                o1=d+"/d"+n+".jl";o2=d+"/w"+n+".json"
+>               assert run(d,["decode","--capture",b,"--strain",s,"--out",o1]).returncode==0
+E               AssertionError: assert 2 == 0
+E                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_slclg0wk/b....ID cannot establish revision, and response levels alone do not identify all canonical fields. No output was written\n').returncode
+E                +    where CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_slclg0wk/b....ID cannot establish revision, and response levels alone do not identify all canonical fields. No output was written\n') = run('/tmp/pd440_v_slclg0wk', ['decode', '--capture', '/tmp/pd440_v_slclg0wk/b.csv', '--strain', '/tmp/pd440_v_slclg0wk/s.csv', '--out', ...])
+
+/tests/test_outputs.py:158: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_artifact
+PASSED ../tests/test_outputs.py::test_stdlib_only
+FAILED ../tests/test_outputs.py::test_decode - AssertionError: mixed rc=2 dri...
+FAILED ../tests/test_outputs.py::test_excite - AssertionError: excite rc=2 dr...
+FAILED ../tests/test_outputs.py::test_deterministic - AssertionError: assert ...
+========================= 3 failed, 2 passed in 0.78s ==========================

@@ -1,0 +1,74 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T08:14:39.696753+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793002478385,
+            "stop": 1793002479696
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_artifact",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793002478441,
+                "stop": 1793002478442,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_stdlib_only",
+                "status": "passed",
+                "duration": 9,
+                "start": 1793002478442,
+                "stop": 1793002478451,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_decode",
+                "status": "passed",
+                "duration": 507,
+                "start": 1793002478451,
+                "stop": 1793002478958,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_excite",
+                "status": "passed",
+                "duration": 176,
+                "start": 1793002478959,
+                "stop": 1793002479135,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_deterministic",
+                "status": "passed",
+                "duration": 559,
+                "start": 1793002479136,
+                "stop": 1793002479695,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

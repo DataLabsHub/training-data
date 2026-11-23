@@ -328,8 +328,8 @@
       <h3>终端任务<span class="env-tag">可直接运行</span></h3>
       <p class="lede">在终端里核对互相矛盾的材料，并给出结论</p>
       <div class="bench"><span>对标</span><div>
-        <p><a href="https://www.tbench.ai/" target="_blank" rel="noopener">Terminal-Bench</a></p>
-        <p><a href="https://www.terminal-bench-science.ai/" target="_blank" rel="noopener">Terminal-Bench-Science</a></p>
+        <p><a href="https://www.tbench.ai/" target="_blank" rel="noopener">Terminal-Bench (tb)</a></p>
+        <p><a href="https://www.terminal-bench-science.ai/" target="_blank" rel="noopener">Terminal-Bench-Science (tbs)</a></p>
         <p><a href="https://github.com/harbor-framework/terminal-bench-challenges" target="_blank" rel="noopener">Terminal-Bench Challenges</a></p>
       </div></div>
       <dl>
@@ -1474,7 +1474,10 @@
     corpus: { title: "代码仓库", sources: [{ label: CATALOG, html: "samples/raw/corpus.html" }] },
     edge: { title: "复杂仓库改造", sources: [{ label: LIST, pack: "edge" }] },
     kernel: { title: "显卡内核", sources: [{ label: LIST, pack: "kernel" }] },
-    terminal: { title: "终端任务", sources: [{ label: CATALOG, html: "samples/raw/terminal.html" }] },
+    terminal: { title: "终端任务", sources: [
+      { label: "terminal-bench (tb)", html: "samples/raw/terminal.html" },
+      { label: "terminal-bench-science (tbs)", pack: "tbscience" }
+    ]},
     desktop: { title: "系统控制", sources: [
       { label: LIST, pack: "osworld" }
     ]},
@@ -1526,6 +1529,14 @@
     kernel: {
       "AutoResearch-Kernel": "GPU 内核优化 · 基础批次（A100、H200、B200，13 道）",
       "AutoResearch-Kernel-Harder": "GPU 内核优化 · 进阶批次（A100、H200，9 道）"
+    },
+    tbscience: {
+      "cms-trust-adjudicator": "签名校验 · 还原设备对 CMS 文书签名的接受规则",
+      "fused-ce-supervision-carrier": "训练损失 · 核对平滑交叉熵的融合实现与合同",
+      "logo-clear-space": "品牌标识 · 按字体度量修正三套锁版的留白",
+      "mixed-revision-regmap-driver": "寄存器驱动 · 分辨两版芯片并解码总线访问",
+      "sbom-vs-linkage": "物料清单 · 按实际链接裁定漏洞是否进入成品",
+      "spin-crossover-band-audit": "振动光谱 · 给自旋交叉配合物的谱带归属"
     }
   };
 
@@ -2068,18 +2079,28 @@
     navLinks.forEach(function (link) { link.hidden = false; });
     navMore.hidden = true;
     setMore(false);
-    var gap = parseFloat(getComputedStyle(navLinkRow).columnGap) || 0;
-    var widths = navLinks.map(function (link) { return link.offsetWidth; });
+    var navCss = getComputedStyle(nav);
+    var rowGap = parseFloat(getComputedStyle(navLinkRow).columnGap) || 0;
+    var navGap = parseFloat(navCss.columnGap) || 0;
+    var clusterGap = parseFloat(getComputedStyle(nav.querySelector(".nav-cluster")).columnGap) || 0;
+    var pad = (parseFloat(navCss.paddingLeft) || 0) + (parseFloat(navCss.paddingRight) || 0);
+    var widths = navLinks.map(function (link) { return link.getBoundingClientRect().width; });
     function usedWidth(count) {
       var used = 0;
-      for (var i = 0; i < count; i++) used += widths[i] + (i ? gap : 0);
+      for (var i = 0; i < count; i++) used += widths[i] + (i ? rowGap : 0);
       return used;
     }
+    var toggleShown = getComputedStyle(navToggle).display !== "none";
+    var reserved = nav.querySelector(".mark").getBoundingClientRect().width
+      + document.getElementById("lang").getBoundingClientRect().width
+      + navGap * (toggleShown ? 3 : 2)
+      + (toggleShown ? navToggle.getBoundingClientRect().width : 0);
+    var budget = nav.clientWidth - pad - reserved;
     var fit = navLinks.length;
-    if (usedWidth(fit) > navLinkRow.clientWidth + 1) {
+    if (usedWidth(fit) > budget + 1) {
       navMore.hidden = false;
-      var limit = navLinkRow.clientWidth;
-      while (fit > 0 && usedWidth(fit) > limit + 1) fit--;
+      var linkBudget = budget - navMoreBtn.getBoundingClientRect().width - clusterGap;
+      while (fit > 0 && usedWidth(fit) > linkBudget + 1) fit--;
     }
     navLinks.forEach(function (link, i) { link.hidden = i >= fit; });
     while (fit > 0 && navLinkRow.scrollWidth > navLinkRow.clientWidth + 1) {
@@ -2185,12 +2206,16 @@
       navToggle.focus();
     }
   });
-  var fitQueued = false;
-  window.addEventListener("resize", function () {
-    if (fitQueued) return;
-    fitQueued = true;
-    requestAnimationFrame(function () { fitQueued = false; fitNav(); markNav(); });
-  });
+  var seenNavWidth = -1;
+  function onNavWidth() {
+    var w = Math.round(nav.clientWidth);
+    if (w === seenNavWidth) return;
+    seenNavWidth = w;
+    fitNav();
+    markNav();
+  }
+  if (window.ResizeObserver) new ResizeObserver(onNavWidth).observe(nav);
+  else window.addEventListener("resize", onNavWidth);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { fitNav(); markNav(); });
   window.addEventListener("scroll", markNav, { passive: true });
   markNav();

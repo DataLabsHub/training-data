@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.17, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 5 items
+
+../tests/test_outputs.py .....                                           [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_artifact
+PASSED ../tests/test_outputs.py::test_stdlib_only
+PASSED ../tests/test_outputs.py::test_decode
+PASSED ../tests/test_outputs.py::test_excite
+PASSED ../tests/test_outputs.py::test_deterministic
+============================== 5 passed in 1.30s ===============================

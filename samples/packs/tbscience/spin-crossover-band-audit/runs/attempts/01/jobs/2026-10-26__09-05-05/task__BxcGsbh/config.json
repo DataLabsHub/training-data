@@ -1,0 +1,29 @@
+{
+    "task": {
+        "path": "/data/passrate/tb/runs/spin-crossover-band-audit/attempts/01/task"
+    },
+    "trial_name": "task__BxcGsbh",
+    "trials_dir": "jobs/2026-10-26__09-05-05",
+    "agent_setup_timeout_multiplier": 5.0,
+    "agent": {
+        "name": "codex",
+        "model_name": "openai/gpt-6-astra",
+        "kwargs": {
+            "reasoning_effort": "high"
+        },
+        "env": {
+            "PATH": "/opt/codex/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        }
+    },
+    "environment": {
+        "type": "docker",
+        "mounts": [
+            {
+                "type": "bind",
+                "source": "/data/deeploop-bin/codex",
+                "target": "/opt/codex/bin"
+            }
+        ]
+    },
+    "job_id": "72979afc-7b59-42fb-8060-b023f66517aa"
+}

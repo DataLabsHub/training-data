@@ -1,0 +1,128 @@
+{
+    "id": "14e0fbd5-f336-4cb6-9a9b-a1e20a077f82",
+    "task_name": "terminal-bench/fused-ce-supervision-carrier",
+    "trial_name": "task__6QcuVBY",
+    "trial_uri": "file:///data/passrate/tb/runs/fused-ce-supervision-carrier/attempts/05/jobs/2026-10-26__06-56-26/task__6QcuVBY",
+    "task_id": {
+        "path": "/data/passrate/tb/runs/fused-ce-supervision-carrier/attempts/05/task"
+    },
+    "source": null,
+    "task_checksum": "817ce1999d2df9b529a8cc5e8d1b1435401fce122db1baed169b284e2e49dc75",
+    "config": {
+        "task": {
+            "path": "/data/passrate/tb/runs/fused-ce-supervision-carrier/attempts/05/task",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "task__6QcuVBY",
+        "trials_dir": "jobs/2026-10-26__06-56-26",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 5.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "codex",
+            "import_path": null,
+            "model_name": "openai/gpt-6-astra",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {
+                "reasoning_effort": "high"
+            },
+            "env": {
+                "PATH": "/opt/codex/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": [
+                {
+                    "type": "bind",
+                    "source": "/data/deeploop-bin/codex",
+                    "target": "/opt/codex/bin"
+                }
+            ],
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "bd7ec6bf-bf4e-420b-9c7b-bdac7c8f7e7b",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "codex",
+        "version": "0.163.0",
+        "model_info": {
+            "name": "gpt-6-astra",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 402909,
+        "n_cache_tokens": 338073,
+        "n_output_tokens": 7503,
+        "cost_usd": 1.361583,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "separate",
+    "exception_info": null,
+    "started_at": "2026-10-26T06:56:26.340454Z",
+    "finished_at": "2026-10-26T07:00:34.663152Z",
+    "environment_setup": {
+        "started_at": "2026-10-26T06:56:26.396038Z",
+        "finished_at": "2026-10-26T06:56:37.475565Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-26T06:56:37.475649Z",
+        "finished_at": "2026-10-26T06:56:38.027357Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-10-26T06:56:38.027609Z",
+        "finished_at": "2026-10-26T06:59:49.174345Z"
+    },
+    "verifier": {
+        "started_at": "2026-10-26T07:00:11.375402Z",
+        "finished_at": "2026-10-26T07:00:34.663130Z"
+    },
+    "step_results": null
+}

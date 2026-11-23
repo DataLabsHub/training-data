@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 9 items
+
+../tests/test_outputs.py .........                                       [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_r1_exactly_one_ruling_per_scanner_finding
+PASSED ../tests/test_outputs.py::test_r1_verdict_vocabulary_and_field_shapes
+PASSED ../tests/test_outputs.py::test_r2_verdict_map_is_the_linkage_decision
+PASSED ../tests/test_outputs.py::test_r2_verdict_matches_the_witness_kind
+PASSED ../tests/test_outputs.py::test_r3_witness_is_the_canonical_deciding_record
+PASSED ../tests/test_outputs.py::test_r3_witness_resolves_to_the_affected_symbol
+PASSED ../tests/test_outputs.py::test_r3_witness_is_not_a_decoy_record
+PASSED ../tests/test_outputs.py::test_r4_rejected_claim_contract
+PASSED ../tests/test_outputs.py::test_r4_claim_split_is_not_uniform
+============================== 9 passed in 0.10s ===============================

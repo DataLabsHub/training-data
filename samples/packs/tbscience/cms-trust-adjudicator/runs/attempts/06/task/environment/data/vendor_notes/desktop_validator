@@ -1,0 +1,4 @@
+#!/bin/sh
+# desktop_validator <object.der> -- report the strict-DER verdict for a CMS object
+test $# -eq 1 || { echo "usage: desktop_validator <object.der>" >&2; exit 2; }
+if openssl cms -cmsout -inform DER -in "$1" -print >/dev/null 2>&1; then echo accept; else echo reject; fi

@@ -1,0 +1,30 @@
+[
+  {
+    "source": "/logs/artifacts",
+    "destination": "artifacts/logs/artifacts",
+    "type": "directory",
+    "status": "empty",
+    "service": null
+  },
+  {
+    "source": "/app/out/losses.jsonl",
+    "destination": "artifacts/app/out/losses.jsonl",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/app/out/grads.jsonl",
+    "destination": "artifacts/app/out/grads.jsonl",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  },
+  {
+    "source": "/app/out/report.json",
+    "destination": "artifacts/app/out/report.json",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  }
+]

@@ -1,0 +1,66 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.17, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 5 items
+
+../tests/test_outputs.py ..FFF                                           [100%]
+
+=================================== FAILURES ===================================
+_________________________________ test_decode __________________________________
+
+    def test_decode():
+        need()
+        for cid,v,t,cs,off,pr,rs in CS:
+            R,sa=gen(v,t,cs,off,pr,rs);ref=orc(R,v);d=sc()
+            try:
+                o=d+"/o.jsonl"
+                r=run(d,["decode","--capture",put(d,"b.csv",bcsv(R)),"--strain",put(d,"s.csv",scsv(sa)),"--out",o])
+>               assert r.returncode==0,"%s rc=%d %s"%(cid,r.returncode,r.stderr[-1000:])
+E               AssertionError: mixed rc=2 driver.py: decode is unresolved: the rev-D map and an evidence-based card revision discriminator are missing. Observed read addresses: 0x00, 0x01, 0x30. Strain ADC counts have no documented transfer model that identifies register fields. No JSONL emitted; see driver.py's module documentation for the ambiguity.
+E                 
+E               assert 2 == 0
+E                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_d31r89z5/b....er model that identifies register fields. No JSONL emitted; see driver.py's module documentation for the ambiguity.\n").returncode
+
+/tests/test_outputs.py:113: AssertionError
+_________________________________ test_excite __________________________________
+
+    def test_excite():
+        need()
+        for rev,cs,fq,gn,ph,en in SP:
+            d=sc()
+            try:
+                o=d+"/w.json";spec={"revision":rev,"cs":cs,"freq_hz":fq,"gain":gn,"phase_deg":ph,"enable":en}
+                r=run(d,["excite","--spec",put(d,"p.json",json.dumps(spec)),"--out",o])
+>               assert r.returncode==0,"excite rc=%d %s"%(r.returncode,r.stderr[-1000:])
+E               AssertionError: excite rc=2 driver.py: rev-D excitation is unresolved: no verified rev-D field map was supplied, and the captures cannot uniquely establish its frequency, phase, gain and enable placement. No writes emitted.
+E                 
+E               assert 2 == 0
+E                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'excite', '--spec', '/tmp/pd440_v_itnfz7r1/p.jso...ied, and the captures cannot uniquely establish its frequency, phase, gain and enable placement. No writes emitted.\n').returncode
+
+/tests/test_outputs.py:136: AssertionError
+______________________________ test_deterministic ______________________________
+
+    def test_deterministic():
+        need();_,v,t,cs,off,pr,rs=CS[0];R,sa=gen(v,t,cs,off,pr,rs);d=sc()
+        try:
+            b=put(d,"b.csv",bcsv(R));s=put(d,"s.csv",scsv(sa))
+            rev,c2,fq,gn,ph,en=SP[0]
+            p=put(d,"p.json",json.dumps({"revision":rev,"cs":c2,"freq_hz":fq,"gain":gn,"phase_deg":ph,"enable":en}))
+            bl=[]
+            for n in "ab":
+                o1=d+"/d"+n+".jl";o2=d+"/w"+n+".json"
+>               assert run(d,["decode","--capture",b,"--strain",s,"--out",o1]).returncode==0
+E               assert 2 == 0
+E                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_zr6isz_n/b....er model that identifies register fields. No JSONL emitted; see driver.py's module documentation for the ambiguity.\n").returncode
+E                +    where CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_zr6isz_n/b....er model that identifies register fields. No JSONL emitted; see driver.py's module documentation for the ambiguity.\n") = run('/tmp/pd440_v_zr6isz_n', ['decode', '--capture', '/tmp/pd440_v_zr6isz_n/b.csv', '--strain', '/tmp/pd440_v_zr6isz_n/s.csv', '--out', ...])
+
+/tests/test_outputs.py:158: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_artifact
+PASSED ../tests/test_outputs.py::test_stdlib_only
+FAILED ../tests/test_outputs.py::test_decode - AssertionError: mixed rc=2 dri...
+FAILED ../tests/test_outputs.py::test_excite - AssertionError: excite rc=2 dr...
+FAILED ../tests/test_outputs.py::test_deterministic - assert 2 == 0
+========================= 3 failed, 2 passed in 0.76s ==========================

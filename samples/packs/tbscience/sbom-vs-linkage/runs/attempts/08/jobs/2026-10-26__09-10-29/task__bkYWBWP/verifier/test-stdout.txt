@@ -1,0 +1,149 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 9 items
+
+../tests/test_outputs.py ...FFFF..                                       [100%]
+
+=================================== FAILURES ===================================
+___________________ test_r2_verdict_matches_the_witness_kind ___________________
+
+    def test_r2_verdict_matches_the_witness_kind():
+        rows = rows_by_id(load_artifact_rows())
+        reference = load_expected()
+        kinds = reference["witness_kind"]
+        for advisory_id in sorted(reference["canonical_advisories"]):
+            assert advisory_id in rows, "%s is missing from the artifact" % advisory_id
+            row = rows[advisory_id]
+            kind = witness_kind(row["witness"])
+            assert kind != "unknown", (
+                "%s: witness %r does not name any record kind the release image "
+                "uses" % (advisory_id, row["witness"])
+            )
+>           assert kind == kinds[advisory_id], (
+                "%s: witness %r is a %s record but the ruling is decided by a %s "
+                "record" % (advisory_id, row["witness"], kind, kinds[advisory_id])
+            )
+E           AssertionError: ADV-2025-0443: witness 'libmurmurx.a(murmurx.o)' is a archive_member record but the ruling is decided by a archive record
+E           assert 'archive_member' == 'archive'
+E             
+E             - archive
+E             + archive_member
+
+/tests/test_outputs.py:300: AssertionError
+_______________ test_r3_witness_is_the_canonical_deciding_record _______________
+
+    def test_r3_witness_is_the_canonical_deciding_record():
+        rows = rows_by_id(load_artifact_rows())
+        reference = load_expected()["canonical_advisories"]
+        for advisory_id in sorted(reference):
+            assert advisory_id in rows, "%s is missing from the artifact" % advisory_id
+            got = rows[advisory_id].get("witness")
+            want = reference[advisory_id]["witness"]
+            assert isinstance(got, str) and got.strip(), (
+                "%s: witness must be a non-empty string, got %r" % (advisory_id, got)
+            )
+>           assert witnesses_equal(got, want), (
+                "%s: witness %r is not the canonical deciding record %r"
+                % (advisory_id, got, want)
+            )
+E           AssertionError: ADV-2025-0443: witness 'libmurmurx.a(murmurx.o)' is not the canonical deciding record 'libmurmurx.a'
+E           assert False
+E            +  where False = witnesses_equal('libmurmurx.a(murmurx.o)', 'libmurmurx.a')
+
+/tests/test_outputs.py:323: AssertionError
+_______________ test_r3_witness_resolves_to_the_affected_symbol ________________
+
+    def test_r3_witness_resolves_to_the_affected_symbol():
+        rows = rows_by_id(load_artifact_rows())
+        reference = load_expected()
+        facts = reference["link_facts"]
+        kinds = reference["witness_kind"]
+        findings = dict((str(f["advisory_id"]), f) for f in load_scanner())
+    
+        for advisory_id in sorted(reference["canonical_advisories"]):
+            row = rows[advisory_id]
+            token = canonical_witness(row["witness"])
+            symbol = str(findings[advisory_id]["affected_symbol"])
+            component = str(findings[advisory_id]["component"])
+            kind = kinds[advisory_id]
+    
+            if kind == "archive_member":
+                table = facts["map_inclusions"]
+                assert token in table, (
+                    "%s: %r is not an archive-inclusion entry in the release map"
+                    % (advisory_id, token)
+                )
+                assert table[token] == symbol, (
+                    "%s: the map inclusion %r was pulled for symbol %r, not for "
+                    "the advisory's affected symbol %r"
+                    % (advisory_id, token, table[token], symbol)
+                )
+    
+            elif kind == "section":
+                mangled = facts["symbol_token"].get(advisory_id, "")
+                assert mangled and mangled in token, (
+                    "%s: section %r is not the section of the advisory's affected "
+                    "symbol %r (%s)" % (advisory_id, token, symbol, mangled)
+                )
+                blame = facts["gc_sections"].get(token)
+                assert blame, (
+                    "%s: %r is not a section the gc log removed"
+                    % (advisory_id, token)
+                )
+                assert any(mangled in facts["member_definitions"].get(entry, [])
+                           for entry in blame), (
+                    "%s: the gc log blames %r on %s, which does not define %s"
+                    % (advisory_id, token, blame, mangled)
+                )
+    
+            elif kind == "archive":
+>               assert token in facts["link_archives"], (
+                    "%s: %r does not stand on the link line"
+                    % (advisory_id, token)
+                )
+E               AssertionError: ADV-2025-0443: 'libmurmurx.a(murmurx.o)' does not stand on the link line
+E               assert 'libmurmurx.a(murmurx.o)' in ['libhpack.a', 'librotor.a', 'libshim.a', 'libcrcutil.a', 'libmurmurx.a']
+
+/tests/test_outputs.py:373: AssertionError
+____________________ test_r3_witness_is_not_a_decoy_record _____________________
+
+    def test_r3_witness_is_not_a_decoy_record():
+        rows = rows_by_id(load_artifact_rows())
+        reference = load_expected()
+        decoys = reference["decoy_records"]
+        for advisory_id in sorted(reference["canonical_advisories"]):
+            row = rows[advisory_id]
+            got_hex = canonical_build_id(row["witness"])
+            got = canonical_witness(row["witness"])
+            for decoy in decoys.get(advisory_id, []):
+                decoy_hex = canonical_build_id(decoy)
+                if decoy_hex is not None:
+                    assert got_hex != decoy_hex, (
+                        "%s: witness %r is the decoy build-id %r, which is not the "
+                        "build the loader binds" % (advisory_id, row["witness"], decoy)
+                    )
+                else:
+>                   assert got != canonical_witness(decoy), (
+                        "%s: witness %r is the decoy record %r, which names the "
+                        "component without carrying its affected symbol"
+                        % (advisory_id, row["witness"], decoy)
+                    )
+E                   AssertionError: ADV-2025-0443: witness 'libmurmurx.a(murmurx.o)' is the decoy record 'libmurmurx.a(murmurx.o)', which names the component without carrying its affected symbol
+E                   assert 'libmurmurx.a(murmurx.o)' != 'libmurmurx.a(murmurx.o)'
+E                    +  where 'libmurmurx.a(murmurx.o)' = canonical_witness('libmurmurx.a(murmurx.o)')
+
+/tests/test_outputs.py:441: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_r1_exactly_one_ruling_per_scanner_finding
+PASSED ../tests/test_outputs.py::test_r1_verdict_vocabulary_and_field_shapes
+PASSED ../tests/test_outputs.py::test_r2_verdict_map_is_the_linkage_decision
+PASSED ../tests/test_outputs.py::test_r4_rejected_claim_contract
+PASSED ../tests/test_outputs.py::test_r4_claim_split_is_not_uniform
+FAILED ../tests/test_outputs.py::test_r2_verdict_matches_the_witness_kind - A...
+FAILED ../tests/test_outputs.py::test_r3_witness_is_the_canonical_deciding_record
+FAILED ../tests/test_outputs.py::test_r3_witness_resolves_to_the_affected_symbol
+FAILED ../tests/test_outputs.py::test_r3_witness_is_not_a_decoy_record - Asse...
+========================= 4 failed, 5 passed in 0.13s ==========================

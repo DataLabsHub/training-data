@@ -1,0 +1,12 @@
+{
+  "task": "spin-crossover-band-audit",
+  "model": "openai/gpt-6-astra",
+  "agent": "codex",
+  "status": "done_8",
+  "passes": 1,
+  "valid": 8,
+  "attempts": 8,
+  "pass_rate": 0.125,
+  "wall_sec": 7702,
+  "error": ""
+}

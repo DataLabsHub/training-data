@@ -1,0 +1,316 @@
+{
+  "technique_order": [
+    "532",
+    "785",
+    "1064",
+    "IR"
+  ],
+  "bands": {
+    "B01": {
+      "center_cm1": 233,
+      "state": "LS",
+      "ls_phase_activity": "raman",
+      "ls_cross_sections": {
+        "532": 150.0,
+        "785": 140.0,
+        "1064": 110.0,
+        "IR": 2.0
+      },
+      "hs_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      }
+    },
+    "B02": {
+      "center_cm1": 257,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "ls_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      },
+      "hs_cross_sections": {
+        "532": 6.0,
+        "785": 8.0,
+        "1064": 10.0,
+        "IR": 90.0
+      }
+    },
+    "B03": {
+      "center_cm1": 418,
+      "state": "LS",
+      "ls_phase_activity": "ir",
+      "ls_cross_sections": {
+        "532": 8.0,
+        "785": 10.0,
+        "1064": 12.0,
+        "IR": 55.0
+      },
+      "hs_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      }
+    },
+    "B04": {
+      "center_cm1": 447,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "ls_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      },
+      "hs_cross_sections": {
+        "532": 9.0,
+        "785": 12.0,
+        "1064": 14.0,
+        "IR": 70.0
+      }
+    },
+    "B05": {
+      "center_cm1": 507,
+      "state": "LS",
+      "ls_phase_activity": "raman",
+      "ls_cross_sections": {
+        "532": 45.0,
+        "785": 60.0,
+        "1064": 55.0,
+        "IR": 3.0
+      },
+      "hs_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      }
+    },
+    "B06": {
+      "center_cm1": 534,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "ls_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      },
+      "hs_cross_sections": {
+        "532": 7.0,
+        "785": 10.0,
+        "1064": 12.0,
+        "IR": 80.0
+      }
+    },
+    "B07": {
+      "center_cm1": 566,
+      "state": "BOTH",
+      "ls_phase_activity": "raman",
+      "ls_cross_sections": {
+        "532": 25.0,
+        "785": 30.0,
+        "1064": 28.0,
+        "IR": 5.0
+      },
+      "hs_cross_sections": {
+        "532": 6.0,
+        "785": 9.0,
+        "1064": 12.0,
+        "IR": 35.0
+      }
+    },
+    "B08": {
+      "center_cm1": 762,
+      "state": "LS",
+      "ls_phase_activity": "raman",
+      "ls_cross_sections": {
+        "532": 40.0,
+        "785": 45.0,
+        "1064": 38.0,
+        "IR": 4.0
+      },
+      "hs_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      }
+    },
+    "B09": {
+      "center_cm1": 784,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "ls_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      },
+      "hs_cross_sections": {
+        "532": 6.0,
+        "785": 9.0,
+        "1064": 11.0,
+        "IR": 40.0
+      }
+    },
+    "B10": {
+      "center_cm1": 1012,
+      "state": "BOTH",
+      "ls_phase_activity": "raman",
+      "ls_cross_sections": {
+        "532": 60.0,
+        "785": 60.0,
+        "1064": 50.0,
+        "IR": 6.0
+      },
+      "hs_cross_sections": {
+        "532": 15.0,
+        "785": 22.0,
+        "1064": 25.0,
+        "IR": 25.0
+      }
+    },
+    "B11": {
+      "center_cm1": 1291,
+      "state": "LS",
+      "ls_phase_activity": "raman",
+      "ls_cross_sections": {
+        "532": 120.0,
+        "785": 55.0,
+        "1064": 35.0,
+        "IR": 5.0
+      },
+      "hs_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      }
+    },
+    "B12": {
+      "center_cm1": 1312,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "ls_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      },
+      "hs_cross_sections": {
+        "532": 30.0,
+        "785": 12.0,
+        "1064": 9.0,
+        "IR": 45.0
+      }
+    },
+    "B13": {
+      "center_cm1": 1472,
+      "state": "LS",
+      "ls_phase_activity": "raman",
+      "ls_cross_sections": {
+        "532": 160.0,
+        "785": 70.0,
+        "1064": 40.0,
+        "IR": 6.0
+      },
+      "hs_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      }
+    },
+    "B14": {
+      "center_cm1": 1501,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "ls_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      },
+      "hs_cross_sections": {
+        "532": 45.0,
+        "785": 18.0,
+        "1064": 12.0,
+        "IR": 50.0
+      }
+    },
+    "B15": {
+      "center_cm1": 1601,
+      "state": "BOTH",
+      "ls_phase_activity": "raman",
+      "ls_cross_sections": {
+        "532": 55.0,
+        "785": 35.0,
+        "1064": 25.0,
+        "IR": 5.0
+      },
+      "hs_cross_sections": {
+        "532": 20.0,
+        "785": 16.0,
+        "1064": 15.0,
+        "IR": 30.0
+      }
+    },
+    "B16": {
+      "center_cm1": 2052,
+      "state": "LS",
+      "ls_phase_activity": "ir",
+      "ls_cross_sections": {
+        "532": 5.0,
+        "785": 6.0,
+        "1064": 6.0,
+        "IR": 75.0
+      },
+      "hs_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      }
+    },
+    "B17": {
+      "center_cm1": 2076,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "ls_cross_sections": {
+        "532": 0.0,
+        "785": 0.0,
+        "1064": 0.0,
+        "IR": 0.0
+      },
+      "hs_cross_sections": {
+        "532": 5.0,
+        "785": 8.0,
+        "1064": 8.0,
+        "IR": 60.0
+      }
+    },
+    "B18": {
+      "center_cm1": 2140,
+      "state": "UNRESOLVABLE",
+      "ls_phase_activity": "not_applicable",
+      "ls_cross_sections": {
+        "532": 1.2,
+        "785": 1.2,
+        "1064": 1.2,
+        "IR": 1.2
+      },
+      "hs_cross_sections": {
+        "532": 1.0,
+        "785": 1.0,
+        "1064": 1.0,
+        "IR": 1.0
+      }
+    }
+  }
+}

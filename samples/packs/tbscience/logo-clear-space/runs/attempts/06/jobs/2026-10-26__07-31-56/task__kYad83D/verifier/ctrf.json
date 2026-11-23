@@ -1,0 +1,95 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T07:34:19.422173+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 7,
+            "passed": 6,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793000059309,
+            "stop": 1793000059422
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_artifacts_present_and_parse",
+                "status": "passed",
+                "duration": 4,
+                "start": 1793000059379,
+                "stop": 1793000059383,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_reference_values_reconcile",
+                "status": "passed",
+                "duration": 3,
+                "start": 1793000059384,
+                "stop": 1793000059387,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_margins_match_standard_references",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000059387,
+                "stop": 1793000059388,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_reference_labels_normalize",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 29,
+                "start": 1793000059388,
+                "stop": 1793000059417,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_reference_labels_normalize():\n        \"\"\"Each reported reference normalizes to the standard's named reference.\"\"\"\n        report = reported_margins()\n        for lockup in LOCKUPS:\n            text = report[lockup][\"reference\"]\n            assert isinstance(text, str), \"margins.json[%s].reference must be text\" % lockup\n            got = _normalize_reference(text)\n            want = REFERENCE[\"expected_references\"][lockup]\n>           assert got == want, (\n                \"%s reference %r normalizes to %r, expected %r\" % (lockup, text, got, want)\n            )\nE           AssertionError: icon reference 'optical bounding box height' normalizes to 'x-height', expected 'optical-bbox'\nE           assert 'x-height' == 'optical-bbox'\nE             \nE             - optical-bbox\nE             + x-height\n\n/tests/test_outputs.py:498: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_svg_ink_placement_matches_standard",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000059418,
+                "stop": 1793000059419,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_reported_margins_agree_with_svgs",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000059419,
+                "stop": 1793000059420,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_artwork_preserved_and_uniformly_translated",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000059420,
+                "stop": 1793000059421,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

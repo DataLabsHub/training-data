@@ -1,0 +1,83 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T08:54:34.579852+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 2,
+            "failed": 3,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793004873921,
+            "stop": 1793004874579
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_artifact",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793004873979,
+                "stop": 1793004873980,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_stdlib_only",
+                "status": "passed",
+                "duration": 5,
+                "start": 1793004873980,
+                "stop": 1793004873985,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_decode",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 266,
+                "start": 1793004873986,
+                "stop": 1793004874252,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_decode():\n        need()\n        for cid,v,t,cs,off,pr,rs in CS:\n            R,sa=gen(v,t,cs,off,pr,rs);ref=orc(R,v);d=sc()\n            try:\n                o=d+\"/o.jsonl\"\n                r=run(d,[\"decode\",\"--capture\",put(d,\"b.csv\",bcsv(R)),\"--strain\",put(d,\"s.csv\",scsv(sa)),\"--out\",o])\n>               assert r.returncode==0,\"%s rc=%d %s\"%(cid,r.returncode,r.stderr[-1000:])\nE               AssertionError: mixed rc=2 driver.py: The supplied evidence does not establish the revision-D register map or each card's revision. ID/STATUS are the only registers read, and the strain plateaus do not identify frequency/phase field placement. Provide a verified D map and revision evidence, or additional discriminating measurements; no output has been written.\nE                 \nE               assert 2 == 0\nE                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_pyaqg6u9/b....vide a verified D map and revision evidence, or additional discriminating measurements; no output has been written.\\n\").returncode\n\n/tests/test_outputs.py:113: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_excite",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 126,
+                "start": 1793004874253,
+                "stop": 1793004874379,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_excite():\n        need()\n        for rev,cs,fq,gn,ph,en in SP:\n            d=sc()\n            try:\n                o=d+\"/w.json\";spec={\"revision\":rev,\"cs\":cs,\"freq_hz\":fq,\"gain\":gn,\"phase_deg\":ph,\"enable\":en}\n                r=run(d,[\"excite\",\"--spec\",put(d,\"p.json\",json.dumps(spec)),\"--out\",o])\n>               assert r.returncode==0,\"excite rc=%d %s\"%(r.returncode,r.stderr[-1000:])\nE               AssertionError: excite rc=2 driver.py: The supplied evidence does not establish the revision-D register map or each card's revision. ID/STATUS are the only registers read, and the strain plateaus do not identify frequency/phase field placement. Provide a verified D map and revision evidence, or additional discriminating measurements; no output has been written.\nE                 \nE               assert 2 == 0\nE                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'excite', '--spec', '/tmp/pd440_v_hrwntu7k/p.jso...vide a verified D map and revision evidence, or additional discriminating measurements; no output has been written.\\n\").returncode\n\n/tests/test_outputs.py:136: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_deterministic",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 200,
+                "start": 1793004874379,
+                "stop": 1793004874579,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_deterministic():\n        need();_,v,t,cs,off,pr,rs=CS[0];R,sa=gen(v,t,cs,off,pr,rs);d=sc()\n        try:\n            b=put(d,\"b.csv\",bcsv(R));s=put(d,\"s.csv\",scsv(sa))\n            rev,c2,fq,gn,ph,en=SP[0]\n            p=put(d,\"p.json\",json.dumps({\"revision\":rev,\"cs\":c2,\"freq_hz\":fq,\"gain\":gn,\"phase_deg\":ph,\"enable\":en}))\n            bl=[]\n            for n in \"ab\":\n                o1=d+\"/d\"+n+\".jl\";o2=d+\"/w\"+n+\".json\"\n>               assert run(d,[\"decode\",\"--capture\",b,\"--strain\",s,\"--out\",o1]).returncode==0\nE               assert 2 == 0\nE                +  where 2 = CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_fi19siuq/b....vide a verified D map and revision evidence, or additional discriminating measurements; no output has been written.\\n\").returncode\nE                +    where CompletedProcess(args=['/usr/local/bin/python3.11', '/app/driver.py', 'decode', '--capture', '/tmp/pd440_v_fi19siuq/b....vide a verified D map and revision evidence, or additional discriminating measurements; no output has been written.\\n\") = run('/tmp/pd440_v_fi19siuq', ['decode', '--capture', '/tmp/pd440_v_fi19siuq/b.csv', '--strain', '/tmp/pd440_v_fi19siuq/s.csv', '--out', ...])\n\n/tests/test_outputs.py:158: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

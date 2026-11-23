@@ -1,0 +1,14 @@
+{
+  "primary": {
+    "margin": 62.4,
+    "reference": "x-height"
+  },
+  "stacked": {
+    "margin": 73.5,
+    "reference": "cap height"
+  },
+  "icon": {
+    "margin": 68.4,
+    "reference": "height of the mark's optical bounding box"
+  }
+}

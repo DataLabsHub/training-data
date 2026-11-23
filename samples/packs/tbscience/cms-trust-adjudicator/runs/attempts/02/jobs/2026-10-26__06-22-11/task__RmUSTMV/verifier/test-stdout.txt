@@ -1,0 +1,61 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 11 items
+
+../tests/test_outputs.py .....F.....                                     [100%]
+
+=================================== FAILURES ===================================
+___________ test_r2_canonical_der_re_encodes_the_same_abstract_value ___________
+
+harness = {'root': PosixPath('/tmp/adjver-50yif2lq'), 'ref': {'visible': [{'object': 'o0001.der', 'label': 'cms-sd-version-pad',...ZttPwDSpHZIGeu9j1Ei9MaYajwN36FzRRbouoxeL/HDlWc5Ctyg==", "verdict": "accept", "first_rejecting_element": null}\n'}, ...}
+
+    def test_r2_canonical_der_re_encodes_the_same_abstract_value(harness):
+        mismatches = []
+        checked = 0
+        total = sum(len(harness['ref'][s]) for s in SPLITS)
+        for split in SPLITS:
+            for obj, rec in zip(harness['ref'][split], _records(harness, split)):
+                tag = '%s/%s' % (split, obj['object'])
+                field = rec.get('canonical_der')
+                if not isinstance(field, str) or not BASE64_RE.match(field) or len(field) % 4:
+                    mismatches.append('%s: canonical_der is not padded standard-alphabet base64' % tag)
+                    continue
+                try:
+                    raw = base64.b64decode(field, validate=True)
+                except (binascii.Error, ValueError) as exc:
+                    mismatches.append('%s: canonical_der is not decodable base64 (%s)' % (tag, exc))
+                    continue
+                if base64.b64encode(raw).decode('ascii') != field:
+                    mismatches.append('%s: canonical_der base64 is not in canonical form' % tag)
+                    continue
+                if raw != obj['canonical']:
+                    mismatches.append(
+                        '%s: re-encoded DER differs from the reference (%d bytes vs %d)'
+                        % (tag, len(raw), len(obj['canonical']))
+                    )
+                    continue
+                checked += 1
+>       assert checked == total, '%d of %d objects carried a comparable canonical_der' % (
+            checked,
+            total,
+        )
+E       AssertionError: 93 of 111 objects carried a comparable canonical_der
+E       assert 93 == 111
+
+/tests/test_outputs.py:630: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_r1_program_is_single_self_contained_stdlib_artifact
+PASSED ../tests/test_outputs.py::test_r1_exits_zero_and_emits_ndjson_for_every_split
+PASSED ../tests/test_outputs.py::test_r1_one_record_per_input_file_in_ascending_order
+PASSED ../tests/test_outputs.py::test_r1_record_schema_and_types
+PASSED ../tests/test_outputs.py::test_r1_non_der_files_ignored_and_empty_corpus_clean
+PASSED ../tests/test_outputs.py::test_r3_verdict_matches_the_appliance_reference
+PASSED ../tests/test_outputs.py::test_r4_first_rejecting_element_matches_reference
+PASSED ../tests/test_outputs.py::test_no_duplicate_records_and_exact_counts
+PASSED ../tests/test_outputs.py::test_output_is_deterministic_across_runs
+PASSED ../tests/test_outputs.py::test_reference_corpus_matches_pinned_gold_digests
+FAILED ../tests/test_outputs.py::test_r2_canonical_der_re_encodes_the_same_abstract_value
+========================= 1 failed, 10 passed in 1.50s =========================

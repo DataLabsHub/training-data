@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 11 items
+
+../tests/test_outputs.py ...........                                     [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_r1_program_is_single_self_contained_stdlib_artifact
+PASSED ../tests/test_outputs.py::test_r1_exits_zero_and_emits_ndjson_for_every_split
+PASSED ../tests/test_outputs.py::test_r1_one_record_per_input_file_in_ascending_order
+PASSED ../tests/test_outputs.py::test_r1_record_schema_and_types
+PASSED ../tests/test_outputs.py::test_r1_non_der_files_ignored_and_empty_corpus_clean
+PASSED ../tests/test_outputs.py::test_r2_canonical_der_re_encodes_the_same_abstract_value
+PASSED ../tests/test_outputs.py::test_r3_verdict_matches_the_appliance_reference
+PASSED ../tests/test_outputs.py::test_r4_first_rejecting_element_matches_reference
+PASSED ../tests/test_outputs.py::test_no_duplicate_records_and_exact_counts
+PASSED ../tests/test_outputs.py::test_output_is_deterministic_across_runs
+PASSED ../tests/test_outputs.py::test_reference_corpus_matches_pinned_gold_digests
+============================== 11 passed in 1.27s ==============================

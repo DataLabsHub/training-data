@@ -1,0 +1,43 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 10 items
+
+../tests/test_outputs.py ........F.                                      [100%]
+
+=================================== FAILURES ===================================
+_________________________ test_breathing_mode_carrier __________________________
+
+    def test_breathing_mode_carrier():
+        report = load_report()
+        truth = load_truth()
+        by_id = bands_by_id(report)
+        gamma = load_reference_gamma()
+    
+        carrier = report.get("ls_breathing_mode_band_id")
+        assert isinstance(carrier, str), "ls_breathing_mode_band_id must be a string"
+        assert carrier in by_id, "ls_breathing_mode_band_id %r is not a covered band" % (carrier,)
+>       assert carrier == "B01", (
+            "the totally symmetric Fe-N breathing mode is carried by B01, got %r" % carrier
+        )
+E       AssertionError: the totally symmetric Fe-N breathing mode is carried by B01, got 'B05'
+E       assert 'B05' == 'B01'
+E         
+E         - B01
+E         + B05
+
+/tests/test_outputs.py:396: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_artifact_is_json_object
+PASSED ../tests/test_outputs.py::test_band_coverage_and_centres
+PASSED ../tests/test_outputs.py::test_unresolvable_and_marker_consistency
+PASSED ../tests/test_outputs.py::test_state_fractions
+PASSED ../tests/test_outputs.py::test_band_states_match_latent_truth
+PASSED ../tests/test_outputs.py::test_implied_fractions_track_susceptibility
+PASSED ../tests/test_outputs.py::test_implied_fractions_cross_excitation
+PASSED ../tests/test_outputs.py::test_ls_phase_activity_and_mutual_exclusion
+PASSED ../tests/test_outputs.py::test_numeric_fields_are_finite_numbers
+FAILED ../tests/test_outputs.py::test_breathing_mode_carrier - AssertionError...
+========================= 1 failed, 9 passed in 0.13s ==========================

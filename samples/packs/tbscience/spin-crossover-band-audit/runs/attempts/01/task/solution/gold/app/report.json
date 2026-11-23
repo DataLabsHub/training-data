@@ -1,0 +1,34 @@
+{
+  "state_fractions": {
+    "100": 0.06,
+    "150": 0.26,
+    "200": 0.55,
+    "300": 0.84
+  },
+  "ls_breathing_mode_band_id": "B01",
+  "marker_sets": {
+    "LS": ["B01", "B03", "B05", "B08", "B11", "B13", "B16"],
+    "HS": ["B02", "B04", "B06", "B09", "B12", "B14", "B17"]
+  },
+  "unresolvable_bands": ["B18"],
+  "bands": [
+    {"band_id": "B01", "center_cm1": 233, "state": "LS", "ls_phase_activity": "raman", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B02", "center_cm1": 257, "state": "HS", "ls_phase_activity": "neither", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B03", "center_cm1": 418, "state": "LS", "ls_phase_activity": "ir", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B04", "center_cm1": 447, "state": "HS", "ls_phase_activity": "neither", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B05", "center_cm1": 507, "state": "LS", "ls_phase_activity": "raman", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B06", "center_cm1": 534, "state": "HS", "ls_phase_activity": "neither", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B07", "center_cm1": 566, "state": "BOTH", "ls_phase_activity": "raman", "implied_hs_fraction": null},
+    {"band_id": "B08", "center_cm1": 762, "state": "LS", "ls_phase_activity": "raman", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B09", "center_cm1": 784, "state": "HS", "ls_phase_activity": "neither", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B10", "center_cm1": 1012, "state": "BOTH", "ls_phase_activity": "raman", "implied_hs_fraction": null},
+    {"band_id": "B11", "center_cm1": 1291, "state": "LS", "ls_phase_activity": "raman", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B12", "center_cm1": 1312, "state": "HS", "ls_phase_activity": "neither", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B13", "center_cm1": 1472, "state": "LS", "ls_phase_activity": "raman", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B14", "center_cm1": 1501, "state": "HS", "ls_phase_activity": "neither", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B15", "center_cm1": 1601, "state": "BOTH", "ls_phase_activity": "raman", "implied_hs_fraction": null},
+    {"band_id": "B16", "center_cm1": 2052, "state": "LS", "ls_phase_activity": "ir", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B17", "center_cm1": 2076, "state": "HS", "ls_phase_activity": "neither", "implied_hs_fraction": {"100": 0.06, "150": 0.26, "200": 0.55, "300": 0.84}},
+    {"band_id": "B18", "center_cm1": 2140, "state": "UNRESOLVABLE", "ls_phase_activity": "not_applicable", "implied_hs_fraction": null}
+  ]
+}

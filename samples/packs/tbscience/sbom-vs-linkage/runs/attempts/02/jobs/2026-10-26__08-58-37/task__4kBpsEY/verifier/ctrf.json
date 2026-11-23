@@ -1,0 +1,110 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T09:00:25.639306+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 9,
+            "passed": 9,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793005225531,
+            "stop": 1793005225639
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_r1_exactly_one_ruling_per_scanner_finding",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793005225619,
+                "stop": 1793005225621,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r1_verdict_vocabulary_and_field_shapes",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793005225622,
+                "stop": 1793005225624,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r2_verdict_map_is_the_linkage_decision",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793005225624,
+                "stop": 1793005225626,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r2_verdict_matches_the_witness_kind",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793005225626,
+                "stop": 1793005225628,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r3_witness_is_the_canonical_deciding_record",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793005225628,
+                "stop": 1793005225630,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r3_witness_resolves_to_the_affected_symbol",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793005225630,
+                "stop": 1793005225632,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r3_witness_is_not_a_decoy_record",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793005225633,
+                "stop": 1793005225634,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r4_rejected_claim_contract",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793005225635,
+                "stop": 1793005225636,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r4_claim_split_is_not_uniform",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793005225637,
+                "stop": 1793005225638,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,98 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 10 items
+
+../tests/test_outputs.py ..F.....F.                                      [100%]
+
+=================================== FAILURES ===================================
+___________________ test_unresolvable_and_marker_consistency ___________________
+
+    def test_unresolvable_and_marker_consistency():
+        report = load_report()
+        ref_ids = [b for b, _ in load_reference_bands()]
+        by_id = bands_by_id(report)
+    
+        unres = report["unresolvable_bands"]
+        assert all(isinstance(x, str) for x in unres), "unresolvable_bands must hold strings"
+        assert len(unres) == len(set(unres)), "unresolvable_bands must not repeat an id"
+        assert set(unres) <= set(ref_ids), "unresolvable_bands contains an unknown id"
+        state_unres = {b for b, e in by_id.items() if e["state"] == "UNRESOLVABLE"}
+        assert set(unres) == state_unres, (
+            "unresolvable_bands %s must equal the UNRESOLVABLE states %s" % (
+                sorted(set(unres)), sorted(state_unres))
+        )
+    
+        markers = report["marker_sets"]
+        assert isinstance(markers, dict), "marker_sets must be an object"
+        for key in ("LS", "HS"):
+            assert key in markers, "marker_sets missing %r" % key
+            arr = markers[key]
+            assert isinstance(arr, list) and arr, "marker_sets.%s must be a non-empty list" % key
+            assert all(isinstance(x, str) for x in arr), "marker_sets.%s must hold strings" % key
+            assert len(arr) == len(set(arr)), "marker_sets.%s repeats an id" % key
+        assert not (set(markers["LS"]) & set(markers["HS"])), "a band cannot be in both marker sets"
+        assert set(markers["LS"]) <= set(ref_ids) and set(markers["HS"]) <= set(ref_ids), (
+            "marker_sets contains an unknown band id"
+        )
+        ls_states = {b for b, e in by_id.items() if e["state"] == "LS"}
+        hs_states = {b for b, e in by_id.items() if e["state"] == "HS"}
+        assert set(markers["LS"]) == ls_states, (
+            "marker_sets.LS must equal the LS-labelled bands"
+        )
+        assert set(markers["HS"]) == hs_states, (
+            "marker_sets.HS must equal the HS-labelled bands"
+        )
+    
+        for bid, entry in by_id.items():
+            implied = entry["implied_hs_fraction"]
+            if entry["state"] in ("LS", "HS"):
+                assert isinstance(implied, dict), "%s needs an implied_hs_fraction object" % bid
+                assert set(implied) == set(TEMPS), (
+                    "%s implied_hs_fraction must be keyed by exactly %s" % (bid, TEMPS)
+                )
+                for t in TEMPS:
+                    as_number(implied[t], "implied_hs_fraction[%s][%s]" % (bid, t))
+            else:
+>               assert implied is None, (
+                    "%s is %s so implied_hs_fraction must be null" % (bid, entry["state"])
+                )
+E               AssertionError: B07 is BOTH so implied_hs_fraction must be null
+E               assert {'100': None, '150': None, '200': None, '300': None} is None
+
+/tests/test_outputs.py:230: AssertionError
+_________________________ test_breathing_mode_carrier __________________________
+
+    def test_breathing_mode_carrier():
+        report = load_report()
+        truth = load_truth()
+        by_id = bands_by_id(report)
+        gamma = load_reference_gamma()
+    
+        carrier = report.get("ls_breathing_mode_band_id")
+        assert isinstance(carrier, str), "ls_breathing_mode_band_id must be a string"
+        assert carrier in by_id, "ls_breathing_mode_band_id %r is not a covered band" % (carrier,)
+>       assert carrier == "B01", (
+            "the totally symmetric Fe-N breathing mode is carried by B01, got %r" % carrier
+        )
+E       AssertionError: the totally symmetric Fe-N breathing mode is carried by B01, got 'B05'
+E       assert 'B05' == 'B01'
+E         
+E         - B01
+E         + B05
+
+/tests/test_outputs.py:396: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_artifact_is_json_object
+PASSED ../tests/test_outputs.py::test_band_coverage_and_centres
+PASSED ../tests/test_outputs.py::test_state_fractions
+PASSED ../tests/test_outputs.py::test_band_states_match_latent_truth
+PASSED ../tests/test_outputs.py::test_implied_fractions_track_susceptibility
+PASSED ../tests/test_outputs.py::test_implied_fractions_cross_excitation
+PASSED ../tests/test_outputs.py::test_ls_phase_activity_and_mutual_exclusion
+PASSED ../tests/test_outputs.py::test_numeric_fields_are_finite_numbers
+FAILED ../tests/test_outputs.py::test_unresolvable_and_marker_consistency - A...
+FAILED ../tests/test_outputs.py::test_breathing_mode_carrier - AssertionError...
+========================= 2 failed, 8 passed in 0.14s ==========================

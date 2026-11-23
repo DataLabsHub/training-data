@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 539 419" width="539" height="419">
+  <title>Apex stacked lockup</title>
+  <desc>Apex stacked lockup. Wordmark 'APEX' set in BrandSans Display, type size 140, all caps, outlined to paths; mark above. Clear space per brand-clear-space.md.</desc>
+  <g id="mark" transform="translate(219.5,87.5) translate(0,0)">
+    <path d="M 0,100 L 32,22 C 42,-26 58,-26 68,22 L 100,100 Z"/>
+  </g>
+  <g id="wordmark" transform="translate(219.5,87.5) translate(-146,258)">
+    <path d="M 89.6,0 L 56,-98 L 33.6,-98 L 0,0 Z M 44.8,-72.8 L 66.08,-19.6 L 23.52,-19.6 Z"/>
+    <path d="M 128.8,0 L 128.8,-53.2 L 184.8,-53.2 L 184.8,-98 L 112,-98 L 112,0 Z M 128.8,-84 L 168,-84 L 168,-70 L 128.8,-70 Z"/>
+    <path d="M 277.2,0 L 277.2,-16.8 L 224,-16.8 L 224,-40.6 L 277.2,-40.6 L 277.2,-57.4 L 224,-57.4 L 224,-81.2 L 277.2,-81.2 L 277.2,-98 L 207.2,-98 L 207.2,0 Z"/>
+    <path d="M 299.6,0 L 319.2,0 L 392,-98 L 372.4,-98 Z M 372.4,0 L 392,0 L 319.2,-98 L 299.6,-98 Z"/>
+  </g>
+</svg>

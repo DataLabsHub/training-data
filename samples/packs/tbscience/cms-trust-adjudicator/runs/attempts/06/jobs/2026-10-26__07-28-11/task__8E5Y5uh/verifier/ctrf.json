@@ -1,0 +1,131 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T07:42:41.718298+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 11,
+            "passed": 10,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793000559946,
+            "stop": 1793000561718
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_r1_program_is_single_self_contained_stdlib_artifact",
+                "status": "passed",
+                "duration": 24,
+                "start": 1793000560019,
+                "stop": 1793000560043,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r1_exits_zero_and_emits_ndjson_for_every_split",
+                "status": "passed",
+                "duration": 1591,
+                "start": 1793000560043,
+                "stop": 1793000561634,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r1_one_record_per_input_file_in_ascending_order",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000561635,
+                "stop": 1793000561636,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r1_record_schema_and_types",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000561637,
+                "stop": 1793000561638,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r1_non_der_files_ignored_and_empty_corpus_clean",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000561638,
+                "stop": 1793000561639,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r2_canonical_der_re_encodes_the_same_abstract_value",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 39,
+                "start": 1793000561639,
+                "stop": 1793000561678,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "harness = {'root': PosixPath('/tmp/adjver-3g6fk77a'), 'ref': {'visible': [{'object': 'o0001.der', 'label': 'cms-sd-version-pad',...ZttPwDSpHZIGeu9j1Ei9MaYajwN36FzRRbouoxeL/HDlWc5Ctyg==\", \"verdict\": \"accept\", \"first_rejecting_element\": null}\\n'}, ...}\n\n    def test_r2_canonical_der_re_encodes_the_same_abstract_value(harness):\n        mismatches = []\n        checked = 0\n        total = sum(len(harness['ref'][s]) for s in SPLITS)\n        for split in SPLITS:\n            for obj, rec in zip(harness['ref'][split], _records(harness, split)):\n                tag = '%s/%s' % (split, obj['object'])\n                field = rec.get('canonical_der')\n                if not isinstance(field, str) or not BASE64_RE.match(field) or len(field) % 4:\n                    mismatches.append('%s: canonical_der is not padded standard-alphabet base64' % tag)\n                    continue\n                try:\n                    raw = base64.b64decode(field, validate=True)\n                except (binascii.Error, ValueError) as exc:\n                    mismatches.append('%s: canonical_der is not decodable base64 (%s)' % (tag, exc))\n                    continue\n                if base64.b64encode(raw).decode('ascii') != field:\n                    mismatches.append('%s: canonical_der base64 is not in canonical form' % tag)\n                    continue\n                if raw != obj['canonical']:\n                    mismatches.append(\n                        '%s: re-encoded DER differs from the reference (%d bytes vs %d)'\n                        % (tag, len(raw), len(obj['canonical']))\n                    )\n                    continue\n                checked += 1\n>       assert checked == total, '%d of %d objects carried a comparable canonical_der' % (\n            checked,\n            total,\n        )\nE       AssertionError: 93 of 111 objects carried a comparable canonical_der\nE       assert 93 == 111\n\n/tests/test_outputs.py:630: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_r3_verdict_matches_the_appliance_reference",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000561678,
+                "stop": 1793000561679,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_r4_first_rejecting_element_matches_reference",
+                "status": "passed",
+                "duration": 32,
+                "start": 1793000561680,
+                "stop": 1793000561712,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_no_duplicate_records_and_exact_counts",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793000561712,
+                "stop": 1793000561714,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_output_is_deterministic_across_runs",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793000561714,
+                "stop": 1793000561715,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_reference_corpus_matches_pinned_gold_digests",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793000561715,
+                "stop": 1793000561717,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

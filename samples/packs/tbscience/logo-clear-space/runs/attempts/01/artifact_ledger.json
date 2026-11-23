@@ -1,0 +1,24 @@
+{
+  "schema_version": "harbor_artifact_ledger_v1",
+  "trial_dir": "jobs/2026-10-26__07-14-18/task__XhmqoKM",
+  "artifacts": [
+    {
+      "kind": "reward_txt",
+      "path": "jobs/2026-10-26__07-14-18/task__XhmqoKM/verifier/reward.txt",
+      "size_bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "kind": "ctrf_json",
+      "path": "jobs/2026-10-26__07-14-18/task__XhmqoKM/verifier/ctrf.json",
+      "size_bytes": 3032,
+      "sha256": "f3ad6f7c796623c459549975f36bae45431505851d5ee1fe830c962bed63d995"
+    },
+    {
+      "kind": "verifier_log",
+      "path": "jobs/2026-10-26__07-14-18/task__XhmqoKM/verifier/test-stdout.txt",
+      "size_bytes": 1019,
+      "sha256": "1b3aa7bc2c011f2976e735b15abb0998b8d5da3224a707e2dad51e4cb5e63526"
+    }
+  ]
+}

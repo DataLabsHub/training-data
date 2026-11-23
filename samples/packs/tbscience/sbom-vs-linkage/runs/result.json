@@ -1,0 +1,12 @@
+{
+  "task": "sbom-vs-linkage",
+  "model": "openai/gpt-6-astra",
+  "agent": "codex",
+  "status": "done_8",
+  "passes": 3,
+  "valid": 8,
+  "attempts": 8,
+  "pass_rate": 0.375,
+  "wall_sec": 1577,
+  "error": ""
+}

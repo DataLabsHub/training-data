@@ -1,0 +1,182 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T07:15:38.702700+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 13,
+            "passed": 1,
+            "failed": 12,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1792998937169,
+            "stop": 1792998938702
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_losses_complete",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 888,
+                "start": 1792998937451,
+                "stop": 1792998938339,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_losses_complete():\n        ref = reference()\n>       table = parse_losses(ref)\n                ^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:508: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:372: in parse_losses\n    lines = _load_lines(LOSSES_PATH)\n            ^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/losses.jsonl')\n\n    def _load_lines(path):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s\" % (path,))\nE           Failed: declared artifact is missing: /app/out/losses.jsonl\n\n/tests/test_outputs.py:117: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_grads_complete",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 46,
+                "start": 1792998938339,
+                "stop": 1792998938385,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_grads_complete():\n        ref = reference()\n>       table = parse_grads(ref)\n                ^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:515: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:398: in parse_grads\n    lines = _load_lines(GRADS_PATH)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/grads.jsonl')\n\n    def _load_lines(path):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s\" % (path,))\nE           Failed: declared artifact is missing: /app/out/grads.jsonl\n\n/tests/test_outputs.py:117: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_report_complete",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 38,
+                "start": 1792998938385,
+                "stop": 1792998938423,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_report_complete():\n        ref = reference()\n>       table = parse_report(ref)\n                ^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:521: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:440: in parse_report\n    report = _load_object(REPORT_PATH, \"report.json\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/report.json'), label = 'report.json'\n\n    def _load_object(path, label):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s (%s)\" % (path, label))\nE           Failed: declared artifact is missing: /app/out/report.json (report.json)\n\n/tests/test_outputs.py:127: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_reference_corpus_matches_gold",
+                "status": "passed",
+                "duration": 2,
+                "start": 1792998938423,
+                "stop": 1792998938425,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_losses_match_contract",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 28,
+                "start": 1792998938425,
+                "stop": 1792998938453,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_losses_match_contract():\n        ref = reference()\n>       delivered = parse_losses(ref)\n                    ^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:548: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:372: in parse_losses\n    lines = _load_lines(LOSSES_PATH)\n            ^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/losses.jsonl')\n\n    def _load_lines(path):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s\" % (path,))\nE           Failed: declared artifact is missing: /app/out/losses.jsonl\n\n/tests/test_outputs.py:117: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_losses_match_gold",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 28,
+                "start": 1792998938453,
+                "stop": 1792998938481,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_losses_match_gold():\n        ref = reference()\n>       delivered = parse_losses(ref)\n                    ^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:562: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:372: in parse_losses\n    lines = _load_lines(LOSSES_PATH)\n            ^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/losses.jsonl')\n\n    def _load_lines(path):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s\" % (path,))\nE           Failed: declared artifact is missing: /app/out/losses.jsonl\n\n/tests/test_outputs.py:117: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_grads_match_contract",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 48,
+                "start": 1792998938481,
+                "stop": 1792998938529,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_grads_match_contract():\n        ref = reference()\n>       delivered = parse_grads(ref)\n                    ^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:578: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:398: in parse_grads\n    lines = _load_lines(GRADS_PATH)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/grads.jsonl')\n\n    def _load_lines(path):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s\" % (path,))\nE           Failed: declared artifact is missing: /app/out/grads.jsonl\n\n/tests/test_outputs.py:117: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_grads_support_pattern",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 27,
+                "start": 1792998938529,
+                "stop": 1792998938556,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_grads_support_pattern():\n        ref = reference()\n>       delivered = parse_grads(ref)\n                    ^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:597: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:398: in parse_grads\n    lines = _load_lines(GRADS_PATH)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/grads.jsonl')\n\n    def _load_lines(path):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s\" % (path,))\nE           Failed: declared artifact is missing: /app/out/grads.jsonl\n\n/tests/test_outputs.py:117: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_grads_match_gold",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 27,
+                "start": 1792998938557,
+                "stop": 1792998938584,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_grads_match_gold():\n        ref = reference()\n>       delivered = parse_grads(ref)\n                    ^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:623: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:398: in parse_grads\n    lines = _load_lines(GRADS_PATH)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/grads.jsonl')\n\n    def _load_lines(path):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s\" % (path,))\nE           Failed: declared artifact is missing: /app/out/grads.jsonl\n\n/tests/test_outputs.py:117: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_grad_rows_sum_to_zero",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 29,
+                "start": 1792998938584,
+                "stop": 1792998938613,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_grad_rows_sum_to_zero():\n        ref = reference()\n>       delivered = parse_grads(ref)\n                    ^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:642: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:398: in parse_grads\n    lines = _load_lines(GRADS_PATH)\n            ^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/grads.jsonl')\n\n    def _load_lines(path):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s\" % (path,))\nE           Failed: declared artifact is missing: /app/out/grads.jsonl\n\n/tests/test_outputs.py:117: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_report_denominator",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 29,
+                "start": 1792998938613,
+                "stop": 1792998938642,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_report_denominator():\n        ref = reference()\n>       report = parse_report(ref)\n                 ^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:664: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:440: in parse_report\n    report = _load_object(REPORT_PATH, \"report.json\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/report.json'), label = 'report.json'\n\n    def _load_object(path, label):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s (%s)\" % (path, label))\nE           Failed: declared artifact is missing: /app/out/report.json (report.json)\n\n/tests/test_outputs.py:127: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_report_offending",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 29,
+                "start": 1792998938642,
+                "stop": 1792998938671,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_report_offending():\n        ref = reference()\n>       report = parse_report(ref)\n                 ^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:677: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:440: in parse_report\n    report = _load_object(REPORT_PATH, \"report.json\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/report.json'), label = 'report.json'\n\n    def _load_object(path, label):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s (%s)\" % (path, label))\nE           Failed: declared artifact is missing: /app/out/report.json (report.json)\n\n/tests/test_outputs.py:127: Failed",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_report_sample_matches_gold",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 30,
+                "start": 1792998938672,
+                "stop": 1792998938702,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_report_sample_matches_gold():\n        ref = reference()\n>       report = parse_report(ref)\n                 ^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:691: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/tests/test_outputs.py:440: in parse_report\n    report = _load_object(REPORT_PATH, \"report.json\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = PosixPath('/app/out/report.json'), label = 'report.json'\n\n    def _load_object(path, label):\n        if not path.is_file():\n>           pytest.fail(\"declared artifact is missing: %s (%s)\" % (path, label))\nE           Failed: declared artifact is missing: /app/out/report.json (report.json)\n\n/tests/test_outputs.py:127: Failed",
+                "message": "The test failed in the call phase"
+            }
+        ]
+    }
+}

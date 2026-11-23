@@ -1,0 +1,73 @@
+{
+  "scanner": "fleet-scan 5.2.0",
+  "feed": "vendor-vulndb-2025.14.1",
+  "scanned_target": "/app/release/service",
+  "policy": "report every component whose installed version is below the fixed version",
+  "claim_vocabulary": [
+    "APPLICABLE",
+    "NOT_APPLICABLE",
+    "UNKNOWN"
+  ],
+  "findings": [
+    {
+      "advisory_id": "ADV-2025-0441",
+      "cve": "CVE-2024-38971",
+      "component": "libhpack",
+      "version": "1.4.2",
+      "affected_symbol": "hpack_decode",
+      "severity": "high",
+      "fixed_in": "1.4.3",
+      "claim": "APPLICABLE"
+    },
+    {
+      "advisory_id": "ADV-2025-0442",
+      "cve": "CVE-2023-51764",
+      "component": "librotor",
+      "version": "1.4.2",
+      "affected_symbol": "rotor::rotor_decode(char const*, unsigned long)",
+      "severity": "high",
+      "fixed_in": "1.4.3",
+      "claim": "APPLICABLE"
+    },
+    {
+      "advisory_id": "ADV-2025-0443",
+      "cve": "CVE-2024-22017",
+      "component": "libmurmurx",
+      "version": "2.1.0",
+      "affected_symbol": "murmurx_hash",
+      "severity": "medium",
+      "fixed_in": "2.1.1",
+      "claim": "APPLICABLE"
+    },
+    {
+      "advisory_id": "ADV-2025-0444",
+      "cve": "CVE-2024-33112",
+      "component": "libvaultcrypto",
+      "version": "1.1.0",
+      "affected_symbol": "vaultcrypto_sign",
+      "severity": "critical",
+      "fixed_in": "1.1.1",
+      "claim": "APPLICABLE"
+    },
+    {
+      "advisory_id": "ADV-2025-0445",
+      "cve": "CVE-2024-33119",
+      "component": "libvhash",
+      "version": "1.1.0",
+      "affected_symbol": "vhash_query",
+      "severity": "high",
+      "fixed_in": "1.1.1",
+      "claim": "APPLICABLE"
+    },
+    {
+      "advisory_id": "ADV-2025-0446",
+      "cve": "CVE-2024-40898",
+      "component": "libcodecext",
+      "version": "0.9.3",
+      "affected_symbol": "codec_decode",
+      "severity": "high",
+      "fixed_in": "0.9.4",
+      "claim": "APPLICABLE"
+    }
+  ]
+}

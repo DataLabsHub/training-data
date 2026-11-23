@@ -1,0 +1,20 @@
+accepts - acceptance probe for the document-signing appliance
+============================================================
+
+    accepts FILE
+
+Reads one CMS ContentInfo object and writes this appliance's verdict for it,
+and nothing else, to stdout:
+
+    accept              the object is accepted
+    reject <offset>     the object is not accepted; <offset> is the byte
+                        offset, within FILE, of the tag octet of the first
+                        element this appliance does not tolerate
+
+Exit status is 0 for accept, 1 for reject, 2 on a usage or I/O error.
+
+The verdict is this appliance's own.  It is the same code path the signing
+appliance runs before it stores a lab report, so it, and not any other tool,
+decides what the appliance will and will not take.  The desktop validator
+kept in vendor_notes/ is a different program and does not necessarily agree
+with it.

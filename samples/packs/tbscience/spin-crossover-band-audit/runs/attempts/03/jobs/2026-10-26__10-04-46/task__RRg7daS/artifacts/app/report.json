@@ -1,0 +1,238 @@
+{
+  "state_fractions": {
+    "100": 0.06,
+    "150": 0.26,
+    "200": 0.55,
+    "300": 0.84
+  },
+  "ls_breathing_mode_band_id": "B01",
+  "marker_sets": {
+    "LS": [
+      "B01",
+      "B03",
+      "B05",
+      "B08",
+      "B11",
+      "B13",
+      "B16"
+    ],
+    "HS": [
+      "B02",
+      "B04",
+      "B06",
+      "B09",
+      "B12",
+      "B14",
+      "B17"
+    ]
+  },
+  "unresolvable_bands": [
+    "B18"
+  ],
+  "bands": [
+    {
+      "band_id": "B01",
+      "center_cm1": 233,
+      "state": "LS",
+      "ls_phase_activity": "raman",
+      "implied_hs_fraction": {
+        "100": 0.060347,
+        "150": 0.259665,
+        "200": 0.549698,
+        "300": 0.840362
+      }
+    },
+    {
+      "band_id": "B02",
+      "center_cm1": 257,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "implied_hs_fraction": {
+        "100": 0.075933,
+        "150": 0.262774,
+        "200": 0.54032,
+        "300": 0.844342
+      }
+    },
+    {
+      "band_id": "B03",
+      "center_cm1": 418,
+      "state": "LS",
+      "ls_phase_activity": "ir",
+      "implied_hs_fraction": {
+        "100": 0.058227,
+        "150": 0.263619,
+        "200": 0.550498,
+        "300": 0.832272
+      }
+    },
+    {
+      "band_id": "B04",
+      "center_cm1": 447,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "implied_hs_fraction": {
+        "100": 0.057277,
+        "150": 0.260127,
+        "200": 0.551929,
+        "300": 0.838892
+      }
+    },
+    {
+      "band_id": "B05",
+      "center_cm1": 507,
+      "state": "LS",
+      "ls_phase_activity": "raman",
+      "implied_hs_fraction": {
+        "100": 0.060527,
+        "150": 0.2593,
+        "200": 0.549778,
+        "300": 0.840765
+      }
+    },
+    {
+      "band_id": "B06",
+      "center_cm1": 534,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "implied_hs_fraction": {
+        "100": 0.07018,
+        "150": 0.252638,
+        "200": 0.540222,
+        "300": 0.847954
+      }
+    },
+    {
+      "band_id": "B07",
+      "center_cm1": 566,
+      "state": "BOTH",
+      "ls_phase_activity": "raman",
+      "implied_hs_fraction": null
+    },
+    {
+      "band_id": "B08",
+      "center_cm1": 762,
+      "state": "LS",
+      "ls_phase_activity": "raman",
+      "implied_hs_fraction": {
+        "100": 0.058966,
+        "150": 0.259646,
+        "200": 0.553308,
+        "300": 0.838411
+      }
+    },
+    {
+      "band_id": "B09",
+      "center_cm1": 784,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "implied_hs_fraction": {
+        "100": 0.049513,
+        "150": 0.254981,
+        "200": 0.563799,
+        "300": 0.833268
+      }
+    },
+    {
+      "band_id": "B10",
+      "center_cm1": 1012,
+      "state": "BOTH",
+      "ls_phase_activity": "raman",
+      "implied_hs_fraction": null
+    },
+    {
+      "band_id": "B11",
+      "center_cm1": 1291,
+      "state": "LS",
+      "ls_phase_activity": "raman",
+      "implied_hs_fraction": {
+        "100": 0.060481,
+        "150": 0.258806,
+        "200": 0.551136,
+        "300": 0.839498
+      }
+    },
+    {
+      "band_id": "B12",
+      "center_cm1": 1312,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "implied_hs_fraction": {
+        "100": 0.067362,
+        "150": 0.258391,
+        "200": 0.552052,
+        "300": 0.838629
+      }
+    },
+    {
+      "band_id": "B13",
+      "center_cm1": 1472,
+      "state": "LS",
+      "ls_phase_activity": "raman",
+      "implied_hs_fraction": {
+        "100": 0.059126,
+        "150": 0.260342,
+        "200": 0.551462,
+        "300": 0.83944
+      }
+    },
+    {
+      "band_id": "B14",
+      "center_cm1": 1501,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "implied_hs_fraction": {
+        "100": 0.06406,
+        "150": 0.260455,
+        "200": 0.554273,
+        "300": 0.836771
+      }
+    },
+    {
+      "band_id": "B15",
+      "center_cm1": 1601,
+      "state": "BOTH",
+      "ls_phase_activity": "raman",
+      "implied_hs_fraction": null
+    },
+    {
+      "band_id": "B16",
+      "center_cm1": 2052,
+      "state": "LS",
+      "ls_phase_activity": "ir",
+      "implied_hs_fraction": {
+        "100": 0.063325,
+        "150": 0.264807,
+        "200": 0.533203,
+        "300": 0.845474
+      }
+    },
+    {
+      "band_id": "B17",
+      "center_cm1": 2076,
+      "state": "HS",
+      "ls_phase_activity": "neither",
+      "implied_hs_fraction": {
+        "100": 0.032769,
+        "150": 0.263559,
+        "200": 0.560827,
+        "300": 0.833754
+      }
+    },
+    {
+      "band_id": "B18",
+      "center_cm1": 2140,
+      "state": "UNRESOLVABLE",
+      "ls_phase_activity": "not_applicable",
+      "implied_hs_fraction": null
+    }
+  ],
+  "analysis_notes": {
+    "intensity_method": "Joint Gaussian peak fits at all 18 tabulated centers with a linear baseline for each spectrum. Widths were shared across temperatures within each technique; peak amplitudes were fitted independently. Integrated areas were calibrated separately for each band and Raman wavelength against susceptibility-derived LS or HS populations using one multiplicative response factor and no additive population offset. Reported band fractions average the independent 532 and 785 nm estimates; each wavelength independently passes monotonicity and the 0.10 tolerance.",
+    "overall_fractions": "The reported overall fractions are the susceptibility-derived total high-spin fractions; neither measured endpoint is treated as a pure state.",
+    "both_states": "B07, B10 and B15 retain substantial fitted Raman intensity in both extrapolated pure states, with wavelength-dependent LS/HS response ratios. Their total band intensities are not pure-state population markers.",
+    "activity_interpretation": "Low-spin activities are assignments based on the dominant extrapolated low-spin response and centrosymmetric mutual exclusion. Weak opposite-technique features are treated as distinct coincident modes or extrinsic signal, rather than intrinsic dual activity. The supplied data do not independently establish the origin of those weak features; these intrinsic activity assignments are conditional on this interpretation.",
+    "breathing_assignment": "B01 at 233 cm-1 is assigned as the best-supported breathing-mode candidate: a strong low-frequency LS Raman feature at all three excitation wavelengths, a much weaker IR response, and population tracking consistent with susceptibility. B06 at 534 cm-1 instead tracks HS. The available unpolarized spectra and competing labels do not uniquely prove the normal-mode eigenvector or totally symmetric character of B01.",
+    "unresolved": "B18 has a weak nearly temperature-independent fitted area, with scatter comparable to any population-dependent change; the data cannot distinguish a BOTH band from background or a weak combination feature."
+  }
+}

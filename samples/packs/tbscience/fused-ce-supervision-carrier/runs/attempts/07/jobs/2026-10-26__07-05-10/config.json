@@ -1,0 +1,30 @@
+{
+    "agent_setup_timeout_multiplier": 5.0,
+    "environment": {
+        "type": "docker",
+        "mounts": [
+            {
+                "type": "bind",
+                "source": "/data/deeploop-bin/codex",
+                "target": "/opt/codex/bin"
+            }
+        ]
+    },
+    "agents": [
+        {
+            "name": "codex",
+            "model_name": "openai/gpt-6-astra",
+            "kwargs": {
+                "reasoning_effort": "high"
+            },
+            "env": {
+                "PATH": "/opt/codex/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "path": "/data/passrate/tb/runs/fused-ce-supervision-carrier/attempts/07/task"
+        }
+    ]
+}
