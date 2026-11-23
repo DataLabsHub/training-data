@@ -28,6 +28,7 @@
     <a href="#exam">公开基准</a>
     <a href="#scene">场景仿真</a>
     <a href="#other">其他</a>
+    <a href="#pretrain">预训练数据采集</a>
   </div>
   <div class="lang" id="lang" role="radiogroup" aria-label="Language">
     <span class="lang-thumb" aria-hidden="true"></span>
@@ -39,7 +40,7 @@
 <header class="hero" id="top">
   <p class="eyebrow">训练数据 · RL 环境 · 大模型后训练与评测</p>
   <h1>训练数据与 RL 环境</h1>
-  <p class="deck">只收录可自动判定、可复现、可直接接入强化学习的任务。</p>
+  <p class="deck">收录可自动判定、可复现、可直接接入强化学习的任务，以及预训练数据采集。</p>
 </header>
 
 <main>
@@ -406,16 +407,6 @@
     <h2>11</h2>
     <p class="chapter-line">其他</p>
 
-    <article id="corpus">
-      <h3>仓库爬取</h3>
-      <p class="lede">从公开仓库爬取源码、提交、讨论和议题，不按测试评分</p>
-      <dl>
-        <div><dt>交付内容</dt><dd>仓库文件或打包源码、提交、PR、Issue、许可证与来源地址。重复的 Fork 与镜像单独标明</dd></div>
-        <div><dt>覆盖范围</dt><dd>若干公开仓库的源码、提交、PR 与 Issue，语言包括 JavaScript、Go、Rust、Python</dd></div>
-        <div><dt>供给</dt><dd>按样例所示的仓库交付，规模另计</dd></div>
-      </dl>
-    </article>
-
     <article id="rest">
       <h3>测绘与制造</h3>
       <p class="lede">测绘坐标核查，以及生产记录的批次追溯</p>
@@ -425,6 +416,62 @@
         <div><dt>交付内容</dt><dd>原始记录、任务和逐条结论</dd></div>
         <div><dt>覆盖范围</dt><dd>测绘、制造</dd></div>
         <div><dt>供给</dt><dd>按需提供</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="chapter dark" id="pretrain">
+    <h2>12</h2>
+    <p class="chapter-line">预训练数据采集</p>
+    <p class="scope">现成目录约 2,000 亿条多模态记录，其中音视频 1,700 亿以上，文本为百亿级，图像 39 亿以上，另有 360 个以上成品数据集。成品经去重并整理为稳定字段，写入对象存储，按分区拉取，支持增量更新。用于训练时可按预训练、微调、评测组织，并附来源说明。某一来源能否用于训练，由该来源的使用条款决定。</p>
+
+    <article id="shop">
+      <h3>电商</h3>
+      <p class="lede">商品与评价，字段稳定，可按站点交付</p>
+      <dl>
+        <div><dt>交付内容</dt><dd>标题、价格、类目、卖家、库存、评价</dd></div>
+        <div><dt>覆盖范围</dt><dd>亚马逊、eBay、沃尔玛已就绪</dd></div>
+        <div><dt>供给</dt><dd>现成目录可交付，也可按站点补采</dd></div>
+      </dl>
+    </article>
+
+    <article id="social">
+      <h3>社交</h3>
+      <p class="lede">帖子、评论、播放与互动，视频与字幕、转写按时间对齐</p>
+      <dl>
+        <div><dt>交付内容</dt><dd>帖子、评论、播放与互动，以及与画面对齐的字幕。字幕覆盖一百余种语言</dd></div>
+        <div><dt>覆盖范围</dt><dd>Facebook、Instagram、Reddit、TikTok、YouTube，以及领英与 X 的主页</dd></div>
+        <div><dt>供给</dt><dd>现成目录可交付，也可按地址补采</dd></div>
+      </dl>
+    </article>
+
+    <article id="query">
+      <h3>搜索</h3>
+      <p class="lede">查询词与结果页成对返回，可按国家或城市定位</p>
+      <dl>
+        <div><dt>交付内容</dt><dd>查询词与对应结果页</dd></div>
+        <div><dt>覆盖范围</dt><dd>Google、Bing、Yandex、DuckDuckGo</dd></div>
+        <div><dt>供给</dt><dd>现成目录可交付，也可按查询补采</dd></div>
+      </dl>
+    </article>
+
+    <article id="vertical">
+      <h3>公司与行业</h3>
+      <p class="lede">公司与行业的垂直文本，整理为稳定字段</p>
+      <dl>
+        <div><dt>交付内容</dt><dd>融资、营收、创始人、公告，以及医疗、法律、招聘等行业文本</dd></div>
+        <div><dt>覆盖范围</dt><dd>公司资料与行业文本。股价与逐笔成交不在此列</dd></div>
+        <div><dt>供给</dt><dd>现成目录可交付，也可按字段定制</dd></div>
+      </dl>
+    </article>
+
+    <article id="corpus">
+      <h3>代码仓库</h3>
+      <p class="lede">公开仓库的源代码、完整 Git 历史、提交与文件，以及 PR、Issue 和评论。不按测试评分</p>
+      <dl>
+        <div><dt>交付内容</dt><dd>仓库文件或打包源码、提交、PR、Issue、许可证、语言、Star 与活跃情况。重复的 Fork 与镜像单独标明</dd></div>
+        <div><dt>覆盖范围</dt><dd>GitHub 公开仓库。样例含 JavaScript、Go、Rust、Python</dd></div>
+        <div><dt>供给</dt><dd>现成目录可交付，规模另计</dd></div>
       </dl>
     </article>
   </section>
@@ -801,6 +848,13 @@
     color: var(--accent);
   }
   .stat span { color: var(--ink); font-size: 15px; line-height: 1.5; }
+  .chapter > .scope {
+    max-width: 46em;
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
   .chapter-line, .pick .chapter-line {
     margin: 0 0 18px;
     max-width: none;
@@ -1346,7 +1400,7 @@
       { label: CATALOG, html: "samples/raw/repo.html" },
       { label: "增补样例", html: "samples/raw/frontier.html" }
     ]},
-    corpus: { title: "仓库爬取", sources: [{ label: CATALOG, html: "samples/raw/corpus.html" }] },
+    corpus: { title: "代码仓库", sources: [{ label: CATALOG, html: "samples/raw/corpus.html" }] },
     edge: { title: "复杂仓库改造", sources: [{ label: LIST, pack: "edge" }] },
     kernel: { title: "显卡内核", sources: [{ label: LIST, pack: "kernel" }] },
     terminal: { title: "终端任务", sources: [{ label: CATALOG, html: "samples/raw/terminal.html" }] },
