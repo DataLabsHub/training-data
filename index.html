@@ -29,7 +29,11 @@
     <a href="#scene">场景仿真</a>
     <a href="#other">其他</a>
   </div>
-  <label class="lang"><select id="lang" aria-label="Language"></select></label>
+  <div class="lang" id="lang" role="radiogroup" aria-label="Language">
+    <span class="lang-thumb" aria-hidden="true"></span>
+    <button type="button" role="radio" data-lang="en" aria-checked="true">EN</button>
+    <button type="button" role="radio" data-lang="zh-CN" aria-checked="false" tabindex="-1">中文</button>
+  </div>
   <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="菜单"><span></span></button>
 </nav>
 <header class="hero" id="top">
@@ -512,8 +516,62 @@
   }
   .lang {
     flex: none;
+    position: relative;
+    display: inline-flex;
+    align-items: stretch;
     margin-left: auto;
-    padding: 10px 0 10px 12px;
+    padding: 3px;
+    border-radius: 999px;
+    background: rgba(28, 27, 25, .08);
+  }
+  .lang-thumb {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    width: calc(50% - 3px);
+    border-radius: 999px;
+    background: #fff;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, .05),
+      0 1px 2px rgba(0, 0, 0, .06),
+      0 2px 6px rgba(0, 0, 0, .05);
+    transition: transform .2s cubic-bezier(.2, .8, .2, 1);
+    pointer-events: none;
+  }
+  .lang.is-zh .lang-thumb { transform: translateX(100%); }
+  .lang button {
+    position: relative;
+    z-index: 1;
+    flex: 1 0 3.15rem;
+    margin: 0;
+    padding: 4px 12px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(28, 27, 25, .42);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: .01em;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    appearance: none;
+    -webkit-appearance: none;
+    touch-action: manipulation;
+    transition: color .15s ease;
+  }
+  .lang button[aria-checked="true"] { color: #0d0d0d; }
+  .lang button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media (hover: hover) {
+    .lang button:hover { color: rgba(28, 27, 25, .72); }
+    .lang button[aria-checked="true"]:hover { color: #0d0d0d; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lang-thumb { transition: none; }
   }
   .nav-toggle {
     display: none;
@@ -583,31 +641,6 @@
   @media (hover: hover) {
     .nav-links a:hover { border-color: var(--ink); }
     .nav-links a.is-current:hover { color: #fff; }
-  }
-  .lang select {
-    appearance: none;
-    -webkit-appearance: none;
-    padding: 6px 30px 6px 12px;
-    border: 1px solid rgba(28, 27, 25, .22);
-    border-radius: 8px;
-    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%236f6d66' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right 11px center;
-    color: var(--ink);
-    font: inherit;
-    font-size: 13px;
-    cursor: pointer;
-  }
-  .lang select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  html:lang(zh-TW) {
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", "Source Han Sans TC", "Noto Sans TC", sans-serif;
-    --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "Songti TC", "PMingLiU", "Noto Serif CJK TC", "Source Han Serif TC", Georgia, serif;
-  }
-  html:lang(ja) {
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
-    --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", "Noto Serif JP", Georgia, serif;
-  }
-  html:lang(ko) {
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans CJK KR", "Noto Sans KR", sans-serif;
-    --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "AppleMyungjo", "Batang", "Noto Serif CJK KR", "Noto Serif KR", Georgia, serif;
   }
   .hero {
     max-width: 1120px;
@@ -1018,7 +1051,6 @@
       line-height: 1.25;
     }
     .env-tag { margin: 6px 0 0; display: table; }
-    .lang select { max-width: 132px; }
     .hero { padding-top: 48px; }
     .hero h1 { font-size: clamp(34px, 10.5vw, 46px); }
     .hero .deck { font-size: 16px; }
@@ -1267,10 +1299,7 @@
     .viewer-tabs button { padding: 7px 14px; }
   }
   @media (pointer: coarse) {
-    .lang select, .dv-search { font-size: 16px; }
-  }
-  @media (max-width: 420px) {
-    .lang select { max-width: 112px; text-overflow: ellipsis; }
+    .dv-search { font-size: 16px; }
   }
   @media (max-width: 380px) {
     .nav .mark { font-size: 15px; }
@@ -1284,25 +1313,9 @@
 <script src="i18n.js"></script>
 <script>
 (function () {
-  var LANGS = [
-    ["en", "English (US)"], ["zh-CN", "简体中文"], ["zh-TW", "繁體中文（台灣）"], ["ja", "日本語"], ["ko", "한국어"],
-    ["es", "Español (España)"], ["fr", "Français (France)"], ["de", "Deutsch"], ["pt", "Português (Brasil)"], ["ru", "Русский"]
-  ];
   var LOCALE = {
     "zh-CN": { tag: "zh-CN" },
-    "zh-TW": { tag: "zh-TW", numberLocale: "en-US" },
-    "en": { tag: "en-US" },
-    "ja": { tag: "ja-JP" },
-    "ko": { tag: "ko-KR" },
-    "es": { tag: "es-ES" },
-    "fr": { tag: "fr-FR" },
-    "de": { tag: "de-DE" },
-    "pt": { tag: "pt-BR" },
-    "ru": { tag: "ru-RU" }
-  };
-  var UNITS = {
-    fr: ["o", "Ko", "Mo", "Go"],
-    ru: ["Б", "КБ", "МБ", "ГБ"]
+    "en": { tag: "en-US" }
   };
   var I18N = window.I18N || {};
   var lang = "en";
@@ -1429,7 +1442,7 @@
     return node;
   }
   function size(n) {
-    var units = UNITS[lang] || ["B", "KB", "MB", "GB"];
+    var units = ["B", "KB", "MB", "GB"];
     var step = n >= 1e9 ? 3 : n >= 1e6 ? 2 : n >= 1e3 ? 1 : 0;
     var digits = step === 3 ? 2 : step ? 1 : 0;
     var value = new Intl.NumberFormat(numberTag(), { minimumFractionDigits: digits, maximumFractionDigits: digits })
@@ -1985,7 +1998,7 @@
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function (node) {
         var parent = node.parentNode;
-        if (!parent || /^(SCRIPT|STYLE|OPTION)$/.test(parent.nodeName) || parent.closest("#viewer-stage")) {
+        if (!parent || /^(SCRIPT|STYLE|OPTION)$/.test(parent.nodeName) || parent.closest("#viewer-stage") || parent.closest("#lang")) {
           return NodeFilter.FILTER_REJECT;
         }
         return CJK.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
@@ -2008,42 +2021,58 @@
     });
   }
 
-  var select = document.getElementById("lang");
+  var langSwitch = document.getElementById("lang");
+  function syncLangSwitch() {
+    langSwitch.classList.toggle("is-zh", lang === "zh-CN");
+    langSwitch.querySelectorAll("button").forEach(function (btn) {
+      var on = btn.getAttribute("data-lang") === lang;
+      btn.setAttribute("aria-checked", on ? "true" : "false");
+      btn.tabIndex = on ? 0 : -1;
+    });
+  }
   function applyLang(code) {
-    lang = I18N[code] || code === "zh-CN" ? code : "en";
+    lang = code === "zh-CN" || code === "en" ? code : "en";
     texts.forEach(function (entry) { entry.node.nodeValue = entry.lead + t(entry.key) + entry.trail; });
     attrs.forEach(function (entry) { entry.node.setAttribute(entry.name, t(entry.key)); });
     document.title = t(TITLE);
-    document.documentElement.lang = (LOCALE[lang] || LOCALE["zh-CN"]).tag;
+    document.documentElement.lang = (LOCALE[lang] || LOCALE.en).tag;
     document.documentElement.style.setProperty("--spec-label", JSON.stringify(t("规格")));
-    select.value = lang;
+    syncLangSwitch();
     fitNav();
   }
   function match(code) {
     if (!code) return null;
     var c = String(code).toLowerCase();
-    if (c.indexOf("zh") === 0) return /tw|hk|mo|hant/.test(c) ? "zh-TW" : "zh-CN";
-    var primary = c.split("-")[0];
-    return LANGS.some(function (entry) { return entry[0] === primary; }) ? primary : null;
+    if (c === "en" || c.indexOf("en-") === 0) return "en";
+    if (c.indexOf("zh") === 0) return "zh-CN";
+    return null;
+  }
+  function commitLang(code) {
+    if (code === lang) return;
+    applyLang(code);
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+    var url = new URL(location.href);
+    url.searchParams.set("lang", lang);
+    history.replaceState(null, "", url);
+    if (!viewer.hidden) closeViewer();
   }
 
-  LANGS.forEach(function (entry) {
-    var option = document.createElement("option");
-    option.value = entry[0];
-    option.textContent = entry[1];
-    select.appendChild(option);
-  });
   collect();
   var saved = null;
   try { saved = localStorage.getItem("lang"); } catch (e) {}
   applyLang(match(new URLSearchParams(location.search).get("lang")) || match(saved) || "en");
-  select.addEventListener("change", function () {
-    applyLang(select.value);
-    try { localStorage.setItem("lang", select.value); } catch (e) {}
-    var url = new URL(location.href);
-    url.searchParams.set("lang", select.value);
-    history.replaceState(null, "", url);
-    if (!viewer.hidden) closeViewer();
+  langSwitch.addEventListener("click", function (event) {
+    var btn = event.target.closest("button[data-lang]");
+    if (!btn) return;
+    commitLang(btn.getAttribute("data-lang"));
+  });
+  langSwitch.addEventListener("keydown", function (event) {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    var next = event.key === "ArrowRight" ? "zh-CN" : "en";
+    commitLang(next);
+    var btn = langSwitch.querySelector('[data-lang="' + next + '"]');
+    if (btn) btn.focus();
   });
 })();
 </script>
