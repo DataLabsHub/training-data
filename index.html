@@ -164,6 +164,19 @@
         <div><dt>供给</dt><dd>按需定制生产</dd></div>
       </dl>
     </article>
+
+    <article id="protein">
+      <h3>蛋白质设计</h3>
+      <p class="lede">蛋白质与抗体的设计路线，对照抗体性质、设计轨迹和实验结果，并附相关问答</p>
+      <dl>
+        <div><dt>判定标准</dt><dd>设计路线与实测性质逐项对照；问答按标准答案判定</dd></div>
+        <div><dt>难度</dt><dd>保留强模型仍会判错性质或答错的样本</dd></div>
+        <div><dt>用途</dt><dd>蛋白质与抗体设计推理，以及设计过程与实验结果的对照</dd></div>
+        <div><dt>交付内容</dt><dd>设计路线、对应抗体性质、设计轨迹、实验结果，以及相关问答</dd></div>
+        <div><dt>覆盖范围</dt><dd>蛋白质设计路线、抗体亲和力与成药性、多轮设计轨迹与湿实验读数、设计问答</dd></div>
+        <div><dt>供给</dt><dd>按需定制生产</dd></div>
+      </dl>
+    </article>
   </section>
 
   <section class="chapter dark" id="control">
@@ -544,7 +557,7 @@
     border-bottom: 1px solid var(--line);
     font-size: 14px;
   }
-  .nav-cluster { display: flex; flex: 0 1 auto; align-items: center; gap: 8px; min-width: 0; }
+  .nav-cluster { display: flex; flex: 0 1 auto; align-items: center; gap: 8px; min-width: 0; margin-left: auto; }
   .nav-links { display: flex; flex: 0 1 auto; flex-wrap: nowrap; align-items: center; gap: 8px; min-width: 0; overflow: hidden; }
   .nav a { color: var(--ink); white-space: nowrap; }
   .nav-links a {
@@ -599,24 +612,31 @@
     z-index: 5;
     width: max-content;
     min-width: 220px;
-    max-width: min(360px, calc(100vw - 32px));
+    max-width: min(320px, calc(100vw - 32px));
     max-height: min(70vh, 420px);
     overflow: auto;
     overscroll-behavior: contain;
     padding: 6px;
-    background: rgb(244, 241, 234);
-    border: 1px solid var(--line);
+    background: #fffcf7;
+    border: 1px solid rgba(28, 27, 25, .08);
     border-radius: 14px;
-    box-shadow: 0 18px 32px rgba(28, 27, 25, .12);
+    box-shadow:
+      0 12px 32px rgba(28, 27, 25, .10),
+      0 2px 6px rgba(28, 27, 25, .04);
   }
   .nav-more-menu a {
-    display: block;
+    display: flex;
+    align-items: center;
+    min-height: 36px;
     padding: 8px 12px;
     border-radius: 8px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--ink);
     white-space: normal;
   }
-  .nav-more-menu a.is-current { background: var(--ink); color: #fff; }
+  .nav-more-menu a.is-current { background: rgba(28, 27, 25, .06); color: var(--ink); }
   @media (prefers-reduced-motion: reduce) {
     .nav-more-btn svg { transition: none; }
   }
@@ -636,7 +656,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
-    margin-left: auto;
+    margin-left: 0;
     padding: 3px;
     height: 32px;
     border-radius: 999px;
@@ -691,6 +711,7 @@
   @media (hover: hover) {
     .lang button:hover { color: rgba(28, 27, 25, .72); }
     .lang button[aria-checked="true"]:hover { color: #0d0d0d; }
+    .nav-toggle:hover { background: rgba(28, 27, 25, .1); }
   }
   @media (prefers-reduced-motion: reduce) {
     .lang-thumb { transition: none; }
@@ -699,13 +720,13 @@
     display: none;
     flex: none;
     position: relative;
-    width: 40px;
-    height: 40px;
-    margin-right: -8px;
+    width: 32px;
+    height: 32px;
+    margin: 0;
     padding: 0;
     border: 0;
     border-radius: 10px;
-    background: transparent;
+    background: rgba(28, 27, 25, .06);
     color: var(--ink);
     cursor: pointer;
     appearance: none;
@@ -716,24 +737,26 @@
   .nav-toggle span::before,
   .nav-toggle span::after {
     position: absolute;
-    left: 11px;
-    width: 18px;
+    left: 8px;
+    width: 16px;
     height: 1.6px;
     border-radius: 2px;
     background: currentColor;
     transition: transform .2s, opacity .2s;
   }
-  .nav-toggle span { top: 19.2px; }
+  .nav-toggle span { top: 15.2px; }
   .nav-toggle span::before, .nav-toggle span::after { content: ""; left: 0; }
-  .nav-toggle span::before { transform: translateY(-6px); }
-  .nav-toggle span::after { transform: translateY(6px); }
+  .nav-toggle span::before { transform: translateY(-5px); }
+  .nav-toggle span::after { transform: translateY(5px); }
   .nav.open .nav-toggle span { background: transparent; }
   .nav.open .nav-toggle span::before { background: var(--ink); transform: rotate(45deg); }
   .nav.open .nav-toggle span::after { background: var(--ink); transform: rotate(-45deg); }
   .nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .nav.compact { overflow: visible; gap: 10px; }
   .nav.compact .mark { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .nav.compact .nav-toggle { display: block; }
+  .nav.compact .nav-cluster { display: contents; }
+  .nav.compact .nav-toggle { display: block; order: 0; margin-left: 0; margin-right: 0; }
+  .nav.compact .lang { order: 2; margin-left: auto; }
   .nav.compact .nav-links {
     display: none;
     position: absolute;
@@ -742,15 +765,15 @@
     right: 0;
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
+    gap: 2px;
     max-height: calc(100vh - 56px);
     max-height: calc(100dvh - 56px);
     overflow: auto;
     overscroll-behavior: contain;
-    padding: 4px max(var(--pad), env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(var(--pad), env(safe-area-inset-left));
+    padding: 8px max(calc(var(--pad) - 10px), env(safe-area-inset-right)) 16px max(calc(var(--pad) - 10px), env(safe-area-inset-left));
     background: rgb(244, 241, 234);
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 18px 32px rgba(28, 27, 25, .12);
+    border-bottom: 1px solid rgba(28, 27, 25, .08);
+    box-shadow: 0 16px 32px rgba(28, 27, 25, .06);
   }
   .nav.compact .nav-more { display: none; }
   .nav.compact.open .nav-links { display: flex; }
@@ -758,25 +781,26 @@
     display: flex;
     align-items: center;
     align-self: stretch;
-    min-height: 48px;
+    min-height: 44px;
     margin: 0;
-    padding: 12px 0;
+    padding: 10px;
+    justify-content: flex-start;
+    text-align: left;
     border: 0;
-    border-radius: 0;
-    border-bottom: 1px solid var(--line);
+    border-radius: 10px;
     background: transparent;
     box-shadow: none;
     color: var(--ink);
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.35;
     white-space: normal;
   }
   .nav.compact .nav-links a:last-child { border-bottom: 0; }
   .nav.compact .nav-links a.is-current {
-    background: transparent;
-    border-radius: 0;
-    color: var(--accent);
+    background: rgba(28, 27, 25, .06);
+    border-radius: 10px;
+    color: var(--ink);
     box-shadow: none;
   }
   @media (hover: hover) {
@@ -784,17 +808,18 @@
     .nav-links a.is-current:hover { color: #fff; }
     .nav.compact .nav-links a:hover {
       border-color: transparent;
-      border-bottom-color: var(--line);
-      background: transparent;
+      background: rgba(28, 27, 25, .04);
       color: var(--ink);
     }
-    .nav.compact .nav-links a:last-child:hover { border-bottom-color: transparent; }
-    .nav.compact .nav-links a.is-current:hover { color: var(--accent); }
+    .nav.compact .nav-links a.is-current:hover {
+      background: rgba(28, 27, 25, .06);
+      color: var(--ink);
+    }
     .nav-more-btn:hover { border-color: var(--ink); }
     .nav-more-btn.is-current:hover,
     .nav-more.open .nav-more-btn:hover { color: #fff; }
-    .nav-more-menu a:hover { background: rgba(28, 27, 25, .06); }
-    .nav-more-menu a.is-current:hover { background: var(--ink); color: #fff; }
+    .nav-more-menu a:hover { background: rgba(28, 27, 25, .04); }
+    .nav-more-menu a.is-current:hover { background: rgba(28, 27, 25, .06); color: var(--ink); }
   }
   .hero {
     max-width: 1120px;
@@ -1208,7 +1233,6 @@
       padding: 0;
       line-height: 1;
     }
-    .nav.compact .nav-toggle { margin-right: -11px; }
     .env-tag { margin: 6px 0 0; display: table; }
     .hero { padding-top: 48px; }
     .hero h1 { font-size: clamp(34px, 10.5vw, 46px); }
@@ -1526,6 +1550,11 @@
       { label: "法律", html: "samples/raw/room.html" },
       { label: "投行数据", html: "samples/raw/banking.html" },
       { label: "量化投资 · 金融投研", html: "samples/raw/finance.html" }
+    ]},
+    protein: { title: "蛋白质设计", sources: [
+      { label: "设计路线 · 抗体性质", html: "samples/raw/protein.html" },
+      { label: "设计轨迹 · 实验结果", html: "samples/raw/proteintrace.html" },
+      { label: "设计问答", html: "samples/raw/proteinqa.html" }
     ]},
     session: { title: "长程调用", sources: [{ label: CATALOG, html: "samples/raw/session.html" }] },
     sim: { title: "场景仿真", sources: [{ label: CATALOG, html: "samples/raw/ego.html" }] },

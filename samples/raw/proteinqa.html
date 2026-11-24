@@ -1,0 +1,30 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{--bg:#f7f3ea;--surface:#fffdf8;--soft:#f0ece2;--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:1040px;margin:0 auto;padding:clamp(18px,4vw,36px)}
+.caption{font-family:"SFMono-Regular",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--muted)}
+.prose{color:var(--muted);white-space:pre-wrap;margin:8px 0 0}
+.card{background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 28px rgba(54,44,24,.06)}
+.source{padding:15px 19px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.fields{padding:4px 20px}
+.field{padding:17px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0}
+.fold{margin:0 0 14px}
+.fold>summary{list-style:none;cursor:pointer;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,253,248,.86);box-shadow:0 12px 28px rgba(54,44,24,.06);font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:13px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:12px}
+.answer{margin-top:9px}
+.answer summary{cursor:pointer;color:var(--gold);font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:12px}
+.answer-body{margin-top:12px;border-left:3px solid var(--gold);padding-left:14px}
+</style></head><body><main><details class="fold" open><summary>ab17-qa-round-tradeoff</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="设计问答">设计问答</div><div class="fields"><div class="field"><div class="caption">Domain</div><p class="prose">蛋白质设计 · 对照 AB-17 的路线与实验读数作答</p></div><div class="field"><div class="caption">Question</div><p class="prose">R1 的 KD 为 22 nM，已优于 50 nM 门槛，但 SEC 单体降到 86%。按本条设计路线，下一轮应优先做什么？
+
+A. 继续压低 KD，聚集留到制剂阶段
+B. 优先改回与聚集相关的位点，允许亲和力在门槛内回退
+C. 放弃该骨架，从 R0 重新选择框架
+D. 只提高 Tm，不必看 SEC</p></div><div class="field"><div class="caption">Answer</div><details class="answer"><summary>显示答案</summary><div class="answer-body"><p class="prose">B。路线规定成药性不过线不得冻结。R2 的 KD 从 22 nM 回到 31 nM，仍低于 50 nM，同时 Tm 与 SEC 单体过线，因此这一取舍成立。</p></div></details></div><div class="field"><div class="caption">Scoring</div><p class="prose">选项与理由一致才记为正确。</p></div></div></article></div></details><details class="fold"><summary>ab17-qa-parent-fail</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="设计问答">设计问答</div><div class="fields"><div class="field"><div class="caption">Domain</div><p class="prose">蛋白质设计 · 对照 AB-17 的路线与实验读数作答</p></div><div class="field"><div class="caption">Question</div><p class="prose">R0 为什么不能冻结，即使后续轮次仍沿用同一骨架？
+
+A. 因为这一轮还没有预测值
+B. KD 为 180 nM，高于亲和力门槛，且 Tm、SEC 单体也未过线
+C. 因为这一轮还没有候选编号
+D. 因为脱靶尚未测定，所以亲和力读数无效</p></div><div class="field"><div class="caption">Answer</div><details class="answer"><summary>显示答案</summary><div class="answer-body"><p class="prose">B。R0 的 KD、Tm 和 SEC 单体都未过本条路线的门槛。骨架可以留到下一轮，序列不能冻结。</p></div></details></div><div class="field"><div class="caption">Scoring</div><p class="prose">选项与理由一致才记为正确。</p></div></div></article></div></details></main></body></html>

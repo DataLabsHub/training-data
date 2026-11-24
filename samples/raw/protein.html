@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{--bg:#f7f3ea;--surface:#fffdf8;--soft:#f0ece2;--ink:#1d2925;--muted:#61706a;--line:rgba(29,41,37,.15);--gold:#b47a1d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Noto Serif SC",serif;line-height:1.6}
+main{max-width:1040px;margin:0 auto;padding:clamp(18px,4vw,36px)}
+.caption{font-family:"SFMono-Regular",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--muted)}
+.prose{color:var(--muted);white-space:pre-wrap;margin:8px 0 0}
+.card{background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 28px rgba(54,44,24,.06)}
+.source{padding:15px 19px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.fields{padding:4px 20px}
+.field{padding:17px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0}
+.fold{margin:0 0 14px}
+.fold>summary{list-style:none;cursor:pointer;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,253,248,.86);box-shadow:0 12px 28px rgba(54,44,24,.06);font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:13px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:12px}
+.sheet{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
+.sheet th,.sheet td{text-align:left;padding:8px 10px 8px 0;border-top:1px solid var(--line);vertical-align:top}
+.sheet th{border-top:0;font-weight:500;color:var(--muted);font-size:12px}
+</style></head><body><main><details class="fold" open><summary>ab17-route-properties</summary><div class="fold-body"><article class="card problem"><div class="source head-title" data-t="设计路线 · 抗体性质">设计路线 · 抗体性质</div><div class="fields"><div class="field"><div class="caption">Record</div><p class="prose">候选抗体 AB-17。靶点为人源细胞因子受体的胞外域。每一步设计路线写明它要推动的抗体性质。</p></div><div class="field"><div class="caption">Route</div><table class="sheet"><thead><tr><th>步骤</th><th>设计路线</th><th>对应性质</th></tr></thead><tbody><tr><td>1</td><td>从同源抗体中选定人源可变区骨架，框架区不改</td><td>人源程度、表达倾向</td></tr><tr><td>2</td><td>只在 CDR-H3 与 CDR-L3 做替换，长度有上限</td><td>亲和力：KD、kon、koff</td></tr><tr><td>3</td><td>预测结合不过亲和力门槛的序列，不送成药性实验</td><td>KD 门槛</td></tr><tr><td>4</td><td>Tm、SEC 单体或脱靶任一不过线，回到序列责任位点再改</td><td>Tm、SEC 单体比例、脱靶结合、脱酰胺与异构化位点</td></tr><tr><td>5</td><td>性质全部过线后冻结序列，对照实验读数归档</td><td>上列性质同时成立</td></tr></tbody></table></div><div class="field"><div class="caption">Properties</div><p class="prose">冻结候选 AB-17 的实测性质。门槛来自本条路线，不是通用制剂标准。</p><table class="sheet"><thead><tr><th>性质</th><th>门槛</th><th>AB-17 实测</th></tr></thead><tbody><tr><td>KD</td><td>≤ 50 nM</td><td>31 nM</td></tr><tr><td>kon</td><td>记录</td><td>1.4×10⁵ M⁻¹s⁻¹</td></tr><tr><td>koff</td><td>记录</td><td>4.3×10⁻³ s⁻¹</td></tr><tr><td>Tm</td><td>≥ 65 °C</td><td>68 °C</td></tr><tr><td>SEC 单体</td><td>≥ 95%</td><td>97%</td></tr><tr><td>脱靶结合</td><td>无交叉</td><td>未检出</td></tr><tr><td>序列责任</td><td>计数并标注</td><td>脱酰胺位点 1，异构化位点 0</td></tr></tbody></table></div></div></article></div></details></main></body></html>
