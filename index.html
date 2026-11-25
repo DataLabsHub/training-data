@@ -204,7 +204,7 @@
 
     <article id="desktop">
       <h3>系统控制<span class="env-tag">可直接运行</span></h3>
-      <p class="lede">在真实系统和专业软件里做完，交出可以打开的文件</p>
+      <p class="lede">在真实系统和 CAD 等专业软件里做完，交出可以打开的文件</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://osworld-v2.xlang.ai/" target="_blank" rel="noopener">OSWorld 2.0</a></p>
         <p><a href="https://os-world.github.io/" target="_blank" rel="noopener">OSWorld</a></p>
@@ -213,7 +213,7 @@
         <div><dt>判定标准</dt><dd>以可打开文件验收，不以录像判定</dd></div>
         <div><dt>用途</dt><dd>长程操作电脑，以交出的文件判定是否完成</dd></div>
         <div><dt>交付内容</dt><dd>工作环境、参考文件、可编辑原生文件、导出结果与自动评分</dd></div>
-        <div><dt>覆盖范围</dt><dd>制图、剪辑、办公和教学软件，以及跨软件交付</dd></div>
+        <div><dt>覆盖范围</dt><dd>CAD、剪辑、办公和教学软件，以及跨软件交付</dd></div>
         <div><dt>供给</dt><dd>按需持续供给</dd></div>
       </dl>
     </article>
@@ -236,15 +236,15 @@
 
     <article id="pro">
       <h3>工程制作</h3>
-      <p class="lede">在工程软件里做完全流程，交出可以打开的工程文件</p>
+      <p class="lede">在 Blender 和 CAD 里做完全流程，交出可以打开的工程文件</p>
       <div class="bench"><span>对标</span><div>
         <p><a href="https://agents-last-exam.org" target="_blank" rel="noopener">Agents' Last Exam (ALE)</a></p>
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>工程产物与实际执行结果</dd></div>
-        <div><dt>用途</dt><dd>在工程软件里完成长流程工作</dd></div>
+        <div><dt>用途</dt><dd>在 Blender 和 CAD 里完成长流程工作</dd></div>
         <div><dt>交付内容</dt><dd>任务、原生文件、执行结果与验证；完整交付含操作轨迹，样例展示任务部分</dd></div>
-        <div><dt>覆盖范围</dt><dd>三维场景、器物和场景设计，另有 3D 建模、游戏开发与 PCB 绘制。火箭、天文、飞行和生物力学见数据包</dd></div>
+        <div><dt>覆盖范围</dt><dd>Blender 中的三维场景、器物和场景设计，另有游戏开发、CAD 与 PCB 绘制。火箭、天文、飞行和生物力学见数据包</dd></div>
         <div><dt>供给</dt><dd>现货供应，专家制作，每周持续新增</dd></div>
       </dl>
     </article>
@@ -404,6 +404,8 @@
         <p><a href="https://lastexam.ai/" target="_blank" rel="noopener">Humanity's Last Exam (HLE)</a></p>
         <p><a href="https://github.com/TIGER-AI-Lab/MMLU-Pro" target="_blank" rel="noopener">MMLU-Pro</a></p>
         <p><a href="https://mmmu-benchmark.github.io/" target="_blank" rel="noopener">MMMU</a></p>
+        <p><a href="https://critpt.com" target="_blank" rel="noopener">CritPt</a></p>
+        <p><a href="https://arxiv.org/abs/2611.06910" target="_blank" rel="noopener">FrontierPhysics</a></p>
       </div></div>
       <dl>
         <div><dt>判定标准</dt><dd>唯一标准答案，附解题过程</dd></div>
@@ -467,12 +469,12 @@
 
     <article id="sim">
       <h3>场景仿真</h3>
-      <p class="lede">按相机轨迹巡游场景，并附一套可搭建、可导航的场景库</p>
+      <p class="lede">在 Blender 中按相机轨迹巡游场景，并附一套可搭建、可导航的场景库</p>
       <dl>
         <div><dt>判定标准</dt><dd>相机轨迹与画面一致，场景可再打开</dd></div>
         <div><dt>用途</dt><dd>空间理解和导航训练</dd></div>
-        <div><dt>交付内容</dt><dd>工程、分割、巡游视频和逐帧相机轨迹；场景库按参考图或文字搭建，也可供抓取和搬运</dd></div>
-        <div><dt>覆盖范围</dt><dd>相机轨迹和场景库。日常环境包括家居、办公、仓库、工厂、医疗和日常服务</dd></div>
+        <div><dt>交付内容</dt><dd>Blender 工程、分割、巡游视频和逐帧相机轨迹；场景库按参考图或文字搭建，也可供抓取和搬运</dd></div>
+        <div><dt>覆盖范围</dt><dd>Blender 相机轨迹和场景库。日常环境包括家居、办公、仓库、工厂、医疗和日常服务</dd></div>
         <div><dt>供给</dt><dd>按场景提供，也可按需搭建</dd></div>
       </dl>
     </article>
@@ -1540,8 +1542,9 @@
     ]},
     pro: { title: "工程制作", sources: [
       { label: LIST, pack: "ale" },
-      { label: "3D 建模 · 游戏开发", html: "samples/raw/studio.html" },
-      { label: "PCB 绘制", html: "samples/raw/cad.html" }
+      { label: "Blender", pack: "blender" },
+      { label: "Blender · 游戏开发", html: "samples/raw/studio.html" },
+      { label: "CAD", html: "samples/raw/cad.html" }
     ]},
     office: { title: "跨文件作业", sources: [{ label: LIST, pack: "working" }] },
     camera: { title: "可穿戴设备", sources: [{ label: CATALOG, html: "samples/raw/ego.html" }] },
@@ -1552,7 +1555,10 @@
       { label: "量化投资 · 金融投研", html: "samples/raw/finance.html" }
     ]},
     session: { title: "长程调用", sources: [{ label: CATALOG, html: "samples/raw/session.html" }] },
-    sim: { title: "场景仿真", sources: [{ label: CATALOG, html: "samples/raw/ego.html" }] },
+    sim: { title: "场景仿真", sources: [
+      { label: "Blender", pack: "blender" },
+      { label: CATALOG, html: "samples/raw/ego.html" }
+    ]},
     rest: { title: "测绘与制造", sources: [{ label: "测绘与制造", html: "samples/raw/room.html" }] }
   };
   // Heading shown inside each expanded folder, keyed by pack and folder path ("" = loose files).
@@ -1575,6 +1581,11 @@
       "astronomy_astrophysics": "天文 · DS9 测量超新星遗迹亮度",
       "aviation_operations": "航空运营 · FlightGear 旧金山机场仪表进近",
       "biomechanics_upper_limb_simulation": "生物力学 · OpenSim 手臂肌肉与动力学仿真（5 道）"
+    },
+    blender: {
+      "tasks": "Blender 任务 · 围栏柱贴地，以及按参考图重建农场",
+      "objects": "Blender 器物 · 青白执壶与锈金属油灯",
+      "scene": "Blender 场景 · 简化工程、巡游与分割视频、576 帧相机轨迹"
     },
     osworld: {
       "task_001": "FreeCAD · 按图纸重建支架并输出审图 PDF",
@@ -1599,7 +1610,7 @@
 
   var IMAGE = /^(png|jpe?g|gif|webp|svg|bmp)$/;
   var OFFICE = /^(docx|pptx|xlsx)$/;
-  var BINARY = /^(pyc|pack|idx|rev|fits|ork|zip|gz|tgz|tar|whl|so|dll|exe|bin|xls|doc|ppt|mp4|mov|wav|mp3|ttf|woff2?|ttx)$/;
+  var BINARY = /^(pyc|pack|idx|rev|fits|ork|blend|glb|fbx|npz|zip|gz|tgz|tar|whl|so|dll|exe|bin|xls|doc|ppt|mp4|mov|wav|mp3|ttf|woff2?|ttx)$/;
 
   document.querySelectorAll("article[id]").forEach(function (article) {
     if (!LINKS[article.id]) {

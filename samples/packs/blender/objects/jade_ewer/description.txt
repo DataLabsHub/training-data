@@ -1,0 +1,106 @@
+玉壶（asset_jadevase）
+The Jade Ewer
+
+
+【中文】
+
+壶形取自唐宋执壶：鼓腹向上收成长颈，肩部一侧探出弯流，另一侧是同样弯转的把
+手；盖作覆碗状，顶心立一颗金色宝珠钮。器身并不追求端正的对称——流的手腕向外
+轻轻一挑，把手的弧线向内收拢，两条曲线在腹身两侧各让出一段空白，饱满的腹部
+因此成为视线落下来的地方。
+
+壶身的质感来自开片。青白釉面之下，细密的冰裂纹纵横交错；釉色清透，裂纹呈灰
+绿，颈与肩处收得更密，越往腹部越疏。光线落上去，釉面泛起一层柔和的亮，裂纹
+沉在亮光底下，像隔着一层薄冰看进去。顶上的金钮是全器唯一的异色，圆润明亮，
+与通体青白之间留出一点轻松的落差。
+
+作品以 Blender 建模完成，并附带参数化生成器：在真实尺寸（米）范围内调整器
+身高度、腹径、足径、盖高、钮径与壁厚，一键重新生成。模型可导出为带贴图的
+FBX 与 GLB，在 three.js 网页中实时呈现；观众能旋转、缩放、切换背景，从任意
+角度端详这层釉与裂纹。
+
+作品信息
+    名称        玉壶（asset_jadevase / The Jade Ewer）
+    资产 ID     jadevase，版本 v004
+    类型        数字雕塑 · 3D 资产（含交互网页）
+    材质        青白开片瓷（开片贴图与玉色合成基色）· Metal048C 金属（金钮）
+    实际尺寸    0.217（宽）× 0.176（深）× 0.311（高）米；1 单位 = 1 米
+    原点        包围盒底部中心
+    朝向        正面朝 +Y（导出 GLB 后朝 -Z）
+    部件        2 个：壶身（含流与把）、可拆壶盖（含金钮）；无绑定动画
+    风格用途    写实器物表现，用于静物、茶室陈设、文化展示与实时场景
+    面数        117,568 三角面、58,782 个源 / FBX 顶点、63,376 个 GLB 顶点；含 Solidify 与两级细分
+    制作        Blender 建模与渲染 · glTF / FBX 导出 · three.js 实时预览
+    年份        2026
+
+
+【English】
+
+The form follows Tang and Song pouring vessels: a round belly drawn up
+into a long neck, a curved spout stepping out from one shoulder and a
+matching curved handle on the other; the lid is shaped like an inverted
+bowl, with a small gold bead finial standing at its center. The body does
+not aim for formal symmetry. The spout lifts its wrist lightly outward
+while the handle draws its arc inward, and the two curves leave a stretch
+of open space on either side, so the full belly becomes the place where
+the eye comes to rest.
+
+Its character comes from the crackle glaze. Beneath the pale celadon
+surface a fine web of ice-crackle runs in every direction; the glaze is
+clear while the cracks read grey-green, denser at the neck and shoulder
+and opening wider across the belly. Where light lands, the glaze lifts
+into a soft sheen and the cracks sink beneath it, as if seen through a
+thin sheet of ice. The gold finial on top is the only other color in the
+piece: round and bright, a small and easy step away from the
+celadon around it.
+
+The piece is modeled in Blender and ships with a parametric generator that
+rebuilds it at real-world scale, in meters, from body height, belly and
+foot diameter, lid height, finial diameter and wall thickness. The model
+exports to textured FBX and GLB and runs in a real-time three.js viewer,
+where visitors can orbit, zoom and switch backdrops, studying the glaze
+and its cracks from any angle.
+
+Artwork Info
+    Title       The Jade Ewer (asset_jadevase / 玉壶)
+    Asset ID    jadevase, version v004
+    Type        Digital sculpture · 3D asset (with interactive viewer)
+    Materials   Celadon crackle porcelain (crackle map composed with a
+                jade tint) · Metal048C metal (finial)
+    Dimensions  0.217 W × 0.176 D × 0.311 H m; 1 unit = 1 m
+    Origin      Bottom center of the bounding box
+    Facing      Front toward +Y (toward -Z in the exported GLB)
+    Parts       2: body (with spout and handle), lid (with the
+                gold finial); the lid is detachable, with no rigged motion
+    Style/use   Realistic object presentation for still life, tea-room, cultural display and real-time scenes
+    Geometry    117,568 triangles; 58,782 source / FBX vertices; 63,376 GLB vertices (Solidify plus two subdivision levels)
+    Made with   Blender modeling and rendering · glTF / FBX export ·
+                three.js real-time viewer
+    Year        2026
+
+制作环境 / Build environment: Blender 5.2.2 LTS; Three.js r147.
+尺寸测量说明 / Measurement: 参数面板为基础控制网格尺寸；最终细分表面略有收缩。Parameter values describe the base control cage; subdivision slightly contracts the final surface.
+
+统计口径 / Counting scope
+仅统计默认壶身和壶盖的最终求值网格，尺寸不含展示辅助物；GLB 顶点包含 UV / 法线接缝拆分。
+Counts cover the default evaluated body and lid; dimensions exclude presentation helpers. GLB vertices include UV/normal seam splits.
+
+展示媒体 / Presentation media
+8 张 2048×2048 PNG：front、back、left、right、top、hero_45 六视图及两张细节图。视频为 H.264、1920×1080、24 fps、240 帧、10 秒匀速 360° 环绕，使用默认参数模型。
+视频：turntable.mp4。展示场景与重现方式见 README。
+Eight 2048×2048 PNGs cover front, back, left, right, top and hero_45 plus two details. The default model is shown in a constant-speed 360-degree orbit video encoded as H.264, 1920×1080, 24 fps, 240 frames and 10 seconds.
+Video: turntable.mp4. See README for the saved presentation scene and animation settings.
+
+权利状态 / Rights status
+裂纹源图为设计师原创，允许修改、商用和再交付（委托方2026-10-19确认）；合成基色沿用该许可。其他素材来源及权利依据详见 README。
+The crackle texture is original work by the designer, permitted for modification, commercial use and re-delivery, as confirmed by the commissioning party on 2026-10-19. The derived base color uses the same permission. See README for other material credits and rights information.
+
+UV 使用说明（v004 明确保留的共享方式）
+壶身基础网格分成沿 X 轴两侧的两片连续 UV 岛，覆盖颈、腹、足及流、把的两侧；单片内部没有面积重叠，两片之间部分区域共享同一瓷纹。壶身 UV 有一部分超出 0–1，使用 Repeat 重复采样；这些瓷纹按可重复表面纹理使用，不是每个表面位置唯一的图案。
+Solidify 加厚生成的内壁沿用对应外壁的 UV，壶身、瓷盖及金钮均保留这种对应采样。瓷盖与壶身使用同一组瓷纹；基础瓷盖与金钮各有独立 UV 岛，金钮使用独立金属材质与贴图。不同材质的坐标数值相同不代表混用纹理。
+本版有意保留以上共享和重复，以保持已经交付的纹理外观；没有把它描述成无重叠的独占图集。适用于当前统一瓷釉和金属表面；如需只在单侧添加文字、独立污渍或逐面唯一烘焙，应先另做独占 UV 再烘焙。
+
+UV reuse retained in v004
+The base body has two continuous UV islands on opposite X sides, covering the two sides of the neck, belly, foot, spout and handle. Each island has no internal area overlap; the two islands partially reuse the same porcelain pattern. Some body UVs extend outside 0–1 and use Repeat sampling. The porcelain maps are used as repeatable surface textures, not as a unique pattern for every surface location.
+The inner surfaces produced by Solidify inherit the corresponding outer-surface UVs; this correspondence is retained on the body, porcelain lid and gold finial. The porcelain lid and body use the same porcelain maps. The base lid and finial have separate UV islands, and the finial uses its own metal material/maps; equal UV coordinates across different materials do not mean shared texture content.
+This version deliberately retains those overlaps and repeats to preserve the delivered appearance. This is not a non-overlapping unique atlas. It suits the current uniform glaze and metal treatment. Before adding one-sided lettering, unique stains or a per-face bake, create a dedicated non-overlapping UV set and rebake.

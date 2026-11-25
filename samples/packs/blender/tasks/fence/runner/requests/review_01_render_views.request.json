@@ -1,0 +1,89 @@
+{
+  "action": "render.views",
+  "args": {
+    "views": [
+      {
+        "name": "barn_cottage",
+        "location": [
+          47,
+          -63,
+          24
+        ],
+        "target": [
+          -4,
+          3,
+          3
+        ],
+        "lens": 50,
+        "evidence_type": "closeup"
+      },
+      {
+        "name": "plots_livestock",
+        "location": [
+          55,
+          -59,
+          23
+        ],
+        "target": [
+          21,
+          -18,
+          1.7
+        ],
+        "lens": 43,
+        "evidence_type": "closeup"
+      },
+      {
+        "name": "reverse",
+        "location": [
+          36,
+          53,
+          28
+        ],
+        "target": [
+          0,
+          4,
+          2
+        ],
+        "lens": 42,
+        "evidence_type": "beauty"
+      },
+      {
+        "name": "flock",
+        "location": [
+          41,
+          -42,
+          12
+        ],
+        "target": [
+          31,
+          -24,
+          0.5
+        ],
+        "lens": 40,
+        "evidence_type": "closeup"
+      },
+      {
+        "name": "cottage",
+        "location": [
+          4,
+          -35,
+          14
+        ],
+        "target": [
+          -13,
+          -10,
+          3
+        ],
+        "lens": 48,
+        "evidence_type": "closeup"
+      }
+    ],
+    "resolution": [
+      1448,
+      1086
+    ],
+    "engine": "CYCLES",
+    "samples": 64,
+    "quality_stage": "evidence"
+  }
+}

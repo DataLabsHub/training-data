@@ -1,0 +1,593 @@
+{
+  "schema_version": 1,
+  "asset_id": "oiltamp",
+  "version": "v004",
+  "name": "油灯最终版",
+  "package_directory": "asset_oiltamp",
+  "packaged_on": "2026-10-20",
+  "software": {
+    "blender": "5.2.2 LTS",
+    "threejs": "r147"
+  },
+  "units": "meters; 1 unit = 1 meter",
+  "source_project": "source/blender/asset_oiltamp.blend",
+  "exports": {
+    "glb": "mesh/asset_oiltamp.glb",
+    "fbx": "mesh/asset_oiltamp.fbx"
+  },
+  "dimensions_m": {
+    "width": 0.165187768638134,
+    "depth": 0.1813497394323349,
+    "height": 0.3199999928474426,
+    "note": "Measured default subject GLB AABB; glTF X width, Z depth, Y height."
+  },
+  "bbox_gltf_m": {
+    "min": [
+      -0.0825938805937767,
+      -2.9802322387695312e-08,
+      -0.09067486971616745
+    ],
+    "max": [
+      0.0825938880443573,
+      0.31999996304512024,
+      0.09067486971616745
+    ],
+    "size_xyz": [
+      0.165187768638134,
+      0.3199999928474426,
+      0.1813497394323349
+    ],
+    "coordinate_system": "glTF +Y up"
+  },
+  "geometry": {
+    "triangles": 287208,
+    "glb_vertices": 199838,
+    "part_count": 12,
+    "part_statistics": [
+      {
+        "name": "glass_globe",
+        "triangles": 19456,
+        "vertices": 10485
+      },
+      {
+        "name": "bail_wire",
+        "triangles": 6312,
+        "vertices": 3523
+      },
+      {
+        "name": "base",
+        "triangles": 18432,
+        "vertices": 9543
+      },
+      {
+        "name": "base_rim",
+        "triangles": 2048,
+        "vertices": 1147
+      },
+      {
+        "name": "body_collar",
+        "triangles": 3584,
+        "vertices": 2135
+      },
+      {
+        "name": "burner",
+        "triangles": 3584,
+        "vertices": 2129
+      },
+      {
+        "name": "fount_lower",
+        "triangles": 2816,
+        "vertices": 1646
+      },
+      {
+        "name": "fount_upper",
+        "triangles": 2816,
+        "vertices": 1654
+      },
+      {
+        "name": "guard_bow",
+        "triangles": 134144,
+        "vertices": 116677
+      },
+      {
+        "name": "top_ring",
+        "triangles": 12928,
+        "vertices": 7992
+      },
+      {
+        "name": "upper_body",
+        "triangles": 53440,
+        "vertices": 28329
+      },
+      {
+        "name": "vent_cap",
+        "triangles": 27648,
+        "vertices": 14578
+      }
+    ]
+  },
+  "generator": {
+    "script": "source/blender/ID_generator.py",
+    "parameters_m": {
+      "total_height": {
+        "default": 0.3199999928474426,
+        "min": 0.2879999935626984,
+        "max": 0.3519999921321869
+      },
+      "globe_diameter": {
+        "default": 0.09726928547024727,
+        "min": 0.08754235692322254,
+        "max": 0.10699621401727201
+      },
+      "globe_height": {
+        "default": 0.1062782071530819,
+        "min": 0.09565038643777371,
+        "max": 0.11690602786839009
+      },
+      "upper_body_height": {
+        "default": 0.10993047058582306,
+        "min": 0.09893742352724076,
+        "max": 0.12092351764440537
+      },
+      "base_diameter": {
+        "default": 0.14846954354825304,
+        "min": 0.13362258919342773,
+        "max": 0.16331649790307834
+      },
+      "fount_height": {
+        "default": 0.05752810835838318,
+        "min": 0.05177529752254486,
+        "max": 0.0632809191942215
+      }
+    }
+  },
+  "pbr": {
+    "model": "glTF metallic-roughness",
+    "materials": [
+      {
+        "name": "metal_rust",
+        "base_color_factor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "metallic_factor": 1,
+        "roughness_factor": 0.5,
+        "base_color_texture": {
+          "image_index": 1,
+          "texcoord": 0
+        },
+        "normal_texture": {
+          "image_index": 0,
+          "texcoord": 0
+        },
+        "metallic_roughness_texture": {
+          "image_index": 2,
+          "texcoord": 0
+        },
+        "metallic_roughness_channels": "G = roughness; B = metallic",
+        "alpha_mode": "OPAQUE",
+        "double_sided": true
+      },
+      {
+        "name": "metal_cap",
+        "base_color_factor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "metallic_factor": 1,
+        "roughness_factor": 1,
+        "base_color_texture": {
+          "image_index": 3,
+          "texcoord": 0
+        },
+        "normal_texture": {
+          "image_index": 0,
+          "texcoord": 0
+        },
+        "metallic_roughness_texture": {
+          "image_index": 4,
+          "texcoord": 0
+        },
+        "metallic_roughness_channels": "G = roughness; B = metallic",
+        "alpha_mode": "OPAQUE",
+        "double_sided": true
+      },
+      {
+        "name": "glass_clear",
+        "base_color_factor": [
+          0.6091969609260559,
+          0.6181687116622925,
+          0.5437787771224976,
+          1
+        ],
+        "metallic_factor": 0,
+        "roughness_factor": 0.11855669319629669,
+        "base_color_texture": null,
+        "normal_texture": {
+          "image_index": 5,
+          "texcoord": 0,
+          "scale": 0.3499999940395355
+        },
+        "metallic_roughness_texture": null,
+        "metallic_roughness_channels": "G = roughness; B = metallic",
+        "alpha_mode": "OPAQUE",
+        "double_sided": true,
+        "extensions": {
+          "KHR_materials_transmission": {
+            "transmissionFactor": 1
+          }
+        }
+      }
+    ],
+    "embedded_images": [
+      {
+        "index": 0,
+        "name": "metal_rust_normal",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "5ec7d3c3efa6b9d065ac4b341a2b764719a59c6f4087536b6423da5f1a877cdc"
+      },
+      {
+        "index": 1,
+        "name": "metal_rust_basecolor",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "d7689c5519b2e8e21cffa51ba58a315005a415ffb44b5e44212f70205708d621"
+      },
+      {
+        "index": 2,
+        "name": "metal_rust_metalness",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "ffa97bc678484497c22711e4e0ef9a82292648c6245fd12a83f98cb7e2ba38b0"
+      },
+      {
+        "index": 3,
+        "name": "metal_cap_basecolor",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "5630edf42913f842e57308503a7e0977e721d09027a12c453b8878c22108cd37"
+      },
+      {
+        "index": 4,
+        "name": "metal_rust_metalness-metal_rust_roughness",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "c0d0a86ab06f83fedaf0c786a1b39cccf81315f98a32811e1afa66b4bc655984"
+      },
+      {
+        "index": 5,
+        "name": "glass_clear_normal",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "841ce725166bc3dc496119872bd2d84d398c7fe5ea660d95eca988a0210ce25c"
+      }
+    ]
+  },
+  "media": {
+    "render_count": 8,
+    "renders": [
+      {
+        "path": "renders/back.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/detail_01.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/detail_02.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/front.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/hero_45.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/left.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/right.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/top.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      }
+    ],
+    "turntable": {
+      "path": "turntable.mp4",
+      "codec": "h264",
+      "codec_tag": "avc1",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "frames": 240,
+      "fps": 24.0,
+      "duration_seconds": 10.0,
+      "constant_frame_rate": true,
+      "measurement": "MP4 video sample table (stsd, stts, stsz, mdhd)"
+    }
+  },
+  "files": [
+    {
+      "path": "README.txt",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 6769,
+      "sha256": "32eadeea88851ff9c2c0b58634ed8b4115e1925e9123aaa6fcfe71c71bd19f50"
+    },
+    {
+      "path": "description.txt",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 9809,
+      "sha256": "fe149d660992793bd1ed4fb3db0f92064c2b16ed4d1ae36e365841735fff6574"
+    },
+    {
+      "path": "mesh/asset_oiltamp.fbx",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 53627276,
+      "sha256": "00095889b38da13bea7ad8b20a7902ddd4b14d4c34cdba3f7312be660a70a3a7"
+    },
+    {
+      "path": "mesh/asset_oiltamp.glb",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 62560172,
+      "sha256": "dee0261d415a922659538cc99ab074ec9dddc3570c1057aef6f02e5352674209"
+    },
+    {
+      "path": "renders/back.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 3875919,
+      "sha256": "df764d4e665deafe646e7c4e247cfa6367d2dadaf4ee6cb91f4136a18b106cef"
+    },
+    {
+      "path": "renders/detail_01.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 5604303,
+      "sha256": "9197c853b406b9ab58f562e5ff945305befdf07f26918e5887b4424e08812980"
+    },
+    {
+      "path": "renders/detail_02.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 5016937,
+      "sha256": "d7836a39b17fce0058baa5eee6680b42dd9e33091c82ddb34208a081be19a9c0"
+    },
+    {
+      "path": "renders/front.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 3877828,
+      "sha256": "36f32b21973375a2bd65e3f39ac44991d33da9e0e54e4ba78a6b5dbd41cdc383"
+    },
+    {
+      "path": "renders/hero_45.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 4075308,
+      "sha256": "5d81291be86c5c67ee0b8a553c9a99f2ddd2dc09ff63c14c72ebda17400d5541"
+    },
+    {
+      "path": "renders/left.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 3628884,
+      "sha256": "91b71c938373c4f52490346a146f6c338093cef41767ae51c6ec42518c08e83a"
+    },
+    {
+      "path": "renders/right.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 3735356,
+      "sha256": "56604e2dbf0a17ece11be770fb1c20deb1fc7f73bc61c751daa4c27c1ca2760b"
+    },
+    {
+      "path": "renders/top.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 4142933,
+      "sha256": "4be1571aa9c8f384e1f7eeb060954a1ec110a1b0fc526c772cc309c7e9830c23"
+    },
+    {
+      "path": "source/blender/ID_generator.py",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 18568,
+      "sha256": "9f91baa9077ff8b3d189fd53d86afb8df3e2591063b8423d779261ac075e3f30"
+    },
+    {
+      "path": "source/blender/asset_oiltamp.blend",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 55382705,
+      "sha256": "ce5e721a077cea950d2bcbe2b564a23589014f9bc7fa5dc1996a8cc3d34c1ac2"
+    },
+    {
+      "path": "source/blender/export_assets.py",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 15686,
+      "sha256": "9cce1006e4066bf942ea308f9ae6c3d2ec2d340114097b4cccc32b5597c63732"
+    },
+    {
+      "path": "source/threejs/LICENSE_THREEJS.txt",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 1077,
+      "sha256": "d7ba1b2f82ffe42550fbe5a7b37e426a0486c4e2baf91811a128f44413d144ac"
+    },
+    {
+      "path": "source/threejs/README.txt",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 2026,
+      "sha256": "61a71ff85dab46eb0d23f479c0ca984a205756cf7b11e535454cfbcb2ad177d3"
+    },
+    {
+      "path": "source/threejs/index.html",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 22804,
+      "sha256": "42a2fddc12ce820cdd940d72129ba4d4c15995178821f0637a861ce2bb4ba67e"
+    },
+    {
+      "path": "source/threejs/js/GLTFLoader.js",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 103311,
+      "sha256": "b2edda923572c73e6b30b139756d182c87e2c34d022845c6e067a9a0a9544e01"
+    },
+    {
+      "path": "source/threejs/js/OrbitControls.js",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 26660,
+      "sha256": "b4c6e53f98538535b11fd6655627d47fb5877b3ad972568bff0a7026c4b6d5c4"
+    },
+    {
+      "path": "source/threejs/js/RoomEnvironment.js",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 3718,
+      "sha256": "251b4e779abb5b432f99a326878fe239747c1fe55f390933085fc3deb20d2cea"
+    },
+    {
+      "path": "source/threejs/js/model_data.js",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 83413591,
+      "sha256": "ec3df205b4a0e376b6ae408b176faf294658d5a353b30a43353ff3cc12f62e27"
+    },
+    {
+      "path": "source/threejs/js/three_min.js",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 607784,
+      "sha256": "f34446bf875b5fb0dcd93819ffe1d9e182d46634ee855f5d904c6c4ac7cdbc95"
+    },
+    {
+      "path": "textures/glass_clear_normal.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 11458316,
+      "sha256": "841ce725166bc3dc496119872bd2d84d398c7fe5ea660d95eca988a0210ce25c"
+    },
+    {
+      "path": "textures/metal_cap_basecolor.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 55235,
+      "sha256": "5630edf42913f842e57308503a7e0977e721d09027a12c453b8878c22108cd37"
+    },
+    {
+      "path": "textures/metal_rust_basecolor.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 6844262,
+      "sha256": "d7689c5519b2e8e21cffa51ba58a315005a415ffb44b5e44212f70205708d621"
+    },
+    {
+      "path": "textures/metal_rust_displacement.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 7771043,
+      "sha256": "f00e73b3a4b525c8f74be386c9a79033b11faf3c3e9801afbac38bb64146d044"
+    },
+    {
+      "path": "textures/metal_rust_metalness.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 3263237,
+      "sha256": "2f1671348facfeff4fe595112eca4f2d827d37cf91c9d4dfbe58705690777e7f"
+    },
+    {
+      "path": "textures/metal_rust_normal.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 22423956,
+      "sha256": "5ec7d3c3efa6b9d065ac4b341a2b764719a59c6f4087536b6423da5f1a877cdc"
+    },
+    {
+      "path": "textures/metal_rust_roughness.png",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 2705097,
+      "sha256": "c840c586387a73db3fc6563de359d506f8430484c7ef25ba3a9f1f238394c2bc"
+    },
+    {
+      "path": "turntable.mp4",
+      "asset_id": "oiltamp",
+      "version": "v004",
+      "size_bytes": 5211530,
+      "sha256": "2dfe7400d0537d1c6efb2661d620669f93e310b38319c7908669f8c8adbf4107"
+    }
+  ],
+  "file_count": 31,
+  "package_file_count": 32,
+  "total_bytes": 349492100,
+  "manifest_note": "Each listed file belongs to this asset ID and version. Standard generic filenames follow the delivery layout. stats.json excludes its own checksum; the batch manifest includes it."
+}

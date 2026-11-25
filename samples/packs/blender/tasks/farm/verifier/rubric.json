@@ -1,0 +1,1426 @@
+{
+  "schema_version": 1,
+  "rubric_version": "farm-reference-v2",
+  "status": "IMPLEMENTED_REVIEW_PROTOCOL_PENDING_CALIBRATION",
+  "implementation_status": "EVIDENCE_COLLECTION_AND_TRUSTED_REVIEW_AGGREGATION",
+  "language": "zh-CN",
+  "calibration_note": "权重、阈值和奖励系数均为建议初值，需使用人工标注样本校准；不是历史评分结果。",
+  "authority": {
+    "owner": "评测端",
+    "freeze_before_evaluation": true,
+    "agent_permissions": "仅提交产物，不得修改权重、移除失败项或自行宣布通过。",
+    "freeze_fields": [
+      "任务目标与风格",
+      "观察尺度",
+      "原子项及权重",
+      "具体评分锚点",
+      "必需项及通过档位",
+      "证据要求",
+      "运行环境",
+      "适用范围",
+      "验收门槛",
+      "奖励系数"
+    ]
+  },
+  "score_scale": {
+    "min": 0,
+    "max": 4,
+    "anchors": {
+      "0": "已确认完全缺失、完全错误或无法使用",
+      "1": "有初步实现，但关键特征大面积错误",
+      "2": "部分满足，仍有明显比例、结构或表现偏差",
+      "3": "主要要求满足，只有轻微局部偏差",
+      "4": "在约定观察尺度和必要视图下充分满足目标，未发现实质缺陷"
+    }
+  },
+  "atomic_criteria": {
+    "status": "DEFINED",
+    "items": [
+      {
+        "criterion_id": "F1.buildings",
+        "dimension": "F1",
+        "weight": 3,
+        "title": "主要建筑齐全",
+        "target": "主要建筑齐全",
+        "observable_requirements": [
+          "住宅",
+          "谷仓",
+          "筒仓",
+          "风车"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "主视图",
+          "对象近景"
+        ],
+        "anchors": {
+          "0": "主要建筑齐全所需对象或能力确认缺失，或整体完全错误。",
+          "1": "主要建筑齐全已有实现，但以下关键要求大面积不满足：住宅；谷仓；筒仓；风车",
+          "2": "主要建筑齐全部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "主要建筑齐全各主要要求满足，仅有轻微局部偏差。",
+          "4": "主要建筑齐全在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "color_closeup"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F1.garden",
+        "dimension": "F1",
+        "weight": 2,
+        "title": "温室与菜园齐全",
+        "target": "温室与菜园齐全",
+        "observable_requirements": [
+          "可辨认的温室",
+          "菜畦及围护"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "主视图",
+          "菜园近景"
+        ],
+        "anchors": {
+          "0": "温室与菜园齐全所需对象或能力确认缺失，或整体完全错误。",
+          "1": "温室与菜园齐全已有实现，但以下关键要求大面积不满足：可辨认的温室；菜畦及围护",
+          "2": "温室与菜园齐全部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "温室与菜园齐全各主要要求满足，仅有轻微局部偏差。",
+          "4": "温室与菜园齐全在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "color_closeup"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F1.animals",
+        "dimension": "F1",
+        "weight": 3,
+        "title": "牲畜及配套齐全",
+        "target": "牲畜及配套齐全",
+        "observable_requirements": [
+          "恰好三头牛",
+          "牛棚",
+          "鸡群",
+          "鸡舍"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "牲畜近景",
+          "对象清单"
+        ],
+        "anchors": {
+          "0": "牲畜及配套齐全所需对象或能力确认缺失，或整体完全错误。",
+          "1": "牲畜及配套齐全已有实现，但以下关键要求大面积不满足：恰好三头牛；牛棚；鸡群；鸡舍",
+          "2": "牲畜及配套齐全部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "牲畜及配套齐全各主要要求满足，仅有轻微局部偏差。",
+          "4": "牲畜及配套齐全在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "scene_inventory"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F1.facilities",
+        "dimension": "F1",
+        "weight": 2,
+        "title": "设施齐全",
+        "target": "设施齐全",
+        "observable_requirements": [
+          "拖拉机和拖车",
+          "草捆",
+          "道路和围栏",
+          "湖泊与码头"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "主视图",
+          "设施近景"
+        ],
+        "anchors": {
+          "0": "设施齐全所需对象或能力确认缺失，或整体完全错误。",
+          "1": "设施齐全已有实现，但以下关键要求大面积不满足：拖拉机和拖车；草捆；道路和围栏；湖泊与码头",
+          "2": "设施齐全部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "设施齐全各主要要求满足，仅有轻微局部偏差。",
+          "4": "设施齐全在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "color_closeup"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F2.camera",
+        "dimension": "F2",
+        "weight": 5,
+        "title": "主相机透视与俯视程度",
+        "target": "主相机透视与俯视程度",
+        "observable_requirements": [
+          "地平线与俯视程度接近参考",
+          "透视关系接近参考"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "提交主视图",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "主相机透视与俯视程度所需对象或能力确认缺失，或整体完全错误。",
+          "1": "主相机透视与俯视程度已有实现，但以下关键要求大面积不满足：地平线与俯视程度接近参考；透视关系接近参考",
+          "2": "主相机透视与俯视程度部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "主相机透视与俯视程度各主要要求满足，仅有轻微局部偏差。",
+          "4": "主相机透视与俯视程度在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F2.building_layout",
+        "dimension": "F2",
+        "weight": 6,
+        "title": "主要建筑画面布局",
+        "target": "主要建筑画面布局",
+        "observable_requirements": [
+          "住宅在左",
+          "谷仓居中偏右",
+          "筒仓相对谷仓位置正确",
+          "主要建筑画面占比接近参考"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "提交主视图",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "主要建筑画面布局所需对象或能力确认缺失，或整体完全错误。",
+          "1": "主要建筑画面布局已有实现，但以下关键要求大面积不满足：住宅在左；谷仓居中偏右；筒仓相对谷仓位置正确；主要建筑画面占比接近参考",
+          "2": "主要建筑画面布局部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "主要建筑画面布局各主要要求满足，仅有轻微局部偏差。",
+          "4": "主要建筑画面布局在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F2.foreground",
+        "dimension": "F2",
+        "weight": 5,
+        "title": "前景功能区布局",
+        "target": "前景功能区布局",
+        "observable_requirements": [
+          "菜园在前左",
+          "鸡栏在前右",
+          "牛栏在右侧",
+          "道路衔接与纵深接近参考"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "提交主视图",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "前景功能区布局所需对象或能力确认缺失，或整体完全错误。",
+          "1": "前景功能区布局已有实现，但以下关键要求大面积不满足：菜园在前左；鸡栏在前右；牛栏在右侧；道路衔接与纵深接近参考",
+          "2": "前景功能区布局部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "前景功能区布局各主要要求满足，仅有轻微局部偏差。",
+          "4": "前景功能区布局在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F2.depth",
+        "dimension": "F2",
+        "weight": 4,
+        "title": "朝向遮挡与景深层次",
+        "target": "朝向遮挡与景深层次",
+        "observable_requirements": [
+          "住宅和谷仓可见侧面符合参考",
+          "设施遮挡关系合理",
+          "湖泊及远山形成相应前后层次"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "提交主视图",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "朝向遮挡与景深层次所需对象或能力确认缺失，或整体完全错误。",
+          "1": "朝向遮挡与景深层次已有实现，但以下关键要求大面积不满足：住宅和谷仓可见侧面符合参考；设施遮挡关系合理；湖泊及远山形成相应前后层次",
+          "2": "朝向遮挡与景深层次部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "朝向遮挡与景深层次各主要要求满足，仅有轻微局部偏差。",
+          "4": "朝向遮挡与景深层次在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F3.barn",
+        "dimension": "F3",
+        "weight": 5,
+        "title": "谷仓结构",
+        "target": "谷仓结构",
+        "observable_requirements": [
+          "折线屋顶截面与比例",
+          "山墙和仓门",
+          "附屋轮廓及连接"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "建筑近景",
+          "背面灰模",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "谷仓结构所需对象或能力确认缺失，或整体完全错误。",
+          "1": "谷仓结构已有实现，但以下关键要求大面积不满足：折线屋顶截面与比例；山墙和仓门；附屋轮廓及连接",
+          "2": "谷仓结构部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "谷仓结构各主要要求满足，仅有轻微局部偏差。",
+          "4": "谷仓结构在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "gray_reverse",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F3.cottage",
+        "dimension": "F3",
+        "weight": 4,
+        "title": "住宅结构",
+        "target": "住宅结构",
+        "observable_requirements": [
+          "门廊及立柱",
+          "阁楼窗及山墙",
+          "屋顶轮廓和必要墙面"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "建筑近景",
+          "背面灰模",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "住宅结构所需对象或能力确认缺失，或整体完全错误。",
+          "1": "住宅结构已有实现，但以下关键要求大面积不满足：门廊及立柱；阁楼窗及山墙；屋顶轮廓和必要墙面",
+          "2": "住宅结构部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "住宅结构各主要要求满足，仅有轻微局部偏差。",
+          "4": "住宅结构在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "gray_reverse",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F3.outbuildings",
+        "dimension": "F3",
+        "weight": 3,
+        "title": "筒仓及温室结构",
+        "target": "筒仓及温室结构",
+        "observable_requirements": [
+          "筒仓筒身与顶部",
+          "温室框架与开口"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "建筑近景",
+          "灰模",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "筒仓及温室结构所需对象或能力确认缺失，或整体完全错误。",
+          "1": "筒仓及温室结构已有实现，但以下关键要求大面积不满足：筒仓筒身与顶部；温室框架与开口",
+          "2": "筒仓及温室结构部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "筒仓及温室结构各主要要求满足，仅有轻微局部偏差。",
+          "4": "筒仓及温室结构在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "gray",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F3.vehicle",
+        "dimension": "F3",
+        "weight": 2,
+        "title": "车辆形体",
+        "target": "车辆形体",
+        "observable_requirements": [
+          "拖拉机轮廓与轮组比例",
+          "拖车车厢及连接"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "车辆近景",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "车辆形体所需对象或能力确认缺失，或整体完全错误。",
+          "1": "车辆形体已有实现，但以下关键要求大面积不满足：拖拉机轮廓与轮组比例；拖车车厢及连接",
+          "2": "车辆形体部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "车辆形体各主要要求满足，仅有轻微局部偏差。",
+          "4": "车辆形体在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F3.facilities",
+        "dimension": "F3",
+        "weight": 2,
+        "title": "设施形体",
+        "target": "设施形体",
+        "observable_requirements": [
+          "风车框架与叶轮",
+          "鸡舍坡道",
+          "码头结构"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "设施近景",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "设施形体所需对象或能力确认缺失，或整体完全错误。",
+          "1": "设施形体已有实现，但以下关键要求大面积不满足：风车框架与叶轮；鸡舍坡道；码头结构",
+          "2": "设施形体部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "设施形体各主要要求满足，仅有轻微局部偏差。",
+          "4": "设施形体在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F3.cattle",
+        "dimension": "F3",
+        "weight": 2,
+        "title": "牛的场景级形体",
+        "target": "牛的场景级形体",
+        "observable_requirements": [
+          "躯干与四肢比例",
+          "头颈轮廓",
+          "场景尺度下可辨认"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "牲畜近景",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "牛的场景级形体所需对象或能力确认缺失，或整体完全错误。",
+          "1": "牛的场景级形体已有实现，但以下关键要求大面积不满足：躯干与四肢比例；头颈轮廓；场景尺度下可辨认",
+          "2": "牛的场景级形体部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "牛的场景级形体各主要要求满足，仅有轻微局部偏差。",
+          "4": "牛的场景级形体在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F3.chickens",
+        "dimension": "F3",
+        "weight": 2,
+        "title": "鸡的场景级形体",
+        "target": "鸡的场景级形体",
+        "observable_requirements": [
+          "短颈",
+          "圆腹",
+          "尾部轮廓",
+          "比例不像鹅"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "鸡群近景",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "鸡的场景级形体所需对象或能力确认缺失，或整体完全错误。",
+          "1": "鸡的场景级形体已有实现，但以下关键要求大面积不满足：短颈；圆腹；尾部轮廓；比例不像鹅",
+          "2": "鸡的场景级形体部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "鸡的场景级形体各主要要求满足，仅有轻微局部偏差。",
+          "4": "鸡的场景级形体在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F4.buildings",
+        "dimension": "F4",
+        "weight": 5,
+        "title": "建筑表面还原",
+        "target": "建筑表面还原",
+        "observable_requirements": [
+          "风化红木板",
+          "白色墙板",
+          "屋顶颜色",
+          "纹理方向与尺度"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "彩色建筑近景",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "建筑表面还原所需对象或能力确认缺失，或整体完全错误。",
+          "1": "建筑表面还原已有实现，但以下关键要求大面积不满足：风化红木板；白色墙板；屋顶颜色；纹理方向与尺度",
+          "2": "建筑表面还原部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "建筑表面还原各主要要求满足，仅有轻微局部偏差。",
+          "4": "建筑表面还原在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F4.ground",
+        "dimension": "F4",
+        "weight": 4,
+        "title": "地面与木质设施表面",
+        "target": "地面与木质设施表面",
+        "observable_requirements": [
+          "土路表现",
+          "木栏纹理",
+          "草捆颜色与质感"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "地面设施近景",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "地面与木质设施表面所需对象或能力确认缺失，或整体完全错误。",
+          "1": "地面与木质设施表面已有实现，但以下关键要求大面积不满足：土路表现；木栏纹理；草捆颜色与质感",
+          "2": "地面与木质设施表面部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "地面与木质设施表面各主要要求满足，仅有轻微局部偏差。",
+          "4": "地面与木质设施表面在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F4.glass_metal",
+        "dimension": "F4",
+        "weight": 3,
+        "title": "玻璃和金属表现",
+        "target": "玻璃和金属表现",
+        "observable_requirements": [
+          "玻璃有合理透光",
+          "金属反射与粗糙度合理",
+          "表现接近参考"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "温室车辆近景",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "玻璃和金属表现所需对象或能力确认缺失，或整体完全错误。",
+          "1": "玻璃和金属表现已有实现，但以下关键要求大面积不满足：玻璃有合理透光；金属反射与粗糙度合理；表现接近参考",
+          "2": "玻璃和金属表现部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "玻璃和金属表现各主要要求满足，仅有轻微局部偏差。",
+          "4": "玻璃和金属表现在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F4.water",
+        "dimension": "F4",
+        "weight": 3,
+        "title": "水面表现",
+        "target": "水面表现",
+        "observable_requirements": [
+          "颜色符合参考",
+          "反射及表面变化合理",
+          "不呈现不相关的镜面或纯色贴片效果"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "水面近景",
+          "提交主视图",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "水面表现所需对象或能力确认缺失，或整体完全错误。",
+          "1": "水面表现已有实现，但以下关键要求大面积不满足：颜色符合参考；反射及表面变化合理；不呈现不相关的镜面或纯色贴片效果",
+          "2": "水面表现部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "水面表现各主要要求满足，仅有轻微局部偏差。",
+          "4": "水面表现在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "main",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F5.direction",
+        "dimension": "F5",
+        "weight": 4,
+        "title": "日照及阴影方向",
+        "target": "日照及阴影方向",
+        "observable_requirements": [
+          "受光侧与参考一致",
+          "投影方向一致"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "提交主视图",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "日照及阴影方向所需对象或能力确认缺失，或整体完全错误。",
+          "1": "日照及阴影方向已有实现，但以下关键要求大面积不满足：受光侧与参考一致；投影方向一致",
+          "2": "日照及阴影方向部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "日照及阴影方向各主要要求满足，仅有轻微局部偏差。",
+          "4": "日照及阴影方向在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F5.tonality",
+        "dimension": "F5",
+        "weight": 3,
+        "title": "冷暖与曝光",
+        "target": "冷暖与曝光",
+        "observable_requirements": [
+          "暖阳和天空补光关系",
+          "曝光不过度发白",
+          "颜色层次接近参考"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "提交主视图",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "冷暖与曝光所需对象或能力确认缺失，或整体完全错误。",
+          "1": "冷暖与曝光已有实现，但以下关键要求大面积不满足：暖阳和天空补光关系；曝光不过度发白；颜色层次接近参考",
+          "2": "冷暖与曝光部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "冷暖与曝光各主要要求满足，仅有轻微局部偏差。",
+          "4": "冷暖与曝光在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F5.shadows",
+        "dimension": "F5",
+        "weight": 3,
+        "title": "阴影和空气层次",
+        "target": "阴影和空气层次",
+        "observable_requirements": [
+          "阴影软硬合理",
+          "接触阴影可辨认",
+          "远景空气感符合参考"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "提交主视图",
+          "局部近景",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "阴影和空气层次所需对象或能力确认缺失，或整体完全错误。",
+          "1": "阴影和空气层次已有实现，但以下关键要求大面积不满足：阴影软硬合理；接触阴影可辨认；远景空气感符合参考",
+          "2": "阴影和空气层次部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "阴影和空气层次各主要要求满足，仅有轻微局部偏差。",
+          "4": "阴影和空气层次在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "color_closeup",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F6.trees",
+        "dimension": "F6",
+        "weight": 4,
+        "title": "树冠与分布",
+        "target": "树冠与分布",
+        "observable_requirements": [
+          "树冠无明显机械复制感",
+          "尺度疏密接近参考",
+          "没有形成不合理连续树墙"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "景观近景",
+          "提交主视图",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "树冠与分布所需对象或能力确认缺失，或整体完全错误。",
+          "1": "树冠与分布已有实现，但以下关键要求大面积不满足：树冠无明显机械复制感；尺度疏密接近参考；没有形成不合理连续树墙",
+          "2": "树冠与分布部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "树冠与分布各主要要求满足，仅有轻微局部偏差。",
+          "4": "树冠与分布在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "main",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F6.grass",
+        "dimension": "F6",
+        "weight": 3,
+        "title": "草土过渡",
+        "target": "草土过渡",
+        "observable_requirements": [
+          "草高及斑块有合理变化",
+          "道路与草地过渡自然",
+          "分布符合参考"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "地面近景",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "草土过渡所需对象或能力确认缺失，或整体完全错误。",
+          "1": "草土过渡已有实现，但以下关键要求大面积不满足：草高及斑块有合理变化；道路与草地过渡自然；分布符合参考",
+          "2": "草土过渡部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "草土过渡各主要要求满足，仅有轻微局部偏差。",
+          "4": "草土过渡在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F6.landscape",
+        "dimension": "F6",
+        "weight": 3,
+        "title": "湖岸与远山",
+        "target": "湖岸与远山",
+        "observable_requirements": [
+          "湖岸形态与过渡自然",
+          "远山和背景植被层次符合参考"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "提交主视图",
+          "景观近景",
+          "参考图"
+        ],
+        "anchors": {
+          "0": "湖岸与远山所需对象或能力确认缺失，或整体完全错误。",
+          "1": "湖岸与远山已有实现，但以下关键要求大面积不满足：湖岸形态与过渡自然；远山和背景植被层次符合参考",
+          "2": "湖岸与远山部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "湖岸与远山各主要要求满足，仅有轻微局部偏差。",
+          "4": "湖岸与远山在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "main",
+            "color_closeup",
+            "reference"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F7.support",
+        "dimension": "F7",
+        "weight": 3,
+        "title": "场景支承关系",
+        "target": "场景支承关系",
+        "observable_requirements": [
+          "建筑和立柱落在实际承载面",
+          "树根及动物足部合理落地",
+          "无严重悬空或穿透"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "支承部位近景",
+          "几何检查"
+        ],
+        "anchors": {
+          "0": "场景支承关系所需对象或能力确认缺失，或整体完全错误。",
+          "1": "场景支承关系已有实现，但以下关键要求大面积不满足：建筑和立柱落在实际承载面；树根及动物足部合理落地；无严重悬空或穿透",
+          "2": "场景支承关系部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "场景支承关系各主要要求满足，仅有轻微局部偏差。",
+          "4": "场景支承关系在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "geometry"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F7.connections",
+        "dimension": "F7",
+        "weight": 2,
+        "title": "道路入口与设施连接",
+        "target": "道路入口与设施连接",
+        "observable_requirements": [
+          "道路和入口接通",
+          "坡道连接门口与地面",
+          "无意外阻挡或设施穿插"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "连接部位近景",
+          "几何检查"
+        ],
+        "anchors": {
+          "0": "道路入口与设施连接所需对象或能力确认缺失，或整体完全错误。",
+          "1": "道路入口与设施连接已有实现，但以下关键要求大面积不满足：道路和入口接通；坡道连接门口与地面；无意外阻挡或设施穿插",
+          "2": "道路入口与设施连接部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "道路入口与设施连接各主要要求满足，仅有轻微局部偏差。",
+          "4": "道路入口与设施连接在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "color_closeup",
+            "geometry"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F8.surface",
+        "dimension": "F8",
+        "weight": 3,
+        "title": "必要表面与法线表现",
+        "target": "必要表面与法线表现",
+        "observable_requirements": [
+          "主要建筑无非预期缺面",
+          "必要背面成立",
+          "法线及着色无影响使用的异常"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "背面灰模",
+          "结构近景",
+          "网格诊断"
+        ],
+        "anchors": {
+          "0": "必要表面与法线表现所需对象或能力确认缺失，或整体完全错误。",
+          "1": "必要表面与法线表现已有实现，但以下关键要求大面积不满足：主要建筑无非预期缺面；必要背面成立；法线及着色无影响使用的异常",
+          "2": "必要表面与法线表现部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "必要表面与法线表现各主要要求满足，仅有轻微局部偏差。",
+          "4": "必要表面与法线表现在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "gray_reverse",
+            "color_closeup",
+            "mesh_diagnostics"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F8.degeneracy",
+        "dimension": "F8",
+        "weight": 2,
+        "title": "退化与接缝影响",
+        "target": "退化与接缝影响",
+        "observable_requirements": [
+          "退化面及重复接缝不影响结果",
+          "没有明显三角面分块或异常着色"
+        ],
+        "required": false,
+        "pass_score": 3,
+        "evidence_required": [
+          "网格诊断",
+          "灰模",
+          "彩色近景"
+        ],
+        "anchors": {
+          "0": "退化与接缝影响所需对象或能力确认缺失，或整体完全错误。",
+          "1": "退化与接缝影响已有实现，但以下关键要求大面积不满足：退化面及重复接缝不影响结果；没有明显三角面分块或异常着色",
+          "2": "退化与接缝影响部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "退化与接缝影响各主要要求满足，仅有轻微局部偏差。",
+          "4": "退化与接缝影响在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "mesh_diagnostics",
+            "gray",
+            "color_closeup"
+          ],
+          "min_submission_views": 0
+        }
+      },
+      {
+        "criterion_id": "F9.editability",
+        "dimension": "F9",
+        "weight": 3,
+        "title": "原生工程及资源可用",
+        "target": "原生工程及资源可用",
+        "observable_requirements": [
+          "原生工程可打开",
+          "主要对象为可编辑三维内容",
+          "必要依赖完整",
+          "非参考图贴板替代主要场景"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "场景数据",
+          "通用检查",
+          "多视图"
+        ],
+        "anchors": {
+          "0": "原生工程及资源可用所需对象或能力确认缺失，或整体完全错误。",
+          "1": "原生工程及资源可用已有实现，但以下关键要求大面积不满足：原生工程可打开；主要对象为可编辑三维内容；必要依赖完整；非参考图贴板替代主要场景",
+          "2": "原生工程及资源可用部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "原生工程及资源可用各主要要求满足，仅有轻微局部偏差。",
+          "4": "原生工程及资源可用在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "scene_inventory",
+            "general_checks",
+            "multiview"
+          ],
+          "min_submission_views": 2
+        }
+      },
+      {
+        "criterion_id": "F9.roundtrip",
+        "dimension": "F9",
+        "weight": 2,
+        "title": "保存重开一致性",
+        "target": "保存重开一致性",
+        "observable_requirements": [
+          "临时副本保存重开成功",
+          "几何材质相机灯光的采集摘要一致"
+        ],
+        "required": true,
+        "pass_score": 3,
+        "evidence_required": [
+          "保存重开检查"
+        ],
+        "anchors": {
+          "0": "保存重开一致性所需对象或能力确认缺失，或整体完全错误。",
+          "1": "保存重开一致性已有实现，但以下关键要求大面积不满足：临时副本保存重开成功；几何材质相机灯光的采集摘要一致",
+          "2": "保存重开一致性部分满足，但上述要求中仍有至少一项显著偏差。",
+          "3": "保存重开一致性各主要要求满足，仅有轻微局部偏差。",
+          "4": "保存重开一致性在约定视图和观察尺度下全部要求充分满足，未发现实质缺陷。"
+        },
+        "unknown_rule": "证据不足无法确认时score=null、status=UNKNOWN；不可仅凭名称、模型自述或不可见区域猜测。",
+        "evidence_policy": {
+          "required_roles": [
+            "roundtrip"
+          ],
+          "min_submission_views": 0
+        }
+      }
+    ],
+    "rules": [
+      "固定31项与100分权重，不允许评审增删或改权重。",
+      "缺失对象按相应项评分，不扩大为整个维度机械清零。",
+      "结构还原和一般几何可用性记录不同事实；同一缺陷不另追加总分罚款。"
+    ]
+  },
+  "submission_validation": {
+    "invalid_cases": [
+      "缺少合同要求的核心原生工程",
+      "在评测环境正常的前提下，确认工程无法加载",
+      "确认以整张参考图贴板替代主要三维场景"
+    ],
+    "invalid_reward": 0.0,
+    "low_quality_is_still_valid": true,
+    "runtime_failure_policy": "Blender崩溃、超时或评测服务异常应先排查，不直接认定提交无效；无法完成评测时不生成正式标量奖励。",
+    "protocol": {
+      "required": true,
+      "statuses": [
+        "VALID",
+        "INVALID",
+        "UNKNOWN"
+      ],
+      "invalid_codes": [
+        "core_native_project_missing",
+        "confirmed_unreadable",
+        "reference_plate",
+        "core_not_editable"
+      ],
+      "invalid_required_roles": [
+        "main",
+        "gray",
+        "scene_inventory"
+      ],
+      "unknown_has_no_reward": true
+    }
+  },
+  "evidence_policy": {
+    "source": "评测端从提交工程自行重开、检查并渲染，不能仅采信提交者预览或自评。",
+    "bind_to": [
+      "artifact_hash",
+      "asset_revision",
+      "rubric_version"
+    ],
+    "requirements": [
+      "视觉项使用匹配目标的主视图和必要近景。",
+      "结构项使用补充角度、灰模和必要的几何检查。",
+      "支承、网格和依赖完整性使用程序检查，必要时结合图像。",
+      "旧版本证据不能证明当前版本通过。"
+    ],
+    "no_reward_for": [
+      "自称已修复或检查通过",
+      "工具调用次数",
+      "面数",
+      "对象数本身",
+      "渲染次数"
+    ],
+    "minimum_views": [
+      "参考匹配主视图",
+      "建筑近景",
+      "菜园与牲畜近景",
+      "能暴露背面结构的灰模视图"
+    ],
+    "camera_policy": "构图评分使用提交主相机，不由评测器优化主相机替提交纠错；自主相机取景用于补充检查视图。",
+    "current_renderer_limit": "主相机彩色渲染、自动近景、反向灰模、场景清单、网格诊断与临时保存重开摘要；视觉项必须由可信评审逐项判定。"
+  },
+  "aggregation": {
+    "unit": "百分制",
+    "total_weight": 100,
+    "formula": "Q = sum(w_i * s_i / 4)",
+    "level": "原子项",
+    "complete_evidence_required": true,
+    "unknown_renormalization_allowed": false
+  },
+  "acceptance": {
+    "quality_threshold": 85,
+    "default_required_item_min_score": 3,
+    "conditions": [
+      "Q达到任务总分门槛",
+      "所有必需原子项达到预设通过档位",
+      "所有必需检查均有当前有效证据并通过",
+      "不存在阻断使用的必需项失败"
+    ],
+    "quality_cannot_override_required_failure": true,
+    "blocking_examples": [
+      "主要建筑非预期缺面",
+      "关键对象缺失",
+      "严重悬空",
+      "必要资源缺失",
+      "工程无法重开",
+      "必需证据过期"
+    ]
+  },
+  "reward": {
+    "type": "terminal",
+    "formula": "R = 0.7 * (Q / 100) + 0.3 * A",
+    "quality_coefficient": 0.7,
+    "acceptance_coefficient": 0.3,
+    "acceptance_indicator": "通过验收A=1，否则A=0；评测未完成不计算正式奖励。",
+    "invalid_submission_reward": 0.0,
+    "incomplete_evaluation_reward": null,
+    "repeat_inspection_accumulation_allowed": false,
+    "training_policy": "有效完整评测可用于训练，未验收的有效产物仍按公式得分；评测未完成时training_mask=0。",
+    "examples": [
+      {
+        "Q": 70,
+        "A": 0,
+        "R": 0.49
+      },
+      {
+        "Q": 90,
+        "A": 0,
+        "R": 0.63
+      },
+      {
+        "Q": 86,
+        "A": 1,
+        "R": 0.902
+      }
+    ],
+    "validity_gate_required": true
+  },
+  "missingness": {
+    "confirmed_failure": "已确认未实现按锚点正常记低分或0分。",
+    "UNKNOWN": "评测服务故障或必要证据不足；补取证或重试，未解决前quality_score和reward为null。",
+    "N_A": "仅在评测前确定，统一调整权重并冻结；不得临时排除低分项。",
+    "partial_supervision": "可保留已知项监督，但不得删除未知项后重新归一化。"
+  },
+  "criterion_result_fields": [
+    "criterion_id",
+    "target",
+    "score",
+    "status",
+    "evidence",
+    "reason",
+    "asset_revision"
+  ],
+  "criterion_result_contract": {
+    "score": "0、1、2、3、4；UNKNOWN或N_A时为null",
+    "status": [
+      "SCORED",
+      "UNKNOWN",
+      "N_A"
+    ],
+    "evidence": "当前产物对应的图像、测量或检查结果引用",
+    "reason": "对应具体评分锚点的可观察事实"
+  },
+  "result_fields": [
+    "rubric_version",
+    "artifact_hash",
+    "criterion_scores",
+    "quality_score",
+    "failed_requirements",
+    "unknown_requirements",
+    "accepted",
+    "reward",
+    "training_mask"
+  ],
+  "readiness_requirements": [
+    "完成任务级原子项、权重及具体锚点",
+    "冻结适用范围与必需项",
+    "接入所需证据采集和判分器",
+    "用人工评分样本及典型失败样例校准",
+    "在真实工程上验证后再用于正式结果奖励"
+  ],
+  "rubric_id": "farm-reference-reconstruction-v1",
+  "title": "Farm参考图重建评分标准",
+  "goal": "根据原始参考图完成mesh、texture与光影高度还原、可编辑的静态农场。",
+  "reference": {
+    "artifact_hash": "0d44b974dee8cd62f205f54499ace9166f61cc8f54b09b2f3a2c6e3a891eb9d0",
+    "status": "BOUND_TO_BUNDLED_REFERENCE",
+    "note": "评分对照随包参考图 references/reference.png。",
+    "path": "references/reference.png"
+  },
+  "dimensions": [
+    {
+      "id": "F1",
+      "name": "内容完整性",
+      "weight": 10,
+      "criteria": [
+        "住宅、谷仓、筒仓、风车",
+        "温室与菜园",
+        "三头牛及牛棚、鸡群及鸡舍",
+        "拖拉机、拖车、草捆、道路、围栏、湖泊与码头",
+        "必要部件是否建好，不只判断对象已放入场景"
+      ],
+      "evidence": [
+        "固定内容清单",
+        "场景数据",
+        "多视图确认"
+      ]
+    },
+    {
+      "id": "F2",
+      "name": "构图与空间还原",
+      "weight": 20,
+      "criteria": [
+        "相机俯视程度与透视",
+        "住宅在左、谷仓居中偏右",
+        "菜园在前左、鸡栏在前右、牛栏在右侧",
+        "对象画面占比、朝向、遮挡和背景层次与参考匹配"
+      ],
+      "evidence": [
+        "冻结参考图",
+        "提交主相机渲染",
+        "画面位置及占比测量"
+      ]
+    },
+    {
+      "id": "F3",
+      "name": "形体与建筑结构",
+      "weight": 20,
+      "criteria": [
+        "谷仓折线屋顶、山墙、仓门与附屋",
+        "住宅门廊、阁楼窗与山墙",
+        "筒仓、温室框架、鸡舍坡道",
+        "车辆及动物的关键轮廓"
+      ],
+      "evidence": [
+        "主视图",
+        "建筑及动物近景",
+        "背面灰模",
+        "几何检查"
+      ],
+      "subdimension_budgets": [
+        {
+          "name": "建筑结构",
+          "weight": 12
+        },
+        {
+          "name": "其他设施与车辆",
+          "weight": 4
+        },
+        {
+          "name": "动物形体",
+          "weight": 4
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "name": "材质与纹理还原",
+      "weight": 15,
+      "criteria": [
+        "风化红木板、白色墙板、屋顶、木栏、土路、草捆、玻璃、金属和水面",
+        "颜色、纹理方向、尺度及表面响应与参考一致"
+      ],
+      "evidence": [
+        "彩色渲染近景",
+        "参考局部",
+        "材质与纹理数据"
+      ]
+    },
+    {
+      "id": "F5",
+      "name": "光照还原",
+      "weight": 10,
+      "criteria": [
+        "日照方向、暖阳与天空补光",
+        "阴影方向与软硬、接触阴影",
+        "曝光及远景空气感"
+      ],
+      "evidence": [
+        "参考匹配主视图",
+        "必要近景",
+        "保留提交光照的渲染"
+      ]
+    },
+    {
+      "id": "F6",
+      "name": "景观自然度",
+      "weight": 10,
+      "criteria": [
+        "树冠是否存在明显复制感",
+        "树木尺度与疏密是否合理",
+        "草土过渡、草高变化、湖岸和远山是否形成参考中的自然层次"
+      ],
+      "evidence": [
+        "全景",
+        "景观近景",
+        "参考图"
+      ]
+    },
+    {
+      "id": "F7",
+      "name": "接触与空间关系",
+      "weight": 5,
+      "criteria": [
+        "建筑、牛棚立柱、树根、动物足部是否合理落地",
+        "道路、入口、坡道是否接通",
+        "设施间是否存在非预期穿插"
+      ],
+      "evidence": [
+        "实际承载面及连接检查",
+        "间隙与穿透测量",
+        "局部视图"
+      ]
+    },
+    {
+      "id": "F8",
+      "name": "网格技术质量",
+      "weight": 5,
+      "criteria": [
+        "建筑是否存在非预期缺面",
+        "法线、退化面、重复接缝和异常着色是否影响结果"
+      ],
+      "evidence": [
+        "网格诊断",
+        "补充角度灰模",
+        "着色检查"
+      ]
+    },
+    {
+      "id": "F9",
+      "name": "工程可用性",
+      "weight": 5,
+      "criteria": [
+        ".blend可打开、主要对象可编辑",
+        "贴图依赖完整",
+        "重新打开后几何、材质、相机和灯光保持一致"
+      ],
+      "evidence": [
+        "可信环境重开",
+        "依赖检查",
+        "保存重开一致性检查"
+      ]
+    }
+  ],
+  "scope_rules": [
+    "参考可见区域评价还原度；不可见背面评价合理性与完整性，不虚构参考尺寸。",
+    "动物按场景角色和约定尺度评价；鸡须有合理短颈、圆腹、尾部与落地关系，不要求特写级羽毛。",
+    "更多树木、更密草地或更强反射不自动加分，破坏参考布局与层次应降低对应项分数。",
+    "本任务为静态视觉场景，不要求仿真和运动能力。",
+    "完整farm允许任务所需的贴图、节点材质、修改器和父子关系，不沿用围栏小任务的一律禁止规则。"
+  ],
+  "historical_label": {
+    "label": "原生文件重开通过，最终视觉验收未完成",
+    "source": "用户提供的历史记录说明；不是本次独立重评结论",
+    "training_use": "不可直接视作高度还原成功样本；需对对应交付版本按冻结rubric重新取证标注。"
+  },
+  "general_prerequisite": {
+    "rubric": "general-basic-v1",
+    "file": "general-static-v1.json",
+    "must_pass_before_task_scoring": true,
+    "task_scoring_implementation": "COLLECT_REVIEW_AND_AGGREGATE"
+  }
+}

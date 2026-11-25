@@ -1,0 +1,531 @@
+{
+  "schema_version": 1,
+  "asset_id": "jadevase",
+  "version": "v004",
+  "name": "玉壶 / The Jade Ewer",
+  "package_directory": "asset_jadevase",
+  "packaged_on": "2026-10-20",
+  "software": {
+    "blender": "5.2.2 LTS",
+    "threejs": "r147"
+  },
+  "units": "meters; 1 unit = 1 meter",
+  "source_project": "source/blender/asset_jadevase.blend",
+  "exports": {
+    "glb": "mesh/asset_jadevase.glb",
+    "fbx": "mesh/asset_jadevase.fbx"
+  },
+  "dimensions_m": {
+    "width": 0.21693266183137894,
+    "depth": 0.1754876673221588,
+    "height": 0.3106020486467571,
+    "note": "width follows the spout/handle direction (glTF Z); depth glTF X; height glTF Y."
+  },
+  "bbox_gltf_m": {
+    "min": [
+      -0.0877438336610794,
+      4.3748681832767033e-07,
+      -0.10846642404794693
+    ],
+    "max": [
+      0.0877438336610794,
+      0.31060248613357544,
+      0.108466237783432
+    ],
+    "size_xyz": [
+      0.1754876673221588,
+      0.3106020486467571,
+      0.21693266183137894
+    ],
+    "coordinate_system": "glTF +Y up"
+  },
+  "geometry": {
+    "triangles": 117568,
+    "glb_vertices": 63376,
+    "part_count": 2,
+    "part_statistics": [
+      {
+        "name": "ewer_body",
+        "triangles": 81728,
+        "vertices": 44191
+      },
+      {
+        "name": "ewer_lid",
+        "triangles": 35840,
+        "vertices": 19185
+      }
+    ]
+  },
+  "generator": {
+    "script": "source/blender/jadevase_generator.py",
+    "parameters_m": {
+      "body_height": {
+        "default": 0.2636139988899231,
+        "min": 0.19,
+        "max": 0.34
+      },
+      "belly_diameter": {
+        "default": 0.17778000235557556,
+        "min": 0.13,
+        "max": 0.23
+      },
+      "foot_diameter": {
+        "default": 0.10360399633646011,
+        "min": 0.075,
+        "max": 0.135
+      },
+      "lid_height": {
+        "default": 0.021701008081436157,
+        "min": 0.015,
+        "max": 0.03
+      },
+      "finial_diameter": {
+        "default": 0.02207300066947937,
+        "min": 0.014,
+        "max": 0.032
+      },
+      "wall_thickness": {
+        "default": 0.003000000026077032,
+        "min": 0.0015,
+        "max": 0.0045
+      }
+    }
+  },
+  "pbr": {
+    "model": "glTF metallic-roughness",
+    "materials": [
+      {
+        "name": "porcelain",
+        "base_color_factor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "metallic_factor": 0,
+        "roughness_factor": 1,
+        "base_color_texture": {
+          "image_index": 1,
+          "texcoord": 0
+        },
+        "normal_texture": {
+          "image_index": 0,
+          "texcoord": 0
+        },
+        "metallic_roughness_texture": {
+          "image_index": 2,
+          "texcoord": 0
+        },
+        "metallic_roughness_channels": "G = roughness; B = metallic",
+        "alpha_mode": "OPAQUE",
+        "double_sided": true
+      },
+      {
+        "name": "gold",
+        "base_color_factor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "metallic_factor": 1,
+        "roughness_factor": 1,
+        "base_color_texture": {
+          "image_index": 4,
+          "texcoord": 0
+        },
+        "normal_texture": {
+          "image_index": 3,
+          "texcoord": 0
+        },
+        "metallic_roughness_texture": {
+          "image_index": 5,
+          "texcoord": 0
+        },
+        "metallic_roughness_channels": "G = roughness; B = metallic",
+        "alpha_mode": "OPAQUE",
+        "double_sided": true
+      }
+    ],
+    "embedded_images": [
+      {
+        "index": 0,
+        "name": "porcelain_normal",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "d82df098a292925d566f8dc0f4d3c21b0849910a39493a0d95019e21ce53b0e3"
+      },
+      {
+        "index": 1,
+        "name": "porcelain_basecolor",
+        "mime_type": "image/jpeg",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "edff14425d1d93238e894e8f5f12b4048c0e0e498c5a4a61d4a2cb1d5c3ce680"
+      },
+      {
+        "index": 2,
+        "name": "porcelain_roughness",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "a0e0b7c82deea5c94337a21c5d8204f2b1f48befc3f8cf1195c33d9b41cd2112"
+      },
+      {
+        "index": 3,
+        "name": "gold_normal",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "fcf1576c7182253177247cd1f1188a0237335a8197bc964bc4692de6a47e2e44"
+      },
+      {
+        "index": 4,
+        "name": "gold_basecolor",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "5795e0e8b9134fa030842379fc52772afa01042a8e22ceb4b0948aa8c3f7e482"
+      },
+      {
+        "index": 5,
+        "name": "gold_metalness-gold_roughness",
+        "mime_type": "image/png",
+        "resolution": [
+          2048,
+          2048
+        ],
+        "embedded": true,
+        "sha256": "d8bd3a38fab88325eb43143d16cf795abbb0a206753b69faefdd725d92aceebf"
+      }
+    ]
+  },
+  "media": {
+    "render_count": 8,
+    "renders": [
+      {
+        "path": "renders/back.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/detail_belly_crackle.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/detail_lid_finial.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/front.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/hero_45.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/left.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/right.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "path": "renders/top.png",
+        "resolution": [
+          2048,
+          2048
+        ]
+      }
+    ],
+    "turntable": {
+      "path": "turntable.mp4",
+      "codec": "h264",
+      "codec_tag": "avc1",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "frames": 240,
+      "fps": 24.0,
+      "duration_seconds": 10.0,
+      "constant_frame_rate": true,
+      "measurement": "MP4 video sample table (stsd, stts, stsz, mdhd)"
+    }
+  },
+  "files": [
+    {
+      "path": "README.txt",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 8449,
+      "sha256": "0f1365cea25501d5320e492c057f29808c212071a7b9690ce02e3942f1bbbd78"
+    },
+    {
+      "path": "description.txt",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 8318,
+      "sha256": "bc780202643442fe826a11bc8a35d2ae914df81e23565dbb9ace81c7923ba01a"
+    },
+    {
+      "path": "mesh/asset_jadevase.fbx",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 40357244,
+      "sha256": "80587e4a32ab7766e2f55abeddae80dc3856d9e5d0496af72bf568ff5fe78aee"
+    },
+    {
+      "path": "mesh/asset_jadevase.glb",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 40438472,
+      "sha256": "7cb20533f3acb3f1360ff75f605c635a7c177deac71d6f944137cfcd9516b0ea"
+    },
+    {
+      "path": "renders/back.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 3271777,
+      "sha256": "80d60840ab08189d290f913bd3c3973470d4922e9ad03220eff2d4f073e35fea"
+    },
+    {
+      "path": "renders/detail_belly_crackle.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 4292586,
+      "sha256": "431226bf8b71c1a6796e594e737b89462b4342852d4c1c8ddfa9b159156123af"
+    },
+    {
+      "path": "renders/detail_lid_finial.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 3805188,
+      "sha256": "71fc4b8c7b6247156b0bf4b190ced5b4376a98dc01470e93f3950b036877d0b8"
+    },
+    {
+      "path": "renders/front.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 3296315,
+      "sha256": "992f388ca52cd2dc330e1bd7675549bc4db9edf6c481089fa6762ce0176b1303"
+    },
+    {
+      "path": "renders/hero_45.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 3803186,
+      "sha256": "3a3197bf74a0bcd84aaf2b967015906702f9be8d14f284534f8d8a49c508f8ec"
+    },
+    {
+      "path": "renders/left.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 3567694,
+      "sha256": "f872b3c15236bce625d99a5557372b4c3bdbcba682beae00a3636db8e85e075c"
+    },
+    {
+      "path": "renders/right.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 3400748,
+      "sha256": "f39d1191567cb09a2be19a2cf8d5ef24072cf8319934f7ff1f936970d4eaf006"
+    },
+    {
+      "path": "renders/top.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 3781637,
+      "sha256": "159814569558d897771f5527acff1ebd28bd9ba685ec207fdefe7edace10725d"
+    },
+    {
+      "path": "source/blender/asset_jadevase.blend",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 35231919,
+      "sha256": "f55e25bba6823f25479eb97d0d0a912686b1f30240d657229ad7dbdd1ed97856"
+    },
+    {
+      "path": "source/blender/jadevase_export.py",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 2497,
+      "sha256": "333020b135b5a39d506f931fb2282c9773173e561d25bc97bec57f07cb7d4e5a"
+    },
+    {
+      "path": "source/blender/jadevase_generator.py",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 22885,
+      "sha256": "77411edc3203c19516f9549d026379b5da2817513d7319414134423826f3527c"
+    },
+    {
+      "path": "source/threejs/LICENSE_THREEJS.txt",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 1077,
+      "sha256": "d7ba1b2f82ffe42550fbe5a7b37e426a0486c4e2baf91811a128f44413d144ac"
+    },
+    {
+      "path": "source/threejs/README.txt",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 1153,
+      "sha256": "b5c12fc3d79d02d8effa7c7da11e6bc8fee369001a42889151d650fdd7a27e03"
+    },
+    {
+      "path": "source/threejs/index.html",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 10684,
+      "sha256": "4ff485ec8359dbccc8d4a49db213678ea62fd3849be16f4e2173876c8e7f9b7e"
+    },
+    {
+      "path": "source/threejs/js/GLTFLoader.js",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 103311,
+      "sha256": "b2edda923572c73e6b30b139756d182c87e2c34d022845c6e067a9a0a9544e01"
+    },
+    {
+      "path": "source/threejs/js/OrbitControls.js",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 26660,
+      "sha256": "b4c6e53f98538535b11fd6655627d47fb5877b3ad972568bff0a7026c4b6d5c4"
+    },
+    {
+      "path": "source/threejs/js/RoomEnvironment.js",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 3718,
+      "sha256": "251b4e779abb5b432f99a326878fe239747c1fe55f390933085fc3deb20d2cea"
+    },
+    {
+      "path": "source/threejs/js/model_data.js",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 53918039,
+      "sha256": "4087edf45b51987521d548408e87a78123769a01eefddf4660730fec27f2c751"
+    },
+    {
+      "path": "source/threejs/js/three_min.js",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 607784,
+      "sha256": "f34446bf875b5fb0dcd93819ffe1d9e182d46634ee855f5d904c6c4ac7cdbc95"
+    },
+    {
+      "path": "source/threejs/make_embed.py",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 1314,
+      "sha256": "a7d792736d72a5cb8da553cc036fcb146990953763eb03d4beb3194dbee9aa2b"
+    },
+    {
+      "path": "textures/gold_basecolor.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 4075649,
+      "sha256": "5795e0e8b9134fa030842379fc52772afa01042a8e22ceb4b0948aa8c3f7e482"
+    },
+    {
+      "path": "textures/gold_metalness.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 660757,
+      "sha256": "30c8592827e532c3ad7540e497c031d1fb8d7e40d73812b4499cb4b57520b43f"
+    },
+    {
+      "path": "textures/gold_normal.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 15097655,
+      "sha256": "fcf1576c7182253177247cd1f1188a0237335a8197bc964bc4692de6a47e2e44"
+    },
+    {
+      "path": "textures/gold_roughness.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 1847736,
+      "sha256": "1f2d2afdc101a5c8d6c9fb06b4cfa30d5a05566a0f0c02af077888c9d3ed1590"
+    },
+    {
+      "path": "textures/porcelain_basecolor.jpg",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 950912,
+      "sha256": "edff14425d1d93238e894e8f5f12b4048c0e0e498c5a4a61d4a2cb1d5c3ce680"
+    },
+    {
+      "path": "textures/porcelain_crackle_source.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 5353624,
+      "sha256": "70f65c90ff59625b6682749254c4551cb9c47e6a51548a90c55a5838d6cdb27c"
+    },
+    {
+      "path": "textures/porcelain_normal.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 11219413,
+      "sha256": "d82df098a292925d566f8dc0f4d3c21b0849910a39493a0d95019e21ce53b0e3"
+    },
+    {
+      "path": "textures/porcelain_roughness.png",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 996793,
+      "sha256": "77b1d6bbf5ecb90c8c97d0b82a3af59d10c51b8df4de004293cc8274678136da"
+    },
+    {
+      "path": "turntable.mp4",
+      "asset_id": "jadevase",
+      "version": "v004",
+      "size_bytes": 2889638,
+      "sha256": "27ab851344ad19b11209474abbc4ec8816f1a33a98cef0bd5c44a3cdcb43b220"
+    }
+  ],
+  "file_count": 33,
+  "package_file_count": 34,
+  "total_bytes": 243054832,
+  "manifest_note": "Each listed file belongs to this asset ID and version. Standard generic filenames follow the delivery layout. stats.json excludes its own checksum; the batch manifest includes it."
+}

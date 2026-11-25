@@ -1,0 +1,12 @@
+{
+  "version": "0.4.0",
+  "target": "linux/amd64",
+  "base": "python:3.13.7-slim-bookworm@sha256:781449467ffb6f04218f09b1ecdcdc7d22b289ee5da9ec498b024e24ad7a6db7",
+  "debian_snapshot": "20260901T000000Z",
+  "python": "3.13.7",
+  "blender": "5.2.2",
+  "provider": "official bpy PyPI wheel",
+  "native_docker_validation": "NOT_RUN",
+  "local_native_validation": "0.4.0 macOS arm64 bpy 5.2.2 native save/reopen, rendering and reward checks; see VALIDATION.json for recorded evidence and limits",
+  "docker_verification": "NOT_RUN; target build, image ID lock and smoke acceptance required"
+}

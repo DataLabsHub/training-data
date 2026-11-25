@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "rubric_id": "general-basic-v1",
+  "status": "IMPLEMENTED_V1",
+  "implementation": "evaluation/general_worker.py",
+  "scope": "通用基础资格检查，不是视觉质量评分",
+  "statuses": [
+    "PASS",
+    "FAIL",
+    "UNKNOWN",
+    "N_A"
+  ],
+  "checks": [
+    {
+      "check_id": "project_readable",
+      "name": "工程读取",
+      "required": true,
+      "rule": "提交文件存在；Blender可打开并读取场景。确认缺失为FAIL；无法打开但原因未明、环境故障或超时为UNKNOWN。"
+    },
+    {
+      "check_id": "geometry_valid",
+      "name": "有效几何",
+      "required": true,
+      "rule": "当前评测范围存在非空可渲染面几何，世界坐标与变换有限；空场景或非有限数值为FAIL；暂不支持的几何为UNKNOWN。"
+    },
+    {
+      "check_id": "resources_complete",
+      "name": "必要资源",
+      "required": true,
+      "rule": "审计活动场景传递引用的图像和链接库，检查打包或文件可解析；无依赖为N_A；缺失为FAIL；序列、UDIM及未支持外部依赖为UNKNOWN。"
+    },
+    {
+      "check_id": "mesh_diagnostics",
+      "name": "基础网格诊断",
+      "required": false,
+      "rule": "统计零长度边、零面积面及相同顶点索引重复面；随尺度设置数值容差；发现问题可记FAIL，但仅诊断，不阻断通用层。"
+    },
+    {
+      "check_id": "inspection_render",
+      "name": "检查图生成",
+      "required": true,
+      "rule": "自动总览和反向视图入镜校验，实际渲染并解码核对尺寸；失败原因未明为UNKNOWN；不判断图像美观或参考还原度。"
+    }
+  ],
+  "aggregation": {
+    "hard_failure": "任一必需项确认FAIL，general_status=FAIL；后续跳过项保持UNKNOWN，但不覆盖已确认失败。",
+    "unknown": "没有确认失败但必需项UNKNOWN，general_status=UNKNOWN，外层status=ERROR。",
+    "pass": "全部必需项PASS或合法N_A，general_status=PASS；无资源依赖时resources_complete可为N_A。"
+  },
+  "rl_contract": {
+    "general_fail": {
+      "reward": 0.0,
+      "training_mask": 1,
+      "accepted": false
+    },
+    "general_unknown": {
+      "reward": null,
+      "training_mask": 0,
+      "accepted": null
+    },
+    "general_pass_without_task_score": {
+      "reward": null,
+      "training_mask": 0,
+      "accepted": null
+    },
+    "task_composition": "通用层通过后运行任务评分器；围栏保留0/1终局奖励，Farm评分器未实现则BLOCKED且无奖励。",
+    "reward_file": "只在training_mask=1且reward非null时写reward.txt。"
+  },
+  "evidence_fields": [
+    "check_id",
+    "status",
+    "target",
+    "measurements",
+    "reason",
+    "evidence",
+    "artifact_hash",
+    "checker_version"
+  ],
+  "not_implemented": [
+    "通用支承/穿插推断",
+    "法线方向与非预期缺面语义判断",
+    "视觉质量评分",
+    "可编辑性及保存重开一致性"
+  ],
+  "limits": [
+    "默认检查当前视图层可见且未隐藏渲染的几何，不把其他隐藏对象冒充已审计。",
+    "VOLUME和原生CURVES等未覆盖类型记UNKNOWN。",
+    "重复面只检查相同顶点索引，不合并坐标相同的独立顶点。",
+    "资源检查按活动场景的数据块引用关系；不分析着色器分支是否实际贡献像素。",
+    "纹理可用只表示资源已打包或路径可读取，不证明材质语义正确。",
+    "不禁止节点材质、父级或修改器；网格按求值后的结果检查。"
+  ]
+}

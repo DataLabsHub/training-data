@@ -1,0 +1,14 @@
+{
+  "action": "render.views",
+  "args": {
+    "mode": "auto",
+    "resolution": [
+      1448,
+      1086
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "max_closeups": 4,
+    "quality_stage": "evidence"
+  }
+}

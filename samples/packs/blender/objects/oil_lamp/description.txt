@@ -1,0 +1,78 @@
+老油灯 / The Old Lantern
+资产编号 oiltamp，版本 v004
+
+【中文描述】
+
+一 类别与名称
+老油灯，类别为物件与道具（硬表面道具），资产编号 oiltamp，版本 v004。一盏二十世纪样式的煤油灯，带玻璃灯罩与提梁，整体为做旧金属质感。
+
+二 形体结构
+模型由十二个独立网格部件组成，自下而上为：底座底盘（base）、底缘（base_rim）、油壶下半（fount_lower）、油壶上半（fount_upper）、灯头柱（upper_body）、燃烧器（burner）、玻璃灯罩（glass_globe）、颈圈（body_collar）、顶盖（vent_cap）、顶环（top_ring）、提梁护弓（guard_bow）、提梁（bail_wire）。各部件在工程中按用途命名并分组于 oil_lamp 集合，正式展示相机、灯光与背景位于 delivery_presentation 集合，不属于十二个主体。
+
+三 材质与颜色
+全模型共三种材质。金属主体与提梁（metal_rust）为锈色做旧金属，接入颜色、金属度、法线三张 2K 贴图，粗糙度为 0.5 常量（顶盖使用随包粗糙度贴图）；顶盖（metal_cap）的颜色经 ColorRamp 重映射，导出时按公式烘焙为独立灰度图，金属度和法线与主体共用，粗糙度使用随包贴图；玻璃灯罩（glass_clear）为透射玻璃，无颜色贴图，粗糙度 0.119，带法线贴图，橄榄绿色调。
+
+四 实际尺寸
+宽 0.165 米，深 0.181 米，高 0.320 米，即约 16.5 x 18.1 x 32.0 厘米，为默认装配整体包围盒实测值，不含背景，符合常规煤油灯尺度。1 场景单位等于 1 米，根对象缩放为 1。当前源工程与正式导出采用同一默认尺寸。
+
+五 风格
+写实风格，表面为长期使用形成的锈蚀与油渍痕迹，适合近景观察。
+
+六 可动或可拆部件
+无可动部件，无可拆部件。模型支持六个以米为单位的参数化尺寸（总高、灯罩直径、灯罩高度、灯头柱高度、底座直径、油壶高度），在 Blender 工程内通过内嵌生成器调整（底座承托口、底缘与护弓下端随灯罩联动），范围均为默认值上下百分之十，详见 README。
+
+七 用途
+可用于影视道具、游戏场景陈设、虚拟影棚展示与教学演示。
+
+八 实测三角面数
+默认最终求值网格合计 287208 个三角面、143993 个源 / FBX 顶点，仅统计十二个主体部件，不含展示辅助物（GLB 因法线与 UV 接缝拆分顶点为 199838，三角面数不变）。源工程保留四边面为主的可编辑基础网格与细分、实体化修改器。
+
+九 原点与朝向
+源工程与导出文件共用同一原点约定：十二个部件的顶点以默认包围盒底部中心为原点，模型立于 z 等于零的地面，源工程、GLB、FBX 与 Three.js 网页四个载体经坐标轴转换后几何一致，逐部件包围盒偏差不超过百万分之一米。Blender 源工程为 Z 轴向上、正面朝 +Y；导出的 GLB 与 Three.js 网页为 Y 轴向上、正面朝 -Z，导出按轴转换记录，未做镜像。
+
+十 软件版本
+Blender 5.2.2 LTS，three.js r147。FBX 中的玻璃以深色烟玻璃的透明通道近似呈现（FBX 无透射通道），GLB 使用标准透射扩展 KHR_materials_transmission。
+
+十一 UV 说明
+十二个部件均已完成 UV。提梁 bail_wire 按实际线材长度与截面周长重新展开为八条不重叠的长条 UV，沿程和周向使用同一比例，保留原顶点与拓扑。以下几何区域有意叠放 UV：burner、body_collar、base_rim 的左右成对区域；guard_bow 的左右护弓及实体化产生的内外表面；vent_cap 实体化产生的内外表面。各独立金属件使用独立布局，共用同一 0–1 纹理坐标区，部分岛跨对象重合，用于重复采样无定向的锈蚀纹理，不是全资产独占 UV 图集。此处“UV 共享”指这些区域的坐标重叠；与金属件共用 Metal025 2K PBR 贴图这一材质共享是两回事。置换贴图在 glTF 与 FBX 中无对应通道；玻璃锤纹已合并烘焙为 textures 目录中的玻璃法线图；源工程、GLB 和 FBX 共用该图，法线强度统一为 0.35，源中断开玻璃置换以避免重复叠加。底座顶缘、灯头柱底缘与提梁端部保留装配开放边；两件围箍的残留内端盖已清理。玻璃灯罩为封闭网格。
+
+【English Description】
+
+1 Category and Name
+The Old Lantern, an object and prop asset (hard surface), asset id oiltamp, version v004. A twentieth century style kerosene lamp with a glass globe and a bail handle, finished as aged rusted metal.
+
+2 Structure
+The model consists of twelve separate mesh parts, from bottom to top: the base dish (base), the base rim (base_rim), the lower fount (fount_lower), the upper fount (fount_upper), the upper body column (upper_body), the burner (burner), the glass globe (glass_globe), the body collar (body_collar), the vent cap (vent_cap), the top ring (top_ring), the guard bow of the handle (guard_bow) and the bail wire (bail_wire). Parts are named by function and grouped in the oil_lamp collection; the formal lights, camera and backdrop are in delivery_presentation and are excluded from the twelve subject parts.
+
+3 Materials and Colors
+Three materials are used. The metal body and handle (metal_rust) is rust colored aged metal wired to 2K color, metalness and normal maps, with constant roughness 0.5 (the supplied roughness map is used by the vent cap). The vent cap (metal_cap) remaps its color through a ColorRamp, which is baked into a standalone grayscale map on export, its metalness and normal maps are shared with the body, while roughness uses the supplied map. The glass globe (glass_clear) is transmissive glass without a color map, roughness 0.119, with a normal map and an olive green tint.
+
+4 Real World Dimensions
+Width 0.165 m, depth 0.181 m, height 0.320 m (about 16.5 x 18.1 x 32.0 cm), measured on the default assembled bounding box excluding the backdrop, a normal size for a kerosene lamp. One scene unit equals one meter and the root objects are scaled to 1. The current source project and formal exports use the same default size.
+
+5 Style
+Realistic. Surfaces carry rust and oil stains accumulated through long use and stand up to close inspection.
+
+6 Movable or Detachable Parts
+None. The model instead supports six parametric dimensions in meters (total height, globe diameter, globe height, upper body height, base diameter, fount height), adjustable through the generator embedded in the Blender file, each within plus or minus ten percent of its default, see README for details.
+
+7 Intended Use
+Film props, game scene dressing, virtual studio display and classroom demonstration.
+
+8 Measured Triangle Count
+The default evaluated subject meshes total 287208 triangles and 143993 source / FBX vertices over the twelve parts, excluding presentation helpers (the GLB splits vertices along normal and UV seams to 199838, triangle count unchanged). The source file keeps quad based editable base meshes with subdivision and solidify modifiers.
+
+9 Origin and Orientation
+The source file and the exports share one origin convention: the vertices of the twelve parts are placed with the bottom center of the default bounding box at the origin, so the model stands on the ground plane z = 0 (y = 0 in the GLB and the Three.js page). Source file, GLB, FBX and web page agree geometrically after axis conversion, the per part bounding boxes deviating by no more than one millionth of a meter. The Blender source is Z up with the front facing +Y; the exported GLB and the Three.js page are Y up with the front facing -Z, converted by the documented axis mapping with no mirroring.
+
+10 Software Versions
+Blender 5.2.2 LTS, three.js r147. The FBX approximates the glass with a dark smoky alpha transparency channel (FBX has no transmission), while the GLB carries the standard KHR_materials_transmission extension.
+
+11 UV Notes
+All twelve parts are UV unwrapped. The bail_wire tube is re-unwrapped as eight non-overlapping strips using measured longitudinal length and cross-section circumference at one uniform scale; its original vertices and topology are preserved. Intentional UV overlaps occur between the paired left/right regions of burner, body_collar and base_rim; between the left/right guard_bow pieces and their solidified inner/outer surfaces; and between the solidified inner/outer surfaces of vent_cap. Independent metal parts use individual layouts in the same 0–1 texture domain, with cross-object overlaps to repeat the non-directional rust texture rather than form an exclusive asset-wide atlas. These coordinate overlaps are UV sharing, distinct from using the same Metal025 2K PBR texture set. The displacement map has no counterpart in glTF or FBX; the glass relief is baked into the combined normal map in textures. The source, GLB and FBX share this map at strength 0.35; the source glass displacement is disconnected to avoid applying the relief twice. The top rim of the base dish, lower rim of the upper body and wire ends retain assembly openings. The two redundant fount interior end caps have been removed. The glass globe is a closed mesh.
+
+展示媒体 / Presentation media
+8 张 2048×2048 PNG：front、back、left、right、top、hero_45 六视图及两张细节图。视频为 H.264、1920×1080、24 fps、240 帧、10 秒匀速 360° 环绕，使用默认参数模型。
+视频：turntable.mp4。展示场景与重现方式见 README。
+Eight 2048×2048 PNGs cover front, back, left, right, top and hero_45 plus two details. The default model is shown in a constant-speed 360-degree orbit video encoded as H.264, 1920×1080, 24 fps, 240 frames and 10 seconds.
+Video: turntable.mp4. See README for the saved presentation scene and animation settings.

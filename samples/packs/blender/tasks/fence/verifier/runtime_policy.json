@@ -1,0 +1,21 @@
+{
+  "version": "0.4.0",
+  "cpus": 2,
+  "memory_mb": 4096,
+  "pids": 256,
+  "tmpfs_mb": 1024,
+  "max_submission_bytes": 536870912,
+  "max_objects": 256,
+  "max_vertices": 100000,
+  "max_faces": 100000,
+  "max_nodes": 4096,
+  "max_evaluated_vertices": 200000,
+  "max_bundle_bytes": 1073741824,
+  "max_bundle_files": 4096,
+  "max_review_stdout_bytes": 4194304,
+  "max_review_stderr_bytes": 1048576,
+  "max_report_bytes": 2147483648,
+  "blender_version": "5.2.2",
+  "max_native_log_bytes": 16777216,
+  "timeout_sec": 180
+}
