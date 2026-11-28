@@ -536,6 +536,16 @@
     white-space: nowrap;
   }
   article .sample-btn { grid-column: 2; grid-row: 1; align-self: center; }
+  article .card-actions {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+    align-self: center;
+  }
+  article .card-actions .sample-btn { grid-column: auto; grid-row: auto; margin: 0; }
   article .aka { grid-column: 1 / -1; grid-row: 2; }
   article .lede { grid-column: 1 / -1; grid-row: 3; }
   article .bench { grid-column: 1 / -1; grid-row: 4; }
@@ -749,6 +759,7 @@
     dl, .bench > div, article { grid-template-columns: 1fr; }
     dl div { grid-column: auto; }
     article .sample-btn { grid-column: 1 / -1; grid-row: 6; justify-self: start; margin: 16px 0 0; }
+    article .card-actions { grid-column: 1 / -1; grid-row: 6; justify-self: start; justify-content: flex-start; margin: 16px 0 0; }
     article { padding: 22px 18px; }
     div.note, .pick { padding: 22px 18px; }
   }
@@ -990,7 +1001,7 @@
     .nav .mark { font-size: 15px; }
   }
   @media print {
-    .nav, .lineup, .viewer, .sample-btn { display: none; }
+    .nav, .lineup, .viewer, .sample-btn, .card-actions { display: none; }
     .hero { min-height: auto; }
     .chapter.dark, .hero, footer { background: #fff; color: #000; }
   }
@@ -1285,9 +1296,9 @@
 
     <article id="shop">
       <h3>电商</h3>
-      <p class="lede">商品与评价，字段稳定，可按站点交付</p>
+      <p class="lede">商品与评价</p>
       <dl>
-        <div><dt>交付内容</dt><dd>标题、价格、类目、卖家、库存、评价</dd></div>
+        <div><dt>交付内容</dt><dd>标题、价格、类目、卖家、库存、评价。eBay 另含拍卖记录与配送信息</dd></div>
         <div><dt>覆盖范围</dt><dd>亚马逊、eBay、沃尔玛已就绪</dd></div>
         <div><dt>供给</dt><dd>现成目录可交付，也可按站点补采</dd></div>
       </dl>
@@ -1295,19 +1306,19 @@
 
     <article id="social">
       <h3>社交</h3>
-      <p class="lede">帖子、评论、播放与互动，视频与字幕、转写按时间对齐</p>
+      <p class="lede">对话与音视频</p>
       <dl>
-        <div><dt>交付内容</dt><dd>帖子、评论、播放与互动，以及与画面对齐的字幕。字幕覆盖一百余种语言</dd></div>
-        <div><dt>覆盖范围</dt><dd>Facebook、Instagram、Reddit、TikTok、YouTube，以及领英与 X 的主页</dd></div>
+        <div><dt>交付内容</dt><dd>帖子、评论、播放与互动，以及与画面对齐的已有字幕</dd></div>
+        <div><dt>覆盖范围</dt><dd>Facebook、Instagram、Reddit、TikTok、YouTube，领英的公司主页与个人档案，以及 X 的主页</dd></div>
         <div><dt>供给</dt><dd>现成目录可交付，也可按地址补采</dd></div>
       </dl>
     </article>
 
     <article id="query">
       <h3>搜索</h3>
-      <p class="lede">查询词与结果页成对返回，可按国家或城市定位</p>
+      <p class="lede">查询与结果成对返回，可按国家、城市、语言或设备指定</p>
       <dl>
-        <div><dt>交付内容</dt><dd>查询词与对应结果页</dd></div>
+        <div><dt>交付内容</dt><dd>查询与结果成对返回，含自然结果、广告、图片、地图、新闻、学术、购物和酒店。结果为 JSON 或 HTML，平均响应时间低于 1 秒</dd></div>
         <div><dt>覆盖范围</dt><dd>Google、Bing、Yandex、DuckDuckGo</dd></div>
         <div><dt>供给</dt><dd>现成目录可交付，也可按查询补采</dd></div>
       </dl>
@@ -1315,21 +1326,31 @@
 
     <article id="vertical">
       <h3>公司与行业</h3>
-      <p class="lede">公司与行业的垂直文本，整理为稳定字段</p>
+      <p class="lede">垂直文本</p>
       <dl>
         <div><dt>交付内容</dt><dd>融资、营收、创始人、公告，以及医疗、法律、招聘等行业文本</dd></div>
-        <div><dt>覆盖范围</dt><dd>公司资料与行业文本。股价与逐笔成交不在此列</dd></div>
+        <div><dt>覆盖范围</dt><dd>不提供股价与逐笔成交数据</dd></div>
         <div><dt>供给</dt><dd>现成目录可交付，也可按字段定制</dd></div>
       </dl>
     </article>
 
     <article id="corpus">
       <h3>代码仓库</h3>
-      <p class="lede">公开仓库的源代码、完整 Git 历史、提交与文件，以及 PR、Issue 和评论。不按测试评分</p>
+      <p class="lede">源码与协作</p>
       <dl>
-        <div><dt>交付内容</dt><dd>仓库文件或打包源码、提交、PR、Issue、许可证、语言、Star 与活跃情况。重复的 Fork 与镜像单独标明</dd></div>
-        <div><dt>覆盖范围</dt><dd>GitHub 公开仓库。样例含 JavaScript、Go、Rust、Python</dd></div>
+        <div><dt>交付内容</dt><dd>源代码、完整 Git 历史、提交与文件，以及 PR、Issue 和评论，并附许可证、语言、Star 与活跃情况</dd></div>
+        <div><dt>覆盖范围</dt><dd>GitHub 公开仓库已就绪</dd></div>
         <div><dt>供给</dt><dd>现成目录可交付，规模另计</dd></div>
+      </dl>
+    </article>
+
+    <article id="property">
+      <h3>房产</h3>
+      <p class="lede">房源与估价</p>
+      <dl>
+        <div><dt>交付内容</dt><dd>挂牌、租金、估价、面积、建成年份与周边学校</dd></div>
+        <div><dt>覆盖范围</dt><dd>Zillow 已就绪</dd></div>
+        <div><dt>供给</dt><dd>现成目录可交付，也可按站点补采</dd></div>
       </dl>
     </article>
   </section>
@@ -1848,22 +1869,37 @@ if (window.markNav) window.markNav();
   var OFFICE = /^(docx|pptx|xlsx)$/;
   var BINARY = /^(pyc|pack|idx|rev|fits|ork|blend|glb|fbx|npz|zip|gz|tgz|tar|whl|so|dll|exe|bin|xls|doc|ppt|mp4|mov|wav|mp3|ttf|woff2?|ttx)$/;
 
+  var DETAIL = "https://datalabshub.github.io/data-collection/#domains";
   document.querySelectorAll("article[id]").forEach(function (article) {
-    if (!LINKS[article.id]) {
+    var spec = LINKS[article.id];
+    var pretrain = !!article.closest("#pretrain");
+    if (!spec && !pretrain) {
       var none = document.createElement("span");
       none.className = "sample-btn sample-none";
       none.textContent = "样例按需提供";
       article.appendChild(none);
       return;
     }
-    var btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "sample-btn";
-    btn.textContent = "查看样例";
-    var anchor = article.querySelector("dl");
-    if (anchor) anchor.insertAdjacentElement("afterend", btn);
-    else article.appendChild(btn);
-    btn.addEventListener("click", function () { openSample(article.id); });
+    var actions = document.createElement("div");
+    actions.className = "card-actions";
+    if (pretrain) {
+      var link = document.createElement("a");
+      link.className = "sample-btn";
+      link.href = DETAIL;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = "查看详情";
+      actions.appendChild(link);
+    }
+    if (spec) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "sample-btn";
+      btn.textContent = "查看样例";
+      btn.addEventListener("click", function () { openSample(article.id); });
+      actions.appendChild(btn);
+    }
+    article.appendChild(actions);
   });
 
   var viewer = document.getElementById("viewer");
